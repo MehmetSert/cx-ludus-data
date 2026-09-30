@@ -1,0 +1,1982 @@
+{
+  "schemaVersion": 1,
+  "generatorVersion": 1,
+  "from": {
+    "release": "221121.9",
+    "gitTag": "221121.9.0"
+  },
+  "to": {
+    "release": "221121.10",
+    "gitTag": "221121.10.0"
+  },
+  "toggles": {
+    "removed": [
+      {
+        "name": "a11yImprovedErrorMessage",
+        "description": "`FormErrorsComponent` replace role=\"alert\" to aria-live=\"polite\" as default\n together with aria-live=\"atomic\"",
+        "affects": [],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "projects/storefrontlib/shared/components/form/form-errors/form-errors.component.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "FormErrorsComponent"
+            ],
+            "selectors": [
+              "cx-form-errors"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "a11yNgSelectLayering",
+        "description": "Fixes layering issues caused by native ng-select styles.\nSets the dropdown's z-index property to be more in line with Spartacus.",
+        "affects": [],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "projects/storefrontlib/layout/main/storefront.component.ts",
+            "pattern": "use-feature-styles",
+            "negated": false,
+            "symbols": [
+              "StorefrontComponent"
+            ],
+            "selectors": [
+              "cx-storefront"
+            ]
+          },
+          {
+            "file": "projects/storefrontstyles/scss/cxbase/blocks/forms.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "FileUploadComponent",
+              "FormErrorsComponent"
+            ],
+            "selectors": [
+              "cx-file-upload",
+              "cx-form-errors"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "a11yOptimizedMenuSpacing",
+        "description": "Adjusts line spacing in menus and navigation dropdowns for better readability\nacross different monitors, text sizes, and zoom levels.",
+        "affects": [
+          "NavigationUIComponent"
+        ],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "projects/storefrontlib/cms-components/navigation/navigation/navigation-ui.component.ts",
+            "pattern": "use-feature-styles",
+            "negated": false,
+            "symbols": [
+              "NavigationUIComponent"
+            ],
+            "selectors": [
+              "cx-navigation-ui"
+            ]
+          },
+          {
+            "file": "projects/storefrontstyles/scss/components/content/navigation/_navigation-ui.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "GenericLinkComponent",
+              "IconComponent",
+              "MockIconComponent",
+              "NavigationUIComponent"
+            ],
+            "selectors": [
+              "[cxIcon]",
+              "cx-generic-link",
+              "cx-icon",
+              "cx-navigation-ui"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "a11yWideScreenImprovements",
+        "description": "Improves wide viewport layout issues.\nAffects the styles of: Order confirmation page, product configurator.",
+        "affects": [],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "feature-libs/checkout/base/styles/components/order-confirmation/_order-confirmation-totals.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "OrderConfirmationTotalsComponent",
+              "OrderSummaryComponent"
+            ],
+            "selectors": [
+              "cx-order-confirmation-totals",
+              "cx-order-summary"
+            ]
+          },
+          {
+            "file": "feature-libs/order/components/order-confirmation/order-confirmation-totals/order-confirmation-totals.component.ts",
+            "pattern": "use-feature-styles",
+            "negated": false,
+            "symbols": [
+              "OrderConfirmationTotalsComponent"
+            ],
+            "selectors": [
+              "cx-order-confirmation-totals"
+            ]
+          },
+          {
+            "file": "feature-libs/order/styles/components/order-overview/_order-overview.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "CardComponent",
+              "OrderDetailBillingComponent",
+              "OrderOverviewComponent",
+              "OrderSummaryComponent"
+            ],
+            "selectors": [
+              "cx-card",
+              "cx-order-detail-billing",
+              "cx-order-overview",
+              "cx-order-summary",
+              "cx-org-card"
+            ]
+          },
+          {
+            "file": "feature-libs/product-configurator/rulebased/components/product-title/configurator-product-title.component.ts",
+            "pattern": "use-feature-styles",
+            "negated": false,
+            "symbols": [
+              "ConfiguratorProductTitleComponent"
+            ],
+            "selectors": [
+              "cx-configurator-product-title"
+            ]
+          },
+          {
+            "file": "feature-libs/product-configurator/rulebased/styles/_configurator-product-title.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "ConfiguratorProductTitleComponent",
+              "IconComponent",
+              "MockIconComponent"
+            ],
+            "selectors": [
+              "[cxIcon]",
+              "cx-configurator-product-title",
+              "cx-icon"
+            ]
+          },
+          {
+            "file": "projects/storefrontstyles/scss/layout/page-templates/_order-confirmation-page.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "OrderConfirmationShippingComponent",
+              "OrderDetailBillingComponent"
+            ],
+            "selectors": [
+              "cx-order-confirmation-shipping",
+              "cx-order-detail-billing"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "opfEnablePreventingFromCheckoutWithoutEmail",
+        "description": "When enabled, checks before accessing checkout\nif user has email assigned to the current cart.\nIf not - redirects user to `/opf-checkout-email` page.\nAfter providing email user will be redirected back to checkout.",
+        "affects": [],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "integration-libs/opf/checkout/root/checkout-guard/opf-checkout-auth.guard.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "OpfCheckoutAuthGuard"
+            ],
+            "selectors": []
+          }
+        ]
+      }
+    ],
+    "added": [
+      {
+        "name": "a11yAddedToCartDialogHeading",
+        "description": "Improves accessibility of the \"Added to Cart\" dialog by using a semantic h2 heading\ninstead of a div for the dialog title. This provides better screen reader navigation\nand follows WAI-ARIA dialog pattern best practices.",
+        "affects": [
+          "AddedToCartDialogComponent"
+        ],
+        "defaultValue": false,
+        "usages": [
+          {
+            "file": "feature-libs/cart/base/components/added-to-cart-dialog/added-to-cart-dialog.component.html",
+            "pattern": "cx-feature",
+            "negated": true,
+            "symbols": [
+              "AddedToCartDialogComponent"
+            ],
+            "selectors": [
+              "cx-added-to-cart-dialog"
+            ]
+          },
+          {
+            "file": "feature-libs/cart/base/components/added-to-cart-dialog/added-to-cart-dialog.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "AddedToCartDialogComponent"
+            ],
+            "selectors": [
+              "cx-added-to-cart-dialog"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "a11yCarouselPreventNavigationFocus",
+        "description": "When enabled (default: true), carousel navigation buttons call preventDefault on mousedown\nto fix unwanted blur in Safari when the carousel is inside modals or search boxes (broken by default in Safari).\n\nSet to `false` if you rely on custom focus listeners (e.g. addEventListener('focus', ...)) on elements\nthat contain or interact with the carousel, since preventing mousedown default can affect focus behavior.",
+        "affects": [
+          "CarouselComponent (when preventNavigationFocus input is true",
+          "e.g. in SearchBoxComponent)"
+        ],
+        "defaultValue": false,
+        "usages": [
+          {
+            "file": "projects/storefrontlib/shared/components/carousel/carousel.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "CarouselComponent"
+            ],
+            "selectors": [
+              "cx-carousel"
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/shared/components/carousel/carousel.component.html",
+            "pattern": "cx-feature",
+            "negated": true,
+            "symbols": [
+              "CarouselComponent"
+            ],
+            "selectors": [
+              "cx-carousel"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "a11yCartItemListHideEmptyOutlets",
+        "description": "Hides empty outlet wrapper elements in the cart item list table when they have no content.\nOtherwise screen readers would interpret them as extra table columns.",
+        "affects": [
+          "CartItemListComponent"
+        ],
+        "defaultValue": false,
+        "usages": [
+          {
+            "file": "feature-libs/cart/base/components/cart-shared/cart-item-list/cart-item-list.component.ts",
+            "pattern": "use-feature-styles",
+            "negated": false,
+            "symbols": [
+              "CartItemListComponent"
+            ],
+            "selectors": [
+              "cx-cart-item-list"
+            ]
+          },
+          {
+            "file": "feature-libs/cart/base/styles/components/_cart-item-list.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "AddToCartComponent",
+              "CartItemListComponent",
+              "CartPickupOptionsContainerComponent",
+              "ConfiguratorCartEntryInfoComponent",
+              "CpqQuoteDiscountComponent",
+              "CpqQuoteHeadingComponent",
+              "ItemCounterComponent",
+              "LinkComponent",
+              "PdpPickupOptionsContainerComponent",
+              "PickupOptionsComponent",
+              "SubscriptionCartPriceBodyComponent",
+              "SubscriptionCartPriceHeadingComponent",
+              "TabComponent",
+              "TotalComponent"
+            ],
+            "selectors": [
+              "cx-add-to-cart",
+              "cx-cart-item-list",
+              "cx-cart-pickup-options-container",
+              "cx-configurator-cart-entry-info",
+              "cx-cpq-quote",
+              "cx-cpq-quote-heading",
+              "cx-item-counter",
+              "cx-link",
+              "cx-pickup-options",
+              "cx-subscription-cart-price-body",
+              "cx-subscription-cart-price-heading",
+              "cx-tab",
+              "cx-total"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "a11yFacetFilterByLabel",
+        "description": "Adds Filter By label to product facets when in desktop mode.",
+        "affects": [],
+        "defaultValue": false,
+        "usages": [
+          {
+            "file": "projects/storefrontlib/cms-components/product/product-list/product-facet-navigation/facet-list/facet-list.component.ts",
+            "pattern": "use-feature-styles",
+            "negated": false,
+            "symbols": [
+              "FacetListComponent"
+            ],
+            "selectors": [
+              "cx-facet-list"
+            ]
+          },
+          {
+            "file": "projects/storefrontstyles/scss/components/product/list/_facet-list.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "FacetListComponent",
+              "TabComponent",
+              "TabPanelComponent"
+            ],
+            "selectors": [
+              "cx-facet-list",
+              "cx-tab",
+              "cx-tab-panel"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "a11yListSemanticsForFacets",
+        "description": "Ensures the facet component displays elements with proper listbox semantics.\nThe screen reader should recognize links as listbox options and display visible-focus outlines correctly.",
+        "affects": [
+          "FacetComponent"
+        ],
+        "defaultValue": false,
+        "usages": [
+          {
+            "file": "projects/storefrontlib/cms-components/product/product-list/product-facet-navigation/facet/facet.component.html",
+            "pattern": "cx-feature",
+            "negated": true,
+            "symbols": [
+              "FacetComponent"
+            ],
+            "selectors": [
+              "cx-facet"
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/cms-components/product/product-list/product-facet-navigation/facet/facet.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "FacetComponent"
+            ],
+            "selectors": [
+              "cx-facet"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "a11yNgSelectReadonlyInputValue",
+        "description": "Sets the ng-select (readonly) input value from the selected option text,\nso that JAWS screen reader announces the selected value instead of \"blank\" when ngSelect's input element is in focus.",
+        "affects": [
+          "NgSelectA11yDirective"
+        ],
+        "defaultValue": false,
+        "usages": [
+          {
+            "file": "projects/storefrontlib/shared/components/ng-select-a11y/ng-select-a11y.directive.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "NgSelectA11yDirective"
+            ],
+            "selectors": []
+          }
+        ]
+      },
+      {
+        "name": "a11yPasswordVisibilityToggle",
+        "description": "Fixes doubled screen reader output by providing a static title and aria-label to the password visibility toggle.",
+        "affects": [
+          "PasswordVisibilityToggleComponent"
+        ],
+        "defaultValue": false,
+        "usages": [
+          {
+            "file": "projects/storefrontlib/shared/components/form/password-visibility-toggle/password-visibility-toggle.component.html",
+            "pattern": "cx-feature",
+            "negated": true,
+            "symbols": [
+              "PasswordVisibilityToggleComponent"
+            ],
+            "selectors": [
+              "cx-password-visibility-toggle"
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/shared/components/form/password-visibility-toggle/password-visibility-toggle.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "PasswordVisibilityToggleComponent"
+            ],
+            "selectors": [
+              "cx-password-visibility-toggle"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "a11yReviewsKeyboardControls",
+        "description": "When enabled, adds arrow key navigation between reviews and uses proper list\nsemantics so screen readers announce list position",
+        "affects": [
+          "ProductReviewsComponent"
+        ],
+        "defaultValue": false,
+        "usages": [
+          {
+            "file": "projects/storefrontlib/cms-components/product/product-tabs/product-reviews/product-reviews.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "ProductReviewsComponent"
+            ],
+            "selectors": [
+              "cx-product-reviews"
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/cms-components/product/product-tabs/product-reviews/product-reviews.component.html",
+            "pattern": "cx-feature",
+            "negated": true,
+            "symbols": [
+              "ProductReviewsComponent"
+            ],
+            "selectors": [
+              "cx-product-reviews"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "enableB2BCostCenterSearch",
+        "description": "When enabled, allows searching cost centers by name in the organization.",
+        "affects": [],
+        "defaultValue": false,
+        "usages": [
+          {
+            "file": "feature-libs/organization/administration/components/cost-center/services/cost-center-list.service.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "CostCenterListService"
+            ],
+            "selectors": []
+          }
+        ]
+      },
+      {
+        "name": "enableB2BCustomerSearch",
+        "description": "When enabled, allows searching B2B customers by name in the organization.",
+        "affects": [],
+        "defaultValue": false,
+        "usages": [
+          {
+            "file": "feature-libs/organization/administration/components/user/services/user-list.service.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "UserListService"
+            ],
+            "selectors": []
+          }
+        ]
+      },
+      {
+        "name": "enableB2BUnitSearch",
+        "description": "When enabled, allows searching B2B units by name in the organization administration.\nThis search is performed on the client side since the full unit tree is already loaded.",
+        "affects": [],
+        "defaultValue": false,
+        "usages": [
+          {
+            "file": "feature-libs/organization/administration/components/unit/services/unit-list.service.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "UnitListService"
+            ],
+            "selectors": []
+          }
+        ]
+      },
+      {
+        "name": "enableMediaPrefix",
+        "description": "When enabled, the media prefix from the backend config will be used\nwhen constructing media URLs in the MediaService.",
+        "affects": [
+          "MediaService"
+        ],
+        "defaultValue": false,
+        "usages": [
+          {
+            "file": "projects/storefrontlib/shared/components/media/media.service.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "MediaService"
+            ],
+            "selectors": []
+          }
+        ]
+      },
+      {
+        "name": "showOnlyActiveCurrencies",
+        "description": "When enabled, only active currencies will be displayed in the currency selector.\nCurrencies are filtered based on the `active` property returned from the backend.",
+        "affects": [
+          "CurrencyService"
+        ],
+        "defaultValue": false,
+        "usages": [
+          {
+            "file": "projects/core/src/site-context/facade/currency.service.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "CurrencyService"
+            ],
+            "selectors": []
+          }
+        ]
+      }
+    ],
+    "defaultEnabled": []
+  },
+  "publicApi": {
+    "removed": [],
+    "moved": [],
+    "changed": [
+      {
+        "entryPoint": "@spartacus/core",
+        "name": "BackendConfig",
+        "kind": "interface",
+        "changes": [
+          {
+            "kind": "member-changed",
+            "member": "media",
+            "before": "{baseUrl?: string}",
+            "after": "{baseUrl?: string; prefix?: string}"
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/core",
+        "name": "BaseSiteInitializer",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "subscription",
+            "before": "Subscription",
+            "after": null
+          },
+          {
+            "kind": "member-changed",
+            "member": "initialize",
+            "before": "(): void",
+            "after": "(): Promise<unknown>"
+          },
+          {
+            "kind": "member-removed",
+            "member": "ngOnDestroy",
+            "before": "()",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/core",
+        "name": "CurrencyInitializer",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "subscription",
+            "before": "Subscription",
+            "after": null
+          },
+          {
+            "kind": "member-changed",
+            "member": "initialize",
+            "before": "(): void",
+            "after": "(): Promise<unknown>"
+          },
+          {
+            "kind": "member-removed",
+            "member": "ngOnDestroy",
+            "before": "()",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/core",
+        "name": "LanguageInitializer",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "subscription",
+            "before": "Subscription",
+            "after": null
+          },
+          {
+            "kind": "member-changed",
+            "member": "initialize",
+            "before": "(): void",
+            "after": "(): Promise<unknown>"
+          },
+          {
+            "kind": "member-removed",
+            "member": "ngOnDestroy",
+            "before": "()",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/organization/administration/components",
+        "name": "UnitListService",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-changed",
+            "member": "load",
+            "before": "(): Observable<EntitiesModel<B2BUnitTreeNode> | undefined>",
+            "after": "(pagination: PaginationModel): Observable<EntitiesModel<B2BUnitTreeNode> | undefined>"
+          },
+          {
+            "kind": "member-changed",
+            "member": "convertListItem",
+            "before": "(unit: B2BUnitNode | undefined, depthLevel?: inferred, pagination?: inferred): EntitiesModel<B2BUnitTreeNode> | undefined",
+            "after": "(unit: B2BUnitNode | undefined, depthLevel?: inferred, pagination?: inferred, forceExpandIds?: Set<string>): EntitiesModel<B2BUnitTreeNode> | undefined"
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/storefront",
+        "name": "NgSelectA11yDirective",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-visibility-changed",
+            "member": "breakpointService",
+            "before": "public",
+            "after": "protected"
+          },
+          {
+            "kind": "member-changed",
+            "member": "platformId",
+            "before": "Object",
+            "after": "inject(PLATFORM_ID)"
+          }
+        ]
+      }
+    ],
+    "deprecated": [
+      {
+        "entryPoint": "@spartacus/subscription-billing/components",
+        "name": "SubscriptionBillingListComponent",
+        "kind": "class",
+        "member": "onFilterDateChange"
+      },
+      {
+        "entryPoint": "@spartacus/subscription-billing/components",
+        "name": "SubscriptionBillingListComponent",
+        "kind": "class",
+        "member": "onResetFilterDate"
+      },
+      {
+        "entryPoint": "@spartacus/subscription-billing/components",
+        "name": "SubscriptionBillingListComponent",
+        "kind": "class",
+        "member": "onDateFilterSubmit"
+      }
+    ],
+    "added": [
+      {
+        "entryPoint": "@spartacus/core",
+        "name": "MockTranslationService",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/core",
+        "name": "ProductTypes",
+        "kind": "enum"
+      },
+      {
+        "entryPoint": "@spartacus/opf/payment/root",
+        "name": "OpfPaymentChannel",
+        "kind": "enum"
+      },
+      {
+        "entryPoint": "@spartacus/organization/administration/components",
+        "name": "SearchablePaginationModel",
+        "kind": "interface"
+      },
+      {
+        "entryPoint": "@spartacus/organization/administration/root",
+        "name": "defaultOrganizationUIConfig",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/organization/administration/root",
+        "name": "OrganizationUIConfig",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/subscription-billing/components",
+        "name": "DateRangeModalComponent",
+        "kind": "class"
+      }
+    ]
+  },
+  "angular": {
+    "from": "^21.2.0",
+    "to": "^21.2.4"
+  },
+  "cmsComponents": {
+    "AccountAddressBookComponent": [
+      "AddressBookComponent"
+    ],
+    "AccountMyQuotesComponent": [
+      "QuoteListComponent"
+    ],
+    "AccountOrderAttachmentsComponent": [
+      "OrderAttachmentsComponent"
+    ],
+    "AccountOrderDetailsActionsComponent": [
+      "MyAccountV2OrderDetailsActionsComponent",
+      "OrderDetailActionsComponent",
+      "S4ServiceOrderDetailActionsComponent"
+    ],
+    "AccountOrderDetailsApprovalDetailsComponent": [
+      "OrderDetailPermissionResultsComponent"
+    ],
+    "AccountOrderDetailsGroupedItemsComponent": [
+      "OrderDetailItemsComponent"
+    ],
+    "AccountOrderDetailsItemsComponent": [
+      "OrderDetailItemsComponent"
+    ],
+    "AccountOrderDetailsOverviewComponent": [
+      "OrderOverviewComponent"
+    ],
+    "AccountOrderDetailsPDFInvoicesComponent": [
+      "InvoicesListComponent"
+    ],
+    "AccountOrderDetailsReorderComponent": [
+      "OrderDetailReorderComponent"
+    ],
+    "AccountOrderDetailsSimpleOverviewComponent": [
+      "OrderOverviewComponent"
+    ],
+    "AccountOrderDetailsTotalsComponent": [
+      "OrderDetailTotalsComponent"
+    ],
+    "AccountOrderDocumentFlowComponent": [
+      "OrderDocumentFlowComponent"
+    ],
+    "AccountOrderHistoryComponent": [
+      "MyAccountV2OrderHistoryComponent",
+      "OrderHistoryComponent"
+    ],
+    "AccountPaymentDetailsComponent": [
+      "PaymentMethodsComponent"
+    ],
+    "AccountReplenishmentHistoryComponent": [
+      "ReplenishmentOrderHistoryComponent"
+    ],
+    "AccountSavedCartHistoryComponent": [
+      "SavedCartListComponent"
+    ],
+    "AccountSummaryDocumentComponent": [
+      "AccountSummaryDocumentComponent"
+    ],
+    "AccountSummaryHeaderComponent": [
+      "AccountSummaryHeaderComponent"
+    ],
+    "AddToSavedCartsComponent": [
+      "AddToSavedCartComponent"
+    ],
+    "AddToWishListComponent": [
+      "AddToWishListComponent"
+    ],
+    "AnonymousConsentManagementBannerComponent": [
+      "AnonymousConsentManagementBannerComponent"
+    ],
+    "AnonymousConsentOpenDialogComponent": [
+      "AnonymousConsentOpenDialogComponent"
+    ],
+    "BannerComponent": [
+      "BannerComponent"
+    ],
+    "BreadcrumbComponent": [
+      "BreadcrumbComponent"
+    ],
+    "BulkPricingTableComponent": [
+      "BulkPricingTableComponent"
+    ],
+    "CancelOrderComponent": [
+      "CancelOrderComponent"
+    ],
+    "CancelOrderConfirmationComponent": [
+      "CancelOrderConfirmationComponent"
+    ],
+    "CancelServiceOrder": [
+      "CancelServiceOrderComponent"
+    ],
+    "CancelServiceOrderHeadline": [
+      "CancelServiceOrderHeadlineComponent"
+    ],
+    "CartApplyCouponComponent": [
+      "CartCouponComponent"
+    ],
+    "CartComponent": [
+      "CartDetailsComponent"
+    ],
+    "CartProceedToCheckoutComponent": [
+      "CartProceedToCheckoutComponent"
+    ],
+    "CartQuickOrderFormComponent": [
+      "CartQuickOrderFormComponent"
+    ],
+    "CartTotalsComponent": [
+      "CartTotalsComponent"
+    ],
+    "CategoryNavigationComponent": [
+      "CategoryNavigationComponent"
+    ],
+    "CheckoutCostCenterComponent": [
+      "CheckoutCostCenterComponent"
+    ],
+    "CheckoutDeliveryAddress": [
+      "B2BCheckoutDeliveryAddressComponent",
+      "CheckoutDeliveryAddressComponent"
+    ],
+    "CheckoutDeliveryMode": [
+      "CheckoutDeliveryModeComponent",
+      "ServiceCheckoutDeliveryModeComponent"
+    ],
+    "CheckoutOrchestrator": [
+      "CheckoutOrchestratorComponent"
+    ],
+    "CheckoutOrderSummary": [
+      "CheckoutOrderSummaryComponent"
+    ],
+    "CheckoutPaymentDetails": [
+      "CheckoutPaymentMethodComponent",
+      "DpPaymentMethodComponent"
+    ],
+    "CheckoutPaymentType": [
+      "CheckoutPaymentTypeComponent"
+    ],
+    "CheckoutPlaceOrder": [
+      "CheckoutPlaceOrderComponent",
+      "CheckoutScheduledReplenishmentPlaceOrderComponent"
+    ],
+    "CheckoutProgress": [
+      "CheckoutProgressComponent"
+    ],
+    "CheckoutProgressMobileBottom": [
+      "CheckoutProgressMobileBottomComponent"
+    ],
+    "CheckoutProgressMobileTop": [
+      "CheckoutProgressMobileTopComponent"
+    ],
+    "CheckoutReviewOrder": [
+      "B2BCheckoutReviewSubmitComponent",
+      "CheckoutReviewSubmitComponent",
+      "ServiceCheckoutReviewSubmitComponent"
+    ],
+    "CheckoutReviewOverview": [
+      "CheckoutReviewOverviewComponent"
+    ],
+    "CheckoutReviewPayment": [
+      "CheckoutReviewPaymentComponent"
+    ],
+    "CheckoutReviewPickup": [
+      "PickUpItemsDetailsComponent"
+    ],
+    "CheckoutReviewShipping": [
+      "CheckoutReviewShippingComponent"
+    ],
+    "CheckoutScheduleReplenishmentOrder": [
+      "CheckoutScheduleReplenishmentOrderComponent"
+    ],
+    "CheckoutServiceDetails": [
+      "CheckoutServiceDetailsComponent"
+    ],
+    "ClaimDialogComponent": [
+      "ClaimDialogComponent"
+    ],
+    "ClearCartComponent": [
+      "ClearCartComponent"
+    ],
+    "CloseAccountComponent": [
+      "CloseAccountComponent"
+    ],
+    "CMSLinkComponent": [
+      "LinkComponent"
+    ],
+    "CMSParagraphComponent": [
+      "ParagraphComponent"
+    ],
+    "CMSProductListComponent": [
+      "ProductListComponent"
+    ],
+    "CMSSiteContextComponent": [
+      "SiteContextSelectorComponent"
+    ],
+    "CMSTabParagraphComponent": [
+      "ParagraphComponent"
+    ],
+    "CMSTabParagraphContainer": [
+      "TabParagraphContainerComponent"
+    ],
+    "ConfiguratorAddToCartButton": [
+      "ConfiguratorAddToCartButtonComponent"
+    ],
+    "ConfiguratorExitButton": [
+      "ConfiguratorExitButtonComponent"
+    ],
+    "ConfiguratorForm": [
+      "ConfiguratorFormComponent",
+      "ConfiguratorGroupComponent"
+    ],
+    "ConfiguratorGroupTitle": [
+      "ConfiguratorGroupTitleComponent"
+    ],
+    "ConfiguratorMenu": [
+      "ConfiguratorGroupMenuComponent"
+    ],
+    "ConfiguratorOverviewBanner": [
+      "ConfiguratorOverviewNotificationBannerComponent"
+    ],
+    "ConfiguratorOverviewFilterButton": [
+      "ConfiguratorOverviewFilterButtonComponent"
+    ],
+    "ConfiguratorOverviewForm": [
+      "ConfiguratorOverviewFormComponent"
+    ],
+    "ConfiguratorOverviewSidebar": [
+      "ConfiguratorOverviewSidebarComponent"
+    ],
+    "ConfiguratorPrevNext": [
+      "ConfiguratorPreviousNextButtonsComponent"
+    ],
+    "ConfiguratorPriceSummary": [
+      "ConfiguratorPriceSummaryComponent"
+    ],
+    "ConfiguratorProductTitle": [
+      "ConfiguratorProductTitleComponent"
+    ],
+    "ConfiguratorTabBar": [
+      "ConfiguratorTabBarComponent"
+    ],
+    "ConfiguratorUpdateMessage": [
+      "ConfiguratorUpdateMessageComponent"
+    ],
+    "ConfiguratorVariantCarousel": [
+      "ConfiguratorVariantCarouselComponent"
+    ],
+    "ConfigureProductComponent": [
+      "ConfigureProductComponent"
+    ],
+    "ConsentManagementComponent": [
+      "MyAccountV2ConsentManagementComponent",
+      "ConsentManagementComponent"
+    ],
+    "CouponClaimComponent": [
+      "CouponClaimComponent"
+    ],
+    "CpqConfiguratorConflictAndErrorMessagesComponent": [
+      "ConfiguratorConflictAndErrorMessagesComponent"
+    ],
+    "ExportOrderEntriesComponent": [
+      "ExportOrderEntriesComponent"
+    ],
+    "FooterNavigationComponent": [
+      "FooterNavigationComponent"
+    ],
+    "ForgotPasswordComponent": [
+      "ForgotPasswordComponent"
+    ],
+    "FutureStockComponent": [
+      "FutureStockAccordionComponent"
+    ],
+    "GigyaRaasComponent": [
+      "GigyaRaasComponent"
+    ],
+    "GuestCheckoutLoginComponent": [
+      "CheckoutLoginComponent"
+    ],
+    "HamburgerMenuComponent": [
+      "HamburgerMenuComponent"
+    ],
+    "ImportExportOrderEntriesComponent": [
+      "ImportExportOrderEntriesComponent"
+    ],
+    "ImportOrderEntriesComponent": [
+      "ImportOrderEntriesComponent"
+    ],
+    "LanguageCurrencyComponent": [
+      "LanguageCurrencyComponent"
+    ],
+    "LoginComponent": [
+      "LoginComponent"
+    ],
+    "ManageAccountSummaryListComponent": [
+      "AccountSummaryListComponent"
+    ],
+    "ManageBudgetsListComponent": [
+      "ListComponent"
+    ],
+    "ManageCostCentersListComponent": [
+      "ListComponent"
+    ],
+    "ManagePermissionsListComponent": [
+      "ListComponent"
+    ],
+    "ManageUnitsListComponent": [
+      "UnitListComponent"
+    ],
+    "ManageUserGroupsListComponent": [
+      "ListComponent"
+    ],
+    "ManageUsersListComponent": [
+      "ListComponent"
+    ],
+    "MerchandisingCarouselComponent": [
+      "MerchandisingCarouselComponent"
+    ],
+    "MiniCartComponent": [
+      "MiniCartComponent"
+    ],
+    "MyAccountSideNavigationComponent": [
+      "MyAccountV2NavigationComponent"
+    ],
+    "MyAccountViewOrderComponent": [
+      "MyAccountV2OrdersComponent"
+    ],
+    "MyAccountViewRequestsComponent": [
+      "MyAccountV2CustomerTicketingComponent"
+    ],
+    "MyAccountViewUserComponent": [
+      "MyAccountV2UserComponent"
+    ],
+    "MyCouponsComponent": [
+      "MyCouponsComponent"
+    ],
+    "MyInterestsComponent": [
+      "MyInterestsComponent"
+    ],
+    "MyPreferredStoreComponent": [
+      "MyPreferredStoreComponent"
+    ],
+    "NavigationComponent": [
+      "NavigationComponent"
+    ],
+    "NotificationPreferenceComponent": [
+      "MyAccountV2NotificationPreferenceComponent",
+      "NotificationPreferenceComponent"
+    ],
+    "OpfB2bCheckoutPaymentAndReview": [
+      "OpfB2bCheckoutPaymentAndReviewComponent"
+    ],
+    "OpfCheckoutDeliveryAddress": [
+      "OpfB2bCheckoutDeliveryAddressComponent"
+    ],
+    "OpfCheckoutEmailUpdateComponent": [
+      "OpfCheckoutEmailUpdateComponent"
+    ],
+    "OpfCheckoutPaymentAndReview": [
+      "OpfCheckoutPaymentAndReviewComponent"
+    ],
+    "OpfCheckoutPaymentType": [
+      "OpfB2bCheckoutPaymentTypeComponent"
+    ],
+    "OpfCheckoutReview": [
+      "OpfB2bCheckoutReviewComponent"
+    ],
+    "OpfCtaQuickBuyButtons": [
+      "OpfCtaQuickBuyButtonsComponent"
+    ],
+    "OpfCtaScriptsComponent": [
+      "OpfCtaScriptsComponent"
+    ],
+    "OpfQuickBuyButtonsComponent": [
+      "OpfQuickBuyButtonsComponent"
+    ],
+    "OrderApprovalDetailApprovalDetailsComponent": [
+      "OrderDetailPermissionResultsComponent"
+    ],
+    "OrderApprovalDetailFormComponent": [
+      "OrderApprovalDetailFormComponent"
+    ],
+    "OrderApprovalDetailItemsComponent": [
+      "OrderDetailItemsComponent"
+    ],
+    "OrderApprovalDetailShippingComponent": [
+      "OrderOverviewComponent"
+    ],
+    "OrderApprovalDetailTotalsComponent": [
+      "OrderDetailTotalsComponent"
+    ],
+    "OrderApprovalListComponent": [
+      "OrderApprovalListComponent"
+    ],
+    "OrderConfirmationBillingComponent": [
+      "OrderDetailBillingComponent"
+    ],
+    "OrderConfirmationItemsComponent": [
+      "OrderConfirmationItemsComponent"
+    ],
+    "OrderConfirmationOverviewComponent": [
+      "OrderOverviewComponent"
+    ],
+    "OrderConfirmationPickUpComponent": [
+      "PickUpItemsDetailsComponent"
+    ],
+    "OrderConfirmationShippingComponent": [
+      "OrderConfirmationShippingComponent"
+    ],
+    "OrderConfirmationThankMessageComponent": [
+      "OrderConfirmationThankYouMessageComponent"
+    ],
+    "OrderConfirmationTotalsComponent": [
+      "OrderConfirmationTotalsComponent"
+    ],
+    "OrderReturnRequestListComponent": [
+      "OrderReturnRequestListComponent"
+    ],
+    "OrganizationUserRegistrationComponent": [
+      "UserRegistrationFormComponent"
+    ],
+    "PageTitleComponent": [
+      "PageTitleComponent"
+    ],
+    "PDFDocumentComponent": [
+      "PDFComponent"
+    ],
+    "PickupInStoreDeliveryModeComponent": [
+      "PickUpItemsDetailsComponent"
+    ],
+    "ProductAddToCartComponent": [
+      "AddToCartComponent"
+    ],
+    "ProductCarouselComponent": [
+      "ProductCarouselComponent"
+    ],
+    "ProductDetailsTabComponent": [
+      "ProductDetailsTabComponent"
+    ],
+    "ProductGridComponent": [
+      "ProductListComponent"
+    ],
+    "ProductImagesComponent": [
+      "ProductImageZoomProductImagesComponent",
+      "ProductImagesComponent"
+    ],
+    "ProductIntroComponent": [
+      "ProductIntroComponent"
+    ],
+    "ProductMultiDimensionalSelectorComponent": [
+      "ProductMultiDimensionalSelectorComponent"
+    ],
+    "ProductReferencesComponent": [
+      "ProductReferencesComponent"
+    ],
+    "ProductRefinementComponent": [
+      "ProductFacetNavigationComponent"
+    ],
+    "ProductReviewsTabComponent": [
+      "ProductReviewsComponent"
+    ],
+    "ProductSpecsTabComponent": [
+      "ProductAttributesComponent"
+    ],
+    "ProductSummaryComponent": [
+      "ProductSummaryComponent"
+    ],
+    "ProductVariantSelectorComponent": [
+      "ProductVariantsContainerComponent"
+    ],
+    "ProfileTagComponent": [
+      "ProfileTagComponent"
+    ],
+    "PunchoutButtonsComponent": [
+      "PunchoutButtonsComponent"
+    ],
+    "PunchoutCloseSessionComponent": [
+      "PunchoutCloseSessionComponent"
+    ],
+    "PunchoutErrorComponent": [
+      "PunchoutErrorComponent"
+    ],
+    "PunchoutInspectCartComponent": [
+      "PunchoutInspectCartComponent"
+    ],
+    "PunchoutRequisitionComponent": [
+      "PunchoutRequisitionComponent"
+    ],
+    "PunchoutSessionComponent": [
+      "PunchoutSessionComponent"
+    ],
+    "QualtricsComponent": [
+      "QualtricsComponent"
+    ],
+    "QualtricsEmbeddedFeedbackComponent": [
+      "QualtricsEmbeddedFeedbackComponent"
+    ],
+    "QuickOrderComponent": [
+      "QuickOrderComponent"
+    ],
+    "QuoteCartGuardComponent": [
+      "QuoteCartGuardComponent"
+    ],
+    "QuoteCommentsComponent": [
+      "QuoteCommentsComponent"
+    ],
+    "QuoteHeaderOverviewComponent": [
+      "QuoteHeaderOverviewComponent"
+    ],
+    "QuoteItemsComponent": [
+      "QuoteItemsComponent"
+    ],
+    "QuoteLinksComponent": [
+      "QuoteLinksComponent"
+    ],
+    "QuoteRequestComponent": [
+      "QuoteRequestButtonComponent"
+    ],
+    "QuoteSummaryComponent": [
+      "QuoteSummaryComponent"
+    ],
+    "RegisterB2BCustomerWithOTPComponent": [
+      "UserRegistrationOTPFormComponent"
+    ],
+    "RegisterCustomerComponent": [
+      "RegisterComponent"
+    ],
+    "RegisterCustomerWithOTPComponent": [
+      "OneTimePasswordRegisterComponent"
+    ],
+    "ReplenishmentConfirmationItemsComponent": [
+      "OrderConfirmationItemsComponent"
+    ],
+    "ReplenishmentConfirmationMessageComponent": [
+      "OrderConfirmationThankYouMessageComponent"
+    ],
+    "ReplenishmentConfirmationOverviewComponent": [
+      "OrderOverviewComponent"
+    ],
+    "ReplenishmentConfirmationTotalsComponent": [
+      "OrderConfirmationTotalsComponent"
+    ],
+    "ReplenishmentDetailActionsComponent": [
+      "ReplenishmentOrderCancellationComponent"
+    ],
+    "ReplenishmentDetailItemsComponent": [
+      "OrderDetailItemsComponent"
+    ],
+    "ReplenishmentDetailOrderHistoryComponent": [
+      "OrderHistoryComponent"
+    ],
+    "ReplenishmentDetailShippingComponent": [
+      "OrderOverviewComponent"
+    ],
+    "ReplenishmentDetailTotalsComponent": [
+      "OrderDetailTotalsComponent"
+    ],
+    "RescheduleServiceOrder": [
+      "RescheduleServiceOrderComponent"
+    ],
+    "ResetPasswordComponent": [
+      "ResetPasswordComponent"
+    ],
+    "ReturningCustomerLoginComponent": [
+      "LoginFormComponent"
+    ],
+    "ReturningCustomerOTPLoginComponent": [
+      "OneTimePasswordLoginFormComponent"
+    ],
+    "ReturningCustomerRegisterComponent": [
+      "LoginRegisterComponent"
+    ],
+    "ReturnOrderComponent": [
+      "ReturnOrderComponent"
+    ],
+    "ReturnOrderConfirmationComponent": [
+      "ReturnOrderConfirmationComponent"
+    ],
+    "ReturnRequestItemsComponent": [
+      "ReturnRequestItemsComponent"
+    ],
+    "ReturnRequestOverviewComponent": [
+      "ReturnRequestOverviewComponent"
+    ],
+    "ReturnRequestTotalsComponent": [
+      "ReturnRequestTotalsComponent"
+    ],
+    "RotatingImagesComponent": [
+      "BannerCarouselComponent"
+    ],
+    "SavedCartDetailsActionComponent": [
+      "SavedCartDetailsActionComponent"
+    ],
+    "SavedCartDetailsItemsComponent": [
+      "SavedCartDetailsItemsComponent"
+    ],
+    "SavedCartDetailsOverviewComponent": [
+      "SavedCartDetailsOverviewComponent"
+    ],
+    "SaveForLaterComponent": [
+      "SaveForLaterComponent"
+    ],
+    "ScrollToTopComponent": [
+      "ScrollToTopComponent"
+    ],
+    "SearchBoxComponent": [
+      "SearchBoxComponent"
+    ],
+    "SearchResultsListComponent": [
+      "ProductListComponent"
+    ],
+    "SimpleBannerComponent": [
+      "BannerComponent"
+    ],
+    "SimpleResponsiveBannerComponent": [
+      "BannerComponent"
+    ],
+    "SiteThemeSwitcherComponent": [
+      "SiteThemeSwitcherComponent"
+    ],
+    "StockNotificationComponent": [
+      "StockNotificationComponent"
+    ],
+    "StoreFinderComponent": [
+      "StoreFinderComponent"
+    ],
+    "SubscriptionBillDetailsComponent": [
+      "SubscriptionBillingDetailsComponent"
+    ],
+    "SubscriptionBillsHistoryComponent": [
+      "SubscriptionBillingListComponent"
+    ],
+    "SubscriptionDetailsComponent": [
+      "SubscriptionDetailsComponent"
+    ],
+    "SubscriptionHistoryComponent": [
+      "SubscriptionListComponent"
+    ],
+    "SubscriptionProductPriceComponent": [
+      "SubscriptionProductPriceComponent"
+    ],
+    "SupportTicketCloseComponent": [
+      "CustomerTicketingCloseComponent"
+    ],
+    "SupportTicketDetailsComponent": [
+      "CustomerTicketingDetailsComponent"
+    ],
+    "SupportTicketHistoryComponent": [
+      "CustomerTicketingListComponent"
+    ],
+    "SupportTicketReopenComponent": [
+      "CustomerTicketingReopenComponent"
+    ],
+    "SupportTicketUpdateComponent": [
+      "CustomerTicketingMessagesComponent"
+    ],
+    "TextfieldConfigurationForm": [
+      "ConfiguratorTextfieldFormComponent"
+    ],
+    "UnitLevelOrderDetailsItemsComponent": [
+      "OrderDetailItemsComponent"
+    ],
+    "UnitLevelOrderDetailsOverviewComponent": [
+      "UnitLevelOrderOverviewComponent"
+    ],
+    "UnitLevelOrderDetailsTotalsComponent": [
+      "OrderDetailTotalsComponent"
+    ],
+    "UnitLevelOrderHistoryComponent": [
+      "UnitLevelOrderHistoryComponent"
+    ],
+    "UpdateEmailComponent": [
+      "MyAccountV2EmailComponent",
+      "UpdateEmailComponent"
+    ],
+    "UpdatePasswordComponent": [
+      "MyAccountV2PasswordComponent",
+      "UpdatePasswordComponent"
+    ],
+    "UpdateProfileComponent": [
+      "MyAccountV2ProfileComponent",
+      "UpdateProfileComponent"
+    ],
+    "VerifyOTPForB2BRegistrationComponent": [
+      "RegisterVerificationTokenFormComponent"
+    ],
+    "VerifyOTPForRegistrationComponent": [
+      "RegistrationVerificationTokenFormComponent"
+    ],
+    "VerifyOTPTokenComponent": [
+      "VerificationTokenFormComponent"
+    ],
+    "VideoComponent": [
+      "VideoComponent"
+    ],
+    "VisualPickingTabComponent": [
+      "VisualPickingTabComponent"
+    ],
+    "WishListComponent": [
+      "WishListComponent"
+    ]
+  },
+  "commits": [
+    {
+      "sha": "a3b7ad914356b111740474071705977b3109ba09",
+      "type": "chore",
+      "scope": null,
+      "subject": "Patch security findings",
+      "jiraIds": [],
+      "pullRequest": 21346
+    },
+    {
+      "sha": "0e70f1bd76be37ad106b0a80becd52ea8db838de",
+      "type": "fix",
+      "scope": null,
+      "subject": "adjust currency E2E test assertion to handle formatting variations",
+      "jiraIds": [],
+      "pullRequest": 21347
+    },
+    {
+      "sha": "4535dc1eba56a34c2df7f19df9d87b0999ec7fa1",
+      "type": "fix",
+      "scope": null,
+      "subject": "handle full page redirection within smartedit (#21268)",
+      "jiraIds": [],
+      "pullRequest": 21312
+    },
+    {
+      "sha": "3b948e20e0302a3a255a018cd0e1098b95334610",
+      "type": "refactor",
+      "scope": null,
+      "subject": "non-promise expression in promise aggregator",
+      "jiraIds": [],
+      "pullRequest": 21283
+    },
+    {
+      "sha": "bb269bfbfb0d77af04f2664f7f309ea8ad18e52f",
+      "type": "fix",
+      "scope": null,
+      "subject": "(CXSPA-12452) Update @angular/ssr to v21.2.3 to address security vulnerability",
+      "jiraIds": [
+        "CXSPA-12452"
+      ],
+      "pullRequest": 21275
+    },
+    {
+      "sha": "2c3dd7eb13d6df5617009d0f63588f64b281f362",
+      "type": "feat",
+      "scope": null,
+      "subject": "(CXSPA-12331) - Listbox semantics for facet component",
+      "jiraIds": [
+        "CXSPA-12331"
+      ],
+      "pullRequest": 21249
+    },
+    {
+      "sha": "2dbae0212458801d3d4a6a7a4f7c3e8661044ee9",
+      "type": "fix",
+      "scope": null,
+      "subject": "remove api key from the OPF config",
+      "jiraIds": [],
+      "pullRequest": null
+    },
+    {
+      "sha": "073cd0493ddf353e1699701a8b4ea20a58b4a057",
+      "type": "chore",
+      "scope": null,
+      "subject": "activate authorizationCodeFlowByDefault and JDK21 e2e",
+      "jiraIds": [],
+      "pullRequest": 21269
+    },
+    {
+      "sha": "c94c76aed08f27fda9949a1dd6b0fa2467a2eae5",
+      "type": "chore",
+      "scope": null,
+      "subject": "cleanup stale feature flags",
+      "jiraIds": [],
+      "pullRequest": 21259
+    },
+    {
+      "sha": "617d530c4272513050484df42a6ad77e1cf1551e",
+      "type": "chore",
+      "scope": null,
+      "subject": "fix testing commands in SKILL.md for schematics and SSR",
+      "jiraIds": [],
+      "pullRequest": 21267
+    },
+    {
+      "sha": "3ef7795ef7c2bb05472182400a86ab6b2b9eac0e",
+      "type": "chore",
+      "scope": null,
+      "subject": "remove AGENTS.md in favor of CLAUDE.md",
+      "jiraIds": [],
+      "pullRequest": 21266
+    },
+    {
+      "sha": "9d632e01afc665174967d63a880733ea88cbc556",
+      "type": "fix",
+      "scope": null,
+      "subject": "CXSPA-10547 Typo in exportProductToCsv translation",
+      "jiraIds": [
+        "CXSPA-10547"
+      ],
+      "pullRequest": 21263
+    },
+    {
+      "sha": "9fe8490516b6c00b77b57941ebbdd5295be4a62d",
+      "type": "fix",
+      "scope": null,
+      "subject": "CXSPA-12408 fix units e2e failed test",
+      "jiraIds": [
+        "CXSPA-12408"
+      ],
+      "pullRequest": 21264
+    },
+    {
+      "sha": "3ea036a9e90a8971b314d3842be5196072a3d8ae",
+      "type": "fix",
+      "scope": null,
+      "subject": "suppress i18next ad in logs",
+      "jiraIds": [],
+      "pullRequest": 21260
+    },
+    {
+      "sha": "22fa83b6a1f1d41c3c7c0f147a779b9dfd5d9b73",
+      "type": "fix",
+      "scope": null,
+      "subject": "Remove FeaturesConfigModule from providers in QuoteListModule",
+      "jiraIds": [],
+      "pullRequest": 21217
+    },
+    {
+      "sha": "6b9b47957f8daa36962f336524cc4c86dc7b253b",
+      "type": "fix",
+      "scope": null,
+      "subject": "(CXSPA-11223) Maintain site context changes on login page",
+      "jiraIds": [
+        "CXSPA-11223"
+      ],
+      "pullRequest": 21224
+    },
+    {
+      "sha": "b2a0fc3dae93f76fefaafe71b2c05d501d3d71e7",
+      "type": "fix",
+      "scope": null,
+      "subject": "Remove opfEnablePreventingFromCheckoutWithoutEmail feature toggle",
+      "jiraIds": [],
+      "pullRequest": 21256
+    },
+    {
+      "sha": "be922fe6360e35000bd02281416ca7b9c1ac5d71",
+      "type": "fix",
+      "scope": null,
+      "subject": "handle full URLs in server request URL construction",
+      "jiraIds": [],
+      "pullRequest": 21247
+    },
+    {
+      "sha": "5071d1844c2196e2600ac4b905f0b6d4f1444f70",
+      "type": "feat",
+      "scope": null,
+      "subject": "Sub bill list date range",
+      "jiraIds": [],
+      "pullRequest": 21241
+    },
+    {
+      "sha": "64b54477d2dee642a62d7af05acc08496fffba19",
+      "type": "fix",
+      "scope": null,
+      "subject": "As a B2B admin customer, I want to search b2b customers by name on Storefront",
+      "jiraIds": [],
+      "pullRequest": 21198
+    },
+    {
+      "sha": "55adc674bce98f52d4f4329d82eb4d0064ac7eb1",
+      "type": "fix",
+      "scope": null,
+      "subject": "upgrade [koa] to ^3.1.2 to address vulnerability issue",
+      "jiraIds": [],
+      "pullRequest": 21244
+    },
+    {
+      "sha": "37cd565a06417cfb00f7f14df68e4be044fe983b",
+      "type": "fix",
+      "scope": null,
+      "subject": "upgrade [undici] to ^7.24.0(direct) version to address OSS Vulnerabilities",
+      "jiraIds": [],
+      "pullRequest": 21255
+    },
+    {
+      "sha": "7fc265dfe09cb0597448c429e838e4f6cdcf284f",
+      "type": "fix",
+      "scope": null,
+      "subject": "(CXSPA-12357) Upgrade Angular to v21.2.4 to address security vulnerabilities",
+      "jiraIds": [
+        "CXSPA-12357"
+      ],
+      "pullRequest": 21246
+    },
+    {
+      "sha": "e65e7763e4b796f32f53da7e02c108414fc0a090",
+      "type": "fix",
+      "scope": null,
+      "subject": "upgrade [minimatch] to 10.2.1 to address vulnerability issue",
+      "jiraIds": [],
+      "pullRequest": 21242
+    },
+    {
+      "sha": "bbbe62bd1aa5b942dd1f9896ff440e39852a0ad3",
+      "type": "feat",
+      "scope": null,
+      "subject": "(CXSPA-12121) - Fix screen reader output of cart's item list table",
+      "jiraIds": [
+        "CXSPA-12121"
+      ],
+      "pullRequest": 21229
+    },
+    {
+      "sha": "29efe5a1d80b755a905eece113cda0974c871b55",
+      "type": "fix",
+      "scope": null,
+      "subject": "fix searchbox carousel navigation behaviour",
+      "jiraIds": [],
+      "pullRequest": 21141
+    },
+    {
+      "sha": "b1f12daaa996f3cd51a0a83977ac1f1801296290",
+      "type": "fix",
+      "scope": null,
+      "subject": "Cart not refreshed after re-order",
+      "jiraIds": [],
+      "pullRequest": 21202
+    },
+    {
+      "sha": "34250fed7d32ba5bca14043759907bcff8445cd3",
+      "type": "refactor",
+      "scope": null,
+      "subject": "refactor remaining tests after Standalone Components migration to declare mocks via overrideComponent (add/remove imports)",
+      "jiraIds": [],
+      "pullRequest": 21219
+    },
+    {
+      "sha": "ebcebb662c20f4541574e51adbb8f38e268be172",
+      "type": "fix",
+      "scope": null,
+      "subject": "Add channel property to the initiate OPF endpoint",
+      "jiraIds": [],
+      "pullRequest": null
+    },
+    {
+      "sha": "25312b25d31af01e3da109fcb438b60057984c98",
+      "type": "refactor",
+      "scope": null,
+      "subject": "Move storefrontapp occ config to 'private.providers.ts'; centralize common configs of b2b and b2c in one file; rename b2b and b2c files from '.module.ts' to '.providers.ts'\"",
+      "jiraIds": [],
+      "pullRequest": 21181
+    },
+    {
+      "sha": "17f76f66a73d2aba5929b3616960c9844a35fe1e",
+      "type": "chore",
+      "scope": null,
+      "subject": "make AGENTS.md more concise, remove rarely used skill (create-library) and gitignore explicitly '.claude/settings.local.json'",
+      "jiraIds": [],
+      "pullRequest": 21231
+    },
+    {
+      "sha": "426e58226044f12ad2337b77495d549c9de9af3e",
+      "type": "fix",
+      "scope": null,
+      "subject": "dispatching QuoteDetailsReloadQueryEvent from QuoteLinksComponent",
+      "jiraIds": [],
+      "pullRequest": 21196
+    },
+    {
+      "sha": "1e0a1b81bf7e7b802b0620bad3906b3225f3217d",
+      "type": "chore",
+      "scope": null,
+      "subject": "add initial AGENTS.md and few SKILL.md",
+      "jiraIds": [],
+      "pullRequest": 21186
+    },
+    {
+      "sha": "60759467ab263cb7e56dc270e3bbb34b22da0606",
+      "type": "chore",
+      "scope": null,
+      "subject": "add non-interactive mode to 'schematics/testing.ts' for AI DX",
+      "jiraIds": [],
+      "pullRequest": 21223
+    },
+    {
+      "sha": "9bdd77fe220bdf56feddaf22982ba1131a02c2ae",
+      "type": "feat",
+      "scope": null,
+      "subject": "(CXSPA-12108) - Ng select value readout on collapsed dropdown",
+      "jiraIds": [
+        "CXSPA-12108"
+      ],
+      "pullRequest": 21211
+    },
+    {
+      "sha": "7c23449f962e24110e13ce1448d0b09f33d7ed52",
+      "type": "feat",
+      "scope": null,
+      "subject": "(CXSPA-12110) - Product reviews keyboard controls",
+      "jiraIds": [
+        "CXSPA-12110"
+      ],
+      "pullRequest": 21216
+    },
+    {
+      "sha": "f7eb5793219badc738576ecb9c7df5cb86320fa3",
+      "type": "chore",
+      "scope": null,
+      "subject": "Dependency Updates via Npm Audit Fix. W10",
+      "jiraIds": [],
+      "pullRequest": 21221
+    },
+    {
+      "sha": "cf4a3d53e63b8b0a1161a048cc681d7df7c83408",
+      "type": "fix",
+      "scope": null,
+      "subject": "(CXSPA-12100) - Password visibility e2e",
+      "jiraIds": [
+        "CXSPA-12100"
+      ],
+      "pullRequest": 21220
+    },
+    {
+      "sha": "f33e8c8b91cfcb304e14a9b1dfe4414e6cc4c759",
+      "type": "feat",
+      "scope": null,
+      "subject": "(CXSPA-12100) - PasswordVisibilityToggle doubled screen reader output",
+      "jiraIds": [
+        "CXSPA-12100"
+      ],
+      "pullRequest": 21208
+    },
+    {
+      "sha": "7f3eadb42b590f49e84ec478b57a1c6ed02b95e6",
+      "type": "fix",
+      "scope": null,
+      "subject": "filter inactive currencies from the currency service",
+      "jiraIds": [],
+      "pullRequest": 21207
+    },
+    {
+      "sha": "d8d8d19c32c3afcfd5ef6c5fa9829fd20d054e33",
+      "type": "fix",
+      "scope": null,
+      "subject": "CXSPA-12264 Upgrade Angular to address security vulnerabilities",
+      "jiraIds": [
+        "CXSPA-12264"
+      ],
+      "pullRequest": 21215
+    },
+    {
+      "sha": "55fc406b1c10ae33a63fc43060cf4234acbfab8d",
+      "type": "fix",
+      "scope": null,
+      "subject": "enhance accessibility of Added to Cart dialog with semantic heading",
+      "jiraIds": [],
+      "pullRequest": 21197
+    },
+    {
+      "sha": "a8e83e28b586fc41d7c9cc49ca9776c62b7975d9",
+      "type": "fix",
+      "scope": null,
+      "subject": "on installer, handle single quote and multi line when editing core import list",
+      "jiraIds": [],
+      "pullRequest": 21203
+    },
+    {
+      "sha": "09aa836ad6d3ff30c85c1ced94774b4d7dd3350a",
+      "type": "fix",
+      "scope": null,
+      "subject": "handle null and empty file selections in file upload component",
+      "jiraIds": [],
+      "pullRequest": 21199
+    },
+    {
+      "sha": "3e71f7a9219000437defd3f7382a7637024f051b",
+      "type": "fix",
+      "scope": null,
+      "subject": "fix a11y issue with login/register links label vocalisation",
+      "jiraIds": [],
+      "pullRequest": 21168
+    },
+    {
+      "sha": "9180596fb72b135ec407620138b7e596aa14b25c",
+      "type": "fix",
+      "scope": null,
+      "subject": "register page is not rendered by SSR",
+      "jiraIds": [],
+      "pullRequest": 20624
+    },
+    {
+      "sha": "edbf1532b1cfa3bf8afc4d01e17400ae667ceae9",
+      "type": "fix",
+      "scope": null,
+      "subject": "skip first active language emission",
+      "jiraIds": [],
+      "pullRequest": 21192
+    },
+    {
+      "sha": "02fd4dd991bebe060eae2860f62db02b5f3502c3",
+      "type": "refactor",
+      "scope": null,
+      "subject": "address minor review comments on Standalone Components PR #20793",
+      "jiraIds": [],
+      "pullRequest": 21130
+    },
+    {
+      "sha": "437e5ba62ab0c2297f3a3a3c3eebc3f0030896d9",
+      "type": "fix",
+      "scope": null,
+      "subject": "Fix background style not showing in high contrast themes for tab accordian component",
+      "jiraIds": [],
+      "pullRequest": 21183
+    },
+    {
+      "sha": "53c588ce6b132ee184fc9f9b0154e72f11ae1e04",
+      "type": "docs",
+      "scope": null,
+      "subject": "clarify that schematics utilities are not our official public API",
+      "jiraIds": [],
+      "pullRequest": 21131
+    },
+    {
+      "sha": "c5e028886bfd5446abba44901a8771288b7d389d",
+      "type": "chore",
+      "scope": null,
+      "subject": "bump tar@7.5.7 -> tar@7.5.9",
+      "jiraIds": [],
+      "pullRequest": 21170
+    },
+    {
+      "sha": "c42c26426ee9610be9f0947dabf4ff3142d1d17b",
+      "type": "fix",
+      "scope": null,
+      "subject": "isolate e2e tests that disabled testIsolation option",
+      "jiraIds": [],
+      "pullRequest": 21177
+    },
+    {
+      "sha": "f156650fc402540d742af5150c4cad97bf8dc6f4",
+      "type": "feat",
+      "scope": null,
+      "subject": "add mediaApiPrefix env var and backend.media.prefix config",
+      "jiraIds": [],
+      "pullRequest": 21096
+    },
+    {
+      "sha": "8dfced6da022d9c299d742c8dc15e06b9d069eae",
+      "type": "fix",
+      "scope": null,
+      "subject": "fix pages title (breadcrumb section) on languge switch",
+      "jiraIds": [],
+      "pullRequest": 21032
+    },
+    {
+      "sha": "126bfe64cdd6f88f89a508405acd58f5d35a8936",
+      "type": "fix",
+      "scope": null,
+      "subject": "(CXSPA-7459) - units.e2e fix",
+      "jiraIds": [
+        "CXSPA-7459"
+      ],
+      "pullRequest": 21176
+    },
+    {
+      "sha": "e8e85b0dc9df49128d97da0599e7f2fb680b6c0e",
+      "type": "fix",
+      "scope": null,
+      "subject": "add FontAwesome auto-width css variable",
+      "jiraIds": [],
+      "pullRequest": 21164
+    },
+    {
+      "sha": "f4c98195999ae48d0060dab54568ce527a35bcce",
+      "type": "refactor",
+      "scope": null,
+      "subject": "remove unused schematics utils",
+      "jiraIds": [],
+      "pullRequest": 21089
+    },
+    {
+      "sha": "c1b3cbee4f52b76382aa90811ac3d7cae5605f35",
+      "type": "fix",
+      "scope": null,
+      "subject": "Filter by label visibility on desktop pdp",
+      "jiraIds": [],
+      "pullRequest": 21159
+    },
+    {
+      "sha": "f7b59a7b443c56d238f05a2ca6b43fe6446d3715",
+      "type": "feat",
+      "scope": null,
+      "subject": "add site context route handler to initialization to currency, language and basesite initialization",
+      "jiraIds": [],
+      "pullRequest": 21151
+    },
+    {
+      "sha": "03127bfca263888821dce6231ab07aa2ffb5886f",
+      "type": "test",
+      "scope": null,
+      "subject": "update e2e tests to use breadcrumb order history header",
+      "jiraIds": [],
+      "pullRequest": 21169
+    },
+    {
+      "sha": "693108633677e2d22c5ed2ae067549b83ac21850",
+      "type": "fix",
+      "scope": null,
+      "subject": "hiding stock count for subscription products in PDP page",
+      "jiraIds": [],
+      "pullRequest": 21142
+    }
+  ]
+}

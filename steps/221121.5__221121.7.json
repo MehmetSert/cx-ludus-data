@@ -1,0 +1,3978 @@
+{
+  "schemaVersion": 1,
+  "generatorVersion": 1,
+  "from": {
+    "release": "221121.5",
+    "gitTag": "221121.5.0"
+  },
+  "to": {
+    "release": "221121.7",
+    "gitTag": "221121.7.0"
+  },
+  "toggles": {
+    "removed": [
+      {
+        "name": "a11yAnonymousConsentMessageInDialog",
+        "description": "In `AnonymousConsentDialogComponent` display notifications inside the modal without closing it",
+        "affects": [],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "projects/storefrontlib/shared/components/anonymous-consents-dialog/anonymous-consent-dialog.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "AnonymousConsentDialogComponent"
+            ],
+            "selectors": [
+              "cx-anonymous-consent-dialog"
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/shared/components/anonymous-consents-dialog/anonymous-consent-dialog.component.ts",
+            "pattern": "use-feature-styles",
+            "negated": false,
+            "symbols": [
+              "AnonymousConsentDialogComponent"
+            ],
+            "selectors": [
+              "cx-anonymous-consent-dialog"
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/shared/components/anonymous-consents-dialog/anonymous-consent-dialog.component.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "AnonymousConsentDialogComponent"
+            ],
+            "selectors": [
+              "cx-anonymous-consent-dialog"
+            ]
+          },
+          {
+            "file": "projects/storefrontstyles/scss/components/myaccount/anonymous-consent/_anonymous-consent-dialog.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "AnonymousConsentDialogComponent",
+              "CdcReconsentComponent",
+              "MessageComponent"
+            ],
+            "selectors": [
+              "cx-anonymous-consent-dialog",
+              "cx-message",
+              "cx-org-message"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "a11yFocusOnCardAfterSelecting",
+        "description": "Restores the focus to the card once a option has been selected and the checkout has updated.",
+        "affects": [
+          "CheckoutPaymentMethodComponent",
+          "CheckoutDeliveryAddressComponent"
+        ],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "feature-libs/checkout/base/components/checkout-delivery-address/checkout-delivery-address.component.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "CheckoutDeliveryAddressComponent"
+            ],
+            "selectors": [
+              "cx-delivery-address"
+            ]
+          },
+          {
+            "file": "feature-libs/checkout/base/components/checkout-payment-method/checkout-payment-method.component.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "CheckoutPaymentMethodComponent"
+            ],
+            "selectors": [
+              "cx-payment-method"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "a11yHamburgerMenuTrapFocus",
+        "description": "Header. Fixes trapping focus on menu items on mobile when the menu is expanded.\nSets `tabindex` attribute  to `-1` for all visible focusable elements in the header section to exclude them from\nkeyboard navigation",
+        "affects": [],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "projects/storefrontlib/layout/main/storefront.component.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "StorefrontComponent"
+            ],
+            "selectors": [
+              "cx-storefront"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "a11yHideConsentButtonWhenBannerVisible",
+        "description": "Hides the 'Consent Management' button from the tab order when the cookies banner is visible.\nEnsures the button is re-enabled and part of the tab order once consent is given and the banner disappears.\nRenames the button from \"View Details\" to \"Consent Management\" after consent is given.\nEnsures the button is centered in the `AnonymousConsentOpenDialogComponent` and has clear, four-sided visible focus when navigated via keyboard.",
+        "affects": [
+          "AnonymousConsentOpenDialogComponent",
+          "AnonymousConsentManagementBannerComponent"
+        ],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "projects/storefrontlib/cms-components/anonymous-consent-management/banner/anonymous-consent-management-banner.component.html",
+            "pattern": "cx-feature",
+            "negated": true,
+            "symbols": [
+              "AnonymousConsentManagementBannerComponent"
+            ],
+            "selectors": [
+              "cx-anonymous-consent-management-banner"
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/cms-components/anonymous-consent-management/banner/anonymous-consent-management-banner.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "AnonymousConsentManagementBannerComponent"
+            ],
+            "selectors": [
+              "cx-anonymous-consent-management-banner"
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/cms-components/anonymous-consent-management/open-dialog/anonymous-consent-open-dialog.component.html",
+            "pattern": "cx-feature",
+            "negated": true,
+            "symbols": [
+              "AnonymousConsentOpenDialogComponent"
+            ],
+            "selectors": [
+              "cx-anonymous-consent-open-dialog"
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/cms-components/anonymous-consent-management/open-dialog/anonymous-consent-open-dialog.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "AnonymousConsentOpenDialogComponent"
+            ],
+            "selectors": [
+              "cx-anonymous-consent-open-dialog"
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/cms-components/anonymous-consent-management/open-dialog/anonymous-consent-open-dialog.component.ts",
+            "pattern": "use-feature-styles",
+            "negated": false,
+            "symbols": [
+              "AnonymousConsentOpenDialogComponent"
+            ],
+            "selectors": [
+              "cx-anonymous-consent-open-dialog"
+            ]
+          },
+          {
+            "file": "projects/storefrontstyles/scss/components/myaccount/anonymous-consent/_anonymous-consent-open-dialog.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "AnonymousConsentOpenDialogComponent"
+            ],
+            "selectors": [
+              "cx-anonymous-consent-open-dialog"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "a11yHighContrastBorders",
+        "description": "Ensures that borders across all UI elements are visible and meet accessibility standards in high-contrast dark and light themes.\nThis change is applied globally to enhance usability for users relying on high-contrast modes.",
+        "affects": [
+          "CustomerTickingListComponent",
+          "CheckoutReviewPaymentComponent",
+          "SavedCartListComponent"
+        ],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "feature-libs/cart/saved-cart/components/list/saved-cart-list.component.ts",
+            "pattern": "use-feature-styles",
+            "negated": false,
+            "symbols": [
+              "SavedCartListComponent"
+            ],
+            "selectors": [
+              "cx-saved-cart-list"
+            ]
+          },
+          {
+            "file": "feature-libs/checkout/base/components/checkout-review/checkout-review-payment/checkout-review-payment.component.ts",
+            "pattern": "use-feature-styles",
+            "negated": false,
+            "symbols": [
+              "CheckoutReviewPaymentComponent"
+            ],
+            "selectors": []
+          },
+          {
+            "file": "feature-libs/customer-ticketing/components/list/customer-ticketing-list/customer-ticketing-list.component.ts",
+            "pattern": "use-feature-styles",
+            "negated": false,
+            "symbols": [
+              "CustomerTicketingListComponent"
+            ],
+            "selectors": [
+              "cx-customer-ticketing-list"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "a11yKeyboardFocusInSearchBox",
+        "description": "Adds a visible focus indicator for keyboard navigation in the `SearchBoxComponent` without affecting the visual state for mouse interactions.",
+        "affects": [
+          "SearchBoxComponent"
+        ],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "projects/storefrontlib/cms-components/navigation/search-box/search-box.component.ts",
+            "pattern": "use-feature-styles",
+            "negated": false,
+            "symbols": [
+              "SearchBoxComponent"
+            ],
+            "selectors": [
+              "cx-searchbox"
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/layout/main/storefront.component.ts",
+            "pattern": "use-feature-styles",
+            "negated": false,
+            "symbols": [
+              "StorefrontComponent"
+            ],
+            "selectors": [
+              "cx-storefront"
+            ]
+          },
+          {
+            "file": "projects/storefrontstyles/scss/components/layout/_storefront.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "ParagraphComponent",
+              "StorefrontComponent"
+            ],
+            "selectors": [
+              "cx-paragraph",
+              "cx-storefront"
+            ]
+          },
+          {
+            "file": "projects/storefrontstyles/scss/components/product/search/_searchbox.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "CarouselComponent",
+              "IconComponent",
+              "MediaComponent",
+              "MockIconComponent",
+              "SearchBoxComponent",
+              "StorefrontComponent"
+            ],
+            "selectors": [
+              "[cxIcon]",
+              "cx-carousel",
+              "cx-icon",
+              "cx-media",
+              "cx-searchbox",
+              "cx-storefront"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "a11yMiniCartFocusOnMobile",
+        "description": "In `MiniCart component`, improve visible focus contrast on mobile.",
+        "affects": [],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "feature-libs/cart/base/components/mini-cart/mini-cart.component.ts",
+            "pattern": "use-feature-styles",
+            "negated": false,
+            "symbols": [
+              "MiniCartComponent"
+            ],
+            "selectors": [
+              "cx-mini-cart"
+            ]
+          },
+          {
+            "file": "feature-libs/cart/base/styles/components/_mini-cart.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "MiniCartComponent"
+            ],
+            "selectors": [
+              "cx-mini-cart"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "a11yNavigationButtonsAriaFixes",
+        "description": "Removes invalid aria-level usage on button elements and ensures buttons have a proper accessible name via aria-label or aria-labelledby.",
+        "affects": [
+          "NavigationUIComponent"
+        ],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "projects/storefrontlib/cms-components/navigation/navigation/navigation-ui.component.html",
+            "pattern": "cx-feature",
+            "negated": true,
+            "symbols": [
+              "NavigationUIComponent"
+            ],
+            "selectors": [
+              "cx-navigation-ui"
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/cms-components/navigation/navigation/navigation-ui.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "NavigationUIComponent"
+            ],
+            "selectors": [
+              "cx-navigation-ui"
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/cms-components/navigation/navigation/navigation-ui.component.ts",
+            "pattern": "use-feature-styles",
+            "negated": false,
+            "symbols": [
+              "NavigationUIComponent"
+            ],
+            "selectors": [
+              "cx-navigation-ui"
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/cms-components/navigation/navigation/navigation-ui.component.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "NavigationUIComponent"
+            ],
+            "selectors": [
+              "cx-navigation-ui"
+            ]
+          },
+          {
+            "file": "projects/storefrontstyles/scss/components/content/navigation/_category-navigation.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "CategoryNavigationComponent",
+              "GenericLinkComponent",
+              "NavigationUIComponent"
+            ],
+            "selectors": [
+              "cx-category-navigation",
+              "cx-generic-link",
+              "cx-navigation-ui"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "a11yNgSelectAriaLabelDropdownCustomized",
+        "description": "'NgSelectA11yDirective' will customize a ng-select dropdowns by setting custom\nariaLabelDropdown ng-select attribute value to provided common.ngSelectDropdownOptionsList translation",
+        "affects": [],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "projects/storefrontlib/shared/components/ng-select-a11y/ng-select-a11y.directive.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "NgSelectA11yDirective"
+            ],
+            "selectors": []
+          }
+        ]
+      },
+      {
+        "name": "a11yPopoverHighContrast",
+        "description": "Fix popover appearance when a High Contrast Theme is applied.",
+        "affects": [],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "projects/storefrontlib/shared/components/popover/popover.directive.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "PopoverDirective"
+            ],
+            "selectors": []
+          }
+        ]
+      },
+      {
+        "name": "a11yQuickOrderSearchBoxRefocusOnClose",
+        "description": "When enabled the input element in `QuickOrderFormComponent' will regain its focus after the dropdown is closed.",
+        "affects": [],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "feature-libs/cart/quick-order/components/quick-order/form/quick-order-form.component.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "QuickOrderFormComponent"
+            ],
+            "selectors": [
+              "cx-quick-order-form"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "a11yQuickOrderSearchListKeyboardNavigation",
+        "description": "`QuickOrderFormComponent` - disable navigation with Tab/Shift+Tab for search results list",
+        "affects": [],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "feature-libs/cart/quick-order/components/quick-order/form/quick-order-form.component.html",
+            "pattern": "cx-feature",
+            "negated": true,
+            "symbols": [
+              "QuickOrderFormComponent"
+            ],
+            "selectors": [
+              "cx-quick-order-form"
+            ]
+          },
+          {
+            "file": "feature-libs/cart/quick-order/components/quick-order/form/quick-order-form.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "QuickOrderFormComponent"
+            ],
+            "selectors": [
+              "cx-quick-order-form"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "a11yRegionAssociatedHeaders",
+        "description": "Associates content regions with their headers improving readout while navigating between sections.",
+        "affects": [
+          "CardComponent",
+          "AccountSummaryDocumentComponent",
+          "ListComponent"
+        ],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "feature-libs/organization/administration/components/shared/card/card.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "CardComponent"
+            ],
+            "selectors": [
+              "cx-card",
+              "cx-org-card"
+            ]
+          },
+          {
+            "file": "feature-libs/organization/administration/components/shared/card/card.component.html",
+            "pattern": "cx-feature",
+            "negated": true,
+            "symbols": [
+              "CardComponent"
+            ],
+            "selectors": [
+              "cx-card",
+              "cx-org-card"
+            ]
+          },
+          {
+            "file": "feature-libs/organization/administration/components/shared/list/list.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "ListComponent"
+            ],
+            "selectors": [
+              "cx-org-list"
+            ]
+          },
+          {
+            "file": "feature-libs/organization/administration/components/shared/list/list.component.html",
+            "pattern": "cx-feature",
+            "negated": true,
+            "symbols": [
+              "ListComponent"
+            ],
+            "selectors": [
+              "cx-org-list"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "a11yRepeatingButtonsUniqueLabels",
+        "description": "Adds a unique `aria-label` to repeating buttons that contain the same text.",
+        "affects": [
+          "SetPreferredStoreComponent"
+        ],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "feature-libs/pickup-in-store/components/container/set-preferred-store/set-preferred-store.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "SetPreferredStoreComponent"
+            ],
+            "selectors": []
+          },
+          {
+            "file": "feature-libs/pickup-in-store/components/container/set-preferred-store/set-preferred-store.component.html",
+            "pattern": "cx-feature",
+            "negated": true,
+            "symbols": [
+              "SetPreferredStoreComponent"
+            ],
+            "selectors": []
+          }
+        ]
+      },
+      {
+        "name": "a11yResetFocusAfterNavigating",
+        "description": "Resets the focus after navigating to a new page.",
+        "affects": [],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "projects/storefrontlib/layout/main/storefront.component.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "StorefrontComponent"
+            ],
+            "selectors": [
+              "cx-storefront"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "a11yScrollToTopPositioning",
+        "description": "When enabled, the scroll-to-top button adjusts its position when other UI elements\n(like cookie consent banner) appear at the bottom of the page to prevent overlapping",
+        "affects": [],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "projects/storefrontlib/cms-components/anonymous-consent-management/banner/anonymous-consent-management-banner.component.ts",
+            "pattern": "use-feature-styles",
+            "negated": false,
+            "symbols": [
+              "AnonymousConsentManagementBannerComponent"
+            ],
+            "selectors": [
+              "cx-anonymous-consent-management-banner"
+            ]
+          },
+          {
+            "file": "projects/storefrontstyles/scss/components/myaccount/anonymous-consent/_anonymous-consent-management-banner.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "AnonymousConsentManagementBannerComponent",
+              "ScrollToTopComponent"
+            ],
+            "selectors": [
+              "cx-anonymous-consent-management-banner",
+              "cx-scroll-to-top"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "a11ySearchableDropdownFirstElementFocus",
+        "description": "Search dropdowns will display the focus ring correctly when navigating to the options using the down arrow key.",
+        "affects": [
+          "SearchBoxComponent",
+          "QuickOrderFormComponent"
+        ],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "feature-libs/cart/quick-order/components/quick-order/form/quick-order-form.component.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "QuickOrderFormComponent"
+            ],
+            "selectors": [
+              "cx-quick-order-form"
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/cms-components/navigation/search-box/search-box.component.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "SearchBoxComponent"
+            ],
+            "selectors": [
+              "cx-searchbox"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "a11yTabsManualActivation",
+        "description": "'TabComponent' disallow automatic tab activation.",
+        "affects": [],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "projects/storefrontlib/cms-components/content/tab/tab.component.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "TabComponent"
+            ],
+            "selectors": [
+              "cx-tab"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "a11yTruncatedTextUnitLevelOrderHistory",
+        "description": "`UnitLevelOrderHistoryComponent` filter input label and table email address\nare not truncated",
+        "affects": [],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "feature-libs/organization/unit-order/components/unit-level-order-history/unit-level-order-history.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "UnitLevelOrderHistoryComponent"
+            ],
+            "selectors": [
+              "cx-unit-level-order-history"
+            ]
+          },
+          {
+            "file": "feature-libs/organization/unit-order/components/unit-level-order-history/unit-level-order-history.component.html",
+            "pattern": "cx-feature",
+            "negated": true,
+            "symbols": [
+              "UnitLevelOrderHistoryComponent"
+            ],
+            "selectors": [
+              "cx-unit-level-order-history"
+            ]
+          },
+          {
+            "file": "feature-libs/organization/unit-order/components/unit-level-order-history/unit-level-order-history.component.ts",
+            "pattern": "use-feature-styles",
+            "negated": false,
+            "symbols": [
+              "UnitLevelOrderHistoryComponent"
+            ],
+            "selectors": [
+              "cx-unit-level-order-history"
+            ]
+          },
+          {
+            "file": "feature-libs/organization/unit-order/styles/components/unit-level-order-history/_unit-level-order-history.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "SortingComponent",
+              "TotalComponent",
+              "UnitLevelOrderHistoryComponent"
+            ],
+            "selectors": [
+              "cx-sorting",
+              "cx-total",
+              "cx-unit-level-order-history"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "a11yUseProperTextColorForFutureStockAccordion",
+        "description": "In `FutureStockAccordionComponent` use `cx-color-text` for button color",
+        "affects": [],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "feature-libs/product/future-stock/components/future-stock-accordion/future-stock-accordion.component.ts",
+            "pattern": "use-feature-styles",
+            "negated": false,
+            "symbols": [
+              "FutureStockAccordionComponent"
+            ],
+            "selectors": [
+              "cx-future-stock-accordion"
+            ]
+          },
+          {
+            "file": "feature-libs/product/future-stock/styles/_future-stock-accordion.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "FutureStockAccordionComponent",
+              "IconComponent",
+              "MockIconComponent"
+            ],
+            "selectors": [
+              "[cxIcon]",
+              "cx-future-stock-accordion",
+              "cx-icon"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "enableCarouselCategoryProducts",
+        "description": "Enables the product carousel to include products based on specified category codes.\n\n- When this feature is enabled, the carousel will fetch and display products\n  associated with the `categoryCodes` provided.\n- The `categoryCodes` are configured and managed through SmartEdit",
+        "affects": [],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "projects/storefrontlib/cms-components/product/carousel/product-carousel/product-carousel.component.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "ProductCarouselComponent"
+            ],
+            "selectors": [
+              "cx-product-carousel"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "enableClaimCustomerCouponWithCodeInRequestBody",
+        "description": "In CustomerCouponConnector, Enables claiming customer coupon with coupon code in httpRequest body with POST method.\n\nWhen set to `false`, claiming customer coupon works with coupon code as parameter in URL, which exposes sensitive data and has security risk.\nWhen set to `true`, claiming customer coupon works with coupon code in httpRequest body with POST method(the new Occ endpoint is available since Commerce 2211.28), which avoids security risk.",
+        "affects": [],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "projects/core/src/user/connectors/customer-coupon/customer-coupon.connector.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "CustomerCouponConnector"
+            ],
+            "selectors": []
+          }
+        ]
+      },
+      {
+        "name": "updateConsentGivenInOnChanges",
+        "description": "Updates the derivative `consentGiven` state when `consent` is updated.\n\nComponents affected:\n- `ConsentManagementFormComponent`\n- `MyAccountV2ConsentManagementFormComponent`",
+        "affects": [],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "projects/storefrontlib/cms-components/myaccount/consent-management/components/consent-form/consent-management-form.component.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "ConsentManagementFormComponent"
+            ],
+            "selectors": [
+              "cx-consent-management-form"
+            ]
+          }
+        ]
+      }
+    ],
+    "added": [
+      {
+        "name": "a11yFutureStockAccordionAriaControls",
+        "description": "Fixes accessibility issue in FutureStockAccordionComponent where aria-controls\nreferences a non-existent element when accordion is collapsed.\nWhen enabled, content element is always in DOM but hidden when collapsed,\nensuring aria-controls always references a valid ID.",
+        "affects": [
+          "FutureStockAccordionComponent"
+        ],
+        "defaultValue": false,
+        "usages": [
+          {
+            "file": "feature-libs/product/future-stock/components/future-stock-accordion/future-stock-accordion.component.html",
+            "pattern": "cx-feature",
+            "negated": true,
+            "symbols": [
+              "FutureStockAccordionComponent"
+            ],
+            "selectors": [
+              "cx-future-stock-accordion"
+            ]
+          },
+          {
+            "file": "feature-libs/product/future-stock/components/future-stock-accordion/future-stock-accordion.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "FutureStockAccordionComponent"
+            ],
+            "selectors": [
+              "cx-future-stock-accordion"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "a11yNgSelectUnicodeCarets",
+        "description": "Use unicode characters for ng-select dropdown carets so that OS themes can override the defaults\nby targetting text. This is not possible when using borders to draw shapes.",
+        "affects": [],
+        "defaultValue": false,
+        "usages": [
+          {
+            "file": "projects/storefrontlib/shared/components/ng-select-a11y/ng-select-a11y.directive.ts",
+            "pattern": "use-feature-styles",
+            "negated": false,
+            "symbols": [
+              "NgSelectA11yDirective"
+            ],
+            "selectors": []
+          },
+          {
+            "file": "projects/storefrontstyles/scss/cxbase/blocks/forms.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "FileUploadComponent",
+              "FormErrorsComponent"
+            ],
+            "selectors": [
+              "cx-file-upload",
+              "cx-form-errors"
+            ]
+          }
+        ]
+      }
+    ],
+    "defaultEnabled": [
+      {
+        "name": "consistentSizeProductCards",
+        "description": "When enabled, the product cards in the product list page will have a forced consistent size.\nAffects the styles of: ProductGridItemComponent, ProductListItemComponent.",
+        "affects": [],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "projects/storefrontlib/cms-components/product/product-list/product-grid-item/product-grid-item.component.ts",
+            "pattern": "use-feature-styles",
+            "negated": false,
+            "symbols": [
+              "ProductGridItemComponent"
+            ],
+            "selectors": [
+              "cx-product-grid-item"
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/cms-components/product/product-list/product-list-item/product-list-item.component.ts",
+            "pattern": "use-feature-styles",
+            "negated": false,
+            "symbols": [
+              "ProductListItemComponent"
+            ],
+            "selectors": [
+              "cx-product-list-item"
+            ]
+          },
+          {
+            "file": "projects/storefrontstyles/scss/components/product/list/_product-grid-item.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "MediaComponent",
+              "ProductGridItemComponent"
+            ],
+            "selectors": [
+              "cx-media",
+              "cx-product-grid-item"
+            ]
+          },
+          {
+            "file": "projects/storefrontstyles/scss/components/product/list/_product-list-item.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "MediaComponent",
+              "ProductListItemComponent",
+              "ProductSummaryComponent",
+              "ProductVariantStyleIconsComponent"
+            ],
+            "selectors": [
+              "cx-media",
+              "cx-product-list-item",
+              "cx-product-summary",
+              "cx-variant-style-icons"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "createMediaPreconnectLink",
+        "description": "Feature flag to enable using <link rel=preconnect> in the index.html.\n\n## When enabled:\nAdding rel=preconnect to a <link> informs the browser that your page intends to establish a connection to another domain,\nand that you'd like the process to start as soon as possible. Resources will load more quickly because the setup process\nhas already been completed by the time the browser requests them.\n\nNote: Preconnecting is not needed (and won't be performed) if the domain of the media base url is the same as the storefront's domain.",
+        "affects": [],
+        "defaultValue": true,
+        "usages": []
+      },
+      {
+        "name": "defaultLayoutConfigWithoutPageFold",
+        "description": "Previously the default Spartacus layout config contained the property `pageFold`\nfor the following layouts:\n- `LandingPage2Template`\n- `CategoryPageTemplate`\n- `ProductDetailsPageTemplate`\n\nWhen this feature toggle is enabled, the `pageFold` property is removed from those layout configs.\n\nIt is to improve the CLS (Cumulative Layout Shift) metric. Previously the `pageFold` property\ncaused the CMS components to be rendered only after a small delay even in SSR pages,\nwhich caused a layout shift.\n\n⚠️ To fully enable this feature toggle, you need to also replace `provideConfig(layoutConfig)`\nin your codebase with `provideConfigFactory(layoutConfigFactory)`.",
+        "affects": [],
+        "defaultValue": true,
+        "usages": []
+      },
+      {
+        "name": "defaultProductPageRouteAllowsNoProductName",
+        "description": "When enabled, the default routing config for the product page is no longer just:\n`paths: ['product/:productCode/:name']`\nbut:\n`paths: ['product/:productCode/:name', 'product/:productCode'],`\n\nIt means that the old URL scheme of generating links and matching URLs is preserved,\nbut now also a shorter alias (without product name) is accepted when matching the URL.",
+        "affects": [],
+        "defaultValue": true,
+        "usages": []
+      },
+      {
+        "name": "disableCxPageSlotMarginAnimation",
+        "description": "Feature flag to disable the margin animation for the cx-page-slot component.\nDisables the CSS animation on the `margin` property in the `cx-page-slot` component.\nThis animation was originally part of the legacy \"defer loading\" and \"below the fold\"\nmechanism in Spartacus. Since this mechanism is no longer used in the current storefront,\nthe animation causes unnecessary layout shifts (CLS) and increased rendering cost (TBT).\n\nEnabling this flag removes the margin animation to improve performance and user experience.",
+        "affects": [],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "projects/storefrontlib/cms-structure/page/page-layout/page-layout.component.ts",
+            "pattern": "use-feature-styles",
+            "negated": false,
+            "symbols": [
+              "PageLayoutComponent"
+            ],
+            "selectors": [
+              "cx-page-layout"
+            ]
+          },
+          {
+            "file": "projects/storefrontstyles/scss/layout/_page-fold.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "PageLayoutComponent",
+              "PageSlotComponent"
+            ],
+            "selectors": [
+              "[cx-page-slot]",
+              "cx-page-layout",
+              "cx-page-slot"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "lazyLoadImagesByDefault",
+        "description": "Feature flag to control the default image loading strategy.\n\nBy default, the `MediaComponent` used the `loading=\"eager\"` attribute for all images,\ndue to the fallback logic in the `MediaService`, which defaults to\n`imageLoadingStrategy: EAGER` when no explicit configuration is provided.\n\nThis flag, when enabled, changes the default image loading behavior to use\n`loading=\"lazy\"` instead. This ensures that images below the fold are not downloaded\nimmediately, reducing unnecessary network usage and improving performance.\n\nLazy loading frees up bandwidth to prioritize more important assets,\nsuch as the largest content element on the page, which can positively\nimpact the LCP (Largest Contentful Paint) metric.\n\nWhen all images are lazy loaded by default, you should explicitly prioritize LCP images,\nby specifying CMS component IDs via the Spartacus config:\n`provideConfig({ lcpCmsComponents: ... })`\n... or by passing the special input directly to the `MediaComponent`:\n`<cx-media [fetchPriority]=\"ImageFetchPriority.HIGH\" ... >`\n\nSet to `true` to enable lazy loading by default.",
+        "affects": [],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "projects/storefrontlib/shared/components/media/media.service.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "MediaService"
+            ],
+            "selectors": []
+          }
+        ]
+      },
+      {
+        "name": "productCarouselScrolling",
+        "description": "When enabled, the new carousel component `<cx-carousel-scrolling>` will be used\nin the following components instead of the old `<cx-carousel>`:\n- `ProductCarouselComponent`\n- `ProductReferencesComponent`\n- `ProductImagesComponent` and related `ProductImageZoomProductImagesComponent`\n\nThe previous carousel had number of issues:\n- Caused huge layout shift when transitioning from SSR to CSR on desktop viewport,\n    because in SSR there was rendered just 1 carousel item, but in desktop CSR 4 items\n    appeared after a while (especially noticeable with Chrome DevTools Network throttling)\n- Eagerly-loaded images also from invisible slides, even when Spartacus was configured\n    to lazy load of all images: `provideConfig({ imageLoadingStrategy: ImageLoadingStrategy.LAZY})`\n- Was not swipe-friendly on mobile devices\n\nThe new carousel:\n- Doesn't suffer from huge layout shifts when transitioning from SSR to CSR anymore, because of\n   rendering the same HTML both in SSR and when CSR kicks in after a delay,\n   so the same number of carousel items is visible in SSR HTML and CSR HTML.\n- It's lazy loading invisible images thanks to native horizontal scrolling (when Spartacus\n   is configured to lazy load all images: `provideConfig({ imageLoadingStrategy: ImageLoadingStrategy.LAZY})`)\n- It's swipe-friendly on touch devices thanks to its native horizontal scrolling",
+        "affects": [],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "feature-libs/product/image-zoom/components/product-image-zoom/product-image-zoom-product-images/product-image-zoom-product-images.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "ProductImageZoomProductImagesComponent"
+            ],
+            "selectors": [
+              "cx-product-images"
+            ]
+          },
+          {
+            "file": "feature-libs/product/image-zoom/components/product-image-zoom/product-image-zoom-product-images/product-image-zoom-product-images.component.html",
+            "pattern": "cx-feature",
+            "negated": true,
+            "symbols": [
+              "ProductImageZoomProductImagesComponent"
+            ],
+            "selectors": [
+              "cx-product-images"
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/cms-components/product/carousel/product-carousel/product-carousel.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "ProductCarouselComponent"
+            ],
+            "selectors": [
+              "cx-product-carousel"
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/cms-components/product/carousel/product-carousel/product-carousel.component.html",
+            "pattern": "cx-feature",
+            "negated": true,
+            "symbols": [
+              "ProductCarouselComponent"
+            ],
+            "selectors": [
+              "cx-product-carousel"
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/cms-components/product/carousel/product-carousel/product-carousel.component.ts",
+            "pattern": "use-feature-styles",
+            "negated": false,
+            "symbols": [
+              "ProductCarouselComponent"
+            ],
+            "selectors": [
+              "cx-product-carousel"
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/cms-components/product/carousel/product-references/product-references.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "ProductReferencesComponent"
+            ],
+            "selectors": [
+              "cx-product-references"
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/cms-components/product/carousel/product-references/product-references.component.html",
+            "pattern": "cx-feature",
+            "negated": true,
+            "symbols": [
+              "ProductReferencesComponent"
+            ],
+            "selectors": [
+              "cx-product-references"
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/cms-components/product/carousel/product-references/product-references.component.ts",
+            "pattern": "use-feature-styles",
+            "negated": false,
+            "symbols": [
+              "ProductReferencesComponent"
+            ],
+            "selectors": [
+              "cx-product-references"
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/cms-components/product/product-images/product-images.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "ProductImagesComponent"
+            ],
+            "selectors": [
+              "cx-product-images"
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/cms-components/product/product-images/product-images.component.html",
+            "pattern": "cx-feature",
+            "negated": true,
+            "symbols": [
+              "ProductImagesComponent"
+            ],
+            "selectors": [
+              "cx-product-images"
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/cms-components/product/product-images/product-images.component.ts",
+            "pattern": "use-feature-styles",
+            "negated": false,
+            "symbols": [
+              "ProductImagesComponent"
+            ],
+            "selectors": [
+              "cx-product-images"
+            ]
+          },
+          {
+            "file": "projects/storefrontstyles/scss/components/product/carousel/_carousel-scrolling.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "CarouselScrollingComponent"
+            ],
+            "selectors": [
+              "cx-carousel-scrolling"
+            ]
+          },
+          {
+            "file": "projects/storefrontstyles/scss/components/product/carousel/_product-carousel-item.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "ProductCarouselItemComponent"
+            ],
+            "selectors": [
+              "cx-product-carousel-item"
+            ]
+          },
+          {
+            "file": "projects/storefrontstyles/scss/components/product/carousel/_product-carousel.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "CarouselScrollingComponent",
+              "MediaComponent",
+              "ProductCarouselComponent"
+            ],
+            "selectors": [
+              "cx-carousel-scrolling",
+              "cx-media",
+              "cx-product-carousel"
+            ]
+          },
+          {
+            "file": "projects/storefrontstyles/scss/components/product/carousel/_product-references.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "MediaComponent",
+              "ProductReferencesComponent"
+            ],
+            "selectors": [
+              "cx-media",
+              "cx-product-references"
+            ]
+          },
+          {
+            "file": "projects/storefrontstyles/scss/components/product/details/_product-images.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "MediaComponent",
+              "ProductImageZoomProductImagesComponent",
+              "ProductImagesComponent"
+            ],
+            "selectors": [
+              "cx-media",
+              "cx-product-images"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "productReviewCharactersLeft",
+        "description": "Introduces characters left for product review form elements.",
+        "affects": [
+          "ProductReviewsComponent"
+        ],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "projects/storefrontlib/cms-components/product/product-tabs/product-reviews/product-reviews.component.html",
+            "pattern": "cx-feature",
+            "negated": true,
+            "symbols": [
+              "ProductReviewsComponent"
+            ],
+            "selectors": [
+              "cx-product-reviews"
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/cms-components/product/product-tabs/product-reviews/product-reviews.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "ProductReviewsComponent"
+            ],
+            "selectors": [
+              "cx-product-reviews"
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/cms-components/product/product-tabs/product-reviews/product-reviews.component.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "ProductReviewsComponent"
+            ],
+            "selectors": [
+              "cx-product-reviews"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "readMoreDirective",
+        "description": "Introduces read more directive for presenting elements with long text.",
+        "affects": [
+          "ProductReviewsComponent"
+        ],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "projects/storefrontlib/cms-components/product/product-tabs/product-reviews/product-reviews.component.html",
+            "pattern": "cx-feature",
+            "negated": true,
+            "symbols": [
+              "ProductReviewsComponent"
+            ],
+            "selectors": [
+              "cx-product-reviews"
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/cms-components/product/product-tabs/product-reviews/product-reviews.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "ProductReviewsComponent"
+            ],
+            "selectors": [
+              "cx-product-reviews"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "reserveHorizontalSpaceStarRating",
+        "description": "Reserve horizontal space for Star Rating component to prevent CLS on PDP.\nWhen enabled, the `cx-star-rating` component will reserve horizontal space for the star rating component to prevent CLS on PDP\nOtherwise the component has no width initially, and gets wider only after a delay.\nwhen Font Awesome font is loaded and Star icons are rendered.",
+        "affects": [],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "projects/storefrontlib/shared/components/star-rating/star-rating.component.ts",
+            "pattern": "use-feature-styles",
+            "negated": false,
+            "symbols": [
+              "StarRatingComponent"
+            ],
+            "selectors": [
+              "cx-star-rating"
+            ]
+          },
+          {
+            "file": "projects/storefrontstyles/scss/components/product/_star-rating.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "StarRatingComponent"
+            ],
+            "selectors": [
+              "cx-star-rating"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "reserveSpaceForImagesOnPdpAndPlp",
+        "description": "Flag to enable reserving space for product images to prevent CLS (Cumulative Layout Shift) issues.\n\nWhen enabled, it ensures that appropriate space is reserved for images before they load,\nmaintaining layout stability across the following contexts:\n\n- **PDP (Product Detail Page)**: Reserves space for the main product image.\n- **PLP (Product Listing Page) - List View**: Reserves space for each product image in list layout.\n- **PLP (Product Listing Page) - Grid View**: Reserves space for each product image in grid layout.\n\nThis helps improve Core Web Vitals by preventing layout shifts as images load.",
+        "affects": [],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "projects/storefrontlib/cms-components/product/product-images/product-images.component.ts",
+            "pattern": "use-feature-styles",
+            "negated": false,
+            "symbols": [
+              "ProductImagesComponent"
+            ],
+            "selectors": [
+              "cx-product-images"
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/cms-components/product/product-list/container/product-list.component.ts",
+            "pattern": "use-feature-styles",
+            "negated": false,
+            "symbols": [
+              "ProductListComponent"
+            ],
+            "selectors": [
+              "cx-product-list"
+            ]
+          },
+          {
+            "file": "projects/storefrontstyles/scss/components/product/details/_product-images.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "MediaComponent",
+              "ProductImageZoomProductImagesComponent",
+              "ProductImagesComponent"
+            ],
+            "selectors": [
+              "cx-media",
+              "cx-product-images"
+            ]
+          },
+          {
+            "file": "projects/storefrontstyles/scss/components/product/list/_product-grid-item.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "MediaComponent",
+              "ProductGridItemComponent"
+            ],
+            "selectors": [
+              "cx-media",
+              "cx-product-grid-item"
+            ]
+          },
+          {
+            "file": "projects/storefrontstyles/scss/components/product/list/_product-list-item.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "MediaComponent",
+              "ProductListItemComponent",
+              "ProductSummaryComponent",
+              "ProductVariantStyleIconsComponent"
+            ],
+            "selectors": [
+              "cx-media",
+              "cx-product-list-item",
+              "cx-product-summary",
+              "cx-variant-style-icons"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "storeFinderFacadeCleanup",
+        "description": "When enabled, it uses the StoreLocationService for getDirections, getStoreLatitude,\nand getStoreLongitude instead of StoreFinderFacade (deprecated)\nThe logic behind it stays the same",
+        "affects": [
+          "MyPreferredStoreComponent"
+        ],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "feature-libs/pickup-in-store/components/container/my-preferred-store/my-preferred-store.component.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "MyPreferredStoreComponent"
+            ],
+            "selectors": [
+              "cx-my-preferred-store"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "topProgressBarUseTransformAnimation",
+        "description": "Feature flag to enable using `transform: translateX` instead of animating the `margin` property\nfor the top progress bar animation.\n\n## Why this flag exists:\nAnimating the `margin` property has two major downsides:\n\n1. **Cumulative Layout Shift (CLS)**: Changing margin causes layout shifts that negatively impact visual stability.\n2. **Performance impact**: Margin animations trigger browser re-layouts (reflows), increasing layout and paint costs,\n   which contributes to poor performance metrics like Total Blocking Time (TBT).\n\n## When enabled:\nThe top progress bar will animate using `transform: translateX(...)`, which is a GPU-accelerated,\nlayout-independent operation that improves visual performance and avoids layout shifts.",
+        "affects": [],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "projects/storefrontlib/layout/main/storefront.component.ts",
+            "pattern": "use-feature-styles",
+            "negated": false,
+            "symbols": [
+              "StorefrontComponent"
+            ],
+            "selectors": [
+              "cx-storefront"
+            ]
+          },
+          {
+            "file": "projects/storefrontstyles/scss/components/layout/_storefront.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "ParagraphComponent",
+              "StorefrontComponent"
+            ],
+            "selectors": [
+              "cx-paragraph",
+              "cx-storefront"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "unifiedDefaultHeaderSlotsAcrossBreakpoints",
+        "description": "Feature flag to enable consistent header slot structure across breakpoints to reduce\nlayout shift and improve Cumulative Layout Shift (CLS) scores.\n\nOn desktop devices (non-mobile), some header and navigation elements were rendered\nonly after client-side rendering (CSR), resulting in noticeable layout shifts. This negatively\naffected the user experience and CLS performance.\n\nWhen enabled:\n- Desktop uses the same header slot structure as mobile.\n- Reduces layout shift and improves perceived performance and visual stability.\n\n ⚠️ To fully enable this feature, replace `provideConfig(layoutConfig)` in your codebase\nwith `provideConfigFactory(layoutConfigFactory)`.",
+        "affects": [],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "projects/storefrontlib/layout/main/storefront.component.ts",
+            "pattern": "use-feature-styles",
+            "negated": false,
+            "symbols": [
+              "StorefrontComponent"
+            ],
+            "selectors": [
+              "cx-storefront"
+            ]
+          },
+          {
+            "file": "projects/storefrontstyles/scss/components/layout/header/_header.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "LinkComponent",
+              "PageLayoutComponent"
+            ],
+            "selectors": [
+              "cx-link",
+              "cx-page-layout"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "publicApi": {
+    "removed": [
+      {
+        "entryPoint": "@spartacus/asm/assets",
+        "name": "asmTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/asm/customer-360/assets",
+        "name": "asmCustomer360Translations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/cart/base/assets",
+        "name": "cartBaseTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/cart/import-export/assets",
+        "name": "importExportTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/cart/quick-order/assets",
+        "name": "quickOrderTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/cart/saved-cart/assets",
+        "name": "savedCartTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/cart/wish-list/assets",
+        "name": "wishListTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/cdc/assets",
+        "name": "cdcTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/cdc/root",
+        "name": "CDC_USER_PREFERENCE_SERIALIZER",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/cdc/root",
+        "name": "CdcUserPreferenceSerializer",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/cds",
+        "name": "cdsTranslationChunksConfig",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/cds",
+        "name": "cdsTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/cds/assets",
+        "name": "cdsTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/checkout/b2b/assets",
+        "name": "checkoutB2BTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/checkout/base/assets",
+        "name": "checkoutTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/checkout/scheduled-replenishment/assets",
+        "name": "checkoutScheduledReplenishmentTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/core",
+        "name": "defaultUserCmsModuleConfig",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/core",
+        "name": "SMART_EDIT_DUMMY_COMPONENT_TYPE",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/core",
+        "name": "USER_CMS_ENDPOINTS",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/cpq-quote/assets",
+        "name": "cpqquoteTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/customer-ticketing/assets",
+        "name": "customerTicketingTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/digital-payments/assets",
+        "name": "dpTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/epd-visualization/assets",
+        "name": "epdVisualizationTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/estimated-delivery-date/assets",
+        "name": "estimatedDeliveryDateTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/opf/checkout/assets",
+        "name": "opfCheckoutTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/opf/payment/assets",
+        "name": "opfPaymentTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/order/assets",
+        "name": "orderTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/order/document-flow/assets",
+        "name": "documentFlowTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/organization/account-summary/assets",
+        "name": "accountSummaryTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/organization/administration/assets",
+        "name": "organizationTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/organization/order-approval/assets",
+        "name": "orderApprovalTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/organization/unit-order/assets",
+        "name": "unitOrderTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/organization/user-registration/assets",
+        "name": "organizationUserRegistrationTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/pdf-invoices/assets",
+        "name": "pdfInvoicesTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/pickup-in-store/assets",
+        "name": "pickupInStoreTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/product-configurator/common/assets",
+        "name": "configuratorTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/product-multi-dimensional/selector/assets",
+        "name": "multiDimensionalSelectorTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/product/bulk-pricing/assets",
+        "name": "bulkPricingTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/product/future-stock/assets",
+        "name": "futureStockTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/product/image-zoom/assets",
+        "name": "productImageZoomTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/product/variants/assets",
+        "name": "productVariantsTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/quote/assets",
+        "name": "quoteTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/requested-delivery-date/assets",
+        "name": "requestedDeliveryDateTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/s4-service/assets",
+        "name": "s4ServiceTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/s4om/assets",
+        "name": "s4omTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/storefinder/assets",
+        "name": "storeFinderTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/storefront",
+        "name": "USE_LEGACY_MEDIA_COMPONENT",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/user/account/assets",
+        "name": "userAccountTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/user/profile/assets",
+        "name": "userProfileTranslations",
+        "kind": "variable"
+      }
+    ],
+    "moved": [],
+    "changed": [
+      {
+        "entryPoint": "@spartacus/asm/components",
+        "name": "AsmBindCartComponent",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "featureConfig",
+            "before": "inject(FeatureConfigService)",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/asm/components",
+        "name": "CustomerEmulationComponent",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "featureConfig",
+            "before": "inject(FeatureConfigService)",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/asm/components",
+        "name": "CustomerSelectionComponent",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "featureConfig",
+            "before": "inject(FeatureConfigService)",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/asm/root",
+        "name": "AsmConfig",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-changed",
+            "member": "asm",
+            "before": "{agentSessionTimer?: {startingDelayInSeconds?: number}; customerSearch?: {maxResults?: number}; customerList?: {pageSize?: number; showAvatar?: boolean; columns?: {headerLocalizationKey: string; icon?: {symbol?: ICON_TYPE; captionLocalizationKey?: string}; renderer?: (customer: User) => string; actionType?: CustomerListColumnActionType}[]}; userIdHttpHeader?: {enable?: boolean}}",
+            "after": "{agentSessionTimer?: {startingDelayInSeconds?: number}; customerSearch?: {maxResults?: number}; customerList?: {pageSize?: number; showAvatar?: boolean; columns?: {headerLocalizationKey: string; icon?: {symbol?: ICON_TYPE; captionLocalizationKey?: string}; renderer?: (customer: User) => string; actionType?: CustomerListColumnActionType}[]}; asmSessionSupport?: {enabled?: boolean}; userIdHttpHeader?: {enable?: boolean}; createCustomer?: {enable?: boolean}}"
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/cart/base/components",
+        "name": "CartCouponComponent",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "featureConfigService",
+            "before": "inject(FeatureConfigService, {optional: true})",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/cart/base/components",
+        "name": "CartProceedToCheckoutComponent",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "constructor-changed",
+            "member": null,
+            "before": "(router: Router, cd?: ChangeDetectorRef) | (router: Router)",
+            "after": "(router: Router, cd?: ChangeDetectorRef)"
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/cdc/root",
+        "name": "CdcUserConsentService",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "updateCdcConsent",
+            "before": "(isConsentGranted: boolean, consentCodes: string[], user?: string, regToken?: string): Observable<{errorCode: number; errorMessage: string}>",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/cdc/user-account",
+        "name": "CdcReconsentComponent",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "totalConsents",
+            "before": "number",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/cdc/user-account",
+        "name": "CdcReconsentComponentService",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "saveConsentAndLogin",
+            "before": "(consentId: string[], userParams: any)",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/cdc/user-profile",
+        "name": "CDCRegisterComponentService",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "generatePreferencesObject",
+            "before": "(): any",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/checkout/base/components",
+        "name": "CheckoutDeliveryAddressComponent",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "featureConfigService",
+            "before": "inject(FeatureConfigService, {optional: true})",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/checkout/base/components",
+        "name": "CheckoutPaymentMethodComponent",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "featureConfigService",
+            "before": "inject(FeatureConfigService, {optional: true})",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/core",
+        "name": "FeatureStylesService",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "featureConfig",
+            "before": "inject(FeatureConfigService)",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/core",
+        "name": "OccCmsComponentAdapter",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "featureConfigService",
+            "before": "inject(FeatureConfigService)",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/core",
+        "name": "OccCmsPageAdapter",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "featureConfigService",
+            "before": "inject(FeatureConfigService)",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/customer-ticketing/components",
+        "name": "CustomerTicketingCreateDialogComponent",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "featureService",
+            "before": "inject(FeatureConfigService, {optional: true})",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/opf/base/root",
+        "name": "OpfConfig",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-changed",
+            "member": "opf",
+            "before": "{opfBaseUrl?: string; commerceCloudPublicKey?: string; paymentOption?: {paymentInfoMessagesMap?: Record<number, string>; enableInfoMessage?: boolean}; localPspResources?: Record<number, {jsFiles: string[]; cssFiles: string[]}>}",
+            "after": "{opfBaseUrl?: string; commerceCloudPublicKey?: string; paymentOption?: {paymentInfoMessagesMap?: Record<number, string>; enableInfoMessage?: boolean; iframeSandboxMap?: Record<number, string>}; localPspResources?: Record<number, {jsFiles: string[]; cssFiles: string[]}>}"
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/opf/checkout/components",
+        "name": "OpfCheckoutBillingAddressFormService",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "pickupOptionFacade",
+            "before": "inject(PickupOptionFacade)",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/opf/global-functions/core",
+        "name": "OpfGlobalFunctionsService",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-changed",
+            "member": "registerSubmitComplete",
+            "before": "(domain: OpfGlobalFunctionsDomain, paymentSessionId: string, vcr?: ViewContainerRef): void",
+            "after": "(domain: OpfGlobalFunctionsDomain, paymentSessionId?: string, vcr?: ViewContainerRef): void"
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/opf/payment/root",
+        "name": "OpfPaymentGlobalMethods",
+        "kind": "interface",
+        "changes": [
+          {
+            "kind": "member-changed",
+            "member": "submit",
+            "before": "(options: {cartId: string; additionalData: Array<OpfKeyValueMap>; submitSuccess: OpfPaymentMerchantCallback; submitPending: OpfPaymentMerchantCallback; submitFailure: OpfPaymentMerchantCallback; paymentMethod: OpfPaymentMethod}): Promise<boolean>",
+            "after": "(options: {cartId?: string; additionalData: Array<OpfKeyValueMap>; submitSuccess: OpfPaymentMerchantCallback; submitPending: OpfPaymentMerchantCallback; submitFailure: OpfPaymentMerchantCallback; submitCancel?: OpfPaymentMerchantCallback; paymentMethod: OpfPaymentMethod; paymentSessionId?: string}): Promise<boolean>"
+          },
+          {
+            "kind": "member-changed",
+            "member": "submitComplete",
+            "before": "(options: {cartId: string; additionalData: Array<OpfKeyValueMap>; submitSuccess: OpfPaymentMerchantCallback; submitPending: OpfPaymentMerchantCallback; submitFailure: OpfPaymentMerchantCallback}): Promise<boolean>",
+            "after": "(options: {cartId?: string; additionalData: Array<OpfKeyValueMap>; submitSuccess: OpfPaymentMerchantCallback; submitPending: OpfPaymentMerchantCallback; submitFailure: OpfPaymentMerchantCallback; submitCancel?: OpfPaymentMerchantCallback; paymentSessionId?: string}): Promise<boolean>"
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/order/components",
+        "name": "OrderGuestRegisterFormComponent",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "constructor-changed",
+            "member": null,
+            "before": "(userRegisterFacade: UserRegisterFacade, routingService: RoutingService, authService: AuthService, fb: UntypedFormBuilder)",
+            "after": "(userRegisterFacade: UserRegisterFacade, routingService: RoutingService, fb: UntypedFormBuilder)"
+          },
+          {
+            "kind": "member-removed",
+            "member": "subscription",
+            "before": "Subscription",
+            "after": null
+          },
+          {
+            "kind": "member-removed",
+            "member": "ngOnDestroy",
+            "before": "()",
+            "after": null
+          },
+          {
+            "kind": "member-removed",
+            "member": "authService",
+            "before": "AuthService",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/order/components",
+        "name": "ReturnOrderComponent",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "featureConfigService",
+            "before": "inject(FeatureConfigService, {optional: true})",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/organization/administration/components",
+        "name": "UnitAddressItemService",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "featureConfigService",
+            "before": "inject(FeatureConfigService, {optional: true})",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/product-configurator/rulebased",
+        "name": "ConfiguratorAttributeSingleSelectionImageComponent",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "featureConfigService",
+            "before": "inject(FeatureConfigService)",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/setup/ssr",
+        "name": "OptimizedSsrEngine",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "log",
+            "before": "(message: string, _ignoredLegacyDebugParameter?: inferred, context: ExpressServerLoggerContext): void",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/storefinder/components",
+        "name": "StoreFinderStoresCountComponent",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-changed",
+            "member": "routingService",
+            "before": "inject(RoutingService, {optional: true})",
+            "after": "inject(RoutingService)"
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/storefront",
+        "name": "CmsGuardsService",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "featureConfigService",
+            "before": "inject(FeatureConfigService)",
+            "after": null
+          },
+          {
+            "kind": "member-removed",
+            "member": "canActivateGuard",
+            "before": "(guardClass: any, route: CmsActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<GuardResult>",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/storefront",
+        "name": "CustomFormValidators",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "strongPasswordValidator",
+            "before": "(control: AbstractControl): ValidationErrors | null",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/storefront",
+        "name": "FacetComponent",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "featureConfigService",
+            "before": "inject(FeatureConfigService, {optional: true})",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/storefront",
+        "name": "FacetListComponent",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "featureConfigService",
+            "before": "inject(FeatureConfigService, {optional: true})",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/storefront",
+        "name": "MediaComponent",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "isLegacy",
+            "before": "inject(USE_LEGACY_MEDIA_COMPONENT, {optional: true}) || (inject(Config) as any)['useLegacyMediaComponent'] || false",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/storefront",
+        "name": "MediaConfig",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "useLegacyMediaComponent",
+            "before": "boolean",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/storefront",
+        "name": "NavigationUIComponent",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "constructor-changed",
+            "member": null,
+            "before": "(router: Router, renderer: Renderer2, elemRef: ElementRef, hamburgerMenuService: HamburgerMenuService, winRef: WindowRef, featureConfigService?: FeatureConfigService)",
+            "after": "(router: Router, renderer: Renderer2, elemRef: ElementRef, hamburgerMenuService: HamburgerMenuService, winRef: WindowRef)"
+          },
+          {
+            "kind": "member-removed",
+            "member": "getSanitizedTitle",
+            "before": "(title: string | undefined): string | null",
+            "after": null
+          },
+          {
+            "kind": "member-removed",
+            "member": "getAriaLabelAndControl",
+            "before": "(node: NavigationNode): string | null",
+            "after": null
+          },
+          {
+            "kind": "member-removed",
+            "member": "featureConfigService",
+            "before": "FeatureConfigService",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/storefront",
+        "name": "NgSelectA11yDirective",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "onOpen",
+            "before": "()",
+            "after": null
+          },
+          {
+            "kind": "member-removed",
+            "member": "appendAriaLabelToOptions",
+            "before": "(_changes: MutationRecord[], observerInstance: MutationObserver)",
+            "after": null
+          },
+          {
+            "kind": "member-removed",
+            "member": "customizeNgSelectAriaLabelDropdown",
+            "before": "()",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/storefront",
+        "name": "PopoverDirective",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "featureConfigService",
+            "before": "inject(FeatureConfigService, {optional: true})",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/storefront",
+        "name": "SearchBoxComponent",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "changeDetecorRef",
+            "before": "inject(ChangeDetectorRef, {optional: true})",
+            "after": null
+          },
+          {
+            "kind": "member-visibility-changed",
+            "member": "breakpointService",
+            "before": "public",
+            "after": "protected"
+          },
+          {
+            "kind": "member-removed",
+            "member": "featureConfigService",
+            "before": "inject(FeatureConfigService, {optional: true})",
+            "after": null
+          },
+          {
+            "kind": "member-removed",
+            "member": "isEnabledFeature",
+            "before": "(feature: string)",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/storefront",
+        "name": "ThemeService",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "featureConfigService",
+            "before": "inject(FeatureConfigService)",
+            "after": null
+          }
+        ]
+      }
+    ],
+    "deprecated": [],
+    "added": [
+      {
+        "entryPoint": "@spartacus/asm/core",
+        "name": "AsmSessionActions",
+        "kind": "namespace"
+      },
+      {
+        "entryPoint": "@spartacus/asm/root",
+        "name": "AsmSessionCreationOptions",
+        "kind": "interface"
+      },
+      {
+        "entryPoint": "@spartacus/checkout/base/components",
+        "name": "CheckoutReviewOverviewComponent",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/checkout/base/components",
+        "name": "CheckoutReviewOverviewModule",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/checkout/base/components",
+        "name": "CheckoutReviewPaymentComponent",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/checkout/base/components",
+        "name": "CheckoutReviewPaymentModule",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/checkout/base/components",
+        "name": "CheckoutReviewShippingComponent",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/checkout/base/components",
+        "name": "CheckoutReviewShippingModule",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/base/components",
+        "name": "defaultOpfErrorModalLayoutConfig",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/opf/base/components",
+        "name": "OpfErrorModalComponent",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/base/components",
+        "name": "OpfErrorModalModule",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/base/components",
+        "name": "OpfErrorModalService",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/global-functions/root",
+        "name": "defaultOccOpfCartConfig",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/storefront",
+        "name": "TabPanelModule",
+        "kind": "class"
+      }
+    ]
+  },
+  "angular": {
+    "from": "^19.2.15",
+    "to": "^21.1.0"
+  },
+  "cmsComponents": {
+    "AccountAddressBookComponent": [
+      "AddressBookComponent"
+    ],
+    "AccountMyQuotesComponent": [
+      "QuoteListComponent"
+    ],
+    "AccountOrderAttachmentsComponent": [
+      "OrderAttachmentsComponent"
+    ],
+    "AccountOrderDetailsActionsComponent": [
+      "MyAccountV2OrderDetailsActionsComponent",
+      "OrderDetailActionsComponent",
+      "S4ServiceOrderDetailActionsComponent"
+    ],
+    "AccountOrderDetailsApprovalDetailsComponent": [
+      "OrderDetailPermissionResultsComponent"
+    ],
+    "AccountOrderDetailsGroupedItemsComponent": [
+      "OrderDetailItemsComponent"
+    ],
+    "AccountOrderDetailsItemsComponent": [
+      "OrderDetailItemsComponent"
+    ],
+    "AccountOrderDetailsOverviewComponent": [
+      "OrderOverviewComponent"
+    ],
+    "AccountOrderDetailsPDFInvoicesComponent": [
+      "InvoicesListComponent"
+    ],
+    "AccountOrderDetailsReorderComponent": [
+      "OrderDetailReorderComponent"
+    ],
+    "AccountOrderDetailsSimpleOverviewComponent": [
+      "OrderOverviewComponent"
+    ],
+    "AccountOrderDetailsTotalsComponent": [
+      "OrderDetailTotalsComponent"
+    ],
+    "AccountOrderDocumentFlowComponent": [
+      "OrderDocumentFlowComponent"
+    ],
+    "AccountOrderHistoryComponent": [
+      "MyAccountV2OrderHistoryComponent",
+      "OrderHistoryComponent"
+    ],
+    "AccountPaymentDetailsComponent": [
+      "PaymentMethodsComponent"
+    ],
+    "AccountReplenishmentHistoryComponent": [
+      "ReplenishmentOrderHistoryComponent"
+    ],
+    "AccountSavedCartHistoryComponent": [
+      "SavedCartListComponent"
+    ],
+    "AccountSummaryDocumentComponent": [
+      "AccountSummaryDocumentComponent"
+    ],
+    "AccountSummaryHeaderComponent": [
+      "AccountSummaryHeaderComponent"
+    ],
+    "AddToSavedCartsComponent": [
+      "AddToSavedCartComponent"
+    ],
+    "AddToWishListComponent": [
+      "AddToWishListComponent"
+    ],
+    "AnonymousConsentManagementBannerComponent": [
+      "AnonymousConsentManagementBannerComponent"
+    ],
+    "AnonymousConsentOpenDialogComponent": [
+      "AnonymousConsentOpenDialogComponent"
+    ],
+    "BannerComponent": [
+      "BannerComponent"
+    ],
+    "BreadcrumbComponent": [
+      "BreadcrumbComponent"
+    ],
+    "BulkPricingTableComponent": [
+      "BulkPricingTableComponent"
+    ],
+    "CancelOrderComponent": [
+      "CancelOrderComponent"
+    ],
+    "CancelOrderConfirmationComponent": [
+      "CancelOrderConfirmationComponent"
+    ],
+    "CancelServiceOrder": [
+      "CancelServiceOrderComponent"
+    ],
+    "CancelServiceOrderHeadline": [
+      "CancelServiceOrderHeadlineComponent"
+    ],
+    "CartApplyCouponComponent": [
+      "CartCouponComponent"
+    ],
+    "CartComponent": [
+      "CartDetailsComponent"
+    ],
+    "CartProceedToCheckoutComponent": [
+      "CartProceedToCheckoutComponent"
+    ],
+    "CartQuickOrderFormComponent": [
+      "CartQuickOrderFormComponent"
+    ],
+    "CartTotalsComponent": [
+      "CartTotalsComponent"
+    ],
+    "CategoryNavigationComponent": [
+      "CategoryNavigationComponent"
+    ],
+    "CheckoutCostCenterComponent": [
+      "CheckoutCostCenterComponent"
+    ],
+    "CheckoutDeliveryAddress": [
+      "B2BCheckoutDeliveryAddressComponent",
+      "CheckoutDeliveryAddressComponent"
+    ],
+    "CheckoutDeliveryMode": [
+      "CheckoutDeliveryModeComponent",
+      "ServiceCheckoutDeliveryModeComponent"
+    ],
+    "CheckoutOrchestrator": [
+      "CheckoutOrchestratorComponent"
+    ],
+    "CheckoutOrderSummary": [
+      "CheckoutOrderSummaryComponent"
+    ],
+    "CheckoutPaymentDetails": [
+      "CheckoutPaymentMethodComponent",
+      "DpPaymentMethodComponent"
+    ],
+    "CheckoutPaymentType": [
+      "CheckoutPaymentTypeComponent"
+    ],
+    "CheckoutPlaceOrder": [
+      "CheckoutPlaceOrderComponent",
+      "CheckoutScheduledReplenishmentPlaceOrderComponent"
+    ],
+    "CheckoutProgress": [
+      "CheckoutProgressComponent"
+    ],
+    "CheckoutProgressMobileBottom": [
+      "CheckoutProgressMobileBottomComponent"
+    ],
+    "CheckoutProgressMobileTop": [
+      "CheckoutProgressMobileTopComponent"
+    ],
+    "CheckoutReviewOrder": [
+      "B2BCheckoutReviewSubmitComponent",
+      "CheckoutReviewSubmitComponent",
+      "ServiceCheckoutReviewSubmitComponent"
+    ],
+    "CheckoutReviewOverview": [
+      "CheckoutReviewOverviewComponent"
+    ],
+    "CheckoutReviewPayment": [
+      "CheckoutReviewPaymentComponent"
+    ],
+    "CheckoutReviewPickup": [
+      "PickUpItemsDetailsComponent"
+    ],
+    "CheckoutReviewShipping": [
+      "CheckoutReviewShippingComponent"
+    ],
+    "CheckoutScheduleReplenishmentOrder": [
+      "CheckoutScheduleReplenishmentOrderComponent"
+    ],
+    "CheckoutServiceDetails": [
+      "CheckoutServiceDetailsComponent"
+    ],
+    "ClaimDialogComponent": [
+      "ClaimDialogComponent"
+    ],
+    "ClearCartComponent": [
+      "ClearCartComponent"
+    ],
+    "CloseAccountComponent": [
+      "CloseAccountComponent"
+    ],
+    "CMSLinkComponent": [
+      "LinkComponent"
+    ],
+    "CMSParagraphComponent": [
+      "ParagraphComponent"
+    ],
+    "CMSProductListComponent": [
+      "ProductListComponent"
+    ],
+    "CMSSiteContextComponent": [
+      "SiteContextSelectorComponent"
+    ],
+    "CMSTabParagraphComponent": [
+      "ParagraphComponent"
+    ],
+    "CMSTabParagraphContainer": [
+      "TabParagraphContainerComponent"
+    ],
+    "ConfiguratorAddToCartButton": [
+      "ConfiguratorAddToCartButtonComponent"
+    ],
+    "ConfiguratorExitButton": [
+      "ConfiguratorExitButtonComponent"
+    ],
+    "ConfiguratorForm": [
+      "ConfiguratorFormComponent",
+      "ConfiguratorGroupComponent"
+    ],
+    "ConfiguratorGroupTitle": [
+      "ConfiguratorGroupTitleComponent"
+    ],
+    "ConfiguratorMenu": [
+      "ConfiguratorGroupMenuComponent"
+    ],
+    "ConfiguratorOverviewBanner": [
+      "ConfiguratorOverviewNotificationBannerComponent"
+    ],
+    "ConfiguratorOverviewFilterButton": [
+      "ConfiguratorOverviewFilterButtonComponent"
+    ],
+    "ConfiguratorOverviewForm": [
+      "ConfiguratorOverviewFormComponent"
+    ],
+    "ConfiguratorOverviewSidebar": [
+      "ConfiguratorOverviewSidebarComponent"
+    ],
+    "ConfiguratorPrevNext": [
+      "ConfiguratorPreviousNextButtonsComponent"
+    ],
+    "ConfiguratorPriceSummary": [
+      "ConfiguratorPriceSummaryComponent"
+    ],
+    "ConfiguratorProductTitle": [
+      "ConfiguratorProductTitleComponent"
+    ],
+    "ConfiguratorTabBar": [
+      "ConfiguratorTabBarComponent"
+    ],
+    "ConfiguratorUpdateMessage": [
+      "ConfiguratorUpdateMessageComponent"
+    ],
+    "ConfiguratorVariantCarousel": [
+      "ConfiguratorVariantCarouselComponent"
+    ],
+    "ConfigureProductComponent": [
+      "ConfigureProductComponent"
+    ],
+    "ConsentManagementComponent": [
+      "MyAccountV2ConsentManagementComponent",
+      "ConsentManagementComponent"
+    ],
+    "CouponClaimComponent": [
+      "CouponClaimComponent"
+    ],
+    "CpqConfiguratorConflictAndErrorMessagesComponent": [
+      "ConfiguratorConflictAndErrorMessagesComponent"
+    ],
+    "ExportOrderEntriesComponent": [
+      "ExportOrderEntriesComponent"
+    ],
+    "FooterNavigationComponent": [
+      "FooterNavigationComponent"
+    ],
+    "ForgotPasswordComponent": [
+      "ForgotPasswordComponent"
+    ],
+    "FutureStockComponent": [
+      "FutureStockAccordionComponent"
+    ],
+    "GigyaRaasComponent": [
+      "GigyaRaasComponent"
+    ],
+    "GuestCheckoutLoginComponent": [
+      "CheckoutLoginComponent"
+    ],
+    "HamburgerMenuComponent": [
+      "HamburgerMenuComponent"
+    ],
+    "ImportExportOrderEntriesComponent": [
+      "ImportExportOrderEntriesComponent"
+    ],
+    "ImportOrderEntriesComponent": [
+      "ImportOrderEntriesComponent"
+    ],
+    "LanguageCurrencyComponent": [
+      "LanguageCurrencyComponent"
+    ],
+    "LoginComponent": [
+      "LoginComponent"
+    ],
+    "ManageAccountSummaryListComponent": [
+      "AccountSummaryListComponent"
+    ],
+    "ManageBudgetsListComponent": [
+      "ListComponent"
+    ],
+    "ManageCostCentersListComponent": [
+      "ListComponent"
+    ],
+    "ManagePermissionsListComponent": [
+      "ListComponent"
+    ],
+    "ManageUnitsListComponent": [
+      "UnitListComponent"
+    ],
+    "ManageUserGroupsListComponent": [
+      "ListComponent"
+    ],
+    "ManageUsersListComponent": [
+      "ListComponent"
+    ],
+    "MerchandisingCarouselComponent": [
+      "MerchandisingCarouselComponent"
+    ],
+    "MiniCartComponent": [
+      "MiniCartComponent"
+    ],
+    "MyAccountSideNavigationComponent": [
+      "MyAccountV2NavigationComponent"
+    ],
+    "MyAccountViewOrderComponent": [
+      "MyAccountV2OrdersComponent"
+    ],
+    "MyAccountViewRequestsComponent": [
+      "MyAccountV2CustomerTicketingComponent"
+    ],
+    "MyAccountViewUserComponent": [
+      "MyAccountV2UserComponent"
+    ],
+    "MyCouponsComponent": [
+      "MyCouponsComponent"
+    ],
+    "MyInterestsComponent": [
+      "MyInterestsComponent"
+    ],
+    "MyPreferredStoreComponent": [
+      "MyPreferredStoreComponent"
+    ],
+    "NavigationComponent": [
+      "NavigationComponent"
+    ],
+    "NotificationPreferenceComponent": [
+      "MyAccountV2NotificationPreferenceComponent",
+      "NotificationPreferenceComponent"
+    ],
+    "OpfB2bCheckoutPaymentAndReview": [
+      "OpfB2bCheckoutPaymentAndReviewComponent"
+    ],
+    "OpfCheckoutDeliveryAddress": [
+      "OpfB2bCheckoutDeliveryAddressComponent"
+    ],
+    "OpfCheckoutEmailUpdateComponent": [
+      "OpfCheckoutEmailUpdateComponent"
+    ],
+    "OpfCheckoutPaymentAndReview": [
+      "OpfCheckoutPaymentAndReviewComponent"
+    ],
+    "OpfCheckoutPaymentType": [
+      "OpfB2bCheckoutPaymentTypeComponent"
+    ],
+    "OpfCheckoutReview": [
+      "OpfB2bCheckoutReviewComponent"
+    ],
+    "OpfCtaScriptsComponent": [
+      "OpfCtaScriptsComponent"
+    ],
+    "OpfQuickBuyButtonsComponent": [
+      "OpfQuickBuyButtonsComponent"
+    ],
+    "OrderApprovalDetailApprovalDetailsComponent": [
+      "OrderDetailPermissionResultsComponent"
+    ],
+    "OrderApprovalDetailFormComponent": [
+      "OrderApprovalDetailFormComponent"
+    ],
+    "OrderApprovalDetailItemsComponent": [
+      "OrderDetailItemsComponent"
+    ],
+    "OrderApprovalDetailShippingComponent": [
+      "OrderOverviewComponent"
+    ],
+    "OrderApprovalDetailTotalsComponent": [
+      "OrderDetailTotalsComponent"
+    ],
+    "OrderApprovalListComponent": [
+      "OrderApprovalListComponent"
+    ],
+    "OrderConfirmationBillingComponent": [
+      "OrderDetailBillingComponent"
+    ],
+    "OrderConfirmationItemsComponent": [
+      "OrderConfirmationItemsComponent"
+    ],
+    "OrderConfirmationOverviewComponent": [
+      "OrderOverviewComponent"
+    ],
+    "OrderConfirmationPickUpComponent": [
+      "PickUpItemsDetailsComponent"
+    ],
+    "OrderConfirmationShippingComponent": [
+      "OrderConfirmationShippingComponent"
+    ],
+    "OrderConfirmationThankMessageComponent": [
+      "OrderConfirmationThankYouMessageComponent"
+    ],
+    "OrderConfirmationTotalsComponent": [
+      "OrderConfirmationTotalsComponent"
+    ],
+    "OrderReturnRequestListComponent": [
+      "OrderReturnRequestListComponent"
+    ],
+    "OrganizationUserRegistrationComponent": [
+      "UserRegistrationFormComponent"
+    ],
+    "PageTitleComponent": [
+      "PageTitleComponent"
+    ],
+    "PDFDocumentComponent": [
+      "PDFComponent"
+    ],
+    "PickupInStoreDeliveryModeComponent": [
+      "PickUpItemsDetailsComponent"
+    ],
+    "ProductAddToCartComponent": [
+      "AddToCartComponent"
+    ],
+    "ProductCarouselComponent": [
+      "ProductCarouselComponent"
+    ],
+    "ProductDetailsTabComponent": [
+      "ProductDetailsTabComponent"
+    ],
+    "ProductGridComponent": [
+      "ProductListComponent"
+    ],
+    "ProductImagesComponent": [
+      "ProductImageZoomProductImagesComponent",
+      "ProductImagesComponent"
+    ],
+    "ProductIntroComponent": [
+      "ProductIntroComponent"
+    ],
+    "ProductMultiDimensionalSelectorComponent": [
+      "ProductMultiDimensionalSelectorComponent"
+    ],
+    "ProductReferencesComponent": [
+      "ProductReferencesComponent"
+    ],
+    "ProductRefinementComponent": [
+      "ProductFacetNavigationComponent"
+    ],
+    "ProductReviewsTabComponent": [
+      "ProductReviewsComponent"
+    ],
+    "ProductSpecsTabComponent": [
+      "ProductAttributesComponent"
+    ],
+    "ProductSummaryComponent": [
+      "ProductSummaryComponent"
+    ],
+    "ProductVariantSelectorComponent": [
+      "ProductVariantsContainerComponent"
+    ],
+    "ProfileTagComponent": [
+      "ProfileTagComponent"
+    ],
+    "PunchoutButtonsComponent": [
+      "PunchoutButtonsComponent"
+    ],
+    "PunchoutCloseSessionComponent": [
+      "PunchoutCloseSessionComponent"
+    ],
+    "PunchoutErrorComponent": [
+      "PunchoutErrorComponent"
+    ],
+    "PunchoutInspectCartComponent": [
+      "PunchoutInspectCartComponent"
+    ],
+    "PunchoutRequisitionComponent": [
+      "PunchoutRequisitionComponent"
+    ],
+    "PunchoutSessionComponent": [
+      "PunchoutSessionComponent"
+    ],
+    "QualtricsComponent": [
+      "QualtricsComponent"
+    ],
+    "QualtricsEmbeddedFeedbackComponent": [
+      "QualtricsEmbeddedFeedbackComponent"
+    ],
+    "QuickOrderComponent": [
+      "QuickOrderComponent"
+    ],
+    "QuoteCartGuardComponent": [
+      "QuoteCartGuardComponent"
+    ],
+    "QuoteCommentsComponent": [
+      "QuoteCommentsComponent"
+    ],
+    "QuoteHeaderOverviewComponent": [
+      "QuoteHeaderOverviewComponent"
+    ],
+    "QuoteItemsComponent": [
+      "QuoteItemsComponent"
+    ],
+    "QuoteLinksComponent": [
+      "QuoteLinksComponent"
+    ],
+    "QuoteRequestComponent": [
+      "QuoteRequestButtonComponent"
+    ],
+    "QuoteSummaryComponent": [
+      "QuoteSummaryComponent"
+    ],
+    "RegisterB2BCustomerWithOTPComponent": [
+      "UserRegistrationOTPFormComponent"
+    ],
+    "RegisterCustomerComponent": [
+      "RegisterComponent"
+    ],
+    "RegisterCustomerWithOTPComponent": [
+      "OneTimePasswordRegisterComponent"
+    ],
+    "ReplenishmentConfirmationItemsComponent": [
+      "OrderConfirmationItemsComponent"
+    ],
+    "ReplenishmentConfirmationMessageComponent": [
+      "OrderConfirmationThankYouMessageComponent"
+    ],
+    "ReplenishmentConfirmationOverviewComponent": [
+      "OrderOverviewComponent"
+    ],
+    "ReplenishmentConfirmationTotalsComponent": [
+      "OrderConfirmationTotalsComponent"
+    ],
+    "ReplenishmentDetailActionsComponent": [
+      "ReplenishmentOrderCancellationComponent"
+    ],
+    "ReplenishmentDetailItemsComponent": [
+      "OrderDetailItemsComponent"
+    ],
+    "ReplenishmentDetailOrderHistoryComponent": [
+      "OrderHistoryComponent"
+    ],
+    "ReplenishmentDetailShippingComponent": [
+      "OrderOverviewComponent"
+    ],
+    "ReplenishmentDetailTotalsComponent": [
+      "OrderDetailTotalsComponent"
+    ],
+    "RescheduleServiceOrder": [
+      "RescheduleServiceOrderComponent"
+    ],
+    "ResetPasswordComponent": [
+      "ResetPasswordComponent"
+    ],
+    "ReturningCustomerLoginComponent": [
+      "LoginFormComponent"
+    ],
+    "ReturningCustomerOTPLoginComponent": [
+      "OneTimePasswordLoginFormComponent"
+    ],
+    "ReturningCustomerRegisterComponent": [
+      "LoginRegisterComponent"
+    ],
+    "ReturnOrderComponent": [
+      "ReturnOrderComponent"
+    ],
+    "ReturnOrderConfirmationComponent": [
+      "ReturnOrderConfirmationComponent"
+    ],
+    "ReturnRequestItemsComponent": [
+      "ReturnRequestItemsComponent"
+    ],
+    "ReturnRequestOverviewComponent": [
+      "ReturnRequestOverviewComponent"
+    ],
+    "ReturnRequestTotalsComponent": [
+      "ReturnRequestTotalsComponent"
+    ],
+    "RotatingImagesComponent": [
+      "BannerCarouselComponent"
+    ],
+    "SavedCartDetailsActionComponent": [
+      "SavedCartDetailsActionComponent"
+    ],
+    "SavedCartDetailsItemsComponent": [
+      "SavedCartDetailsItemsComponent"
+    ],
+    "SavedCartDetailsOverviewComponent": [
+      "SavedCartDetailsOverviewComponent"
+    ],
+    "SaveForLaterComponent": [
+      "SaveForLaterComponent"
+    ],
+    "ScrollToTopComponent": [
+      "ScrollToTopComponent"
+    ],
+    "SearchBoxComponent": [
+      "SearchBoxComponent"
+    ],
+    "SearchResultsListComponent": [
+      "ProductListComponent"
+    ],
+    "SimpleBannerComponent": [
+      "BannerComponent"
+    ],
+    "SimpleResponsiveBannerComponent": [
+      "BannerComponent"
+    ],
+    "SiteThemeSwitcherComponent": [
+      "SiteThemeSwitcherComponent"
+    ],
+    "StockNotificationComponent": [
+      "StockNotificationComponent"
+    ],
+    "StoreFinderComponent": [
+      "StoreFinderComponent"
+    ],
+    "SubscriptionDetailsComponent": [
+      "SubscriptionDetailsComponent"
+    ],
+    "SubscriptionHistoryComponent": [
+      "SubscriptionListComponent"
+    ],
+    "SubscriptionProductPriceComponent": [
+      "SubscriptionProductPriceComponent"
+    ],
+    "SupportTicketCloseComponent": [
+      "CustomerTicketingCloseComponent"
+    ],
+    "SupportTicketDetailsComponent": [
+      "CustomerTicketingDetailsComponent"
+    ],
+    "SupportTicketHistoryComponent": [
+      "CustomerTicketingListComponent"
+    ],
+    "SupportTicketReopenComponent": [
+      "CustomerTicketingReopenComponent"
+    ],
+    "SupportTicketUpdateComponent": [
+      "CustomerTicketingMessagesComponent"
+    ],
+    "TextfieldConfigurationForm": [
+      "ConfiguratorTextfieldFormComponent"
+    ],
+    "UnitLevelOrderDetailsItemsComponent": [
+      "OrderDetailItemsComponent"
+    ],
+    "UnitLevelOrderDetailsOverviewComponent": [
+      "UnitLevelOrderOverviewComponent"
+    ],
+    "UnitLevelOrderDetailsTotalsComponent": [
+      "OrderDetailTotalsComponent"
+    ],
+    "UnitLevelOrderHistoryComponent": [
+      "UnitLevelOrderHistoryComponent"
+    ],
+    "UpdateEmailComponent": [
+      "MyAccountV2EmailComponent",
+      "UpdateEmailComponent"
+    ],
+    "UpdatePasswordComponent": [
+      "MyAccountV2PasswordComponent",
+      "UpdatePasswordComponent"
+    ],
+    "UpdateProfileComponent": [
+      "MyAccountV2ProfileComponent",
+      "UpdateProfileComponent"
+    ],
+    "VerifyOTPForB2BRegistrationComponent": [
+      "RegisterVerificationTokenFormComponent"
+    ],
+    "VerifyOTPForRegistrationComponent": [
+      "RegistrationVerificationTokenFormComponent"
+    ],
+    "VerifyOTPTokenComponent": [
+      "VerificationTokenFormComponent"
+    ],
+    "VideoComponent": [
+      "VideoComponent"
+    ],
+    "VisualPickingTabComponent": [
+      "VisualPickingTabComponent"
+    ],
+    "WishListComponent": [
+      "WishListComponent"
+    ]
+  },
+  "commits": [
+    {
+      "sha": "d564d00980ef711d642f6d47a3ca66ed79af579a",
+      "type": "docs",
+      "scope": null,
+      "subject": "(CXSPA-12069) Typescript manual docs updates",
+      "jiraIds": [
+        "CXSPA-12069"
+      ],
+      "pullRequest": 21127
+    },
+    {
+      "sha": "70bc432142621a74b3509c1c7900b323fc658095",
+      "type": "fix",
+      "scope": null,
+      "subject": "move back storefrontapp occ config to 'app.module.ts', and restore b2b- and b2c-configuration.module.ts",
+      "jiraIds": [],
+      "pullRequest": 21120
+    },
+    {
+      "sha": "83e8f35ee93f11aa22ef38d3a84722d69ce18dde",
+      "type": "chore",
+      "scope": null,
+      "subject": "generate breaking changes docs",
+      "jiraIds": [],
+      "pullRequest": 21110
+    },
+    {
+      "sha": "b4871991dfc8366188c0d26d218a6a2fd535f36f",
+      "type": "docs",
+      "scope": null,
+      "subject": "Provide breaking changes related to angular upgrade",
+      "jiraIds": [],
+      "pullRequest": 21087
+    },
+    {
+      "sha": "6e30604f321941c685a8d7a83a0766cd9bc7bc1b",
+      "type": "refactor",
+      "scope": null,
+      "subject": "(CXSPA-12031) Remove deprecated big translations objects in favor of language-specific one",
+      "jiraIds": [
+        "CXSPA-12031"
+      ],
+      "pullRequest": 21119
+    },
+    {
+      "sha": "d3399906489d75feaf79f631ceec70a05ddc7a37",
+      "type": "chore",
+      "scope": null,
+      "subject": "removed the deprecated 'OptimizedSsrEngine.log' method in favor of 'this.logger'",
+      "jiraIds": [],
+      "pullRequest": 21117
+    },
+    {
+      "sha": "c87afb70d6ddbe5943ebc2e0663aabb39cbdad3d",
+      "type": "docs",
+      "scope": null,
+      "subject": "Migration - adjustments",
+      "jiraIds": [],
+      "pullRequest": 21111
+    },
+    {
+      "sha": "194b262bc8378e8d26dbebf31832d641bdcdee15",
+      "type": "fix",
+      "scope": null,
+      "subject": "CXSPA-12025 Add 'build:ssr' script to package.json for CCv2 compatibility",
+      "jiraIds": [
+        "CXSPA-12025"
+      ],
+      "pullRequest": 21106
+    },
+    {
+      "sha": "cf77211722455508f19a97f8d1fa8afa38070849",
+      "type": "chore",
+      "scope": null,
+      "subject": "Remove deprecated media token",
+      "jiraIds": [],
+      "pullRequest": 21104
+    },
+    {
+      "sha": "735384a2e460155eabec70de5c4bbf575ab8ddcf",
+      "type": "docs",
+      "scope": null,
+      "subject": "CXSPA-12009 Migration - adjust docs and mark manual steps as fallback",
+      "jiraIds": [
+        "CXSPA-12009"
+      ],
+      "pullRequest": 21103
+    },
+    {
+      "sha": "14c09286beab0087075db39dc0f79ef5c2a1a047",
+      "type": "docs",
+      "scope": null,
+      "subject": "(CXSPA-11970) Migration docs - provide info about bumped libraries",
+      "jiraIds": [
+        "CXSPA-11970"
+      ],
+      "pullRequest": 21097
+    },
+    {
+      "sha": "b67aaf92c089d4539f640cdd8fe5f8098b9958ec",
+      "type": "chore",
+      "scope": null,
+      "subject": "Bump tar to v7.5.7",
+      "jiraIds": [],
+      "pullRequest": 21102
+    },
+    {
+      "sha": "3ec07e32e40d984b8c2b82188f537c1a535fe150",
+      "type": "fix",
+      "scope": null,
+      "subject": "width of icon in card",
+      "jiraIds": [],
+      "pullRequest": 21098
+    },
+    {
+      "sha": "281e59034d056772bc4a65e988a6b0eca46dfb94",
+      "type": "fix",
+      "scope": null,
+      "subject": "Rating stars wrapped to new line",
+      "jiraIds": [],
+      "pullRequest": 21095
+    },
+    {
+      "sha": "0ae032f0709314aa89d4d7993fade564cbe06620",
+      "type": "fix",
+      "scope": null,
+      "subject": "add padding for large screens in future stock accordion",
+      "jiraIds": [],
+      "pullRequest": 21099
+    },
+    {
+      "sha": "4ff05b5fb41e300337abb8d03f8408bdf508d838",
+      "type": "docs",
+      "scope": null,
+      "subject": "add migration instructions for enabling non-destructive hydration in SSR applications",
+      "jiraIds": [],
+      "pullRequest": 21064
+    },
+    {
+      "sha": "ddc7ba73904a03797f328d5b80ad394bd53c5b30",
+      "type": "feat",
+      "scope": null,
+      "subject": "CXSPA-11713 Migration - handle `provideZoneChangeDetection`",
+      "jiraIds": [
+        "CXSPA-11713"
+      ],
+      "pullRequest": 21090
+    },
+    {
+      "sha": "992e8cc482db488ebb03460b1bb34724279d4a83",
+      "type": "refactor",
+      "scope": null,
+      "subject": "(CXSPA-11969) \"Un-deprecate\" a11y toggles for Feb release",
+      "jiraIds": [
+        "CXSPA-11969"
+      ],
+      "pullRequest": 21094
+    },
+    {
+      "sha": "88ba15e10a31e78af2e53c6e554917b5bc9c22c0",
+      "type": "docs",
+      "scope": null,
+      "subject": "Added breaking changes for CDC services",
+      "jiraIds": [],
+      "pullRequest": 21093
+    },
+    {
+      "sha": "9c3a96b5c637375a88d1e924abd3c49ebda87556",
+      "type": "feat",
+      "scope": null,
+      "subject": "CXSPA-11614 Update tsconfig.json in migrated apps",
+      "jiraIds": [
+        "CXSPA-11614"
+      ],
+      "pullRequest": 21065
+    },
+    {
+      "sha": "29b9b6ddeb34557460d83e78ba77549de02e8a0a",
+      "type": "chore",
+      "scope": null,
+      "subject": "Angular 21.1 - cleanup",
+      "jiraIds": [],
+      "pullRequest": 21085
+    },
+    {
+      "sha": "6622a52921085dfd950aec9a482952043b4cdfd6",
+      "type": "feat",
+      "scope": null,
+      "subject": "use standalone-friendly bootstrapApplication Angular API instead of bootstrapModule",
+      "jiraIds": [],
+      "pullRequest": 21059
+    },
+    {
+      "sha": "a7085407af428e382d8ff84b4bf8d33b2c8f029a",
+      "type": "feat",
+      "scope": null,
+      "subject": "CXSPA-11736 Migration - upgrade Express to v5.1.0, adjust server.ts",
+      "jiraIds": [
+        "CXSPA-11736"
+      ],
+      "pullRequest": 21063
+    },
+    {
+      "sha": "61da2f376364949b9ce0a53c1bce60bf9128dc88",
+      "type": "chore",
+      "scope": null,
+      "subject": "(CXSPA-11949) [BEFORE DF] Migration docs for breaking changes",
+      "jiraIds": [
+        "CXSPA-11949"
+      ],
+      "pullRequest": 21057
+    },
+    {
+      "sha": "bd796a7bcaffc869195a0111c7ecf53b1ebdcc1d",
+      "type": "fix",
+      "scope": null,
+      "subject": "Missing 'provideServerRendering' in fresh apps",
+      "jiraIds": [],
+      "pullRequest": 21079
+    },
+    {
+      "sha": "87eceabad543f666b3cd2af134cdc07c1393015d",
+      "type": "chore",
+      "scope": null,
+      "subject": "Bump lodash to 4.17.23 - backport to release branch",
+      "jiraIds": [],
+      "pullRequest": 21069
+    },
+    {
+      "sha": "cfcebfb0755de29830cc7f116614c70098f6424b",
+      "type": "chore",
+      "scope": null,
+      "subject": "Update Angular dependencies to v21.1.0",
+      "jiraIds": [],
+      "pullRequest": 21060
+    },
+    {
+      "sha": "5982682b2f0153b513bab4f3145d9c728f70e28f",
+      "type": "refactor",
+      "scope": null,
+      "subject": "make featureConfigService usages private",
+      "jiraIds": [],
+      "pullRequest": 21055
+    },
+    {
+      "sha": "cca09111838c74f2b722853c2607bead32eb5ef4",
+      "type": "chore",
+      "scope": null,
+      "subject": "Update Spartacus version to 221121.7.0-1",
+      "jiraIds": [],
+      "pullRequest": 21053
+    },
+    {
+      "sha": "7b554a6d0a1fbd27273b28b6c66f543137acd42c",
+      "type": "chore",
+      "scope": null,
+      "subject": "remove old major-version migration schematics for versions v3-v6 (but leave v2211+)",
+      "jiraIds": [],
+      "pullRequest": 21046
+    },
+    {
+      "sha": "1c259ce01da8a957ab8f4d0b8b3053e1eb148222",
+      "type": "fix",
+      "scope": null,
+      "subject": "Update address data to be taken from the API call",
+      "jiraIds": [],
+      "pullRequest": null
+    },
+    {
+      "sha": "f6372aebc2b88f3caf868c73d95740372e682740",
+      "type": "fix",
+      "scope": null,
+      "subject": "Future stock accordion breaks unique ID rule",
+      "jiraIds": [],
+      "pullRequest": 21033
+    },
+    {
+      "sha": "2d73af6f15a9295b06598ebdcf8b86c35c00d566",
+      "type": "chore",
+      "scope": null,
+      "subject": "Update hono package to v4.11.4",
+      "jiraIds": [],
+      "pullRequest": 21042
+    },
+    {
+      "sha": "ccd6d576ef7d8736265742f9a75ebc72844ef2ca",
+      "type": "chore",
+      "scope": null,
+      "subject": "Update installation script config to use 'develop' branch",
+      "jiraIds": [],
+      "pullRequest": 21037
+    },
+    {
+      "sha": "8d8a29c54fc83943257e65ab4d7713748bf29052",
+      "type": "feat",
+      "scope": null,
+      "subject": "CXSPA-11613 Migration - removal of obsolete 'index' property from 'angular.json'",
+      "jiraIds": [
+        "CXSPA-11613"
+      ],
+      "pullRequest": 20954
+    },
+    {
+      "sha": "171e2f28c6704edd9b9e995f295f8cc057983a4e",
+      "type": "fix",
+      "scope": null,
+      "subject": "SSR returns page with status 500 when CmsPageNotFoundOutboundHttpError occurs",
+      "jiraIds": [],
+      "pullRequest": 21035
+    },
+    {
+      "sha": "5373b8e4db733a1f1d79e46b908ed8c00667bc7a",
+      "type": "chore",
+      "scope": null,
+      "subject": "update Node.js engine version in package.json to ^22.22.0",
+      "jiraIds": [],
+      "pullRequest": 20936
+    },
+    {
+      "sha": "22cff41a800a36cd594fb610a0980744be17f353",
+      "type": "chore",
+      "scope": null,
+      "subject": "site theme e2e test fix",
+      "jiraIds": [],
+      "pullRequest": 21034
+    },
+    {
+      "sha": "8a6e390286a97d43685b344e655ceaa99d6ee267",
+      "type": "refactor",
+      "scope": null,
+      "subject": "(CXSPA-11806) Remove deprecated code",
+      "jiraIds": [
+        "CXSPA-11806"
+      ],
+      "pullRequest": 21005
+    },
+    {
+      "sha": "9ae179f0b47e93c413ca41159b54a1e1913e3e85",
+      "type": "feat",
+      "scope": null,
+      "subject": "CXSPA-11616 Migration - add 'provideBrowserGlobalErrorListeners'",
+      "jiraIds": [
+        "CXSPA-11616"
+      ],
+      "pullRequest": 20968
+    },
+    {
+      "sha": "36a669b7783c050621e3afeb252bebc578a43f6e",
+      "type": "chore",
+      "scope": null,
+      "subject": "CXSPA-11692 Bump Spartacus version to 221121.8.0-1",
+      "jiraIds": [
+        "CXSPA-11692"
+      ],
+      "pullRequest": 21023
+    },
+    {
+      "sha": "31658cdba26e816eecde50ca28d88529d0945e2a",
+      "type": "feat",
+      "scope": null,
+      "subject": "convert all components to standalone, but leave NgModules for backward compatibility",
+      "jiraIds": [],
+      "pullRequest": 20793
+    },
+    {
+      "sha": "fce7ab022876bf646a045c11b3229183d5b8340d",
+      "type": "chore",
+      "scope": null,
+      "subject": "Bump angular-builders/custom-esbuild ot stable version",
+      "jiraIds": [],
+      "pullRequest": 21021
+    },
+    {
+      "sha": "7c67d0936ab65ea6ff6bc029f26bfa4ef79f0cd3",
+      "type": "fix",
+      "scope": null,
+      "subject": "update OPF global functions logic for addresses",
+      "jiraIds": [],
+      "pullRequest": null
+    },
+    {
+      "sha": "b7ff89f254e5d8646d47fa778f762282f9390311",
+      "type": "fix",
+      "scope": null,
+      "subject": "Quote link not showing up in Order details",
+      "jiraIds": [],
+      "pullRequest": 21003
+    },
+    {
+      "sha": "6177d169034b5d496ed4fd7187099ccf8b1404ef",
+      "type": "fix",
+      "scope": null,
+      "subject": "remove pickup in store dependency from OPF",
+      "jiraIds": [],
+      "pullRequest": null
+    },
+    {
+      "sha": "86cf9124250683c1354471cc44051f3160e51550",
+      "type": "chore",
+      "scope": null,
+      "subject": "bump-schematics-deps",
+      "jiraIds": [],
+      "pullRequest": 21009
+    },
+    {
+      "sha": "3972b0b65df5c034234d952fd8c89a88cb72d8a5",
+      "type": "chore",
+      "scope": null,
+      "subject": "Update fontsource and fortawesome libs to latest versions",
+      "jiraIds": [],
+      "pullRequest": 21007
+    },
+    {
+      "sha": "716e24f96a954e43086555a7a126ef13b220786a",
+      "type": "chore",
+      "scope": null,
+      "subject": "Update i18next and i18next-http-backend to latest versions",
+      "jiraIds": [],
+      "pullRequest": 21004
+    },
+    {
+      "sha": "a8c51b53bb91142f9ef76a43abf949104413e939",
+      "type": "chore",
+      "scope": null,
+      "subject": "Update installation script config to use 'develop-next-major'",
+      "jiraIds": [],
+      "pullRequest": 21012
+    },
+    {
+      "sha": "733a02b0575495ef2b26d0e59f18fee299fc7c93",
+      "type": "chore",
+      "scope": null,
+      "subject": "Upgrade to Angular 21",
+      "jiraIds": [],
+      "pullRequest": 20946
+    },
+    {
+      "sha": "367ba7801204e04b0a000240d13a6706bd243f85",
+      "type": "fix",
+      "scope": null,
+      "subject": "CXSPA-11646: Change translation",
+      "jiraIds": [
+        "CXSPA-11646"
+      ],
+      "pullRequest": 21000
+    },
+    {
+      "sha": "a970b9d98a048240307f7864d44aafda27fc3525",
+      "type": "fix",
+      "scope": null,
+      "subject": "remove OPF-guest flow",
+      "jiraIds": [],
+      "pullRequest": null
+    },
+    {
+      "sha": "6f9e2ed96eaf6d9a6bbb6ebe4ee2c3462f84d4fe",
+      "type": "chore",
+      "scope": null,
+      "subject": "enable feature and a11y toggles for Feb 2026 release (CXSPA-11812)",
+      "jiraIds": [
+        "CXSPA-11812"
+      ],
+      "pullRequest": 20997
+    },
+    {
+      "sha": "5a03354829b6e047c154f05983e2482f08f21cd5",
+      "type": "fix",
+      "scope": null,
+      "subject": "(CXSPA-11706) Deprecate enableCarouselCategoryProducts feature toggle",
+      "jiraIds": [
+        "CXSPA-11706"
+      ],
+      "pullRequest": 20991
+    },
+    {
+      "sha": "db8076da69e6ab838ee8ef6f6b64db4284c8a7d9",
+      "type": "refactor",
+      "scope": null,
+      "subject": "removing deprecated cdc code",
+      "jiraIds": [],
+      "pullRequest": 20989
+    },
+    {
+      "sha": "14166c011fb8ca6037a2677d54d2dd5de3d24aa2",
+      "type": "fix",
+      "scope": null,
+      "subject": "add login page missing translations",
+      "jiraIds": [],
+      "pullRequest": 20994
+    },
+    {
+      "sha": "8f0b2892d8250edff0911515ac7f4ebd2a569663",
+      "type": "fix",
+      "scope": null,
+      "subject": "removed duplicate text and add disabled style",
+      "jiraIds": [],
+      "pullRequest": 20982
+    },
+    {
+      "sha": "8df035a633653c3edb5032f652d68f03048a07fe",
+      "type": "fix",
+      "scope": null,
+      "subject": "make ng-select ariaLabelDropdown translateable",
+      "jiraIds": [],
+      "pullRequest": 20960
+    },
+    {
+      "sha": "3e57ec54ae93056ae0375331df5996981e4be4dd",
+      "type": "fix",
+      "scope": "ssr installation schematics",
+      "subject": "add missing semicolon in the generated app server.ts",
+      "jiraIds": [],
+      "pullRequest": 20988
+    },
+    {
+      "sha": "c79fcd162f0756544cb725c896decd291c5faf35",
+      "type": "fix",
+      "scope": null,
+      "subject": "Failing unit tests for checkout components",
+      "jiraIds": [],
+      "pullRequest": 20990
+    },
+    {
+      "sha": "6a201d7a9f7f337256d37bee0fba55619c130d89",
+      "type": "fix",
+      "scope": null,
+      "subject": "add OPF Global Functions for the Quick Buy support",
+      "jiraIds": [],
+      "pullRequest": null
+    },
+    {
+      "sha": "684498e985bc9c44c88967624fae9844f0203794",
+      "type": "chore",
+      "scope": null,
+      "subject": "remove leftovers after toggle removal",
+      "jiraIds": [],
+      "pullRequest": 20974
+    },
+    {
+      "sha": "a7681771d6e6ed6a74b70331910a523abfee6b23",
+      "type": "chore",
+      "scope": null,
+      "subject": "add `.gitignore` to Punchout schematics",
+      "jiraIds": [],
+      "pullRequest": 20984
+    },
+    {
+      "sha": "25618b65faf0c03a247ef06f5498ce15751f3834",
+      "type": "chore",
+      "scope": null,
+      "subject": "Update license header for declaration merging builder",
+      "jiraIds": [],
+      "pullRequest": 20985
+    },
+    {
+      "sha": "677e6d945cc7cce18100951707925c886eceabd7",
+      "type": "fix",
+      "scope": null,
+      "subject": "Remove the bug fix toggle enableClaimCustomerCouponWithCodeInRequestBody for Feb 2026 release",
+      "jiraIds": [],
+      "pullRequest": 20972
+    },
+    {
+      "sha": "75343c0215ce9adba7f577a5f0110d30845adef1",
+      "type": "fix",
+      "scope": null,
+      "subject": "expose TabPanelModule in public_api",
+      "jiraIds": [],
+      "pullRequest": 20981
+    },
+    {
+      "sha": "cadc163053d859a64f96a38f760a274c27d3faa5",
+      "type": "chore",
+      "scope": null,
+      "subject": "removes leftover branch from ci.yml",
+      "jiraIds": [],
+      "pullRequest": 20890
+    },
+    {
+      "sha": "bb39ba015b3e6550c0bc959275ee1cade18c7ecf",
+      "type": "fix",
+      "scope": null,
+      "subject": "expose CheckoutReview components in public_api",
+      "jiraIds": [],
+      "pullRequest": 20978
+    },
+    {
+      "sha": "e9aed934da1c1646445ecdbca1479b897903f6f9",
+      "type": "chore",
+      "scope": null,
+      "subject": "bump applepay, googlepay, googlemaps",
+      "jiraIds": [],
+      "pullRequest": 20976
+    },
+    {
+      "sha": "7126b5a7f36cf13cb9b801679201fd2b4c429ec4",
+      "type": "chore",
+      "scope": null,
+      "subject": "Update license headers",
+      "jiraIds": [],
+      "pullRequest": 20977
+    },
+    {
+      "sha": "82d149b9af64d80ef17d1a086569cc710f8a0d61",
+      "type": "chore",
+      "scope": null,
+      "subject": "Update license headers",
+      "jiraIds": [],
+      "pullRequest": 20975
+    },
+    {
+      "sha": "d38002a4dbed8ea58dffe225e3a541285ad9943e",
+      "type": "feat",
+      "scope": null,
+      "subject": "Deprecate updateConsentGivenInOnChanges feature toggle",
+      "jiraIds": [],
+      "pullRequest": 20971
+    },
+    {
+      "sha": "dcfa426815d724301b8b1032a8965b1564e57e39",
+      "type": "fix",
+      "scope": null,
+      "subject": "Deprecate a11y toggles for Feb 2026 release",
+      "jiraIds": [],
+      "pullRequest": 20964
+    },
+    {
+      "sha": "d605218925ac94f5384c044118a8f34847b9e654",
+      "type": "chore",
+      "scope": null,
+      "subject": "Generate RBSC descriptors during repo sync",
+      "jiraIds": [],
+      "pullRequest": 20969
+    },
+    {
+      "sha": "49acebeb6ea51eb93ba5b65509bd922a764b8933",
+      "type": "fix",
+      "scope": null,
+      "subject": "Add missing thead in SavedCartListComponent",
+      "jiraIds": [],
+      "pullRequest": 20966
+    },
+    {
+      "sha": "646ffd16ce8b31d000406229d53a47799e46e282",
+      "type": "fix",
+      "scope": null,
+      "subject": "missing-placeholder-selectors-in-body: unify user lib",
+      "jiraIds": [],
+      "pullRequest": 20962
+    },
+    {
+      "sha": "dbd34755b43b19b2b2512aff3d2d1a83d54d401a",
+      "type": "fix",
+      "scope": null,
+      "subject": "enhance organization conflict handler",
+      "jiraIds": [],
+      "pullRequest": 20948
+    },
+    {
+      "sha": "b6b906f140869a325de9ff0e4f14e41d74ecc1ea",
+      "type": "fix",
+      "scope": null,
+      "subject": "CXSPA-11582 - Fix Sonar Typescript warings",
+      "jiraIds": [
+        "CXSPA-11582"
+      ],
+      "pullRequest": 20959
+    },
+    {
+      "sha": "bb4f8d895263963e4ff130ff1c0991daf594a53d",
+      "type": "fix",
+      "scope": null,
+      "subject": "failing-unit-test horizontal-scrolling-position.directive",
+      "jiraIds": [],
+      "pullRequest": 20953
+    },
+    {
+      "sha": "0cd3217f5ab8e674d1d66edfc4b24241ed0686e0",
+      "type": "test",
+      "scope": null,
+      "subject": "Restructure product-configurator e2e tests (CXSPA-11603)",
+      "jiraIds": [
+        "CXSPA-11603"
+      ],
+      "pullRequest": 20949
+    },
+    {
+      "sha": "86eafea3eaf55121033bb8980ab8ba939953118f",
+      "type": "fix",
+      "scope": null,
+      "subject": "make PSP iframe sandbox flag configurable",
+      "jiraIds": [],
+      "pullRequest": null
+    },
+    {
+      "sha": "18bac3d67655dea3930dbcc9bc94b92569fcb94b",
+      "type": "fix",
+      "scope": null,
+      "subject": "remove PSP display name if there is only one option",
+      "jiraIds": [],
+      "pullRequest": null
+    },
+    {
+      "sha": "249a4503e53f5d8bca3b81b7e74cc02da9c61f01",
+      "type": "feat",
+      "scope": null,
+      "subject": "CXSPA-11633: add asm config to disable create customer",
+      "jiraIds": [
+        "CXSPA-11633"
+      ],
+      "pullRequest": 20943
+    },
+    {
+      "sha": "df69d1c1fc3c850a53c6729b2ef75b7038727b97",
+      "type": "feat",
+      "scope": null,
+      "subject": "CXSPA-11615 Schematics for removing server routes config in fresh SPA application",
+      "jiraIds": [
+        "CXSPA-11615"
+      ],
+      "pullRequest": 20941
+    },
+    {
+      "sha": "48244cc13e1b9d2122fd329d216f0cd70ee06c88",
+      "type": "fix",
+      "scope": null,
+      "subject": "add  SSR Tests proxy config for ccv2 server",
+      "jiraIds": [],
+      "pullRequest": 20935
+    },
+    {
+      "sha": "d8a450de2ec3ffe8187f9a9b211bd96b984f7823",
+      "type": "fix",
+      "scope": null,
+      "subject": "CXSPA-11605 cms pages cannot load in ASM mode",
+      "jiraIds": [
+        "CXSPA-11605"
+      ],
+      "pullRequest": 20929
+    },
+    {
+      "sha": "d8e707eb0ba3e557240b47c738bef63bd10c360b",
+      "type": "test",
+      "scope": null,
+      "subject": "Fix failing product-configurator e2e tests (CXSPA-11603)",
+      "jiraIds": [
+        "CXSPA-11603"
+      ],
+      "pullRequest": 20940
+    },
+    {
+      "sha": "7ebf72daca3b91ad099b4704a814dfa0f80c8519",
+      "type": "feat",
+      "scope": null,
+      "subject": "CXSPA-11501: support create asmsession when emulating customer",
+      "jiraIds": [
+        "CXSPA-11501"
+      ],
+      "pullRequest": 20926
+    },
+    {
+      "sha": "f150ee9e8cc4ac11a6f6c796b69a46cb44d4375a",
+      "type": "fix",
+      "scope": null,
+      "subject": "Reverting back changes related to auth flow e2e tests",
+      "jiraIds": [],
+      "pullRequest": 20942
+    },
+    {
+      "sha": "bd90c7c5c4544fdea075e59eae844e41942fec19",
+      "type": "refactor",
+      "scope": null,
+      "subject": "CXEC-57851: Migrate Argonauts' e2e cypress test to JDK21 API support",
+      "jiraIds": [],
+      "pullRequest": 20938
+    },
+    {
+      "sha": "936c9d8b1cd5d6fce3c175609c95f7611498d47f",
+      "type": "fix",
+      "scope": null,
+      "subject": "fix Language/Currency/Theme selectbox label arrow cutt-off issue",
+      "jiraIds": [],
+      "pullRequest": 20928
+    },
+    {
+      "sha": "8045fc9580ae237f1c879a1b046d2c2755f991fd",
+      "type": "chore",
+      "scope": null,
+      "subject": "Angular 20 - adjust config for installation script",
+      "jiraIds": [],
+      "pullRequest": 20937
+    },
+    {
+      "sha": "f697d5d4c3393aef3e9f24d31f3fbac1ff9bb01f",
+      "type": "chore",
+      "scope": null,
+      "subject": "Bump @angular/common and @angular/compiler",
+      "jiraIds": [],
+      "pullRequest": 20932
+    },
+    {
+      "sha": "2f632358a63c3f7d20e0eaf7b058a8df294e0d9d",
+      "type": "chore",
+      "scope": null,
+      "subject": "Angular 20 upgrade",
+      "jiraIds": [],
+      "pullRequest": 20914
+    },
+    {
+      "sha": "ad29fdc4c8a4a473142002cdc04b05f242bd9df1",
+      "type": "fix",
+      "scope": null,
+      "subject": "add high contrast theme support for the OPF",
+      "jiraIds": [],
+      "pullRequest": null
+    },
+    {
+      "sha": "7d3bb9c7e2a64df08dacc59bd1cd903c849fb64f",
+      "type": "fix",
+      "scope": null,
+      "subject": "Use caret unicode characters for dropdowns over border shapes",
+      "jiraIds": [],
+      "pullRequest": 20912
+    },
+    {
+      "sha": "d356369df928c42729b6c52e4e1efcbc3353df26",
+      "type": "test",
+      "scope": null,
+      "subject": "Fix flaky a11y tests",
+      "jiraIds": [],
+      "pullRequest": 20682
+    },
+    {
+      "sha": "821cbb467b9521d86510b4cbd5746a26dc8245e4",
+      "type": "chore",
+      "scope": null,
+      "subject": "Revert \"chore: sync develop-next-major with develop\"",
+      "jiraIds": [],
+      "pullRequest": 20904
+    },
+    {
+      "sha": "fda936804d24e8b19927fc56de54a1133b31221e",
+      "type": "chore",
+      "scope": null,
+      "subject": "sync develop-next-major with develop",
+      "jiraIds": [],
+      "pullRequest": 20903
+    },
+    {
+      "sha": "4d56194d7ae089e77e093940a284323fe9503bd1",
+      "type": "fix",
+      "scope": null,
+      "subject": "Fix focus lost in anonymous consent dialog when selecting input",
+      "jiraIds": [],
+      "pullRequest": 20850
+    },
+    {
+      "sha": "3451d3e2c1e9124a73ff890d4f69e9467ac44339",
+      "type": "feat",
+      "scope": null,
+      "subject": "CXSPA-11294 - add SSL option to install script for CSR mode",
+      "jiraIds": [
+        "CXSPA-11294"
+      ],
+      "pullRequest": 20900
+    },
+    {
+      "sha": "677d6e80020c96ef635cde3da5f22ca9cbda9f04",
+      "type": "fix",
+      "scope": null,
+      "subject": "CXSPA-11517: B2B asm c360 case fix",
+      "jiraIds": [
+        "CXSPA-11517"
+      ],
+      "pullRequest": 20892
+    },
+    {
+      "sha": "8473d31e538fcf7161aab2f08919a5bfedc6dceb",
+      "type": "chore",
+      "scope": null,
+      "subject": "Feature toggles analyzer",
+      "jiraIds": [],
+      "pullRequest": 20882
+    },
+    {
+      "sha": "7303814dcb0044687c9518b2eb9a11f9a4f671a2",
+      "type": "fix",
+      "scope": null,
+      "subject": "disable CustomLoginGuard in SSR",
+      "jiraIds": [],
+      "pullRequest": 20884
+    },
+    {
+      "sha": "2ef30863ddd3be9c777e10a763c9670a400849fc",
+      "type": "fix",
+      "scope": null,
+      "subject": "add CSP support for the OPF PSP scripts",
+      "jiraIds": [],
+      "pullRequest": null
+    },
+    {
+      "sha": "8da1e43d953e3c18c2d2a129081085309d9f3c26",
+      "type": "refactor",
+      "scope": null,
+      "subject": "CXSPA-10748",
+      "jiraIds": [
+        "CXSPA-10748"
+      ],
+      "pullRequest": 20872
+    },
+    {
+      "sha": "b9f9b57a63562216889611bea80110a5c4f57ec7",
+      "type": "fix",
+      "scope": null,
+      "subject": "make the PO number input readonly in the checkout payment type page if the PO number comes from the quote checkout",
+      "jiraIds": [],
+      "pullRequest": 20861
+    }
+  ]
+}

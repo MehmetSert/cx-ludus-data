@@ -1,0 +1,1628 @@
+{
+  "schemaVersion": 1,
+  "generatorVersion": 1,
+  "from": {
+    "release": "221121.7",
+    "gitTag": "221121.7.0"
+  },
+  "to": {
+    "release": "221121.9",
+    "gitTag": "221121.9.0"
+  },
+  "toggles": {
+    "removed": [
+      {
+        "name": "a11ySelectImprovementsCustomerTicketingCreateSelectbox",
+        "description": "'NgSelectA11yDirective' will close a dropdown with options on Escape key press\nwhen a screen reader is used.\nReplaces select with ng-select component in the following component:\n`CustomerTicketingCreateDialogComponent`",
+        "affects": [],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "feature-libs/customer-ticketing/components/list/customer-ticketing-create/customer-ticketing-create-dialog/customer-ticketing-create-dialog.component.html",
+            "pattern": "cx-feature",
+            "negated": true,
+            "symbols": [
+              "CustomerTicketingCreateDialogComponent"
+            ],
+            "selectors": [
+              "cx-customer-ticketing-create-dialog"
+            ]
+          },
+          {
+            "file": "feature-libs/customer-ticketing/components/list/customer-ticketing-create/customer-ticketing-create-dialog/customer-ticketing-create-dialog.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "CustomerTicketingCreateDialogComponent"
+            ],
+            "selectors": [
+              "cx-customer-ticketing-create-dialog"
+            ]
+          },
+          {
+            "file": "feature-libs/customer-ticketing/components/list/customer-ticketing-create/customer-ticketing-create-dialog/customer-ticketing-create-dialog.component.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "CustomerTicketingCreateDialogComponent"
+            ],
+            "selectors": [
+              "cx-customer-ticketing-create-dialog"
+            ]
+          }
+        ]
+      }
+    ],
+    "added": [
+      {
+        "name": "a11yCardNotificationMessage",
+        "description": "When enabled, the organization's table component will stop re-rendering its rows each data update.\nThis improves the screen reader experience of the notification message component.",
+        "affects": [
+          "NotificationMessageComponent",
+          "CellComponent",
+          "UnitDetailsComponent",
+          "TableComponent"
+        ],
+        "defaultValue": false,
+        "usages": [
+          {
+            "file": "feature-libs/organization/administration/components/shared/message/notification/notification-message.component.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "NotificationMessageComponent"
+            ],
+            "selectors": [
+              "cx-org-notification"
+            ]
+          },
+          {
+            "file": "feature-libs/organization/administration/components/shared/table/cell.component.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "CellComponent"
+            ],
+            "selectors": [
+              "cx-org-cell"
+            ]
+          },
+          {
+            "file": "feature-libs/organization/administration/components/unit/details/unit-details.component.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "UnitDetailsComponent"
+            ],
+            "selectors": [
+              "cx-org-unit-details"
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/shared/components/table/table.component.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "TableComponent"
+            ],
+            "selectors": [
+              "cx-table"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "a11yCustomerTicketingVisualFocusFix",
+        "description": "Fixes keyboard focus not being visible when tabbing between some buttons\non Customer Ticketing dialog.",
+        "affects": [],
+        "defaultValue": false,
+        "usages": [
+          {
+            "file": "feature-libs/customer-ticketing/components/shared/customer-ticketing-dialog/customer-ticketing-dialog.component.ts",
+            "pattern": "use-feature-styles",
+            "negated": false,
+            "symbols": [
+              "CustomerTicketingDialogComponent"
+            ],
+            "selectors": []
+          },
+          {
+            "file": "feature-libs/customer-ticketing/styles/components/_customer-ticketing-dialog.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "CustomerTicketingCloseDialogComponent",
+              "CustomerTicketingCreateDialogComponent",
+              "CustomerTicketingReopenDialogComponent",
+              "FileUploadComponent",
+              "IconComponent",
+              "MockIconComponent"
+            ],
+            "selectors": [
+              "[cxIcon]",
+              "cx-customer-ticketing-close-dialog",
+              "cx-customer-ticketing-create-dialog",
+              "cx-customer-ticketing-reopen-dialog",
+              "cx-file-upload",
+              "cx-icon"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "removeDuplicatedOrderHistoryHeader",
+        "description": "When enabled, this fixes the issue of duplicated Order History headers on the Order History page.",
+        "affects": [],
+        "defaultValue": false,
+        "usages": [
+          {
+            "file": "feature-libs/order/components/order-history/order-history.component.html",
+            "pattern": "cx-feature",
+            "negated": true,
+            "symbols": [
+              "OrderHistoryComponent"
+            ],
+            "selectors": [
+              "cx-order-history"
+            ]
+          }
+        ]
+      }
+    ],
+    "defaultEnabled": [
+      {
+        "name": "a11yConfiguratorOverviewHeaderVPC",
+        "description": "Ensures on configurator overview page, that group titles are recognized as heading\nin VPC mode when navigating with the 'H' key.",
+        "affects": [],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "feature-libs/product-configurator/rulebased/components/overview-form/configurator-overview-form.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "ConfiguratorOverviewFormComponent"
+            ],
+            "selectors": [
+              "cx-configurator-overview-form"
+            ]
+          },
+          {
+            "file": "feature-libs/product-configurator/rulebased/components/overview-form/configurator-overview-form.component.html",
+            "pattern": "cx-feature",
+            "negated": true,
+            "symbols": [
+              "ConfiguratorOverviewFormComponent"
+            ],
+            "selectors": [
+              "cx-configurator-overview-form"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "authorizationCodeFlowByDefault",
+        "description": "When enabled, sets the default oAuth configuration to use authorization code flow with PKCE.\nThis results in a more secure authorization scheme as the default configuration.\n\nNOTE: This flag should only be enabled when used with a CCv2 Authorization Server running the\nSeptember 2025 update or higher. The CCv2 Authorization Server only supports Authorization Code\nflow for public clients from that version and onwards.",
+        "affects": [],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "feature-libs/asm/components/asm-main-ui/asm-main-ui.component.html",
+            "pattern": "cx-feature",
+            "negated": true,
+            "symbols": [
+              "AsmMainUiComponent"
+            ],
+            "selectors": [
+              "cx-asm-main-ui"
+            ]
+          },
+          {
+            "file": "feature-libs/asm/components/asm-main-ui/asm-main-ui.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "AsmMainUiComponent"
+            ],
+            "selectors": [
+              "cx-asm-main-ui"
+            ]
+          },
+          {
+            "file": "feature-libs/cart/base/core/facade/multi-cart.service.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "MultiCartService"
+            ],
+            "selectors": []
+          },
+          {
+            "file": "feature-libs/checkout/base/components/guards/checkout-auth.guard.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "CheckoutAuthGuard"
+            ],
+            "selectors": []
+          },
+          {
+            "file": "feature-libs/order/components/order-confirmation/order-guest-register-form/order-guest-register-form.component.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "OrderGuestRegisterFormComponent"
+            ],
+            "selectors": [
+              "cx-guest-register-form"
+            ]
+          },
+          {
+            "file": "feature-libs/organization/user-registration/components/form/user-registration-form.service.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "UserRegistrationFormService"
+            ],
+            "selectors": []
+          },
+          {
+            "file": "feature-libs/organization/user-registration/components/verification-token-form/verification-token-form-component.service.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "RegisterVerificationTokenFormComponentService"
+            ],
+            "selectors": []
+          },
+          {
+            "file": "feature-libs/organization/user-registration/components/verification-token-form/verification-token-form.component.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "RegisterVerificationTokenFormComponent"
+            ],
+            "selectors": [
+              "cx-verification-token-form"
+            ]
+          },
+          {
+            "file": "feature-libs/user/account/components/guards/login-as-guest.guard.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "LoginAsGuestGuard"
+            ],
+            "selectors": []
+          },
+          {
+            "file": "feature-libs/user/account/components/login-form/login-form-component.service.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "LoginFormComponentService"
+            ],
+            "selectors": []
+          },
+          {
+            "file": "feature-libs/user/account/components/login-form/login-form.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "LoginFormComponent"
+            ],
+            "selectors": [
+              "cx-login-form"
+            ]
+          },
+          {
+            "file": "feature-libs/user/account/components/verification-token-form/verification-token-form-component.service.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "VerificationTokenFormComponentService"
+            ],
+            "selectors": []
+          },
+          {
+            "file": "feature-libs/user/account/components/verification-token-form/verification-token-form.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "VerificationTokenFormComponent"
+            ],
+            "selectors": [
+              "cx-verification-token-form"
+            ]
+          },
+          {
+            "file": "feature-libs/user/account/components/verification-token-form/verification-token-form.component.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "VerificationTokenFormComponent"
+            ],
+            "selectors": [
+              "cx-verification-token-form"
+            ]
+          },
+          {
+            "file": "feature-libs/user/profile/components/register/register.component.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "RegisterComponent"
+            ],
+            "selectors": [
+              "cx-register"
+            ]
+          },
+          {
+            "file": "feature-libs/user/profile/components/registration-verification-token-form/verify-register-verification-token-form.component.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "RegistrationVerificationTokenFormComponent"
+            ],
+            "selectors": [
+              "cx-registration-verification-token-form"
+            ]
+          },
+          {
+            "file": "feature-libs/user/profile/core/facade/user-register.service.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "UserRegisterService"
+            ],
+            "selectors": []
+          },
+          {
+            "file": "projects/core/src/auth/user-auth/services/oauth-lib-wrapper.service.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "OAuthLibWrapperService"
+            ],
+            "selectors": []
+          }
+        ]
+      },
+      {
+        "name": "cdsLoginEventsToken",
+        "description": "Feature flag to enable using the new LOGIN_EVENTS token instead of the ActionsSubject LOGIN stream for tracking.\n\nWhen enabled, the new LOGIN_EVENTS token will be used instead of the ActionsSubject LOGIN stream.\nThis is needed to support code flow authentication. If we are using the ActionsSubject LOGIN stream,\nthe login event won't be captured once we are redirected back from the auth server.\n\nUsed in `ProfileTagLifecycleService`",
+        "affects": [],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "integration-libs/cds/src/profiletag/services/profile-tag-lifecycle.service.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "ProfileTagLifecycleService"
+            ],
+            "selectors": []
+          }
+        ]
+      },
+      {
+        "name": "dispatchLoginActionOnlyWhenTokenReceived",
+        "description": "Controls when the Login action is dispatched during OAuth URL parameter checking.\n\nWhen set to `true`, enables the new behavior where the Login action is only dispatched when\n`tokenReceived` is true, meaning the token was received during the current `tryLogin()` attempt.\n\nWhen set to `false`, maintains the legacy behavior where the Login action will be dispatched in all\nsuccessful login scenarios during `checkOAuthParamsInUrl()`, regardless of whether the token was\nreceived in the current attempt or retrieved from storage (e.g., page refresh).",
+        "affects": [
+          "AuthService"
+        ],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "projects/core/src/auth/user-auth/facade/auth.service.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "AuthService"
+            ],
+            "selectors": []
+          }
+        ]
+      }
+    ]
+  },
+  "publicApi": {
+    "removed": [],
+    "moved": [],
+    "changed": [
+      {
+        "entryPoint": "@spartacus/opf/payment/root",
+        "name": "OpfPaymentVerificationComponent",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-changed",
+            "member": "runPaymentPattern",
+            "before": "({\n    paymentSessionId,\n    paramsMap,\n    afterRedirectScriptFlag,\n  }: {paymentSessionId: string; paramsMap: OpfKeyValueMap[]; afterRedirectScriptFlag?: string}): Observable<boolean>",
+            "after": "({\n    paymentSessionId,\n    paramsMap,\n    afterRedirectScriptFlag,\n    is3DSRedirect,\n  }: {paymentSessionId: string; paramsMap: OpfKeyValueMap[]; afterRedirectScriptFlag?: string; is3DSRedirect?: boolean}): Observable<boolean>"
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/opf/payment/root",
+        "name": "OpfPaymentVerificationService",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-changed",
+            "member": "verifyResultUrl",
+            "before": "(route: ActivatedRoute): Observable<{paymentSessionId: string; paramsMap: Array<OpfKeyValueMap>; afterRedirectScriptFlag: string | undefined}>",
+            "after": "(route: ActivatedRoute): Observable<{paymentSessionId: string; paramsMap: Array<OpfKeyValueMap>; afterRedirectScriptFlag: string | undefined; is3DSRedirect?: boolean}>"
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/storefront",
+        "name": "TableComponent",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-changed",
+            "member": "trackData",
+            "before": "(_i: number, item: any): any",
+            "after": "inferred"
+          }
+        ]
+      }
+    ],
+    "deprecated": [
+      {
+        "entryPoint": "@spartacus/organization/administration/components",
+        "name": "ToggleLinkCellComponent",
+        "kind": "class",
+        "member": "restoreFocus"
+      }
+    ],
+    "added": [
+      {
+        "entryPoint": "@spartacus/asm/root",
+        "name": "AsmProtectedRoutesService",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/cta/components",
+        "name": "OpfCtaElementComponent",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/cta/components",
+        "name": "OpfCtaElementModule",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/cta/components",
+        "name": "OpfCtaQuickBuyButtonsComponent",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/cta/components",
+        "name": "OpfCtaQuickBuyButtonsModule",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/cta/components",
+        "name": "OpfCtaScriptsComponent",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/cta/components",
+        "name": "OpfCtaScriptsModule",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/cta/components",
+        "name": "OpfCtaScriptsService",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/subscription-billing/components",
+        "name": "SubscriptionBillingDetailsComponent",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/subscription-billing/components",
+        "name": "SubscriptionBillingDetailsModule",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/subscription-billing/components",
+        "name": "SubscriptionBillingListComponent",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/subscription-billing/components",
+        "name": "SubscriptionBillingListModule",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/subscription-billing/core",
+        "name": "SubscriptionBillingAdapter",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/subscription-billing/core",
+        "name": "SubscriptionBillingConnector",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/subscription-billing/core",
+        "name": "SubscriptionBillingDetailsPageMetaResolver",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/subscription-billing/core",
+        "name": "SubscriptionBillingService",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/subscription-billing/core",
+        "name": "SubscriptionDetailsPageMetaResolver",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/subscription-billing/occ",
+        "name": "OccSubscriptionBillingAdapter",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/subscription-billing/root",
+        "name": "BillUsageCharge",
+        "kind": "interface"
+      },
+      {
+        "entryPoint": "@spartacus/subscription-billing/root",
+        "name": "defaultSubscriptionBillingRoutingConfig",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/subscription-billing/root",
+        "name": "GetSubscriptionBillByCodeReloadEvent",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/subscription-billing/root",
+        "name": "GetSubscriptionBillsListReloadEvent",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/subscription-billing/root",
+        "name": "SubscriptionBill",
+        "kind": "interface"
+      },
+      {
+        "entryPoint": "@spartacus/subscription-billing/root",
+        "name": "SubscriptionBillItem",
+        "kind": "interface"
+      },
+      {
+        "entryPoint": "@spartacus/subscription-billing/root",
+        "name": "SubscriptionBillingFacade",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/subscription-billing/root",
+        "name": "SubscriptionBillsList",
+        "kind": "interface"
+      },
+      {
+        "entryPoint": "@spartacus/subscription-billing/root",
+        "name": "SubscriptionBillStatus",
+        "kind": "enum"
+      }
+    ]
+  },
+  "angular": {
+    "from": "^21.1.0",
+    "to": "^21.2.0"
+  },
+  "cmsComponents": {
+    "AccountAddressBookComponent": [
+      "AddressBookComponent"
+    ],
+    "AccountMyQuotesComponent": [
+      "QuoteListComponent"
+    ],
+    "AccountOrderAttachmentsComponent": [
+      "OrderAttachmentsComponent"
+    ],
+    "AccountOrderDetailsActionsComponent": [
+      "MyAccountV2OrderDetailsActionsComponent",
+      "OrderDetailActionsComponent",
+      "S4ServiceOrderDetailActionsComponent"
+    ],
+    "AccountOrderDetailsApprovalDetailsComponent": [
+      "OrderDetailPermissionResultsComponent"
+    ],
+    "AccountOrderDetailsGroupedItemsComponent": [
+      "OrderDetailItemsComponent"
+    ],
+    "AccountOrderDetailsItemsComponent": [
+      "OrderDetailItemsComponent"
+    ],
+    "AccountOrderDetailsOverviewComponent": [
+      "OrderOverviewComponent"
+    ],
+    "AccountOrderDetailsPDFInvoicesComponent": [
+      "InvoicesListComponent"
+    ],
+    "AccountOrderDetailsReorderComponent": [
+      "OrderDetailReorderComponent"
+    ],
+    "AccountOrderDetailsSimpleOverviewComponent": [
+      "OrderOverviewComponent"
+    ],
+    "AccountOrderDetailsTotalsComponent": [
+      "OrderDetailTotalsComponent"
+    ],
+    "AccountOrderDocumentFlowComponent": [
+      "OrderDocumentFlowComponent"
+    ],
+    "AccountOrderHistoryComponent": [
+      "MyAccountV2OrderHistoryComponent",
+      "OrderHistoryComponent"
+    ],
+    "AccountPaymentDetailsComponent": [
+      "PaymentMethodsComponent"
+    ],
+    "AccountReplenishmentHistoryComponent": [
+      "ReplenishmentOrderHistoryComponent"
+    ],
+    "AccountSavedCartHistoryComponent": [
+      "SavedCartListComponent"
+    ],
+    "AccountSummaryDocumentComponent": [
+      "AccountSummaryDocumentComponent"
+    ],
+    "AccountSummaryHeaderComponent": [
+      "AccountSummaryHeaderComponent"
+    ],
+    "AddToSavedCartsComponent": [
+      "AddToSavedCartComponent"
+    ],
+    "AddToWishListComponent": [
+      "AddToWishListComponent"
+    ],
+    "AnonymousConsentManagementBannerComponent": [
+      "AnonymousConsentManagementBannerComponent"
+    ],
+    "AnonymousConsentOpenDialogComponent": [
+      "AnonymousConsentOpenDialogComponent"
+    ],
+    "BannerComponent": [
+      "BannerComponent"
+    ],
+    "BreadcrumbComponent": [
+      "BreadcrumbComponent"
+    ],
+    "BulkPricingTableComponent": [
+      "BulkPricingTableComponent"
+    ],
+    "CancelOrderComponent": [
+      "CancelOrderComponent"
+    ],
+    "CancelOrderConfirmationComponent": [
+      "CancelOrderConfirmationComponent"
+    ],
+    "CancelServiceOrder": [
+      "CancelServiceOrderComponent"
+    ],
+    "CancelServiceOrderHeadline": [
+      "CancelServiceOrderHeadlineComponent"
+    ],
+    "CartApplyCouponComponent": [
+      "CartCouponComponent"
+    ],
+    "CartComponent": [
+      "CartDetailsComponent"
+    ],
+    "CartProceedToCheckoutComponent": [
+      "CartProceedToCheckoutComponent"
+    ],
+    "CartQuickOrderFormComponent": [
+      "CartQuickOrderFormComponent"
+    ],
+    "CartTotalsComponent": [
+      "CartTotalsComponent"
+    ],
+    "CategoryNavigationComponent": [
+      "CategoryNavigationComponent"
+    ],
+    "CheckoutCostCenterComponent": [
+      "CheckoutCostCenterComponent"
+    ],
+    "CheckoutDeliveryAddress": [
+      "B2BCheckoutDeliveryAddressComponent",
+      "CheckoutDeliveryAddressComponent"
+    ],
+    "CheckoutDeliveryMode": [
+      "CheckoutDeliveryModeComponent",
+      "ServiceCheckoutDeliveryModeComponent"
+    ],
+    "CheckoutOrchestrator": [
+      "CheckoutOrchestratorComponent"
+    ],
+    "CheckoutOrderSummary": [
+      "CheckoutOrderSummaryComponent"
+    ],
+    "CheckoutPaymentDetails": [
+      "CheckoutPaymentMethodComponent",
+      "DpPaymentMethodComponent"
+    ],
+    "CheckoutPaymentType": [
+      "CheckoutPaymentTypeComponent"
+    ],
+    "CheckoutPlaceOrder": [
+      "CheckoutPlaceOrderComponent",
+      "CheckoutScheduledReplenishmentPlaceOrderComponent"
+    ],
+    "CheckoutProgress": [
+      "CheckoutProgressComponent"
+    ],
+    "CheckoutProgressMobileBottom": [
+      "CheckoutProgressMobileBottomComponent"
+    ],
+    "CheckoutProgressMobileTop": [
+      "CheckoutProgressMobileTopComponent"
+    ],
+    "CheckoutReviewOrder": [
+      "B2BCheckoutReviewSubmitComponent",
+      "CheckoutReviewSubmitComponent",
+      "ServiceCheckoutReviewSubmitComponent"
+    ],
+    "CheckoutReviewOverview": [
+      "CheckoutReviewOverviewComponent"
+    ],
+    "CheckoutReviewPayment": [
+      "CheckoutReviewPaymentComponent"
+    ],
+    "CheckoutReviewPickup": [
+      "PickUpItemsDetailsComponent"
+    ],
+    "CheckoutReviewShipping": [
+      "CheckoutReviewShippingComponent"
+    ],
+    "CheckoutScheduleReplenishmentOrder": [
+      "CheckoutScheduleReplenishmentOrderComponent"
+    ],
+    "CheckoutServiceDetails": [
+      "CheckoutServiceDetailsComponent"
+    ],
+    "ClaimDialogComponent": [
+      "ClaimDialogComponent"
+    ],
+    "ClearCartComponent": [
+      "ClearCartComponent"
+    ],
+    "CloseAccountComponent": [
+      "CloseAccountComponent"
+    ],
+    "CMSLinkComponent": [
+      "LinkComponent"
+    ],
+    "CMSParagraphComponent": [
+      "ParagraphComponent"
+    ],
+    "CMSProductListComponent": [
+      "ProductListComponent"
+    ],
+    "CMSSiteContextComponent": [
+      "SiteContextSelectorComponent"
+    ],
+    "CMSTabParagraphComponent": [
+      "ParagraphComponent"
+    ],
+    "CMSTabParagraphContainer": [
+      "TabParagraphContainerComponent"
+    ],
+    "ConfiguratorAddToCartButton": [
+      "ConfiguratorAddToCartButtonComponent"
+    ],
+    "ConfiguratorExitButton": [
+      "ConfiguratorExitButtonComponent"
+    ],
+    "ConfiguratorForm": [
+      "ConfiguratorFormComponent",
+      "ConfiguratorGroupComponent"
+    ],
+    "ConfiguratorGroupTitle": [
+      "ConfiguratorGroupTitleComponent"
+    ],
+    "ConfiguratorMenu": [
+      "ConfiguratorGroupMenuComponent"
+    ],
+    "ConfiguratorOverviewBanner": [
+      "ConfiguratorOverviewNotificationBannerComponent"
+    ],
+    "ConfiguratorOverviewFilterButton": [
+      "ConfiguratorOverviewFilterButtonComponent"
+    ],
+    "ConfiguratorOverviewForm": [
+      "ConfiguratorOverviewFormComponent"
+    ],
+    "ConfiguratorOverviewSidebar": [
+      "ConfiguratorOverviewSidebarComponent"
+    ],
+    "ConfiguratorPrevNext": [
+      "ConfiguratorPreviousNextButtonsComponent"
+    ],
+    "ConfiguratorPriceSummary": [
+      "ConfiguratorPriceSummaryComponent"
+    ],
+    "ConfiguratorProductTitle": [
+      "ConfiguratorProductTitleComponent"
+    ],
+    "ConfiguratorTabBar": [
+      "ConfiguratorTabBarComponent"
+    ],
+    "ConfiguratorUpdateMessage": [
+      "ConfiguratorUpdateMessageComponent"
+    ],
+    "ConfiguratorVariantCarousel": [
+      "ConfiguratorVariantCarouselComponent"
+    ],
+    "ConfigureProductComponent": [
+      "ConfigureProductComponent"
+    ],
+    "ConsentManagementComponent": [
+      "MyAccountV2ConsentManagementComponent",
+      "ConsentManagementComponent"
+    ],
+    "CouponClaimComponent": [
+      "CouponClaimComponent"
+    ],
+    "CpqConfiguratorConflictAndErrorMessagesComponent": [
+      "ConfiguratorConflictAndErrorMessagesComponent"
+    ],
+    "ExportOrderEntriesComponent": [
+      "ExportOrderEntriesComponent"
+    ],
+    "FooterNavigationComponent": [
+      "FooterNavigationComponent"
+    ],
+    "ForgotPasswordComponent": [
+      "ForgotPasswordComponent"
+    ],
+    "FutureStockComponent": [
+      "FutureStockAccordionComponent"
+    ],
+    "GigyaRaasComponent": [
+      "GigyaRaasComponent"
+    ],
+    "GuestCheckoutLoginComponent": [
+      "CheckoutLoginComponent"
+    ],
+    "HamburgerMenuComponent": [
+      "HamburgerMenuComponent"
+    ],
+    "ImportExportOrderEntriesComponent": [
+      "ImportExportOrderEntriesComponent"
+    ],
+    "ImportOrderEntriesComponent": [
+      "ImportOrderEntriesComponent"
+    ],
+    "LanguageCurrencyComponent": [
+      "LanguageCurrencyComponent"
+    ],
+    "LoginComponent": [
+      "LoginComponent"
+    ],
+    "ManageAccountSummaryListComponent": [
+      "AccountSummaryListComponent"
+    ],
+    "ManageBudgetsListComponent": [
+      "ListComponent"
+    ],
+    "ManageCostCentersListComponent": [
+      "ListComponent"
+    ],
+    "ManagePermissionsListComponent": [
+      "ListComponent"
+    ],
+    "ManageUnitsListComponent": [
+      "UnitListComponent"
+    ],
+    "ManageUserGroupsListComponent": [
+      "ListComponent"
+    ],
+    "ManageUsersListComponent": [
+      "ListComponent"
+    ],
+    "MerchandisingCarouselComponent": [
+      "MerchandisingCarouselComponent"
+    ],
+    "MiniCartComponent": [
+      "MiniCartComponent"
+    ],
+    "MyAccountSideNavigationComponent": [
+      "MyAccountV2NavigationComponent"
+    ],
+    "MyAccountViewOrderComponent": [
+      "MyAccountV2OrdersComponent"
+    ],
+    "MyAccountViewRequestsComponent": [
+      "MyAccountV2CustomerTicketingComponent"
+    ],
+    "MyAccountViewUserComponent": [
+      "MyAccountV2UserComponent"
+    ],
+    "MyCouponsComponent": [
+      "MyCouponsComponent"
+    ],
+    "MyInterestsComponent": [
+      "MyInterestsComponent"
+    ],
+    "MyPreferredStoreComponent": [
+      "MyPreferredStoreComponent"
+    ],
+    "NavigationComponent": [
+      "NavigationComponent"
+    ],
+    "NotificationPreferenceComponent": [
+      "MyAccountV2NotificationPreferenceComponent",
+      "NotificationPreferenceComponent"
+    ],
+    "OpfB2bCheckoutPaymentAndReview": [
+      "OpfB2bCheckoutPaymentAndReviewComponent"
+    ],
+    "OpfCheckoutDeliveryAddress": [
+      "OpfB2bCheckoutDeliveryAddressComponent"
+    ],
+    "OpfCheckoutEmailUpdateComponent": [
+      "OpfCheckoutEmailUpdateComponent"
+    ],
+    "OpfCheckoutPaymentAndReview": [
+      "OpfCheckoutPaymentAndReviewComponent"
+    ],
+    "OpfCheckoutPaymentType": [
+      "OpfB2bCheckoutPaymentTypeComponent"
+    ],
+    "OpfCheckoutReview": [
+      "OpfB2bCheckoutReviewComponent"
+    ],
+    "OpfCtaQuickBuyButtons": [
+      "OpfCtaQuickBuyButtonsComponent"
+    ],
+    "OpfCtaScriptsComponent": [
+      "OpfCtaScriptsComponent"
+    ],
+    "OpfQuickBuyButtonsComponent": [
+      "OpfQuickBuyButtonsComponent"
+    ],
+    "OrderApprovalDetailApprovalDetailsComponent": [
+      "OrderDetailPermissionResultsComponent"
+    ],
+    "OrderApprovalDetailFormComponent": [
+      "OrderApprovalDetailFormComponent"
+    ],
+    "OrderApprovalDetailItemsComponent": [
+      "OrderDetailItemsComponent"
+    ],
+    "OrderApprovalDetailShippingComponent": [
+      "OrderOverviewComponent"
+    ],
+    "OrderApprovalDetailTotalsComponent": [
+      "OrderDetailTotalsComponent"
+    ],
+    "OrderApprovalListComponent": [
+      "OrderApprovalListComponent"
+    ],
+    "OrderConfirmationBillingComponent": [
+      "OrderDetailBillingComponent"
+    ],
+    "OrderConfirmationItemsComponent": [
+      "OrderConfirmationItemsComponent"
+    ],
+    "OrderConfirmationOverviewComponent": [
+      "OrderOverviewComponent"
+    ],
+    "OrderConfirmationPickUpComponent": [
+      "PickUpItemsDetailsComponent"
+    ],
+    "OrderConfirmationShippingComponent": [
+      "OrderConfirmationShippingComponent"
+    ],
+    "OrderConfirmationThankMessageComponent": [
+      "OrderConfirmationThankYouMessageComponent"
+    ],
+    "OrderConfirmationTotalsComponent": [
+      "OrderConfirmationTotalsComponent"
+    ],
+    "OrderReturnRequestListComponent": [
+      "OrderReturnRequestListComponent"
+    ],
+    "OrganizationUserRegistrationComponent": [
+      "UserRegistrationFormComponent"
+    ],
+    "PageTitleComponent": [
+      "PageTitleComponent"
+    ],
+    "PDFDocumentComponent": [
+      "PDFComponent"
+    ],
+    "PickupInStoreDeliveryModeComponent": [
+      "PickUpItemsDetailsComponent"
+    ],
+    "ProductAddToCartComponent": [
+      "AddToCartComponent"
+    ],
+    "ProductCarouselComponent": [
+      "ProductCarouselComponent"
+    ],
+    "ProductDetailsTabComponent": [
+      "ProductDetailsTabComponent"
+    ],
+    "ProductGridComponent": [
+      "ProductListComponent"
+    ],
+    "ProductImagesComponent": [
+      "ProductImageZoomProductImagesComponent",
+      "ProductImagesComponent"
+    ],
+    "ProductIntroComponent": [
+      "ProductIntroComponent"
+    ],
+    "ProductMultiDimensionalSelectorComponent": [
+      "ProductMultiDimensionalSelectorComponent"
+    ],
+    "ProductReferencesComponent": [
+      "ProductReferencesComponent"
+    ],
+    "ProductRefinementComponent": [
+      "ProductFacetNavigationComponent"
+    ],
+    "ProductReviewsTabComponent": [
+      "ProductReviewsComponent"
+    ],
+    "ProductSpecsTabComponent": [
+      "ProductAttributesComponent"
+    ],
+    "ProductSummaryComponent": [
+      "ProductSummaryComponent"
+    ],
+    "ProductVariantSelectorComponent": [
+      "ProductVariantsContainerComponent"
+    ],
+    "ProfileTagComponent": [
+      "ProfileTagComponent"
+    ],
+    "PunchoutButtonsComponent": [
+      "PunchoutButtonsComponent"
+    ],
+    "PunchoutCloseSessionComponent": [
+      "PunchoutCloseSessionComponent"
+    ],
+    "PunchoutErrorComponent": [
+      "PunchoutErrorComponent"
+    ],
+    "PunchoutInspectCartComponent": [
+      "PunchoutInspectCartComponent"
+    ],
+    "PunchoutRequisitionComponent": [
+      "PunchoutRequisitionComponent"
+    ],
+    "PunchoutSessionComponent": [
+      "PunchoutSessionComponent"
+    ],
+    "QualtricsComponent": [
+      "QualtricsComponent"
+    ],
+    "QualtricsEmbeddedFeedbackComponent": [
+      "QualtricsEmbeddedFeedbackComponent"
+    ],
+    "QuickOrderComponent": [
+      "QuickOrderComponent"
+    ],
+    "QuoteCartGuardComponent": [
+      "QuoteCartGuardComponent"
+    ],
+    "QuoteCommentsComponent": [
+      "QuoteCommentsComponent"
+    ],
+    "QuoteHeaderOverviewComponent": [
+      "QuoteHeaderOverviewComponent"
+    ],
+    "QuoteItemsComponent": [
+      "QuoteItemsComponent"
+    ],
+    "QuoteLinksComponent": [
+      "QuoteLinksComponent"
+    ],
+    "QuoteRequestComponent": [
+      "QuoteRequestButtonComponent"
+    ],
+    "QuoteSummaryComponent": [
+      "QuoteSummaryComponent"
+    ],
+    "RegisterB2BCustomerWithOTPComponent": [
+      "UserRegistrationOTPFormComponent"
+    ],
+    "RegisterCustomerComponent": [
+      "RegisterComponent"
+    ],
+    "RegisterCustomerWithOTPComponent": [
+      "OneTimePasswordRegisterComponent"
+    ],
+    "ReplenishmentConfirmationItemsComponent": [
+      "OrderConfirmationItemsComponent"
+    ],
+    "ReplenishmentConfirmationMessageComponent": [
+      "OrderConfirmationThankYouMessageComponent"
+    ],
+    "ReplenishmentConfirmationOverviewComponent": [
+      "OrderOverviewComponent"
+    ],
+    "ReplenishmentConfirmationTotalsComponent": [
+      "OrderConfirmationTotalsComponent"
+    ],
+    "ReplenishmentDetailActionsComponent": [
+      "ReplenishmentOrderCancellationComponent"
+    ],
+    "ReplenishmentDetailItemsComponent": [
+      "OrderDetailItemsComponent"
+    ],
+    "ReplenishmentDetailOrderHistoryComponent": [
+      "OrderHistoryComponent"
+    ],
+    "ReplenishmentDetailShippingComponent": [
+      "OrderOverviewComponent"
+    ],
+    "ReplenishmentDetailTotalsComponent": [
+      "OrderDetailTotalsComponent"
+    ],
+    "RescheduleServiceOrder": [
+      "RescheduleServiceOrderComponent"
+    ],
+    "ResetPasswordComponent": [
+      "ResetPasswordComponent"
+    ],
+    "ReturningCustomerLoginComponent": [
+      "LoginFormComponent"
+    ],
+    "ReturningCustomerOTPLoginComponent": [
+      "OneTimePasswordLoginFormComponent"
+    ],
+    "ReturningCustomerRegisterComponent": [
+      "LoginRegisterComponent"
+    ],
+    "ReturnOrderComponent": [
+      "ReturnOrderComponent"
+    ],
+    "ReturnOrderConfirmationComponent": [
+      "ReturnOrderConfirmationComponent"
+    ],
+    "ReturnRequestItemsComponent": [
+      "ReturnRequestItemsComponent"
+    ],
+    "ReturnRequestOverviewComponent": [
+      "ReturnRequestOverviewComponent"
+    ],
+    "ReturnRequestTotalsComponent": [
+      "ReturnRequestTotalsComponent"
+    ],
+    "RotatingImagesComponent": [
+      "BannerCarouselComponent"
+    ],
+    "SavedCartDetailsActionComponent": [
+      "SavedCartDetailsActionComponent"
+    ],
+    "SavedCartDetailsItemsComponent": [
+      "SavedCartDetailsItemsComponent"
+    ],
+    "SavedCartDetailsOverviewComponent": [
+      "SavedCartDetailsOverviewComponent"
+    ],
+    "SaveForLaterComponent": [
+      "SaveForLaterComponent"
+    ],
+    "ScrollToTopComponent": [
+      "ScrollToTopComponent"
+    ],
+    "SearchBoxComponent": [
+      "SearchBoxComponent"
+    ],
+    "SearchResultsListComponent": [
+      "ProductListComponent"
+    ],
+    "SimpleBannerComponent": [
+      "BannerComponent"
+    ],
+    "SimpleResponsiveBannerComponent": [
+      "BannerComponent"
+    ],
+    "SiteThemeSwitcherComponent": [
+      "SiteThemeSwitcherComponent"
+    ],
+    "StockNotificationComponent": [
+      "StockNotificationComponent"
+    ],
+    "StoreFinderComponent": [
+      "StoreFinderComponent"
+    ],
+    "SubscriptionBillDetailsComponent": [
+      "SubscriptionBillingDetailsComponent"
+    ],
+    "SubscriptionBillsHistoryComponent": [
+      "SubscriptionBillingListComponent"
+    ],
+    "SubscriptionDetailsComponent": [
+      "SubscriptionDetailsComponent"
+    ],
+    "SubscriptionHistoryComponent": [
+      "SubscriptionListComponent"
+    ],
+    "SubscriptionProductPriceComponent": [
+      "SubscriptionProductPriceComponent"
+    ],
+    "SupportTicketCloseComponent": [
+      "CustomerTicketingCloseComponent"
+    ],
+    "SupportTicketDetailsComponent": [
+      "CustomerTicketingDetailsComponent"
+    ],
+    "SupportTicketHistoryComponent": [
+      "CustomerTicketingListComponent"
+    ],
+    "SupportTicketReopenComponent": [
+      "CustomerTicketingReopenComponent"
+    ],
+    "SupportTicketUpdateComponent": [
+      "CustomerTicketingMessagesComponent"
+    ],
+    "TextfieldConfigurationForm": [
+      "ConfiguratorTextfieldFormComponent"
+    ],
+    "UnitLevelOrderDetailsItemsComponent": [
+      "OrderDetailItemsComponent"
+    ],
+    "UnitLevelOrderDetailsOverviewComponent": [
+      "UnitLevelOrderOverviewComponent"
+    ],
+    "UnitLevelOrderDetailsTotalsComponent": [
+      "OrderDetailTotalsComponent"
+    ],
+    "UnitLevelOrderHistoryComponent": [
+      "UnitLevelOrderHistoryComponent"
+    ],
+    "UpdateEmailComponent": [
+      "MyAccountV2EmailComponent",
+      "UpdateEmailComponent"
+    ],
+    "UpdatePasswordComponent": [
+      "MyAccountV2PasswordComponent",
+      "UpdatePasswordComponent"
+    ],
+    "UpdateProfileComponent": [
+      "MyAccountV2ProfileComponent",
+      "UpdateProfileComponent"
+    ],
+    "VerifyOTPForB2BRegistrationComponent": [
+      "RegisterVerificationTokenFormComponent"
+    ],
+    "VerifyOTPForRegistrationComponent": [
+      "RegistrationVerificationTokenFormComponent"
+    ],
+    "VerifyOTPTokenComponent": [
+      "VerificationTokenFormComponent"
+    ],
+    "VideoComponent": [
+      "VideoComponent"
+    ],
+    "VisualPickingTabComponent": [
+      "VisualPickingTabComponent"
+    ],
+    "WishListComponent": [
+      "WishListComponent"
+    ]
+  },
+  "commits": [
+    {
+      "sha": "07f83a4e15a35e500486f4c26427a87fead487ea",
+      "type": "chore",
+      "scope": null,
+      "subject": "update vulnerable dependencies",
+      "jiraIds": [],
+      "pullRequest": 21252
+    },
+    {
+      "sha": "687b27fb0da7088512520cd4aa8ebf07c6032563",
+      "type": "fix",
+      "scope": null,
+      "subject": "CXSPA-12264 Upgrade Angular to address security vulnerabilities",
+      "jiraIds": [
+        "CXSPA-12264"
+      ],
+      "pullRequest": 21218
+    },
+    {
+      "sha": "8049e7ba4981cced2f90eab39c1ad0bf4f82b86b",
+      "type": "chore",
+      "scope": null,
+      "subject": "Cherry-pick unit-e2e fix",
+      "jiraIds": [],
+      "pullRequest": 21182
+    },
+    {
+      "sha": "6cba5576b0e626e72d5544812b93ae0d97a7a056",
+      "type": "fix",
+      "scope": null,
+      "subject": "add FontAwesome auto-width css variable (#21164)",
+      "jiraIds": [],
+      "pullRequest": 21180
+    },
+    {
+      "sha": "4f7ebcc5389d4a165250329a852c5766b2736a38",
+      "type": "fix",
+      "scope": null,
+      "subject": "update order history header to use breadcrumb component",
+      "jiraIds": [],
+      "pullRequest": 21172
+    },
+    {
+      "sha": "360a2eab9d497048af7655a2090a3402ffff27d9",
+      "type": "chore",
+      "scope": null,
+      "subject": "bump tar@7.5.7 -> tar@7.5.9",
+      "jiraIds": [],
+      "pullRequest": 21171
+    },
+    {
+      "sha": "14de6aa67880c3ce24ec80a9a441217cff23ff3c",
+      "type": "fix",
+      "scope": null,
+      "subject": "remove redundant heading for orders in order history",
+      "jiraIds": [],
+      "pullRequest": 21154
+    },
+    {
+      "sha": "b5ecee3ca8085147f2cdc3d55bce7b87e17e81be",
+      "type": "chore",
+      "scope": null,
+      "subject": "Enable a11y toggle for 2603 (CXSPA-12155)",
+      "jiraIds": [
+        "CXSPA-12155"
+      ],
+      "pullRequest": 21165
+    },
+    {
+      "sha": "f1c36c596e3ce4ab1ddd58bb91d5a645a83aeada",
+      "type": "feat",
+      "scope": null,
+      "subject": "(CXSPA-7459) - Organization table notification readout fix",
+      "jiraIds": [
+        "CXSPA-7459"
+      ],
+      "pullRequest": 21158
+    },
+    {
+      "sha": "02f75956419a916e5ba629537c656ee6fea6cd68",
+      "type": "chore",
+      "scope": null,
+      "subject": "(CXSPA-12138) - Remove a11ySelectImprovementsCustomerTicketingCreateSelectbox feature flag",
+      "jiraIds": [
+        "CXSPA-12138"
+      ],
+      "pullRequest": 21160
+    },
+    {
+      "sha": "8c10677c243d3530080620a66f9bd7200a844381",
+      "type": "chore",
+      "scope": null,
+      "subject": "Enable feature toggles for 2603 (CXSPA-12139)",
+      "jiraIds": [
+        "CXSPA-12139"
+      ],
+      "pullRequest": 21157
+    },
+    {
+      "sha": "2e5bb1878e3ffcafd148505e4c08ea75ba963089",
+      "type": "feat",
+      "scope": null,
+      "subject": "CXSPA-11888: Handle non navigable conflicts",
+      "jiraIds": [
+        "CXSPA-11888"
+      ],
+      "pullRequest": 21143
+    },
+    {
+      "sha": "303ff4e162135a9773f6ffa8e7df5e01889043d5",
+      "type": "test",
+      "scope": null,
+      "subject": "revert cy jdk21 prod conf cmd",
+      "jiraIds": [],
+      "pullRequest": 21155
+    },
+    {
+      "sha": "03fc45c6b80d2d3222f583f4b97cc477e7334af5",
+      "type": "fix",
+      "scope": null,
+      "subject": "Fix tabIndex typo in pagination to restore keyboard a11y",
+      "jiraIds": [],
+      "pullRequest": 21149
+    },
+    {
+      "sha": "2d2f0bd2ee09859e9c00a5dae654cec820c5c1c1",
+      "type": "chore",
+      "scope": null,
+      "subject": "Update vulnerable dependencies per npm audit fix run",
+      "jiraIds": [],
+      "pullRequest": 21145
+    },
+    {
+      "sha": "8d59589c26f710a695a03379348ef43e3e30a4ca",
+      "type": "chore",
+      "scope": null,
+      "subject": "modify e2e tests to use mock order history for JDK21",
+      "jiraIds": [],
+      "pullRequest": 21134
+    },
+    {
+      "sha": "9b30c7685bb4573c8fa4fbc627abb419f6e98295",
+      "type": "fix",
+      "scope": null,
+      "subject": "Fix visual focus on customer ticketing dialog",
+      "jiraIds": [],
+      "pullRequest": 20965
+    },
+    {
+      "sha": "9260f39950a19f371a7e44f1ca9870134a04fe7d",
+      "type": "fix",
+      "scope": null,
+      "subject": "add missing peerDependencies on subscription-billing lib",
+      "jiraIds": [],
+      "pullRequest": 21146
+    },
+    {
+      "sha": "23ee994776325c5583f6431989d91585bc231b99",
+      "type": "fix",
+      "scope": null,
+      "subject": "missing peerDependency '@angular/forms' in 'subscription-billing' lib",
+      "jiraIds": [],
+      "pullRequest": 21148
+    },
+    {
+      "sha": "d138514b73e2c9547ae79ef82eb8a3b5c7e00265",
+      "type": "fix",
+      "scope": null,
+      "subject": "add missing exports for OPF CTA components",
+      "jiraIds": [],
+      "pullRequest": null
+    },
+    {
+      "sha": "6178d23f52b32fe5fc8ae5985334a3af6818dd4d",
+      "type": "fix",
+      "scope": null,
+      "subject": "provide OCC cart endpoint for the OPF global functions",
+      "jiraIds": [],
+      "pullRequest": null
+    },
+    {
+      "sha": "ebca37291d95085f2f12797205f44dab028a9a01",
+      "type": "feat",
+      "scope": null,
+      "subject": "subscription billing (List and Details pages)",
+      "jiraIds": [],
+      "pullRequest": 21108
+    },
+    {
+      "sha": "904a1acd16f2f23cf2d4a01bf21277e315942cd7",
+      "type": "fix",
+      "scope": null,
+      "subject": "trigger submit-complete for 3DS transactions",
+      "jiraIds": [],
+      "pullRequest": null
+    },
+    {
+      "sha": "d65fb45bed4221ca5145ba2dd084d05903833ccb",
+      "type": "fix",
+      "scope": null,
+      "subject": "ASM load issue when early login enabled.",
+      "jiraIds": [],
+      "pullRequest": 21109
+    },
+    {
+      "sha": "df7c961f72cc3c2f677d51a58ecff000c9d6e90d",
+      "type": "test",
+      "scope": null,
+      "subject": "e2e improvement prior switch to JDK21 ccv2",
+      "jiraIds": [],
+      "pullRequest": 21128
+    },
+    {
+      "sha": "186e0faffc67c695b08181f2a8a27f3f8bf01b46",
+      "type": "chore",
+      "scope": null,
+      "subject": "disable service worker in storefrontapp",
+      "jiraIds": [],
+      "pullRequest": 21116
+    },
+    {
+      "sha": "a342f7ba450013d27ea9106fe38f35a4fdae9702",
+      "type": "fix",
+      "scope": null,
+      "subject": "Analyze git history for feature toggles properly",
+      "jiraIds": [],
+      "pullRequest": 21050
+    },
+    {
+      "sha": "37f879d5133338ac40a9ce247db590fb3cd9852a",
+      "type": "fix",
+      "scope": null,
+      "subject": "CXSPA-11978: Remove automation due to emailvalidator enhance in core",
+      "jiraIds": [
+        "CXSPA-11978"
+      ],
+      "pullRequest": 21092
+    },
+    {
+      "sha": "e2278f6c99a0ae5abe0bd21af80102a6757d4c2f",
+      "type": "feat",
+      "scope": null,
+      "subject": "CXSPA-11819 - Enhance the submit to accept 'savePaymentDetail' flag",
+      "jiraIds": [
+        "CXSPA-11819"
+      ],
+      "pullRequest": 21084
+    },
+    {
+      "sha": "88d22dddefe2152e1d9e0a1daca46604af7cb029",
+      "type": "fix",
+      "scope": null,
+      "subject": "add error handling for OPF payments 401 case",
+      "jiraIds": [],
+      "pullRequest": null
+    },
+    {
+      "sha": "3814342cae52c5da39f44341e6e506b59aaca68b",
+      "type": "fix",
+      "scope": null,
+      "subject": "Refresh neasted component when update in smart edit",
+      "jiraIds": [],
+      "pullRequest": 21081
+    },
+    {
+      "sha": "e0eb4c0b331a230be484432834a43b4e4ca90286",
+      "type": "fix",
+      "scope": null,
+      "subject": "Add optional chaining for the additional data in the OPF Context",
+      "jiraIds": [],
+      "pullRequest": null
+    },
+    {
+      "sha": "3c0a1fe19d836a715086f647409dc55dec1149da",
+      "type": "fix",
+      "scope": null,
+      "subject": "Add CTA Quick Buy Button support",
+      "jiraIds": [],
+      "pullRequest": null
+    },
+    {
+      "sha": "2d512a3bdc6ed6631fb2fde7ee743f9dfa608857",
+      "type": "chore",
+      "scope": null,
+      "subject": "Bump lodash to 4.17.23",
+      "jiraIds": [],
+      "pullRequest": 21068
+    },
+    {
+      "sha": "c04060425fe776764effb650e666a0f1dabd4bfe",
+      "type": "chore",
+      "scope": null,
+      "subject": "Update Angular dependencies to v21.1.0 - develop",
+      "jiraIds": [],
+      "pullRequest": 21061
+    },
+    {
+      "sha": "c7e2144914a305706cb5c62fc510577606f4c16b",
+      "type": "chore",
+      "scope": null,
+      "subject": "Update Spartacus version to 221121.7.0-1 - backport for develop branch",
+      "jiraIds": [],
+      "pullRequest": 21054
+    }
+  ]
+}

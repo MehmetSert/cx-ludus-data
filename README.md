@@ -13,6 +13,11 @@ All data is derived from public sources: help.sap.com and the public
   put in `package.json` (always with `~`), the Git tag used for code diffs, the
   help.sap.com page and the validity dates. `schemaVersion` changes only on
   breaking format changes.
+- `steps/<from>__<to>.json` — generated per consecutive release pair: feature
+  toggles removed, added or enabled by default (with the Spartacus files and
+  classes each one affects), public API changes, the Angular peer range and the
+  filtered commit list. `generatorVersion` changes when the extraction logic
+  changes and every step is regenerated.
 - `releases.overrides.json` — hand-maintained corrections, keyed by release id.
   Any field set here wins over what the indexer parsed. Use it when help.sap.com
   wording changes or omits a value.

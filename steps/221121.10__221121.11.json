@@ -1,0 +1,1900 @@
+{
+  "schemaVersion": 1,
+  "generatorVersion": 1,
+  "from": {
+    "release": "221121.10",
+    "gitTag": "221121.10.0"
+  },
+  "to": {
+    "release": "221121.11",
+    "gitTag": "221121.11.0"
+  },
+  "toggles": {
+    "removed": [],
+    "added": [
+      {
+        "name": "a11yCartQuickOrderFormEnableSubmitAndAddValidation",
+        "description": "Use on existing form buttons that are programatically disabled/enabled.\nTo use, duplicate button and use false in original and true in duplicate. The duplicated button\nshould be initialized as enabled, clickable and use cx-form-errors in outcomes where original button\nis in disabled state.",
+        "affects": [],
+        "defaultValue": false,
+        "usages": [
+          {
+            "file": "feature-libs/cart/quick-order/components/cart-quick-order-form/cart-quick-order-form.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "CartQuickOrderFormComponent"
+            ],
+            "selectors": [
+              "cx-cart-quick-order-form"
+            ]
+          },
+          {
+            "file": "feature-libs/cart/quick-order/components/cart-quick-order-form/cart-quick-order-form.component.html",
+            "pattern": "cx-feature",
+            "negated": true,
+            "symbols": [
+              "CartQuickOrderFormComponent"
+            ],
+            "selectors": [
+              "cx-cart-quick-order-form"
+            ]
+          },
+          {
+            "file": "feature-libs/cart/quick-order/components/cart-quick-order-form/cart-quick-order-form.component.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "CartQuickOrderFormComponent"
+            ],
+            "selectors": [
+              "cx-cart-quick-order-form"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "a11yConsentManagementFocusPreservation",
+        "description": "Preserves keyboard focus on consent checkboxes after toggling.\nTreats Space/Enter on checkbox/radio as navigation in VisibleFocusDirective\nand restores focus after the consent form is temporarily disabled.",
+        "affects": [
+          "VisibleFocusDirective",
+          "ConsentManagementFormComponent",
+          "ConsentManagementComponent"
+        ],
+        "defaultValue": false,
+        "usages": [
+          {
+            "file": "projects/storefrontlib/cms-components/myaccount/consent-management/components/consent-form/consent-management-form.component.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "ConsentManagementFormComponent"
+            ],
+            "selectors": [
+              "cx-consent-management-form"
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/layout/a11y/keyboard-focus/visible/visible-focus.directive.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "VisibleFocusDirective"
+            ],
+            "selectors": []
+          }
+        ]
+      },
+      {
+        "name": "a11yVocalizeDropdownItemCount",
+        "description": "When enabled, adds vocalization of dropdown item count when dropdown gains focus.",
+        "affects": [
+          "cxNgSelectA11y"
+        ],
+        "defaultValue": false,
+        "usages": [
+          {
+            "file": "projects/storefrontlib/shared/components/ng-select-a11y/ng-select-a11y.directive.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "NgSelectA11yDirective"
+            ],
+            "selectors": []
+          }
+        ]
+      },
+      {
+        "name": "enableExpiredRefreshTokenHandlers",
+        "description": "When enabled, `AuthHttpHeaderService` executes DI-provided\n`ExpiredRefreshTokenHandler` to take over `handleExpiredRefreshToken()` behavior in case of expired refresh token scenarios.\nIt avoids the need to override the entire AuthHttpHeaderService just to handle expired refresh token scenarios in a custom way, for example by ending punchout session when it's active.",
+        "affects": [
+          "AuthHttpHeaderService"
+        ],
+        "defaultValue": false,
+        "usages": [
+          {
+            "file": "integration-libs/punchout/root/punchout.root.module.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "PunchoutRootModule"
+            ],
+            "selectors": []
+          },
+          {
+            "file": "projects/core/src/auth/user-auth/services/auth-http-header.service.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "AuthHttpHeaderService"
+            ],
+            "selectors": []
+          }
+        ]
+      },
+      {
+        "name": "enableRemoveVoucherEndpoint",
+        "description": "When enabled, uses `POST /carts/{cartId}/removeVoucher` with the voucherId\nin the request body instead of `DELETE /carts/{cartId}/vouchers/{voucherId}`.\nRequires the corresponding OCC endpoint to be available on the backend (from 2211.28 version).",
+        "affects": [],
+        "defaultValue": false,
+        "usages": []
+      },
+      {
+        "name": "showRequiredAsterisks",
+        "description": "When enabled, displays required field asterisks for form fields.",
+        "affects": [],
+        "defaultValue": false,
+        "usages": [
+          {
+            "file": "feature-libs/organization/administration/components/user/form/user-form.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "UserFormComponent"
+            ],
+            "selectors": [
+              "cx-org-user-form"
+            ]
+          },
+          {
+            "file": "feature-libs/user/profile/components/update-profile/update-profile.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "UpdateProfileComponent"
+            ],
+            "selectors": [
+              "cx-update-profile"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "useEnhancedSecurePasswordValidators",
+        "description": "When enabled, forms using CustomFormValidators.securePasswordValidators will include:\nCustomFormValidators.mustEndWithLegalCharacter",
+        "affects": [],
+        "defaultValue": false,
+        "usages": [
+          {
+            "file": "feature-libs/order/components/order-confirmation/order-guest-register-form/order-guest-register-form.component.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "OrderGuestRegisterFormComponent"
+            ],
+            "selectors": [
+              "cx-guest-register-form"
+            ]
+          },
+          {
+            "file": "feature-libs/user/profile/components/register/register.component.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "RegisterComponent"
+            ],
+            "selectors": [
+              "cx-register"
+            ]
+          },
+          {
+            "file": "feature-libs/user/profile/components/registration-verification-token-form/verify-register-verification-token-form.component.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "RegistrationVerificationTokenFormComponent"
+            ],
+            "selectors": [
+              "cx-registration-verification-token-form"
+            ]
+          },
+          {
+            "file": "feature-libs/user/profile/components/reset-password/reset-password-component.service.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "ResetPasswordComponentService"
+            ],
+            "selectors": []
+          },
+          {
+            "file": "feature-libs/user/profile/components/update-password/update-password-component.service.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "UpdatePasswordComponentService"
+            ],
+            "selectors": []
+          }
+        ]
+      }
+    ],
+    "defaultEnabled": [
+      {
+        "name": "enableQuotePurchaseOrderNumber",
+        "description": "shows the Quote Purchase Order Number input field in the Quote Request form\nand in the Quote Details page\n\nwhen set to `true`, the user will be able to enter a Purchase Order Number\nwhen requesting a quote and see it in the quote details",
+        "affects": [],
+        "defaultValue": true,
+        "usages": []
+      },
+      {
+        "name": "enableReturnOrderReturnableQuantityConsigmentFallback",
+        "description": "When enabled, fixes the issue with return order returnable quantity not being displayed correctly\non the `ReturnOrderComponent` when navigating to the return request details page.",
+        "affects": [
+          "ReturnOrderComponent"
+        ],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "feature-libs/order/components/amend-order/returns/return-order/return-order.component.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "ReturnOrderComponent"
+            ],
+            "selectors": [
+              "cx-return-order"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "navigationMenuCloseOnSameLinkClick",
+        "description": "When this feature toggle is enabled, the navigation menu will close when clicking on the same link.\n\nThis is to improve the user experience on mobile devices, where the menu remains open\nafter clicking on a link that navigates to the same page.",
+        "affects": [
+          "NavigationUIComponent"
+        ],
+        "defaultValue": true,
+        "usages": [
+          {
+            "file": "projects/storefrontlib/cms-components/navigation/navigation/navigation-ui.component.ts",
+            "pattern": "is-enabled",
+            "negated": false,
+            "symbols": [
+              "NavigationUIComponent"
+            ],
+            "selectors": [
+              "cx-navigation-ui"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "publicApi": {
+    "removed": [],
+    "moved": [],
+    "changed": [
+      {
+        "entryPoint": "@spartacus/product-configurator/rulebased",
+        "name": "OccConfiguratorVariantNormalizer",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "compileAttributeIncompleteSingleSelectionImage",
+            "before": "(attribute: Configurator.Attribute): void",
+            "after": null
+          }
+        ]
+      }
+    ],
+    "deprecated": [
+      {
+        "entryPoint": "@spartacus/checkout/base/components",
+        "name": "CheckoutDeliveryAddressComponent",
+        "kind": "class",
+        "member": "getCardRole"
+      }
+    ],
+    "added": [
+      {
+        "entryPoint": "@spartacus/cds",
+        "name": "SearchBoxOutletTrendingSearches",
+        "kind": "interface"
+      },
+      {
+        "entryPoint": "@spartacus/cds",
+        "name": "SearchPhrases",
+        "kind": "interface"
+      },
+      {
+        "entryPoint": "@spartacus/cds",
+        "name": "TrendingSearchesComponent",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/cds",
+        "name": "TrendingSearchesModule",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/cds",
+        "name": "TrendingSearchesService",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/core",
+        "name": "decodeBase64",
+        "kind": "function"
+      },
+      {
+        "entryPoint": "@spartacus/core",
+        "name": "DEFAULT_AUTH_HTTP_HEADER_SERVICE",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/core",
+        "name": "DELEGATED_AUTH_HTTP_HEADER_SERVICE",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/core",
+        "name": "encodeBase64",
+        "kind": "function"
+      },
+      {
+        "entryPoint": "@spartacus/core",
+        "name": "ENDS_WITH_LEGAL_CHARACTER_PATTERN",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/core",
+        "name": "EXPIRED_REFRESH_TOKEN_HANDLERS",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/core",
+        "name": "ExpiredRefreshTokenHandler",
+        "kind": "interface"
+      },
+      {
+        "entryPoint": "@spartacus/core",
+        "name": "FEDERATED_LOGIN_STATE_KEY",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/core",
+        "name": "FederatedLoginConfig",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/core",
+        "name": "FederatedLoginContext",
+        "kind": "interface"
+      },
+      {
+        "entryPoint": "@spartacus/core",
+        "name": "FederatedLoginContextSerializerService",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/core",
+        "name": "FederatedLoginContextStorageService",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/core",
+        "name": "FederatedLoginGuard",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/core",
+        "name": "FederatedLoginModule",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/core",
+        "name": "federatedLoginProviders",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/core",
+        "name": "FederatedLoginService",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/checkout/root",
+        "name": "OpfCheckoutOutlets",
+        "kind": "enum"
+      },
+      {
+        "entryPoint": "@spartacus/opf/gift-card",
+        "name": "OpfGiftCardModule",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/gift-card/assets",
+        "name": "opfGiftCardTranslationChunksConfig",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/opf/gift-card/assets",
+        "name": "opfGiftCardTranslations",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/opf/gift-card/assets",
+        "name": "opfGiftCardTranslationsEn",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/opf/gift-card/components",
+        "name": "OpfGiftCardComponentsModule",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/gift-card/core",
+        "name": "OpfGiftCardAdapter",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/gift-card/core",
+        "name": "OpfGiftCardConnector",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/gift-card/core",
+        "name": "OpfGiftCardCoreModule",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/gift-card/core",
+        "name": "OpfGiftCardService",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/gift-card/occ",
+        "name": "defaultGiftCardOccEndpointsConfig",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/opf/gift-card/occ",
+        "name": "OccOpfGiftCardAdapter",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/gift-card/occ",
+        "name": "OccOpfGiftCardEndpoints",
+        "kind": "interface"
+      },
+      {
+        "entryPoint": "@spartacus/opf/gift-card/occ",
+        "name": "OpfGiftCardOccModule",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/gift-card/root",
+        "name": "CartAvailableOperation",
+        "kind": "interface"
+      },
+      {
+        "entryPoint": "@spartacus/opf/gift-card/root",
+        "name": "defaultOccOpfGiftCardCartEndpointsConfig",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/opf/gift-card/root",
+        "name": "defaultOccOpfGiftCardOrderEndpointsConfig",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/opf/gift-card/root",
+        "name": "defaultOpfGiftCardCartConfig",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/opf/gift-card/root",
+        "name": "defaultOpfGiftCardComponentsConfig",
+        "kind": "function"
+      },
+      {
+        "entryPoint": "@spartacus/opf/gift-card/root",
+        "name": "OPF_GIFT_CARD_FEATURE",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/opf/gift-card/root",
+        "name": "OPF_GIFT_CARD_FEATURE_CMS_COMPONENTS",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/opf/gift-card/root",
+        "name": "OpfGiftCardBalanceRequest",
+        "kind": "interface"
+      },
+      {
+        "entryPoint": "@spartacus/opf/gift-card/root",
+        "name": "OpfGiftCardCartOccNormalizer",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/gift-card/root",
+        "name": "OpfGiftCardFacade",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/gift-card/root",
+        "name": "OpfGiftCardOrderOccNormalizer",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/gift-card/root",
+        "name": "OpfGiftCardPaymentApiInterceptor",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/gift-card/root",
+        "name": "OpfGiftCardResponse",
+        "kind": "type"
+      },
+      {
+        "entryPoint": "@spartacus/opf/gift-card/root",
+        "name": "OpfGiftCardRootModule",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/gift-card/root",
+        "name": "OpfGiftCards",
+        "kind": "interface"
+      },
+      {
+        "entryPoint": "@spartacus/opf/gift-card/root",
+        "name": "OpfGiftCardSummary",
+        "kind": "interface"
+      },
+      {
+        "entryPoint": "@spartacus/opf/tokenisation",
+        "name": "OpfTokenisationModule",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/tokenisation/components",
+        "name": "OpfTokenisationComponentsModule",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/tokenisation/core",
+        "name": "OpfTokenisationAdapter",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/tokenisation/core",
+        "name": "OpfTokenisationConnector",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/tokenisation/core",
+        "name": "OpfTokenisationCoreModule",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/tokenisation/core",
+        "name": "OpfTokenisationService",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/tokenisation/root",
+        "name": "defaultOpfTokenisationCmsComponentsConfig",
+        "kind": "function"
+      },
+      {
+        "entryPoint": "@spartacus/opf/tokenisation/root",
+        "name": "OPF_TOKENISATION_FEATURE",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/opf/tokenisation/root",
+        "name": "OpfNewPaymentsHeadingContext",
+        "kind": "interface"
+      },
+      {
+        "entryPoint": "@spartacus/opf/tokenisation/root",
+        "name": "OpfPaymentDetails",
+        "kind": "type"
+      },
+      {
+        "entryPoint": "@spartacus/opf/tokenisation/root",
+        "name": "OpfSavedCardsToggleContext",
+        "kind": "interface"
+      },
+      {
+        "entryPoint": "@spartacus/opf/tokenisation/root",
+        "name": "OpfTokenisationFacade",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/tokenisation/root",
+        "name": "OpfTokenisationNewPaymentsHeadingComponent",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/tokenisation/root",
+        "name": "OpfTokenisationRootModule",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/tokenisation/root",
+        "name": "OpfTokenisationSavedCardsService",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/tokenisation/root",
+        "name": "OpfTokenisationSavedCardsToggleComponent",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/opf/tokenisation/root",
+        "name": "SAVED_CARDS_ID",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/punchout/root",
+        "name": "PunchoutExpiredRefreshTokenHandler",
+        "kind": "class"
+      }
+    ]
+  },
+  "angular": {
+    "from": "^21.2.4",
+    "to": "^21.2.9"
+  },
+  "cmsComponents": {
+    "AccountAddressBookComponent": [
+      "AddressBookComponent"
+    ],
+    "AccountMyQuotesComponent": [
+      "QuoteListComponent"
+    ],
+    "AccountOrderAttachmentsComponent": [
+      "OrderAttachmentsComponent"
+    ],
+    "AccountOrderDetailsActionsComponent": [
+      "MyAccountV2OrderDetailsActionsComponent",
+      "OrderDetailActionsComponent",
+      "S4ServiceOrderDetailActionsComponent"
+    ],
+    "AccountOrderDetailsApprovalDetailsComponent": [
+      "OrderDetailPermissionResultsComponent"
+    ],
+    "AccountOrderDetailsGroupedItemsComponent": [
+      "OrderDetailItemsComponent"
+    ],
+    "AccountOrderDetailsItemsComponent": [
+      "OrderDetailItemsComponent"
+    ],
+    "AccountOrderDetailsOverviewComponent": [
+      "OrderOverviewComponent"
+    ],
+    "AccountOrderDetailsPDFInvoicesComponent": [
+      "InvoicesListComponent"
+    ],
+    "AccountOrderDetailsReorderComponent": [
+      "OrderDetailReorderComponent"
+    ],
+    "AccountOrderDetailsSimpleOverviewComponent": [
+      "OrderOverviewComponent"
+    ],
+    "AccountOrderDetailsTotalsComponent": [
+      "OrderDetailTotalsComponent",
+      "OpfGiftCardOrderDetailTotalsComponent"
+    ],
+    "AccountOrderDocumentFlowComponent": [
+      "OrderDocumentFlowComponent"
+    ],
+    "AccountOrderHistoryComponent": [
+      "MyAccountV2OrderHistoryComponent",
+      "OrderHistoryComponent"
+    ],
+    "AccountPaymentDetailsComponent": [
+      "PaymentMethodsComponent",
+      "OpfTokenisationAccountPaymentMethodsComponent"
+    ],
+    "AccountReplenishmentHistoryComponent": [
+      "ReplenishmentOrderHistoryComponent"
+    ],
+    "AccountSavedCartHistoryComponent": [
+      "SavedCartListComponent"
+    ],
+    "AccountSummaryDocumentComponent": [
+      "AccountSummaryDocumentComponent"
+    ],
+    "AccountSummaryHeaderComponent": [
+      "AccountSummaryHeaderComponent"
+    ],
+    "AddToSavedCartsComponent": [
+      "AddToSavedCartComponent"
+    ],
+    "AddToWishListComponent": [
+      "AddToWishListComponent"
+    ],
+    "AnonymousConsentManagementBannerComponent": [
+      "AnonymousConsentManagementBannerComponent"
+    ],
+    "AnonymousConsentOpenDialogComponent": [
+      "AnonymousConsentOpenDialogComponent"
+    ],
+    "BannerComponent": [
+      "BannerComponent"
+    ],
+    "BreadcrumbComponent": [
+      "BreadcrumbComponent"
+    ],
+    "BulkPricingTableComponent": [
+      "BulkPricingTableComponent"
+    ],
+    "CancelOrderComponent": [
+      "CancelOrderComponent"
+    ],
+    "CancelOrderConfirmationComponent": [
+      "CancelOrderConfirmationComponent"
+    ],
+    "CancelServiceOrder": [
+      "CancelServiceOrderComponent"
+    ],
+    "CancelServiceOrderHeadline": [
+      "CancelServiceOrderHeadlineComponent"
+    ],
+    "CartApplyCouponComponent": [
+      "CartCouponComponent"
+    ],
+    "CartComponent": [
+      "CartDetailsComponent"
+    ],
+    "CartProceedToCheckoutComponent": [
+      "CartProceedToCheckoutComponent"
+    ],
+    "CartQuickOrderFormComponent": [
+      "CartQuickOrderFormComponent"
+    ],
+    "CartTotalsComponent": [
+      "CartTotalsComponent"
+    ],
+    "CategoryNavigationComponent": [
+      "CategoryNavigationComponent"
+    ],
+    "CheckoutCostCenterComponent": [
+      "CheckoutCostCenterComponent"
+    ],
+    "CheckoutDeliveryAddress": [
+      "B2BCheckoutDeliveryAddressComponent",
+      "CheckoutDeliveryAddressComponent"
+    ],
+    "CheckoutDeliveryMode": [
+      "CheckoutDeliveryModeComponent",
+      "ServiceCheckoutDeliveryModeComponent"
+    ],
+    "CheckoutOrchestrator": [
+      "CheckoutOrchestratorComponent"
+    ],
+    "CheckoutOrderSummary": [
+      "CheckoutOrderSummaryComponent",
+      "OpfGiftCardCheckoutOrderSummaryComponent"
+    ],
+    "CheckoutPaymentDetails": [
+      "CheckoutPaymentMethodComponent",
+      "DpPaymentMethodComponent",
+      "OpfTokenisationPaymentMethodComponent"
+    ],
+    "CheckoutPaymentType": [
+      "CheckoutPaymentTypeComponent"
+    ],
+    "CheckoutPlaceOrder": [
+      "CheckoutPlaceOrderComponent",
+      "CheckoutScheduledReplenishmentPlaceOrderComponent"
+    ],
+    "CheckoutProgress": [
+      "CheckoutProgressComponent"
+    ],
+    "CheckoutProgressMobileBottom": [
+      "CheckoutProgressMobileBottomComponent"
+    ],
+    "CheckoutProgressMobileTop": [
+      "CheckoutProgressMobileTopComponent"
+    ],
+    "CheckoutReviewOrder": [
+      "B2BCheckoutReviewSubmitComponent",
+      "CheckoutReviewSubmitComponent",
+      "ServiceCheckoutReviewSubmitComponent"
+    ],
+    "CheckoutReviewOverview": [
+      "CheckoutReviewOverviewComponent"
+    ],
+    "CheckoutReviewPayment": [
+      "CheckoutReviewPaymentComponent"
+    ],
+    "CheckoutReviewPickup": [
+      "PickUpItemsDetailsComponent"
+    ],
+    "CheckoutReviewShipping": [
+      "CheckoutReviewShippingComponent"
+    ],
+    "CheckoutScheduleReplenishmentOrder": [
+      "CheckoutScheduleReplenishmentOrderComponent"
+    ],
+    "CheckoutServiceDetails": [
+      "CheckoutServiceDetailsComponent"
+    ],
+    "ClaimDialogComponent": [
+      "ClaimDialogComponent"
+    ],
+    "ClearCartComponent": [
+      "ClearCartComponent"
+    ],
+    "CloseAccountComponent": [
+      "CloseAccountComponent"
+    ],
+    "CMSLinkComponent": [
+      "LinkComponent"
+    ],
+    "CMSParagraphComponent": [
+      "ParagraphComponent"
+    ],
+    "CMSProductListComponent": [
+      "ProductListComponent"
+    ],
+    "CMSSiteContextComponent": [
+      "SiteContextSelectorComponent"
+    ],
+    "CMSTabParagraphComponent": [
+      "ParagraphComponent"
+    ],
+    "CMSTabParagraphContainer": [
+      "TabParagraphContainerComponent"
+    ],
+    "ConfiguratorAddToCartButton": [
+      "ConfiguratorAddToCartButtonComponent"
+    ],
+    "ConfiguratorExitButton": [
+      "ConfiguratorExitButtonComponent"
+    ],
+    "ConfiguratorForm": [
+      "ConfiguratorFormComponent",
+      "ConfiguratorGroupComponent"
+    ],
+    "ConfiguratorGroupTitle": [
+      "ConfiguratorGroupTitleComponent"
+    ],
+    "ConfiguratorMenu": [
+      "ConfiguratorGroupMenuComponent"
+    ],
+    "ConfiguratorOverviewBanner": [
+      "ConfiguratorOverviewNotificationBannerComponent"
+    ],
+    "ConfiguratorOverviewFilterButton": [
+      "ConfiguratorOverviewFilterButtonComponent"
+    ],
+    "ConfiguratorOverviewForm": [
+      "ConfiguratorOverviewFormComponent"
+    ],
+    "ConfiguratorOverviewSidebar": [
+      "ConfiguratorOverviewSidebarComponent"
+    ],
+    "ConfiguratorPrevNext": [
+      "ConfiguratorPreviousNextButtonsComponent"
+    ],
+    "ConfiguratorPriceSummary": [
+      "ConfiguratorPriceSummaryComponent"
+    ],
+    "ConfiguratorProductTitle": [
+      "ConfiguratorProductTitleComponent"
+    ],
+    "ConfiguratorTabBar": [
+      "ConfiguratorTabBarComponent"
+    ],
+    "ConfiguratorUpdateMessage": [
+      "ConfiguratorUpdateMessageComponent"
+    ],
+    "ConfiguratorVariantCarousel": [
+      "ConfiguratorVariantCarouselComponent"
+    ],
+    "ConfigureProductComponent": [
+      "ConfigureProductComponent"
+    ],
+    "ConsentManagementComponent": [
+      "MyAccountV2ConsentManagementComponent",
+      "ConsentManagementComponent"
+    ],
+    "CouponClaimComponent": [
+      "CouponClaimComponent"
+    ],
+    "CpqConfiguratorConflictAndErrorMessagesComponent": [
+      "ConfiguratorConflictAndErrorMessagesComponent"
+    ],
+    "ExportOrderEntriesComponent": [
+      "ExportOrderEntriesComponent"
+    ],
+    "FooterNavigationComponent": [
+      "FooterNavigationComponent"
+    ],
+    "ForgotPasswordComponent": [
+      "ForgotPasswordComponent"
+    ],
+    "FutureStockComponent": [
+      "FutureStockAccordionComponent"
+    ],
+    "GigyaRaasComponent": [
+      "GigyaRaasComponent"
+    ],
+    "GuestCheckoutLoginComponent": [
+      "CheckoutLoginComponent"
+    ],
+    "HamburgerMenuComponent": [
+      "HamburgerMenuComponent"
+    ],
+    "ImportExportOrderEntriesComponent": [
+      "ImportExportOrderEntriesComponent"
+    ],
+    "ImportOrderEntriesComponent": [
+      "ImportOrderEntriesComponent"
+    ],
+    "LanguageCurrencyComponent": [
+      "LanguageCurrencyComponent"
+    ],
+    "LoginComponent": [
+      "LoginComponent"
+    ],
+    "ManageAccountSummaryListComponent": [
+      "AccountSummaryListComponent"
+    ],
+    "ManageBudgetsListComponent": [
+      "ListComponent"
+    ],
+    "ManageCostCentersListComponent": [
+      "ListComponent"
+    ],
+    "ManagePermissionsListComponent": [
+      "ListComponent"
+    ],
+    "ManageUnitsListComponent": [
+      "UnitListComponent"
+    ],
+    "ManageUserGroupsListComponent": [
+      "ListComponent"
+    ],
+    "ManageUsersListComponent": [
+      "ListComponent"
+    ],
+    "MerchandisingCarouselComponent": [
+      "MerchandisingCarouselComponent"
+    ],
+    "MiniCartComponent": [
+      "MiniCartComponent"
+    ],
+    "MyAccountSideNavigationComponent": [
+      "MyAccountV2NavigationComponent"
+    ],
+    "MyAccountViewOrderComponent": [
+      "MyAccountV2OrdersComponent"
+    ],
+    "MyAccountViewRequestsComponent": [
+      "MyAccountV2CustomerTicketingComponent"
+    ],
+    "MyAccountViewUserComponent": [
+      "MyAccountV2UserComponent"
+    ],
+    "MyCouponsComponent": [
+      "MyCouponsComponent"
+    ],
+    "MyInterestsComponent": [
+      "MyInterestsComponent"
+    ],
+    "MyPreferredStoreComponent": [
+      "MyPreferredStoreComponent"
+    ],
+    "NavigationComponent": [
+      "NavigationComponent"
+    ],
+    "NotificationPreferenceComponent": [
+      "MyAccountV2NotificationPreferenceComponent",
+      "NotificationPreferenceComponent"
+    ],
+    "OpfB2bCheckoutPaymentAndReview": [
+      "OpfB2bCheckoutPaymentAndReviewComponent"
+    ],
+    "OpfCheckoutDeliveryAddress": [
+      "OpfB2bCheckoutDeliveryAddressComponent"
+    ],
+    "OpfCheckoutEmailUpdateComponent": [
+      "OpfCheckoutEmailUpdateComponent"
+    ],
+    "OpfCheckoutPaymentAndReview": [
+      "OpfCheckoutPaymentAndReviewComponent"
+    ],
+    "OpfCheckoutPaymentType": [
+      "OpfB2bCheckoutPaymentTypeComponent"
+    ],
+    "OpfCheckoutReview": [
+      "OpfB2bCheckoutReviewComponent"
+    ],
+    "OpfCtaQuickBuyButtons": [
+      "OpfCtaQuickBuyButtonsComponent"
+    ],
+    "OpfCtaScriptsComponent": [
+      "OpfCtaScriptsComponent"
+    ],
+    "OpfQuickBuyButtonsComponent": [
+      "OpfQuickBuyButtonsComponent"
+    ],
+    "OrderApprovalDetailApprovalDetailsComponent": [
+      "OrderDetailPermissionResultsComponent"
+    ],
+    "OrderApprovalDetailFormComponent": [
+      "OrderApprovalDetailFormComponent"
+    ],
+    "OrderApprovalDetailItemsComponent": [
+      "OrderDetailItemsComponent"
+    ],
+    "OrderApprovalDetailShippingComponent": [
+      "OrderOverviewComponent"
+    ],
+    "OrderApprovalDetailTotalsComponent": [
+      "OrderDetailTotalsComponent"
+    ],
+    "OrderApprovalListComponent": [
+      "OrderApprovalListComponent"
+    ],
+    "OrderConfirmationBillingComponent": [
+      "OrderDetailBillingComponent"
+    ],
+    "OrderConfirmationItemsComponent": [
+      "OrderConfirmationItemsComponent"
+    ],
+    "OrderConfirmationOverviewComponent": [
+      "OrderOverviewComponent"
+    ],
+    "OrderConfirmationPickUpComponent": [
+      "PickUpItemsDetailsComponent"
+    ],
+    "OrderConfirmationShippingComponent": [
+      "OrderConfirmationShippingComponent"
+    ],
+    "OrderConfirmationThankMessageComponent": [
+      "OrderConfirmationThankYouMessageComponent"
+    ],
+    "OrderConfirmationTotalsComponent": [
+      "OrderConfirmationTotalsComponent",
+      "OpfGiftCardOrderConfirmationTotalsComponent"
+    ],
+    "OrderReturnRequestListComponent": [
+      "OrderReturnRequestListComponent"
+    ],
+    "OrganizationUserRegistrationComponent": [
+      "UserRegistrationFormComponent"
+    ],
+    "PageTitleComponent": [
+      "PageTitleComponent"
+    ],
+    "PDFDocumentComponent": [
+      "PDFComponent"
+    ],
+    "PickupInStoreDeliveryModeComponent": [
+      "PickUpItemsDetailsComponent"
+    ],
+    "ProductAddToCartComponent": [
+      "AddToCartComponent"
+    ],
+    "ProductCarouselComponent": [
+      "ProductCarouselComponent"
+    ],
+    "ProductDetailsTabComponent": [
+      "ProductDetailsTabComponent"
+    ],
+    "ProductGridComponent": [
+      "ProductListComponent"
+    ],
+    "ProductImagesComponent": [
+      "ProductImageZoomProductImagesComponent",
+      "ProductImagesComponent"
+    ],
+    "ProductIntroComponent": [
+      "ProductIntroComponent"
+    ],
+    "ProductMultiDimensionalSelectorComponent": [
+      "ProductMultiDimensionalSelectorComponent"
+    ],
+    "ProductReferencesComponent": [
+      "ProductReferencesComponent"
+    ],
+    "ProductRefinementComponent": [
+      "ProductFacetNavigationComponent"
+    ],
+    "ProductReviewsTabComponent": [
+      "ProductReviewsComponent"
+    ],
+    "ProductSpecsTabComponent": [
+      "ProductAttributesComponent"
+    ],
+    "ProductSummaryComponent": [
+      "ProductSummaryComponent"
+    ],
+    "ProductVariantSelectorComponent": [
+      "ProductVariantsContainerComponent"
+    ],
+    "ProfileTagComponent": [
+      "ProfileTagComponent"
+    ],
+    "PunchoutButtonsComponent": [
+      "PunchoutButtonsComponent"
+    ],
+    "PunchoutCloseSessionComponent": [
+      "PunchoutCloseSessionComponent"
+    ],
+    "PunchoutErrorComponent": [
+      "PunchoutErrorComponent"
+    ],
+    "PunchoutInspectCartComponent": [
+      "PunchoutInspectCartComponent"
+    ],
+    "PunchoutRequisitionComponent": [
+      "PunchoutRequisitionComponent"
+    ],
+    "PunchoutSessionComponent": [
+      "PunchoutSessionComponent"
+    ],
+    "QualtricsComponent": [
+      "QualtricsComponent"
+    ],
+    "QualtricsEmbeddedFeedbackComponent": [
+      "QualtricsEmbeddedFeedbackComponent"
+    ],
+    "QuickOrderComponent": [
+      "QuickOrderComponent"
+    ],
+    "QuoteCartGuardComponent": [
+      "QuoteCartGuardComponent"
+    ],
+    "QuoteCommentsComponent": [
+      "QuoteCommentsComponent"
+    ],
+    "QuoteHeaderOverviewComponent": [
+      "QuoteHeaderOverviewComponent"
+    ],
+    "QuoteItemsComponent": [
+      "QuoteItemsComponent"
+    ],
+    "QuoteLinksComponent": [
+      "QuoteLinksComponent"
+    ],
+    "QuoteRequestComponent": [
+      "QuoteRequestButtonComponent"
+    ],
+    "QuoteSummaryComponent": [
+      "QuoteSummaryComponent"
+    ],
+    "RegisterB2BCustomerWithOTPComponent": [
+      "UserRegistrationOTPFormComponent"
+    ],
+    "RegisterCustomerComponent": [
+      "RegisterComponent"
+    ],
+    "RegisterCustomerWithOTPComponent": [
+      "OneTimePasswordRegisterComponent"
+    ],
+    "ReplenishmentConfirmationItemsComponent": [
+      "OrderConfirmationItemsComponent"
+    ],
+    "ReplenishmentConfirmationMessageComponent": [
+      "OrderConfirmationThankYouMessageComponent"
+    ],
+    "ReplenishmentConfirmationOverviewComponent": [
+      "OrderOverviewComponent"
+    ],
+    "ReplenishmentConfirmationTotalsComponent": [
+      "OrderConfirmationTotalsComponent"
+    ],
+    "ReplenishmentDetailActionsComponent": [
+      "ReplenishmentOrderCancellationComponent"
+    ],
+    "ReplenishmentDetailItemsComponent": [
+      "OrderDetailItemsComponent"
+    ],
+    "ReplenishmentDetailOrderHistoryComponent": [
+      "OrderHistoryComponent"
+    ],
+    "ReplenishmentDetailShippingComponent": [
+      "OrderOverviewComponent"
+    ],
+    "ReplenishmentDetailTotalsComponent": [
+      "OrderDetailTotalsComponent"
+    ],
+    "RescheduleServiceOrder": [
+      "RescheduleServiceOrderComponent"
+    ],
+    "ResetPasswordComponent": [
+      "ResetPasswordComponent"
+    ],
+    "ReturningCustomerLoginComponent": [
+      "LoginFormComponent"
+    ],
+    "ReturningCustomerOTPLoginComponent": [
+      "OneTimePasswordLoginFormComponent"
+    ],
+    "ReturningCustomerRegisterComponent": [
+      "LoginRegisterComponent"
+    ],
+    "ReturnOrderComponent": [
+      "ReturnOrderComponent"
+    ],
+    "ReturnOrderConfirmationComponent": [
+      "ReturnOrderConfirmationComponent"
+    ],
+    "ReturnRequestItemsComponent": [
+      "ReturnRequestItemsComponent"
+    ],
+    "ReturnRequestOverviewComponent": [
+      "ReturnRequestOverviewComponent"
+    ],
+    "ReturnRequestTotalsComponent": [
+      "ReturnRequestTotalsComponent"
+    ],
+    "RotatingImagesComponent": [
+      "BannerCarouselComponent"
+    ],
+    "SavedCartDetailsActionComponent": [
+      "SavedCartDetailsActionComponent"
+    ],
+    "SavedCartDetailsItemsComponent": [
+      "SavedCartDetailsItemsComponent"
+    ],
+    "SavedCartDetailsOverviewComponent": [
+      "SavedCartDetailsOverviewComponent"
+    ],
+    "SaveForLaterComponent": [
+      "SaveForLaterComponent"
+    ],
+    "ScrollToTopComponent": [
+      "ScrollToTopComponent"
+    ],
+    "SearchBoxComponent": [
+      "SearchBoxComponent"
+    ],
+    "SearchResultsListComponent": [
+      "ProductListComponent"
+    ],
+    "SimpleBannerComponent": [
+      "BannerComponent"
+    ],
+    "SimpleResponsiveBannerComponent": [
+      "BannerComponent"
+    ],
+    "SiteThemeSwitcherComponent": [
+      "SiteThemeSwitcherComponent"
+    ],
+    "StockNotificationComponent": [
+      "StockNotificationComponent"
+    ],
+    "StoreFinderComponent": [
+      "StoreFinderComponent"
+    ],
+    "SubscriptionBillDetailsComponent": [
+      "SubscriptionBillingDetailsComponent"
+    ],
+    "SubscriptionBillsHistoryComponent": [
+      "SubscriptionBillingListComponent"
+    ],
+    "SubscriptionDetailsComponent": [
+      "SubscriptionDetailsComponent"
+    ],
+    "SubscriptionHistoryComponent": [
+      "SubscriptionListComponent"
+    ],
+    "SubscriptionProductPriceComponent": [
+      "SubscriptionProductPriceComponent"
+    ],
+    "SupportTicketCloseComponent": [
+      "CustomerTicketingCloseComponent"
+    ],
+    "SupportTicketDetailsComponent": [
+      "CustomerTicketingDetailsComponent"
+    ],
+    "SupportTicketHistoryComponent": [
+      "CustomerTicketingListComponent"
+    ],
+    "SupportTicketReopenComponent": [
+      "CustomerTicketingReopenComponent"
+    ],
+    "SupportTicketUpdateComponent": [
+      "CustomerTicketingMessagesComponent"
+    ],
+    "TextfieldConfigurationForm": [
+      "ConfiguratorTextfieldFormComponent"
+    ],
+    "UnitLevelOrderDetailsItemsComponent": [
+      "OrderDetailItemsComponent"
+    ],
+    "UnitLevelOrderDetailsOverviewComponent": [
+      "UnitLevelOrderOverviewComponent"
+    ],
+    "UnitLevelOrderDetailsTotalsComponent": [
+      "OrderDetailTotalsComponent"
+    ],
+    "UnitLevelOrderHistoryComponent": [
+      "UnitLevelOrderHistoryComponent"
+    ],
+    "UpdateEmailComponent": [
+      "MyAccountV2EmailComponent",
+      "UpdateEmailComponent"
+    ],
+    "UpdatePasswordComponent": [
+      "MyAccountV2PasswordComponent",
+      "UpdatePasswordComponent"
+    ],
+    "UpdateProfileComponent": [
+      "MyAccountV2ProfileComponent",
+      "UpdateProfileComponent"
+    ],
+    "VerifyOTPForB2BRegistrationComponent": [
+      "RegisterVerificationTokenFormComponent"
+    ],
+    "VerifyOTPForRegistrationComponent": [
+      "RegistrationVerificationTokenFormComponent"
+    ],
+    "VerifyOTPTokenComponent": [
+      "VerificationTokenFormComponent"
+    ],
+    "VideoComponent": [
+      "VideoComponent"
+    ],
+    "VisualPickingTabComponent": [
+      "VisualPickingTabComponent"
+    ],
+    "WishListComponent": [
+      "WishListComponent"
+    ]
+  },
+  "commits": [
+    {
+      "sha": "61fc06a0c2e84ba6277fd3d55343903be5b2a219",
+      "type": "fix",
+      "scope": null,
+      "subject": "remove tokenisation from the default installation array",
+      "jiraIds": [],
+      "pullRequest": 21457
+    },
+    {
+      "sha": "683e9c575edccfe5a39b991ab9bc559167df4751",
+      "type": "fix",
+      "scope": null,
+      "subject": "add missing return in federated login session refresh",
+      "jiraIds": [],
+      "pullRequest": 21452
+    },
+    {
+      "sha": "844e61c1df1d1bd93eb8874d16cb27f38f0158b0",
+      "type": "fix",
+      "scope": null,
+      "subject": "register in federated login does not use origin site to re-initialize login session",
+      "jiraIds": [],
+      "pullRequest": 21446
+    },
+    {
+      "sha": "688ebb17aae9fdabdf50e9a900a46f86585ab605",
+      "type": "fix",
+      "scope": null,
+      "subject": "remove giftcard from default installation array (#21448)",
+      "jiraIds": [],
+      "pullRequest": 21450
+    },
+    {
+      "sha": "bc170920b8b9737a142283669dcd009e1fa6deb8",
+      "type": "fix",
+      "scope": null,
+      "subject": "giftcard bugs",
+      "jiraIds": [],
+      "pullRequest": 21447
+    },
+    {
+      "sha": "efdd268a19f75d60f342d80eb980be0da3abd249",
+      "type": "chore",
+      "scope": null,
+      "subject": "normalize federated login config interface",
+      "jiraIds": [],
+      "pullRequest": 21420
+    },
+    {
+      "sha": "b1770306e3a94447969e8b6318f060f2a6d02745",
+      "type": "chore",
+      "scope": null,
+      "subject": "align default federated login configuration",
+      "jiraIds": [],
+      "pullRequest": 21405
+    },
+    {
+      "sha": "8a41652fcaceba93f485dc89c9239754ea3a3259",
+      "type": "chore",
+      "scope": null,
+      "subject": "get Blackduck to create new scan with name \"2605\" to represent 221121.11.0",
+      "jiraIds": [],
+      "pullRequest": 21416
+    },
+    {
+      "sha": "df90742f669aaa018374bdb3c74165261912da43",
+      "type": "fix",
+      "scope": null,
+      "subject": "Add handler to prevent Punchout overwriting AuthHttpHeader",
+      "jiraIds": [],
+      "pullRequest": null
+    },
+    {
+      "sha": "08d89f2168b6d0ec3101722bae68c0502a7b9943",
+      "type": "fix",
+      "scope": null,
+      "subject": "CXSPA-12985 bump Angular to 21.2.9 to address platform-server SSRF vulnerability - release",
+      "jiraIds": [
+        "CXSPA-12985"
+      ],
+      "pullRequest": 21400
+    },
+    {
+      "sha": "9dfc758e9003faca35d33714417fab96415835ae",
+      "type": "fix",
+      "scope": null,
+      "subject": "(CXSPA-12474) Hide aria-hidden on .ng-arrow-wrapper from screen readers",
+      "jiraIds": [
+        "CXSPA-12474"
+      ],
+      "pullRequest": 21378
+    },
+    {
+      "sha": "8c1d0fcd08e490d7732a9d72c6d5318b01d3409e",
+      "type": "fix",
+      "scope": null,
+      "subject": "(CXSPA-5180) fix ASM 360 styling issues on iPhone",
+      "jiraIds": [
+        "CXSPA-5180"
+      ],
+      "pullRequest": 21391
+    },
+    {
+      "sha": "405b02b73d4de08ed403565ae6bcd63bf75b9d2e",
+      "type": "feat",
+      "scope": null,
+      "subject": "federated custom login page for multi-domain hosting",
+      "jiraIds": [],
+      "pullRequest": 21366
+    },
+    {
+      "sha": "1769efaf9dbe463b4bacc3fd74b07fdf46215e55",
+      "type": "fix",
+      "scope": null,
+      "subject": "clear oAuthRedirectCodeFlow local storage value after login failure",
+      "jiraIds": [],
+      "pullRequest": 21380
+    },
+    {
+      "sha": "869abacf05f3a59b43edcbc631ad02f14c166260",
+      "type": "fix",
+      "scope": null,
+      "subject": "giftcard icon config & toggleGiftCardform",
+      "jiraIds": [],
+      "pullRequest": 21382
+    },
+    {
+      "sha": "dd23e209665bdedeede10bbd061a9a326e936533",
+      "type": "fix",
+      "scope": null,
+      "subject": "persist focus on consent",
+      "jiraIds": [],
+      "pullRequest": 21309
+    },
+    {
+      "sha": "2b7db392176ace160adc369079d7f2bb9602c6d7",
+      "type": "fix",
+      "scope": null,
+      "subject": "Avoid payment call when gift card fully covers total during billing update",
+      "jiraIds": [],
+      "pullRequest": 21376
+    },
+    {
+      "sha": "180a7f74274caca72a4715835f9724b57754ffee",
+      "type": "fix",
+      "scope": null,
+      "subject": "Add asterisks to customer id, roles and rights required input fields",
+      "jiraIds": [],
+      "pullRequest": 21369
+    },
+    {
+      "sha": "bac8db1a5eeb99fb3f4d6e1671d7aa3b99e9a6dd",
+      "type": "fix",
+      "scope": null,
+      "subject": "giftCard deployment error",
+      "jiraIds": [],
+      "pullRequest": 21367
+    },
+    {
+      "sha": "874399dea5dd8b467cffc5e4c5af24762ec826fd",
+      "type": "fix",
+      "scope": null,
+      "subject": "Display Select a value message for SINGLE_SELECTION_IMAGE UI type (CXSPA-12506)",
+      "jiraIds": [
+        "CXSPA-12506"
+      ],
+      "pullRequest": 21310
+    },
+    {
+      "sha": "74cba145d4c723efb7371c450f9596dc1381b863",
+      "type": "chore",
+      "scope": null,
+      "subject": "Enable feature toggles for 2605 release (CXSPA-12749)",
+      "jiraIds": [
+        "CXSPA-12749"
+      ],
+      "pullRequest": 21357
+    },
+    {
+      "sha": "35205f1c98e5bb179e84134042722c36a53aef6f",
+      "type": "test",
+      "scope": null,
+      "subject": "Fix failing e2e test (CXSPA-12853)",
+      "jiraIds": [
+        "CXSPA-12853"
+      ],
+      "pullRequest": 21364
+    },
+    {
+      "sha": "1917b29ad6758836bd6b6fee2a5b0c41fd30780b",
+      "type": "fix",
+      "scope": null,
+      "subject": "CXSPA-12790 Sec Vulnerabilities - bump axios to 1.15.0",
+      "jiraIds": [
+        "CXSPA-12790"
+      ],
+      "pullRequest": 21361
+    },
+    {
+      "sha": "6eba6fc0fe3be320edd1a882fa63d62182f3a6a4",
+      "type": "fix",
+      "scope": null,
+      "subject": "gc-occ endpoints config",
+      "jiraIds": [],
+      "pullRequest": 21362
+    },
+    {
+      "sha": "947b7c2690e330b2e744168a8a69998aec763382",
+      "type": "feat",
+      "scope": null,
+      "subject": "(CXSPA-11478) - Mitigate risk of GitHub actions pipeline compromise",
+      "jiraIds": [
+        "CXSPA-11478"
+      ],
+      "pullRequest": 21075
+    },
+    {
+      "sha": "23efeaa4ae9108ae736773fd858a6040ecc224cd",
+      "type": "feat",
+      "scope": null,
+      "subject": "add new validation to secure password validator",
+      "jiraIds": [],
+      "pullRequest": 21321
+    },
+    {
+      "sha": "c89f164a6872e6edc1d49a00a7923105f61d933b",
+      "type": "fix",
+      "scope": null,
+      "subject": "added i18n configuration giftCard",
+      "jiraIds": [],
+      "pullRequest": 21354
+    },
+    {
+      "sha": "bf086159c58f7907907fdd1cad38e988327b8e3a",
+      "type": "chore",
+      "scope": null,
+      "subject": "update install script for OPF giftCard config",
+      "jiraIds": [],
+      "pullRequest": 21348
+    },
+    {
+      "sha": "0909c3ae067dda2b9866d7186ea66a77ac265f4f",
+      "type": "feat",
+      "scope": null,
+      "subject": "epic-giftCard",
+      "jiraIds": [],
+      "pullRequest": 21285
+    },
+    {
+      "sha": "72b68155595486ab55f4396df4f8177793e55a45",
+      "type": "chore",
+      "scope": null,
+      "subject": "patch deps based on dependabot warrnings",
+      "jiraIds": [],
+      "pullRequest": 21341
+    },
+    {
+      "sha": "0dbe3dcdc04e845063f6652f05181229b54d54f2",
+      "type": "chore",
+      "scope": null,
+      "subject": "Migrate to ESLint flat configuration",
+      "jiraIds": [],
+      "pullRequest": 21287
+    },
+    {
+      "sha": "96062566bce7cf1b0a214079006953eb9b0cc3b6",
+      "type": "chore",
+      "scope": null,
+      "subject": "update install script for OPF tokenization config",
+      "jiraIds": [],
+      "pullRequest": 21342
+    },
+    {
+      "sha": "839365bec20425c621ec508ec3f84724186ac942",
+      "type": "fix",
+      "scope": null,
+      "subject": "Resolve sonar issues",
+      "jiraIds": [],
+      "pullRequest": 21329
+    },
+    {
+      "sha": "a7279d9c65d23725b4aeff3929fcdcbf918993aa",
+      "type": "fix",
+      "scope": null,
+      "subject": "add removeVoucher endpoint",
+      "jiraIds": [],
+      "pullRequest": 21281
+    },
+    {
+      "sha": "cda00f21a8982878b891c5e24bef0b4fd1f417a3",
+      "type": "feat",
+      "scope": null,
+      "subject": "expose CDS trending searches (including TrendingSearchesService) CXCDS-17705",
+      "jiraIds": [],
+      "pullRequest": 21328
+    },
+    {
+      "sha": "79f1bb487be3eb125b2eced7ae438a202f705f35",
+      "type": "feat",
+      "scope": null,
+      "subject": "Implement Tokenization for Saved Payment Details (My Account & Checkout)",
+      "jiraIds": [],
+      "pullRequest": 21129
+    },
+    {
+      "sha": "d7a12f7e9a90ab521c342456d3bcd3b1c2316079",
+      "type": "fix",
+      "scope": null,
+      "subject": "adjust currency E2E test assertion to handle formatting variations",
+      "jiraIds": [],
+      "pullRequest": 21332
+    },
+    {
+      "sha": "5d4c6400b7e57ae2ec38e605dc0cecbf9ce24a07",
+      "type": "fix",
+      "scope": null,
+      "subject": "update express-rate-limit dependencies to latest versions",
+      "jiraIds": [],
+      "pullRequest": 21318
+    },
+    {
+      "sha": "6b4c2c48f1ce841eed18219c155d8df071d68610",
+      "type": "fix",
+      "scope": null,
+      "subject": "update undici version to 6.24.1 in package json files",
+      "jiraIds": [],
+      "pullRequest": 21319
+    },
+    {
+      "sha": "27552db433ff745324a4be91792b665977001cfe",
+      "type": "feat",
+      "scope": null,
+      "subject": "Add vocalization of dropdown item count",
+      "jiraIds": [],
+      "pullRequest": 21286
+    },
+    {
+      "sha": "1b95711df69929ab3dba4aedf18419743619faab",
+      "type": "chore",
+      "scope": null,
+      "subject": "upgrade comment-json from 4.2.3 to 4.6.2",
+      "jiraIds": [],
+      "pullRequest": 21316
+    },
+    {
+      "sha": "7c67650e877bb05108fe605d80cac887daf114ca",
+      "type": "fix",
+      "scope": null,
+      "subject": "notification added to announce when item is successfully removed from cart",
+      "jiraIds": [],
+      "pullRequest": 21184
+    },
+    {
+      "sha": "65b052be3484c32b1ff50a9284aa907810efbc65",
+      "type": "chore",
+      "scope": null,
+      "subject": "pin axios version",
+      "jiraIds": [],
+      "pullRequest": 21313
+    },
+    {
+      "sha": "ac6a1b489144189cb7b2aa6c11761b9bf83d1b76",
+      "type": "chore",
+      "scope": null,
+      "subject": "Add missing packages to schematics",
+      "jiraIds": [],
+      "pullRequest": 21311
+    },
+    {
+      "sha": "8f04ec7c3747dd8455605cbe7ffb351d856f616b",
+      "type": "chore",
+      "scope": null,
+      "subject": "upgrade express 5.1.0 to 5.2.1",
+      "jiraIds": [],
+      "pullRequest": 21305
+    },
+    {
+      "sha": "160c9e8abd192da837f168e964a144f3c2f04b87",
+      "type": "fix",
+      "scope": null,
+      "subject": "update i18next translation service to ensure proper type handling",
+      "jiraIds": [],
+      "pullRequest": 21302
+    },
+    {
+      "sha": "43738df7a5db459aab777fad3c8167d248764668",
+      "type": "chore",
+      "scope": null,
+      "subject": "Add sh-e files to gitignore and improve readme for install script",
+      "jiraIds": [],
+      "pullRequest": 21288
+    },
+    {
+      "sha": "0236087010f2bd2645631899821ee10160152e8c",
+      "type": "refactor",
+      "scope": null,
+      "subject": "non-promise expression in promise aggregator (#21283)",
+      "jiraIds": [],
+      "pullRequest": 21301
+    },
+    {
+      "sha": "bfc5abedb53f3cb9b733a97cb28cfb7a6a94e3d8",
+      "type": "chore",
+      "scope": null,
+      "subject": "fix dependency changes from release branch merge",
+      "jiraIds": [],
+      "pullRequest": 21292
+    },
+    {
+      "sha": "5828f5fdfe4aad3a0ba8b2a95579c806ccbe28f5",
+      "type": null,
+      "scope": null,
+      "subject": "Revert \"fix: update i18next translation service to improve type handling and add rollup-plugin-dts dependency\"",
+      "jiraIds": [],
+      "pullRequest": 21300
+    },
+    {
+      "sha": "62f35fe30c3c0776bef4de923cbb622e72333edb",
+      "type": "fix",
+      "scope": null,
+      "subject": "update i18next translation service to improve type handling and add rollup-plugin-dts dependency",
+      "jiraIds": [],
+      "pullRequest": 21297
+    },
+    {
+      "sha": "aec865bb4ecec20e123459d912e6218a01ea14f8",
+      "type": "fix",
+      "scope": null,
+      "subject": "fix a11y issue with reading selected address",
+      "jiraIds": [],
+      "pullRequest": 21209
+    },
+    {
+      "sha": "8ff383fa2bb73c83864b78ff1953efe526f0c0bd",
+      "type": "test",
+      "scope": null,
+      "subject": "Enable team tiger e2e tests that require login",
+      "jiraIds": [],
+      "pullRequest": 20812
+    },
+    {
+      "sha": "6c1ea7271d5d474fc4f61b9ddcee8dfc0cf6495d",
+      "type": "fix",
+      "scope": null,
+      "subject": "handle full page redirection within smartedit",
+      "jiraIds": [],
+      "pullRequest": 21268
+    },
+    {
+      "sha": "6e9ab8e3042c7aad20ec1cafeca9485ab3d78a32",
+      "type": "fix",
+      "scope": null,
+      "subject": "Add quick order 'Add' button to tabbing order config after enabling i…",
+      "jiraIds": [],
+      "pullRequest": 21278
+    },
+    {
+      "sha": "31c5ed3ab7d19a0f9453b8143d571a9a5ff70303",
+      "type": "chore",
+      "scope": null,
+      "subject": "remove obsolete cypress jdk21 config files",
+      "jiraIds": [],
+      "pullRequest": 21276
+    },
+    {
+      "sha": "6afa217fd135fed9428d494f85c13a10fb208891",
+      "type": "fix",
+      "scope": null,
+      "subject": "upgrade [flatted] to ^3.4.2 version to address OSS Vulnerabilities",
+      "jiraIds": [],
+      "pullRequest": 21277
+    },
+    {
+      "sha": "af815f642965c28a050f251bc3fd9f4727ab7d2f",
+      "type": "fix",
+      "scope": null,
+      "subject": "(CXSPA-12321) Add quick order error msg for empty product ID",
+      "jiraIds": [
+        "CXSPA-12321"
+      ],
+      "pullRequest": 21258
+    },
+    {
+      "sha": "07f83a4e15a35e500486f4c26427a87fead487ea",
+      "type": "chore",
+      "scope": null,
+      "subject": "update vulnerable dependencies",
+      "jiraIds": [],
+      "pullRequest": 21252
+    },
+    {
+      "sha": "687b27fb0da7088512520cd4aa8ebf07c6032563",
+      "type": "fix",
+      "scope": null,
+      "subject": "CXSPA-12264 Upgrade Angular to address security vulnerabilities",
+      "jiraIds": [
+        "CXSPA-12264"
+      ],
+      "pullRequest": 21218
+    },
+    {
+      "sha": "8049e7ba4981cced2f90eab39c1ad0bf4f82b86b",
+      "type": "chore",
+      "scope": null,
+      "subject": "Cherry-pick unit-e2e fix",
+      "jiraIds": [],
+      "pullRequest": 21182
+    },
+    {
+      "sha": "6cba5576b0e626e72d5544812b93ae0d97a7a056",
+      "type": "fix",
+      "scope": null,
+      "subject": "add FontAwesome auto-width css variable (#21164)",
+      "jiraIds": [],
+      "pullRequest": 21180
+    },
+    {
+      "sha": "4f7ebcc5389d4a165250329a852c5766b2736a38",
+      "type": "fix",
+      "scope": null,
+      "subject": "update order history header to use breadcrumb component",
+      "jiraIds": [],
+      "pullRequest": 21172
+    },
+    {
+      "sha": "360a2eab9d497048af7655a2090a3402ffff27d9",
+      "type": "chore",
+      "scope": null,
+      "subject": "bump tar@7.5.7 -> tar@7.5.9",
+      "jiraIds": [],
+      "pullRequest": 21171
+    }
+  ]
+}
