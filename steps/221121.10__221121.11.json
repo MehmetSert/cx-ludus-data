@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatorVersion": 1,
+  "generatorVersion": 2,
   "from": {
     "release": "221121.10",
     "gitTag": "221121.10.0"
@@ -17,6 +17,7 @@
         "description": "Use on existing form buttons that are programatically disabled/enabled.\nTo use, duplicate button and use false in original and true in duplicate. The duplicated button\nshould be initialized as enabled, clickable and use cx-form-errors in outcomes where original button\nis in disabled state.",
         "affects": [],
         "defaultValue": false,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/cart/quick-order/components/cart-quick-order-form/cart-quick-order-form.component.html",
@@ -27,6 +28,16 @@
             ],
             "selectors": [
               "cx-cart-quick-order-form"
+            ],
+            "snippets": [
+              {
+                "line": 43,
+                "code": "<cx-form-errors\n  *cxFeature=\"'a11yCartQuickOrderFormEnableSubmitAndAddValidation'\"\n  id=\"productCodeError\"\n  [translationParams]=\"{\n    label: 'quickOrderCartForm.productCodeLabel' | cxTranslate,\n  }\"\n  [control]=\"quickOrderForm.get('productCode')\"\n></cx-form-errors>"
+              },
+              {
+                "line": 51,
+                "code": "<button\n  *cxFeature=\"'a11yCartQuickOrderFormEnableSubmitAndAddValidation'\"\n  [attr.aria-label]=\"'quickOrderCartForm.addToCart' | cxTranslate\"\n  [class.disabled]=\"cartIsLoading$ | async\"\n  [disabled]=\"cartIsLoading$ | async\"\n  class=\"btn btn-block btn-secondary apply-quick-order-button\"\n  type=\"submit\"\n>\n  {{ 'quickOrderCartForm.add' | cxTranslate }}\n</button>"
+              }
             ]
           },
           {
@@ -38,6 +49,12 @@
             ],
             "selectors": [
               "cx-cart-quick-order-form"
+            ],
+            "snippets": [
+              {
+                "line": 61,
+                "code": "<button\n  *cxFeature=\"'!a11yCartQuickOrderFormEnableSubmitAndAddValidation'\"\n  [attr.aria-label]=\"'quickOrderCartForm.addToCart' | cxTranslate\"\n  [class.disabled]=\"cartIsLoading$ | async\"\n  [disabled]=\"\n    (cartIsLoading$ | async) ||\n    !quickOrderForm.get('productCode')?.value ||\n    !quickOrderForm.get('quantity')?.value\n  \"\n  class=\"btn btn-block btn-secondary apply-quick-order-button\"\n  type=\"submit\"\n>\n  {{ 'quickOrderCartForm.add' | cxTranslate }}\n</button>"
+              }
             ]
           },
           {
@@ -49,6 +66,12 @@
             ],
             "selectors": [
               "cx-cart-quick-order-form"
+            ],
+            "snippets": [
+              {
+                "line": 104,
+                "code": "const useValidation = this.featureConfigService.isEnabled("
+              }
             ]
           }
         ]
@@ -62,6 +85,7 @@
           "ConsentManagementComponent"
         ],
         "defaultValue": false,
+        "docUrl": null,
         "usages": [
           {
             "file": "projects/storefrontlib/cms-components/myaccount/consent-management/components/consent-form/consent-management-form.component.ts",
@@ -72,6 +96,16 @@
             ],
             "selectors": [
               "cx-consent-management-form"
+            ],
+            "snippets": [
+              {
+                "line": 78,
+                "code": "changes.disabled?.currentValue === true &&"
+              },
+              {
+                "line": 92,
+                "code": "this.checkboxInput?.nativeElement &&"
+              }
             ]
           },
           {
@@ -81,7 +115,13 @@
             "symbols": [
               "VisibleFocusDirective"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 66,
+                "code": "// when the tab key is used, users are for navigating away from the current (form) element\nif (event.code === 'Tab') {\n  return true;\n}"
+              }
+            ]
           }
         ]
       },
@@ -92,6 +132,7 @@
           "cxNgSelectA11y"
         ],
         "defaultValue": false,
+        "docUrl": null,
         "usages": [
           {
             "file": "projects/storefrontlib/shared/components/ng-select-a11y/ng-select-a11y.directive.ts",
@@ -100,7 +141,13 @@
             "symbols": [
               "NgSelectA11yDirective"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 81,
+                "code": "if (this.featureConfigService.isEnabled('a11yVocalizeDropdownItemCount')) {\n  this.vocalizeItemCount();\n}"
+              }
+            ]
           }
         ]
       },
@@ -111,6 +158,7 @@
           "AuthHttpHeaderService"
         ],
         "defaultValue": false,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/48b41d3fe9c041a094671175187f8085.html",
         "usages": [
           {
             "file": "integration-libs/punchout/root/punchout.root.module.ts",
@@ -119,7 +167,13 @@
             "symbols": [
               "PunchoutRootModule"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 55,
+                "code": "DELEGATED_AUTH_HTTP_HEADER_SERVICE,\n{\n  optional: true,\n}"
+              }
+            ]
           },
           {
             "file": "projects/core/src/auth/user-auth/services/auth-http-header.service.ts",
@@ -128,7 +182,13 @@
             "symbols": [
               "AuthHttpHeaderService"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 245,
+                "code": "* Refreshes access_token and then retries the call with the new token."
+              }
+            ]
           }
         ]
       },
@@ -137,6 +197,7 @@
         "description": "When enabled, uses `POST /carts/{cartId}/removeVoucher` with the voucherId\nin the request body instead of `DELETE /carts/{cartId}/vouchers/{voucherId}`.\nRequires the corresponding OCC endpoint to be available on the backend (from 2211.28 version).",
         "affects": [],
         "defaultValue": false,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/05358e5b1044431584ae90e35ebb70de.html",
         "usages": []
       },
       {
@@ -144,6 +205,7 @@
         "description": "When enabled, displays required field asterisks for form fields.",
         "affects": [],
         "defaultValue": false,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/5b3eb2601fb241739e4c91adfa8bb790.html",
         "usages": [
           {
             "file": "feature-libs/organization/administration/components/user/form/user-form.component.html",
@@ -154,6 +216,16 @@
             ],
             "selectors": [
               "cx-org-user-form"
+            ],
+            "snippets": [
+              {
+                "line": 103,
+                "code": "<cx-form-required-asterisks *cxFeature=\"'showRequiredAsterisks'\" />"
+              },
+              {
+                "line": 127,
+                "code": "<cx-form-required-asterisks *cxFeature=\"'showRequiredAsterisks'\" />"
+              }
             ]
           },
           {
@@ -165,6 +237,12 @@
             ],
             "selectors": [
               "cx-update-profile"
+            ],
+            "snippets": [
+              {
+                "line": 84,
+                "code": "<cx-form-required-asterisks *cxFeature=\"'showRequiredAsterisks'\" />"
+              }
             ]
           }
         ]
@@ -174,6 +252,7 @@
         "description": "When enabled, forms using CustomFormValidators.securePasswordValidators will include:\nCustomFormValidators.mustEndWithLegalCharacter",
         "affects": [],
         "defaultValue": false,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/d90c8f85162c453ca629e10517bc3096.html",
         "usages": [
           {
             "file": "feature-libs/order/components/order-confirmation/order-guest-register-form/order-guest-register-form.component.ts",
@@ -184,6 +263,12 @@
             ],
             "selectors": [
               "cx-guest-register-form"
+            ],
+            "snippets": [
+              {
+                "line": 47,
+                "code": "protected passwordValidators = this.featureConfigService.isEnabled("
+              }
             ]
           },
           {
@@ -195,6 +280,12 @@
             ],
             "selectors": [
               "cx-register"
+            ],
+            "snippets": [
+              {
+                "line": 77,
+                "code": "protected passwordValidators = this.featureConfigService.isEnabled("
+              }
             ]
           },
           {
@@ -206,6 +297,12 @@
             ],
             "selectors": [
               "cx-registration-verification-token-form"
+            ],
+            "snippets": [
+              {
+                "line": 91,
+                "code": "return this.featureConfigService.isEnabled("
+              }
             ]
           },
           {
@@ -215,7 +312,13 @@
             "symbols": [
               "ResetPasswordComponentService"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 29,
+                "code": "// When: upon removing feature toogle: useEnhancedSecurePasswordValidators and not used anywhere else"
+              }
+            ]
           },
           {
             "file": "feature-libs/user/profile/components/update-password/update-password-component.service.ts",
@@ -224,7 +327,13 @@
             "symbols": [
               "UpdatePasswordComponentService"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 32,
+                "code": "// When: upon removing feature toogle: useEnhancedSecurePasswordValidators and service is not used anywhere else"
+              }
+            ]
           }
         ]
       }
@@ -235,6 +344,7 @@
         "description": "shows the Quote Purchase Order Number input field in the Quote Request form\nand in the Quote Details page\n\nwhen set to `true`, the user will be able to enter a Purchase Order Number\nwhen requesting a quote and see it in the quote details",
         "affects": [],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/059ef1e522b6484dbef4071b37828ac1.html",
         "usages": []
       },
       {
@@ -244,6 +354,7 @@
           "ReturnOrderComponent"
         ],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/a30f815f0bf84f09ae70d1a33358c2b1.html",
         "usages": [
           {
             "file": "feature-libs/order/components/amend-order/returns/return-order/return-order.component.ts",
@@ -254,6 +365,12 @@
             ],
             "selectors": [
               "cx-return-order"
+            ],
+            "snippets": [
+              {
+                "line": 61,
+                "code": "? {\n    ...entry,\n    returnableQuantity:\n      consignmentEntry.shippedQuantity ??\n      (this.featureConfigService?.isEnabled(\n        'enableReturnOrderReturnableQuantityConsigmentFallback'\n      )\n        ? entry.returnableQuantity\n        : null) ??\n      0,\n  }"
+              }
             ]
           }
         ]
@@ -265,6 +382,7 @@
           "NavigationUIComponent"
         ],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/67f0e59ec5654d85b6b0d1ec3a7f7f92.html",
         "usages": [
           {
             "file": "projects/storefrontlib/cms-components/navigation/navigation/navigation-ui.component.ts",
@@ -275,6 +393,12 @@
             ],
             "selectors": [
               "cx-navigation-ui"
+            ],
+            "snippets": [
+              {
+                "line": 163,
+                "code": "this.featureConfigService?.isEnabled("
+              }
             ]
           }
         ]

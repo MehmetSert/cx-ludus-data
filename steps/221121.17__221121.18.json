@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatorVersion": 1,
+  "generatorVersion": 2,
   "from": {
     "release": "221121.17",
     "gitTag": "221121.17.0"
@@ -16,6 +16,7 @@
         "description": "Feature flag to enable using the new LOGIN_EVENTS token instead of the ActionsSubject LOGIN stream for tracking.\n\nWhen enabled, the new LOGIN_EVENTS token will be used instead of the ActionsSubject LOGIN stream.\nThis is needed to support code flow authentication. If we are using the ActionsSubject LOGIN stream,\nthe login event won't be captured once we are redirected back from the auth server.\n\nUsed in `ProfileTagLifecycleService`",
         "affects": [],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/7fd5cb51f6f14414832056e1f7f1094b.html",
         "usages": []
       },
       {
@@ -25,6 +26,7 @@
           "AuthService"
         ],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/c734311fbaf3479e8628a9ad037836d3.html",
         "usages": []
       },
       {
@@ -32,6 +34,7 @@
         "description": "Feature flag to enable incrementing the processes count for the merge cart action.\n\nWhen enabled, the processes count will be incremented for the merge cart action.\nThis is needed to prevent premature cart loading, that especially affects the authorization code flow that requires redirection to the auth server and back.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/05d5b90582c147b6924a3601cd2ac9d5.html",
         "usages": []
       }
     ],
@@ -41,6 +44,7 @@
         "description": "When enabled, disabled action buttons (`.btn-primary`, `.btn-secondary`,\n`.btn-tertiary`) use the new `--cx-color-disabled` token instead of\n`--cx-color-border-focus`, so their border/background/text meet the\nWCAG 1.4.11 3:1 (7:1 in high-contrast themes) non-text contrast\nrequirement.",
         "affects": [],
         "defaultValue": false,
+        "docUrl": null,
         "usages": [
           {
             "file": "core-libs/storefront/layout/main/storefront.component.ts",
@@ -51,6 +55,12 @@
             ],
             "selectors": [
               "cx-storefront"
+            ],
+            "snippets": [
+              {
+                "line": 121,
+                "code": "useFeatureStyles('a11yFocusIndicatorContrast');"
+              }
             ]
           },
           {
@@ -58,7 +68,21 @@
             "pattern": "scss-for-feature",
             "negated": false,
             "symbols": [],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 69,
+                "code": "&:hover {\n  border-color: var(--cx-color-border-focus);\n}"
+              },
+              {
+                "line": 130,
+                "code": "color: var(--cx-color-medium);"
+              },
+              {
+                "line": 202,
+                "code": "border-radius: 4px;"
+              }
+            ]
           }
         ]
       },
@@ -67,6 +91,7 @@
         "description": "In `ActiveFacetsComponent`, announces filter changes to screen readers.\nBefore: no announcement when a filter is added or removed from the applied filters section.\nAfter: an assertive `aria-live` message is read out — \"Filter added: <name>\" or \"Filter removed: <name>\".",
         "affects": [],
         "defaultValue": false,
+        "docUrl": null,
         "usages": [
           {
             "file": "core-libs/storefront/cms-components/misc/global-message/global-message.component.html",
@@ -77,6 +102,12 @@
             ],
             "selectors": [
               "cx-global-message"
+            ],
+            "snippets": [
+              {
+                "line": 2,
+                "code": "<div\n  *cxFeature=\"'a11yFilteredFacetAnnouncement'\"\n  class=\"cx-visually-hidden\"\n  aria-live=\"polite\"\n  aria-atomic=\"true\"\n>\n  <span\n    *ngFor=\"\n      let assistiveMsg of (messages$ | async)?.[messageType.MSG_TYPE_ASSISTIVE]\n    \"\n    >{{ assistiveMsg | cxTranslate }}</span\n  >\n</div>"
+              }
             ]
           },
           {
@@ -88,6 +119,12 @@
             ],
             "selectors": [
               "cx-global-message"
+            ],
+            "snippets": [
+              {
+                "line": 15,
+                "code": "<ng-container *cxFeature=\"'!a11yFilteredFacetAnnouncement'\">\n  <div\n    *ngFor=\"let assistiveMsg of messages[messageType.MSG_TYPE_ASSISTIVE]\"\n    class=\"cx-visually-hidden\"\n    aria-live=\"polite\"\n    aria-atomic=\"true\"\n  >\n    <span>{{ assistiveMsg | cxTranslate }}</span>\n  </div>\n</ng-container>"
+              }
             ]
           },
           {
@@ -99,6 +136,12 @@
             ],
             "selectors": [
               "cx-active-facets"
+            ],
+            "snippets": [
+              {
+                "line": 11,
+                "code": "<a\n  *cxFeature=\"'a11yFilteredFacetAnnouncement'\"\n  routerLink=\"./\"\n  [queryParams]=\"getLinkParams(facet)\"\n  [cxFocus]=\"{ key: getFocusKey(facetList, facet) }\"\n  role=\"button\"\n  (keydown.space)=\"removeFilterWithSpacebar($event)\"\n  [attr.aria-label]=\"\n    'productList.activeFilter'\n      | cxTranslate: { filter: facet.facetValueName }\n  \"\n  [attr.title]=\"\n    'productList.activeFilter'\n      | cxTranslate: { filter: facet.facetValueName }\n  \"\n  [cxAtMessage]=\"\n    'productList.filterRemoved'\n      | cxTranslate: { filter: facet.facetValueName }\n  \"\n>\n  <span>{{ facet.facetValueName }}</span>\n  <cx-icon aria-hidden=\"true\" [type]=\"closeIcon\"></cx-icon>\n</a>"
+              }
             ]
           },
           {
@@ -110,6 +153,12 @@
             ],
             "selectors": [
               "cx-active-facets"
+            ],
+            "snippets": [
+              {
+                "line": 34,
+                "code": "<a\n  *cxFeature=\"'!a11yFilteredFacetAnnouncement'\"\n  routerLink=\"./\"\n  [queryParams]=\"getLinkParams(facet)\"\n  [cxFocus]=\"{ key: getFocusKey(facetList, facet) }\"\n  role=\"button\"\n  (keydown.space)=\"removeFilterWithSpacebar($event)\"\n  [attr.aria-label]=\"\n    'productList.activeFilter'\n      | cxTranslate: { filter: facet.facetValueName }\n  \"\n  [attr.title]=\"\n    'productList.activeFilter'\n      | cxTranslate: { filter: facet.facetValueName }\n  \"\n>\n  <span>{{ facet.facetValueName }}</span>\n  <cx-icon aria-hidden=\"true\" [type]=\"closeIcon\"></cx-icon>\n</a>"
+              }
             ]
           },
           {
@@ -121,6 +170,16 @@
             ],
             "selectors": [
               "cx-facet"
+            ],
+            "snippets": [
+              {
+                "line": 11,
+                "code": "<a\n  *cxFeature=\"'a11yFilteredFacetAnnouncement'\"\n  #facetValue\n  routerLink=\"./\"\n  [queryParams]=\"getLinkParams(value)\"\n  class=\"value\"\n  [class.selected]=\"value.selected\"\n  [cxFocus]=\"{ key: value.name }\"\n  (keydown)=\"onKeydown($event)\"\n  (keydown.space)=\"openLink($any($event))\"\n  role=\"option\"\n  [attr.aria-selected]=\"value.selected\"\n  attr.aria-label=\"{{\n    'productFacetNavigation.ariaLabelItemsAvailable'\n      | cxTranslate: { name: value.name, count: value.count }\n  }}\"\n  [cxAtMessage]=\"\n    (value.selected\n      ? 'productList.filterRemoved'\n      : 'productList.filterAdded'\n    ) | cxTranslate: { filter: value.name }\n  \"\n>\n  <span aria-hidden=\"true\"\n    >{{ value.name\n    }}<span aria-hidden=\"true\" class=\"count\">{{\n      value.count\n    }}</span></span\n  >\n</a>"
+              },
+              {
+                "line": 74,
+                "code": "<a\n  *cxFeature=\"'a11yFilteredFacetAnnouncement'\"\n  #facetValue\n  routerLink=\"./\"\n  [queryParams]=\"getLinkParams(value)\"\n  class=\"value\"\n  [class.selected]=\"value.selected\"\n  [cxFocus]=\"{ key: value.name }\"\n  (keydown)=\"onKeydown($event)\"\n  (keydown.space)=\"openLink($any($event))\"\n  role=\"option\"\n  [attr.aria-selected]=\"value.selected\"\n  attr.aria-label=\"{{\n    'productFacetNavigation.ariaLabelItemsAvailable'\n      | cxTranslate: { name: value.name, count: value.count }\n  }}\"\n  [cxAtMessage]=\"\n    (value.selected\n      ? 'productList.filterRemoved'\n      : 'productList.filterAdded'\n    ) | cxTranslate: { filter: value.name }\n  \"\n>\n  <span\n    >{{ value.name }}<span class=\"count\">{{ value.count }}</span></span\n  >\n</a>"
+              }
             ]
           },
           {
@@ -132,6 +191,16 @@
             ],
             "selectors": [
               "cx-facet"
+            ],
+            "snippets": [
+              {
+                "line": 41,
+                "code": "<a\n  *cxFeature=\"'!a11yFilteredFacetAnnouncement'\"\n  #facetValue\n  routerLink=\"./\"\n  [queryParams]=\"getLinkParams(value)\"\n  class=\"value\"\n  [class.selected]=\"value.selected\"\n  [cxFocus]=\"{ key: value.name }\"\n  (keydown)=\"onKeydown($event)\"\n  (keydown.space)=\"openLink($any($event))\"\n  role=\"option\"\n  [attr.aria-selected]=\"value.selected\"\n  attr.aria-label=\"{{\n    'productFacetNavigation.ariaLabelItemsAvailable'\n      | cxTranslate: { name: value.name, count: value.count }\n  }}\"\n>\n  <span aria-hidden=\"true\"\n    >{{ value.name\n    }}<span aria-hidden=\"true\" class=\"count\">{{\n      value.count\n    }}</span></span\n  >\n</a>"
+              },
+              {
+                "line": 101,
+                "code": "<a\n  *cxFeature=\"'!a11yFilteredFacetAnnouncement'\"\n  #facetValue\n  routerLink=\"./\"\n  [queryParams]=\"getLinkParams(value)\"\n  class=\"value\"\n  [class.selected]=\"value.selected\"\n  [cxFocus]=\"{ key: value.name }\"\n  (keydown)=\"onKeydown($event)\"\n  (keydown.space)=\"openLink($any($event))\"\n  role=\"option\"\n  [attr.aria-selected]=\"value.selected\"\n  attr.aria-label=\"{{\n    'productFacetNavigation.ariaLabelItemsAvailable'\n      | cxTranslate: { name: value.name, count: value.count }\n  }}\"\n>\n  <span\n    >{{ value.name }}<span class=\"count\">{{ value.count }}</span></span\n  >\n</a>"
+              }
             ]
           }
         ]
@@ -143,6 +212,7 @@
           "StorefrontComponent"
         ],
         "defaultValue": false,
+        "docUrl": null,
         "usages": []
       },
       {
@@ -150,6 +220,7 @@
         "description": "When enabled, the default theme's keyboard focus indicator color\n(`--cx-color-visual-focus`) is darkened so the focus outline of all UI\nelements (input fields, search box, comboboxes, checkboxes, radio buttons,\netc.) meets the WCAG 1.4.11 non-text contrast requirement of >=3:1 against\nthe adjacent surface.",
         "affects": [],
         "defaultValue": false,
+        "docUrl": null,
         "usages": [
           {
             "file": "core-libs/storefront/layout/main/storefront.component.ts",
@@ -160,6 +231,12 @@
             ],
             "selectors": [
               "cx-storefront"
+            ],
+            "snippets": [
+              {
+                "line": 120,
+                "code": "useFeatureStyles('cdsBottomHeaderSlotAdjustPosition');"
+              }
             ]
           }
         ]
@@ -171,6 +248,7 @@
           "FormErrorsComponent"
         ],
         "defaultValue": false,
+        "docUrl": null,
         "usages": [
           {
             "file": "core-libs/storefront/shared/components/form/form-errors/form-errors.component.ts",
@@ -181,6 +259,12 @@
             ],
             "selectors": [
               "cx-form-errors"
+            ],
+            "snippets": [
+              {
+                "line": 46,
+                "code": "useFeatureStyles('a11yFormErrorIconContrast');"
+              }
             ]
           },
           {
@@ -194,6 +278,12 @@
             "selectors": [
               "cx-file-upload",
               "cx-form-errors"
+            ],
+            "snippets": [
+              {
+                "line": 72,
+                "code": "// The `::before` circle uses `--cx-color-danger` as its background, so the"
+              }
             ]
           }
         ]
@@ -206,6 +296,7 @@
           "MyAccountV2ProfileComponent"
         ],
         "defaultValue": false,
+        "docUrl": null,
         "usages": [
           {
             "file": "core-libs/storefront/cms-components/myaccount/consent-management/components/consent-management.component.html",
@@ -216,6 +307,12 @@
             ],
             "selectors": [
               "cx-consent-management"
+            ],
+            "snippets": [
+              {
+                "line": 57,
+                "code": "<legend\n  *cxFeature=\"'a11yFormFieldSectionLegend'\"\n  class=\"cx-visually-hidden\"\n>\n  {{ pageTitle$ | async }}\n</legend>"
+              }
             ]
           },
           {
@@ -227,6 +324,12 @@
             ],
             "selectors": [
               "cx-my-account-v2-email"
+            ],
+            "snippets": [
+              {
+                "line": 36,
+                "code": "<legend *cxFeature=\"'a11yFormFieldSectionLegend'\" class=\"headertext\">\n  {{ 'myAccountV2Email.myEmailAddress' | cxTranslate }}\n</legend>"
+              }
             ]
           },
           {
@@ -238,6 +341,12 @@
             ],
             "selectors": [
               "cx-update-email"
+            ],
+            "snippets": [
+              {
+                "line": 6,
+                "code": "<legend\n  *cxFeature=\"'a11yFormFieldSectionLegend'\"\n  class=\"cx-visually-hidden\"\n>\n  {{ pageTitle$ | async }}\n</legend>"
+              }
             ]
           },
           {
@@ -249,6 +358,12 @@
             ],
             "selectors": [
               "cx-my-account-v2-password"
+            ],
+            "snippets": [
+              {
+                "line": 6,
+                "code": "<legend\n  *cxFeature=\"'a11yFormFieldSectionLegend'\"\n  class=\"myaccount-password-header\"\n>\n  {{ 'myAccountV2PasswordForm.newPasswordTitle' | cxTranslate }}\n</legend>"
+              }
             ]
           },
           {
@@ -260,6 +375,12 @@
             ],
             "selectors": [
               "cx-update-password"
+            ],
+            "snippets": [
+              {
+                "line": 6,
+                "code": "<legend\n  *cxFeature=\"'a11yFormFieldSectionLegend'\"\n  class=\"cx-visually-hidden\"\n>\n  {{ pageTitle$ | async }}\n</legend>"
+              }
             ]
           },
           {
@@ -271,6 +392,12 @@
             ],
             "selectors": [
               "cx-my-account-v2-profile"
+            ],
+            "snippets": [
+              {
+                "line": 43,
+                "code": "<legend *cxFeature=\"'a11yFormFieldSectionLegend'\" class=\"headertext\">\n  {{ 'myAccountV2UserProfile.myInformation' | cxTranslate }}\n</legend>"
+              }
             ]
           },
           {
@@ -282,6 +409,12 @@
             ],
             "selectors": [
               "cx-update-profile"
+            ],
+            "snippets": [
+              {
+                "line": 6,
+                "code": "<legend\n  *cxFeature=\"'a11yFormFieldSectionLegend'\"\n  class=\"cx-visually-hidden\"\n>\n  {{ pageTitle$ | async }}\n</legend>"
+              }
             ]
           }
         ]
@@ -293,6 +426,7 @@
           "AddressFormComponent"
         ],
         "defaultValue": false,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/user/profile/components/address-book/address-form/address-form.component.html",
@@ -303,6 +437,12 @@
             ],
             "selectors": [
               "cx-address-form"
+            ],
+            "snippets": [
+              {
+                "line": 8,
+                "code": "<ng-container *cxFeature=\"'a11yImproveAddressFormFocus'\">\n  <div [cxFocus]=\"focusConfig\">\n    <ng-container *ngTemplateOutlet=\"formBody\" />\n  </div>\n</ng-container>"
+              }
             ]
           },
           {
@@ -314,6 +454,12 @@
             ],
             "selectors": [
               "cx-address-form"
+            ],
+            "snippets": [
+              {
+                "line": 13,
+                "code": "<ng-container *cxFeature=\"'!a11yImproveAddressFormFocus'\">\n  <ng-container *ngTemplateOutlet=\"formBody\" />\n</ng-container>"
+              }
             ]
           }
         ]
@@ -325,6 +471,7 @@
           "CheckoutPaymentMethodComponent"
         ],
         "defaultValue": false,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/checkout/base/components/checkout-payment-method/checkout-payment-form/checkout-payment-form.component.html",
@@ -335,6 +482,12 @@
             ],
             "selectors": [
               "cx-payment-form"
+            ],
+            "snippets": [
+              {
+                "line": 10,
+                "code": "<ng-container *cxFeature=\"'a11yImproveCheckoutFocus'\">\n  <div [cxFocus]=\"focusConfig\">\n    <ng-container *ngTemplateOutlet=\"formBody\" />\n  </div>\n</ng-container>"
+              }
             ]
           },
           {
@@ -346,6 +499,12 @@
             ],
             "selectors": [
               "cx-payment-form"
+            ],
+            "snippets": [
+              {
+                "line": 15,
+                "code": "<ng-container *cxFeature=\"'!a11yImproveCheckoutFocus'\">\n  <ng-container *ngTemplateOutlet=\"formBody\" />\n</ng-container>"
+              }
             ]
           },
           {
@@ -357,6 +516,12 @@
             ],
             "selectors": [
               "cx-payment-method"
+            ],
+            "snippets": [
+              {
+                "line": 23,
+                "code": "<button\n  *cxFeature=\"'a11yImproveCheckoutFocus'\"\n  [cxFocus]=\"{ autofocus: true }\"\n  class=\"btn btn-block btn-secondary\"\n  (click)=\"showNewPaymentForm()\"\n>\n  {{ 'paymentForm.addNewPayment' | cxTranslate }}\n</button>"
+              }
             ]
           },
           {
@@ -368,6 +533,12 @@
             ],
             "selectors": [
               "cx-payment-method"
+            ],
+            "snippets": [
+              {
+                "line": 31,
+                "code": "<button\n  *cxFeature=\"'!a11yImproveCheckoutFocus'\"\n  class=\"btn btn-block btn-secondary\"\n  (click)=\"showNewPaymentForm()\"\n>\n  {{ 'paymentForm.addNewPayment' | cxTranslate }}\n</button>"
+              }
             ]
           },
           {
@@ -379,6 +550,12 @@
             ],
             "selectors": [
               "cx-checkout-review-payment"
+            ],
+            "snippets": [
+              {
+                "line": 1,
+                "code": "<ng-container *cxFeature=\"'a11yImproveCheckoutFocus'\">\n  <div\n    class=\"cx-review-summary\"\n    *ngIf=\"paymentDetails$ | async as paymentDetails\"\n    [cxFocus]=\"{ autofocus: true }\"\n  >\n    <div class=\"cx-review-summary-card cx-review-summary-payment-card\">\n      <div>\n        <cx-card [content]=\"getBillingAddressCard(paymentDetails) | async\" />\n      </div>\n      <div class=\"cx-review-summary-edit-step\">\n        <a\n          [attr.title]=\"'checkoutReview.editBillingDetails' | cxTranslate\"\n          [routerLink]=\"{ cxRoute: paymentDetailsStepRoute } | cxUrl\"\n        >\n          <cx-icon aria-hidden=\"true\" [type]=\"iconTypes.PENCIL\" />\n        </a>\n      </div>\n    </div>\n\n    <div class=\"cx-review-summary-card cx-review-summary-payment-card\">\n      <div>\n        <cx-card [content]=\"getPaymentMethodCard(paymentDetails) | async\" />\n      </div>\n      <div class=\"cx-review-summary-edit-step\">\n        <a\n          [attr.title]=\"'checkoutReview.editPaymentDetails' | cxTranslate\"\n          [routerLink]=\"{ cxRoute: paymentDetailsStepRoute } | cxUrl\"\n        >\n          <cx-icon aria-hidden=\"true\" [type]=\"iconTypes.PENCIL\" />\n        </a>\n      </div>\n    </div>\n  </div>\n</ng-container>"
+              }
             ]
           },
           {
@@ -390,6 +567,12 @@
             ],
             "selectors": [
               "cx-checkout-review-payment"
+            ],
+            "snippets": [
+              {
+                "line": 36,
+                "code": "<ng-container *cxFeature=\"'!a11yImproveCheckoutFocus'\">\n  <div\n    class=\"cx-review-summary\"\n    *ngIf=\"paymentDetails$ | async as paymentDetails\"\n  >\n    <div class=\"cx-review-summary-card cx-review-summary-payment-card\">\n      <div>\n        <cx-card [content]=\"getBillingAddressCard(paymentDetails) | async\" />\n      </div>\n      <div class=\"cx-review-summary-edit-step\">\n        <a\n          [attr.title]=\"'checkoutReview.editBillingDetails' | cxTranslate\"\n          [routerLink]=\"{ cxRoute: paymentDetailsStepRoute } | cxUrl\"\n        >\n          <cx-icon aria-hidden=\"true\" [type]=\"iconTypes.PENCIL\" />\n        </a>\n      </div>\n    </div>\n\n    <div class=\"cx-review-summary-card cx-review-summary-payment-card\">\n      <div>\n        <cx-card [content]=\"getPaymentMethodCard(paymentDetails) | async\" />\n      </div>\n      <div class=\"cx-review-summary-edit-step\">\n        <a\n          [attr.title]=\"'checkoutReview.editPaymentDetails' | cxTranslate\"\n          [routerLink]=\"{ cxRoute: paymentDetailsStepRoute } | cxUrl\"\n        >\n          <cx-icon aria-hidden=\"true\" [type]=\"iconTypes.PENCIL\" />\n        </a>\n      </div>\n    </div>\n  </div>\n</ng-container>"
+              }
             ]
           }
         ]
@@ -401,6 +584,7 @@
           "MessagingComponent"
         ],
         "defaultValue": false,
+        "docUrl": null,
         "usages": [
           {
             "file": "core-libs/storefront/shared/components/chat-messaging/messaging/messaging.component.html",
@@ -411,6 +595,16 @@
             ],
             "selectors": [
               "cx-messaging"
+            ],
+            "snippets": [
+              {
+                "line": 5,
+                "code": "<span\n  *cxFeature=\"'a11yMessagingListKeyboardFocus'\"\n  id=\"cx-messages-navigation-hint\"\n  class=\"cx-visually-hidden\"\n>\n  {{ 'chatMessaging.a11y.listNavigationHint' | cxTranslate }}\n</span>"
+              },
+              {
+                "line": 21,
+                "code": "<div\n  *cxFeature=\"'a11yMessagingListKeyboardFocus'\"\n  class=\"cx-message-card\"\n  role=\"listitem\"\n  [ngClass]=\"{ 'cx-message-display': message.rightAlign ?? false }\"\n  [tabindex]=\"i ? -1 : 0\"\n  [cxFocus]=\"i === 0 ? { autofocus: ':host' } : {}\"\n  [attr.aria-describedby]=\"\n    i === 0 ? 'cx-messages-navigation-hint' : null\n  \"\n  [attr.aria-label]=\"\n    'chatMessaging.informationLabel'\n      | cxTranslate\n        : {\n            author: message.author,\n            text: getMessageText(message),\n            date:\n              (message.createdAt\n                | cxDate: messagingConfigs?.dateFormat) ??\n              dateFormatA11y,\n            position: i + 1,\n            listLength: messageEvents.length,\n          }\n  \"\n>\n  <cx-avatar [message]=\"message\" />\n\n  <div>\n    <label aria-hidden=\"true\">{{\n      (message.createdAt | cxDate: messagingConfigs?.dateFormat) ??\n        dateFormatA11y\n    }}</label>\n    <div\n      [ngClass]=\"\n        (message.rightAlign ?? false)\n          ? 'cx-message-right-align-text'\n          : 'cx-message-left-align-text'\n      \"\n    >\n      <a\n…"
+              }
             ]
           },
           {
@@ -422,6 +616,12 @@
             ],
             "selectors": [
               "cx-messaging"
+            ],
+            "snippets": [
+              {
+                "line": 87,
+                "code": "<div\n  *cxFeature=\"'!a11yMessagingListKeyboardFocus'\"\n  class=\"cx-message-card\"\n  role=\"listitem\"\n  [ngClass]=\"{ 'cx-message-display': message.rightAlign ?? false }\"\n>\n  <cx-avatar [message]=\"message\" />\n\n  <div>\n    <label>{{\n      (message.createdAt | cxDate: messagingConfigs?.dateFormat) ??\n        dateFormat\n    }}</label>\n    <div\n      [ngClass]=\"\n        (message.rightAlign ?? false)\n          ? 'cx-message-right-align-text'\n          : 'cx-message-left-align-text'\n      \"\n      [tabindex]=\"i ? -1 : 0\"\n      [attr.aria-label]=\"\n        'chatMessaging.informationLabel'\n          | cxTranslate\n            : {\n                author: message.author,\n                text: getMessageText(message),\n                date:\n                  (message.createdAt\n                    | cxDate: messagingConfigs?.dateFormat) ??\n                  dateFormat,\n              }\n      \"\n    >\n      <a\n        *ngIf=\"message.item\"\n        class=\"cx-message-item-link\"\n        (click)=\"onItemClicked(message.item)\"\n        >{{ message.item.name }}:</a\n      >\n      {{ message.text }}\n…"
+              }
             ]
           },
           {
@@ -433,6 +633,12 @@
             ],
             "selectors": [
               "cx-messaging"
+            ],
+            "snippets": [
+              {
+                "line": 125,
+                "code": "  protected windowRef: WindowRef,\n  protected filesFormValidators: FilesFormValidators\n) {\n  useFeatureStyles('a11yMessagingListKeyboardFocus');\n}"
+              }
             ]
           },
           {
@@ -450,6 +656,12 @@
               "cx-file-upload",
               "cx-icon",
               "cx-messaging"
+            ],
+            "snippets": [
+              {
+                "line": 41,
+                "code": "@include forFeature('a11yMessagingListKeyboardFocus') {\n  &:focus-visible {\n    @include visible-focus();\n    outline-offset: -2px;\n    box-shadow: none;\n  }\n}"
+              }
             ]
           },
           {
@@ -461,6 +673,12 @@
             ],
             "selectors": [
               "cx-customer-ticketing-details"
+            ],
+            "snippets": [
+              {
+                "line": 49,
+                "code": "<div\n  *cxFeature=\"'a11yMessagingListKeyboardFocus'\"\n  class=\"cx-ticket-details\"\n  role=\"region\"\n  [attr.aria-label]=\"\n    'customerTicketingDetails.a11y.ticketDetailsRegion' | cxTranslate\n  \"\n>\n  <ng-container *ngTemplateOutlet=\"cards\" />\n</div>"
+              }
             ]
           },
           {
@@ -472,6 +690,12 @@
             ],
             "selectors": [
               "cx-customer-ticketing-details"
+            ],
+            "snippets": [
+              {
+                "line": 59,
+                "code": "<div *cxFeature=\"'!a11yMessagingListKeyboardFocus'\" class=\"cx-ticket-details\">\n  <ng-container *ngTemplateOutlet=\"cards\" />\n</div>"
+              }
             ]
           }
         ]
@@ -483,6 +707,7 @@
           "ListComponent (cx-org-list)"
         ],
         "defaultValue": false,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/organization/administration/components/shared/list/list.component.ts",
@@ -493,6 +718,12 @@
             ],
             "selectors": [
               "cx-org-list"
+            ],
+            "snippets": [
+              {
+                "line": 113,
+                "code": "useFeatureStyles('a11yNavigationChevronContrast');"
+              }
             ]
           },
           {
@@ -506,6 +737,12 @@
             "selectors": [
               "cx-org-list",
               "cx-org-unit-list"
+            ],
+            "snippets": [
+              {
+                "line": 19,
+                "code": "--list-bg: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' viewBox='0 0 44.21 69.76'%3E%3Cpolyline fill='none' stroke='%23D3D6DA' stroke-width='10' points='5,5 35,35 5,65 '/%3E%3C/svg%3E%0A\");"
+              }
             ]
           }
         ]
@@ -518,6 +755,7 @@
           "'NativeSelectSpaceDirective'"
         ],
         "defaultValue": false,
+        "docUrl": null,
         "usages": []
       },
       {
@@ -525,6 +763,7 @@
         "description": "When enabled, uses `POST /carts/{cartId}/applyVoucher` with the voucherId\nin the request body instead of `POST /carts/{cartId}/vouchers?voucherId={voucherId}`.\nRequires the corresponding OCC endpoint to be available on the backend (from 2211.28 version).",
         "affects": [],
         "defaultValue": false,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/469a1684bce349bba70f67207d6b44c3.html",
         "usages": []
       },
       {
@@ -534,6 +773,7 @@
           "ActiveCartService"
         ],
         "defaultValue": false,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/91497fe33c9b4fcdb36771cb518ec261.html",
         "usages": []
       },
       {
@@ -541,6 +781,7 @@
         "description": "Applies a `10rem` inline-start padding to the order overview cards\n(`.cx-order-details-cards`) on large screens. When disabled, the cards are\nnot pushed inward, avoiding the horizontal shift on wide viewports.",
         "affects": [],
         "defaultValue": false,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/b22d1a856a4f45cd83ef490e9c534a74.html",
         "usages": [
           {
             "file": "feature-libs/order/components/order-details/order-overview/order-overview.component.ts",
@@ -551,6 +792,12 @@
             ],
             "selectors": [
               "cx-order-overview"
+            ],
+            "snippets": [
+              {
+                "line": 79,
+                "code": "useFeatureStyles('orderOverviewCardsInlinePadding');"
+              }
             ]
           },
           {
@@ -569,6 +816,12 @@
               "cx-order-overview",
               "cx-order-summary",
               "cx-org-card"
+            ],
+            "snippets": [
+              {
+                "line": 25,
+                "code": "@include forFeature('orderOverviewCardsInlinePadding') {\n  padding-inline-start: 10rem;\n}"
+              }
             ]
           }
         ]
@@ -580,6 +833,7 @@
           "ConfiguratorAttributeProductCardComponent"
         ],
         "defaultValue": false,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/8c988201462b4466a24575b89201cba0.html",
         "usages": [
           {
             "file": "feature-libs/product-configurator/rulebased/components/attribute/product-card/configurator-attribute-product-card.component.html",
@@ -590,6 +844,20 @@
             ],
             "selectors": [
               "cx-configurator-attribute-product-card"
+            ],
+            "snippets": [
+              {
+                "line": 75,
+                "code": "<button\n  *cxFeature=\"'productConfiguratorConsolidatedButtonDisabling'\"\n  class=\"btn btn-secondary\"\n  (click)=\"onHandleDeselect()\"\n  [disabled]=\"disableActions$ | async\"\n  [cxFocus]=\"focusConfig\"\n  [attr.aria-label]=\"getAriaLabelMultiSelected(product)\"\n  [attr.aria-describedby]=\"\n    createAttributeUiKey(\n      'label',\n      productCardOptions.attributeName\n    )\n  \"\n>\n  {{ 'configurator.button.remove' | cxTranslate }}\n</button>"
+              },
+              {
+                "line": 109,
+                "code": "<button\n  *cxFeature=\"'productConfiguratorConsolidatedButtonDisabling'\"\n  class=\"btn btn-primary\"\n  (click)=\"onHandleSelect()\"\n  [disabled]=\"disableActions$ | async\"\n  [cxFocus]=\"focusConfig\"\n  [attr.aria-label]=\"getAriaLabelMultiUnselected(product)\"\n  [attr.aria-describedby]=\"\n    createAttributeUiKey(\n      'label',\n      productCardOptions.attributeName\n    )\n  \"\n>\n  {{ 'configurator.button.add' | cxTranslate }}\n</button>"
+              },
+              {
+                "line": 154,
+                "code": "<button\n  *cxFeature=\"'productConfiguratorConsolidatedButtonDisabling'\"\n  class=\"btn btn-primary\"\n  (click)=\"onHandleSelect()\"\n  [disabled]=\"disableActions$ | async\"\n  [cxFocus]=\"focusConfig\"\n  [attr.aria-label]=\"getAriaLabelSingleUnselected(product)\"\n  [attr.aria-describedby]=\"\n    createAttributeUiKey(\n      'label',\n      productCardOptions.attributeName\n    )\n  \"\n>\n  {{ 'configurator.button.select' | cxTranslate }}\n</button>"
+              }
             ]
           },
           {
@@ -601,6 +869,20 @@
             ],
             "selectors": [
               "cx-configurator-attribute-product-card"
+            ],
+            "snippets": [
+              {
+                "line": 91,
+                "code": "<button\n  *cxFeature=\"'!productConfiguratorConsolidatedButtonDisabling'\"\n  class=\"btn btn-secondary\"\n  (click)=\"onHandleDeselect()\"\n  [cxFocus]=\"focusConfig\"\n  [attr.aria-label]=\"getAriaLabelMultiSelected(product)\"\n  [attr.aria-describedby]=\"\n    createAttributeUiKey(\n      'label',\n      productCardOptions.attributeName\n    )\n  \"\n>\n  {{ 'configurator.button.remove' | cxTranslate }}\n</button>"
+              },
+              {
+                "line": 125,
+                "code": "<button\n  *cxFeature=\"'!productConfiguratorConsolidatedButtonDisabling'\"\n  class=\"btn btn-primary\"\n  (click)=\"onHandleSelect()\"\n  [disabled]=\"\n    productCardOptions.disableAllButtons ||\n    (disableActions$ | async)\n  \"\n  [cxFocus]=\"focusConfig\"\n  [attr.aria-label]=\"getAriaLabelMultiUnselected(product)\"\n  [attr.aria-describedby]=\"\n    createAttributeUiKey(\n      'label',\n      productCardOptions.attributeName\n    )\n  \"\n>\n  {{ 'configurator.button.add' | cxTranslate }}\n</button>"
+              },
+              {
+                "line": 170,
+                "code": "<button\n  *cxFeature=\"'!productConfiguratorConsolidatedButtonDisabling'\"\n  class=\"btn btn-primary\"\n  (click)=\"onHandleSelect()\"\n  [disabled]=\"\n    productCardOptions.disableAllButtons ||\n    (disableActions$ | async)\n  \"\n  [cxFocus]=\"focusConfig\"\n  [attr.aria-label]=\"getAriaLabelSingleUnselected(product)\"\n  [attr.aria-describedby]=\"\n    createAttributeUiKey(\n      'label',\n      productCardOptions.attributeName\n    )\n  \"\n>\n  {{ 'configurator.button.select' | cxTranslate }}\n</button>"
+              }
             ]
           },
           {
@@ -612,6 +894,12 @@
             ],
             "selectors": [
               "cx-configurator-attribute-multi-selection-bundle"
+            ],
+            "snippets": [
+              {
+                "line": 21,
+                "code": "<cx-configurator-attribute-product-card\n  *cxFeature=\"'productConfiguratorConsolidatedButtonDisabling'\"\n  id=\"{{\n    createAttributeValueIdForConfigurator(attribute, value.valueCode)\n  }}\"\n  (handleDeselect)=\"onDeselect($event)\"\n  (handleQuantity)=\"onChangeValueQuantity($event)\"\n  (handleSelect)=\"onSelect($event)\"\n  [productCardOptions]=\"\n    extractProductCardParameters(preventAction$ | async, value, i)\n  \"\n>\n</cx-configurator-attribute-product-card>"
+              }
             ]
           },
           {
@@ -623,6 +911,12 @@
             ],
             "selectors": [
               "cx-configurator-attribute-multi-selection-bundle"
+            ],
+            "snippets": [
+              {
+                "line": 34,
+                "code": "<cx-configurator-attribute-product-card\n  *cxFeature=\"'!productConfiguratorConsolidatedButtonDisabling'\"\n  id=\"{{\n    createAttributeValueIdForConfigurator(attribute, value.valueCode)\n  }}\"\n  (handleDeselect)=\"onDeselect($event)\"\n  (handleQuantity)=\"onChangeValueQuantity($event)\"\n  (handleSelect)=\"onSelect($event)\"\n  [productCardOptions]=\"\n    extractProductCardParameters(\n      preventAction$ | async,\n      value,\n      i,\n      loading$ | async\n    )\n  \"\n>\n</cx-configurator-attribute-product-card>"
+              }
             ]
           }
         ]
@@ -634,6 +928,7 @@
           "LanguagesEffects"
         ],
         "defaultValue": false,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/deb52d4a69ff425f92fd048c7d614c75.html",
         "usages": []
       },
       {
@@ -641,6 +936,7 @@
         "description": "Controls the empty-query results panel in `SearchBoxComponent`.\n\nBefore (disabled):\n- With `searchBoxRecentSearchesRemoval` enabled, an empty query closes the\n  results panel on desktop. Clearing the query closes the panel.\n- Without that toggle, desktop can show the results panel with an empty query.\n\nAfter (enabled):\n- On desktop, an empty query opens the results panel only when trending or\n  recent searches are available; otherwise the panel stays closed.\n- Clearing the query does not keep leftover OCC suggestions, products, or a\n  no-match message in the panel.\n- On mobile, the search box stays open for an empty query so the input is\n  not collapsed. The search panel Close button is hidden; Clear remains.",
         "affects": [],
         "defaultValue": false,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/d3d696b806ba4a18b86ffefa4f88e9c8.html",
         "usages": [
           {
             "file": "core-libs/storefront/cms-components/navigation/search-box/search-box.component.html",
@@ -651,6 +947,12 @@
             ],
             "selectors": [
               "cx-searchbox"
+            ],
+            "snippets": [
+              {
+                "line": 164,
+                "code": "<div class=\"products\" *cxFeature=\"'!searchBoxEmptyQueryResultsPanel'\">\n  <h3 *ngIf=\"result.products?.length\">\n    {{ 'searchBox.products' | cxTranslate }}\n  </h3>\n  <ng-container *ngIf=\"items$ | async as items\">\n    <cx-carousel\n      role=\"region\"\n      [attr.aria-label]=\"'searchBox.ariaLabelProducts' | cxTranslate\"\n      [items]=\"items\"\n      [template]=\"carouselItem\"\n      itemWidth=\"160px\"\n      (keybordEvent)=\"carouselEventPropagator($event)\"\n    >\n    </cx-carousel>\n\n    <ng-template #carouselItem let-product=\"item\">\n      <a\n        tabindex=\"0\"\n        [routerLink]=\"\n          {\n            cxRoute: 'product',\n            params: product,\n          } | cxUrl\n        \"\n        [class.has-media]=\"config.displayProductImages\"\n        (keydown.enter)=\"close(true)\"\n        (keydown.escape)=\"close(true)\"\n        (keydown.arrowleft)=\"carouselEventPropagator($any($event))\"\n        (keydown.arrowright)=\"carouselEventPropagator($any($event))\"\n        (keydown.arrowup)=\"carouselEventPropagator($any($event))\"\n        (mousedown)=\"preventDefault($event)\"\n        (click)=\"\n          dispatchProductEvent({\n            freeText: searchInputEl?.nativeElement?.value,\n            productCode: product.code,\n          })\n        \"\n      >\n        <cx-media\n          tabindex=\"0\"\n…"
+              }
             ]
           },
           {
@@ -662,6 +964,12 @@
             ],
             "selectors": [
               "cx-searchbox"
+            ],
+            "snippets": [
+              {
+                "line": 219,
+                "code": "<ng-container *cxFeature=\"'searchBoxEmptyQueryResultsPanel'\">\n  <div class=\"products\" *ngIf=\"hasQuery\">\n    <h3 *ngIf=\"result.products?.length\">\n      {{ 'searchBox.products' | cxTranslate }}\n    </h3>\n    <ng-container *ngIf=\"items$ | async as items\">\n      <cx-carousel\n        role=\"region\"\n        [attr.aria-label]=\"'searchBox.ariaLabelProducts' | cxTranslate\"\n        [items]=\"items\"\n        [template]=\"carouselItemFeature\"\n        itemWidth=\"160px\"\n        (keybordEvent)=\"carouselEventPropagator($event)\"\n      >\n      </cx-carousel>\n\n      <ng-template #carouselItemFeature let-product=\"item\">\n        <a\n          tabindex=\"0\"\n          [routerLink]=\"\n            {\n              cxRoute: 'product',\n              params: product,\n            } | cxUrl\n          \"\n          [class.has-media]=\"config.displayProductImages\"\n          (keydown.enter)=\"close(true)\"\n          (keydown.escape)=\"close(true)\"\n          (keydown.arrowleft)=\"carouselEventPropagator($any($event))\"\n          (keydown.arrowright)=\"carouselEventPropagator($any($event))\"\n          (keydown.arrowup)=\"carouselEventPropagator($any($event))\"\n          (mousedown)=\"preventDefault($event)\"\n          (click)=\"\n            dispatchProductEvent({\n              freeText: searchInputEl?.nativeElement?.value,\n              productCode: product.code,\n            })\n          \"\n        >\n          <cx-media\n…"
+              }
             ]
           },
           {
@@ -673,6 +981,12 @@
             ],
             "selectors": [
               "cx-searchbox"
+            ],
+            "snippets": [
+              {
+                "line": 236,
+                "code": "useFeatureStyles('searchBoxEmptyQueryResultsPanel');"
+              }
             ]
           },
           {
@@ -696,6 +1010,20 @@
               "cx-searchbox",
               "cx-storefront",
               "cx-trending-searches"
+            ],
+            "snippets": [
+              {
+                "line": 389,
+                "code": "// Required for text-overflow to do anything"
+              },
+              {
+                "line": 422,
+                "code": "@include type('6');\n@include media-breakpoint-down(sm) {\n  display: block;\n  right: 12px;\n  top: 20px;\n  @include forFeature('searchBoxEmptyQueryResultsPanel') {\n    display: none;\n  }\n}"
+              },
+              {
+                "line": 626,
+                "code": "  @include weight('semi');\n}\nul {\n  padding-inline-start: 0;\n  width: 100%;\n}"
+              }
             ]
           }
         ]
@@ -712,6 +1040,7 @@
           "TableComponent"
         ],
         "defaultValue": true,
+        "docUrl": null,
         "usages": []
       },
       {
@@ -719,6 +1048,7 @@
         "description": "Fixes keyboard focus not being visible when tabbing between some buttons\non Customer Ticketing dialog.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/customer-ticketing/components/shared/customer-ticketing-dialog/customer-ticketing-dialog.component.ts",
@@ -727,7 +1057,13 @@
             "symbols": [
               "CustomerTicketingDialogComponent"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 97,
+                "code": "useFeatureStyles('a11yCustomerTicketingVisualFocusFix');"
+              }
+            ]
           },
           {
             "file": "feature-libs/customer-ticketing/styles/components/_customer-ticketing-dialog.scss",
@@ -748,6 +1084,16 @@
               "cx-customer-ticketing-reopen-dialog",
               "cx-file-upload",
               "cx-icon"
+            ],
+            "snippets": [
+              {
+                "line": 66,
+                "code": "@include forFeature('a11yCustomerTicketingVisualFocusFix') {\n  button {\n    &:focus {\n      outline-width: 2px;\n    }\n  }\n}"
+              },
+              {
+                "line": 91,
+                "code": "@include forFeature('a11yCustomerTicketingVisualFocusFix') {\n  outline-width: 2px;\n}"
+              }
             ]
           }
         ]
@@ -757,6 +1103,7 @@
         "description": "When enabled, this fixes the issue of duplicated Order History headers on the Order History page.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/477b14f6b6d64b5c9d6a9ceacecc3884.html",
         "usages": [
           {
             "file": "feature-libs/order/components/order-history/order-history.component.html",
@@ -767,6 +1114,12 @@
             ],
             "selectors": [
               "cx-order-history"
+            ],
+            "snippets": [
+              {
+                "line": 21,
+                "code": "<ng-container *cxFeature=\"'!removeDuplicatedOrderHistoryHeader'\">\n  <h2 *ngIf=\"!type.replenishmentOrder\">\n    {{ 'orderHistory.orderHistory' | cxTranslate }}\n  </h2>\n</ng-container>"
+              }
             ]
           }
         ]

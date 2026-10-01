@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatorVersion": 1,
+  "generatorVersion": 2,
   "from": {
     "release": "221121.13",
     "gitTag": "221121.13.1"
@@ -16,6 +16,7 @@
         "description": "When enabled, the default routing config for the product page is no longer just:\n`paths: ['product/:productCode/:name']`\nbut:\n`paths: ['product/:productCode/:name', 'product/:productCode'],`\n\nIt means that the old URL scheme of generating links and matching URLs is preserved,\nbut now also a shorter alias (without product name) is accepted when matching the URL.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/bc80eb4d9f7742b292b0bd6ed7bf660c.html",
         "usages": []
       },
       {
@@ -23,6 +24,7 @@
         "description": "Reserve horizontal space for Star Rating component to prevent CLS on PDP.\nWhen enabled, the `cx-star-rating` component will reserve horizontal space for the star rating component to prevent CLS on PDP\nOtherwise the component has no width initially, and gets wider only after a delay.\nwhen Font Awesome font is loaded and Star icons are rendered.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/62109247a9ca4b2282a649532f4853d9.html",
         "usages": [
           {
             "file": "projects/storefrontlib/shared/components/star-rating/star-rating.component.ts",
@@ -33,6 +35,12 @@
             ],
             "selectors": [
               "cx-star-rating"
+            ],
+            "snippets": [
+              {
+                "line": 58,
+                "code": "@Output() change = new EventEmitter<number>();\n\nconstructor() {\n  useFeatureStyles('reserveHorizontalSpaceStarRating');\n}"
+              }
             ]
           },
           {
@@ -44,6 +52,12 @@
             ],
             "selectors": [
               "cx-star-rating"
+            ],
+            "snippets": [
+              {
+                "line": 4,
+                "code": "@include forFeature('reserveHorizontalSpaceStarRating') {\n  min-width: 9rem;\n}"
+              }
             ]
           }
         ]
@@ -55,6 +69,7 @@
           "MyPreferredStoreComponent"
         ],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/37d0ed9f720f4be0aa3c5bfe9218f326.html",
         "usages": [
           {
             "file": "feature-libs/pickup-in-store/components/container/my-preferred-store/my-preferred-store.component.ts",
@@ -65,6 +80,20 @@
             ],
             "selectors": [
               "cx-my-preferred-store"
+            ],
+            "snippets": [
+              {
+                "line": 99,
+                "code": "if (!this.featureConfigService.isEnabled('storeFinderFacadeCleanup')) {\n  this.preferredStore$ = this.preferredStoreFacade\n    .getPreferredStore$()\n    .pipe(\n      filter((preferredStore) => preferredStore !== null),\n      map((preferredStore) => preferredStore as PointOfServiceNames),\n      filter((preferredStore) => !!preferredStore.name),\n      map((preferredStore) => preferredStore.name),\n      tap((preferredStoreName) =>\n        this.pickupLocationsSearchService.loadStoreDetails(\n          preferredStoreName as string\n        )\n      ),\n      switchMap((preferredStoreName) =>\n        this.pickupLocationsSearchService.getStoreDetails(\n          preferredStoreName as string\n        )\n      ),\n      tap((store: PointOfService) => {\n        this.pointOfService = store;\n      })\n    );\n}"
+              },
+              {
+                "line": 125,
+                "code": "if (this.featureConfigService.isEnabled('storeFinderFacadeCleanup')) {\n  this.preferredStore$ = this.preferredStoreFacade\n    .getPreferredStore$()\n    .pipe(\n      filter(\n        (preferredStore) =>\n          preferredStore !== null && 'name' in preferredStore\n      ),\n      map((preferredStore) => preferredStore.name),\n      distinctUntilChanged(),\n      switchMap((preferredStoreName) =>\n        this.pickupLocationsSearchService.loadAndGetStoreDetails(\n          preferredStoreName as string\n        )\n      ),\n      tap((store: PointOfService) => {\n        this.pointOfService = store;\n      }),\n      shareReplay({ bufferSize: 1, refCount: true })\n    );\n\n  this.preferredStore$\n    .pipe(\n      switchMap(() =>\n        this.cmsService.getCurrentPage().pipe(\n          filter<Page>(Boolean),\n          take(1),\n          map((cmsPage) => {\n            this.isStoreFinder = cmsPage.pageId === 'storefinderPage';\n            return this.isStoreFinder;\n          }),\n          tap((isStoreFinder) => {\n            const link = this.storeLocationService.getDirections(\n              this.pointOfService\n            );\n            if (isStoreFinder) {\n              this.content = {\n                header: '',\n                actions: [\n                  {\n…"
+              },
+              {
+                "line": 251,
+                "code": "const linkToDirections = this.featureConfigService.isEnabled("
+              }
             ]
           }
         ]
@@ -74,6 +103,7 @@
         "description": "Feature flag to enable using `transform: translateX` instead of animating the `margin` property\nfor the top progress bar animation.\n\n## Why this flag exists:\nAnimating the `margin` property has two major downsides:\n\n1. **Cumulative Layout Shift (CLS)**: Changing margin causes layout shifts that negatively impact visual stability.\n2. **Performance impact**: Margin animations trigger browser re-layouts (reflows), increasing layout and paint costs,\n   which contributes to poor performance metrics like Total Blocking Time (TBT).\n\n## When enabled:\nThe top progress bar will animate using `transform: translateX(...)`, which is a GPU-accelerated,\nlayout-independent operation that improves visual performance and avoids layout shifts.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/95ea6556dc0443a2889519975966a5f4.html",
         "usages": [
           {
             "file": "projects/storefrontlib/layout/main/storefront.component.ts",
@@ -84,6 +114,12 @@
             ],
             "selectors": [
               "cx-storefront"
+            ],
+            "snippets": [
+              {
+                "line": 113,
+                "code": "  protected keyboardFocusService: KeyboardFocusService\n) {\n  useFeatureStyles('topProgressBarUseTransformAnimation');\n  useFeatureStyles('unifiedDefaultHeaderSlotsAcrossBreakpoints');\n  useFeatureStyles('a11yPreventWindowsHighContrastOverride');\n  useFeatureStyles('alignNavigationMenuWithHeader');\n}"
+              }
             ]
           },
           {
@@ -97,6 +133,16 @@
             "selectors": [
               "cx-paragraph",
               "cx-storefront"
+            ],
+            "snippets": [
+              {
+                "line": 19,
+                "code": "@include forFeature("
+              },
+              {
+                "line": 30,
+                "code": "@include forFeature("
+              }
             ]
           }
         ]
@@ -110,6 +156,7 @@
           "AddToWishListComponent"
         ],
         "defaultValue": false,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/cart/wish-list/components/add-to-wishlist/add-to-wish-list.component.ts",
@@ -120,6 +167,12 @@
             ],
             "selectors": [
               "cx-add-to-wishlist"
+            ],
+            "snippets": [
+              {
+                "line": 81,
+                "code": "useFeatureStyles('a11yAddToWishListBtnMargin');"
+              }
             ]
           },
           {
@@ -131,6 +184,12 @@
             ],
             "selectors": [
               "cx-add-to-wishlist"
+            ],
+            "snippets": [
+              {
+                "line": 19,
+                "code": "@include forFeature('a11yAddToWishListBtnMargin') {\n  margin-top: 8px;\n}"
+              }
             ]
           }
         ]
@@ -140,6 +199,7 @@
         "description": "When enabled, the \"Notification Channels\" link in the My Coupons page\nis styled as a link (blue, underlined) instead of plain text.",
         "affects": [],
         "defaultValue": false,
+        "docUrl": null,
         "usages": [
           {
             "file": "core-libs/storefront/cms-components/myaccount/my-coupons/my-coupons.component.ts",
@@ -150,6 +210,12 @@
             ],
             "selectors": [
               "cx-my-coupons"
+            ],
+            "snippets": [
+              {
+                "line": 97,
+                "code": "useFeatureStyles('a11yCouponNotificationChannelsLinkStyling');"
+              }
             ]
           },
           {
@@ -165,6 +231,12 @@
               "cx-coupon-card",
               "cx-my-coupons",
               "cx-sorting"
+            ],
+            "snippets": [
+              {
+                "line": 62,
+                "code": "@include forFeature('a11yCouponNotificationChannelsLinkStyling') {\n  color: var(--cx-color-primary);\n  text-decoration: underline;\n  &:hover {\n    color: var(--cx-color-primary-accent);\n  }\n}"
+              }
             ]
           }
         ]
@@ -176,6 +248,7 @@
           "SearchBoxComponent"
         ],
         "defaultValue": false,
+        "docUrl": null,
         "usages": [
           {
             "file": "core-libs/storefront/cms-components/navigation/search-box/search-box.component.ts",
@@ -186,6 +259,12 @@
             ],
             "selectors": [
               "cx-searchbox"
+            ],
+            "snippets": [
+              {
+                "line": 224,
+                "code": "useFeatureStyles('a11yFixSearchBoxDoubleFocus');"
+              }
             ]
           },
           {
@@ -209,6 +288,16 @@
               "cx-searchbox",
               "cx-storefront",
               "cx-trending-searches"
+            ],
+            "snippets": [
+              {
+                "line": 140,
+                "code": "align-items: center;"
+              },
+              {
+                "line": 172,
+                "code": "@include forFeature('a11yFixSearchBoxDoubleFocus') {\n  input:focus {\n    outline: none;\n    box-shadow: none;\n  }\n}"
+              }
             ]
           }
         ]
@@ -221,6 +310,7 @@
           "ProductListItemComponent"
         ],
         "defaultValue": false,
+        "docUrl": null,
         "usages": [
           {
             "file": "core-libs/storefront/cms-components/product/product-list/product-grid-item/product-grid-item.component.ts",
@@ -231,6 +321,12 @@
             ],
             "selectors": [
               "cx-product-grid-item"
+            ],
+            "snippets": [
+              {
+                "line": 72,
+                "code": "useFeatureStyles('a11yProductListItemNameMargin');"
+              }
             ]
           },
           {
@@ -242,6 +338,12 @@
             ],
             "selectors": [
               "cx-product-list-item"
+            ],
+            "snippets": [
+              {
+                "line": 82,
+                "code": "useFeatureStyles('a11yProductListItemNameMargin');"
+              }
             ]
           },
           {
@@ -255,6 +357,12 @@
             "selectors": [
               "cx-media",
               "cx-product-grid-item"
+            ],
+            "snippets": [
+              {
+                "line": 57,
+                "code": "@include forFeature('a11yProductListItemNameMargin') {\n  margin: 0 0 6px 0;\n}"
+              }
             ]
           },
           {
@@ -272,6 +380,12 @@
               "cx-product-list-item",
               "cx-product-summary",
               "cx-variant-style-icons"
+            ],
+            "snippets": [
+              {
+                "line": 80,
+                "code": "@include forFeature('a11yProductListItemNameMargin') {\n  margin: 0 0 6px 0;\n}"
+              }
             ]
           }
         ]
@@ -283,6 +397,7 @@
           "QuickOrderFormComponent"
         ],
         "defaultValue": false,
+        "docUrl": null,
         "usages": []
       },
       {
@@ -292,6 +407,7 @@
           "NgSelectA11yDirective"
         ],
         "defaultValue": false,
+        "docUrl": null,
         "usages": [
           {
             "file": "core-libs/storefront/layout/a11y/keyboard-focus/persist/persist-focus.directive.ts",
@@ -300,7 +416,13 @@
             "symbols": [
               "PersistFocusDirective"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 116,
+                "code": "  this.persistFeatureConfigService.isEnabled('a11yRestoreFocusOnNgSelect')\n) {\n  this.focusTarget.focus({ preventScroll: true });\n  if (this.config?.clearOnRestore) {\n    this.service.clear(this.group ?? undefined);\n  }\n}"
+              }
+            ]
           },
           {
             "file": "core-libs/storefront/shared/components/list-navigation/sorting/sorting.component.ts",
@@ -311,6 +433,12 @@
             ],
             "selectors": [
               "cx-sorting"
+            ],
+            "snippets": [
+              {
+                "line": 67,
+                "code": "if (!this.featureConfigService.isEnabled('a11yRestoreFocusOnNgSelect')) {\n  this.sortListEvent.emit(sortCode);\n  return;\n}"
+              }
             ]
           },
           {
@@ -320,7 +448,13 @@
             "symbols": [
               "NgSelectA11yDirective"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 87,
+                "code": "if (!this.featureConfigService.isEnabled('a11yRestoreFocusOnNgSelect')) {\n  return;\n}"
+              }
+            ]
           }
         ]
       },
@@ -329,6 +463,7 @@
         "description": "Moves focus to the 'Back' button when store details are shown in the\nstore finder list, so keyboard users are not left without a focused element.",
         "affects": [],
         "defaultValue": false,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/storefinder/components/store-finder-search-result/store-finder-list/store-finder-list.component.ts",
@@ -339,6 +474,12 @@
             ],
             "selectors": [
               "cx-store-finder-list"
+            ],
+            "snippets": [
+              {
+                "line": 82,
+                "code": "  this.featureConfigService.isEnabled('a11yStoreFinderFocusOnBackButton')\n) {\n  // Fires when backButton enters the DOM (signal goes undefined → ElementRef), moving focus to it.\n  effect(() => {\n    this.backButton()?.nativeElement?.focus();\n  });\n}"
+              }
             ]
           }
         ]
@@ -350,6 +491,7 @@
           "StoreFinderListItemComponent"
         ],
         "defaultValue": false,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/storefinder/components/store-finder-list-item/store-finder-list-item.component.ts",
@@ -360,6 +502,12 @@
             ],
             "selectors": [
               "cx-store-finder-list-item"
+            ],
+            "snippets": [
+              {
+                "line": 37,
+                "code": "useFeatureStyles('a11yStoreFinderListItemFocus');"
+              }
             ]
           },
           {
@@ -373,6 +521,12 @@
             "selectors": [
               "cx-store-address",
               "cx-store-finder-list-item"
+            ],
+            "snippets": [
+              {
+                "line": 27,
+                "code": "@include forFeature('a11yStoreFinderListItemFocus') {\n  display: inline-block;\n  min-height: unset;\n  margin-bottom: 2px;\n}"
+              }
             ]
           }
         ]
@@ -382,6 +536,7 @@
         "description": "When enabled, adds support for asynchronous configuration of the oAuth service and adds a default\ninitializer to adjust the oauth client details based on URL context parameters.\n\nThis flag only takes effect when the flag `authorizationCodeFlowByDefault` is enabled.",
         "affects": [],
         "defaultValue": false,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/a1477a65d949445baeef791f84341d4a.html",
         "usages": []
       },
       {
@@ -389,6 +544,7 @@
         "description": "When enabled, refreshes the CSRF token before submitting the login form in the\nAuthorization Code Flow. This ensures the token is valid even if the user has\nwaited on the login page past the Authorization Server session timeout, preventing\nan HTTP 403 response from the backend that would otherwise strand the user on a\nbackend error page.\n\nNOTE: Only applies when `authorizationCodeFlowByDefault` is also enabled.",
         "affects": [],
         "defaultValue": false,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/666a3ce0f4a5486e968d3f6e6d0a6a48.html",
         "usages": [
           {
             "file": "feature-libs/user/account/components/login-form/login-form-component.service.ts",
@@ -397,7 +553,13 @@
             "symbols": [
               "LoginFormComponentService"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 94,
+                "code": "this.featureConfigService.isEnabled("
+              }
+            ]
           }
         ]
       },
@@ -406,6 +568,7 @@
         "description": "Corrects `BottomHeaderSlot` layout when CDS registers `MerchandisingCarouselComponent`\nbeside `BreadcrumbComponent` (e.g. on search results pages in sample data).\n\nBefore (disabled):\n- `BottomHeaderSlot` lays out all children in a single flex row with no wrapping.\n- `cx-breadcrumb` and `cx-merchandising-carousel` each grow to ~50% of the slot width.\n- Breadcrumb title and trail are centered only within that half, so the block looks\n  left-aligned on the page (unlike develop without CDS, where the carousel is absent\n  and the breadcrumb is the sole child at full width).\n- `cx-merchandising-carousel` stays in the flex row even when it has no data and\n  renders no inner `cx-carousel`, leaving empty space beside the breadcrumb.\n\nAfter (enabled):\n- `cx-breadcrumb` always spans 100% of the slot width on its own row.\n- `cx-merchandising-carousel` is shown on a separate row only when it renders an\n  inner `cx-carousel`; otherwise the host is hidden and does not affect layout.",
         "affects": [],
         "defaultValue": false,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/6b75e5a97ccd43149851557816a3f542.html",
         "usages": [
           {
             "file": "core-libs/storefront/layout/main/storefront.component.ts",
@@ -416,6 +579,12 @@
             ],
             "selectors": [
               "cx-storefront"
+            ],
+            "snippets": [
+              {
+                "line": 117,
+                "code": "useFeatureStyles('alignNavigationMenuWithHeader');"
+              }
             ]
           },
           {
@@ -440,6 +609,12 @@
               "cx-page-layout",
               "cx-page-slot",
               "cx-paragraph"
+            ],
+            "snippets": [
+              {
+                "line": 43,
+                "code": "cx-paragraph {\n  display: block;\n}"
+              }
             ]
           }
         ]
@@ -451,6 +626,7 @@
           "- AddressBookComponent"
         ],
         "defaultValue": false,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/4b3273c4ac3f489f89d7991dfc46674a.html",
         "usages": [
           {
             "file": "core-libs/core/src/occ/adapters/user/occ-user-address.adapter.ts",
@@ -459,7 +635,13 @@
             "symbols": [
               "OccUserAddressAdapter"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 51,
+                "code": "const options = this.featureConfigService.isEnabled("
+              }
+            ]
           },
           {
             "file": "feature-libs/user/profile/components/address-book/address-book.component.ts",
@@ -470,6 +652,20 @@
             ],
             "selectors": [
               "cx-address-book"
+            ],
+            "snippets": [
+              {
+                "line": 78,
+                "code": "  this.featureConfigService.isEnabled('enableHierarchicalAddressFormat')\n) {\n  this.subscription.add(\n    this.languageService\n      .getActive()\n      .pipe(skip(1))\n      .subscribe(() => this.service.loadAddresses())\n  );\n}"
+              },
+              {
+                "line": 106,
+                "code": "  !this.featureConfigService.isEnabled('enableHierarchicalAddressFormat')\n) {\n  this.showAddAddressForm = false;\n  this.service.addUserAddress(address);\n  return;\n}"
+              },
+              {
+                "line": 140,
+                "code": "  !this.featureConfigService.isEnabled('enableHierarchicalAddressFormat')\n) {\n  this.showEditAddressForm = false;\n  if (address && this.currentAddress['id']) {\n    this.service.updateUserAddress(this.currentAddress['id'], address);\n  }\n  return;\n}"
+              }
             ]
           },
           {
@@ -481,6 +677,20 @@
             ],
             "selectors": [
               "cx-address-form"
+            ],
+            "snippets": [
+              {
+                "line": 161,
+                "code": "<ng-container *cxFeature=\"'enableHierarchicalAddressFormat'\">\n  <ng-container *ngIf=\"isHierarchicalAddressFormat\">\n    <ng-container\n      *ngIf=\"regions$ | async as regions\"\n      formGroupName=\"region\"\n    >\n      <ng-container *ngIf=\"regions.length !== 0\">\n        <div class=\"form-group col-md-6\">\n          <label>\n            <span class=\"label-content required\"\n              >{{ 'addressForm.province' | cxTranslate }}\n              <cx-form-required-asterisks />\n            </span>\n            <ng-select\n              [inputAttrs]=\"{ required: 'true' }\"\n              class=\"region-select\"\n              formControlName=\"isocode\"\n              [searchable]=\"true\"\n              [clearable]=\"false\"\n              [items]=\"regions\"\n              bindLabel=\"{{ regions[0].name ? 'name' : 'isocode' }}\"\n              bindValue=\"{{ regions[0].name ? 'isocode' : 'region' }}\"\n              placeholder=\"{{ 'addressForm.selectOne' | cxTranslate }}\"\n              (change)=\"regionSelected($event)\"\n              id=\"region-select\"\n              ariaLabelDropdown=\"{{\n                'common.ngSelectDropdownOptionsList' | cxTranslate\n              }}\"\n              [cxNgSelectA11y]=\"{\n                ariaLabel: 'addressForm.province' | cxTranslate,\n              }\"\n            >\n            </ng-select>\n            <cx-form-errors\n              [translationParams]=\"{\n                label: 'addressForm.province' | cxTranslate,\n              }\"\n              [control]=\"addressForm.get('region.isocode')\"\n            ></cx-form-errors>\n          </label>\n…"
+              },
+              {
+                "line": 213,
+                "code": "<ng-container *cxFeature=\"'enableHierarchicalAddressFormat'\">\n  <ng-select\n    *ngIf=\"isHierarchicalAddressFormat; else cityTextInput\"\n    class=\"city-select\"\n    id=\"city-select\"\n    formControlName=\"town\"\n    [searchable]=\"true\"\n    [clearable]=\"false\"\n    [items]=\"cities\"\n    bindLabel=\"name\"\n    bindValue=\"isocode\"\n    placeholder=\"{{\n      selectedRegion$.value\n        ? ('addressForm.selectOne' | cxTranslate)\n        : ('addressForm.selectProvinceFirst' | cxTranslate)\n    }}\"\n    (change)=\"citySelected($event)\"\n    [cxNgSelectA11y]=\"{\n      ariaLabel: 'addressForm.city.label' | cxTranslate,\n    }\"\n  >\n  </ng-select>\n</ng-container>"
+              },
+              {
+                "line": 262,
+                "code": "<ng-container *cxFeature=\"'enableHierarchicalAddressFormat'\">\n  <div class=\"form-group col-md-6\" *ngIf=\"isHierarchicalAddressFormat\">\n    <label>\n      <span class=\"label-content required\"\n        >{{ 'addressForm.district' | cxTranslate }}\n        <cx-form-required-asterisks />\n      </span>\n      <ng-select\n        class=\"district-select\"\n        id=\"district-select\"\n        formControlName=\"district\"\n        [searchable]=\"true\"\n        [clearable]=\"false\"\n        [items]=\"districts\"\n        bindLabel=\"name\"\n        bindValue=\"isocode\"\n        placeholder=\"{{\n          selectedCity$.value\n            ? ('addressForm.selectOne' | cxTranslate)\n            : ('addressForm.selectCityFirst' | cxTranslate)\n        }}\"\n        [cxNgSelectA11y]=\"{\n          ariaLabel: 'addressForm.district' | cxTranslate,\n        }\"\n      >\n      </ng-select>\n      <cx-form-errors\n        [translationParams]=\"{\n          label: 'addressForm.district' | cxTranslate,\n        }\"\n        [control]=\"addressForm.get('district')\"\n      ></cx-form-errors>\n    </label>\n  </div>\n</ng-container>"
+              }
             ]
           },
           {
@@ -492,6 +702,16 @@
             ],
             "selectors": [
               "cx-address-form"
+            ],
+            "snippets": [
+              {
+                "line": 236,
+                "code": "<ng-container *cxFeature=\"'!enableHierarchicalAddressFormat'\">\n  <ng-container *ngTemplateOutlet=\"cityTextInput\"></ng-container>\n</ng-container>"
+              },
+              {
+                "line": 412,
+                "code": "<ng-container *cxFeature=\"'!enableHierarchicalAddressFormat'\">\n  <div class=\"form-group col-md-6\">\n    <label>\n      <span class=\"label-content\">{{\n        'addressForm.cellphone.label' | cxTranslate\n      }}</span>\n      <input\n        type=\"tel\"\n        class=\"form-control\"\n        placeholder=\"{{\n          'addressForm.cellphone.placeholder' | cxTranslate\n        }}\"\n        formControlName=\"cellphone\"\n      />\n    </label>\n  </div>\n</ng-container>"
+              }
             ]
           },
           {
@@ -503,6 +723,20 @@
             ],
             "selectors": [
               "cx-address-form"
+            ],
+            "snippets": [
+              {
+                "line": 191,
+                "code": "if (this.addressData && Object.keys(this.addressData).length !== 0) {\n  if (\n    this.featureConfigService.isEnabled('enableHierarchicalAddressFormat')\n  ) {\n    this.countrySelected(this.addressData.country);\n    this.addressForm.patchValue(this.addressData);\n  } else {\n    this.addressForm.patchValue(this.addressData);\n    this.countrySelected(this.addressData.country);\n  }\n\n  if (this.addressData.region) {\n    this.regionSelected(this.addressData.region);\n  }\n}"
+              },
+              {
+                "line": 207,
+                "code": "this.addresses$ = this.userAddressService.getAddresses();"
+              },
+              {
+                "line": 335,
+                "code": "countrySelected(country: Country | undefined): void {\n  this.addressForm.get('country')?.get('isocode')?.setValue(country?.isocode);\n  this.selectedCountry$.next(country?.isocode ?? '');\n\n  if (\n    !this.featureConfigService.isEnabled('enableHierarchicalAddressFormat')\n  ) {\n    return;\n  }\n\n  this.isHierarchicalAddressFormat = (\n    this.hierarchicalAddressConfig.hierarchicalAddress\n      ?.countriesUsingHierarchicalAddressFormat ?? []\n  ).includes(country?.isocode ?? '');\n\n  const cellphoneControl = this.addressForm.get('cellphone');\n  const districtControl = this.addressForm.get('district');\n  const townControl = this.addressForm.get('town');\n\n  this.addressForm.get('region')?.get('isocode')?.reset();\n  townControl?.reset();\n  districtControl?.reset();\n  this.selectedRegion$.next('');\n  this.selectedCity$.next('');\n\n  if (this.isHierarchicalAddressFormat) {\n    cellphoneControl?.setValidators([Validators.required]);\n    districtControl?.setValidators([Validators.required]);\n  } else {\n    cellphoneControl?.clearValidators();\n    districtControl?.clearValidators();\n    townControl?.enable();\n    districtControl?.enable();\n  }\n  cellphoneControl?.updateValueAndValidity();\n  districtControl?.updateValueAndValidity();\n}"
+              }
             ]
           }
         ]
@@ -512,6 +746,7 @@
         "description": "",
         "affects": [],
         "defaultValue": false,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/49b2363b972b427fb512bbd8cfe273c0.html",
         "usages": []
       },
       {
@@ -519,6 +754,7 @@
         "description": "When enabled, OPF components use `DestroyRef` + `takeUntilDestroyed` for\nsubscription management instead of manual `Subscription` objects and `ngOnDestroy`.",
         "affects": [],
         "defaultValue": false,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/3806f80ea8a34cfc83e28a6f082df0a8.html",
         "usages": []
       },
       {
@@ -526,6 +762,7 @@
         "description": "",
         "affects": [],
         "defaultValue": false,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/7850c041237f49e1bd992175746f9073.html",
         "usages": []
       },
       {
@@ -533,6 +770,7 @@
         "description": "When enabled, logging out on a tab will issue logout on all other open tabs.  This prevents leaking\nauthenticated data through stale tabs.",
         "affects": [],
         "defaultValue": false,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/ac46b63a0db64a118408fc6afbdf7e4f.html",
         "usages": []
       },
       {
@@ -540,6 +778,7 @@
         "description": "When enabled, fixes a known issue where the last remembered route after logout is the route to which the logout has redirected",
         "affects": [],
         "defaultValue": false,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/24385639d7644300bc0cc8dfc52ec25b.html",
         "usages": [
           {
             "file": "core-libs/core/src/auth/user-auth/services/auth-redirect.service.ts",
@@ -548,7 +787,13 @@
             "symbols": [
               "AuthRedirectService"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 64,
+                "code": "  this.featureConfigService.isEnabled('redirectOnlyOnTrueNavigationEnd')\n) {\n  this.manageSavedRedirectUriOnTrueNavigations();\n}"
+              }
+            ]
           }
         ]
       },
@@ -557,6 +802,7 @@
         "description": "Updates recent-searches UX in `SearchBoxComponent` and CDS recent searches.\n\nBefore (disabled):\n- `SearchBoxComponent` can show the results panel on desktop with an empty query.\n- Recent searches are a simple link list without removal controls.\n- Recent searches still render when there are no suggestions or products.\n\nAfter (enabled):\n- On desktop, the results panel renders only for a non-empty query; clearing the query clears results and closes the panel.\n- `RecentSearchesComponent` adds per-item (X) buttons and a \"Clear\" action via CDS `removePhrase()` / `clearPhrases()`.\n- Recent searches are hidden in no-results states.",
         "affects": [],
         "defaultValue": false,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/d746e4a8ed0641cf8470232f36b1ad3a.html",
         "usages": [
           {
             "file": "core-libs/storefront/cms-components/navigation/search-box/search-box.component.html",
@@ -567,6 +813,20 @@
             ],
             "selectors": [
               "cx-searchbox"
+            ],
+            "snippets": [
+              {
+                "line": 57,
+                "code": "<span\n  *cxFeature=\"'searchBoxRecentSearchesRemoval'\"\n  id=\"initialDescription\"\n  class=\"cx-visually-hidden\"\n>\n  {{ 'searchBox.initialDescription' | cxTranslate }}\n</span>"
+              },
+              {
+                "line": 140,
+                "code": "<ng-container *cxFeature=\"'searchBoxRecentSearchesRemoval'\">\n  <ng-template\n    *ngIf=\"config.recentSearches && !isNoResults(result)\"\n    [cxOutlet]=\"searchBoxOutlets.RECENT_SEARCHES\"\n    [cxOutletContext]=\"{\n      search: searchInputEl?.nativeElement?.value ?? '',\n      searchBoxActive: searchBoxActive,\n      maxRecentSearches: config.maxRecentSearches,\n    }\"\n  ></ng-template>\n</ng-container>"
+              },
+              {
+                "line": 239,
+                "code": "<ng-container *cxFeature=\"'searchBoxRecentSearchesRemoval'\">\n  <ng-template [cxOutlet]=\"searchBoxOutlets.RECENT_SEARCHES_HEADER\">\n  </ng-template>\n</ng-container>"
+              }
             ]
           },
           {
@@ -578,6 +838,20 @@
             ],
             "selectors": [
               "cx-searchbox"
+            ],
+            "snippets": [
+              {
+                "line": 152,
+                "code": "<ng-container *cxFeature=\"'!searchBoxRecentSearchesRemoval'\">\n  <ng-template\n    *ngIf=\"config.recentSearches\"\n    [cxOutlet]=\"searchBoxOutlets.RECENT_SEARCHES\"\n    [cxOutletContext]=\"{\n      search: searchInputEl?.nativeElement?.value ?? '',\n      searchBoxActive: searchBoxActive,\n      maxRecentSearches: config.maxRecentSearches,\n    }\"\n  ></ng-template>\n</ng-container>"
+              },
+              {
+                "line": 244,
+                "code": "<h3\n  *cxFeature=\"'!searchBoxRecentSearchesRemoval'\"\n  class=\"recentSearches-header\"\n>\n  {{ 'searchBox.recentSearches' | cxTranslate }}\n</h3>"
+              },
+              {
+                "line": 263,
+                "code": "<span\n  *cxFeature=\"'!searchBoxRecentSearchesRemoval'\"\n  id=\"initialDescription\"\n  class=\"cx-visually-hidden\"\n>\n  {{ 'searchBox.initialDescription' | cxTranslate }}\n</span>"
+              }
             ]
           },
           {
@@ -589,6 +863,12 @@
             ],
             "selectors": [
               "cx-searchbox"
+            ],
+            "snippets": [
+              {
+                "line": 223,
+                "code": "useFeatureStyles('searchBoxRecentSearchesRemoval');"
+              }
             ]
           },
           {
@@ -600,6 +880,12 @@
             ],
             "selectors": [
               "cx-searchbox"
+            ],
+            "snippets": [
+              {
+                "line": 192,
+                "code": "this.featureConfigService.isEnabled('searchBoxRecentSearchesRemoval');"
+              }
             ]
           },
           {
@@ -623,6 +909,20 @@
               "cx-searchbox",
               "cx-storefront",
               "cx-trending-searches"
+            ],
+            "snippets": [
+              {
+                "line": 298,
+                "code": "font-style: normal;"
+              },
+              {
+                "line": 390,
+                "code": "white-space: nowrap;"
+              },
+              {
+                "line": 459,
+                "code": "height: min-content;\n&.header-panel-divider {\n  border-bottom: 1px solid var(--cx-color-medium);\n}"
+              }
             ]
           },
           {
@@ -632,7 +932,13 @@
             "symbols": [
               "RecentSearchesComponent"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 4,
+                "code": "<h3 *cxFeature=\"'!searchBoxRecentSearchesRemoval'\">\n  {{ 'searchBox.recentSearches' | cxTranslate }}\n</h3>"
+              }
+            ]
           },
           {
             "file": "integration-libs/cds/src/recent-searches/recent-searches.component.html",
@@ -641,7 +947,17 @@
             "symbols": [
               "RecentSearchesComponent"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 8,
+                "code": "<cx-recent-searches-header\n  *cxFeature=\"'searchBoxRecentSearchesRemoval'\"\n></cx-recent-searches-header>"
+              },
+              {
+                "line": 41,
+                "code": "<button\n  *cxFeature=\"'searchBoxRecentSearchesRemoval'\"\n  class=\"close\"\n  type=\"button\"\n  [attr.aria-label]=\"'common.remove' | cxTranslate\"\n  (keydown.arrowup)=\"shareEvent($any($event))\"\n  (keydown.arrowdown)=\"shareEvent($any($event))\"\n  (keydown.arrowleft)=\"shareEvent($any($event))\"\n  (keydown.arrowright)=\"shareEvent($any($event))\"\n  (keydown.enter)=\"handleCloseButtonEnter($any($event), recentSearch)\"\n  (keydown.escape)=\"shareEvent($any($event))\"\n  (blur)=\"shareEvent($any($event))\"\n  (click)=\"\n    removeFromRecentSearch(recentSearch); $event.stopPropagation()\n  \"\n>\n  <span aria-hidden=\"true\">\n    <cx-icon [type]=\"iconTypes.CLOSE\"></cx-icon>\n  </span>\n</button>"
+              }
+            ]
           },
           {
             "file": "integration-libs/cds/src/recent-searches/recent-searches.component.ts",
@@ -650,7 +966,13 @@
             "symbols": [
               "RecentSearchesComponent"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 106,
+                "code": "  !this.featureConfigService.isEnabled('searchBoxRecentSearchesRemoval')\n) {\n  this.searchBoxComponentService.shareEvent(event as KeyboardEvent);\n  return;\n}"
+              }
+            ]
           }
         ]
       }

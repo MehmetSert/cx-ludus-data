@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatorVersion": 1,
+  "generatorVersion": 2,
   "from": {
     "release": "221121.4",
     "gitTag": "221121.4.0"
@@ -16,6 +16,7 @@
         "description": "In `UnitFormComponent`, set 'clearable' as false for select of `ApprovalProcess`.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/organization/administration/components/unit/form/unit-form.component.html",
@@ -26,6 +27,16 @@
             ],
             "selectors": [
               "cx-org-unit-form"
+            ],
+            "snippets": [
+              {
+                "line": 62,
+                "code": "<ng-select\n  *cxFeature=\"'a11yApprovalProcessWithNoClearable'\"\n  formControlName=\"code\"\n  [searchable]=\"false\"\n  [clearable]=\"false\"\n  [items]=\"approvalProcess$ | async\"\n  bindLabel=\"name\"\n  bindValue=\"code\"\n  appendTo=\"cx-org-list\"\n  [placeholder]=\"'orgUnit.approvalProcess' | cxTranslate\"\n  [attr.aria-invalid]=\"\n    form.get('code')?.touched && form.get('code')?.invalid\n  \"\n  [attr.aria-errormessage]=\"'codeError'\"\n  [cxNgSelectA11y]=\"{}\"\n>\n</ng-select>"
+              },
+              {
+                "line": 110,
+                "code": "<ng-select\n  *cxFeature=\"'a11yApprovalProcessWithNoClearable'\"\n  [inputAttrs]=\"{ required: 'true' }\"\n  formControlName=\"uid\"\n  [searchable]=\"true\"\n  [clearable]=\"false\"\n  [items]=\"(units$ | async) ?? null\"\n  bindLabel=\"name\"\n  bindValue=\"id\"\n  appendTo=\"cx-org-list\"\n  [placeholder]=\"'orgUnit.form.parentOrgUnit' | cxTranslate\"\n  [cxNgSelectA11y]=\"{}\"\n  [attr.aria-invalid]=\"\n    form.get('uid')?.touched && form.get('uid')?.invalid\n  \"\n  [attr.aria-errormessage]=\"'codeError'\"\n>\n</ng-select>"
+              }
             ]
           },
           {
@@ -37,6 +48,16 @@
             ],
             "selectors": [
               "cx-org-unit-form"
+            ],
+            "snippets": [
+              {
+                "line": 79,
+                "code": "<ng-select\n  *cxFeature=\"'!a11yApprovalProcessWithNoClearable'\"\n  [inputAttrs]=\"{ required: 'true' }\"\n  formControlName=\"code\"\n  [searchable]=\"false\"\n  [items]=\"approvalProcess$ | async\"\n  bindLabel=\"name\"\n  bindValue=\"code\"\n  appendTo=\"cx-org-list\"\n  [placeholder]=\"'orgUnit.approvalProcess' | cxTranslate\"\n  [attr.aria-invalid]=\"\n    form.get('code')?.touched && form.get('code')?.invalid\n  \"\n  [attr.aria-errormessage]=\"'codeError'\"\n>\n</ng-select>"
+              },
+              {
+                "line": 128,
+                "code": "<ng-select\n  *cxFeature=\"'!a11yApprovalProcessWithNoClearable'\"\n  [inputAttrs]=\"{ required: 'true' }\"\n  formControlName=\"uid\"\n  [searchable]=\"true\"\n  [clearable]=\"false\"\n  [items]=\"(units$ | async) ?? null\"\n  bindLabel=\"name\"\n  bindValue=\"id\"\n  appendTo=\"cx-org-list\"\n  [placeholder]=\"'orgUnit.form.parentOrgUnit' | cxTranslate\"\n  [attr.aria-invalid]=\"\n    form.get('uid')?.touched && form.get('uid')?.invalid\n  \"\n  [attr.aria-errormessage]=\"'parentUnitUidError'\"\n>\n</ng-select>"
+              }
             ]
           }
         ]
@@ -46,6 +67,7 @@
         "description": "Fixes various instances of the focus ring being cropped in the UI.\nThe focus ring on interactive elements should have all its sides visible and not include any extra padding.\nAffects styles of: 'CartItemListComponent, CartItemComponent, ListComponent, FutureStockAccordionComponent,\nQuoteConfirmDialogComponent, MessagingComponent, TabComponent, ProductImageZoomViewComponent",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/cart/base/components/cart-shared/cart-item-list/cart-item-list.component.ts",
@@ -56,6 +78,12 @@
             ],
             "selectors": [
               "cx-cart-item-list"
+            ],
+            "snippets": [
+              {
+                "line": 100,
+                "code": "protected multiCartService: MultiCartFacade,"
+              }
             ]
           },
           {
@@ -67,6 +95,12 @@
             ],
             "selectors": [
               "cx-cart-item"
+            ],
+            "snippets": [
+              {
+                "line": 47,
+                "code": "constructor(protected cartItemContextSource: CartItemContextSource) {\n  useFeatureStyles('a11yCroppedFocusRing');\n}"
+              }
             ]
           },
           {
@@ -95,6 +129,12 @@
               "cx-pickup-options",
               "cx-tab",
               "cx-total"
+            ],
+            "snippets": [
+              {
+                "line": 56,
+                "code": "@include forFeature('a11yCroppedFocusRing') {\n  a {\n    height: fit-content;\n  }\n}"
+              }
             ]
           },
           {
@@ -110,6 +150,12 @@
               "cx-cart-item",
               "cx-link",
               "cx-total"
+            ],
+            "snippets": [
+              {
+                "line": 99,
+                "code": "@include forFeature('a11yCroppedFocusRing') {\n  height: unset;\n}"
+              }
             ]
           },
           {
@@ -121,6 +167,12 @@
             ],
             "selectors": [
               "cx-org-list"
+            ],
+            "snippets": [
+              {
+                "line": 47,
+                "code": "useFeatureStyles('a11yCroppedFocusRing');"
+              }
             ]
           },
           {
@@ -150,6 +202,12 @@
               "cx-table",
               "cx-table-data-cell",
               "cx-view"
+            ],
+            "snippets": [
+              {
+                "line": 77,
+                "code": "@include forFeature('a11yCroppedFocusRing') {\n  .header h2 button {\n    outline-offset: -2px;\n  }\n}"
+              }
             ]
           },
           {
@@ -161,6 +219,12 @@
             ],
             "selectors": [
               "cx-future-stock-accordion"
+            ],
+            "snippets": [
+              {
+                "line": 23,
+                "code": "useFeatureStyles('a11yCroppedFocusRing');"
+              }
             ]
           },
           {
@@ -176,6 +240,12 @@
               "[cxIcon]",
               "cx-future-stock-accordion",
               "cx-icon"
+            ],
+            "snippets": [
+              {
+                "line": 10,
+                "code": "@include forFeature('a11yCroppedFocusRing') {\n  padding-inline-start: unset;\n  margin-inline-start: 1.25rem;\n  padding: 0;\n\n  @include media-breakpoint-down(md) {\n    margin-inline-start: 0;\n  }\n}"
+              }
             ]
           },
           {
@@ -187,6 +257,12 @@
             ],
             "selectors": [
               "cx-product-image-zoom-view"
+            ],
+            "snippets": [
+              {
+                "line": 174,
+                "code": "useFeatureStyles('a11yCroppedFocusRing');"
+              }
             ]
           },
           {
@@ -202,6 +278,12 @@
               "cx-media",
               "cx-product-image-zoom-thumbnails",
               "cx-product-image-zoom-view"
+            ],
+            "snippets": [
+              {
+                "line": 27,
+                "code": "font-size: 2rem;"
+              }
             ]
           },
           {
@@ -213,6 +295,12 @@
             ],
             "selectors": [
               "cx-quote-confirm-dialog"
+            ],
+            "snippets": [
+              {
+                "line": 53,
+                "code": "useFeatureStyles('a11yCroppedFocusRing');"
+              }
             ]
           },
           {
@@ -224,6 +312,12 @@
             ],
             "selectors": [
               "cx-quote-confirm-dialog"
+            ],
+            "snippets": [
+              {
+                "line": 25,
+                "code": "@include forFeature('a11yCroppedFocusRing') {\n  padding: 0;\n}"
+              }
             ]
           },
           {
@@ -237,6 +331,12 @@
             "selectors": [
               "[cxIcon]",
               "cx-icon"
+            ],
+            "snippets": [
+              {
+                "line": 7,
+                "code": "@include forFeature('a11yCroppedFocusRing') {\n  width: fit-content;\n}"
+              }
             ]
           },
           {
@@ -248,6 +348,12 @@
             ],
             "selectors": [
               "cx-tab"
+            ],
+            "snippets": [
+              {
+                "line": 65,
+                "code": "useFeatureStyles('a11yCroppedFocusRing');"
+              }
             ]
           },
           {
@@ -259,6 +365,12 @@
             ],
             "selectors": [
               "cx-messaging"
+            ],
+            "snippets": [
+              {
+                "line": 96,
+                "code": "  protected windowRef: WindowRef,\n  protected filesFormValidators: FilesFormValidators\n) {\n  useFeatureStyles('a11yCroppedFocusRing');\n}"
+              }
             ]
           },
           {
@@ -270,6 +382,16 @@
             ],
             "selectors": [
               "cx-tab"
+            ],
+            "snippets": [
+              {
+                "line": 43,
+                "code": "  z-index: 1;\n}\n@include forFeature('a11yCroppedFocusRing') {\n  &:focus-visible {\n    outline-offset: -3px;\n  }\n}"
+              },
+              {
+                "line": 87,
+                "code": "border-inline-start: var(--cx-tab-panel-border-start);"
+              }
             ]
           },
           {
@@ -287,6 +409,16 @@
               "cx-file-upload",
               "cx-icon",
               "cx-messaging"
+            ],
+            "snippets": [
+              {
+                "line": 65,
+                "code": "@include forFeature('a11yCroppedFocusRing') {\n  outline-offset: -2px;\n}"
+              },
+              {
+                "line": 75,
+                "code": "@include forFeature('a11yCroppedFocusRing') {\n  outline-offset: -2px;\n}"
+              }
             ]
           }
         ]
@@ -299,6 +431,7 @@
           "ProductImagesComponent"
         ],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/product-configurator/rulebased/components/attribute/types/multi-selection-image/configurator-attribute-multi-selection-image.component.ts",
@@ -309,6 +442,12 @@
             ],
             "selectors": [
               "cx-configurator-attribute-multi-selection-image"
+            ],
+            "snippets": [
+              {
+                "line": 56,
+                "code": "useFeatureStyles('a11yDifferentiateFocusedAndSelected');"
+              }
             ]
           },
           {
@@ -320,6 +459,12 @@
             ],
             "selectors": [
               "cx-configurator-attribute-single-selection-image"
+            ],
+            "snippets": [
+              {
+                "line": 52,
+                "code": "useFeatureStyles('a11yDifferentiateFocusedAndSelected');"
+              }
             ]
           },
           {
@@ -335,6 +480,12 @@
               "[cxIcon]",
               "cx-configurator-price",
               "cx-icon"
+            ],
+            "snippets": [
+              {
+                "line": 80,
+                "code": "@include forFeature('a11yDifferentiateFocusedAndSelected') {\n  border-style: dotted;\n}"
+              }
             ]
           },
           {
@@ -346,6 +497,12 @@
             ],
             "selectors": [
               "cx-product-images"
+            ],
+            "snippets": [
+              {
+                "line": 51,
+                "code": "useFeatureStyles('a11yDifferentiateFocusedAndSelected');"
+              }
             ]
           },
           {
@@ -360,6 +517,12 @@
             "selectors": [
               "cx-media",
               "cx-product-images"
+            ],
+            "snippets": [
+              {
+                "line": 87,
+                "code": "border: 2px solid var(--cx-color-light);"
+              }
             ]
           }
         ]
@@ -369,6 +532,7 @@
         "description": "In `Card component`, replace button classes to .btn .btn-tertiary and use cx-generic link\ninstead of regular <a> tag.\nIn `My Preferred Store component`, replace a `Get directions` action from CardAction to CardLinkAction\nto so that Card component perceive it as a link;",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/pickup-in-store/components/container/my-preferred-store/my-preferred-store.component.ts",
@@ -379,6 +543,12 @@
             ],
             "selectors": [
               "cx-my-preferred-store"
+            ],
+            "snippets": [
+              {
+                "line": 110,
+                "code": "useFeatureStyles('a11yImproveButtonsInCardComponent');"
+              }
             ]
           },
           {
@@ -390,6 +560,12 @@
             ],
             "selectors": [
               "cx-my-preferred-store"
+            ],
+            "snippets": [
+              {
+                "line": 182,
+                "code": "  this.featureConfigService.isEnabled('a11yImproveButtonsInCardComponent')\n) {\n  this.cmsService\n    .getCurrentPage()\n    .pipe(\n      filter<Page>(Boolean),\n      take(1),\n      map((cmsPage) => {\n        this.isStoreFinder = cmsPage.pageId === 'storefinderPage';\n        return this.isStoreFinder;\n      })\n    )\n    .subscribe((isStoreFinder) => {\n      const link = this.storeFinderService.getDirections(\n        this.pointOfService\n      );\n      if (isStoreFinder) {\n        this.content = {\n          header: '',\n          actions: [\n            {\n              link,\n              name: GET_DIRECTIONS_NAME,\n              ariaLabel: GET_DIRECTIONS_ARIA,\n              target: '_blank',\n            },\n          ],\n        };\n      } else {\n        this.content = {\n          ...this.defaultContent,\n          actions: [\n            {\n              link,\n              name: GET_DIRECTIONS_NAME,\n              ariaLabel: GET_DIRECTIONS_ARIA,\n              target: '_blank',\n            },\n            { event: 'edit', name: CHANGE_STORE_NAME },\n          ],\n…"
+              }
             ]
           },
           {
@@ -404,6 +580,12 @@
               "cx-card",
               "cx-my-preferred-store",
               "cx-org-card"
+            ],
+            "snippets": [
+              {
+                "line": 72,
+                "code": "@include forFeature('a11yImproveButtonsInCardComponent') {\n  cx-card {\n    .cx-card-actions:not(:disabled):not(.disabled):active {\n      background-color: unset;\n    }\n    .cx-card-actions {\n      border: unset;\n      margin-top: 0;\n    }\n    .cx-card-actions > *:only-child {\n      flex: 1;\n    }\n  }\n}"
+              }
             ]
           },
           {
@@ -416,6 +598,12 @@
             "selectors": [
               "cx-card",
               "cx-org-card"
+            ],
+            "snippets": [
+              {
+                "line": 112,
+                "code": "<ng-container *cxFeature=\"'!a11yImproveButtonsInCardComponent'\">\n  <div *ngFor=\"let action of content.actions\">\n    <div>\n      <ng-container\n        *ngIf=\"isCardAction(action)\"\n        [ngSwitch]=\"action.event\"\n      >\n        <button\n          type=\"button\"\n          *ngSwitchCase=\"'delete'\"\n          class=\"link cx-action-link\"\n          (click)=\"delete()\"\n        >\n          {{ action.name }}\n        </button>\n        <button\n          type=\"button\"\n          *ngSwitchCase=\"'default'\"\n          class=\"link cx-action-link\"\n          (click)=\"setDefault()\"\n        >\n          {{ action.name }}\n        </button>\n        <button\n          type=\"button\"\n          *ngSwitchCase=\"'send'\"\n          class=\"link cx-action-link\"\n          (click)=\"send()\"\n          [attr.aria-describedby]=\"\n            index >= 0 && content.header && !editMode\n              ? 'content-header-' + index\n              : null\n          \"\n        >\n          {{ action.name }}\n        </button>\n        <button\n          type=\"button\"\n          *ngSwitchCase=\"'edit'\"\n          class=\"link cx-action-link\"\n…"
+              }
             ]
           },
           {
@@ -428,6 +616,12 @@
             "selectors": [
               "cx-card",
               "cx-org-card"
+            ],
+            "snippets": [
+              {
+                "line": 167,
+                "code": "<ng-container *cxFeature=\"'a11yImproveButtonsInCardComponent'\">\n  <div *ngFor=\"let action of content.actions\" class=\"cx-card-action-item\">\n    <div>\n      <ng-container\n        *ngIf=\"isCardAction(action)\"\n        [ngSwitch]=\"action.event\"\n      >\n        <button\n          type=\"button\"\n          *ngSwitchCase=\"'delete'\"\n          class=\"btn btn-tertiary\"\n          (click)=\"delete()\"\n        >\n          {{ action.name }}\n        </button>\n        <button\n          type=\"button\"\n          *ngSwitchCase=\"'default'\"\n          class=\"btn btn-tertiary\"\n          (click)=\"setDefault()\"\n        >\n          {{ action.name }}\n        </button>\n        <button\n          type=\"button\"\n          *ngSwitchCase=\"'send'\"\n          class=\"btn btn-tertiary\"\n          (click)=\"send()\"\n          [attr.aria-describedby]=\"\n            index >= 0 && content.header && !editMode\n              ? 'content-header-' + index\n              : null\n          \"\n        >\n          {{ action.name }}\n        </button>\n        <button\n          type=\"button\"\n          *ngSwitchCase=\"'edit'\"\n          class=\"btn btn-tertiary\"\n…"
+              }
             ]
           },
           {
@@ -442,6 +636,12 @@
               "cx-card",
               "cx-generic-link",
               "cx-org-card"
+            ],
+            "snippets": [
+              {
+                "line": 76,
+                "code": "@include forFeature('a11yImproveButtonsInCardComponent') {\n  .cx-card-actions {\n    gap: 16px;\n    cx-generic-link {\n      font-weight: var(--cx-font-weight-semi);\n      color: var(--cx-color-primary);\n      text-decoration: underline;\n    }\n    .cx-card-action-item {\n      display: flex;\n      align-items: center;\n    }\n\n    button.btn-tertiary {\n      color: var(--cx-color-primary);\n      border-radius: var(--cx-buttons-border-radius);\n      padding: 12px 16px;\n      border-style: none;\n      &:focus {\n        @include visible-focus();\n      }\n    }\n  }\n}"
+              }
             ]
           }
         ]
@@ -451,6 +651,7 @@
         "description": "'NgSelectA11yDirective' will close a dropdown with options on Escape key press\nwhen a screen reader is used.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "projects/storefrontlib/shared/components/ng-select-a11y/ng-select-a11y.directive.ts",
@@ -459,7 +660,13 @@
             "symbols": [
               "NgSelectA11yDirective"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 67,
+                "code": "onKeyUp(event: KeyboardEvent) {\n  if (\n    !this.featureConfigService?.isEnabled('a11yNgSelectCloseDropdownOnEscape')\n  ) {\n    return;\n  }\n  const jawsEscapeCode = 'AltLeft';\n  if (event.code === jawsEscapeCode) {\n    this.selectComponent.close();\n  }\n}"
+              }
+            ]
           }
         ]
       },
@@ -468,6 +675,7 @@
         "description": "Modifies grid arrangement in Product Details Page for better accessibility:\n- add to cart button should be last step\n- future stock accordion is moved before add to cart button",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/product-configurator/common/styles/_configure-product.scss",
@@ -481,6 +689,12 @@
               "[cx-page-slot]",
               "cx-configure-product",
               "cx-page-slot"
+            ],
+            "snippets": [
+              {
+                "line": 16,
+                "code": "padding-inline-start: 20px;"
+              }
             ]
           },
           {
@@ -492,6 +706,12 @@
             ],
             "selectors": [
               "cx-storefront"
+            ],
+            "snippets": [
+              {
+                "line": 88,
+                "code": "  protected keyboardFocusService: KeyboardFocusService\n) {\n  useFeatureStyles('a11yPdpGridArrangement');\n  useFeatureStyles('a11yKeyboardFocusInSearchBox');\n  useFeatureStyles('a11yNgSelectLayering');\n  useFeatureStyles('topProgressBarUseTransformAnimation');\n  useFeatureStyles('unifiedDefaultHeaderSlotsAcrossBreakpoints');\n}"
+              }
             ]
           },
           {
@@ -515,6 +735,20 @@
               "cx-product-intro",
               "cx-product-summary",
               "cx-stock-notification"
+            ],
+            "snippets": [
+              {
+                "line": 20,
+                "code": "@include forFeature('a11yPdpGridArrangement') {\n  grid-template-rows: repeat(6, auto) 1fr;\n}"
+              },
+              {
+                "line": 28,
+                "code": "@include forFeature('a11yPdpGridArrangement') {\n  grid-row: 1 / span 7;\n}"
+              },
+              {
+                "line": 54,
+                "code": "@include forFeature('a11yPdpGridArrangement') {\n  grid-row: unset;\n}"
+              }
             ]
           }
         ]
@@ -524,6 +758,7 @@
         "description": "Changes the success message of successful registration to be more informative. Affects `RegisterComponentService`.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/user/profile/components/register/register-component.service.ts",
@@ -532,7 +767,13 @@
             "symbols": [
               "RegisterComponentService"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 51,
+                "code": "if (this.featureConfigService.isEnabled('a11yPostRegisterSuccessMessage')) {\n  this.globalMessageService.add(\n    { key: 'register.postRegisterSuccessMessage' },\n    GlobalMessageType.MSG_TYPE_CONFIRMATION\n  );\n}"
+              }
+            ]
           },
           {
             "file": "feature-libs/user/profile/components/registration-verification-token-form/verify-register-verification-token-form.service.ts",
@@ -541,7 +782,13 @@
             "symbols": [
               "RegistrationVerificationTokenFormComponentService"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 41,
+                "code": "if (this.featureConfigService.isEnabled('a11yPostRegisterSuccessMessage')) {\n  this.displayMessage(\n    'register.postRegisterSuccessMessage',\n    globalMsgShowTime\n  );\n}"
+              }
+            ]
           }
         ]
       },
@@ -550,6 +797,7 @@
         "description": "Removes the repetition of assistive message after the results are provided to the `SearchBoxComponent`.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "projects/storefrontlib/cms-components/navigation/search-box/search-box.component.html",
@@ -560,6 +808,12 @@
             ],
             "selectors": [
               "cx-searchbox"
+            ],
+            "snippets": [
+              {
+                "line": 252,
+                "code": "<ng-container *cxFeature=\"'!a11ySearchboxAssistiveMessage'\">\n  {{ 'searchBox.initialDescription' | cxTranslate }}\n</ng-container>"
+              }
             ]
           }
         ]
@@ -569,6 +823,7 @@
         "description": "If enabled, the \"Checkout Shipping address/Payment\" views\nwill have a more a11y friendly selected label, including the context\nindicating weather the user is on a selected Address or Payment regsion.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/checkout/base/components/checkout-delivery-address/checkout-delivery-address.component.ts",
@@ -579,6 +834,16 @@
             ],
             "selectors": [
               "cx-delivery-address"
+            ],
+            "snippets": [
+              {
+                "line": 266,
+                "code": "this.translationService.translate('checkoutAddress.shipToThisAddress'),"
+              },
+              {
+                "line": 376,
+                "code": "protected getCardRole(isCardSelected: boolean): 'button' | 'application' {\n  const isButtonRole =\n    this.featureConfigService?.isEnabled(\n      'a11ySelectLabelWithContextForSelectedAddrOrPayment'\n    ) && !isCardSelected;\n  return isButtonRole ? 'button' : 'application';\n}"
+              }
             ]
           },
           {
@@ -590,6 +855,16 @@
             ],
             "selectors": [
               "cx-payment-method"
+            ],
+            "snippets": [
+              {
+                "line": 158,
+                "code": "this.featureConfigService?.isEnabled("
+              },
+              {
+                "line": 337,
+                "code": "const isSelected = selected?.id === paymentDetails.id;"
+              }
             ]
           }
         ]
@@ -599,6 +874,7 @@
         "description": "In `SiteContextSelectComponent` and `SiteThemeSwitcherComponent`, update style of caret.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "projects/storefrontlib/cms-components/misc/site-context-selector/site-context-selector.component.ts",
@@ -609,6 +885,12 @@
             ],
             "selectors": [
               "cx-site-context-selector"
+            ],
+            "snippets": [
+              {
+                "line": 44,
+                "code": "useFeatureStyles('a11yShowDownArrowOnFocusedSelectMenu');"
+              }
             ]
           },
           {
@@ -620,6 +902,12 @@
             ],
             "selectors": [
               "cx-site-theme-switcher"
+            ],
+            "snippets": [
+              {
+                "line": 32,
+                "code": "useFeatureStyles('a11yShowDownArrowOnFocusedSelectMenu');"
+              }
             ]
           },
           {
@@ -635,6 +923,16 @@
               "[cxIcon]",
               "cx-icon",
               "cx-site-context-selector"
+            ],
+            "snippets": [
+              {
+                "line": 34,
+                "code": "@include forFeature('a11yShowDownArrowOnFocusedSelectMenu') {\n  z-index: unset;\n}"
+              },
+              {
+                "line": 61,
+                "code": "// TODO: Remove all background-color once the feature flag is removed.\n@include forFeature('a11yShowDownArrowOnFocusedSelectMenu') {\n  background-color: unset;\n}"
+              }
             ]
           },
           {
@@ -650,6 +948,16 @@
               "[cxIcon]",
               "cx-icon",
               "cx-site-theme-switcher"
+            ],
+            "snippets": [
+              {
+                "line": 34,
+                "code": "@include forFeature('a11yShowDownArrowOnFocusedSelectMenu') {\n  z-index: unset;\n}"
+              },
+              {
+                "line": 61,
+                "code": "// TODO: Remove all background-color once the feature flag is removed.\n@include forFeature('a11yShowDownArrowOnFocusedSelectMenu') {\n  background-color: unset;\n}"
+              }
             ]
           }
         ]
@@ -659,6 +967,7 @@
         "description": "In `CustomerListComponent`, `OrderApprovalListComponent`, and `ConfiguratorAttriuteSingleSelectionBundleDropdownComponent`, show label of every `ng-select` and `select`.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/asm/components/customer-list/customer-list.component.html",
@@ -669,6 +978,16 @@
             ],
             "selectors": [
               "cx-customer-list"
+            ],
+            "snippets": [
+              {
+                "line": 402,
+                "code": "<span *cxFeature=\"'a11yShowLabelOfSelect'\" class=\"label-content\">{{\n  'asm.customerList.tableSort.sortBy' | cxTranslate\n}}</span>"
+              },
+              {
+                "line": 451,
+                "code": "<span *cxFeature=\"'a11yShowLabelOfSelect'\" class=\"label-content\">{{\n  'asm.customerList.title' | cxTranslate\n}}</span>"
+              }
             ]
           },
           {
@@ -680,6 +999,16 @@
             ],
             "selectors": [
               "cx-customer-list"
+            ],
+            "snippets": [
+              {
+                "line": 405,
+                "code": "<span *cxFeature=\"'!a11yShowLabelOfSelect'\" class=\"cx-visually-hidden\">{{\n  'asm.customerList.tableSort.sortBy' | cxTranslate\n}}</span>"
+              },
+              {
+                "line": 454,
+                "code": "<span *cxFeature=\"'!a11yShowLabelOfSelect'\" class=\"cx-visually-hidden\">{{\n  'asm.customerList.title' | cxTranslate\n}}</span>"
+              }
             ]
           },
           {
@@ -691,6 +1020,12 @@
             ],
             "selectors": [
               "cx-customer-list"
+            ],
+            "snippets": [
+              {
+                "line": 120,
+                "code": "useFeatureStyles('a11yShowLabelOfSelect');"
+              }
             ]
           },
           {
@@ -712,6 +1047,20 @@
               "cx-icon",
               "cx-pagination",
               "cx-total"
+            ],
+            "snippets": [
+              {
+                "line": 32,
+                "code": "@include forFeature('a11yShowLabelOfSelect') {\n  align-items: flex-end;\n}"
+              },
+              {
+                "line": 37,
+                "code": "@include forFeature('a11yShowLabelOfSelect') {\n  padding: 1rem 1rem;\n}"
+              },
+              {
+                "line": 46,
+                "code": "@include forFeature('a11yShowLabelOfSelect') {\n  align-items: flex-end;\n}"
+              }
             ]
           },
           {
@@ -723,6 +1072,16 @@
             ],
             "selectors": [
               "cx-order-approval-list"
+            ],
+            "snippets": [
+              {
+                "line": 16,
+                "code": "<label\n  *cxFeature=\"'a11yShowLabelOfSelect'\"\n  class=\"cx-order-approval-form-group-label\"\n>\n  <span>{{ 'orderHistory.sortBy' | cxTranslate }}</span>\n  <cx-sorting\n    [sortOptions]=\"orderApprovals.sorts\"\n    [sortLabels]=\"sortLabels$ | async\"\n    (sortListEvent)=\"changeSortCode($event)\"\n    [selectedOption]=\"orderApprovals.pagination.sort\"\n    [ariaLabel]=\"'orderHistory.sortOrders' | cxTranslate\"\n    ariaControls=\"order-approval-table\"\n  ></cx-sorting>\n</label>"
+              },
+              {
+                "line": 212,
+                "code": "<label\n  *cxFeature=\"'a11yShowLabelOfSelect'\"\n  class=\"cx-order-approval-form-group-label\"\n>\n  <span>{{ 'orderHistory.sortBy' | cxTranslate }}</span>\n  <cx-sorting\n    [sortOptions]=\"orderApprovals.sorts\"\n    [sortLabels]=\"sortLabels$ | async\"\n    (sortListEvent)=\"changeSortCode($event)\"\n    [selectedOption]=\"orderApprovals.pagination.sort\"\n    [ariaLabel]=\"'orderHistory.sortOrders' | cxTranslate\"\n    ariaControls=\"order-approval-table\"\n  ></cx-sorting>\n</label>"
+              }
             ]
           },
           {
@@ -734,6 +1093,16 @@
             ],
             "selectors": [
               "cx-order-approval-list"
+            ],
+            "snippets": [
+              {
+                "line": 30,
+                "code": "<label\n  *cxFeature=\"'!a11yShowLabelOfSelect'\"\n  class=\"cx-order-approval-form-group-label\"\n>\n  <span class=\"cx-visually-hidden\">{{\n    'orderHistory.sortOrders' | cxTranslate\n  }}</span>\n  <cx-sorting\n    [sortOptions]=\"orderApprovals.sorts\"\n    [sortLabels]=\"sortLabels$ | async\"\n    (sortListEvent)=\"changeSortCode($event)\"\n    [selectedOption]=\"orderApprovals.pagination.sort\"\n    [ariaLabel]=\"'orderHistory.sortOrders' | cxTranslate\"\n    ariaControls=\"order-approval-table\"\n  ></cx-sorting>\n</label>"
+              },
+              {
+                "line": 225,
+                "code": "<label *cxFeature=\"'!a11yShowLabelOfSelect'\">\n  <span class=\"cx-visually-hidden\">{{\n    'orderHistory.sortOrders' | cxTranslate\n  }}</span>\n  <cx-sorting\n    [sortOptions]=\"orderApprovals.sorts\"\n    [sortLabels]=\"sortLabels$ | async\"\n    (sortListEvent)=\"changeSortCode($event)\"\n    [selectedOption]=\"orderApprovals.pagination.sort\"\n    [ariaLabel]=\"'orderHistory.sortOrders' | cxTranslate\"\n    ariaControls=\"order-approval-table\"\n  ></cx-sorting>\n</label>"
+              }
             ]
           },
           {
@@ -745,6 +1114,12 @@
             ],
             "selectors": [
               "cx-order-approval-list"
+            ],
+            "snippets": [
+              {
+                "line": 32,
+                "code": "useFeatureStyles('a11yShowLabelOfSelect');"
+              }
             ]
           },
           {
@@ -758,6 +1133,12 @@
             "selectors": [
               "cx-order-approval-list",
               "cx-sorting"
+            ],
+            "snippets": [
+              {
+                "line": 112,
+                "code": "@include forFeature('a11yShowLabelOfSelect') {\n  .cx-order-approval-form-group-label {\n    padding: 0;\n    margin-bottom: 0;\n    align-items: center;\n    display: flex;\n\n    span {\n      margin-inline-end: 0.5rem;\n      flex: none;\n    }\n\n    cx-sorting {\n      width: 100%;\n    }\n  }\n}"
+              }
             ]
           }
         ]
@@ -767,6 +1148,7 @@
         "description": "`StoreComponent` `In Stock` icon has an acceptable contrast ratio in a default theme",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/pickup-in-store/components/presentational/store/store.component.ts",
@@ -777,6 +1159,12 @@
             ],
             "selectors": [
               "cx-store"
+            ],
+            "snippets": [
+              {
+                "line": 34,
+                "code": "useFeatureStyles('a11yStoreInStockIconContrast');"
+              }
             ]
           },
           {
@@ -790,6 +1178,12 @@
             "selectors": [
               "cx-store",
               "cx-store-address"
+            ],
+            "snippets": [
+              {
+                "line": 51,
+                "code": "@include forFeature('a11yStoreInStockIconContrast') {\n  opacity: var(--cx-opacity, 1);\n}"
+              }
             ]
           }
         ]
@@ -799,6 +1193,7 @@
         "description": "When set to `true`, external links in `StoreFinderListItemComponent`\nadopt a more link-like style, appearing more like links instead of buttons. This is semantically more correct since they open content in a new window,\nproviding a more intuitive user experience.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/storefinder/components/store-finder-list-item/store-finder-list-item.component.html",
@@ -809,6 +1204,12 @@
             ],
             "selectors": [
               "cx-store-finder-list-item"
+            ],
+            "snippets": [
+              {
+                "line": 53,
+                "code": "<a\n  href=\"{{ getDirections(location) }}\"\n  target=\"_blank\"\n  rel=\"noopener noreferrer\"\n  *cxFeature=\"'!a11yStyleExternalLinksAsLinks'\"\n  class=\"btn btn-sm btn-secondary btn-block cx-button\"\n  cxBtnLikeLink\n  (click)=\"$event.stopPropagation()\"\n  [attr.aria-label]=\"'storeFinder.ariaLabelGetDirections' | cxTranslate\"\n  >{{ 'storeFinder.getDirections' | cxTranslate }}</a\n>"
+              }
             ]
           },
           {
@@ -820,6 +1221,12 @@
             ],
             "selectors": [
               "cx-store-finder-list-item"
+            ],
+            "snippets": [
+              {
+                "line": 64,
+                "code": "<a\n  href=\"{{ getDirections(location) }}\"\n  target=\"_blank\"\n  rel=\"noopener noreferrer\"\n  *cxFeature=\"'a11yStyleExternalLinksAsLinks'\"\n  class=\"cx-button\"\n  (click)=\"$event.stopPropagation()\"\n  [attr.aria-label]=\"'storeFinder.ariaLabelGetDirections' | cxTranslate\"\n  >{{ 'storeFinder.getDirections' | cxTranslate }}</a\n>"
+              }
             ]
           }
         ]
@@ -829,6 +1236,7 @@
         "description": "Ensures the table column header gets properly narrated by the screen readers.\nAffects tables in the following components: SavedCartListComponent, ReplenishmentOrderHistoryComponent, OrderReturnRequestListComponent,\nAccountSummaryDocumentComponent, OrderDetailPermissionResultsComponent, OrderApprovalListComponent, UnitLevelOrderHistoryComponent,\nInvoicesListComponent, MyInterestsComponent",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/cart/saved-cart/components/list/saved-cart-list.component.html",
@@ -839,6 +1247,12 @@
             ],
             "selectors": [
               "cx-saved-cart-list"
+            ],
+            "snippets": [
+              {
+                "line": 14,
+                "code": "<thead\n  *cxFeature=\"'!a11yTableHeaderReadout'\"\n  role=\"row\"\n  class=\"cx-saved-cart-list-thead-mobile\"\n>\n  <thead role=\"row\" class=\"cx-saved-cart-list-thead-mobile\">\n    <th role=\"columnheader\" scope=\"col\">\n      {{ 'savedCartList.cartName' | cxTranslate }}\n    </th>\n    <th role=\"columnheader\" scope=\"col\">\n      {{ 'savedCartList.cartId' | cxTranslate }}\n    </th>\n    <th role=\"columnheader\" scope=\"col\">\n      {{ 'savedCartList.dateSaved' | cxTranslate }}\n    </th>\n    <th\n      role=\"columnheader\"\n      scope=\"col\"\n      class=\"cx-saved-cart-list-th-qty\"\n    >\n      {{ 'savedCartList.quantityFull' | cxTranslate }}\n    </th>\n    <th\n      role=\"columnheader\"\n      scope=\"col\"\n      class=\"cx-saved-cart-list-th-total\"\n    >\n      {{ 'savedCartList.total' | cxTranslate }}\n    </th>\n    <th role=\"columnheader\" scope=\"col\">\n      {{ 'savedCartList.actions' | cxTranslate }}\n    </th>\n  </thead>\n  <thead\n    *cxFeature=\"'a11yTableHeaderReadout'\"\n    class=\"cx-saved-cart-list-thead-mobile\"\n  >\n    <tr>\n      <th scope=\"col\">\n        {{ 'savedCartList.cartName' | cxTranslate }}\n…"
+              }
             ]
           },
           {
@@ -850,6 +1264,12 @@
             ],
             "selectors": [
               "cx-saved-cart-list"
+            ],
+            "snippets": [
+              {
+                "line": 47,
+                "code": "<thead\n  *cxFeature=\"'a11yTableHeaderReadout'\"\n  class=\"cx-saved-cart-list-thead-mobile\"\n>\n  <tr>\n    <th scope=\"col\">\n      {{ 'savedCartList.cartName' | cxTranslate }}\n    </th>\n    <th scope=\"col\">\n      {{ 'savedCartList.cartId' | cxTranslate }}\n    </th>\n    <th scope=\"col\">\n      {{ 'savedCartList.dateSaved' | cxTranslate }}\n    </th>\n    <th scope=\"col\" class=\"cx-saved-cart-list-th-qty\">\n      {{ 'savedCartList.quantityFull' | cxTranslate }}\n    </th>\n    <th scope=\"col\" class=\"cx-saved-cart-list-th-total\">\n      {{ 'savedCartList.total' | cxTranslate }}\n    </th>\n    <th scope=\"col\">\n      {{ 'savedCartList.actions' | cxTranslate }}\n    </th>\n  </tr>\n</thead>"
+              }
             ]
           },
           {
@@ -861,6 +1281,12 @@
             ],
             "selectors": [
               "cx-replenishment-order-history"
+            ],
+            "snippets": [
+              {
+                "line": 54,
+                "code": "<thead\n  *cxFeature=\"'!a11yTableHeaderReadout'\"\n  class=\"cx-replenishment-order-history-thead-mobile\"\n>\n  <th scope=\"col\">\n    <span class=\"cx-replenishment-order-history-ellipses\">\n      {{ 'orderHistory.replenishmentOrderId' | cxTranslate }}\n    </span>\n  </th>\n  <th scope=\"col\">\n    <span class=\"cx-replenishment-order-history-ellipses\">\n      {{ 'orderHistory.purchaseOrderNumber' | cxTranslate }}\n    </span>\n  </th>\n  <th scope=\"col\">\n    <span class=\"cx-replenishment-order-history-ellipses\">\n      {{ 'orderHistory.startOn' | cxTranslate }}\n    </span>\n  </th>\n  <th scope=\"col\">\n    <span class=\"cx-replenishment-order-history-ellipses\">\n      {{ 'orderHistory.frequency' | cxTranslate }}\n    </span>\n  </th>\n  <th scope=\"col\">\n    <span class=\"cx-replenishment-order-history-ellipses\">\n      {{ 'orderHistory.nextOrderDate' | cxTranslate }}\n    </span>\n  </th>\n  <th scope=\"col\" class=\"cx-replenishment-order-history-total\">\n    <span class=\"cx-replenishment-order-history-ellipses\">\n      {{ 'orderHistory.total' | cxTranslate }}\n    </span>\n  </th>\n  <th scope=\"col\">\n    <span class=\"cx-replenishment-order-history-ellipses\">\n      {{ 'orderHistory.actions' | cxTranslate }}\n    </span>\n  </th>\n</thead>"
+              }
             ]
           },
           {
@@ -872,6 +1298,12 @@
             ],
             "selectors": [
               "cx-replenishment-order-history"
+            ],
+            "snippets": [
+              {
+                "line": 94,
+                "code": "<thead\n  *cxFeature=\"'a11yTableHeaderReadout'\"\n  class=\"cx-replenishment-order-history-thead-mobile\"\n>\n  <tr>\n    <th role=\"columnheader\" scope=\"col\" aria-sort=\"none\">\n      <span class=\"cx-replenishment-order-history-ellipses\">\n        {{ 'orderHistory.replenishmentOrderId' | cxTranslate }}\n      </span>\n    </th>\n    <th role=\"columnheader\" scope=\"col\" aria-sort=\"none\">\n      <span class=\"cx-replenishment-order-history-ellipses\">\n        {{ 'orderHistory.purchaseOrderNumber' | cxTranslate }}\n      </span>\n    </th>\n    <th role=\"columnheader\" scope=\"col\" aria-sort=\"none\">\n      <span class=\"cx-replenishment-order-history-ellipses\">\n        {{ 'orderHistory.startOn' | cxTranslate }}\n      </span>\n    </th>\n    <th role=\"columnheader\" scope=\"col\" aria-sort=\"none\">\n      <span class=\"cx-replenishment-order-history-ellipses\">\n        {{ 'orderHistory.frequency' | cxTranslate }}\n      </span>\n    </th>\n    <th role=\"columnheader\" scope=\"col\" aria-sort=\"none\">\n      <span class=\"cx-replenishment-order-history-ellipses\">\n        {{ 'orderHistory.nextOrderDate' | cxTranslate }}\n      </span>\n    </th>\n    <th\n      role=\"columnheader\"\n      scope=\"col\"\n      aria-sort=\"none\"\n      class=\"cx-replenishment-order-history-total\"\n    >\n      <span class=\"cx-replenishment-order-history-ellipses\">\n        {{ 'orderHistory.total' | cxTranslate }}\n      </span>\n    </th>\n…"
+              }
             ]
           },
           {
@@ -883,6 +1315,12 @@
             ],
             "selectors": [
               "cx-order-return-request-list"
+            ],
+            "snippets": [
+              {
+                "line": 30,
+                "code": "<thead\n  *cxFeature=\"'!a11yTableHeaderReadout'\"\n  class=\"cx-order-history-thead-mobile\"\n>\n  <th scope=\"col\">\n    {{ 'returnRequestList.returnRequestId' | cxTranslate }}\n  </th>\n  <th scope=\"col\">{{ 'returnRequestList.orderId' | cxTranslate }}</th>\n  <th scope=\"col\">\n    {{ 'returnRequestList.date' | cxTranslate }}\n  </th>\n  <th scope=\"col\">{{ 'returnRequestList.status' | cxTranslate }}</th>\n</thead>"
+              }
             ]
           },
           {
@@ -894,6 +1332,12 @@
             ],
             "selectors": [
               "cx-order-return-request-list"
+            ],
+            "snippets": [
+              {
+                "line": 43,
+                "code": "<thead\n  *cxFeature=\"'a11yTableHeaderReadout'\"\n  class=\"cx-order-history-thead-mobile\"\n>\n  <tr>\n    <th scope=\"col\">\n      {{ 'returnRequestList.returnRequestId' | cxTranslate }}\n    </th>\n    <th scope=\"col\">\n      {{ 'returnRequestList.orderId' | cxTranslate }}\n    </th>\n    <th scope=\"col\">\n      {{ 'returnRequestList.date' | cxTranslate }}\n    </th>\n    <th scope=\"col\">\n      {{ 'returnRequestList.status' | cxTranslate }}\n    </th>\n  </tr>\n</thead>"
+              }
             ]
           },
           {
@@ -905,6 +1349,12 @@
             ],
             "selectors": [
               "cx-account-summary-document"
+            ],
+            "snippets": [
+              {
+                "line": 66,
+                "code": "<thead\n  *cxFeature=\"'!a11yTableHeaderReadout'\"\n  class=\"cx-account-summary-document-thead-mobile\"\n>\n  <th scope=\"col\">\n    {{ 'orgAccountSummary.document.id' | cxTranslate }}\n  </th>\n  <th scope=\"col\">\n    {{ 'orgAccountSummary.document.type' | cxTranslate }}\n  </th>\n  <th scope=\"col\">\n    {{ 'orgAccountSummary.document.date' | cxTranslate }}\n  </th>\n  <th scope=\"col\">\n    {{ 'orgAccountSummary.document.dueDate' | cxTranslate }}\n  </th>\n  <th scope=\"col\">\n    {{ 'orgAccountSummary.document.originalAmount' | cxTranslate }}\n  </th>\n  <th scope=\"col\">\n    {{ 'orgAccountSummary.document.openAmount' | cxTranslate }}\n  </th>\n  <th scope=\"col\">\n    {{ 'orgAccountSummary.document.status' | cxTranslate }}\n  </th>\n  <th scope=\"col\">\n    <cx-icon\n      [type]=\"ICON_TYPE.DOWNLOAD\"\n      class=\"cx-account-summary-document-attachment-icon\"\n      title=\"{{\n        'orgAccountSummary.document.attachment' | cxTranslate\n      }}\"\n    ></cx-icon>\n  </th>\n</thead>"
+              }
             ]
           },
           {
@@ -916,6 +1366,12 @@
             ],
             "selectors": [
               "cx-account-summary-document"
+            ],
+            "snippets": [
+              {
+                "line": 101,
+                "code": "<thead\n  *cxFeature=\"'a11yTableHeaderReadout'\"\n  class=\"cx-account-summary-document-thead-mobile\"\n>\n  <tr>\n    <th scope=\"col\">\n      {{ 'orgAccountSummary.document.id' | cxTranslate }}\n    </th>\n    <th scope=\"col\">\n      {{ 'orgAccountSummary.document.type' | cxTranslate }}\n    </th>\n    <th scope=\"col\">\n      {{ 'orgAccountSummary.document.date' | cxTranslate }}\n    </th>\n    <th scope=\"col\">\n      {{ 'orgAccountSummary.document.dueDate' | cxTranslate }}\n    </th>\n    <th scope=\"col\">\n      {{ 'orgAccountSummary.document.originalAmount' | cxTranslate }}\n    </th>\n    <th scope=\"col\">\n      {{ 'orgAccountSummary.document.openAmount' | cxTranslate }}\n    </th>\n    <th scope=\"col\">\n      {{ 'orgAccountSummary.document.status' | cxTranslate }}\n    </th>\n    <th scope=\"col\">\n      <cx-icon\n        [type]=\"ICON_TYPE.DOWNLOAD\"\n        class=\"cx-account-summary-document-attachment-icon\"\n        title=\"{{\n          'orgAccountSummary.document.attachment' | cxTranslate\n        }}\"\n      ></cx-icon>\n    </th>\n  </tr>\n</thead>"
+              }
             ]
           },
           {
@@ -927,6 +1383,12 @@
             ],
             "selectors": [
               "cx-order-detail-permission-results"
+            ],
+            "snippets": [
+              {
+                "line": 10,
+                "code": "<thead\n  *cxFeature=\"'!a11yTableHeaderReadout'\"\n  class=\"cx-approval-thead-mobile\"\n>\n  <th scope=\"col\">\n    {{\n      'orderApprovalDetails.permissionResults.permission' | cxTranslate\n    }}\n  </th>\n  <th scope=\"col\">\n    {{ 'orderApprovalDetails.permissionResults.approver' | cxTranslate }}\n  </th>\n  <th scope=\"col\">\n    {{ 'orderApprovalDetails.permissionResults.status' | cxTranslate }}\n  </th>\n  <th scope=\"col\">\n    {{\n      'orderApprovalDetails.permissionResults.approverComments'\n        | cxTranslate\n    }}\n  </th>\n</thead>"
+              }
             ]
           },
           {
@@ -938,6 +1400,12 @@
             ],
             "selectors": [
               "cx-order-detail-permission-results"
+            ],
+            "snippets": [
+              {
+                "line": 32,
+                "code": "<thead\n  *cxFeature=\"'a11yTableHeaderReadout'\"\n  class=\"cx-approval-thead-mobile\"\n>\n  <tr>\n    <th scope=\"col\">\n      {{\n        'orderApprovalDetails.permissionResults.permission' | cxTranslate\n      }}\n    </th>\n    <th scope=\"col\">\n      {{\n        'orderApprovalDetails.permissionResults.approver' | cxTranslate\n      }}\n    </th>\n    <th scope=\"col\">\n      {{ 'orderApprovalDetails.permissionResults.status' | cxTranslate }}\n    </th>\n    <th scope=\"col\">\n      {{\n        'orderApprovalDetails.permissionResults.approverComments'\n          | cxTranslate\n      }}\n    </th>\n  </tr>\n</thead>"
+              }
             ]
           },
           {
@@ -949,6 +1417,12 @@
             ],
             "selectors": [
               "cx-order-detail-permission-results"
+            ],
+            "snippets": [
+              {
+                "line": 23,
+                "code": "useFeatureStyles('a11yTableHeaderReadout');"
+              }
             ]
           },
           {
@@ -960,6 +1434,12 @@
             ],
             "selectors": [
               "cx-order-approval-list"
+            ],
+            "snippets": [
+              {
+                "line": 66,
+                "code": "<thead\n  *cxFeature=\"'!a11yTableHeaderReadout'\"\n  class=\"cx-order-approval-thead-mobile\"\n>\n  <th scope=\"col\">\n    {{ 'orderApprovalList.orderCode' | cxTranslate }}\n  </th>\n  <th scope=\"col\">{{ 'orderApprovalList.POCode' | cxTranslate }}</th>\n  <th scope=\"col\">{{ 'orderApprovalList.placedBy' | cxTranslate }}</th>\n  <th scope=\"col\">{{ 'orderApprovalList.date' | cxTranslate }}</th>\n  <th scope=\"col\">\n    {{ 'orderApprovalList.status' | cxTranslate }}\n  </th>\n  <th scope=\"col\">{{ 'orderApprovalList.total' | cxTranslate }}</th>\n</thead>"
+              }
             ]
           },
           {
@@ -971,6 +1451,12 @@
             ],
             "selectors": [
               "cx-order-approval-list"
+            ],
+            "snippets": [
+              {
+                "line": 81,
+                "code": "<thead\n  *cxFeature=\"'a11yTableHeaderReadout'\"\n  class=\"cx-order-approval-thead-mobile\"\n>\n  <tr>\n    <th scope=\"col\">\n      {{ 'orderApprovalList.orderCode' | cxTranslate }}\n    </th>\n    <th scope=\"col\">{{ 'orderApprovalList.POCode' | cxTranslate }}</th>\n    <th scope=\"col\">{{ 'orderApprovalList.placedBy' | cxTranslate }}</th>\n    <th scope=\"col\">{{ 'orderApprovalList.date' | cxTranslate }}</th>\n    <th scope=\"col\">\n      {{ 'orderApprovalList.status' | cxTranslate }}\n    </th>\n    <th scope=\"col\">{{ 'orderApprovalList.total' | cxTranslate }}</th>\n  </tr>\n</thead>"
+              }
             ]
           },
           {
@@ -982,6 +1468,12 @@
             ],
             "selectors": [
               "cx-order-detail-permission-results"
+            ],
+            "snippets": [
+              {
+                "line": 36,
+                "code": "@include forFeature('a11yTableHeaderReadout') {\n  background-color: unset;\n\n  th {\n    background-color: var(--cx-color-dark);\n  }\n}"
+              }
             ]
           },
           {
@@ -993,6 +1485,12 @@
             ],
             "selectors": [
               "cx-unit-level-order-history"
+            ],
+            "snippets": [
+              {
+                "line": 55,
+                "code": "<thead\n  *cxFeature=\"'!a11yTableHeaderReadout'\"\n  class=\"cx-unit-level-order-history-thead-mobile\"\n>\n  <th scope=\"col\">\n    {{ 'unitLevelOrderHistory.orderId' | cxTranslate }}\n  </th>\n  <th scope=\"col\">\n    {{ 'unitLevelOrderHistory.date' | cxTranslate }}\n  </th>\n  <th scope=\"col\">\n    {{ 'unitLevelOrderHistory.status' | cxTranslate }}\n  </th>\n  <th scope=\"col\">\n    {{ 'unitLevelOrderHistory.buyer' | cxTranslate }}\n  </th>\n  <th scope=\"col\">\n    {{ 'unitLevelOrderHistory.unit' | cxTranslate }}\n  </th>\n  <th scope=\"col\">\n    {{ 'unitLevelOrderHistory.total' | cxTranslate }}\n  </th>\n</thead>"
+              }
             ]
           },
           {
@@ -1004,6 +1502,12 @@
             ],
             "selectors": [
               "cx-unit-level-order-history"
+            ],
+            "snippets": [
+              {
+                "line": 78,
+                "code": "<thead\n  *cxFeature=\"'a11yTableHeaderReadout'\"\n  class=\"cx-unit-level-order-history-thead-mobile\"\n>\n  <tr>\n    <th scope=\"col\">\n      {{ 'unitLevelOrderHistory.orderId' | cxTranslate }}\n    </th>\n    <th scope=\"col\">\n      {{ 'unitLevelOrderHistory.date' | cxTranslate }}\n    </th>\n    <th scope=\"col\">\n      {{ 'unitLevelOrderHistory.status' | cxTranslate }}\n    </th>\n    <th scope=\"col\">\n      {{ 'unitLevelOrderHistory.buyer' | cxTranslate }}\n    </th>\n    <th scope=\"col\">\n      {{ 'unitLevelOrderHistory.unit' | cxTranslate }}\n    </th>\n    <th scope=\"col\">\n      {{ 'unitLevelOrderHistory.total' | cxTranslate }}\n    </th>\n  </tr>\n</thead>"
+              }
             ]
           },
           {
@@ -1015,6 +1519,12 @@
             ],
             "selectors": [
               "cx-invoices-list"
+            ],
+            "snippets": [
+              {
+                "line": 58,
+                "code": "<thead\n  *cxFeature=\"'!a11yTableHeaderReadout'\"\n  class=\"cx-invoices-list-thead-mobile\"\n>\n  <th scope=\"col\">\n    {{ 'pdfInvoices.invoicesTable.invoiceId' | cxTranslate }}\n  </th>\n  <th scope=\"col\">\n    {{ 'pdfInvoices.invoicesTable.createdAt' | cxTranslate }}\n  </th>\n  <th scope=\"col\">\n    {{ 'pdfInvoices.invoicesTable.netAmount' | cxTranslate }}\n  </th>\n  <th scope=\"col\">\n    {{ 'pdfInvoices.invoicesTable.totalAmount' | cxTranslate }}\n  </th>\n  <th scope=\"col\">\n    <cx-icon\n      [type]=\"ICON_TYPE.DOWNLOAD\"\n      class=\"cx-invoices-list-attachment-icon\"\n      title=\"{{\n        'pdfInvoices.invoicesTable.attachment' | cxTranslate\n      }}\"\n    ></cx-icon>\n  </th>\n</thead>"
+              }
             ]
           },
           {
@@ -1026,6 +1536,12 @@
             ],
             "selectors": [
               "cx-invoices-list"
+            ],
+            "snippets": [
+              {
+                "line": 84,
+                "code": "<thead\n  *cxFeature=\"'a11yTableHeaderReadout'\"\n  class=\"cx-invoices-list-thead-mobile\"\n>\n  <tr>\n    <th scope=\"col\">\n      {{ 'pdfInvoices.invoicesTable.invoiceId' | cxTranslate }}\n    </th>\n    <th scope=\"col\">\n      {{ 'pdfInvoices.invoicesTable.createdAt' | cxTranslate }}\n    </th>\n    <th scope=\"col\">\n      {{ 'pdfInvoices.invoicesTable.netAmount' | cxTranslate }}\n    </th>\n    <th scope=\"col\">\n      {{ 'pdfInvoices.invoicesTable.totalAmount' | cxTranslate }}\n    </th>\n    <th scope=\"col\">\n      <cx-icon\n        [type]=\"ICON_TYPE.DOWNLOAD\"\n        class=\"cx-invoices-list-attachment-icon\"\n        title=\"{{\n          'pdfInvoices.invoicesTable.attachment' | cxTranslate\n        }}\"\n      ></cx-icon>\n    </th>\n  </tr>\n</thead>"
+              }
             ]
           },
           {
@@ -1037,6 +1553,12 @@
             ],
             "selectors": [
               "cx-my-interests"
+            ],
+            "snippets": [
+              {
+                "line": 53,
+                "code": "<thead\n  *cxFeature=\"'!a11yTableHeaderReadout'\"\n  class=\"cx-product-interests-thead-mobile cx-product-interests-header\"\n>\n  <th role=\"columnheader\">\n    {{ 'myInterests.item' | cxTranslate }}\n  </th>\n  <th role=\"columnheader\">\n    {{ 'myInterests.price' | cxTranslate }}\n  </th>\n  <th role=\"columnheader\">\n    {{ 'myInterests.notifications' | cxTranslate }}\n  </th>\n  <th srole=\"columnheader\">\n    {{ 'myInterests.actions' | cxTranslate }}\n  </th>\n</thead>"
+              }
             ]
           },
           {
@@ -1048,6 +1570,12 @@
             ],
             "selectors": [
               "cx-my-interests"
+            ],
+            "snippets": [
+              {
+                "line": 70,
+                "code": "<thead\n  *cxFeature=\"'a11yTableHeaderReadout'\"\n  class=\"cx-product-interests-thead-mobile cx-product-interests-header\"\n>\n  <tr>\n    <th>\n      {{ 'myInterests.item' | cxTranslate }}\n    </th>\n    <th>\n      {{ 'myInterests.price' | cxTranslate }}\n    </th>\n    <th>\n      {{ 'myInterests.notifications' | cxTranslate }}\n    </th>\n    <th>\n      {{ 'myInterests.actions' | cxTranslate }}\n    </th>\n  </tr>\n</thead>"
+              }
             ]
           }
         ]
@@ -1060,6 +1588,7 @@
           "CSAgentLoginFormComponent"
         ],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/asm/components/csagent-login-form/csagent-login-form.component.ts",
@@ -1070,6 +1599,12 @@
             ],
             "selectors": [
               "cx-csagent-login-form"
+            ],
+            "snippets": [
+              {
+                "line": 31,
+                "code": "useFeatureStyles('a11yTextSpacingAdjustments');"
+              }
             ]
           },
           {
@@ -1083,6 +1618,12 @@
             "selectors": [
               "cx-csagent-login-form",
               "cx-dot-spinner"
+            ],
+            "snippets": [
+              {
+                "line": 42,
+                "code": "@include forFeature('a11yTextSpacingAdjustments') {\n  max-width: unset;\n}"
+              }
             ]
           },
           {
@@ -1094,6 +1635,12 @@
             ],
             "selectors": [
               "cx-org-list"
+            ],
+            "snippets": [
+              {
+                "line": 46,
+                "code": "useFeatureStyles('a11yTextSpacingAdjustments');"
+              }
             ]
           },
           {
@@ -1123,6 +1670,16 @@
               "cx-table",
               "cx-table-data-cell",
               "cx-view"
+            ],
+            "snippets": [
+              {
+                "line": 123,
+                "code": "// let's make status column smaller\n&.active {\n  width: 100px;\n}"
+              },
+              {
+                "line": 289,
+                "code": "padding-inline-start: calc((var(--cx-depth-level) + 3) * 20px);\nbutton.tree-item-toggle {\n  margin-inline-start: -40px;\n  min-width: 40px;\n  color: var(--cx-color-primary);\n}"
+              }
             ]
           }
         ]
@@ -1132,6 +1689,7 @@
         "description": "`StoreFinderListItemComponent` street name is not truncated",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/storefinder/components/store-finder-list-item/store-finder-list-item.component.ts",
@@ -1142,6 +1700,12 @@
             ],
             "selectors": [
               "cx-store-finder-list-item"
+            ],
+            "snippets": [
+              {
+                "line": 34,
+                "code": "useFeatureStyles('a11yTruncatedTextStoreFinder');"
+              }
             ]
           },
           {
@@ -1155,6 +1719,12 @@
             "selectors": [
               "cx-store-address",
               "cx-store-finder-list-item"
+            ],
+            "snippets": [
+              {
+                "line": 33,
+                "code": "@include forFeature('a11yTruncatedTextStoreFinder') {\n  white-space: unset;\n}"
+              }
             ]
           }
         ]
@@ -1164,6 +1734,7 @@
         "description": "Creates a section element with applied aria-label in \"Review Order\" page of the checkout.\nMoves components to be children of this section element.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/checkout/base/components/checkout-review/checkout-review-overview/checkout-review-overview.component.ts",
@@ -1172,7 +1743,13 @@
             "symbols": [
               "CheckoutReviewOverviewComponent"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 56,
+                "code": "this.document &&"
+              }
+            ]
           }
         ]
       },
@@ -1181,6 +1758,7 @@
         "description": "When enabled, enforces stronger password validation rules,\nincluding requirements for a mix of uppercase letters, lowercase letters,\nspecial characters, digits, and no consecutive characters,\nas well as enforcing both a minimum and maximum password length.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/223a985f3d934cddbc2e36e4d8016e77.html",
         "usages": [
           {
             "file": "feature-libs/order/components/order-confirmation/order-guest-register-form/order-guest-register-form.component.ts",
@@ -1191,6 +1769,12 @@
             ],
             "selectors": [
               "cx-guest-register-form"
+            ],
+            "snippets": [
+              {
+                "line": 31,
+                "code": "protected passwordValidators = this.featureConfigService.isEnabled("
+              }
             ]
           },
           {
@@ -1202,6 +1786,12 @@
             ],
             "selectors": [
               "cx-register"
+            ],
+            "snippets": [
+              {
+                "line": 44,
+                "code": "protected passwordValidators = this.featureConfigService.isEnabled("
+              }
             ]
           },
           {
@@ -1213,6 +1803,12 @@
             ],
             "selectors": [
               "cx-registration-verification-token-form"
+            ],
+            "snippets": [
+              {
+                "line": 71,
+                "code": "if (this.featureConfigService.isEnabled('enableSecurePasswordValidation')) {\n  return CustomFormValidators.securePasswordValidators;\n}"
+              }
             ]
           },
           {
@@ -1222,7 +1818,13 @@
             "symbols": [
               "ResetPasswordComponentService"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 31,
+                "code": "protected passwordValidators = this.featureConfigService.isEnabled("
+              }
+            ]
           },
           {
             "file": "feature-libs/user/profile/components/update-password/update-password-component.service.ts",
@@ -1231,7 +1833,13 @@
             "symbols": [
               "UpdatePasswordComponentService"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 34,
+                "code": "protected passwordValidators = this.featureConfigService.isEnabled("
+              }
+            ]
           }
         ]
       },
@@ -1240,6 +1848,7 @@
         "description": "Enables Real time stock display in the PDP page.\nwhen set to `true`, the user will be able to see the real time stock in PDP",
         "affects": [],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/4828aae62cf64a2bbba021b96e02dd03.html",
         "usages": []
       }
     ],
@@ -1251,6 +1860,7 @@
           "LoginComponent"
         ],
         "defaultValue": false,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/b0f008a4be2d4a6cb9b6dd5abaad9096.html",
         "usages": [
           {
             "file": "projects/core/src/global-message/http-interceptors/handlers/bad-request/bad-request.handler.ts",
@@ -1259,7 +1869,13 @@
             "symbols": [
               "BadRequestHandler"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 51,
+                "code": "this.featureConfigService.isEnabled("
+              }
+            ]
           }
         ]
       }
@@ -1270,6 +1886,7 @@
         "description": "The optional `aria-controls` attribute will override on the NgSelect implementation.\nThe updated library employs the `aria-controls` attribute to indicate the relationship between the button and the dropdown.\nThis change ensures we can still use a custom id if preferable.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "projects/storefrontlib/shared/components/ng-select-a11y/ng-select-a11y.directive.ts",
@@ -1278,7 +1895,13 @@
             "symbols": [
               "NgSelectA11yDirective"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 110,
+                "code": "if ("
+              }
+            ]
           }
         ]
       },
@@ -1287,6 +1910,7 @@
         "description": "When enabled, the `ConfiguratorAttributeHeaderComponent` component displays\na `ConfiguratorShowOptionsComponent` component underneath the attribute name.\nThe `ConfiguratorShowOptionsComponent` component allows to load the domain values\non demand by clicking on `Show Options` button in case the back-end signals\nthat domain values are not yet present.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/5538fae3282f4b4592674b96703f8cd7.html",
         "usages": []
       }
     ]

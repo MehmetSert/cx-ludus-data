@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatorVersion": 1,
+  "generatorVersion": 2,
   "from": {
     "release": "221121.5",
     "gitTag": "221121.5.0"
@@ -16,6 +16,7 @@
         "description": "In `AnonymousConsentDialogComponent` display notifications inside the modal without closing it",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "projects/storefrontlib/shared/components/anonymous-consents-dialog/anonymous-consent-dialog.component.html",
@@ -26,6 +27,12 @@
             ],
             "selectors": [
               "cx-anonymous-consent-dialog"
+            ],
+            "snippets": [
+              {
+                "line": 37,
+                "code": "<ng-container *cxFeature=\"'a11yAnonymousConsentMessageInDialog'\">\n  <div class=\"cx-dialog-message\" aria-live=\"assertive\" aria-atomic=\"true\">\n    <cx-message\n      *ngIf=\"message$ | async as message\"\n      [text]=\"message.key | cxTranslate\"\n      [type]=\"message.type\"\n      [isVisibleCloseButton]=\"true\"\n      (closeMessage)=\"closeMessage()\"\n      [cxFocus]=\"{ autofocus: '.cx-message' }\"\n    ></cx-message>\n  </div>\n</ng-container>"
+              }
             ]
           },
           {
@@ -37,6 +44,12 @@
             ],
             "selectors": [
               "cx-anonymous-consent-dialog"
+            ],
+            "snippets": [
+              {
+                "line": 80,
+                "code": "this.requiredConsents = this.config.anonymousConsents.requiredConsents;"
+              }
             ]
           },
           {
@@ -48,6 +61,20 @@
             ],
             "selectors": [
               "cx-anonymous-consent-dialog"
+            ],
+            "snippets": [
+              {
+                "line": 121,
+                "code": ");"
+              },
+              {
+                "line": 157,
+                "code": ");"
+              },
+              {
+                "line": 205,
+                "code": "protected onConsentGivenSuccess(): void {\n  if (\n    this.featureConfigService.isEnabled('a11yAnonymousConsentMessageInDialog')\n  ) {\n    this.message$.next({\n      type: GlobalMessageType.MSG_TYPE_CONFIRMATION,\n      key: 'consentManagementForm.message.success.given',\n    });\n  } else {\n    this.globalMessageService?.add(\n      { key: 'consentManagementForm.message.success.given' },\n      GlobalMessageType.MSG_TYPE_CONFIRMATION\n    );\n  }\n}"
+              }
             ]
           },
           {
@@ -63,6 +90,12 @@
               "cx-anonymous-consent-dialog",
               "cx-message",
               "cx-org-message"
+            ],
+            "snippets": [
+              {
+                "line": 35,
+                "code": "@include forFeature('a11yAnonymousConsentMessageInDialog') {\n  .cx-dialog-message {\n    padding: 1.5rem 1.75rem 0;\n\n    .cx-message {\n      margin: 0;\n    }\n  }\n}"
+              }
             ]
           }
         ]
@@ -75,6 +108,7 @@
           "CheckoutDeliveryAddressComponent"
         ],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/checkout/base/components/checkout-delivery-address/checkout-delivery-address.component.ts",
@@ -85,6 +119,12 @@
             ],
             "selectors": [
               "cx-delivery-address"
+            ],
+            "snippets": [
+              {
+                "line": 163,
+                "code": "if (this.featureConfigService?.isEnabled('a11yFocusOnCardAfterSelecting')) {\n  this.focusCardAfterSelecting();\n}"
+              }
             ]
           },
           {
@@ -96,6 +136,12 @@
             ],
             "selectors": [
               "cx-payment-method"
+            ],
+            "snippets": [
+              {
+                "line": 221,
+                "code": "if (this.featureConfigService?.isEnabled('a11yFocusOnCardAfterSelecting')) {\n  this.focusCardAfterSelecting();\n}"
+              }
             ]
           }
         ]
@@ -105,6 +151,7 @@
         "description": "Header. Fixes trapping focus on menu items on mobile when the menu is expanded.\nSets `tabindex` attribute  to `-1` for all visible focusable elements in the header section to exclude them from\nkeyboard navigation",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "projects/storefrontlib/layout/main/storefront.component.ts",
@@ -115,6 +162,12 @@
             ],
             "selectors": [
               "cx-storefront"
+            ],
+            "snippets": [
+              {
+                "line": 109,
+                "code": "if (this.featureConfigService.isEnabled('a11yHamburgerMenuTrapFocus')) {\n  this.trapFocusOnMenuIfExpanded();\n}"
+              }
             ]
           }
         ]
@@ -127,6 +180,7 @@
           "AnonymousConsentManagementBannerComponent"
         ],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "projects/storefrontlib/cms-components/anonymous-consent-management/banner/anonymous-consent-management-banner.component.html",
@@ -137,6 +191,12 @@
             ],
             "selectors": [
               "cx-anonymous-consent-management-banner"
+            ],
+            "snippets": [
+              {
+                "line": 7,
+                "code": "<div class=\"row\" *cxFeature=\"'!a11yHideConsentButtonWhenBannerVisible'\">\n  <div class=\"col-lg-7 col-xs-12\">\n    <div class=\"cx-banner-title\">\n      {{ 'anonymousConsents.banner.title' | cxTranslate }}\n    </div>\n    <div class=\"cx-banner-description\">\n      {{ 'anonymousConsents.banner.description' | cxTranslate }}\n    </div>\n  </div>\n\n  <div class=\"col-lg-5 col-xs-12 cx-banner-buttons\">\n    <button class=\"btn btn-secondary\" (click)=\"viewDetails()\">\n      {{ 'anonymousConsents.banner.viewDetails' | cxTranslate }}\n    </button>\n    <button class=\"btn btn-primary\" (click)=\"allowAll()\">\n      {{ 'anonymousConsents.banner.allowAll' | cxTranslate }}\n    </button>\n  </div>\n</div>"
+              }
             ]
           },
           {
@@ -148,6 +208,12 @@
             ],
             "selectors": [
               "cx-anonymous-consent-management-banner"
+            ],
+            "snippets": [
+              {
+                "line": 26,
+                "code": "<div class=\"row\" *cxFeature=\"'a11yHideConsentButtonWhenBannerVisible'\">\n  <div class=\"col-xl-7 col-lg-6 col-xs-12\">\n    <div class=\"cx-banner-title\">\n      {{ 'anonymousConsents.banner.title' | cxTranslate }}\n    </div>\n    <div class=\"cx-banner-description\">\n      {{ 'anonymousConsents.banner.description' | cxTranslate }}\n    </div>\n  </div>\n\n  <div class=\"col-xl-5 col-lg-6 col-xs-12 cx-banner-buttons\">\n    <button class=\"btn btn-secondary\" (click)=\"viewDetails()\">\n      {{ 'anonymousConsents.banner.consentManagement' | cxTranslate }}\n    </button>\n    <button class=\"btn btn-primary\" (click)=\"allowAll()\">\n      {{ 'anonymousConsents.banner.allowAll' | cxTranslate }}\n    </button>\n  </div>\n</div>"
+              }
             ]
           },
           {
@@ -159,6 +225,12 @@
             ],
             "selectors": [
               "cx-anonymous-consent-open-dialog"
+            ],
+            "snippets": [
+              {
+                "line": 1,
+                "code": "<ng-container *cxFeature=\"'!a11yHideConsentButtonWhenBannerVisible'\">\n  <button #open class=\"btn btn-link\" (click)=\"openDialog()\">\n    {{ 'anonymousConsents.dialog.title' | cxTranslate }}\n  </button>\n</ng-container>"
+              }
             ]
           },
           {
@@ -170,6 +242,12 @@
             ],
             "selectors": [
               "cx-anonymous-consent-open-dialog"
+            ],
+            "snippets": [
+              {
+                "line": 7,
+                "code": "<ng-container *cxFeature=\"'a11yHideConsentButtonWhenBannerVisible'\">\n  <button\n    *ngIf=\"!(bannerVisible$ | async)\"\n    #open\n    class=\"btn btn-link\"\n    (click)=\"openDialog()\"\n  >\n    {{ 'anonymousConsents.dialog.title' | cxTranslate }}\n  </button>\n</ng-container>"
+              }
             ]
           },
           {
@@ -181,6 +259,12 @@
             ],
             "selectors": [
               "cx-anonymous-consent-open-dialog"
+            ],
+            "snippets": [
+              {
+                "line": 34,
+                "code": "useFeatureStyles('a11yHideConsentButtonWhenBannerVisible');"
+              }
             ]
           },
           {
@@ -192,6 +276,16 @@
             ],
             "selectors": [
               "cx-anonymous-consent-open-dialog"
+            ],
+            "snippets": [
+              {
+                "line": 6,
+                "code": "@include forFeature('a11yHideConsentButtonWhenBannerVisible') {\n  margin: 0;\n}"
+              },
+              {
+                "line": 14,
+                "code": "@include forFeature('a11yHideConsentButtonWhenBannerVisible') {\n  margin: 1.5vw 3vw;\n}"
+              }
             ]
           }
         ]
@@ -205,6 +299,7 @@
           "SavedCartListComponent"
         ],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/cart/saved-cart/components/list/saved-cart-list.component.ts",
@@ -215,6 +310,12 @@
             ],
             "selectors": [
               "cx-saved-cart-list"
+            ],
+            "snippets": [
+              {
+                "line": 67,
+                "code": "useFeatureStyles('a11yHighContrastBorders');"
+              }
             ]
           },
           {
@@ -224,7 +325,13 @@
             "symbols": [
               "CheckoutReviewPaymentComponent"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 41,
+                "code": "useFeatureStyles('a11yHighContrastBorders');"
+              }
+            ]
           },
           {
             "file": "feature-libs/customer-ticketing/components/list/customer-ticketing-list/customer-ticketing-list.component.ts",
@@ -235,6 +342,12 @@
             ],
             "selectors": [
               "cx-customer-ticketing-list"
+            ],
+            "snippets": [
+              {
+                "line": 36,
+                "code": "useFeatureStyles('a11yHighContrastBorders');"
+              }
             ]
           }
         ]
@@ -246,6 +359,7 @@
           "SearchBoxComponent"
         ],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "projects/storefrontlib/cms-components/navigation/search-box/search-box.component.ts",
@@ -256,6 +370,12 @@
             ],
             "selectors": [
               "cx-searchbox"
+            ],
+            "snippets": [
+              {
+                "line": 150,
+                "code": "  protected winRef: WindowRef,\n  protected routingService: RoutingService\n) {\n  useFeatureStyles('a11yKeyboardFocusInSearchBox');\n}"
+              }
             ]
           },
           {
@@ -267,6 +387,12 @@
             ],
             "selectors": [
               "cx-storefront"
+            ],
+            "snippets": [
+              {
+                "line": 88,
+                "code": "  protected keyboardFocusService: KeyboardFocusService\n) {\n  useFeatureStyles('a11yKeyboardFocusInSearchBox');\n  useFeatureStyles('a11yNgSelectLayering');\n  useFeatureStyles('topProgressBarUseTransformAnimation');\n  useFeatureStyles('unifiedDefaultHeaderSlotsAcrossBreakpoints');\n}"
+              }
             ]
           },
           {
@@ -280,6 +406,12 @@
             "selectors": [
               "cx-paragraph",
               "cx-storefront"
+            ],
+            "snippets": [
+              {
+                "line": 52,
+                "code": "--cx-visual-focus-width: 0;"
+              }
             ]
           },
           {
@@ -301,6 +433,20 @@
               "cx-media",
               "cx-searchbox",
               "cx-storefront"
+            ],
+            "snippets": [
+              {
+                "line": 134,
+                "code": "}"
+              },
+              {
+                "line": 165,
+                "code": "padding-bottom: 6px;"
+              },
+              {
+                "line": 183,
+                "code": "position: absolute;"
+              }
             ]
           }
         ]
@@ -310,6 +456,7 @@
         "description": "In `MiniCart component`, improve visible focus contrast on mobile.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/cart/base/components/mini-cart/mini-cart.component.ts",
@@ -320,6 +467,12 @@
             ],
             "selectors": [
               "cx-mini-cart"
+            ],
+            "snippets": [
+              {
+                "line": 27,
+                "code": "useFeatureStyles('a11yMiniCartFocusOnMobile');"
+              }
             ]
           },
           {
@@ -331,6 +484,12 @@
             ],
             "selectors": [
               "cx-mini-cart"
+            ],
+            "snippets": [
+              {
+                "line": 52,
+                "code": "@include forFeature('a11yMiniCartFocusOnMobile') {\n  @include media-breakpoint-down(md) {\n    a {\n      &:focus {\n        outline-offset: -4px;\n        outline-color: var(--cx-color-inverse);\n        box-shadow: 0 0 0 2px var(--cx-color-visual-focus) inset;\n      }\n    }\n  }\n}"
+              }
             ]
           }
         ]
@@ -342,6 +501,7 @@
           "NavigationUIComponent"
         ],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "projects/storefrontlib/cms-components/navigation/navigation/navigation-ui.component.html",
@@ -352,6 +512,12 @@
             ],
             "selectors": [
               "cx-navigation-ui"
+            ],
+            "snippets": [
+              {
+                "line": 70,
+                "code": "<ng-container *cxFeature=\"'!a11yNavigationButtonsAriaFixes'\">\n  <button\n    aria-level=\"4\"\n    [attr.role]=\"(isDesktop$ | async) && depth ? 'heading' : 'button'\"\n    [attr.aria-haspopup]=\"true\"\n    [attr.aria-expanded]=\"false\"\n    [attr.aria-controls]=\"node.title\"\n    [attr.aria-describedby]=\"'greeting'\"\n    (click)=\"toggleOpen($any($event))\"\n    (mouseenter)=\"onMouseEnter($event)\"\n    (keydown.space)=\"onSpace($any($event))\"\n    (keydown.enter)=\"onSpace($any($event))\"\n    (keydown.esc)=\"back()\"\n    (keydown.arrowDown)=\"focusOnNode($any($event))\"\n    (focus)=\"depth || reinitializeMenu()\"\n  >\n    <ng-container *ngIf=\"!node.url\">\n      {{ node.title }}\n    </ng-container>\n    <cx-icon [type]=\"iconType.CARET_DOWN\"></cx-icon>\n  </button>\n</ng-container>"
+              }
             ]
           },
           {
@@ -363,6 +529,12 @@
             ],
             "selectors": [
               "cx-navigation-ui"
+            ],
+            "snippets": [
+              {
+                "line": 92,
+                "code": "<ng-container *cxFeature=\"'a11yNavigationButtonsAriaFixes'\">\n  <h4\n    *ngIf=\"(isDesktop$ | async) && depth; else dropdownHeader\"\n    (keydown.arrowDown)=\"focusOnNode($any($event))\"\n    (keydown.space)=\"onSpace($any($event))\"\n    tabindex=\"0\"\n  >\n    {{ node.title }}\n  </h4>\n  <ng-template #dropdownHeader>\n    <button\n      [attr.aria-haspopup]=\"true\"\n      [attr.aria-expanded]=\"false\"\n      [attr.aria-label]=\"node.url ? node.title : null\"\n      [attr.aria-controls]=\"transformIntoValidID(node.title)\"\n      [attr.title]=\"\n        'navigation.menuButonTitle' | cxTranslate: { title: node.title }\n      \"\n      (click)=\"toggleOpen($any($event))\"\n      (mouseenter)=\"onMouseEnter($event)\"\n      (keydown.space)=\"onSpace($any($event))\"\n      (keydown.enter)=\"onSpace($any($event))\"\n      (keydown.esc)=\"back()\"\n      (keydown.arrowDown)=\"focusOnNode($any($event))\"\n      (focus)=\"depth || reinitializeMenu()\"\n    >\n      <ng-container *ngIf=\"!node.url\">\n        {{ node.title }}\n      </ng-container>\n      <cx-icon [type]=\"iconType.CARET_DOWN\"></cx-icon>\n    </button>\n  </ng-template>\n</ng-container>"
+              }
             ]
           },
           {
@@ -374,6 +546,12 @@
             ],
             "selectors": [
               "cx-navigation-ui"
+            ],
+            "snippets": [
+              {
+                "line": 122,
+                "code": "useFeatureStyles('a11yNavigationButtonsAriaFixes');"
+              }
             ]
           },
           {
@@ -385,6 +563,12 @@
             ],
             "selectors": [
               "cx-navigation-ui"
+            ],
+            "snippets": [
+              {
+                "line": 268,
+                "code": "  this.featureConfigService?.isEnabled('a11yNavigationButtonsAriaFixes')\n) {\n  const firstFocusableNode = (<HTMLElement>(\n    event.target\n  ))?.nextElementSibling?.querySelector('button, h4, a') as HTMLElement;\n  firstFocusableNode?.focus();\n}"
+              }
             ]
           },
           {
@@ -400,6 +584,12 @@
               "cx-category-navigation",
               "cx-generic-link",
               "cx-navigation-ui"
+            ],
+            "snippets": [
+              {
+                "line": 6,
+                "code": "cx-navigation-ui > nav > ul > li > cx-generic-link {\n  text-transform: uppercase;\n  font-weight: 600;\n  width: 100%;\n}"
+              }
             ]
           }
         ]
@@ -409,6 +599,7 @@
         "description": "'NgSelectA11yDirective' will customize a ng-select dropdowns by setting custom\nariaLabelDropdown ng-select attribute value to provided common.ngSelectDropdownOptionsList translation",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "projects/storefrontlib/shared/components/ng-select-a11y/ng-select-a11y.directive.ts",
@@ -417,7 +608,13 @@
             "symbols": [
               "NgSelectA11yDirective"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 95,
+                "code": "this.renderer.setAttribute(inputCombobox, 'aria-expanded', 'false');"
+              }
+            ]
           }
         ]
       },
@@ -426,6 +623,7 @@
         "description": "Fix popover appearance when a High Contrast Theme is applied.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "projects/storefrontlib/shared/components/popover/popover.directive.ts",
@@ -434,7 +632,13 @@
             "symbols": [
               "PopoverDirective"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 221,
+                "code": "const element = this.featureConfigService?.isEnabled("
+              }
+            ]
           }
         ]
       },
@@ -443,6 +647,7 @@
         "description": "When enabled the input element in `QuickOrderFormComponent' will regain its focus after the dropdown is closed.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/cart/quick-order/components/quick-order/form/quick-order-form.component.ts",
@@ -453,6 +658,12 @@
             ],
             "selectors": [
               "cx-quick-order-form"
+            ],
+            "snippets": [
+              {
+                "line": 86,
+                "code": "if ("
+              }
             ]
           }
         ]
@@ -462,6 +673,7 @@
         "description": "`QuickOrderFormComponent` - disable navigation with Tab/Shift+Tab for search results list",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/cart/quick-order/components/quick-order/form/quick-order-form.component.html",
@@ -472,6 +684,12 @@
             ],
             "selectors": [
               "cx-quick-order-form"
+            ],
+            "snippets": [
+              {
+                "line": 70,
+                "code": "<button\n  *cxFeature=\"'!a11yQuickOrderSearchListKeyboardNavigation'\"\n  (blur)=\"onBlur($event)\"\n  (mousedown)=\"add(product, $event)\"\n  (keydown.arrowdown)=\"focusNextChild($event)\"\n  (keydown.arrowup)=\"focusPreviousChild($event)\"\n  (keydown.enter)=\"add(product, $event)\"\n  (keydown.escape)=\"clear($event)\"\n  [class.has-media]=\"\n    config?.quickOrder?.searchForm?.displayProductImages\n  \"\n  class=\"quick-order-results-product\"\n  role=\"option\"\n>\n  <cx-media\n    *ngIf=\"config?.quickOrder?.searchForm?.displayProductImages\"\n    [alt]=\"product.name\"\n    [container]=\"product.images?.PRIMARY\"\n    class=\"media\"\n    format=\"thumbnail\"\n    role=\"presentation\"\n  ></cx-media>\n  <div class=\"name\" [innerHTML]=\"product.name\"></div>\n  <span class=\"id\">\n    {{\n      'quickOrderForm.id'\n        | cxTranslate\n          : {\n              id: product.code,\n            }\n    }}\n  </span>\n  <span class=\"price\">{{ product.price?.formattedValue }}</span>\n</button>"
+              }
             ]
           },
           {
@@ -483,6 +701,12 @@
             ],
             "selectors": [
               "cx-quick-order-form"
+            ],
+            "snippets": [
+              {
+                "line": 104,
+                "code": "<button\n  *cxFeature=\"'a11yQuickOrderSearchListKeyboardNavigation'\"\n  (blur)=\"onBlur($event)\"\n  (mousedown)=\"add(product, $event)\"\n  (keydown.arrowdown)=\"focusNextChild($event)\"\n  (keydown.arrowup)=\"focusPreviousChild($event)\"\n  (keydown.enter)=\"add(product, $event)\"\n  (keydown.escape)=\"clear($event)\"\n  (keydown.tab)=\"close()\"\n  (keydown.shift.tab)=\"close()\"\n  [class.has-media]=\"\n    config?.quickOrder?.searchForm?.displayProductImages\n  \"\n  class=\"quick-order-results-product\"\n  role=\"option\"\n>\n  <cx-media\n    *ngIf=\"config?.quickOrder?.searchForm?.displayProductImages\"\n    [alt]=\"product.name\"\n    [container]=\"product.images?.PRIMARY\"\n    class=\"media\"\n    format=\"thumbnail\"\n    role=\"presentation\"\n  ></cx-media>\n  <div class=\"name\" [innerHTML]=\"product.name\"></div>\n  <span class=\"id\">\n    {{\n      'quickOrderForm.id'\n        | cxTranslate\n          : {\n              id: product.code,\n            }\n    }}\n  </span>\n  <span class=\"price\">{{ product.price?.formattedValue }}</span>\n</button>"
+              }
             ]
           }
         ]
@@ -496,6 +720,7 @@
           "ListComponent"
         ],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/organization/administration/components/shared/card/card.component.html",
@@ -507,6 +732,12 @@
             "selectors": [
               "cx-card",
               "cx-org-card"
+            ],
+            "snippets": [
+              {
+                "line": 12,
+                "code": "<span\n  *cxFeature=\"'a11yRegionAssociatedHeaders'\"\n  id=\"{{ i18nRoot + '_title' }}\"\n>\n  {{ i18nRoot + '.title' | cxTranslate: { item: item$ | async } }}\n</span>"
+              }
             ]
           },
           {
@@ -519,6 +750,12 @@
             "selectors": [
               "cx-card",
               "cx-org-card"
+            ],
+            "snippets": [
+              {
+                "line": 17,
+                "code": "<ng-container *cxFeature=\"'!a11yRegionAssociatedHeaders'\">\n  {{ i18nRoot + '.title' | cxTranslate: { item: item$ | async } }}\n</ng-container>"
+              }
             ]
           },
           {
@@ -530,6 +767,12 @@
             ],
             "selectors": [
               "cx-org-list"
+            ],
+            "snippets": [
+              {
+                "line": 14,
+                "code": "<span\n  *cxFeature=\"'a11yRegionAssociatedHeaders'\"\n  id=\"{{ viewType + '_title' }}\"\n>\n  {{\n    viewType + '.header'\n      | cxTranslate: { count: getListCount(data) }\n  }}\n</span>"
+              }
             ]
           },
           {
@@ -541,6 +784,12 @@
             ],
             "selectors": [
               "cx-org-list"
+            ],
+            "snippets": [
+              {
+                "line": 22,
+                "code": "<ng-container *cxFeature=\"'!a11yRegionAssociatedHeaders'\">\n  {{\n    viewType + '.header'\n      | cxTranslate: { count: getListCount(data) }\n  }}\n</ng-container>"
+              }
             ]
           }
         ]
@@ -552,6 +801,7 @@
           "SetPreferredStoreComponent"
         ],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/pickup-in-store/components/container/set-preferred-store/set-preferred-store.component.html",
@@ -560,7 +810,13 @@
             "symbols": [
               "SetPreferredStoreComponent"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 1,
+                "code": "<ng-container *cxFeature=\"'a11yRepeatingButtonsUniqueLabels'\">\n  <ng-container *ngIf=\"{ storeSelected: storeSelected$ | async } as data\">\n    <div\n      [attr.data-preferred-store]=\"pointOfServiceName.name\"\n      [attr.data-store-is-selected]=\"\n        pointOfServiceName.name === data.storeSelected?.name\n      \"\n      class=\"setpreferredstore-container\"\n      (click)=\"setAsPreferred()\"\n    >\n      <div\n        [ngClass]=\"\n          pointOfServiceName.name === data.storeSelected?.name\n            ? 'icon-selected'\n            : 'icon-not-selected'\n        \"\n      >\n        <cx-icon aria-hidden=\"true\" [type]=\"ICON_TYPE.HEART\"></cx-icon>\n      </div>\n      <button\n        data-text=\"setPreferredStore.myStore\"\n        [attr.data-preferred-store]=\"pointOfServiceName.name\"\n        class=\"set-preferred-heading\"\n        [attr.aria-label]=\"\n          (getSetStoreButtonLabel(data.storeSelected?.name || '')\n            | cxTranslate) +\n          ', ' +\n          pointOfServiceName.displayName\n        \"\n      >\n        {{\n          getSetStoreButtonLabel(data.storeSelected?.name || '') | cxTranslate\n        }}\n      </button>\n    </div>\n  </ng-container>\n</ng-container>"
+              }
+            ]
           },
           {
             "file": "feature-libs/pickup-in-store/components/container/set-preferred-store/set-preferred-store.component.html",
@@ -569,7 +825,13 @@
             "symbols": [
               "SetPreferredStoreComponent"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 38,
+                "code": "<ng-container *cxFeature=\"'!a11yRepeatingButtonsUniqueLabels'\">\n  <div\n    [attr.data-preferred-store]=\"pointOfServiceName.name\"\n    [attr.data-store-is-selected]=\"\n      pointOfServiceName.name === (storeSelected$ | async)?.name\n    \"\n    class=\"setpreferredstore-container\"\n    (click)=\"setAsPreferred()\"\n  >\n    <div\n      [ngClass]=\"{\n        'icon-selected':\n          pointOfServiceName.name === (storeSelected$ | async)?.name,\n        'icon-not-selected':\n          pointOfServiceName.name !== (storeSelected$ | async)?.name,\n      }\"\n    >\n      <cx-icon aria-hidden=\"true\" [type]=\"ICON_TYPE.HEART\"></cx-icon>\n    </div>\n    <button\n      data-text=\"setPreferredStore.myStore\"\n      [attr.data-preferred-store]=\"pointOfServiceName.name\"\n      class=\"set-preferred-heading\"\n    >\n      {{\n        pointOfServiceName.name === (storeSelected$ | async)?.name\n          ? ('setPreferredStore.myStore' | cxTranslate)\n          : ('setPreferredStore.makeThisMyStore' | cxTranslate)\n      }}\n    </button>\n  </div>\n</ng-container>"
+              }
+            ]
           }
         ]
       },
@@ -578,6 +840,7 @@
         "description": "Resets the focus after navigating to a new page.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "projects/storefrontlib/layout/main/storefront.component.ts",
@@ -588,6 +851,12 @@
             ],
             "selectors": [
               "cx-storefront"
+            ],
+            "snippets": [
+              {
+                "line": 162,
+                "code": "// After clicking a link the focus should move to the first available item in the main content area."
+              }
             ]
           }
         ]
@@ -597,6 +866,7 @@
         "description": "When enabled, the scroll-to-top button adjusts its position when other UI elements\n(like cookie consent banner) appear at the bottom of the page to prevent overlapping",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "projects/storefrontlib/cms-components/anonymous-consent-management/banner/anonymous-consent-management-banner.component.ts",
@@ -607,6 +877,12 @@
             ],
             "selectors": [
               "cx-anonymous-consent-management-banner"
+            ],
+            "snippets": [
+              {
+                "line": 30,
+                "code": "useFeatureStyles('a11yScrollToTopPositioning');"
+              }
             ]
           },
           {
@@ -620,6 +896,12 @@
             "selectors": [
               "cx-anonymous-consent-management-banner",
               "cx-scroll-to-top"
+            ],
+            "snippets": [
+              {
+                "line": 54,
+                "code": "@include forFeature('a11yScrollToTopPositioning') {\n  &:has(.anonymous-consent-banner) ~ cx-scroll-to-top {\n    bottom: 180px;\n  }\n}"
+              }
             ]
           }
         ]
@@ -632,6 +914,7 @@
           "QuickOrderFormComponent"
         ],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/cart/quick-order/components/quick-order/form/quick-order-form.component.ts",
@@ -642,6 +925,12 @@
             ],
             "selectors": [
               "cx-quick-order-form"
+            ],
+            "snippets": [
+              {
+                "line": 136,
+                "code": "} else if (this.getFocusedIndex() !== -1) {\n  const product = this.results[this.getFocusedIndex()];\n  this.add(product, event);\n}"
+              }
             ]
           },
           {
@@ -653,6 +942,12 @@
             ],
             "selectors": [
               "cx-searchbox"
+            ],
+            "snippets": [
+              {
+                "line": 438,
+                "code": "const [results, focusedIndex] = ["
+              }
             ]
           }
         ]
@@ -662,6 +957,7 @@
         "description": "'TabComponent' disallow automatic tab activation.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "projects/storefrontlib/cms-components/content/tab/tab.component.ts",
@@ -672,6 +968,12 @@
             ],
             "selectors": [
               "cx-tab"
+            ],
+            "snippets": [
+              {
+                "line": 116,
+                "code": "if (this.featureConfigService?.isEnabled('a11yTabsManualActivation')) {\n  switch (mode) {\n    case TAB_MODE.TAB:\n    case TAB_MODE.ACCORDIAN:\n      return this.focus(tabNum);\n  }\n}"
+              }
             ]
           }
         ]
@@ -681,6 +983,7 @@
         "description": "`UnitLevelOrderHistoryComponent` filter input label and table email address\nare not truncated",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/organization/unit-order/components/unit-level-order-history/unit-level-order-history.component.html",
@@ -691,6 +994,12 @@
             ],
             "selectors": [
               "cx-unit-level-order-history"
+            ],
+            "snippets": [
+              {
+                "line": 147,
+                "code": "<ng-container\n  *cxFeature=\"'a11yTruncatedTextUnitLevelOrderHistory'\"\n>\n  <span>{{ order?.orgCustomer?.email }}</span>\n</ng-container>"
+              }
             ]
           },
           {
@@ -702,6 +1011,12 @@
             ],
             "selectors": [
               "cx-unit-level-order-history"
+            ],
+            "snippets": [
+              {
+                "line": 152,
+                "code": "<ng-container\n  *cxFeature=\"'!a11yTruncatedTextUnitLevelOrderHistory'\"\n>\n  <span class=\"text-ellipsis\">{{\n    order?.orgCustomer?.email\n  }}</span>\n</ng-container>"
+              }
             ]
           },
           {
@@ -713,6 +1028,12 @@
             ],
             "selectors": [
               "cx-unit-level-order-history"
+            ],
+            "snippets": [
+              {
+                "line": 38,
+                "code": "  protected unitOrdersFacade: UnitOrderFacade,\n  protected translation: TranslationService\n) {\n  useFeatureStyles('a11yTruncatedTextUnitLevelOrderHistory');\n}"
+              }
             ]
           },
           {
@@ -728,6 +1049,12 @@
               "cx-sorting",
               "cx-total",
               "cx-unit-level-order-history"
+            ],
+            "snippets": [
+              {
+                "line": 20,
+                "code": "display: none;"
+              }
             ]
           }
         ]
@@ -737,6 +1064,7 @@
         "description": "In `FutureStockAccordionComponent` use `cx-color-text` for button color",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/product/future-stock/components/future-stock-accordion/future-stock-accordion.component.ts",
@@ -747,6 +1075,12 @@
             ],
             "selectors": [
               "cx-future-stock-accordion"
+            ],
+            "snippets": [
+              {
+                "line": 23,
+                "code": "useFeatureStyles('a11yUseProperTextColorForFutureStockAccordion');"
+              }
             ]
           },
           {
@@ -762,6 +1096,12 @@
               "[cxIcon]",
               "cx-future-stock-accordion",
               "cx-icon"
+            ],
+            "snippets": [
+              {
+                "line": 20,
+                "code": "@include forFeature('a11yUseProperTextColorForFutureStockAccordion') {\n  color: var(--cx-color-text);\n}"
+              }
             ]
           }
         ]
@@ -771,6 +1111,7 @@
         "description": "Enables the product carousel to include products based on specified category codes.\n\n- When this feature is enabled, the carousel will fetch and display products\n  associated with the `categoryCodes` provided.\n- The `categoryCodes` are configured and managed through SmartEdit",
         "affects": [],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/10416bef4c29422ea84e30e16f159125.html",
         "usages": [
           {
             "file": "projects/storefrontlib/cms-components/product/carousel/product-carousel/product-carousel.component.ts",
@@ -781,6 +1122,12 @@
             ],
             "selectors": [
               "cx-product-carousel"
+            ],
+            "snippets": [
+              {
+                "line": 93,
+                "code": "if ("
+              }
             ]
           }
         ]
@@ -790,6 +1137,7 @@
         "description": "In CustomerCouponConnector, Enables claiming customer coupon with coupon code in httpRequest body with POST method.\n\nWhen set to `false`, claiming customer coupon works with coupon code as parameter in URL, which exposes sensitive data and has security risk.\nWhen set to `true`, claiming customer coupon works with coupon code in httpRequest body with POST method(the new Occ endpoint is available since Commerce 2211.28), which avoids security risk.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/4e8ead06982f42a69421f40841009462.html",
         "usages": [
           {
             "file": "projects/core/src/user/connectors/customer-coupon/customer-coupon.connector.ts",
@@ -798,7 +1146,13 @@
             "symbols": [
               "CustomerCouponConnector"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 49,
+                "code": "this.featureConfigService.isEnabled("
+              }
+            ]
           }
         ]
       },
@@ -807,6 +1161,7 @@
         "description": "Updates the derivative `consentGiven` state when `consent` is updated.\n\nComponents affected:\n- `ConsentManagementFormComponent`\n- `MyAccountV2ConsentManagementFormComponent`",
         "affects": [],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/b4f672915ba24e3e93ab3802c039eee7.html",
         "usages": [
           {
             "file": "projects/storefrontlib/cms-components/myaccount/consent-management/components/consent-form/consent-management-form.component.ts",
@@ -817,6 +1172,12 @@
             ],
             "selectors": [
               "cx-consent-management-form"
+            ],
+            "snippets": [
+              {
+                "line": 65,
+                "code": "if ("
+              }
             ]
           }
         ]
@@ -830,6 +1191,7 @@
           "FutureStockAccordionComponent"
         ],
         "defaultValue": false,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/product/future-stock/components/future-stock-accordion/future-stock-accordion.component.html",
@@ -840,6 +1202,12 @@
             ],
             "selectors": [
               "cx-future-stock-accordion"
+            ],
+            "snippets": [
+              {
+                "line": 16,
+                "code": "<ng-container *cxFeature=\"'!a11yFutureStockAccordionAriaControls'\">\n  <ng-container *ngIf=\"expanded\">\n    <ng-container *ngIf=\"futureStocks?.futureStocks?.length; else noStocks\">\n      <div\n        id=\"cx-future-stock-accordion-content\"\n        class=\"cx-future-stock-accordion-content\"\n        aria-labelledby=\"cx-future-stock-accordion-header\"\n        *ngFor=\"let futureStock of futureStocks.futureStocks\"\n      >\n        {{ futureStock.formattedDate }} -\n        {{ 'futureStockDropdown.quantity' | cxTranslate }}\n        {{ futureStock.stock.stockLevel }}\n      </div>\n    </ng-container>\n\n    <ng-template #noStocks>\n      <div\n        id=\"cx-future-stock-accordion-content\"\n        class=\"cx-future-stock-accordion-content\"\n        aria-labelledby=\"cx-future-stock-accordion-header\"\n      >\n        {{ 'futureStockDropdown.noFutureStocks' | cxTranslate }}\n      </div>\n    </ng-template>\n  </ng-container>\n</ng-container>"
+              }
             ]
           },
           {
@@ -851,6 +1219,12 @@
             ],
             "selectors": [
               "cx-future-stock-accordion"
+            ],
+            "snippets": [
+              {
+                "line": 43,
+                "code": "<ng-container *cxFeature=\"'a11yFutureStockAccordionAriaControls'\">\n  <div id=\"cx-future-stock-accordion-content\" [hidden]=\"!expanded\">\n    <ng-container *ngIf=\"futureStocks?.futureStocks?.length; else noStocks\">\n      <div\n        class=\"cx-future-stock-accordion-content\"\n        aria-labelledby=\"cx-future-stock-accordion-header\"\n        *ngFor=\"let futureStock of futureStocks.futureStocks\"\n      >\n        {{ futureStock.formattedDate }} -\n        {{ 'futureStockDropdown.quantity' | cxTranslate }}\n        {{ futureStock.stock.stockLevel }}\n      </div>\n    </ng-container>\n\n    <ng-template #noStocks>\n      <div\n        class=\"cx-future-stock-accordion-content\"\n        aria-labelledby=\"cx-future-stock-accordion-header\"\n      >\n        {{ 'futureStockDropdown.noFutureStocks' | cxTranslate }}\n      </div>\n    </ng-template>\n  </div>\n</ng-container>"
+              }
             ]
           }
         ]
@@ -860,6 +1234,7 @@
         "description": "Use unicode characters for ng-select dropdown carets so that OS themes can override the defaults\nby targetting text. This is not possible when using borders to draw shapes.",
         "affects": [],
         "defaultValue": false,
+        "docUrl": null,
         "usages": [
           {
             "file": "projects/storefrontlib/shared/components/ng-select-a11y/ng-select-a11y.directive.ts",
@@ -868,7 +1243,13 @@
             "symbols": [
               "NgSelectA11yDirective"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 81,
+                "code": "useFeatureStyles('a11yNgSelectUnicodeCarets');"
+              }
+            ]
           },
           {
             "file": "projects/storefrontstyles/scss/cxbase/blocks/forms.scss",
@@ -881,6 +1262,16 @@
             "selectors": [
               "cx-file-upload",
               "cx-form-errors"
+            ],
+            "snippets": [
+              {
+                "line": 328,
+                "code": "@include forFeature('a11yNgSelectUnicodeCarets') {\n  .ng-arrow-wrapper {\n    .ng-arrow {\n      border: none;\n    }\n    .ng-arrow::after {\n      content: '\\25BC'; // Down Caret\n      font-size: 90%;\n      position: absolute;\n      transform: translate(-75%, -75%);\n    }\n  }\n}"
+              },
+              {
+                "line": 399,
+                "code": "@include forFeature('a11yNgSelectUnicodeCarets') {\n  .ng-arrow-wrapper {\n    .ng-arrow::after {\n      content: '\\25B2'; // Up Caret\n    }\n  }\n}"
+              }
             ]
           }
         ]
@@ -892,6 +1283,7 @@
         "description": "When enabled, the product cards in the product list page will have a forced consistent size.\nAffects the styles of: ProductGridItemComponent, ProductListItemComponent.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/2f6372f4a7dc4fb5afdbb63a283ce370.html",
         "usages": [
           {
             "file": "projects/storefrontlib/cms-components/product/product-list/product-grid-item/product-grid-item.component.ts",
@@ -902,6 +1294,12 @@
             ],
             "selectors": [
               "cx-product-grid-item"
+            ],
+            "snippets": [
+              {
+                "line": 71,
+                "code": "useFeatureStyles('consistentSizeProductCards');"
+              }
             ]
           },
           {
@@ -913,6 +1311,12 @@
             ],
             "selectors": [
               "cx-product-list-item"
+            ],
+            "snippets": [
+              {
+                "line": 71,
+                "code": "useFeatureStyles('consistentSizeProductCards');"
+              }
             ]
           },
           {
@@ -926,6 +1330,16 @@
             "selectors": [
               "cx-media",
               "cx-product-grid-item"
+            ],
+            "snippets": [
+              {
+                "line": 30,
+                "code": "@include forFeature('consistentSizeProductCards') {\n  @include media-breakpoint-up(md) {\n    margin-top: auto;\n    margin-bottom: auto;\n  }\n}"
+              },
+              {
+                "line": 41,
+                "code": "@include forFeature('consistentSizeProductCards') {\n  @include media-breakpoint-up(md) {\n    img {\n      max-height: 255px;\n    }\n  }\n}"
+              }
             ]
           },
           {
@@ -943,6 +1357,16 @@
               "cx-product-list-item",
               "cx-product-summary",
               "cx-variant-style-icons"
+            ],
+            "snippets": [
+              {
+                "line": 3,
+                "code": "@include forFeature('consistentSizeProductCards') {\n  @include media-breakpoint-up(md) {\n    height: 272px;\n    & > div {\n      height: 100%;\n    }\n\n    .cx-product-summary {\n      display: -webkit-box;\n      -webkit-line-clamp: 5;\n      line-clamp: 5;\n      -webkit-box-orient: vertical;\n      overflow: hidden;\n    }\n  }\n}"
+              },
+              {
+                "line": 47,
+                "code": "@include forFeature('consistentSizeProductCards') {\n  @include media-breakpoint-up(md) {\n    display: flex;\n    img {\n      margin-top: auto;\n      margin-bottom: auto;\n      max-height: 255px;\n    }\n  }\n}"
+              }
             ]
           }
         ]
@@ -952,6 +1376,7 @@
         "description": "Feature flag to enable using <link rel=preconnect> in the index.html.\n\n## When enabled:\nAdding rel=preconnect to a <link> informs the browser that your page intends to establish a connection to another domain,\nand that you'd like the process to start as soon as possible. Resources will load more quickly because the setup process\nhas already been completed by the time the browser requests them.\n\nNote: Preconnecting is not needed (and won't be performed) if the domain of the media base url is the same as the storefront's domain.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/b064b86b837544b2a41158f1d1c5e552.html",
         "usages": []
       },
       {
@@ -959,6 +1384,7 @@
         "description": "Previously the default Spartacus layout config contained the property `pageFold`\nfor the following layouts:\n- `LandingPage2Template`\n- `CategoryPageTemplate`\n- `ProductDetailsPageTemplate`\n\nWhen this feature toggle is enabled, the `pageFold` property is removed from those layout configs.\n\nIt is to improve the CLS (Cumulative Layout Shift) metric. Previously the `pageFold` property\ncaused the CMS components to be rendered only after a small delay even in SSR pages,\nwhich caused a layout shift.\n\n⚠️ To fully enable this feature toggle, you need to also replace `provideConfig(layoutConfig)`\nin your codebase with `provideConfigFactory(layoutConfigFactory)`.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/53c73f185b97463cb549b45df823153e.html",
         "usages": []
       },
       {
@@ -966,6 +1392,7 @@
         "description": "When enabled, the default routing config for the product page is no longer just:\n`paths: ['product/:productCode/:name']`\nbut:\n`paths: ['product/:productCode/:name', 'product/:productCode'],`\n\nIt means that the old URL scheme of generating links and matching URLs is preserved,\nbut now also a shorter alias (without product name) is accepted when matching the URL.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/bc80eb4d9f7742b292b0bd6ed7bf660c.html",
         "usages": []
       },
       {
@@ -973,6 +1400,7 @@
         "description": "Feature flag to disable the margin animation for the cx-page-slot component.\nDisables the CSS animation on the `margin` property in the `cx-page-slot` component.\nThis animation was originally part of the legacy \"defer loading\" and \"below the fold\"\nmechanism in Spartacus. Since this mechanism is no longer used in the current storefront,\nthe animation causes unnecessary layout shifts (CLS) and increased rendering cost (TBT).\n\nEnabling this flag removes the margin animation to improve performance and user experience.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/67486ef8bfc04391a60ef4091829508d.html",
         "usages": [
           {
             "file": "projects/storefrontlib/cms-structure/page/page-layout/page-layout.component.ts",
@@ -983,6 +1411,12 @@
             ],
             "selectors": [
               "cx-page-layout"
+            ],
+            "snippets": [
+              {
+                "line": 56,
+                "code": "useFeatureStyles('disableCxPageSlotMarginAnimation');"
+              }
             ]
           },
           {
@@ -997,6 +1431,12 @@
               "[cx-page-slot]",
               "cx-page-layout",
               "cx-page-slot"
+            ],
+            "snippets": [
+              {
+                "line": 8,
+                "code": "// The real estate of pending elements below-the-fold (btf) is"
+              }
             ]
           }
         ]
@@ -1006,6 +1446,7 @@
         "description": "Feature flag to control the default image loading strategy.\n\nBy default, the `MediaComponent` used the `loading=\"eager\"` attribute for all images,\ndue to the fallback logic in the `MediaService`, which defaults to\n`imageLoadingStrategy: EAGER` when no explicit configuration is provided.\n\nThis flag, when enabled, changes the default image loading behavior to use\n`loading=\"lazy\"` instead. This ensures that images below the fold are not downloaded\nimmediately, reducing unnecessary network usage and improving performance.\n\nLazy loading frees up bandwidth to prioritize more important assets,\nsuch as the largest content element on the page, which can positively\nimpact the LCP (Largest Contentful Paint) metric.\n\nWhen all images are lazy loaded by default, you should explicitly prioritize LCP images,\nby specifying CMS component IDs via the Spartacus config:\n`provideConfig({ lcpCmsComponents: ... })`\n... or by passing the special input directly to the `MediaComponent`:\n`<cx-media [fetchPriority]=\"ImageFetchPriority.HIGH\" ... >`\n\nSet to `true` to enable lazy loading by default.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/5c37d465eb214e5ab3eee14f15366f8e.html",
         "usages": [
           {
             "file": "projects/storefrontlib/shared/components/media/media.service.ts",
@@ -1014,7 +1455,13 @@
             "symbols": [
               "MediaService"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 163,
+                "code": "const fallbackStrategy = this.featureConfigService.isEnabled("
+              }
+            ]
           }
         ]
       },
@@ -1023,6 +1470,7 @@
         "description": "When enabled, the new carousel component `<cx-carousel-scrolling>` will be used\nin the following components instead of the old `<cx-carousel>`:\n- `ProductCarouselComponent`\n- `ProductReferencesComponent`\n- `ProductImagesComponent` and related `ProductImageZoomProductImagesComponent`\n\nThe previous carousel had number of issues:\n- Caused huge layout shift when transitioning from SSR to CSR on desktop viewport,\n    because in SSR there was rendered just 1 carousel item, but in desktop CSR 4 items\n    appeared after a while (especially noticeable with Chrome DevTools Network throttling)\n- Eagerly-loaded images also from invisible slides, even when Spartacus was configured\n    to lazy load of all images: `provideConfig({ imageLoadingStrategy: ImageLoadingStrategy.LAZY})`\n- Was not swipe-friendly on mobile devices\n\nThe new carousel:\n- Doesn't suffer from huge layout shifts when transitioning from SSR to CSR anymore, because of\n   rendering the same HTML both in SSR and when CSR kicks in after a delay,\n   so the same number of carousel items is visible in SSR HTML and CSR HTML.\n- It's lazy loading invisible images thanks to native horizontal scrolling (when Spartacus\n   is configured to lazy load all images: `provideConfig({ imageLoadingStrategy: ImageLoadingStrategy.LAZY})`)\n- It's swipe-friendly on touch devices thanks to its native horizontal scrolling",
         "affects": [],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/03abb498deec4203bd970109e5632a60.html",
         "usages": [
           {
             "file": "feature-libs/product/image-zoom/components/product-image-zoom/product-image-zoom-product-images/product-image-zoom-product-images.component.html",
@@ -1033,6 +1481,12 @@
             ],
             "selectors": [
               "cx-product-images"
+            ],
+            "snippets": [
+              {
+                "line": 17,
+                "code": "<ng-container *cxFeature=\"'productCarouselScrolling'\">\n  <cx-carousel-scrolling\n    role=\"region\"\n    [attr.aria-label]=\"\n      'carousel.carouselForProduct' | cxTranslate: { product: product.name }\n    \"\n    tabindex=\"-1\"\n    *ngIf=\"thumbs.length\"\n    class=\"thumbs\"\n    [items]=\"thumbs\"\n    [template]=\"thumb\"\n    [trackByFn]=\"trackByFn\"\n  ></cx-carousel-scrolling>\n</ng-container>"
+              }
             ]
           },
           {
@@ -1044,6 +1498,12 @@
             ],
             "selectors": [
               "cx-product-images"
+            ],
+            "snippets": [
+              {
+                "line": 31,
+                "code": "<ng-container *cxFeature=\"'!productCarouselScrolling'\">\n  <cx-carousel\n    role=\"region\"\n    [attr.aria-label]=\"\n      'carousel.carouselForProduct' | cxTranslate: { product: product.name }\n    \"\n    tabindex=\"-1\"\n    *ngIf=\"thumbs.length\"\n    class=\"thumbs\"\n    [items]=\"thumbs\"\n    itemWidth=\"120px\"\n    [hideIndicators]=\"false\"\n    [template]=\"thumb\"\n  ></cx-carousel>\n</ng-container>"
+              }
             ]
           },
           {
@@ -1055,6 +1515,12 @@
             ],
             "selectors": [
               "cx-product-carousel"
+            ],
+            "snippets": [
+              {
+                "line": 1,
+                "code": "<ng-container *cxFeature=\"'productCarouselScrolling'\">\n  <cx-carousel-scrolling\n    *ngIf=\"items$ | async as items\"\n    role=\"region\"\n    [attr.aria-label]=\"\n      'productCarousel.carouselLabel' | cxTranslate: { title: title$ | async }\n    \"\n    [items]=\"items\"\n    [title]=\"title$ | async\"\n    [template]=\"carouselItem\"\n    [trackByFn]=\"trackByFn\"\n  >\n  </cx-carousel-scrolling>\n</ng-container>"
+              }
             ]
           },
           {
@@ -1066,6 +1532,12 @@
             ],
             "selectors": [
               "cx-product-carousel"
+            ],
+            "snippets": [
+              {
+                "line": 15,
+                "code": "<ng-container *cxFeature=\"'!productCarouselScrolling'\">\n  <cx-carousel\n    *ngIf=\"items$ | async as items\"\n    role=\"region\"\n    [attr.aria-label]=\"\n      'productCarousel.carouselLabel' | cxTranslate: { title: title$ | async }\n    \"\n    [items]=\"items\"\n    [title]=\"title$ | async\"\n    [template]=\"carouselItem\"\n    itemWidth=\"285px\"\n    [trackByFn]=\"trackByFn\"\n  >\n  </cx-carousel>\n</ng-container>"
+              }
             ]
           },
           {
@@ -1077,6 +1549,12 @@
             ],
             "selectors": [
               "cx-product-carousel"
+            ],
+            "snippets": [
+              {
+                "line": 97,
+                "code": "useFeatureStyles('productCarouselScrolling');"
+              }
             ]
           },
           {
@@ -1088,6 +1566,12 @@
             ],
             "selectors": [
               "cx-product-references"
+            ],
+            "snippets": [
+              {
+                "line": 1,
+                "code": "<ng-container *cxFeature=\"'productCarouselScrolling'\">\n  <ng-container *ngIf=\"items$ | async as items\">\n    <cx-carousel-scrolling\n      *ngIf=\"items.length\"\n      [title]=\"title$ | async\"\n      [items]=\"items\"\n      [template]=\"carouselItem\"\n      [trackByFn]=\"trackByFn\"\n    >\n    </cx-carousel-scrolling>\n  </ng-container>\n</ng-container>"
+              }
             ]
           },
           {
@@ -1099,6 +1583,12 @@
             ],
             "selectors": [
               "cx-product-references"
+            ],
+            "snippets": [
+              {
+                "line": 13,
+                "code": "<ng-container *cxFeature=\"'!productCarouselScrolling'\">\n  <ng-container *ngIf=\"items$ | async as items\">\n    <cx-carousel\n      *ngIf=\"items$ | async as items\"\n      [title]=\"title$ | async\"\n      [items]=\"items\"\n      [template]=\"carouselItem\"\n      [trackByFn]=\"trackByFn\"\n    >\n    </cx-carousel>\n  </ng-container>\n</ng-container>"
+              }
             ]
           },
           {
@@ -1110,6 +1600,12 @@
             ],
             "selectors": [
               "cx-product-references"
+            ],
+            "snippets": [
+              {
+                "line": 53,
+                "code": "useFeatureStyles('productCarouselScrolling');"
+              }
             ]
           },
           {
@@ -1121,6 +1617,12 @@
             ],
             "selectors": [
               "cx-product-images"
+            ],
+            "snippets": [
+              {
+                "line": 10,
+                "code": "<ng-container *cxFeature=\"'productCarouselScrolling'\">\n  <cx-carousel-scrolling\n    *ngIf=\"thumbs.length\"\n    class=\"thumbs\"\n    [items]=\"thumbs\"\n    [template]=\"thumb\"\n    [trackByFn]=\"trackByFn\"\n  ></cx-carousel-scrolling>\n</ng-container>"
+              }
             ]
           },
           {
@@ -1132,6 +1634,12 @@
             ],
             "selectors": [
               "cx-product-images"
+            ],
+            "snippets": [
+              {
+                "line": 20,
+                "code": "<ng-container *cxFeature=\"'!productCarouselScrolling'\">\n  <cx-carousel\n    *ngIf=\"thumbs.length\"\n    class=\"thumbs\"\n    [items]=\"thumbs\"\n    itemWidth=\"120px\"\n    [hideIndicators]=\"false\"\n    [template]=\"thumb\"\n  ></cx-carousel>\n</ng-container>"
+              }
             ]
           },
           {
@@ -1143,6 +1651,12 @@
             ],
             "selectors": [
               "cx-product-images"
+            ],
+            "snippets": [
+              {
+                "line": 66,
+                "code": "useFeatureStyles('productCarouselScrolling');"
+              }
             ]
           },
           {
@@ -1154,6 +1668,12 @@
             ],
             "selectors": [
               "cx-carousel-scrolling"
+            ],
+            "snippets": [
+              {
+                "line": 52,
+                "code": "margin: 4px 4px 0 4px; // show visual focus outline, even when container has overflow-x: auto"
+              }
             ]
           },
           {
@@ -1165,6 +1685,12 @@
             ],
             "selectors": [
               "cx-product-carousel-item"
+            ],
+            "snippets": [
+              {
+                "line": 5,
+                "code": "@include forFeature('productCarouselScrolling') {\n  width: 70%;\n}"
+              }
             ]
           },
           {
@@ -1180,6 +1706,16 @@
               "cx-carousel-scrolling",
               "cx-media",
               "cx-product-carousel"
+            ],
+            "snippets": [
+              {
+                "line": 4,
+                "code": "@include forFeature('productCarouselScrolling') {\n  max-width: 100%;\n}"
+              },
+              {
+                "line": 43,
+                "code": "@include forFeature('productCarouselScrolling') {\n  &.is-loading {\n    background-color: #f5f5f5;\n  }\n}"
+              }
             ]
           },
           {
@@ -1193,6 +1729,16 @@
             "selectors": [
               "cx-media",
               "cx-product-references"
+            ],
+            "snippets": [
+              {
+                "line": 4,
+                "code": "@include forFeature('productCarouselScrolling') {\n  max-width: 100%;\n}"
+              },
+              {
+                "line": 27,
+                "code": "@include forFeature('productCarouselScrolling') {\n  width: 300px;\n}"
+              }
             ]
           },
           {
@@ -1207,6 +1753,16 @@
             "selectors": [
               "cx-media",
               "cx-product-images"
+            ],
+            "snippets": [
+              {
+                "line": 13,
+                "code": "@include forFeature('productCarouselScrolling') {\n  overflow: auto;\n}"
+              },
+              {
+                "line": 66,
+                "code": "&.is-waiting:after {\n  --cx-opacity: 1;\n}"
+              }
             ]
           }
         ]
@@ -1218,6 +1774,7 @@
           "ProductReviewsComponent"
         ],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/654beca11cb440a69b39ccc63eef6ea9.html",
         "usages": [
           {
             "file": "projects/storefrontlib/cms-components/product/product-tabs/product-reviews/product-reviews.component.html",
@@ -1228,6 +1785,20 @@
             ],
             "selectors": [
               "cx-product-reviews"
+            ],
+            "snippets": [
+              {
+                "line": 79,
+                "code": "<input\n  *cxFeature=\"'!productReviewCharactersLeft'\"\n  required=\"true\"\n  #titleInput\n  type=\"text\"\n  class=\"form-control\"\n  formControlName=\"title\"\n  [attr.aria-invalid]=\"\n    reviewForm.get('title')?.touched &&\n    reviewForm.get('title')?.invalid\n  \"\n  [attr.aria-errormessage]=\"'titleError'\"\n/>"
+              },
+              {
+                "line": 122,
+                "code": "<textarea\n  *cxFeature=\"'!productReviewCharactersLeft'\"\n  required=\"true\"\n  class=\"form-control\"\n  rows=\"3\"\n  formControlName=\"comment\"\n  [attr.aria-invalid]=\"\n    reviewForm.get('comment')?.touched &&\n    reviewForm.get('comment')?.invalid\n  \"\n  [attr.aria-errormessage]=\"'commentError'\"\n></textarea>"
+              },
+              {
+                "line": 196,
+                "code": "<input\n  *cxFeature=\"'!productReviewCharactersLeft'\"\n  type=\"text\"\n  class=\"form-control\"\n  formControlName=\"reviewerName\"\n/>"
+              }
             ]
           },
           {
@@ -1239,6 +1810,20 @@
             ],
             "selectors": [
               "cx-product-reviews"
+            ],
+            "snippets": [
+              {
+                "line": 92,
+                "code": "<input\n  *cxFeature=\"'productReviewCharactersLeft'\"\n  required=\"true\"\n  #titleInput\n  type=\"text\"\n  class=\"form-control\"\n  formControlName=\"title\"\n  [attr.aria-invalid]=\"\n    reviewForm.get('title')?.touched &&\n    reviewForm.get('title')?.invalid\n  \"\n  [attr.aria-errormessage]=\"'titleError'\"\n  [maxLength]=\"maxLengthReviewTitle\"\n/>"
+              },
+              {
+                "line": 134,
+                "code": "<textarea\n  *cxFeature=\"'productReviewCharactersLeft'\"\n  required=\"true\"\n  class=\"form-control\"\n  rows=\"3\"\n  [placeholder]=\"'productReview.commentPlaceholder' | cxTranslate\"\n  formControlName=\"comment\"\n  [attr.aria-invalid]=\"\n    reviewForm.get('comment')?.touched &&\n    reviewForm.get('comment')?.invalid\n  \"\n  [attr.aria-errormessage]=\"'commentError'\"\n  [maxLength]=\"maxLengthReviewComment\"\n></textarea>"
+              },
+              {
+                "line": 202,
+                "code": "<input\n  *cxFeature=\"'productReviewCharactersLeft'\"\n  type=\"text\"\n  class=\"form-control\"\n  formControlName=\"reviewerName\"\n  [maxLength]=\"maxLengthReviewerName\"\n/>"
+              }
             ]
           },
           {
@@ -1250,6 +1835,12 @@
             ],
             "selectors": [
               "cx-product-reviews"
+            ],
+            "snippets": [
+              {
+                "line": 167,
+                "code": "  this.featureConfigService.isEnabled('productReviewCharactersLeft');\nthis.reviewForm = this.fb.group({\n  title: [\n    '',\n    !isProductReviewCharactersLeftEnabled\n      ? Validators.required\n      : [\n          Validators.required,\n          Validators.maxLength(this.maxLengthReviewTitle),\n        ],\n  ],\n  comment: [\n    '',\n    !isProductReviewCharactersLeftEnabled\n      ? Validators.required\n      : [\n          Validators.required,\n          Validators.maxLength(this.maxLengthReviewComment),\n        ],\n  ],\n  rating: [null, Validators.required],\n  reviewerName: !isProductReviewCharactersLeftEnabled\n    ? ''\n    : ['', Validators.maxLength(this.maxLengthReviewerName)],\n}"
+              }
             ]
           }
         ]
@@ -1261,6 +1852,7 @@
           "ProductReviewsComponent"
         ],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/df8d53c71c0e4f4ab373b68955569429.html",
         "usages": [
           {
             "file": "projects/storefrontlib/cms-components/product/product-tabs/product-reviews/product-reviews.component.html",
@@ -1271,6 +1863,12 @@
             ],
             "selectors": [
               "cx-product-reviews"
+            ],
+            "snippets": [
+              {
+                "line": 38,
+                "code": "<div *cxFeature=\"'!readMoreDirective'\" class=\"text\">\n  {{ review.comment }}\n</div>"
+              }
             ]
           },
           {
@@ -1282,6 +1880,12 @@
             ],
             "selectors": [
               "cx-product-reviews"
+            ],
+            "snippets": [
+              {
+                "line": 42,
+                "code": "<cx-read-more\n  *cxFeature=\"'readMoreDirective'\"\n  class=\"text\"\n  [text]=\"review.comment!\"\n></cx-read-more>"
+              }
             ]
           }
         ]
@@ -1291,6 +1895,7 @@
         "description": "Reserve horizontal space for Star Rating component to prevent CLS on PDP.\nWhen enabled, the `cx-star-rating` component will reserve horizontal space for the star rating component to prevent CLS on PDP\nOtherwise the component has no width initially, and gets wider only after a delay.\nwhen Font Awesome font is loaded and Star icons are rendered.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/62109247a9ca4b2282a649532f4853d9.html",
         "usages": [
           {
             "file": "projects/storefrontlib/shared/components/star-rating/star-rating.component.ts",
@@ -1301,6 +1906,12 @@
             ],
             "selectors": [
               "cx-star-rating"
+            ],
+            "snippets": [
+              {
+                "line": 57,
+                "code": "@Output() change = new EventEmitter<number>();\n\nconstructor() {\n  useFeatureStyles('reserveHorizontalSpaceStarRating');\n}"
+              }
             ]
           },
           {
@@ -1312,6 +1923,12 @@
             ],
             "selectors": [
               "cx-star-rating"
+            ],
+            "snippets": [
+              {
+                "line": 4,
+                "code": "@include forFeature('reserveHorizontalSpaceStarRating') {\n  min-width: 9rem;\n}"
+              }
             ]
           }
         ]
@@ -1321,6 +1938,7 @@
         "description": "Flag to enable reserving space for product images to prevent CLS (Cumulative Layout Shift) issues.\n\nWhen enabled, it ensures that appropriate space is reserved for images before they load,\nmaintaining layout stability across the following contexts:\n\n- **PDP (Product Detail Page)**: Reserves space for the main product image.\n- **PLP (Product Listing Page) - List View**: Reserves space for each product image in list layout.\n- **PLP (Product Listing Page) - Grid View**: Reserves space for each product image in grid layout.\n\nThis helps improve Core Web Vitals by preventing layout shifts as images load.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/cc2ef0fdf6b64880bbade6e6c8980006.html",
         "usages": [
           {
             "file": "projects/storefrontlib/cms-components/product/product-images/product-images.component.ts",
@@ -1331,6 +1949,12 @@
             ],
             "selectors": [
               "cx-product-images"
+            ],
+            "snippets": [
+              {
+                "line": 65,
+                "code": "useFeatureStyles('reserveSpaceForImagesOnPdpAndPlp');"
+              }
             ]
           },
           {
@@ -1342,6 +1966,12 @@
             ],
             "selectors": [
               "cx-product-list"
+            ],
+            "snippets": [
+              {
+                "line": 64,
+                "code": "useFeatureStyles('reserveSpaceForImagesOnPdpAndPlp');"
+              }
             ]
           },
           {
@@ -1356,6 +1986,12 @@
             "selectors": [
               "cx-media",
               "cx-product-images"
+            ],
+            "snippets": [
+              {
+                "line": 32,
+                "code": "@include forFeature('reserveSpaceForImagesOnPdpAndPlp') {\n  width: 100%;\n  height: auto;\n  aspect-ratio: 1 / 1;\n  object-fit: scale-down;\n}"
+              }
             ]
           },
           {
@@ -1369,6 +2005,12 @@
             "selectors": [
               "cx-media",
               "cx-product-grid-item"
+            ],
+            "snippets": [
+              {
+                "line": 18,
+                "code": "@include forFeature('reserveSpaceForImagesOnPdpAndPlp') {\n  img {\n    aspect-ratio: 1 / 1;\n    width: 100%;\n    height: auto;\n    object-fit: scale-down;\n  }\n}"
+              }
             ]
           },
           {
@@ -1386,6 +2028,12 @@
               "cx-product-list-item",
               "cx-product-summary",
               "cx-variant-style-icons"
+            ],
+            "snippets": [
+              {
+                "line": 118,
+                "code": "@include forFeature('reserveSpaceForImagesOnPdpAndPlp') {\n  img {\n    aspect-ratio: 1 / 1;\n    width: 100%;\n    height: auto;\n    object-fit: scale-down;\n  }\n}"
+              }
             ]
           }
         ]
@@ -1397,6 +2045,7 @@
           "MyPreferredStoreComponent"
         ],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/37d0ed9f720f4be0aa3c5bfe9218f326.html",
         "usages": [
           {
             "file": "feature-libs/pickup-in-store/components/container/my-preferred-store/my-preferred-store.component.ts",
@@ -1407,6 +2056,20 @@
             ],
             "selectors": [
               "cx-my-preferred-store"
+            ],
+            "snippets": [
+              {
+                "line": 99,
+                "code": "if (!this.featureConfigService.isEnabled('storeFinderFacadeCleanup')) {\n  this.preferredStore$ = this.preferredStoreFacade\n    .getPreferredStore$()\n    .pipe(\n      filter((preferredStore) => preferredStore !== null),\n      map((preferredStore) => preferredStore as PointOfServiceNames),\n      filter((preferredStore) => !!preferredStore.name),\n      map((preferredStore) => preferredStore.name),\n      tap((preferredStoreName) =>\n        this.pickupLocationsSearchService.loadStoreDetails(\n          preferredStoreName as string\n        )\n      ),\n      switchMap((preferredStoreName) =>\n        this.pickupLocationsSearchService.getStoreDetails(\n          preferredStoreName as string\n        )\n      ),\n      tap((store: PointOfService) => {\n        this.pointOfService = store;\n      })\n    );\n}"
+              },
+              {
+                "line": 125,
+                "code": "if (this.featureConfigService.isEnabled('storeFinderFacadeCleanup')) {\n  this.preferredStore$ = this.preferredStoreFacade\n    .getPreferredStore$()\n    .pipe(\n      filter(\n        (preferredStore) =>\n          preferredStore !== null && 'name' in preferredStore\n      ),\n      map((preferredStore) => preferredStore.name),\n      distinctUntilChanged(),\n      switchMap((preferredStoreName) =>\n        this.pickupLocationsSearchService.loadAndGetStoreDetails(\n          preferredStoreName as string\n        )\n      ),\n      tap((store: PointOfService) => {\n        this.pointOfService = store;\n      }),\n      shareReplay({ bufferSize: 1, refCount: true })\n    );\n\n  this.preferredStore$\n    .pipe(\n      switchMap(() =>\n        this.cmsService.getCurrentPage().pipe(\n          filter<Page>(Boolean),\n          take(1),\n          map((cmsPage) => {\n            this.isStoreFinder = cmsPage.pageId === 'storefinderPage';\n            return this.isStoreFinder;\n          }),\n          tap((isStoreFinder) => {\n            const link = this.storeLocationService.getDirections(\n              this.pointOfService\n            );\n            if (isStoreFinder) {\n              this.content = {\n                header: '',\n                actions: [\n                  {\n…"
+              },
+              {
+                "line": 251,
+                "code": "const linkToDirections = this.featureConfigService.isEnabled("
+              }
             ]
           }
         ]
@@ -1416,6 +2079,7 @@
         "description": "Feature flag to enable using `transform: translateX` instead of animating the `margin` property\nfor the top progress bar animation.\n\n## Why this flag exists:\nAnimating the `margin` property has two major downsides:\n\n1. **Cumulative Layout Shift (CLS)**: Changing margin causes layout shifts that negatively impact visual stability.\n2. **Performance impact**: Margin animations trigger browser re-layouts (reflows), increasing layout and paint costs,\n   which contributes to poor performance metrics like Total Blocking Time (TBT).\n\n## When enabled:\nThe top progress bar will animate using `transform: translateX(...)`, which is a GPU-accelerated,\nlayout-independent operation that improves visual performance and avoids layout shifts.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/95ea6556dc0443a2889519975966a5f4.html",
         "usages": [
           {
             "file": "projects/storefrontlib/layout/main/storefront.component.ts",
@@ -1426,6 +2090,12 @@
             ],
             "selectors": [
               "cx-storefront"
+            ],
+            "snippets": [
+              {
+                "line": 109,
+                "code": "useFeatureStyles('a11yNgSelectLayering');"
+              }
             ]
           },
           {
@@ -1439,6 +2109,16 @@
             "selectors": [
               "cx-paragraph",
               "cx-storefront"
+            ],
+            "snippets": [
+              {
+                "line": 19,
+                "code": "@include forFeature("
+              },
+              {
+                "line": 30,
+                "code": "@include forFeature("
+              }
             ]
           }
         ]
@@ -1448,6 +2128,7 @@
         "description": "Feature flag to enable consistent header slot structure across breakpoints to reduce\nlayout shift and improve Cumulative Layout Shift (CLS) scores.\n\nOn desktop devices (non-mobile), some header and navigation elements were rendered\nonly after client-side rendering (CSR), resulting in noticeable layout shifts. This negatively\naffected the user experience and CLS performance.\n\nWhen enabled:\n- Desktop uses the same header slot structure as mobile.\n- Reduces layout shift and improves perceived performance and visual stability.\n\n ⚠️ To fully enable this feature, replace `provideConfig(layoutConfig)` in your codebase\nwith `provideConfigFactory(layoutConfigFactory)`.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/218d24a7a292490186050b6a20bd3e65.html",
         "usages": [
           {
             "file": "projects/storefrontlib/layout/main/storefront.component.ts",
@@ -1458,6 +2139,12 @@
             ],
             "selectors": [
               "cx-storefront"
+            ],
+            "snippets": [
+              {
+                "line": 110,
+                "code": "useFeatureStyles('topProgressBarUseTransformAnimation');"
+              }
             ]
           },
           {
@@ -1471,6 +2158,12 @@
             "selectors": [
               "cx-link",
               "cx-page-layout"
+            ],
+            "snippets": [
+              {
+                "line": 23,
+                "code": "@include forFeature('unifiedDefaultHeaderSlotsAcrossBreakpoints') {\n  @include media-breakpoint-down(md) {\n    .SiteContext,\n    .SiteLinks,\n    .SiteLogin,\n    .NavigationBar {\n      display: none;\n    }\n  }\n}"
+              }
             ]
           }
         ]

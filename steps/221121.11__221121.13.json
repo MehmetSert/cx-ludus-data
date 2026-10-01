@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatorVersion": 1,
+  "generatorVersion": 2,
   "from": {
     "release": "221121.11",
     "gitTag": "221121.11.0"
@@ -16,6 +16,7 @@
         "description": "The optional `aria-controls` attribute will override on the NgSelect implementation.\nThe updated library employs the `aria-controls` attribute to indicate the relationship between the button and the dropdown.\nThis change ensures we can still use a custom id if preferable.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "projects/storefrontlib/shared/components/ng-select-a11y/ng-select-a11y.directive.ts",
@@ -24,7 +25,13 @@
             "symbols": [
               "NgSelectA11yDirective"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 115,
+                "code": "  this.featureConfigService.isEnabled('a11yNgSelectAriaControls')\n) {\n  // Delay execution to come after the ng-select's own 'aria-controls' logic\n  setTimeout(() => {\n    this.renderer.setAttribute(\n      inputCombobox,\n      'aria-controls',\n      ariaControls\n    );\n  });\n}"
+              }
+            ]
           }
         ]
       },
@@ -33,6 +40,7 @@
         "description": "When enabled, the `ConfiguratorAttributeHeaderComponent` component displays\na `ConfiguratorShowOptionsComponent` component underneath the attribute name.\nThe `ConfiguratorShowOptionsComponent` component allows to load the domain values\non demand by clicking on `Show Options` button in case the back-end signals\nthat domain values are not yet present.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/5538fae3282f4b4592674b96703f8cd7.html",
         "usages": []
       }
     ],
@@ -42,6 +50,7 @@
         "description": "Enables the dedicated B2B register section on the login page,\nreplacing the CMS-driven paragraph and link.",
         "affects": [],
         "defaultValue": false,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/user/account/components/login-register/login-register-b2b/login-register-b2b.component.html",
@@ -52,6 +61,12 @@
             ],
             "selectors": [
               "cx-login-register-b2b"
+            ],
+            "snippets": [
+              {
+                "line": 1,
+                "code": "<cx-login-register *cxFeature=\"'a11yB2BRegisterComponent'\"></cx-login-register>"
+              }
             ]
           },
           {
@@ -63,6 +78,12 @@
             ],
             "selectors": [
               "cx-page-layout"
+            ],
+            "snippets": [
+              {
+                "line": 57,
+                "code": "useFeatureStyles('a11yB2BRegisterComponent');"
+              }
             ]
           },
           {
@@ -83,6 +104,12 @@
               "cx-login-register",
               "cx-page-slot",
               "cx-paragraph"
+            ],
+            "snippets": [
+              {
+                "line": 39,
+                "code": "@include forFeature('a11yB2BRegisterComponent') {\n  cx-login-form ~ cx-paragraph:has(div > p.cx-section-title),\n  cx-login-form ~ cx-link.cx-organization-user-register-button {\n    display: none;\n  }\n}"
+              }
             ]
           }
         ]
@@ -92,6 +119,7 @@
         "description": "When enabled, prevents Windows high contrast mode from overriding the Spartacus theme.\nThis ensures the application maintains its intended styling when the OS accessibility\nmode is enabled, while still allowing users to manually select Spartacus high-contrast themes.",
         "affects": [],
         "defaultValue": false,
+        "docUrl": null,
         "usages": [
           {
             "file": "projects/storefrontlib/layout/main/storefront.component.ts",
@@ -102,6 +130,12 @@
             ],
             "selectors": [
               "cx-storefront"
+            ],
+            "snippets": [
+              {
+                "line": 116,
+                "code": "useFeatureStyles('unifiedDefaultHeaderSlotsAcrossBreakpoints');"
+              }
             ]
           },
           {
@@ -113,6 +147,12 @@
             ],
             "selectors": [
               "cx-storefront"
+            ],
+            "snippets": [
+              {
+                "line": 136,
+                "code": "// TODO: Required to use feature flag with root styles."
+              }
             ]
           },
           {
@@ -120,7 +160,13 @@
             "pattern": "scss-for-feature",
             "negated": false,
             "symbols": [],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 27,
+                "code": "// Font Awesome breaking change on v7: Fixed Width is now default for icons."
+              }
+            ]
           }
         ]
       },
@@ -129,6 +175,7 @@
         "description": "When enabled, sytling is changed on navigation header and menu to be more cohesive.",
         "affects": [],
         "defaultValue": false,
+        "docUrl": null,
         "usages": [
           {
             "file": "projects/storefrontlib/layout/main/storefront.component.ts",
@@ -139,6 +186,12 @@
             ],
             "selectors": [
               "cx-storefront"
+            ],
+            "snippets": [
+              {
+                "line": 117,
+                "code": "useFeatureStyles('a11yPreventWindowsHighContrastOverride');"
+              }
             ]
           },
           {
@@ -154,6 +207,12 @@
               "cx-category-navigation",
               "cx-generic-link",
               "cx-navigation-ui"
+            ],
+            "snippets": [
+              {
+                "line": 14,
+                "code": "font-weight: 600;"
+              }
             ]
           },
           {
@@ -171,6 +230,12 @@
               "cx-generic-link",
               "cx-icon",
               "cx-navigation-ui"
+            ],
+            "snippets": [
+              {
+                "line": 262,
+                "code": "a {\n  display: block;\n  text-decoration: none;\n  white-space: nowrap;\n}"
+              }
             ]
           }
         ]
@@ -180,6 +245,7 @@
         "description": "When enabled, fixes a known issue where the cart sometimes does not reload properly on context(language or currency) change,\ndeleting items from the cart (more specifically on the following sequence : logout - log back in - context change)",
         "affects": [],
         "defaultValue": false,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/10201c4371ab47f2891ab4d8106c6f48.html",
         "usages": []
       },
       {
@@ -187,6 +253,7 @@
         "description": "",
         "affects": [],
         "defaultValue": false,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/5470dfabf48943329ec0bbbf3b007abf.html",
         "usages": [
           {
             "file": "integration-libs/opf/payment/root/components/opf-payment-verification/opf-payment-verification.component.ts",
@@ -197,6 +264,12 @@
             ],
             "selectors": [
               "cx-opf-verify-payment"
+            ],
+            "snippets": [
+              {
+                "line": 47,
+                "code": "const checkProcessingCartOnErrorOnly = this.featureConfigService.isEnabled("
+              }
             ]
           }
         ]
@@ -208,6 +281,7 @@
           "ProductListItemComponent"
         ],
         "defaultValue": false,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/acfee02e891646ab9851785e847498d4.html",
         "usages": [
           {
             "file": "projects/storefrontlib/cms-components/product/product-list/product-list-item/product-list-item.component.html",
@@ -218,6 +292,12 @@
             ],
             "selectors": [
               "cx-product-list-item"
+            ],
+            "snippets": [
+              {
+                "line": 52,
+                "code": "<p\n  *cxFeature=\"'!productListItemSummaryReadMore'\"\n  class=\"cx-product-summary\"\n  [innerHTML]=\"product.summary\"\n></p>"
+              }
             ]
           },
           {
@@ -229,6 +309,12 @@
             ],
             "selectors": [
               "cx-product-list-item"
+            ],
+            "snippets": [
+              {
+                "line": 58,
+                "code": "<cx-read-more\n  *cxFeature=\"'productListItemSummaryReadMore'\"\n  class=\"text\"\n  [text]=\"product.summary\"\n  [maxLength]=\"summaryMaxLength\"\n></cx-read-more>"
+              }
             ]
           },
           {
@@ -240,6 +326,12 @@
             ],
             "selectors": [
               "cx-product-list-item"
+            ],
+            "snippets": [
+              {
+                "line": 81,
+                "code": "useFeatureStyles('productListItemSummaryReadMore');"
+              }
             ]
           },
           {
@@ -257,6 +349,12 @@
               "cx-product-list-item",
               "cx-product-summary",
               "cx-variant-style-icons"
+            ],
+            "snippets": [
+              {
+                "line": 20,
+                "code": "@include forFeature('productListItemSummaryReadMore') {\n  @include media-breakpoint-up(md) {\n    height: auto;\n\n    .cx-product-summary {\n      display: block;\n      -webkit-line-clamp: unset;\n      line-clamp: unset;\n      -webkit-box-orient: unset;\n      overflow: visible;\n    }\n  }\n}"
+              }
             ]
           }
         ]
@@ -266,6 +364,7 @@
         "description": "When enabled, shows sort fields only at the top of the table.\nWhen disabled, shows sort fields at both top and bottom.",
         "affects": [],
         "defaultValue": false,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/a070e0f7a57d4a9b88b3c95b8a3d041b.html",
         "usages": [
           {
             "file": "feature-libs/organization/order-approval/components/list/order-approval-list.component.html",
@@ -276,6 +375,12 @@
             ],
             "selectors": [
               "cx-order-approval-list"
+            ],
+            "snippets": [
+              {
+                "line": 176,
+                "code": "<label\n  class=\"cx-order-approval-form-group-label\"\n  *cxFeature=\"'showSortFieldsOnlyAtTop'\"\n>\n  <span>{{ 'orderHistory.sortBy' | cxTranslate }}</span>\n  <cx-sorting\n    [sortOptions]=\"orderApprovals.sorts\"\n    [sortLabels]=\"sortLabels$ | async\"\n    (sortListEvent)=\"changeSortCode($event)\"\n    [selectedOption]=\"orderApprovals.pagination.sort\"\n    [ariaLabel]=\"'orderHistory.sortOrders' | cxTranslate\"\n    ariaControls=\"order-approval-table\"\n  ></cx-sorting>\n</label>"
+              }
             ]
           },
           {
@@ -287,6 +392,12 @@
             ],
             "selectors": [
               "cx-unit-level-order-history"
+            ],
+            "snippets": [
+              {
+                "line": 188,
+                "code": "<label\n  class=\"cx-unit-level-order-history-form-group form-group\"\n  *cxFeature=\"'showSortFieldsOnlyAtTop'\"\n  ><span>\n    {{ 'unitLevelOrderHistory.sortBy' | cxTranslate }}\n  </span>\n  <cx-sorting\n    [sortOptions]=\"orderHistory?.sorts\"\n    [sortLabels]=\"getSortLabels() | async\"\n    (sortListEvent)=\"changeSortCode($event)\"\n    [selectedOption]=\"orderHistory?.pagination?.sort\"\n    placeholder=\"{{ 'unitLevelOrderHistory.sortBy' | cxTranslate }}\"\n    [ariaLabel]=\"'unitLevelOrderHistory.sortOrders' | cxTranslate\"\n    ariaControls=\"order-history-table\"\n  ></cx-sorting>\n</label>"
+              }
             ]
           },
           {
@@ -298,6 +409,12 @@
             ],
             "selectors": [
               "cx-my-coupons"
+            ],
+            "snippets": [
+              {
+                "line": 57,
+                "code": "<div\n  class=\"cx-my-coupons-form-group form-group cx-mycoupon-thead-mobile col-sm-12 col-md-4 col-lg-4\"\n  *cxFeature=\"'showSortFieldsOnlyAtTop'\"\n></div>"
+              }
             ]
           },
           {
@@ -309,6 +426,12 @@
             ],
             "selectors": [
               "cx-my-coupons"
+            ],
+            "snippets": [
+              {
+                "line": 61,
+                "code": "<label\n  class=\"cx-my-coupons-form-group form-group cx-mycoupon-thead-mobile col-sm-12 col-md-4 col-lg-4\"\n  *cxFeature=\"'!showSortFieldsOnlyAtTop'\"\n>\n  <span>{{ 'myCoupons.sortBy' | cxTranslate }}</span>\n  <cx-sorting\n    [sortOptions]=\"sortOptions\"\n    [sortLabels]=\"sortLabels | async\"\n    (sortListEvent)=\"sortChange($event)\"\n    [selectedOption]=\"sort\"\n    placeholder=\"{{ 'myCoupons.sortBy' | cxTranslate }}\"\n    [ariaLabel]=\"'myCoupons.sortCoupons' | cxTranslate\"\n    ariaControls=\"coupon-deck\"\n  >\n  </cx-sorting>\n</label>"
+              }
             ]
           }
         ]
@@ -322,6 +445,7 @@
           "LoginComponent"
         ],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/b0f008a4be2d4a6cb9b6dd5abaad9096.html",
         "usages": [
           {
             "file": "projects/core/src/global-message/http-interceptors/handlers/bad-request/bad-request.handler.ts",
@@ -330,7 +454,13 @@
             "symbols": [
               "BadRequestHandler"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 51,
+                "code": "this.featureConfigService.isEnabled("
+              }
+            ]
           }
         ]
       }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatorVersion": 1,
+  "generatorVersion": 2,
   "from": {
     "release": "221121.7",
     "gitTag": "221121.7.0"
@@ -16,6 +16,7 @@
         "description": "'NgSelectA11yDirective' will close a dropdown with options on Escape key press\nwhen a screen reader is used.\nReplaces select with ng-select component in the following component:\n`CustomerTicketingCreateDialogComponent`",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/customer-ticketing/components/list/customer-ticketing-create/customer-ticketing-create-dialog/customer-ticketing-create-dialog.component.html",
@@ -26,6 +27,16 @@
             ],
             "selectors": [
               "cx-customer-ticketing-create-dialog"
+            ],
+            "snippets": [
+              {
+                "line": 67,
+                "code": "<select\n  *cxFeature=\"\n    '!a11ySelectImprovementsCustomerTicketingCreateSelectbox'\n  \"\n  class=\"form-control\"\n  formControlName=\"ticketCategory\"\n>\n  <option value=\"\" disabled selected>\n    {{ 'createCustomerTicket.selectCategory' | cxTranslate }}\n  </option>\n  <option\n    *ngFor=\"let category of ticketCategories\"\n    [ngValue]=\"category\"\n    [selected]=\"category.id === selectedCategory?.id\"\n  >\n    {{ category.name }}\n  </option>\n</select>"
+              },
+              {
+                "line": 123,
+                "code": "<select\n  *cxFeature=\"\n    '!a11ySelectImprovementsCustomerTicketingCreateSelectbox'\n  \"\n  class=\"form-control\"\n  formControlName=\"associatedTo\"\n>\n  <option value=\"\" disabled selected>\n    {{\n      'createCustomerTicket.optionallySelectAssociatedObject'\n        | cxTranslate\n    }}\n  </option>\n  <option\n    *ngFor=\"let associatedObject of ticketAssociatedObjects\"\n    [ngValue]=\"associatedObject\"\n    [selected]=\"\n      associatedObject.code === selectedAssociatedObject?.code\n    \"\n  >\n    {{ associatedObject.type }}\n    {{ associatedObject.code }}\n  </option>\n</select>"
+              }
             ]
           },
           {
@@ -37,6 +48,16 @@
             ],
             "selectors": [
               "cx-customer-ticketing-create-dialog"
+            ],
+            "snippets": [
+              {
+                "line": 85,
+                "code": "<ng-select\n  *cxFeature=\"\n    'a11ySelectImprovementsCustomerTicketingCreateSelectbox'\n  \"\n  [inputAttrs]=\"{ required: 'true' }\"\n  class=\"ticket-category-select\"\n  id=\"ticket-category-select\"\n  [searchable]=\"false\"\n  [clearable]=\"false\"\n  [items]=\"ticketCategories\"\n  [placeholder]=\"'createCustomerTicket.selectCategory' | cxTranslate\"\n  bindLabel=\"name\"\n  formControlName=\"ticketCategory\"\n  ariaLabelDropdown=\"{{\n    'common.ngSelectDropdownOptionsList' | cxTranslate\n  }}\"\n  [cxNgSelectA11y]=\"{}\"\n  [attr.aria-invalid]=\"\n    form.get('ticketCategory')?.touched &&\n    form.get('ticketCategory')?.invalid\n  \"\n  [attr.aria-errormessage]=\"'ticketCategoryError'\"\n>\n</ng-select>"
+              },
+              {
+                "line": 147,
+                "code": "<ng-select\n  *cxFeature=\"\n    'a11ySelectImprovementsCustomerTicketingCreateSelectbox'\n  \"\n  [clearable]=\"false\"\n  [items]=\"ticketAssociatedObjects\"\n  [placeholder]=\"\n    'createCustomerTicket.optionallySelectAssociatedObject'\n      | cxTranslate\n  \"\n  [searchable]=\"false\"\n  formControlName=\"associatedTo\"\n  id=\"associated-to-select\"\n  ariaLabelDropdown=\"{{\n    'common.ngSelectDropdownOptionsList' | cxTranslate\n  }}\"\n  [cxNgSelectA11y]=\"{}\"\n>\n  <ng-template\n    ng-option-tmp\n    let-item=\"item\"\n    let-search=\"searchTerm\"\n    let-index=\"index\"\n  >\n    <span>{{ item.type + ' ' + item.code }}</span>\n  </ng-template>\n</ng-select>"
+              }
             ]
           },
           {
@@ -48,6 +69,12 @@
             ],
             "selectors": [
               "cx-customer-ticketing-create-dialog"
+            ],
+            "snippets": [
+              {
+                "line": 124,
+                "code": "this.featureService?.isEnabled("
+              }
             ]
           }
         ]
@@ -64,6 +91,7 @@
           "TableComponent"
         ],
         "defaultValue": false,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/organization/administration/components/shared/message/notification/notification-message.component.ts",
@@ -74,6 +102,12 @@
             ],
             "selectors": [
               "cx-org-notification"
+            ],
+            "snippets": [
+              {
+                "line": 29,
+                "code": "return this.featureConfigService.isEnabled('a11yCardNotificationMessage');"
+              }
             ]
           },
           {
@@ -85,6 +119,12 @@
             ],
             "selectors": [
               "cx-org-cell"
+            ],
+            "snippets": [
+              {
+                "line": 39,
+                "code": "if (this.featureConfigService.isEnabled('a11yCardNotificationMessage')) {\n  this.outlet.context$\n    .pipe(takeUntilDestroyed(this.destroyRef))\n    .subscribe((context) => {\n      this.outlet.context = context;\n      this.changeDetectorRef.markForCheck();\n    });\n}"
+              }
             ]
           },
           {
@@ -96,6 +136,12 @@
             ],
             "selectors": [
               "cx-org-unit-details"
+            ],
+            "snippets": [
+              {
+                "line": 56,
+                "code": "return this.featureConfigService.isEnabled('a11yCardNotificationMessage');"
+              }
             ]
           },
           {
@@ -107,6 +153,12 @@
             ],
             "selectors": [
               "cx-table"
+            ],
+            "snippets": [
+              {
+                "line": 163,
+                "code": "if (this.featureConfigService.isEnabled('a11yCardNotificationMessage')) {\n  return item?.uid ?? JSON.stringify(item);\n}"
+              }
             ]
           }
         ]
@@ -116,6 +168,7 @@
         "description": "Fixes keyboard focus not being visible when tabbing between some buttons\non Customer Ticketing dialog.",
         "affects": [],
         "defaultValue": false,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/customer-ticketing/components/shared/customer-ticketing-dialog/customer-ticketing-dialog.component.ts",
@@ -124,7 +177,13 @@
             "symbols": [
               "CustomerTicketingDialogComponent"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 97,
+                "code": "useFeatureStyles('a11yCustomerTicketingVisualFocusFix');"
+              }
+            ]
           },
           {
             "file": "feature-libs/customer-ticketing/styles/components/_customer-ticketing-dialog.scss",
@@ -145,6 +204,16 @@
               "cx-customer-ticketing-reopen-dialog",
               "cx-file-upload",
               "cx-icon"
+            ],
+            "snippets": [
+              {
+                "line": 66,
+                "code": "@include forFeature('a11yCustomerTicketingVisualFocusFix') {\n  button {\n    &:focus {\n      outline-width: 2px;\n    }\n  }\n}"
+              },
+              {
+                "line": 91,
+                "code": "@include forFeature('a11yCustomerTicketingVisualFocusFix') {\n  outline-width: 2px;\n}"
+              }
             ]
           }
         ]
@@ -154,6 +223,7 @@
         "description": "When enabled, this fixes the issue of duplicated Order History headers on the Order History page.",
         "affects": [],
         "defaultValue": false,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/477b14f6b6d64b5c9d6a9ceacecc3884.html",
         "usages": [
           {
             "file": "feature-libs/order/components/order-history/order-history.component.html",
@@ -164,6 +234,12 @@
             ],
             "selectors": [
               "cx-order-history"
+            ],
+            "snippets": [
+              {
+                "line": 21,
+                "code": "<ng-container *cxFeature=\"'!removeDuplicatedOrderHistoryHeader'\">\n  <h2 *ngIf=\"!type.replenishmentOrder\">\n    {{ 'orderHistory.orderHistory' | cxTranslate }}\n  </h2>\n</ng-container>"
+              }
             ]
           }
         ]
@@ -175,6 +251,7 @@
         "description": "Ensures on configurator overview page, that group titles are recognized as heading\nin VPC mode when navigating with the 'H' key.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/product-configurator/rulebased/components/overview-form/configurator-overview-form.component.html",
@@ -185,6 +262,12 @@
             ],
             "selectors": [
               "cx-configurator-overview-form"
+            ],
+            "snippets": [
+              {
+                "line": 38,
+                "code": "<ng-container *cxFeature=\"'a11yConfiguratorOverviewHeaderVPC'\">\n  <h2>\n    <span class=\"cx-visually-hidden\">\n      {{\n        'configurator.a11y.group'\n          | cxTranslate: { group: group.groupDescription }\n      }}\n    </span>\n    <span aria-hidden=\"true\">\n      {{ group.groupDescription }}\n    </span>\n  </h2>\n</ng-container>"
+              }
             ]
           },
           {
@@ -196,6 +279,12 @@
             ],
             "selectors": [
               "cx-configurator-overview-form"
+            ],
+            "snippets": [
+              {
+                "line": 51,
+                "code": "<ng-container *cxFeature=\"'!a11yConfiguratorOverviewHeaderVPC'\">\n  <span class=\"cx-visually-hidden\">\n    {{\n      'configurator.a11y.group'\n        | cxTranslate\n          : {\n              group: group.groupDescription,\n            }\n    }}\n  </span>\n  <h2 aria-hidden=\"true\">\n    <span>{{ group.groupDescription }}</span>\n  </h2>\n</ng-container>"
+              }
             ]
           }
         ]
@@ -205,6 +294,7 @@
         "description": "When enabled, sets the default oAuth configuration to use authorization code flow with PKCE.\nThis results in a more secure authorization scheme as the default configuration.\n\nNOTE: This flag should only be enabled when used with a CCv2 Authorization Server running the\nSeptember 2025 update or higher. The CCv2 Authorization Server only supports Authorization Code\nflow for public clients from that version and onwards.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/8e5d29896bf24e958b01f8569c295485.html",
         "usages": [
           {
             "file": "feature-libs/asm/components/asm-main-ui/asm-main-ui.component.html",
@@ -215,6 +305,16 @@
             ],
             "selectors": [
               "cx-asm-main-ui"
+            ],
+            "snippets": [
+              {
+                "line": 45,
+                "code": "<ng-container *cxFeature=\"'!authorizationCodeFlowByDefault'\">\n  <cx-asm-toggle-ui\n    *ngIf=\"customerSupportAgentLoggedIn$ | async\"\n  ></cx-asm-toggle-ui>\n</ng-container>"
+              },
+              {
+                "line": 124,
+                "code": "<ng-container *cxFeature=\"'!authorizationCodeFlowByDefault'\">\n  <cx-csagent-login-form\n    *ngIf=\"notCollapsed\"\n    (submitEvent)=\"loginCustomerSupportAgent($event)\"\n    [csAgentTokenLoading]=\"csAgentTokenLoading$ | async\"\n  ></cx-csagent-login-form>\n</ng-container>"
+              }
             ]
           },
           {
@@ -226,6 +326,12 @@
             ],
             "selectors": [
               "cx-asm-main-ui"
+            ],
+            "snippets": [
+              {
+                "line": 55,
+                "code": "<ng-container *cxFeature=\"'authorizationCodeFlowByDefault'\">\n  <div\n    class=\"cx-asm-customer-list\"\n    *ngIf=\"!(customerSupportAgentLoggedIn$ | async)\"\n  >\n    <a\n      role=\"link\"\n      class=\"cx-asm-customer-list-link\"\n      (click)=\"loginCustomerSupportAgentWithAuthorizationCodeFlow()\"\n      >{{ 'asm.asmSignIn' | cxTranslate }}</a\n    >\n  </div>\n</ng-container>"
+              }
             ]
           },
           {
@@ -235,7 +341,13 @@
             "symbols": [
               "MultiCartService"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 136,
+                "code": "extraData?.active ? CartType.ACTIVE : CartType.NEW_CREATED"
+              }
+            ]
           },
           {
             "file": "feature-libs/checkout/base/components/guards/checkout-auth.guard.ts",
@@ -244,7 +356,13 @@
             "symbols": [
               "CheckoutAuthGuard"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 60,
+                "code": "protected handleAnonymousUser(): boolean | UrlTree {\n  this.authRedirectService.saveCurrentNavigationUrl();\n  if (this.featureConfig.isEnabled('authorizationCodeFlowByDefault')) {\n    if (this.checkoutConfigService.isGuestCheckout()) {\n      this.windowRef.localStorage?.setItem(\n        IS_GUEST_USER_CHECKOUT_KEY,\n        'true'\n      );\n    }\n    return this.router.parseUrl(this.semanticPathService.get('login') ?? '');\n  } else if (this.checkoutConfigService.isGuestCheckout()) {\n    return this.router.createUrlTree(\n      [this.semanticPathService.get('login')],\n      { queryParams: { forced: true } }\n    );\n  } else {\n    return this.router.parseUrl(this.semanticPathService.get('login') ?? '');\n  }\n}"
+              }
+            ]
           },
           {
             "file": "feature-libs/order/components/order-confirmation/order-guest-register-form/order-guest-register-form.component.ts",
@@ -255,6 +373,12 @@
             ],
             "selectors": [
               "cx-guest-register-form"
+            ],
+            "snippets": [
+              {
+                "line": 74,
+                "code": "  !this.featureConfigService.isEnabled('authorizationCodeFlowByDefault')\n) {\n  this.authRedirectService.setRedirectUrl(\n    this.routingService.getUrl({ cxRoute: 'home' })\n  );\n}"
+              }
             ]
           },
           {
@@ -264,7 +388,13 @@
             "symbols": [
               "UserRegistrationFormService"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 175,
+                "code": "  this.featureConfigService.isEnabled('authorizationCodeFlowByDefault')\n) {\n  this.routingService.go({ cxRoute: 'login' });\n}"
+              }
+            ]
           },
           {
             "file": "feature-libs/organization/user-registration/components/verification-token-form/verification-token-form-component.service.ts",
@@ -273,7 +403,13 @@
             "symbols": [
               "RegisterVerificationTokenFormComponentService"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 78,
+                "code": "  this.featureConfigService.isEnabled('authorizationCodeFlowByDefault')\n) {\n  this.routingService.go({ cxRoute: 'login' });\n}"
+              }
+            ]
           },
           {
             "file": "feature-libs/organization/user-registration/components/verification-token-form/verification-token-form.component.ts",
@@ -284,6 +420,12 @@
             ],
             "selectors": [
               "cx-verification-token-form"
+            ],
+            "snippets": [
+              {
+                "line": 124,
+                "code": "this.featureConfigService.isEnabled('authorizationCodeFlowByDefault')\n  ? { cxRoute: 'register' }"
+              }
             ]
           },
           {
@@ -293,7 +435,13 @@
             "symbols": [
               "LoginAsGuestGuard"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 32,
+                "code": "this.featureConfigService.isEnabled('authorizationCodeFlowByDefault') &&"
+              }
+            ]
           },
           {
             "file": "feature-libs/user/account/components/login-form/login-form-component.service.ts",
@@ -302,7 +450,21 @@
             "symbols": [
               "LoginFormComponentService"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 71,
+                "code": "if (this.featureConfigService.isEnabled('authorizationCodeFlowByDefault')) {\n  this.initCustomLogin();\n}"
+              },
+              {
+                "line": 82,
+                "code": "  this.featureConfigService.isEnabled('authorizationCodeFlowByDefault') &&\n  nativeForm\n) {\n  this.winRef.localStorage?.setItem(OAUTH_REDIRECT_FLOW_KEY, 'true');\n  nativeForm.submit();\n  this.busy$.next(true);\n}"
+              },
+              {
+                "line": 101,
+                "code": "tap(([_, isLoggedIn]) => this.onSuccess(isLoggedIn))"
+              }
+            ]
           },
           {
             "file": "feature-libs/user/account/components/login-form/login-form.component.html",
@@ -313,6 +475,12 @@
             ],
             "selectors": [
               "cx-login-form"
+            ],
+            "snippets": [
+              {
+                "line": 68,
+                "code": "<ng-container *cxFeature=\"'authorizationCodeFlowByDefault'\">\n  <input\n    *ngIf=\"csrf\"\n    formControlName=\"csrf\"\n    type=\"hidden\"\n    [name]=\"csrf.parameterName\"\n  />\n</ng-container>"
+              }
             ]
           },
           {
@@ -322,7 +490,17 @@
             "symbols": [
               "VerificationTokenFormComponentService"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 43,
+                "code": "if (this.featureConfigService.isEnabled('authorizationCodeFlowByDefault')) {\n  this.initCustomLogin();\n}"
+              },
+              {
+                "line": 70,
+                "code": "  this.featureConfigService.isEnabled('authorizationCodeFlowByDefault') &&\n  nativeForm\n) {\n  this.winRef.localStorage?.setItem(OAUTH_REDIRECT_FLOW_KEY, 'true');\n  nativeForm.submit();\n  this.busy$.next(true);\n}"
+              }
+            ]
           },
           {
             "file": "feature-libs/user/account/components/verification-token-form/verification-token-form.component.html",
@@ -333,6 +511,12 @@
             ],
             "selectors": [
               "cx-verification-token-form"
+            ],
+            "snippets": [
+              {
+                "line": 45,
+                "code": "<ng-container *cxFeature=\"'authorizationCodeFlowByDefault'\">\n  <input\n    *ngIf=\"csrf\"\n    formControlName=\"csrf\"\n    type=\"hidden\"\n    [name]=\"csrf.parameterName\"\n  />\n</ng-container>"
+              }
             ]
           },
           {
@@ -344,6 +528,12 @@
             ],
             "selectors": [
               "cx-verification-token-form"
+            ],
+            "snippets": [
+              {
+                "line": 135,
+                "code": "this.featureConfigService.isEnabled('authorizationCodeFlowByDefault')\n  ? { cxRoute: 'login' }"
+              }
             ]
           },
           {
@@ -355,6 +545,12 @@
             ],
             "selectors": [
               "cx-register"
+            ],
+            "snippets": [
+              {
+                "line": 242,
+                "code": "  this.anonymousConsentsConfig?.anonymousConsents?.registerConsent;\n\nif (requiredConsents && registerConsent) {\n  return requiredConsents.includes(registerConsent);\n}"
+              }
             ]
           },
           {
@@ -366,6 +562,16 @@
             ],
             "selectors": [
               "cx-registration-verification-token-form"
+            ],
+            "snippets": [
+              {
+                "line": 152,
+                "code": "this.featureConfigService.isEnabled('authorizationCodeFlowByDefault')\n  ? { cxRoute: 'register' }"
+              },
+              {
+                "line": 260,
+                "code": "if (this.featureConfigService.isEnabled('authorizationCodeFlowByDefault')) {\n  this.router.go({ cxRoute: 'login' });\n}"
+              }
             ]
           },
           {
@@ -375,7 +581,13 @@
             "symbols": [
               "UserRegisterService"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 50,
+                "code": "User"
+              }
+            ]
           },
           {
             "file": "projects/core/src/auth/user-auth/services/oauth-lib-wrapper.service.ts",
@@ -384,7 +596,13 @@
             "symbols": [
               "OAuthLibWrapperService"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 137,
+                "code": "}"
+              }
+            ]
           }
         ]
       },
@@ -393,6 +611,7 @@
         "description": "Feature flag to enable using the new LOGIN_EVENTS token instead of the ActionsSubject LOGIN stream for tracking.\n\nWhen enabled, the new LOGIN_EVENTS token will be used instead of the ActionsSubject LOGIN stream.\nThis is needed to support code flow authentication. If we are using the ActionsSubject LOGIN stream,\nthe login event won't be captured once we are redirected back from the auth server.\n\nUsed in `ProfileTagLifecycleService`",
         "affects": [],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/7fd5cb51f6f14414832056e1f7f1094b.html",
         "usages": [
           {
             "file": "integration-libs/cds/src/profiletag/services/profile-tag-lifecycle.service.ts",
@@ -401,7 +620,13 @@
             "symbols": [
               "ProfileTagLifecycleService"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 55,
+                "code": "const cdsLoginEventsToken = this.featureConfigService.isEnabled("
+              }
+            ]
           }
         ]
       },
@@ -412,6 +637,7 @@
           "AuthService"
         ],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/c734311fbaf3479e8628a9ad037836d3.html",
         "usages": [
           {
             "file": "projects/core/src/auth/user-auth/facade/auth.service.ts",
@@ -420,7 +646,17 @@
             "symbols": [
               "AuthService"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 91,
+                "code": "// (see source code https://github.com/manfredsteyer/angular-oauth2-oidc/blob/d95d7da788e2c1390346c66de62dc31f10d2b852/projects/lib/src/oauth-service.ts#L1711),\n// that why we also need to check if we have access_token\nif (loginResult.result && token && !isEmulated && !isUsingASMClient) {\n  this.userIdService.setUserId(OCC_USER_ID_CURRENT);\n\n  if (\n    !this.featureConfigService.isEnabled(\n      'dispatchLoginActionOnlyWhenTokenReceived'\n    )\n  ) {\n    // When the feature flag is disabled, dispatch the login action even when the token\n    // is retrieved from storage (e.g., page refresh)\n    this.store.dispatch(new AuthActions.Login());\n  }\n  // We check if the token was received during the `tryLogin()` attempt.\n  // If so, we will redirect as we can deduce we are returning from the authentication server.\n  // Redirection should not be done in cases we get the token from storage (eg. refreshing the page).\n  // In this case we need to dispatch the login action to indicate that the user has just logged in.\n  if (loginResult.tokenReceived) {\n    if (\n      this.featureConfigService.isEnabled(\n        'dispatchLoginActionOnlyWhenTokenReceived'\n      )\n    ) {\n      this.store.dispatch(new AuthActions.Login());\n    }\n    this.authRedirectService.redirect();\n  }\n}"
+              },
+              {
+                "line": 94,
+                "code": "this.userIdService.setUserId(OCC_USER_ID_CURRENT);"
+              }
+            ]
           }
         ]
       }

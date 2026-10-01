@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatorVersion": 1,
+  "generatorVersion": 2,
   "from": {
     "release": "221121.1",
     "gitTag": "221121.1.0"
@@ -16,6 +16,7 @@
         "description": "The 'AddToWishListComponent' will restore focus to the button after adding or removing an item from the wishlist.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/cart/wish-list/components/add-to-wishlist/add-to-wish-list.component.ts",
@@ -26,6 +27,16 @@
             ],
             "selectors": [
               "cx-add-to-wishlist"
+            ],
+            "snippets": [
+              {
+                "line": 67,
+                "code": "if (this.featureConfigService.isEnabled('a11yAddToWishlistFocus')) {\n  this.restoreFocus();\n}"
+              },
+              {
+                "line": 75,
+                "code": "if (this.featureConfigService.isEnabled('a11yAddToWishlistFocus')) {\n  this.restoreFocus();\n}"
+              }
             ]
           }
         ]
@@ -35,6 +46,7 @@
         "description": "`ProductImageZoomProductImagesComponent`, `ProductImageZoomThumbnailsComponent` - enable\narrow keys navigation for the carousel",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/product/image-zoom/components/product-image-zoom/product-image-zoom-product-images/product-image-zoom-product-images.component.html",
@@ -45,6 +57,12 @@
             ],
             "selectors": [
               "cx-product-images"
+            ],
+            "snippets": [
+              {
+                "line": 51,
+                "code": "<cx-media\n  *cxFeature=\"'a11yCarouselArrowKeysNavigation'\"\n  cxFocusableCarouselItem\n  [container]=\"item.container\"\n  tabindex=\"0\"\n  (focus)=\"openImage(item.container)\"\n  [class.is-active]=\"isActive(item.container) | async\"\n  format=\"product\"\n>\n</cx-media>"
+              }
             ]
           },
           {
@@ -56,6 +74,12 @@
             ],
             "selectors": [
               "cx-product-images"
+            ],
+            "snippets": [
+              {
+                "line": 61,
+                "code": "<cx-media\n  *cxFeature=\"'!a11yCarouselArrowKeysNavigation'\"\n  [container]=\"item.container\"\n  tabindex=\"0\"\n  (focus)=\"openImage(item.container)\"\n  [class.is-active]=\"isActive(item.container) | async\"\n  format=\"product\"\n>\n</cx-media>"
+              }
             ]
           },
           {
@@ -67,6 +91,12 @@
             ],
             "selectors": [
               "cx-product-image-zoom-thumbnails"
+            ],
+            "snippets": [
+              {
+                "line": 14,
+                "code": "<cx-media\n  *cxFeature=\"'a11yCarouselArrowKeysNavigation'\"\n  cxFocusableCarouselItem\n  [container]=\"item.container\"\n  tabindex=\"0\"\n  (focus)=\"openImage(item.container)\"\n  [class.is-active]=\"isActive(item.container) | async\"\n>\n</cx-media>"
+              }
             ]
           },
           {
@@ -78,6 +108,12 @@
             ],
             "selectors": [
               "cx-product-image-zoom-thumbnails"
+            ],
+            "snippets": [
+              {
+                "line": 23,
+                "code": "<cx-media\n  *cxFeature=\"'!a11yCarouselArrowKeysNavigation'\"\n  [container]=\"item.container\"\n  tabindex=\"0\"\n  (focus)=\"openImage(item.container)\"\n  [class.is-active]=\"isActive(item.container) | async\"\n>\n</cx-media>"
+              }
             ]
           }
         ]
@@ -87,6 +123,7 @@
         "description": "In `ImportToNewSavedCartFormComponent`,`ImportEntriesFormComponent` after selecting a file\nconfirmation message is displayed and read out",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/cart/import-export/components/import-to-cart/import-entries-dialog/import-entries-form/import-entries-form.component.html",
@@ -97,6 +134,12 @@
             ],
             "selectors": [
               "cx-import-entries-form"
+            ],
+            "snippets": [
+              {
+                "line": 6,
+                "code": "<ng-container *cxFeature=\"'a11yCartImportConfirmationMessage'\">\n  <div aria-live=\"assertive\" aria-atomic=\"true\">\n    <cx-message\n      *ngIf=\"form.get('file')?.value && form.get('file')?.valid\"\n      [text]=\"'importEntriesDialog.selectedSuccessfully' | cxTranslate\"\n      [type]=\"globalMessageType.MSG_TYPE_CONFIRMATION\"\n      [isVisibleCloseButton]=\"false\"\n      [cxFocus]=\"{ autofocus: '.cx-message' }\"\n    ></cx-message>\n  </div>\n</ng-container>"
+              }
             ]
           },
           {
@@ -108,6 +151,12 @@
             ],
             "selectors": [
               "cx-import-to-new-saved-cart-form"
+            ],
+            "snippets": [
+              {
+                "line": 6,
+                "code": "<ng-container *cxFeature=\"'a11yCartImportConfirmationMessage'\">\n  <div aria-live=\"assertive\" aria-atomic=\"true\">\n    <cx-message\n      *ngIf=\"form.get('file')?.value && form.get('file')?.valid\"\n      [text]=\"'importEntriesDialog.selectedSuccessfully' | cxTranslate\"\n      [type]=\"globalMessageType.MSG_TYPE_CONFIRMATION\"\n      [isVisibleCloseButton]=\"false\"\n      [cxFocus]=\"{ autofocus: '.cx-message' }\"\n    ></cx-message>\n  </div>\n</ng-container>"
+              }
             ]
           }
         ]
@@ -117,6 +166,7 @@
         "description": "When enabled, the form in 'PickupOptionsComponent' will be wrapped in a fieldset and contain a legend.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/pickup-in-store/components/presentational/pickup-options/pickup-options.component.html",
@@ -127,6 +177,12 @@
             ],
             "selectors": [
               "cx-pickup-options"
+            ],
+            "snippets": [
+              {
+                "line": 3,
+                "code": "<fieldset *cxFeature=\"'a11yDeliveryMethodFieldset'\">\n  <legend>{{ 'pickupOptions.legend' | cxTranslate }}</legend>\n  <div class=\"form-check\">\n    <input\n      type=\"radio\"\n      role=\"radio\"\n      [attr.id]=\"deliveryId\"\n      data-pickup=\"delivery\"\n      value=\"delivery\"\n      (click)=\"onPickupOptionChange('delivery')\"\n      formControlName=\"pickupOption\"\n      [attr.aria-label]=\"'pickupOptions.delivery' | cxTranslate\"\n      [attr.aria-checked]=\"\n        pickupOptionsForm.value.pickupOption === 'delivery'\n      \"\n    />\n    <label [attr.for]=\"deliveryId\">\n      {{ 'pickupOptions.delivery' | cxTranslate }}\n    </label>\n  </div>\n  <div class=\"form-check\">\n    <input\n      type=\"radio\"\n      role=\"radio\"\n      [attr.id]=\"pickupId\"\n      data-pickup=\"pickup\"\n      value=\"pickup\"\n      (click)=\"onPickupOptionChange('pickup')\"\n      formControlName=\"pickupOption\"\n      [attr.aria-label]=\"'pickupOptions.pickup' | cxTranslate\"\n      [attr.aria-checked]=\"\n        pickupOptionsForm.value.pickupOption === 'pickup'\n      \"\n    />\n    <label [attr.for]=\"pickupId\">\n      <p>\n        {{ 'pickupOptions.pickup' | cxTranslate\n        }}<ng-container *ngIf=\"displayPickupLocation\"\n          >:\n          <strong [attr.data-pickup-location]=\"displayPickupLocation\">{{\n…"
+              }
             ]
           },
           {
@@ -138,6 +194,12 @@
             ],
             "selectors": [
               "cx-pickup-options"
+            ],
+            "snippets": [
+              {
+                "line": 66,
+                "code": "<ng-container *cxFeature=\"'!a11yDeliveryMethodFieldset'\">\n  <div class=\"form-check\">\n    <input\n      type=\"radio\"\n      role=\"radio\"\n      [attr.id]=\"deliveryId\"\n      data-pickup=\"delivery\"\n      value=\"delivery\"\n      (click)=\"onPickupOptionChange('delivery')\"\n      formControlName=\"pickupOption\"\n      [attr.aria-label]=\"'pickupOptions.delivery' | cxTranslate\"\n      [attr.aria-checked]=\"\n        pickupOptionsForm.value.pickupOption === 'delivery'\n      \"\n    />\n    <label [attr.for]=\"deliveryId\">\n      {{ 'pickupOptions.delivery' | cxTranslate }}\n    </label>\n  </div>\n  <div class=\"form-check\">\n    <input\n      type=\"radio\"\n      role=\"radio\"\n      [attr.id]=\"pickupId\"\n      data-pickup=\"pickup\"\n      value=\"pickup\"\n      (click)=\"onPickupOptionChange('pickup')\"\n      formControlName=\"pickupOption\"\n      [attr.aria-label]=\"'pickupOptions.pickup' | cxTranslate\"\n      [attr.aria-checked]=\"\n        pickupOptionsForm.value.pickupOption === 'pickup'\n      \"\n    />\n    <label [attr.for]=\"pickupId\">\n      <p>\n        {{ 'pickupOptions.pickup' | cxTranslate\n        }}<ng-container *ngIf=\"displayPickupLocation\"\n          >:\n          <strong [attr.data-pickup-location]=\"displayPickupLocation\">{{\n            displayPickupLocation\n…"
+              }
             ]
           },
           {
@@ -149,6 +211,12 @@
             ],
             "selectors": [
               "cx-pickup-options"
+            ],
+            "snippets": [
+              {
+                "line": 79,
+                "code": "@ViewChild(TabComponent) tabComponent: TabComponent | undefined;\n\nget validationError() {\n  if (this.selectedOption === 'pickup' && !this.displayPickupLocation) {\n    return 'pickupOptions.storeIsNotSelected';\n  }\n\n  return null;\n}"
+              }
             ]
           }
         ]
@@ -158,6 +226,7 @@
         "description": "When enabled, the focus will be returned to the trigger element after the dialog is closed.\nAffected components: 'AddtoCartComponent', 'PickupOptionsComponent', CartPickupOptionsContainerComponent, PDPPickupOptionsContainerComponent",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/cart/base/components/add-to-cart/add-to-cart.component.ts",
@@ -168,6 +237,12 @@
             ],
             "selectors": [
               "cx-add-to-cart"
+            ],
+            "snippets": [
+              {
+                "line": 258,
+                "code": "this.pickupStore"
+              }
             ]
           },
           {
@@ -179,6 +254,12 @@
             ],
             "selectors": [
               "cx-cart-pickup-options-container"
+            ],
+            "snippets": [
+              {
+                "line": 271,
+                "code": "// eslint-disable-next-line @typescript-eslint/unified-signatures\nonPickupOptionChange(event: {\n  option: PickupOption;\n  triggerElement: ElementRef;\n}"
+              }
             ]
           },
           {
@@ -190,6 +271,16 @@
             ],
             "selectors": [
               "cx-cart-pickup-options-container"
+            ],
+            "snippets": [
+              {
+                "line": 188,
+                "code": " * @param triggerElement - The reference of element that triggered the dialog. Used to refocus on it after the dialog is closed.\n */\nopenDialog(triggerElement?: ElementRef): void {\n  const dialog = this.launchDialogService.openDialog(\n    LAUNCH_CALLER.PICKUP_IN_STORE,\n    this.featureConfigService.isEnabled('a11yDialogTriggerRefocus')\n      ? triggerElement\n      : this.element,\n    this.vcr,\n    { productCode: this.productCode }\n  );\n\n  if (dialog) {\n    dialog.pipe(take(1)).subscribe();\n  }\n}"
+              },
+              {
+                "line": 218,
+                "code": "): void {\n  const handleChange = (\n    option: PickupOption,\n    triggerElement?: ElementRef\n  ) => {\n    if (!this.featureConfigService.isEnabled('a11yPickupOptionsTabs')) {\n      if (option === 'delivery') {\n        return;\n      }\n      if (!this.displayNameIsSet) {\n        this.openDialog(triggerElement);\n      }\n    }\n  };\n  if (\n    this.featureConfigService.isEnabled('a11yDialogTriggerRefocus') &&\n    typeof event === 'object'\n  ) {\n    const { option, triggerElement = undefined } = event;\n    this.intendedPickupLocationService.setPickupOption(\n      this.productCode,\n      option\n    );\n    handleChange(option, triggerElement);\n  } else if (typeof event === 'string') {\n    this.intendedPickupLocationService.setPickupOption(\n      this.productCode,\n      event\n    );\n    handleChange(event);\n  }\n}"
+              }
             ]
           },
           {
@@ -201,6 +292,16 @@
             ],
             "selectors": [
               "cx-pickup-options"
+            ],
+            "snippets": [
+              {
+                "line": 114,
+                "code": "  openedTab === PickupOptionsTabs.DELIVERY ? 'delivery' : 'pickup';\nif (this.selectedOption !== selectedOption) {\n  this.onPickupOptionChange(selectedOption);\n}"
+              },
+              {
+                "line": 126,
+                "code": "this.pickupOptionChange.emit({\n  option,\n  triggerElement: this.triggerElement,\n}"
+              }
             ]
           }
         ]
@@ -210,6 +311,7 @@
         "description": "`StorefrontComponent` focuses on the first navigation item after hamburger menu expansion",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "projects/storefrontlib/layout/main/storefront.component.ts",
@@ -220,6 +322,12 @@
             ],
             "selectors": [
               "cx-storefront"
+            ],
+            "snippets": [
+              {
+                "line": 103,
+                "code": "this.featureConfigService.isEnabled("
+              }
             ]
           }
         ]
@@ -229,6 +337,7 @@
         "description": "Prevent horizontal scroll appearing on smaller screens for `CartItemListComponent`, `AddedToCartDialogComponent`",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/cart/base/components/added-to-cart-dialog/added-to-cart-dialog.component.ts",
@@ -239,6 +348,12 @@
             ],
             "selectors": [
               "cx-added-to-cart-dialog"
+            ],
+            "snippets": [
+              {
+                "line": 97,
+                "code": "useFeatureStyles('a11yPreventHorizontalScroll');"
+              }
             ]
           },
           {
@@ -250,6 +365,12 @@
             ],
             "selectors": [
               "cx-cart-item-list"
+            ],
+            "snippets": [
+              {
+                "line": 98,
+                "code": "protected multiCartService: MultiCartFacade,"
+              }
             ]
           },
           {
@@ -263,6 +384,12 @@
             "selectors": [
               "cx-added-to-cart-dialog",
               "cx-total"
+            ],
+            "snippets": [
+              {
+                "line": 87,
+                "code": "@include forFeature('a11yPreventHorizontalScroll') {\n  .cx-quantity {\n    @include media-breakpoint-down(xs) {\n      flex-direction: column;\n      align-items: start;\n      gap: 5px;\n    }\n  }\n}"
+              }
             ]
           },
           {
@@ -291,6 +418,12 @@
               "cx-pickup-options",
               "cx-tab",
               "cx-total"
+            ],
+            "snippets": [
+              {
+                "line": 71,
+                "code": "@include forFeature('a11yPreventHorizontalScroll') {\n  overflow-wrap: anywhere;\n}"
+              }
             ]
           }
         ]
@@ -300,6 +433,7 @@
         "description": "`SearchBoxComponent` should no longer lose focus after closing the popup the esc key.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "projects/storefrontlib/cms-components/navigation/search-box/search-box.component.ts",
@@ -310,6 +444,12 @@
             ],
             "selectors": [
               "cx-searchbox"
+            ],
+            "snippets": [
+              {
+                "line": 108,
+                "code": "(this.featureConfigService?.isEnabled('a11ySearchBoxFocusOnEscape') &&"
+              }
             ]
           }
         ]
@@ -319,6 +459,7 @@
         "description": "In 'ProductReviewsComponent' the 'show more/less reviews' button will no longer loose focus on activation.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "projects/storefrontlib/cms-components/product/product-tabs/product-reviews/product-reviews.component.html",
@@ -329,6 +470,12 @@
             ],
             "selectors": [
               "cx-product-reviews"
+            ],
+            "snippets": [
+              {
+                "line": 49,
+                "code": "<button\n  *cxFeature=\"'a11yShowMoreReviewsBtnFocus'\"\n  aria-live=\"polite\"\n  class=\"btn btn-primary\"\n  (click)=\"\n    maxListItems === initialMaxListItems\n      ? (maxListItems = reviews.length)\n      : (maxListItems = initialMaxListItems)\n  \"\n>\n  {{\n    (maxListItems === initialMaxListItems\n      ? 'productReview.more'\n      : 'productReview.less'\n    ) | cxTranslate\n  }}\n</button>"
+              }
             ]
           },
           {
@@ -340,6 +487,12 @@
             ],
             "selectors": [
               "cx-product-reviews"
+            ],
+            "snippets": [
+              {
+                "line": 65,
+                "code": "<ng-container *cxFeature=\"'!a11yShowMoreReviewsBtnFocus'\">\n  <button\n    class=\"btn btn-primary\"\n    (click)=\"maxListItems = reviews.length\"\n    *ngIf=\"maxListItems === initialMaxListItems\"\n  >\n    {{ 'productReview.more' | cxTranslate }}\n  </button>\n  <button\n    class=\"btn btn-primary\"\n    (click)=\"maxListItems = initialMaxListItems\"\n    *ngIf=\"maxListItems !== initialMaxListItems\"\n  >\n    {{ 'productReview.less' | cxTranslate }}\n  </button>\n</ng-container>"
+              }
             ]
           }
         ]
@@ -349,6 +502,7 @@
         "description": "Enables the use of TabComponent in the PLP and PDP page to replace some functionality\nof the FacetListComponent and TabParagraphComponent to make then keyboard accessible\nand responsive in tab and accordion stles.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/order/components/order-history/order-history.component.ts",
@@ -359,6 +513,12 @@
             ],
             "selectors": [
               "cx-order-history"
+            ],
+            "snippets": [
+              {
+                "line": 37,
+                "code": "useFeatureStyles('a11yTabComponent');"
+              }
             ]
           },
           {
@@ -372,6 +532,16 @@
             "selectors": [
               "cx-order-history",
               "cx-sorting"
+            ],
+            "snippets": [
+              {
+                "line": 3,
+                "code": "@include forFeature('a11yTabComponent') {\n  padding: 0 20px;\n}"
+              },
+              {
+                "line": 79,
+                "code": "@include forFeature('a11yTabComponent') {\n  padding: 0;\n}"
+              }
             ]
           },
           {
@@ -383,6 +553,12 @@
             ],
             "selectors": [
               "cx-tab-paragraph-container"
+            ],
+            "snippets": [
+              {
+                "line": 3,
+                "code": "<div\n  *cxFeature=\"'!a11yTabComponent'\"\n  role=\"region\"\n  tabindex=\"-1\"\n  [attr.aria-label]=\"ariaLabel | cxTranslate\"\n  class=\"container\"\n>\n  <ng-container *ngFor=\"let component of components; let i = index\">\n    <ng-container *ngIf=\"component\">\n      <button\n        [class.active]=\"i === activeTabNum\"\n        (click)=\"select(i, $event)\"\n        [attr.aria-expanded]=\"i === activeTabNum\"\n      >\n        {{\n          component.title | cxTranslate: { param: tabTitleParams[i] | async }\n        }}\n\n        <span\n          title=\"{{\n            i === activeTabNum\n              ? ('common.collapse' | cxTranslate)\n              : ('common.expand' | cxTranslate)\n          }}\"\n          class=\"accordion-icon\"\n          aria-hidden=\"true\"\n        ></span>\n      </button>\n\n      <div\n        [class.active]=\"i === activeTabNum\"\n        class=\"cx-tab-paragraph-content\"\n        tabindex=\"0\"\n        role=\"presentation\"\n      >\n        <ng-template [cxOutlet]=\"component.flexType\" [cxOutletContext]=\"{}\">\n          <ng-container\n            [cxComponentWrapper]=\"component\"\n            (cxComponentRef)=\"tabCompLoaded($event)\"\n          ></ng-container>\n…"
+              }
             ]
           },
           {
@@ -394,6 +570,12 @@
             ],
             "selectors": [
               "cx-tab-paragraph-container"
+            ],
+            "snippets": [
+              {
+                "line": 48,
+                "code": "<ng-container *cxFeature=\"'a11yTabComponent'\">\n  <cx-tab [tabs]=\"tabs$ | async\" [config]=\"tabConfig$ | async\">\n    <ng-template\n      *ngFor=\"let component of components; let i = index\"\n      [cxOutlet]=\"component.flexType\"\n      #tabRef\n    >\n      <ng-container\n        [cxComponentWrapper]=\"component\"\n        (cxComponentRef)=\"tabCompLoaded($event, component.uid)\"\n      ></ng-container>\n    </ng-template>\n  </cx-tab>\n</ng-container>"
+              }
             ]
           },
           {
@@ -405,6 +587,12 @@
             ],
             "selectors": [
               "cx-facet-list"
+            ],
+            "snippets": [
+              {
+                "line": 27,
+                "code": "<ng-container *cxFeature=\"'a11yTabComponent'\">\n  <cx-tab [tabs$]=\"tabs$\" [config]=\"tabConfig\"></cx-tab>\n\n  <ng-template #facetsRef *ngFor=\"let facet of facets\">\n    <cx-facet\n      [facet]=\"facet\"\n      role=\"group\"\n      attr.aria-label=\"{{\n        'productFacetNavigation.ariaLabelItemsAvailable'\n          | cxTranslate\n            : {\n                name: facet.name,\n                count: facet?.values?.length,\n              }\n      }}\"\n    ></cx-facet>\n  </ng-template>\n</ng-container>"
+              }
             ]
           },
           {
@@ -416,6 +604,12 @@
             ],
             "selectors": [
               "cx-facet-list"
+            ],
+            "snippets": [
+              {
+                "line": 46,
+                "code": "<ng-container *cxFeature=\"'!a11yTabComponent'\">\n  <cx-facet\n    *ngFor=\"let facet of facets\"\n    #facetRef\n    [facet]=\"facet\"\n    [class.expanded]=\"isExpanded(facet) | async\"\n    [class.collapsed]=\"isCollapsed(facet) | async\"\n    role=\"group\"\n    attr.aria-label=\"{{\n      'productFacetNavigation.ariaLabelItemsAvailable'\n        | cxTranslate\n          : {\n              name: facet.name,\n              count: facet?.values?.length,\n            }\n    }}\"\n  ></cx-facet>\n</ng-container>"
+              }
             ]
           },
           {
@@ -427,6 +621,12 @@
             ],
             "selectors": [
               "cx-facet-list"
+            ],
+            "snippets": [
+              {
+                "line": 106,
+                "code": "useFeatureStyles('a11yTabComponent');"
+              }
             ]
           },
           {
@@ -438,6 +638,12 @@
             ],
             "selectors": [
               "cx-facet"
+            ],
+            "snippets": [
+              {
+                "line": 12,
+                "code": "<button\n  class=\"heading\"\n  #facetHeader\n  (click)=\"toggleGroup($event)\"\n  (keydown)=\"onKeydown($event)\"\n  [attr.aria-expanded]=\"isExpanded\"\n  [attr.aria-label]=\"\n    'productFacetNavigation.filterBy.name' | cxTranslate: { name: facet.name }\n  \"\n  [cxFocus]=\"{ key: facet.name }\"\n  *cxFeature=\"'!a11yTabComponent'\"\n>\n  {{ facet.name }}\n  <cx-icon\n    title=\"{{ 'common.collapse' | cxTranslate }}\"\n    class=\"collapse-icon\"\n    [type]=\"collapseIcon\"\n  ></cx-icon>\n  <cx-icon\n    title=\"{{ 'common.expand' | cxTranslate }}\"\n    class=\"expand-icon\"\n    [type]=\"expandIcon\"\n  ></cx-icon>\n</button>"
+              }
             ]
           },
           {
@@ -449,6 +655,20 @@
             ],
             "selectors": [
               "cx-facet"
+            ],
+            "snippets": [
+              {
+                "line": 149,
+                "code": "this.onTabNavigation();"
+              },
+              {
+                "line": 158,
+                "code": "protected onTabNavigation(): void {\n  if (!this.featureConfigService?.isEnabled('a11yTabComponent')) {\n    return;\n  }\n  disableTabbingForTick(this.values.map((el) => el.nativeElement));\n}"
+              },
+              {
+                "line": 169,
+                "code": "if (this.featureConfigService?.isEnabled('a11yTabComponent')) {\n  return;\n}"
+              }
             ]
           },
           {
@@ -464,6 +684,12 @@
               "cx-facet-list",
               "cx-tab",
               "cx-tab-panel"
+            ],
+            "snippets": [
+              {
+                "line": 112,
+                "code": "margin-bottom: 1rem;"
+              }
             ]
           },
           {
@@ -479,6 +705,12 @@
               "[cxIcon]",
               "cx-facet",
               "cx-icon"
+            ],
+            "snippets": [
+              {
+                "line": 58,
+                "code": "@include forFeature('a11yTabComponent') {\n  display: flex;\n}"
+              }
             ]
           }
         ]
@@ -488,6 +720,7 @@
         "description": "Enables only Tab/Shift+Tab keyboard navigation in dialogs and preserved default scrolling behaviour of up/down keys.\nComponents:\n- `PickupOptionDialogComponent`",
         "affects": [],
         "defaultValue": true,
+        "docUrl": null,
         "usages": [
           {
             "file": "feature-libs/pickup-in-store/components/container/pickup-option-dialog/pickup-option-dialog.component.ts",
@@ -498,6 +731,12 @@
             ],
             "selectors": [
               "cx-pickup-option-dialog"
+            ],
+            "snippets": [
+              {
+                "line": 62,
+                "code": "const useTrapTab = this.featureConfigService.isEnabled("
+              }
             ]
           }
         ]
@@ -507,6 +746,7 @@
         "description": "Enables *all* page meta resolvers in Client-Side Rendering (CSR),\nignoring the configuration option set for specific resolvers\n`config.pageMeta.resolvers[index].disabledInCsr`.\n\nNote: The config option `disabledInCsr` is now deprecated and will be removed\n      in the future together with this feature toggle.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/bbca3761de7a49d7a3597e214c9e184f.html",
         "usages": [
           {
             "file": "projects/core/src/cms/facade/page-meta.service.ts",
@@ -515,7 +755,13 @@
             "symbols": [
               "PageMetaService"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 108,
+                "code": "const resolverMethods: Record<string, string> = {}"
+              }
+            ]
           }
         ]
       },
@@ -524,6 +770,7 @@
         "description": "Enables the requirement that passwords cannot contain consecutive identical characters.\n\nWhen set to `true`, the app will enforce that passwords must not have consecutive\nidentical characters (e.g., \"aa\", \"11\", or \"$$\" are not allowed).",
         "affects": [],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/0fc417ccc4e64ece841f6df1d40f5bbb.html",
         "usages": [
           {
             "file": "feature-libs/order/components/order-confirmation/order-guest-register-form/order-guest-register-form.component.ts",
@@ -534,6 +781,12 @@
             ],
             "selectors": [
               "cx-guest-register-form"
+            ],
+            "snippets": [
+              {
+                "line": 36,
+                "code": ": this.featureConfigService.isEnabled("
+              }
             ]
           },
           {
@@ -545,6 +798,12 @@
             ],
             "selectors": [
               "cx-register"
+            ],
+            "snippets": [
+              {
+                "line": 48,
+                "code": "? CustomFormValidators.securePasswordValidators"
+              }
             ]
           },
           {
@@ -556,6 +815,12 @@
             ],
             "selectors": [
               "cx-registration-verification-token-form"
+            ],
+            "snippets": [
+              {
+                "line": 75,
+                "code": "this.featureConfigService.isEnabled("
+              }
             ]
           },
           {
@@ -565,7 +830,13 @@
             "symbols": [
               "ResetPasswordComponentService"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 34,
+                "code": "? CustomFormValidators.securePasswordValidators"
+              }
+            ]
           },
           {
             "file": "feature-libs/user/profile/components/update-password/update-password-component.service.ts",
@@ -574,7 +845,13 @@
             "symbols": [
               "UpdatePasswordComponentService"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 37,
+                "code": "? CustomFormValidators.securePasswordValidators"
+              }
+            ]
           }
         ]
       },
@@ -583,6 +860,7 @@
         "description": "Enables a validation that prevents new passwords from matching the current password\nin the password update form.\n\nWhen set to `true`, the user will not be allowed to reuse their current password\nwhen updating their password. The app will check that the new password does not match\nthe old password.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/827f89ab998d4f03b87c4c33547d9440.html",
         "usages": [
           {
             "file": "feature-libs/user/profile/components/update-password/update-password-component.service.ts",
@@ -591,7 +869,13 @@
             "symbols": [
               "UpdatePasswordComponentService"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 137,
+                "code": "// TODO: (CXSPA-8550) Remove after removing enablePasswordsCannotMatchInPasswordUpdateForm feature toggle\nprotected getPasswordValidators(): ValidatorFn[] {\n  const passwordMustMatchValidator = CustomFormValidators.passwordsMustMatch(\n    'newPassword',\n    'newPasswordConfirm'\n  );\n\n  return this.featureConfigService.isEnabled(\n    'enablePasswordsCannotMatchInPasswordUpdateForm'\n  )\n    ? [\n        passwordMustMatchValidator,\n        CustomFormValidators.passwordsCannotMatch(\n          'oldPassword',\n          'newPassword'\n        ),\n      ]\n    : [passwordMustMatchValidator];\n}"
+              }
+            ]
           }
         ]
       },
@@ -600,6 +884,7 @@
         "description": "In a server environment (SSR or Prerendering) it propagates all errors caught in Angular app\n(in the Angular's `ErrorHandler` class) to the server layer.\n\nIn SSR, such a propagation allows the server layer (e.g. ExpressJS) for handling those errors,\ne.g. sending a proper Error Page in response to the client,\ninstead of a rendered HTML that is possibly malformed due to the occurred error.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/f57260e4f66f42199189b68602e22523.html",
         "usages": [
           {
             "file": "core-libs/setup/ssr/error-handling/multi-error-handlers/propagating-to-server-error-handler.ts",
@@ -608,7 +893,13 @@
             "symbols": [
               "PropagatingToServerErrorHandler"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 38,
+                "code": "if (!this.featureConfigService.isEnabled('propagateErrorsToServer')) {\n  return;\n}"
+              }
+            ]
           }
         ]
       },
@@ -617,6 +908,7 @@
         "description": "In SSR, the following errors will be printed to logs (and additionally can also\nbe forwarded to ExpressJS if only the other feature toggle `propagateErrorsToServer` is enabled):\n\n1. any outgoing HTTP request error (4xx-5xx status)\n2. any NgRx action with the `error` property",
         "affects": [],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/6d4481a3cb9042b2ab8bc9e5ca532418.html",
         "usages": [
           {
             "file": "projects/core/src/error-handling/effects-error-handler/cx-error-handler.effect.ts",
@@ -625,7 +917,13 @@
             "symbols": [
               "CxErrorHandlerEffect"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 31,
+                "code": "this.featureConfigService.isEnabled("
+              }
+            ]
           },
           {
             "file": "projects/core/src/error-handling/http-error-handler/http-error-handler.interceptor.ts",
@@ -634,7 +932,13 @@
             "symbols": [
               "HttpErrorHandlerInterceptor"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 54,
+                "code": "this.featureService.isEnabled("
+              }
+            ]
           },
           {
             "file": "projects/core/src/global-message/http-interceptors/handlers/unknown-error/unknown-error.handler.ts",
@@ -643,7 +947,13 @@
             "symbols": [
               "UnknownErrorHandler"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 37,
+                "code": "const shouldLogError = this.featureConfigService.isEnabled("
+              }
+            ]
           }
         ]
       },
@@ -652,6 +962,7 @@
         "description": "1. It uses the new `SiteThemeService` as the source of truth for the \"site theme\" value\n(this value can change over time, e.g. when selecting new value in the new `SiteThemeSwitcherComponent`).\nPreviously the \"site theme\" could be set only on the page start (via the static config `config.context.theme` or via CMS, when using the feature of the \"automatic site-context configuration\").\n2. Now, when no custom theme is selected, the default theme value is an empty string `''`,\nunless you configure it differently via the global config `config.context.theme` (or via CMS).\nPreviously, there the non-defined theme had a value `undefined`.",
         "affects": [],
         "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/40666251e9414ed198794026336549f4.html",
         "usages": [
           {
             "file": "projects/storefrontlib/layout/theme/theme.service.ts",
@@ -660,7 +971,17 @@
             "symbols": [
               "ThemeService"
             ],
-            "selectors": []
+            "selectors": [],
+            "snippets": [
+              {
+                "line": 44,
+                "code": "// Theme value is a string. It is put in the generic multi-value"
+              },
+              {
+                "line": 59,
+                "code": "this.subscription.unsubscribe();"
+              }
+            ]
           }
         ]
       }
