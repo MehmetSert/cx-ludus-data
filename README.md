@@ -18,6 +18,12 @@ All data is derived from public sources: help.sap.com and the public
   classes each one affects), public API changes, the Angular peer range and the
   filtered commit list. `generatorVersion` changes when the extraction logic
   changes and every step is regenerated.
+- `procedures/<release>.yml` — hand-maintained, only for releases that need
+  more than SAP's usual steps (e.g. February releases with an Angular major
+  update). Lists the `ng update` / `ng generate` actions `cx-ludus step` runs
+  before the Spartacus update, whether Spartacus is updated through
+  `@spartacus/schematics`, and manual notes. Source: the release's page on
+  help.sap.com.
 - `releases.overrides.json` — hand-maintained corrections, keyed by release id.
   Any field set here wins over what the indexer parsed. Use it when help.sap.com
   wording changes or omits a value.

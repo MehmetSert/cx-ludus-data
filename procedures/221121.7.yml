@@ -1,0 +1,58 @@
+# Update Release 221121.7 (February release: Angular 19 → 20 → 21).
+# Source: help.sap.com, "Update Release 221121.7". Actions run in order on an
+# installed tree before the Spartacus update; each one is a checkpoint commit.
+schemaVersion: 1
+release: "221121.7"
+
+# SAP updates Spartacus with the schematics for this release instead of
+# editing package.json by hand.
+versionUpdate: spartacus-schematics
+
+beforeVersionUpdate:
+  - id: angular-20
+    title: Angular 20'ye güncelleniyor
+    action: ng-update
+    packages:
+      - "@angular/core@20"
+      - "@angular/cli@20"
+      - "@ngrx/store@20"
+      - "angular-oauth2-oidc@20"
+      - "@ng-select/ng-select@20"
+      - "ngx-infinite-scroll@20"
+    required: ["@angular/core", "@angular/cli"]
+    force: true
+    commit: "chore: update Angular to 20 and compatible third-party packages"
+
+  # SAP recommends running this optional migration during the Angular 20 update.
+  - id: application-builder
+    title: Angular application builder'a geçiliyor
+    action: ng-migration
+    package: "@angular/cli"
+    migration: use-application-builder
+    commit: "chore: migrate to the Angular application builder"
+
+  # SAP recommends running it after Angular 20, before Angular 21.
+  - id: control-flow
+    title: Template'ler yeni control flow sözdizimine taşınıyor
+    action: ng-generate
+    schematic: "@angular/core:control-flow"
+    commit: "chore: migrate templates to the new control flow syntax"
+
+  - id: angular-21
+    title: Angular 21'e güncelleniyor
+    action: ng-update
+    packages:
+      - "@angular/core@21"
+      - "@angular/cli@21"
+      - "@ngrx/store@21"
+      - "angular-oauth2-oidc@20"
+      - "@ng-select/ng-select@21"
+      - "ngx-infinite-scroll@21"
+    required: ["@angular/core", "@angular/cli"]
+    force: true
+    commit: "chore: update Angular to 21 and compatible third-party packages"
+
+notes:
+  - "Control flow migration hata verdiği dosyaları atlayıp devam eder; log'daki uyarıları inceleyin (.cx-ludus/logs/221121.7/procedure-control-flow.log)."
+  - "İsteğe bağlı: uygulamayı standalone bootstrap'e taşımak için SAP sayfasındaki \"Modernizing Your Storefront to Use the Standalone Bootstrap Application\" bölümüne bakın."
+  - "SSR kullanıyorsanız SAP sayfasındaki \"Enabling Non-Destructive Hydration\" bölümünü değerlendirin."
