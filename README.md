@@ -22,8 +22,9 @@ All data is derived from public sources: help.sap.com and the public
   more than SAP's usual steps (e.g. February releases with an Angular major
   update). Lists the `ng update` / `ng generate` actions `cx-ludus step` runs
   before the Spartacus update, whether Spartacus is updated through
-  `@spartacus/schematics`, and manual notes. Source: the release's page on
-  help.sap.com.
+  `@spartacus/schematics`, and manual notes. Titles and notes are written as
+  `{ en, tr }` (English required, used as the fallback). Source: the release's
+  page on help.sap.com.
 - `releases.overrides.json` — hand-maintained corrections, keyed by release id.
   Any field set here wins over what the indexer parsed. Use it when help.sap.com
   wording changes or omits a value.

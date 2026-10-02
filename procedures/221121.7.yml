@@ -1,7 +1,8 @@
 # Update Release 221121.7 (February release: Angular 19 → 20 → 21).
 # Source: help.sap.com, "Update Release 221121.7". Actions run in order on an
 # installed tree before the Spartacus update; each one is a checkpoint commit.
-schemaVersion: 1
+# User-facing texts are { en, tr }; English is required and the fallback.
+schemaVersion: 2
 release: "221121.7"
 
 # SAP updates Spartacus with the schematics for this release instead of
@@ -10,7 +11,9 @@ versionUpdate: spartacus-schematics
 
 beforeVersionUpdate:
   - id: angular-20
-    title: Angular 20'ye güncelleniyor
+    title:
+      en: Updating to Angular 20
+      tr: Angular 20'ye güncelleniyor
     action: ng-update
     packages:
       - "@angular/core@20"
@@ -25,7 +28,9 @@ beforeVersionUpdate:
 
   # SAP recommends running this optional migration during the Angular 20 update.
   - id: application-builder
-    title: Angular application builder'a geçiliyor
+    title:
+      en: Migrating to the Angular application builder
+      tr: Angular application builder'a geçiliyor
     action: ng-migration
     package: "@angular/cli"
     migration: use-application-builder
@@ -33,13 +38,17 @@ beforeVersionUpdate:
 
   # SAP recommends running it after Angular 20, before Angular 21.
   - id: control-flow
-    title: Template'ler yeni control flow sözdizimine taşınıyor
+    title:
+      en: Migrating templates to the new control flow syntax
+      tr: Template'ler yeni control flow sözdizimine taşınıyor
     action: ng-generate
     schematic: "@angular/core:control-flow"
     commit: "chore: migrate templates to the new control flow syntax"
 
   - id: angular-21
-    title: Angular 21'e güncelleniyor
+    title:
+      en: Updating to Angular 21
+      tr: Angular 21'e güncelleniyor
     action: ng-update
     packages:
       - "@angular/core@21"
@@ -53,6 +62,9 @@ beforeVersionUpdate:
     commit: "chore: update Angular to 21 and compatible third-party packages"
 
 notes:
-  - "Control flow migration hata verdiği dosyaları atlayıp devam eder; log'daki uyarıları inceleyin (.cx-ludus/logs/221121.7/procedure-control-flow.log)."
-  - "İsteğe bağlı: uygulamayı standalone bootstrap'e taşımak için SAP sayfasındaki \"Modernizing Your Storefront to Use the Standalone Bootstrap Application\" bölümüne bakın."
-  - "SSR kullanıyorsanız SAP sayfasındaki \"Enabling Non-Destructive Hydration\" bölümünü değerlendirin."
+  - en: "The control flow migration skips files it cannot migrate and carries on; review the warnings in .cx-ludus/logs/221121.7/procedure-control-flow.log."
+    tr: "Control flow migration hata verdiği dosyaları atlayıp devam eder; log'daki uyarıları inceleyin (.cx-ludus/logs/221121.7/procedure-control-flow.log)."
+  - en: "Optional: to move the app to the standalone bootstrap, see \"Modernizing Your Storefront to Use the Standalone Bootstrap Application\" on SAP's page."
+    tr: "İsteğe bağlı: uygulamayı standalone bootstrap'e taşımak için SAP sayfasındaki \"Modernizing Your Storefront to Use the Standalone Bootstrap Application\" bölümüne bakın."
+  - en: "If you use SSR, consider \"Enabling Non-Destructive Hydration\" on SAP's page."
+    tr: "SSR kullanıyorsanız SAP sayfasındaki \"Enabling Non-Destructive Hydration\" bölümünü değerlendirin."
