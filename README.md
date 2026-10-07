@@ -17,7 +17,9 @@ All data is derived from public sources: help.sap.com and the public
   toggles removed, added or enabled by default (with the Spartacus files and
   classes each one affects), public API changes, the Angular peer range and the
   filtered commit list. `generatorVersion` changes when the extraction logic
-  changes and every step is regenerated.
+  changes and every step is regenerated. Toggle descriptions and commit subjects
+  may carry a Turkish translation in `translations.tr`, added by the indexer;
+  the English text stays the source and the fallback.
 - `procedures/<release>.yml` — hand-maintained, only for releases that need
   more than SAP's usual steps (e.g. February releases with an Angular major
   update). Lists the `ng update` / `ng generate` actions `cx-ludus step` runs
