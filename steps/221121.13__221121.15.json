@@ -17,7 +17,10 @@
         "affects": [],
         "defaultValue": true,
         "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/bc80eb4d9f7742b292b0bd6ed7bf660c.html",
-        "usages": []
+        "usages": [],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, ürün sayfası için varsayılan routing config artık sadece şu değildir:\n`paths: ['product/:productCode/:name']`\nbunun yerine şudur:\n`paths: ['product/:productCode/:name', 'product/:productCode'],`\n\nBu, bağlantı oluşturma ve URL eşleştirmenin eski URL şemasının korunduğu anlamına gelir,\nancak artık URL eşleştirilirken daha kısa bir alias (ürün adı olmadan) da kabul edilir."
+        }
       },
       {
         "name": "reserveHorizontalSpaceStarRating",
@@ -60,7 +63,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "PDP'de CLS'yi önlemek için Star Rating component'i adına yatay alan ayırır.\nEtkinleştirildiğinde, `cx-star-rating` component'i PDP'de CLS'yi önlemek için star rating component'i adına yatay alan ayırır.\nAksi takdirde component başlangıçta genişliğe sahip olmaz ve yalnızca bir gecikmeden sonra genişler,\nyani Font Awesome fontu yüklendiğinde ve yıldız ikonları render edildiğinde."
+        }
       },
       {
         "name": "storeFinderFacadeCleanup",
@@ -96,7 +102,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, getDirections, getStoreLatitude ve getStoreLongitude için\nStoreFinderFacade (deprecated) yerine StoreLocationService kullanılır.\nArkasındaki mantık aynı kalır."
+        }
       },
       {
         "name": "topProgressBarUseTransformAnimation",
@@ -145,7 +154,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Üstteki progress bar animasyonu için `margin` özelliğini animasyonlamak yerine\n`transform: translateX` kullanımını etkinleştiren feature flag.\n\n## Bu flag neden var:\n`margin` özelliğini animasyonlamanın iki büyük dezavantajı vardır:\n\n1. **Cumulative Layout Shift (CLS)**: Margin değiştirmek, görsel kararlılığı olumsuz etkileyen layout kaymalarına neden olur.\n2. **Performans etkisi**: Margin animasyonları tarayıcıda yeniden layout'u (reflow) tetikler, layout ve paint maliyetlerini artırır,\n   bu da Total Blocking Time (TBT) gibi performans metriklerinin kötüleşmesine katkıda bulunur.\n\n## Etkinleştirildiğinde:\nÜstteki progress bar, GPU hızlandırmalı ve layout'tan bağımsız bir işlem olan `transform: translateX(...)` ile animasyonlanır;\nbu da görsel performansı iyileştirir ve layout kaymalarını önler."
+        }
       }
     ],
     "added": [
@@ -192,7 +204,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, tutarlı boşluk için \"Add to Wish List\" butonuna\n8px üst margin ekler."
+        }
       },
       {
         "name": "a11yCouponNotificationChannelsLinkStyling",
@@ -239,7 +254,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, My Coupons sayfasındaki \"Notification Channels\" bağlantısı\ndüz metin yerine bağlantı olarak (mavi, altı çizili) stillendirilir."
+        }
       },
       {
         "name": "a11yFixSearchBoxDoubleFocus",
@@ -300,7 +318,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Klavye ile gezinirken `SearchBoxComponent` içindeki arama input alanında\noluşan çift focus göstergesini düzeltir.\nforms.scss içindeki global bir `input:focus` kuralı input öğesine `visible-focus()` uygular,\n`.cx-label-inner-container:focus-within` ise bunu container'a da uygular;\nbu da aynı anda iki görünür focus halkasına neden olur.\nEtkinleştirildiğinde, input'un kendi focus outline'ı bastırılır ve yalnızca container halkası gösterilir."
+        }
       },
       {
         "name": "a11yProductListItemNameMargin",
@@ -388,7 +409,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, tutarlı boşluk için hem ürün grid'indeki hem de\nürün listesindeki öğelerde ürün adlarına 6px alt margin uygular."
+        }
       },
       {
         "name": "a11yQuickOrderResetFocus",
@@ -398,7 +422,10 @@
         ],
         "defaultValue": false,
         "docUrl": null,
-        "usages": []
+        "usages": [],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, Quick Order arama input'u reset butonu temizlendikten sonra\nbir sonraki tab ile erişilebilir öğeye focus kaybetmek yerine\nfocus'u korur."
+        }
       },
       {
         "name": "a11yRestoreFocusOnNgSelect",
@@ -456,7 +483,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, bir ng-select (combobox dropdown) içindeki tuş vuruşları form doldurma yerine\ngezinme olarak değerlendirilir. Bu, kullanıcı dropdown'ı fare ile açıp\nardından klavye ile gezindiğinde focus outline'ını korur\n(`mouse-focus` class'ı kaldırılır)."
+        }
       },
       {
         "name": "a11yStoreFinderFocusOnBackButton",
@@ -482,7 +512,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Store finder listesinde mağaza detayları gösterildiğinde focus'u 'Back' butonuna taşır,\böylece klavye kullanıcıları focus almış bir öğe olmadan kalmaz."
+        }
       },
       {
         "name": "a11yStoreFinderListItemFocus",
@@ -529,7 +562,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Mağaza adı bağlantılarındaki focus halkasının alttaki adres metnine taşmasını düzeltir."
+        }
       },
       {
         "name": "asyncAuthConfigInitializer",
@@ -537,7 +573,10 @@
         "affects": [],
         "defaultValue": false,
         "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/a1477a65d949445baeef791f84341d4a.html",
-        "usages": []
+        "usages": [],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, oAuth servisinin asenkron konfigürasyonu için destek ekler ve URL context parametrelerine göre oauth client detaylarını ayarlayan varsayılan bir initializer ekler.\n\nBu flag yalnızca `authorizationCodeFlowByDefault` flag'i etkinleştirildiğinde geçerli olur."
+        }
       },
       {
         "name": "authorizationCodeFlowByDefaultCsrfTokenRefresh",
@@ -561,7 +600,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, Authorization Code Flow içinde login formunu göndermeden önce CSRF token'ını yeniler. Bu, kullanıcı login sayfasında Authorization Server oturum zaman aşımını aşacak kadar beklemiş olsa bile token'ın geçerli olmasını sağlar ve backend'den dönen HTTP 403 yanıtının kullanıcıyı bir backend hata sayfasında bırakmasını önler.\n\nNOT: Yalnızca `authorizationCodeFlowByDefault` da etkinleştirildiğinde uygulanır."
+        }
       },
       {
         "name": "cdsBottomHeaderSlotAdjustPosition",
@@ -617,7 +659,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "CDS, `MerchandisingCarouselComponent` bileşenini `BreadcrumbComponent` yanına kaydettiğinde (ör. örnek verilerdeki arama sonuçları sayfalarında) `BottomHeaderSlot` layout'unu düzeltir.\n\nÖnce (devre dışı):\n- `BottomHeaderSlot` tüm child'ları tek bir flex satırında, wrap olmadan yerleştirir.\n- `cx-breadcrumb` ve `cx-merchandising-carousel` her biri slot genişliğinin yaklaşık %50'sine kadar büyür.\n- Breadcrumb başlığı ve yolu yalnızca bu yarı genişlik içinde ortalanır, bu yüzden blok sayfada sola hizalı görünür (carousel'in olmadığı ve breadcrumb'ın tam genişlikte tek child olduğu CDS'siz develop'un aksine).\n- `cx-merchandising-carousel`, verisi olmadığında ve içinde `cx-carousel` render etmediğinde bile flex satırında kalır ve breadcrumb'ın yanında boş alan bırakır.\n\nSonra (etkin):\n- `cx-breadcrumb` her zaman kendi satırında slot genişliğinin %100'ünü kaplar.\n- `cx-merchandising-carousel` yalnızca içinde bir `cx-carousel` render ettiğinde ayrı bir satırda gösterilir; aksi halde host gizlenir ve layout'u etkilemez."
+        }
       },
       {
         "name": "enableHierarchicalAddressFormat",
@@ -739,7 +784,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, adres defteri ve adres formu hiyerarşik adres formatlarını (ör. Çin adresleri) destekler; bu formatlar bölge (il), şehir ve ilçenin zincirleme dropdown'lar olarak seçilmesini gerektirir ve desteklenen ülkeler için OCC adres doğrulamasını atlar.\n\nAyrıca `OccUserAddressAdapter.loadAll()` metodunun FULL adres fields setini istemesini sağlar, böylece iç içe `city` / `cityDistrict` referansları döndürülür.\n\n- `AddressFormComponent`\n- `OccUserAddressAdapter`"
+        }
       },
       {
         "name": "opfCheckoutUseUpdatePaymentTransaction",
@@ -755,7 +803,10 @@
         "affects": [],
         "defaultValue": false,
         "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/3806f80ea8a34cfc83e28a6f082df0a8.html",
-        "usages": []
+        "usages": [],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, OPF component'leri subscription yönetimi için manuel `Subscription` nesneleri ve `ngOnDestroy` yerine `DestroyRef` + `takeUntilDestroyed` kullanır."
+        }
       },
       {
         "name": "pageLinkSanitizeCanonicalUrl",
@@ -771,7 +822,10 @@
         "affects": [],
         "defaultValue": false,
         "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/ac46b63a0db64a118408fc6afbdf7e4f.html",
-        "usages": []
+        "usages": [],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, bir tab'da logout yapmak diğer tüm açık tab'larda da logout işlemi başlatır. Bu, güncelliğini yitirmiş tab'lar üzerinden kimliği doğrulanmış verilerin sızmasını önler."
+        }
       },
       {
         "name": "redirectOnlyOnTrueNavigationEnd",
@@ -795,7 +849,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, logout sonrası son hatırlanan route'un logout'un yönlendirdiği route olması şeklindeki bilinen sorunu düzeltir."
+        }
       },
       {
         "name": "searchBoxRecentSearchesRemoval",
@@ -974,7 +1031,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "`SearchBoxComponent` ve CDS recent searches içindeki son aramalar UX'ini günceller.\n\nÖnce (devre dışı):\n- `SearchBoxComponent`, masaüstünde boş sorgu ile sonuç panelini gösterebilir.\n- Son aramalar, kaldırma kontrolleri olmayan basit bir link listesidir.\n- Son aramalar, öneri veya ürün olmadığında da render edilir.\n\nSonra (etkin):\n- Masaüstünde sonuç paneli yalnızca boş olmayan sorgu için render edilir; sorguyu temizlemek sonuçları temizler ve paneli kapatır.\n- `RecentSearchesComponent`, öğe başına (X) butonları ve CDS `removePhrase()` / `clearPhrases()` üzerinden bir \"Clear\" aksiyonu ekler.\n- Sonuç olmayan durumlarda son aramalar gizlenir."
+        }
       }
     ],
     "defaultEnabled": []
@@ -2441,7 +2501,10 @@
       "scope": null,
       "subject": "override ws@8 to 8.21.0 to avoid CVE",
       "jiraIds": [],
-      "pullRequest": 21732
+      "pullRequest": 21732,
+      "translations": {
+        "tr": "CVE'den kaçınmak için ws@8 sürümünü 8.21.0 olarak override et"
+      }
     },
     {
       "sha": "ff9e77be70a1cebdd3af33a9383585483fb4d9f6",
@@ -2449,7 +2512,10 @@
       "scope": null,
       "subject": "set authorizationCodeFlowByDefaultCsrfTokenRefresh feature toggle to correct value",
       "jiraIds": [],
-      "pullRequest": 21723
+      "pullRequest": 21723,
+      "translations": {
+        "tr": "authorizationCodeFlowByDefaultCsrfTokenRefresh feature toggle'ını doğru değere ayarla"
+      }
     },
     {
       "sha": "33c19233e1b20ec6a33721999ead2470e6947519",
@@ -2457,7 +2523,10 @@
       "scope": null,
       "subject": "address race condition in auth config initializer",
       "jiraIds": [],
-      "pullRequest": 21655
+      "pullRequest": 21655,
+      "translations": {
+        "tr": "auth config initializer içindeki race condition'ı gider"
+      }
     },
     {
       "sha": "06d3f35d1fd47aaa36897aa02b7e6191bf151ba2",
@@ -2465,7 +2534,10 @@
       "scope": null,
       "subject": "fix type roots for cypress tsconfig",
       "jiraIds": [],
-      "pullRequest": 21640
+      "pullRequest": 21640,
+      "translations": {
+        "tr": "cypress tsconfig için type roots'u düzelt"
+      }
     },
     {
       "sha": "35aa7585c4539985dab16fccabf8fa2740d3d91b",
@@ -2473,7 +2545,10 @@
       "scope": null,
       "subject": "add top margin to add to wishlist button",
       "jiraIds": [],
-      "pullRequest": 21595
+      "pullRequest": 21595,
+      "translations": {
+        "tr": "add to wishlist butonuna üst margin ekle"
+      }
     },
     {
       "sha": "25fcf4c9e55cc8fc479c5b5be750b2c629df9f1f",
@@ -2483,7 +2558,10 @@
       "jiraIds": [
         "CXSPA-12797"
       ],
-      "pullRequest": 21628
+      "pullRequest": 21628,
+      "translations": {
+        "tr": "(CXSPA-12797) Mağaza detayları görünürken back butonuna yeniden focus ver."
+      }
     },
     {
       "sha": "2beea3a0124312c963d9e0b8ec2fff2e26aa53d9",
@@ -2493,7 +2571,10 @@
       "jiraIds": [
         "CXSPA-13559"
       ],
-      "pullRequest": 21641
+      "pullRequest": 21641,
+      "translations": {
+        "tr": "CXSPA-13559 form-data sürümünü override et"
+      }
     },
     {
       "sha": "bb7ccc0e77a771c0aa928bc345b7587566d9d246",
@@ -2501,7 +2582,10 @@
       "scope": null,
       "subject": "update search title in e2e",
       "jiraIds": [],
-      "pullRequest": 21639
+      "pullRequest": 21639,
+      "translations": {
+        "tr": "e2e içinde arama başlığını güncelle"
+      }
     },
     {
       "sha": "076ac62d75982c626855714a329e60daf8d114a2",
@@ -2509,7 +2593,10 @@
       "scope": null,
       "subject": "improve flakiness of scroll position restoration",
       "jiraIds": [],
-      "pullRequest": 21634
+      "pullRequest": 21634,
+      "translations": {
+        "tr": "scroll pozisyonu geri yüklemedeki flakiness'i iyileştir"
+      }
     },
     {
       "sha": "6ec6428a88fac424889f4cb5cdfb50f9d7b22f89",
@@ -2519,7 +2606,10 @@
       "jiraIds": [
         "CXSPA-12778"
       ],
-      "pullRequest": 21613
+      "pullRequest": 21613,
+      "translations": {
+        "tr": "(CXSPA-12778) Search Box çift focus."
+      }
     },
     {
       "sha": "3f4917165d485c2a8a5378f915900976cb2035ef",
@@ -2529,7 +2619,10 @@
       "jiraIds": [
         "CXSPA-13422"
       ],
-      "pullRequest": 21560
+      "pullRequest": 21560,
+      "translations": {
+        "tr": "(CXSPA-13422) - OPF kütüphanesi genelinde OnDestroy hook'larını DestroyRef ile değiştir"
+      }
     },
     {
       "sha": "f7fc20dcdec47ee289e4aa1702420e448ac6092d",
@@ -2537,7 +2630,10 @@
       "scope": null,
       "subject": "(CSXSPA-8666) - OPF, Remove unused cardId from API calls",
       "jiraIds": [],
-      "pullRequest": 21524
+      "pullRequest": 21524,
+      "translations": {
+        "tr": "(CSXSPA-8666) - OPF, API çağrılarından kullanılmayan cardId'yi kaldır"
+      }
     },
     {
       "sha": "822373dde366079b64bdf0f9c604cb5a9f19bbd8",
@@ -2545,7 +2641,10 @@
       "scope": null,
       "subject": "fixing csrf token expired issue - no redirect to 403 page",
       "jiraIds": [],
-      "pullRequest": 21518
+      "pullRequest": 21518,
+      "translations": {
+        "tr": "csrf token süresi dolma sorununu düzelt - 403 sayfasına yönlendirme yok"
+      }
     },
     {
       "sha": "1bdc0c1fd321b0663974fd62a989de7c28933b57",
@@ -2555,7 +2654,10 @@
       "jiraIds": [
         "CXSPA-12796"
       ],
-      "pullRequest": 21630
+      "pullRequest": 21630,
+      "translations": {
+        "tr": "(CXSPA-12796) a11y StoreFinder: store-name linkindeki focus'u düzelt"
+      }
     },
     {
       "sha": "397862de19f62b97115c55e93e33d127b4983feb",
@@ -2563,7 +2665,10 @@
       "scope": null,
       "subject": "auth configuration initializer for url-based site context",
       "jiraIds": [],
-      "pullRequest": 21627
+      "pullRequest": 21627,
+      "translations": {
+        "tr": "URL tabanlı site context için auth configuration initializer"
+      }
     },
     {
       "sha": "1d200c6f090885c718ca9368be3ed9d4640c56fd",
@@ -2571,7 +2676,10 @@
       "scope": null,
       "subject": "make SSR allowed hosts configurable via SSR_ALLOWED_HOSTS env var",
       "jiraIds": [],
-      "pullRequest": 21590
+      "pullRequest": 21590,
+      "translations": {
+        "tr": "SSR allowed hosts değerlerini SSR_ALLOWED_HOSTS env değişkeniyle yapılandırılabilir yap"
+      }
     },
     {
       "sha": "f433020c69af0a66b849f09e3b8badf19a41d5fa",
@@ -2579,7 +2687,10 @@
       "scope": null,
       "subject": "Deprecate feature toggles for July release",
       "jiraIds": [],
-      "pullRequest": 21626
+      "pullRequest": 21626,
+      "translations": {
+        "tr": "Temmuz release'i için feature toggle'ları deprecate et"
+      }
     },
     {
       "sha": "5411d78275881dff96960ce48571986af5e97e60",
@@ -2587,7 +2698,10 @@
       "scope": null,
       "subject": "add margin to product item name",
       "jiraIds": [],
-      "pullRequest": 21594
+      "pullRequest": 21594,
+      "translations": {
+        "tr": "ürün öğesi adına margin ekle"
+      }
     },
     {
       "sha": "7f8dd9270081f575a45573a4c0297e4d6f985013",
@@ -2595,7 +2709,10 @@
       "scope": null,
       "subject": "More descriptive search icon tooltips",
       "jiraIds": [],
-      "pullRequest": 21587
+      "pullRequest": 21587,
+      "translations": {
+        "tr": "Daha açıklayıcı arama ikonu tooltip'leri"
+      }
     },
     {
       "sha": "48ff5cc8062f8a70652495886432c37d655fe2b6",
@@ -2603,7 +2720,10 @@
       "scope": null,
       "subject": "Change to rbsc token",
       "jiraIds": [],
-      "pullRequest": 21625
+      "pullRequest": 21625,
+      "translations": {
+        "tr": "rbsc token'a geç"
+      }
     },
     {
       "sha": "2fbd4ee0e6871b77c78f066e889c400c1d01eb44",
@@ -2613,7 +2733,10 @@
       "jiraIds": [
         "CXSPA-13513"
       ],
-      "pullRequest": 21616
+      "pullRequest": 21616,
+      "translations": {
+        "tr": "(CXSPA-13513) limitCacheByMemory SSR feature toggle'ını kaldır"
+      }
     },
     {
       "sha": "4ffb450dea57537654e96a0c852f8f09be65ae69",
@@ -2621,7 +2744,10 @@
       "scope": null,
       "subject": "select correct value in SiteContextSelectorComponent in SSR-only HTML",
       "jiraIds": [],
-      "pullRequest": 21398
+      "pullRequest": 21398,
+      "translations": {
+        "tr": "SSR-only HTML'de SiteContextSelectorComponent içinde doğru değeri seç"
+      }
     },
     {
       "sha": "740a92e748dbd6653549e917d4e6d458e25a87e0",
@@ -2631,7 +2757,10 @@
       "jiraIds": [
         "CXSPA-13503"
       ],
-      "pullRequest": 21614
+      "pullRequest": 21614,
+      "translations": {
+        "tr": "(CXSPA-13503) RenderingCache üzerine yazıldığında izlenen boyutu serbest bırak"
+      }
     },
     {
       "sha": "4dbfb856edd403ee1cbcecb0912b63f65620f65e",
@@ -2639,7 +2768,10 @@
       "scope": null,
       "subject": "Stabilize e2e",
       "jiraIds": [],
-      "pullRequest": 21615
+      "pullRequest": 21615,
+      "translations": {
+        "tr": "e2e'yi stabilize et"
+      }
     },
     {
       "sha": "14fb0c3cf249b74f6df9e1113d4bfcafd3bf4841",
@@ -2647,7 +2779,10 @@
       "scope": null,
       "subject": "use locale-aware date format in quote list",
       "jiraIds": [],
-      "pullRequest": 21609
+      "pullRequest": 21609,
+      "translations": {
+        "tr": "quote listesinde locale'e duyarlı tarih formatını kullan"
+      }
     },
     {
       "sha": "3bde3fa4402a3c39c53420eccd42da8cfbc639c0",
@@ -2655,7 +2790,10 @@
       "scope": null,
       "subject": "propagate logout to other tabs",
       "jiraIds": [],
-      "pullRequest": 21592
+      "pullRequest": 21592,
+      "translations": {
+        "tr": "logout işlemini diğer sekmelere ilet"
+      }
     },
     {
       "sha": "0aafba2abfa2e2947265ca03ec4998e105d40517",
@@ -2663,7 +2801,10 @@
       "scope": null,
       "subject": "cy upgrade 15.16.x",
       "jiraIds": [],
-      "pullRequest": 21611
+      "pullRequest": 21611,
+      "translations": {
+        "tr": "cy upgrade 15.16.x"
+      }
     },
     {
       "sha": "430c6356764c1642517e6f8f2f224e7f8863b392",
@@ -2671,7 +2812,10 @@
       "scope": null,
       "subject": "remove OPF PSP resources on payment component destroy",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "payment component destroy olduğunda OPF PSP kaynaklarını kaldır"
+      }
     },
     {
       "sha": "34b846118dbbf63b05d34eea95b2bfc2a8067bb1",
@@ -2679,7 +2823,10 @@
       "scope": null,
       "subject": "update lock file",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "lock dosyasını güncelle"
+      }
     },
     {
       "sha": "a2757bd7b79ab9889a083da6a0a9aa5988993f5a",
@@ -2687,7 +2834,10 @@
       "scope": null,
       "subject": "Revert \"Revert \"Merge remote-tracking branch 'origin/release/221121.13.x' into develop\"\"",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "Revert \"Revert \"Merge remote-tracking branch 'origin/release/221121.13.x' into develop\"\""
+      }
     },
     {
       "sha": "d3f547ef0929fb466102555a35eddc4a8978b1d6",
@@ -2697,7 +2847,10 @@
       "jiraIds": [
         "CXSPA-12814"
       ],
-      "pullRequest": 21574
+      "pullRequest": 21574,
+      "translations": {
+        "tr": "(CXSPA-12814) Check Box_ Seçme/Seçimi kaldırma sırasında focus kayboluyor"
+      }
     },
     {
       "sha": "295f81a0abfb2a74a5fa6bb3552aea424d3dfafd",
@@ -2707,7 +2860,10 @@
       "jiraIds": [
         "CXSPA-12685"
       ],
-      "pullRequest": 21557
+      "pullRequest": 21557,
+      "translations": {
+        "tr": "(CXSPA-12685) dialog box_ focus üst UI'a geri dönmüyor"
+      }
     },
     {
       "sha": "345bc9e13f80fc48207e8af82888f7d354a0032d",
@@ -2715,7 +2871,10 @@
       "scope": null,
       "subject": "Revert \"Merge remote-tracking branch 'origin/release/221121.13.x' into develop\"",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "Revert \"Merge remote-tracking branch 'origin/release/221121.13.x' into develop\""
+      }
     },
     {
       "sha": "00e31bde8c0dc949cc1b47421189cc2b451ef6c3",
@@ -2723,7 +2882,10 @@
       "scope": null,
       "subject": "[eslint] add featureTogglesMustBePrivate rule",
       "jiraIds": [],
-      "pullRequest": 21589
+      "pullRequest": 21589,
+      "translations": {
+        "tr": "[eslint] featureTogglesMustBePrivate kuralını ekle"
+      }
     },
     {
       "sha": "3645e6158aa9dfe98f00888f69e781787c758f13",
@@ -2731,7 +2893,10 @@
       "scope": null,
       "subject": "introduce new global functions structure",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "yeni global functions yapısını getir"
+      }
     },
     {
       "sha": "f8d7388e8291f27afb5a5614b1ae66a26f81855d",
@@ -2739,7 +2904,10 @@
       "scope": null,
       "subject": "declare type:commonjs on libraries shipping schematics",
       "jiraIds": [],
-      "pullRequest": 21579
+      "pullRequest": 21579,
+      "translations": {
+        "tr": "schematics içeren kütüphanelerde type:commonjs tanımla"
+      }
     },
     {
       "sha": "fb2f2a70d298599049231b9c38046b7e33b06348",
@@ -2747,7 +2915,10 @@
       "scope": null,
       "subject": "override tmp to 0.2.6",
       "jiraIds": [],
-      "pullRequest": 21581
+      "pullRequest": 21581,
+      "translations": {
+        "tr": "tmp'yi 0.2.6 sürümüne override et"
+      }
     },
     {
       "sha": "e290102bdb3ed2017a36a67140db389559ad1a17",
@@ -2757,7 +2928,10 @@
       "jiraIds": [
         "CXSPA-9504"
       ],
-      "pullRequest": 21272
+      "pullRequest": 21272,
+      "translations": {
+        "tr": "(CXSPA-9504) address book'ta Çince adres desteği"
+      }
     },
     {
       "sha": "40e302c3e0d3497596b89d570e5d0b24abf58095",
@@ -2765,7 +2939,10 @@
       "scope": null,
       "subject": "CXEC-63775 Multiple Quote api call in Quote History Page",
       "jiraIds": [],
-      "pullRequest": 21570
+      "pullRequest": 21570,
+      "translations": {
+        "tr": "CXEC-63775 Quote History sayfasında birden fazla Quote API çağrısı"
+      }
     },
     {
       "sha": "b3e567845c8e4a7bf435c037cae7cbf897ec601e",
@@ -2773,7 +2950,10 @@
       "scope": null,
       "subject": "update cache-builded-libs tsconfig",
       "jiraIds": [],
-      "pullRequest": 21576
+      "pullRequest": 21576,
+      "translations": {
+        "tr": "cache-builded-libs tsconfig'i güncelle"
+      }
     },
     {
       "sha": "60a8d1665b8de3eb123d22275b24d20d28e65f9b",
@@ -2783,7 +2963,10 @@
       "jiraIds": [
         "CXSPA-13364"
       ],
-      "pullRequest": 21575
+      "pullRequest": 21575,
+      "translations": {
+        "tr": "(CXSPA-13364) - ek versiyon artırımı"
+      }
     },
     {
       "sha": "85f6cd94c480c92bb1abe578850a004110f8fe5e",
@@ -2791,7 +2974,10 @@
       "scope": null,
       "subject": "updatePaymentTransaction fixes",
       "jiraIds": [],
-      "pullRequest": 21573
+      "pullRequest": 21573,
+      "translations": {
+        "tr": "updatePaymentTransaction düzeltmeleri"
+      }
     },
     {
       "sha": "593751d399de7ec355a35ec2f0a25cfbb239dd0d",
@@ -2799,7 +2985,10 @@
       "scope": null,
       "subject": "Fix focusing on sorting component",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "Sıralama component'inde focus sorununu düzelt"
+      }
     },
     {
       "sha": "228db493389de95fba380c5157a31facd1d44ba4",
@@ -2809,7 +2998,10 @@
       "jiraIds": [
         "CXSPA-13364"
       ],
-      "pullRequest": 21554
+      "pullRequest": 21554,
+      "translations": {
+        "tr": "(CXSPA-13364) en son minor angular sürümlerine yükselt"
+      }
     },
     {
       "sha": "bb30f467b97d42dede629305ffa7146cfbc15561",
@@ -2819,7 +3011,10 @@
       "jiraIds": [
         "CXSPA-12792"
       ],
-      "pullRequest": 21558
+      "pullRequest": 21558,
+      "translations": {
+        "tr": "Eksik cxFocus directive'lerini ekle"
+      }
     },
     {
       "sha": "6fa4d615888a4d6727c2814db7fcc77f239fd5ff",
@@ -2827,7 +3022,10 @@
       "scope": null,
       "subject": "a11y - truncate long customerId with ellipsis in profile forms",
       "jiraIds": [],
-      "pullRequest": 21529
+      "pullRequest": 21529,
+      "translations": {
+        "tr": "a11y - profil formlarında uzun customerId değerini üç nokta (ellipsis) ile kısalt"
+      }
     },
     {
       "sha": "ca5759fdd1b26d1142e23aef3193e1a014acca80",
@@ -2837,7 +3035,10 @@
       "jiraIds": [
         "CXSPA-12340"
       ],
-      "pullRequest": 21499
+      "pullRequest": 21499,
+      "translations": {
+        "tr": "updatePaymentTransaction global fonksiyonlarını uygula (CXSPA-12340)"
+      }
     },
     {
       "sha": "344e3cf20bcea959b7384d7da5bc637f7395640d",
@@ -2845,7 +3046,10 @@
       "scope": null,
       "subject": "env cmd 11.x",
       "jiraIds": [],
-      "pullRequest": 21552
+      "pullRequest": 21552,
+      "translations": {
+        "tr": "env cmd 11.x"
+      }
     },
     {
       "sha": "720029bcea9113d25d3d96634167eb0602ba24f1",
@@ -2853,7 +3057,10 @@
       "scope": null,
       "subject": "resolve jdk17 b2b-user-register e2e failure",
       "jiraIds": [],
-      "pullRequest": 21555
+      "pullRequest": 21555,
+      "translations": {
+        "tr": "jdk17 b2b-user-register e2e hatasını çöz"
+      }
     },
     {
       "sha": "21f68e24b91ea9f1851595b6d0fe5a25c6f05bb1",
@@ -2861,7 +3068,10 @@
       "scope": null,
       "subject": "checkout Spartacus repo before running local validate-version action",
       "jiraIds": [],
-      "pullRequest": 21500
+      "pullRequest": 21500,
+      "translations": {
+        "tr": "Yerel validate-version action'ını çalıştırmadan önce Spartacus repo'sunu checkout et"
+      }
     },
     {
       "sha": "ff18d90336b78ede70dcde0045dd500daa08b00f",
@@ -2869,7 +3079,10 @@
       "scope": null,
       "subject": "fix nosonar ignore comment",
       "jiraIds": [],
-      "pullRequest": 21559
+      "pullRequest": 21559,
+      "translations": {
+        "tr": "nosonar ignore yorumunu düzelt"
+      }
     },
     {
       "sha": "49cc2b4d73c212021e00f605e318a765706c6028",
@@ -2877,7 +3090,10 @@
       "scope": null,
       "subject": "Focus lost on quick order reset button",
       "jiraIds": [],
-      "pullRequest": 21521
+      "pullRequest": 21521,
+      "translations": {
+        "tr": "Quick order reset butonunda focus kayboluyor"
+      }
     },
     {
       "sha": "4b1040aeb4692e4c843cdee90fe74f66ee1088f9",
@@ -2885,7 +3101,10 @@
       "scope": null,
       "subject": "Add of removal of recent search phrase from search box",
       "jiraIds": [],
-      "pullRequest": 20847
+      "pullRequest": 20847,
+      "translations": {
+        "tr": "Arama kutusundan son arama ifadesinin kaldırılması eklendi"
+      }
     },
     {
       "sha": "cd96c8c8083417cbc4a5ff38c653e22b64666b75",
@@ -2893,7 +3112,10 @@
       "scope": null,
       "subject": "increase default timeout for OPF karma config",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "OPF karma config için varsayılan timeout değerini artır"
+      }
     },
     {
       "sha": "c693e6e77fb1274a8aca016a58455e28a10ec6ef",
@@ -2901,7 +3123,10 @@
       "scope": null,
       "subject": "address checkmarx issue",
       "jiraIds": [],
-      "pullRequest": 21541
+      "pullRequest": 21541,
+      "translations": {
+        "tr": "checkmarx sorununu gider"
+      }
     },
     {
       "sha": "54ecf1ff3cbbf61552289a83149064c20992d810",
@@ -2909,7 +3134,10 @@
       "scope": null,
       "subject": "override @verdaccio/middleware after verdaccio bump by dependabot",
       "jiraIds": [],
-      "pullRequest": 21543
+      "pullRequest": 21543,
+      "translations": {
+        "tr": "dependabot'un verdaccio yükseltmesinden sonra @verdaccio/middleware'i override et"
+      }
     },
     {
       "sha": "806f26f7a634c875afd0aed13dbc15cc2832c9ca",
@@ -2917,7 +3145,10 @@
       "scope": null,
       "subject": "partially revert PR #21512",
       "jiraIds": [],
-      "pullRequest": 21540
+      "pullRequest": 21540,
+      "translations": {
+        "tr": "PR #21512'yi kısmen geri al"
+      }
     },
     {
       "sha": "f85b82f8338ebaf623a56747d2a8d79f80f0f053",
@@ -2925,7 +3156,10 @@
       "scope": null,
       "subject": "change behavior for the checkbox if no billing address",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "Fatura adresi yoksa checkbox davranışını değiştir"
+      }
     },
     {
       "sha": "d6d9fe101e778835cb761955d8a1998fd1b38a07",
@@ -2933,7 +3167,10 @@
       "scope": null,
       "subject": "remove duplicate COMMON_SAP_ARTIFACTORY_TOKEN with SAP_COMMON_NPM_TOKEN",
       "jiraIds": [],
-      "pullRequest": 21539
+      "pullRequest": 21539,
+      "translations": {
+        "tr": "yinelenen COMMON_SAP_ARTIFACTORY_TOKEN'ı SAP_COMMON_NPM_TOKEN ile kaldır"
+      }
     },
     {
       "sha": "be08b5bb4e1a6b51effa580a0a93b9d024c1345d",
@@ -2941,7 +3178,10 @@
       "scope": null,
       "subject": "Make link look like link on coupons page",
       "jiraIds": [],
-      "pullRequest": 21507
+      "pullRequest": 21507,
+      "translations": {
+        "tr": "Kuponlar sayfasında linkin link gibi görünmesini sağla"
+      }
     },
     {
       "sha": "107833ba71ba5ff2c2bfba296f34e4d0871afe15",
@@ -2949,7 +3189,10 @@
       "scope": null,
       "subject": "Handling security findings",
       "jiraIds": [],
-      "pullRequest": 21535
+      "pullRequest": 21535,
+      "translations": {
+        "tr": "Güvenlik bulgularının ele alınması"
+      }
     },
     {
       "sha": "ea5768dacd4a1f7341ff68825718be47c05ef0c8",
@@ -2959,7 +3202,10 @@
       "jiraIds": [
         "CXSPA-13083"
       ],
-      "pullRequest": 21502
+      "pullRequest": 21502,
+      "translations": {
+        "tr": "(CXSPA-13083) kodlama yönergelerinin uygulanmasını ESLint ile otomatikleştir"
+      }
     },
     {
       "sha": "85bf1036078d9059b15c2042b66dbff7178e8107",
@@ -2967,7 +3213,10 @@
       "scope": null,
       "subject": "ignore sonar issue",
       "jiraIds": [],
-      "pullRequest": 21536
+      "pullRequest": 21536,
+      "translations": {
+        "tr": "sonar sorununu yoksay"
+      }
     },
     {
       "sha": "29c485f6429b4f26019b826544d0b8cc232846f8",
@@ -2975,7 +3224,10 @@
       "scope": null,
       "subject": "skip gh CI checks when PR contains only docs and md files",
       "jiraIds": [],
-      "pullRequest": 21294
+      "pullRequest": 21294,
+      "translations": {
+        "tr": "PR yalnızca docs ve md dosyaları içerdiğinde gh CI kontrollerini atla"
+      }
     },
     {
       "sha": "c200a4359cf22e9c2bc58726772ed2e5b560ae3f",
@@ -2985,7 +3237,10 @@
       "jiraIds": [
         "CXSPA-13055"
       ],
-      "pullRequest": 21505
+      "pullRequest": 21505,
+      "translations": {
+        "tr": "(CXSPA-13055) - RedirectUrls kayıtları artık ikili (pairwise) olarak işleniyor; bir önceki kaydın guard redirect kaynaklı olup olmadığı her zaman karşılaştırılıyor"
+      }
     },
     {
       "sha": "cb309cb5bb7f98b188f3c8e94d872ab13ebf11e5",
@@ -2993,7 +3248,10 @@
       "scope": null,
       "subject": "update CLAUDE.md, move core libs to top",
       "jiraIds": [],
-      "pullRequest": 21533
+      "pullRequest": 21533,
+      "translations": {
+        "tr": "CLAUDE.md dosyasını güncelle, core kütüphanelerini en üste taşı"
+      }
     },
     {
       "sha": "58b4a80f8f75abd240e3941a161d85de0482d25f",
@@ -3001,7 +3259,10 @@
       "scope": null,
       "subject": "remove update-ccv2 workflow - not run in last 12 months",
       "jiraIds": [],
-      "pullRequest": 21531
+      "pullRequest": 21531,
+      "translations": {
+        "tr": "son 12 ayda çalışmayan update-ccv2 workflow'unu kaldır"
+      }
     },
     {
       "sha": "efe762f38f25638a704308d8915b945ceff68d9b",
@@ -3009,7 +3270,10 @@
       "scope": null,
       "subject": "Show focus border on image zoom dialogue components",
       "jiraIds": [],
-      "pullRequest": 21506
+      "pullRequest": 21506,
+      "translations": {
+        "tr": "Image zoom dialog component'lerinde focus kenarlığını göster"
+      }
     },
     {
       "sha": "17552a76a2c7627dd94b67ae4a61fb38b1f6bc26",
@@ -3019,7 +3283,10 @@
       "jiraIds": [
         "CXSPA-12194"
       ],
-      "pullRequest": 21527
+      "pullRequest": 21527,
+      "translations": {
+        "tr": "script'i çalıştır - 5 kütüphaneyi /projects klasöründen /core-libs altına taşı (CXSPA-12194)"
+      }
     },
     {
       "sha": "7d5e8746f6fba575b37babb1d3e20f267a3731fc",
@@ -3027,7 +3294,10 @@
       "scope": null,
       "subject": "remove .vscode from exclusion list in move script",
       "jiraIds": [],
-      "pullRequest": 21525
+      "pullRequest": 21525,
+      "translations": {
+        "tr": "taşıma script'indeki hariç tutma listesinden .vscode'u kaldır"
+      }
     },
     {
       "sha": "bd57c2e7b1c056e68d674b2ce41951032112abfc",
@@ -3035,7 +3305,10 @@
       "scope": null,
       "subject": "resolve issues with config",
       "jiraIds": [],
-      "pullRequest": 21516
+      "pullRequest": 21516,
+      "translations": {
+        "tr": "config ile ilgili sorunları çöz"
+      }
     },
     {
       "sha": "eb78483e091329c3a83d269ce71c38f7be4ced9c",
@@ -3043,7 +3316,10 @@
       "scope": null,
       "subject": "correct build script for cache-builded-libs",
       "jiraIds": [],
-      "pullRequest": 21508
+      "pullRequest": 21508,
+      "translations": {
+        "tr": "cache-builded-libs için build script'ini düzelt"
+      }
     },
     {
       "sha": "f7eeb88c273833be9299a11b9af64a9fb9051f3a",
@@ -3051,7 +3327,10 @@
       "scope": null,
       "subject": "installation script",
       "jiraIds": [],
-      "pullRequest": 21512
+      "pullRequest": 21512,
+      "translations": {
+        "tr": "kurulum script'i"
+      }
     },
     {
       "sha": "f6ab1725834db50dc5b40e82f0e0c81850b4adaa",
@@ -3061,7 +3340,10 @@
       "jiraIds": [
         "CXSPA-13204"
       ],
-      "pullRequest": 21468
+      "pullRequest": 21468,
+      "translations": {
+        "tr": "(CXSPA-13204) - OPF kütüphanesinden kullanımdan kaldırılmış kodu kaldır"
+      }
     },
     {
       "sha": "7570d6cb1859efdfe5cde59e6204112303da95e5",
@@ -3071,7 +3353,10 @@
       "jiraIds": [
         "CXSPA-13001"
       ],
-      "pullRequest": 21403
+      "pullRequest": 21403,
+      "translations": {
+        "tr": "(CXSPA-13001) - OPF quick buy provider'ları için config"
+      }
     },
     {
       "sha": "9557b021b67dd8acb7882d96dcf245652a0d4be6",
@@ -3079,7 +3364,10 @@
       "scope": null,
       "subject": "update VSCode settings",
       "jiraIds": [],
-      "pullRequest": 21511
+      "pullRequest": 21511,
+      "translations": {
+        "tr": "VSCode ayarlarını güncelle"
+      }
     },
     {
       "sha": "8f8db161e2ac6ca5035cd9a009e9500c89029a93",
@@ -3087,7 +3375,10 @@
       "scope": null,
       "subject": "Move global npm pakages to pakage.json",
       "jiraIds": [],
-      "pullRequest": 21501
+      "pullRequest": 21501,
+      "translations": {
+        "tr": "Global npm paketlerini pakage.json dosyasına taşı"
+      }
     }
   ]
 }

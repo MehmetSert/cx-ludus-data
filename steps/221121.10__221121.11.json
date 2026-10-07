@@ -74,7 +74,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Programatik olarak disabled/enabled yapılan mevcut form butonlarında kullanın.\nKullanmak için butonu çoğaltın; orijinalinde false, kopyasında true kullanın. Çoğaltılan buton\nenabled ve tıklanabilir olarak başlatılmalı ve orijinal butonun disabled durumda olduğu senaryolarda cx-form-errors kullanmalıdır."
+        }
       },
       {
         "name": "a11yConsentManagementFocusPreservation",
@@ -123,7 +126,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Toggle işleminden sonra consent checkbox'larında klavye focus'unu korur.\nVisibleFocusDirective içinde checkbox/radio üzerindeki Space/Enter tuşlarını navigasyon olarak değerlendirir\nve consent formu geçici olarak disabled yapıldıktan sonra focus'u geri yükler."
+        }
       },
       {
         "name": "a11yVocalizeDropdownItemCount",
@@ -149,7 +155,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, dropdown focus aldığında dropdown öğe sayısının sesli olarak okunmasını ekler."
+        }
       },
       {
         "name": "enableExpiredRefreshTokenHandlers",
@@ -190,7 +199,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, `AuthHttpHeaderService`, refresh token süresinin dolduğu senaryolarda `handleExpiredRefreshToken()` davranışını devralmak için DI ile sağlanan\n`ExpiredRefreshTokenHandler`'ı çalıştırır.\nBöylece, süresi dolmuş refresh token senaryolarını özel bir şekilde ele almak için (örneğin punchout oturumu aktifken sonlandırmak için) AuthHttpHeaderService'in tamamını override etme ihtiyacı ortadan kalkar."
+        }
       },
       {
         "name": "enableRemoveVoucherEndpoint",
@@ -198,7 +210,10 @@
         "affects": [],
         "defaultValue": false,
         "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/05358e5b1044431584ae90e35ebb70de.html",
-        "usages": []
+        "usages": [],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, `DELETE /carts/{cartId}/vouchers/{voucherId}` yerine voucherId'nin\nrequest body içinde gönderildiği `POST /carts/{cartId}/removeVoucher` kullanılır.\nBackend'de ilgili OCC endpoint'inin mevcut olmasını gerektirir (2211.28 sürümünden itibaren)."
+        }
       },
       {
         "name": "showRequiredAsterisks",
@@ -245,7 +260,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, form alanları için zorunlu alan yıldızlarını (asterisk) gösterir."
+        }
       },
       {
         "name": "useEnhancedSecurePasswordValidators",
@@ -335,7 +353,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, CustomFormValidators.securePasswordValidators kullanan formlara şunlar dahil edilir:\nCustomFormValidators.mustEndWithLegalCharacter"
+        }
       }
     ],
     "defaultEnabled": [
@@ -345,7 +366,10 @@
         "affects": [],
         "defaultValue": true,
         "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/059ef1e522b6484dbef4071b37828ac1.html",
-        "usages": []
+        "usages": [],
+        "translations": {
+          "tr": "Quote Purchase Order Number input alanını Quote Request formunda\nve Quote Details sayfasında gösterir.\n\n`true` olarak ayarlandığında, kullanıcı teklif talep ederken\nPurchase Order Number girebilir ve bunu quote details içinde görebilir."
+        }
       },
       {
         "name": "enableReturnOrderReturnableQuantityConsigmentFallback",
@@ -373,7 +397,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, return request details sayfasına gidildiğinde `ReturnOrderComponent` üzerinde iade edilebilir sipariş miktarının\ndoğru görüntülenmemesi sorununu giderir."
+        }
       },
       {
         "name": "navigationMenuCloseOnSameLinkClick",
@@ -401,7 +428,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Bu feature toggle etkinleştirildiğinde, navigasyon menüsü aynı bağlantıya tıklandığında kapanır.\n\nBu, mobil cihazlarda aynı sayfaya yönlendiren bir bağlantıya tıkladıktan sonra\nmenünün açık kalması durumunda kullanıcı deneyimini iyileştirmek içindir."
+        }
       }
     ]
   },
@@ -1494,7 +1524,10 @@
       "scope": null,
       "subject": "remove tokenisation from the default installation array",
       "jiraIds": [],
-      "pullRequest": 21457
+      "pullRequest": 21457,
+      "translations": {
+        "tr": "tokenisation'ı varsayılan kurulum dizisinden kaldır"
+      }
     },
     {
       "sha": "683e9c575edccfe5a39b991ab9bc559167df4751",
@@ -1502,7 +1535,10 @@
       "scope": null,
       "subject": "add missing return in federated login session refresh",
       "jiraIds": [],
-      "pullRequest": 21452
+      "pullRequest": 21452,
+      "translations": {
+        "tr": "federated login oturum yenilemesinde eksik return ekle"
+      }
     },
     {
       "sha": "844e61c1df1d1bd93eb8874d16cb27f38f0158b0",
@@ -1510,7 +1546,10 @@
       "scope": null,
       "subject": "register in federated login does not use origin site to re-initialize login session",
       "jiraIds": [],
-      "pullRequest": 21446
+      "pullRequest": 21446,
+      "translations": {
+        "tr": "federated login içindeki register, login oturumunu yeniden başlatmak için origin site'ı kullanmıyor"
+      }
     },
     {
       "sha": "688ebb17aae9fdabdf50e9a900a46f86585ab605",
@@ -1518,7 +1557,10 @@
       "scope": null,
       "subject": "remove giftcard from default installation array (#21448)",
       "jiraIds": [],
-      "pullRequest": 21450
+      "pullRequest": 21450,
+      "translations": {
+        "tr": "giftcard'ı varsayılan kurulum dizisinden kaldır (#21448)"
+      }
     },
     {
       "sha": "bc170920b8b9737a142283669dcd009e1fa6deb8",
@@ -1526,7 +1568,10 @@
       "scope": null,
       "subject": "giftcard bugs",
       "jiraIds": [],
-      "pullRequest": 21447
+      "pullRequest": 21447,
+      "translations": {
+        "tr": "giftcard hataları"
+      }
     },
     {
       "sha": "efdd268a19f75d60f342d80eb980be0da3abd249",
@@ -1534,7 +1579,10 @@
       "scope": null,
       "subject": "normalize federated login config interface",
       "jiraIds": [],
-      "pullRequest": 21420
+      "pullRequest": 21420,
+      "translations": {
+        "tr": "federated login config interface'ini normalleştir"
+      }
     },
     {
       "sha": "b1770306e3a94447969e8b6318f060f2a6d02745",
@@ -1542,7 +1590,10 @@
       "scope": null,
       "subject": "align default federated login configuration",
       "jiraIds": [],
-      "pullRequest": 21405
+      "pullRequest": 21405,
+      "translations": {
+        "tr": "varsayılan federated login yapılandırmasını hizala"
+      }
     },
     {
       "sha": "8a41652fcaceba93f485dc89c9239754ea3a3259",
@@ -1550,7 +1601,10 @@
       "scope": null,
       "subject": "get Blackduck to create new scan with name \"2605\" to represent 221121.11.0",
       "jiraIds": [],
-      "pullRequest": 21416
+      "pullRequest": 21416,
+      "translations": {
+        "tr": "Blackduck'ın 221121.11.0'ı temsil etmek üzere \"2605\" adıyla yeni bir scan oluşturmasını sağla"
+      }
     },
     {
       "sha": "df90742f669aaa018374bdb3c74165261912da43",
@@ -1558,7 +1612,10 @@
       "scope": null,
       "subject": "Add handler to prevent Punchout overwriting AuthHttpHeader",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "Punchout'un AuthHttpHeader'ı ezmesini önlemek için handler ekle"
+      }
     },
     {
       "sha": "08d89f2168b6d0ec3101722bae68c0502a7b9943",
@@ -1568,7 +1625,10 @@
       "jiraIds": [
         "CXSPA-12985"
       ],
-      "pullRequest": 21400
+      "pullRequest": 21400,
+      "translations": {
+        "tr": "CXSPA-12985 platform-server SSRF güvenlik açığını gidermek için Angular'ı 21.2.9 sürümüne yükselt - release"
+      }
     },
     {
       "sha": "9dfc758e9003faca35d33714417fab96415835ae",
@@ -1578,7 +1638,10 @@
       "jiraIds": [
         "CXSPA-12474"
       ],
-      "pullRequest": 21378
+      "pullRequest": 21378,
+      "translations": {
+        "tr": "(CXSPA-12474) .ng-arrow-wrapper üzerindeki aria-hidden öğesini screen reader'lardan gizle"
+      }
     },
     {
       "sha": "8c1d0fcd08e490d7732a9d72c6d5318b01d3409e",
@@ -1588,7 +1651,10 @@
       "jiraIds": [
         "CXSPA-5180"
       ],
-      "pullRequest": 21391
+      "pullRequest": 21391,
+      "translations": {
+        "tr": "(CXSPA-5180) iPhone'daki ASM 360 stil sorunlarını düzelt"
+      }
     },
     {
       "sha": "405b02b73d4de08ed403565ae6bcd63bf75b9d2e",
@@ -1596,7 +1662,10 @@
       "scope": null,
       "subject": "federated custom login page for multi-domain hosting",
       "jiraIds": [],
-      "pullRequest": 21366
+      "pullRequest": 21366,
+      "translations": {
+        "tr": "çoklu domain barındırma için federated özel login sayfası"
+      }
     },
     {
       "sha": "1769efaf9dbe463b4bacc3fd74b07fdf46215e55",
@@ -1604,7 +1673,10 @@
       "scope": null,
       "subject": "clear oAuthRedirectCodeFlow local storage value after login failure",
       "jiraIds": [],
-      "pullRequest": 21380
+      "pullRequest": 21380,
+      "translations": {
+        "tr": "login hatasından sonra oAuthRedirectCodeFlow local storage değerini temizle"
+      }
     },
     {
       "sha": "869abacf05f3a59b43edcbc631ad02f14c166260",
@@ -1612,7 +1684,10 @@
       "scope": null,
       "subject": "giftcard icon config & toggleGiftCardform",
       "jiraIds": [],
-      "pullRequest": 21382
+      "pullRequest": 21382,
+      "translations": {
+        "tr": "giftcard icon config ve toggleGiftCardform"
+      }
     },
     {
       "sha": "dd23e209665bdedeede10bbd061a9a326e936533",
@@ -1620,7 +1695,10 @@
       "scope": null,
       "subject": "persist focus on consent",
       "jiraIds": [],
-      "pullRequest": 21309
+      "pullRequest": 21309,
+      "translations": {
+        "tr": "consent üzerinde focus'un korunması"
+      }
     },
     {
       "sha": "2b7db392176ace160adc369079d7f2bb9602c6d7",
@@ -1628,7 +1706,10 @@
       "scope": null,
       "subject": "Avoid payment call when gift card fully covers total during billing update",
       "jiraIds": [],
-      "pullRequest": 21376
+      "pullRequest": 21376,
+      "translations": {
+        "tr": "Billing güncellemesi sırasında gift card toplam tutarı tamamen karşıladığında ödeme çağrısından kaçın"
+      }
     },
     {
       "sha": "180a7f74274caca72a4715835f9724b57754ffee",
@@ -1636,7 +1717,10 @@
       "scope": null,
       "subject": "Add asterisks to customer id, roles and rights required input fields",
       "jiraIds": [],
-      "pullRequest": 21369
+      "pullRequest": 21369,
+      "translations": {
+        "tr": "Customer id, roles ve rights zorunlu giriş alanlarına yıldız işareti ekle"
+      }
     },
     {
       "sha": "bac8db1a5eeb99fb3f4d6e1671d7aa3b99e9a6dd",
@@ -1644,7 +1728,10 @@
       "scope": null,
       "subject": "giftCard deployment error",
       "jiraIds": [],
-      "pullRequest": 21367
+      "pullRequest": 21367,
+      "translations": {
+        "tr": "giftCard deployment hatası"
+      }
     },
     {
       "sha": "874399dea5dd8b467cffc5e4c5af24762ec826fd",
@@ -1654,7 +1741,10 @@
       "jiraIds": [
         "CXSPA-12506"
       ],
-      "pullRequest": 21310
+      "pullRequest": 21310,
+      "translations": {
+        "tr": "SINGLE_SELECTION_IMAGE UI türü için \"Select a value\" mesajını göster (CXSPA-12506)"
+      }
     },
     {
       "sha": "74cba145d4c723efb7371c450f9596dc1381b863",
@@ -1664,7 +1754,10 @@
       "jiraIds": [
         "CXSPA-12749"
       ],
-      "pullRequest": 21357
+      "pullRequest": 21357,
+      "translations": {
+        "tr": "2605 release için feature toggle'ları etkinleştir (CXSPA-12749)"
+      }
     },
     {
       "sha": "35205f1c98e5bb179e84134042722c36a53aef6f",
@@ -1674,7 +1767,10 @@
       "jiraIds": [
         "CXSPA-12853"
       ],
-      "pullRequest": 21364
+      "pullRequest": 21364,
+      "translations": {
+        "tr": "Başarısız olan e2e testini düzelt (CXSPA-12853)"
+      }
     },
     {
       "sha": "1917b29ad6758836bd6b6fee2a5b0c41fd30780b",
@@ -1684,7 +1780,10 @@
       "jiraIds": [
         "CXSPA-12790"
       ],
-      "pullRequest": 21361
+      "pullRequest": 21361,
+      "translations": {
+        "tr": "CXSPA-12790 Sec Vulnerabilities - axios sürümünü 1.15.0'a yükselt"
+      }
     },
     {
       "sha": "6eba6fc0fe3be320edd1a882fa63d62182f3a6a4",
@@ -1692,7 +1791,10 @@
       "scope": null,
       "subject": "gc-occ endpoints config",
       "jiraIds": [],
-      "pullRequest": 21362
+      "pullRequest": 21362,
+      "translations": {
+        "tr": "gc-occ endpoints config"
+      }
     },
     {
       "sha": "947b7c2690e330b2e744168a8a69998aec763382",
@@ -1702,7 +1804,10 @@
       "jiraIds": [
         "CXSPA-11478"
       ],
-      "pullRequest": 21075
+      "pullRequest": 21075,
+      "translations": {
+        "tr": "(CXSPA-11478) - GitHub actions pipeline'ının ele geçirilme riskini azalt"
+      }
     },
     {
       "sha": "23efeaa4ae9108ae736773fd858a6040ecc224cd",
@@ -1710,7 +1815,10 @@
       "scope": null,
       "subject": "add new validation to secure password validator",
       "jiraIds": [],
-      "pullRequest": 21321
+      "pullRequest": 21321,
+      "translations": {
+        "tr": "secure password validator'a yeni doğrulama ekle"
+      }
     },
     {
       "sha": "c89f164a6872e6edc1d49a00a7923105f61d933b",
@@ -1718,7 +1826,10 @@
       "scope": null,
       "subject": "added i18n configuration giftCard",
       "jiraIds": [],
-      "pullRequest": 21354
+      "pullRequest": 21354,
+      "translations": {
+        "tr": "giftCard için i18n yapılandırması eklendi"
+      }
     },
     {
       "sha": "bf086159c58f7907907fdd1cad38e988327b8e3a",
@@ -1726,7 +1837,10 @@
       "scope": null,
       "subject": "update install script for OPF giftCard config",
       "jiraIds": [],
-      "pullRequest": 21348
+      "pullRequest": 21348,
+      "translations": {
+        "tr": "OPF giftCard config için install script'ini güncelle"
+      }
     },
     {
       "sha": "0909c3ae067dda2b9866d7186ea66a77ac265f4f",
@@ -1734,7 +1848,10 @@
       "scope": null,
       "subject": "epic-giftCard",
       "jiraIds": [],
-      "pullRequest": 21285
+      "pullRequest": 21285,
+      "translations": {
+        "tr": "epic-giftCard"
+      }
     },
     {
       "sha": "72b68155595486ab55f4396df4f8177793e55a45",
@@ -1742,7 +1859,10 @@
       "scope": null,
       "subject": "patch deps based on dependabot warrnings",
       "jiraIds": [],
-      "pullRequest": 21341
+      "pullRequest": 21341,
+      "translations": {
+        "tr": "dependabot uyarılarına göre bağımlılıkları yamala"
+      }
     },
     {
       "sha": "0dbe3dcdc04e845063f6652f05181229b54d54f2",
@@ -1750,7 +1870,10 @@
       "scope": null,
       "subject": "Migrate to ESLint flat configuration",
       "jiraIds": [],
-      "pullRequest": 21287
+      "pullRequest": 21287,
+      "translations": {
+        "tr": "ESLint flat configuration yapısına geç"
+      }
     },
     {
       "sha": "96062566bce7cf1b0a214079006953eb9b0cc3b6",
@@ -1758,7 +1881,10 @@
       "scope": null,
       "subject": "update install script for OPF tokenization config",
       "jiraIds": [],
-      "pullRequest": 21342
+      "pullRequest": 21342,
+      "translations": {
+        "tr": "OPF tokenization config için install script'ini güncelle"
+      }
     },
     {
       "sha": "839365bec20425c621ec508ec3f84724186ac942",
@@ -1766,7 +1892,10 @@
       "scope": null,
       "subject": "Resolve sonar issues",
       "jiraIds": [],
-      "pullRequest": 21329
+      "pullRequest": 21329,
+      "translations": {
+        "tr": "Sonar sorunlarını çöz"
+      }
     },
     {
       "sha": "a7279d9c65d23725b4aeff3929fcdcbf918993aa",
@@ -1774,7 +1903,10 @@
       "scope": null,
       "subject": "add removeVoucher endpoint",
       "jiraIds": [],
-      "pullRequest": 21281
+      "pullRequest": 21281,
+      "translations": {
+        "tr": "removeVoucher endpoint'i ekle"
+      }
     },
     {
       "sha": "cda00f21a8982878b891c5e24bef0b4fd1f417a3",
@@ -1782,7 +1914,10 @@
       "scope": null,
       "subject": "expose CDS trending searches (including TrendingSearchesService) CXCDS-17705",
       "jiraIds": [],
-      "pullRequest": 21328
+      "pullRequest": 21328,
+      "translations": {
+        "tr": "CDS trending searches'ü (TrendingSearchesService dahil) dışa aç CXCDS-17705"
+      }
     },
     {
       "sha": "79f1bb487be3eb125b2eced7ae438a202f705f35",
@@ -1790,7 +1925,10 @@
       "scope": null,
       "subject": "Implement Tokenization for Saved Payment Details (My Account & Checkout)",
       "jiraIds": [],
-      "pullRequest": 21129
+      "pullRequest": 21129,
+      "translations": {
+        "tr": "Kayıtlı Ödeme Bilgileri için Tokenization uygula (My Account ve Checkout)"
+      }
     },
     {
       "sha": "d7a12f7e9a90ab521c342456d3bcd3b1c2316079",
@@ -1798,7 +1936,10 @@
       "scope": null,
       "subject": "adjust currency E2E test assertion to handle formatting variations",
       "jiraIds": [],
-      "pullRequest": 21332
+      "pullRequest": 21332,
+      "translations": {
+        "tr": "Biçimlendirme farklılıklarını ele almak için currency E2E test assertion'ını ayarla"
+      }
     },
     {
       "sha": "5d4c6400b7e57ae2ec38e605dc0cecbf9ce24a07",
@@ -1806,7 +1947,10 @@
       "scope": null,
       "subject": "update express-rate-limit dependencies to latest versions",
       "jiraIds": [],
-      "pullRequest": 21318
+      "pullRequest": 21318,
+      "translations": {
+        "tr": "express-rate-limit bağımlılıklarını en son sürümlere güncelle"
+      }
     },
     {
       "sha": "6b4c2c48f1ce841eed18219c155d8df071d68610",
@@ -1814,7 +1958,10 @@
       "scope": null,
       "subject": "update undici version to 6.24.1 in package json files",
       "jiraIds": [],
-      "pullRequest": 21319
+      "pullRequest": 21319,
+      "translations": {
+        "tr": "package json dosyalarında undici sürümünü 6.24.1 olarak güncelle"
+      }
     },
     {
       "sha": "27552db433ff745324a4be91792b665977001cfe",
@@ -1822,7 +1969,10 @@
       "scope": null,
       "subject": "Add vocalization of dropdown item count",
       "jiraIds": [],
-      "pullRequest": 21286
+      "pullRequest": 21286,
+      "translations": {
+        "tr": "Dropdown öğe sayısının sesli okunmasını ekle"
+      }
     },
     {
       "sha": "1b95711df69929ab3dba4aedf18419743619faab",
@@ -1830,7 +1980,10 @@
       "scope": null,
       "subject": "upgrade comment-json from 4.2.3 to 4.6.2",
       "jiraIds": [],
-      "pullRequest": 21316
+      "pullRequest": 21316,
+      "translations": {
+        "tr": "comment-json 4.2.3 sürümünden 4.6.2 sürümüne yükseltildi"
+      }
     },
     {
       "sha": "7c67650e877bb05108fe605d80cac887daf114ca",
@@ -1838,7 +1991,10 @@
       "scope": null,
       "subject": "notification added to announce when item is successfully removed from cart",
       "jiraIds": [],
-      "pullRequest": 21184
+      "pullRequest": 21184,
+      "translations": {
+        "tr": "Ürün sepetten başarıyla kaldırıldığında bunu duyuran bir bildirim eklendi"
+      }
     },
     {
       "sha": "65b052be3484c32b1ff50a9284aa907810efbc65",
@@ -1846,7 +2002,10 @@
       "scope": null,
       "subject": "pin axios version",
       "jiraIds": [],
-      "pullRequest": 21313
+      "pullRequest": 21313,
+      "translations": {
+        "tr": "axios sürümü sabitlendi"
+      }
     },
     {
       "sha": "ac6a1b489144189cb7b2aa6c11761b9bf83d1b76",
@@ -1854,7 +2013,10 @@
       "scope": null,
       "subject": "Add missing packages to schematics",
       "jiraIds": [],
-      "pullRequest": 21311
+      "pullRequest": 21311,
+      "translations": {
+        "tr": "Eksik paketler schematics'e eklendi"
+      }
     },
     {
       "sha": "8f04ec7c3747dd8455605cbe7ffb351d856f616b",
@@ -1862,7 +2024,10 @@
       "scope": null,
       "subject": "upgrade express 5.1.0 to 5.2.1",
       "jiraIds": [],
-      "pullRequest": 21305
+      "pullRequest": 21305,
+      "translations": {
+        "tr": "express 5.1.0 sürümünden 5.2.1 sürümüne yükseltildi"
+      }
     },
     {
       "sha": "160c9e8abd192da837f168e964a144f3c2f04b87",
@@ -1870,7 +2035,10 @@
       "scope": null,
       "subject": "update i18next translation service to ensure proper type handling",
       "jiraIds": [],
-      "pullRequest": 21302
+      "pullRequest": 21302,
+      "translations": {
+        "tr": "Doğru tip işlemesini sağlamak için i18next translation service güncellendi"
+      }
     },
     {
       "sha": "43738df7a5db459aab777fad3c8167d248764668",
@@ -1878,7 +2046,10 @@
       "scope": null,
       "subject": "Add sh-e files to gitignore and improve readme for install script",
       "jiraIds": [],
-      "pullRequest": 21288
+      "pullRequest": 21288,
+      "translations": {
+        "tr": "sh-e dosyaları gitignore'a eklendi ve install script için readme iyileştirildi"
+      }
     },
     {
       "sha": "0236087010f2bd2645631899821ee10160152e8c",
@@ -1886,7 +2057,10 @@
       "scope": null,
       "subject": "non-promise expression in promise aggregator (#21283)",
       "jiraIds": [],
-      "pullRequest": 21301
+      "pullRequest": 21301,
+      "translations": {
+        "tr": "Promise aggregator içinde promise olmayan ifade (#21283)"
+      }
     },
     {
       "sha": "bfc5abedb53f3cb9b733a97cb28cfb7a6a94e3d8",
@@ -1894,7 +2068,10 @@
       "scope": null,
       "subject": "fix dependency changes from release branch merge",
       "jiraIds": [],
-      "pullRequest": 21292
+      "pullRequest": 21292,
+      "translations": {
+        "tr": "Release branch merge kaynaklı dependency değişiklikleri düzeltildi"
+      }
     },
     {
       "sha": "5828f5fdfe4aad3a0ba8b2a95579c806ccbe28f5",
@@ -1902,7 +2079,10 @@
       "scope": null,
       "subject": "Revert \"fix: update i18next translation service to improve type handling and add rollup-plugin-dts dependency\"",
       "jiraIds": [],
-      "pullRequest": 21300
+      "pullRequest": 21300,
+      "translations": {
+        "tr": "Revert \"fix: update i18next translation service to improve type handling and add rollup-plugin-dts dependency\""
+      }
     },
     {
       "sha": "62f35fe30c3c0776bef4de923cbb622e72333edb",
@@ -1910,7 +2090,10 @@
       "scope": null,
       "subject": "update i18next translation service to improve type handling and add rollup-plugin-dts dependency",
       "jiraIds": [],
-      "pullRequest": 21297
+      "pullRequest": 21297,
+      "translations": {
+        "tr": "Tip işlemesini iyileştirmek ve rollup-plugin-dts dependency'sini eklemek için i18next translation service güncellendi"
+      }
     },
     {
       "sha": "aec865bb4ecec20e123459d912e6218a01ea14f8",
@@ -1918,7 +2101,10 @@
       "scope": null,
       "subject": "fix a11y issue with reading selected address",
       "jiraIds": [],
-      "pullRequest": 21209
+      "pullRequest": 21209,
+      "translations": {
+        "tr": "Seçili adresin okunmasıyla ilgili a11y sorunu düzeltildi"
+      }
     },
     {
       "sha": "8ff383fa2bb73c83864b78ff1953efe526f0c0bd",
@@ -1926,7 +2112,10 @@
       "scope": null,
       "subject": "Enable team tiger e2e tests that require login",
       "jiraIds": [],
-      "pullRequest": 20812
+      "pullRequest": 20812,
+      "translations": {
+        "tr": "Login gerektiren team tiger e2e testleri etkinleştirildi"
+      }
     },
     {
       "sha": "6c1ea7271d5d474fc4f61b9ddcee8dfc0cf6495d",
@@ -1934,7 +2123,10 @@
       "scope": null,
       "subject": "handle full page redirection within smartedit",
       "jiraIds": [],
-      "pullRequest": 21268
+      "pullRequest": 21268,
+      "translations": {
+        "tr": "smartedit içinde tam sayfa yönlendirmesi ele alındı"
+      }
     },
     {
       "sha": "6e9ab8e3042c7aad20ec1cafeca9485ab3d78a32",
@@ -1942,7 +2134,10 @@
       "scope": null,
       "subject": "Add quick order 'Add' button to tabbing order config after enabling i…",
       "jiraIds": [],
-      "pullRequest": 21278
+      "pullRequest": 21278,
+      "translations": {
+        "tr": "i… etkinleştirildikten sonra quick order 'Add' butonu tabbing order config'e eklendi"
+      }
     },
     {
       "sha": "31c5ed3ab7d19a0f9453b8143d571a9a5ff70303",
@@ -1950,7 +2145,10 @@
       "scope": null,
       "subject": "remove obsolete cypress jdk21 config files",
       "jiraIds": [],
-      "pullRequest": 21276
+      "pullRequest": 21276,
+      "translations": {
+        "tr": "Kullanılmayan cypress jdk21 config dosyaları kaldırıldı"
+      }
     },
     {
       "sha": "6afa217fd135fed9428d494f85c13a10fb208891",
@@ -1958,7 +2156,10 @@
       "scope": null,
       "subject": "upgrade [flatted] to ^3.4.2 version to address OSS Vulnerabilities",
       "jiraIds": [],
-      "pullRequest": 21277
+      "pullRequest": 21277,
+      "translations": {
+        "tr": "OSS güvenlik açıklarını gidermek için [flatted] ^3.4.2 sürümüne yükseltildi"
+      }
     },
     {
       "sha": "af815f642965c28a050f251bc3fd9f4727ab7d2f",
@@ -1968,7 +2169,10 @@
       "jiraIds": [
         "CXSPA-12321"
       ],
-      "pullRequest": 21258
+      "pullRequest": 21258,
+      "translations": {
+        "tr": "(CXSPA-12321) Boş ürün ID'si için quick order hata mesajı eklendi"
+      }
     },
     {
       "sha": "07f83a4e15a35e500486f4c26427a87fead487ea",
@@ -1976,7 +2180,10 @@
       "scope": null,
       "subject": "update vulnerable dependencies",
       "jiraIds": [],
-      "pullRequest": 21252
+      "pullRequest": 21252,
+      "translations": {
+        "tr": "Güvenlik açığı bulunan dependency'ler güncellendi"
+      }
     },
     {
       "sha": "687b27fb0da7088512520cd4aa8ebf07c6032563",
@@ -1986,7 +2193,10 @@
       "jiraIds": [
         "CXSPA-12264"
       ],
-      "pullRequest": 21218
+      "pullRequest": 21218,
+      "translations": {
+        "tr": "CXSPA-12264 Güvenlik açıklarını gidermek için Angular yükseltildi"
+      }
     },
     {
       "sha": "8049e7ba4981cced2f90eab39c1ad0bf4f82b86b",
@@ -1994,7 +2204,10 @@
       "scope": null,
       "subject": "Cherry-pick unit-e2e fix",
       "jiraIds": [],
-      "pullRequest": 21182
+      "pullRequest": 21182,
+      "translations": {
+        "tr": "unit-e2e düzeltmesi cherry-pick yapıldı"
+      }
     },
     {
       "sha": "6cba5576b0e626e72d5544812b93ae0d97a7a056",
@@ -2002,7 +2215,10 @@
       "scope": null,
       "subject": "add FontAwesome auto-width css variable (#21164)",
       "jiraIds": [],
-      "pullRequest": 21180
+      "pullRequest": 21180,
+      "translations": {
+        "tr": "FontAwesome auto-width css değişkeni eklendi (#21164)"
+      }
     },
     {
       "sha": "4f7ebcc5389d4a165250329a852c5766b2736a38",
@@ -2010,7 +2226,10 @@
       "scope": null,
       "subject": "update order history header to use breadcrumb component",
       "jiraIds": [],
-      "pullRequest": 21172
+      "pullRequest": 21172,
+      "translations": {
+        "tr": "Sipariş geçmişi başlığı breadcrumb component'i kullanacak şekilde güncellendi"
+      }
     },
     {
       "sha": "360a2eab9d497048af7655a2090a3402ffff27d9",
@@ -2018,7 +2237,10 @@
       "scope": null,
       "subject": "bump tar@7.5.7 -> tar@7.5.9",
       "jiraIds": [],
-      "pullRequest": 21171
+      "pullRequest": 21171,
+      "translations": {
+        "tr": "tar@7.5.7 -> tar@7.5.9 sürümüne yükseltildi"
+      }
     }
   ]
 }

@@ -17,7 +17,10 @@
         "affects": [],
         "defaultValue": true,
         "docUrl": null,
-        "usages": []
+        "usages": [],
+        "translations": {
+          "tr": "`Checkout`: adımları temsil eden içeriğe landmark'lar ekle"
+        }
       },
       {
         "name": "a11yDeleteButton2First",
@@ -62,7 +65,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "`CardComponent` içinde `Delete` butonunu `Cancel` butonundan önce yerleştir."
+        }
       },
       {
         "name": "a11yItemCounterFocus",
@@ -151,7 +157,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "`ItemCounterComponenet` içinde, sayı 2 olduğunda Remove butonu etkinleştirildikten sonra artık focus'u kaybetmez.\nSayı `max - 1` olduğunda Add butonu etkinleştirildikten sonra artık focus'u kaybetmez."
+        }
       },
       {
         "name": "a11yPasswordVisibliltyBtnValueOverflow",
@@ -366,7 +375,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Input değerinin 'PasswordVisibilityToggleComponent' öğesini engellemesini önler."
+        }
       },
       {
         "name": "a11yPickupOptionsTabs",
@@ -587,7 +599,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Pickup seçenekleri için radio group yerine tab'lar kullanılır. Screen reader anlatımını ve klavye ile gezinme düzenini iyileştirir.\nDeğiştirilen component'ler:\n - `PickupOptionsComponent`\n - `PdpPickupOptionsContainerComponent`\n - `CartPickupOptionsContainerComponent`\n - `AddToCartComponent`"
+        }
       },
       {
         "name": "a11yQTY2Quantity",
@@ -1259,7 +1274,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "`CartItemListComponent` içinde QTY ifadesini Quantity olarak değiştir."
+        }
       },
       {
         "name": "a11yScrollToReviewByShowReview",
@@ -1285,7 +1303,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "`ProductIntroComponent` artık 'Show Review' butonuna ilk tıklamada Review sekmesine kaydırmalıdır."
+        }
       },
       {
         "name": "a11ySearchboxLabel",
@@ -1380,7 +1401,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "`SearchBoxComponent` search input'una label ekler"
+        }
       },
       {
         "name": "a11yUpdatingCartNoNarration",
@@ -1440,7 +1464,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "`AddedToCartDialogComponent` içinde `Updating cart...` metni artık screen reader tarafından okunmamalıdır."
+        }
       },
       {
         "name": "a11yViewHoursButtonIconContrast",
@@ -1522,7 +1549,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "`StoreComponent and MyPreferredStoreComponent`: mağazanın çalışma saatlerini göstermeyi tetikleyen butondaki ikon, varsayılan temada kabul edilebilir bir kontrast oranına sahiptir"
+        }
       },
       {
         "name": "headerLayoutForSmallerViewports",
@@ -1575,7 +1605,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "`StorefrontComponent`: Header bağlantılarının küçük ekran boyutlarında alt satıra kaymasını önler.\nHeader layout için 0.12em'e kadar artırılmış letter-spacing desteğini etkinleştirir"
+        }
       },
       {
         "name": "searchBoxV2",
@@ -1583,7 +1616,10 @@
         "affects": [],
         "defaultValue": true,
         "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/16bfdef6ff0d48d48f67f1af8cd49cc5.html",
-        "usages": []
+        "usages": [],
+        "translations": {
+          "tr": "Yeni YENİDEN TASARLANMIŞ search-box component'i"
+        }
       },
       {
         "name": "trendingSearches",
@@ -1591,7 +1627,10 @@
         "affects": [],
         "defaultValue": true,
         "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/cc4728a0b55a420e8f8737ae68b22a5a.html",
-        "usages": []
+        "usages": [],
+        "translations": {
+          "tr": "`SearchBoxComponent` içinde trend aramaları gösterir."
+        }
       },
       {
         "name": "useExtendedMediaComponentConfiguration",
@@ -1691,7 +1730,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, MediaComponent içinde kullanılıyorsa <picture> elementi için genişletilmiş formatlar ve media query'ler sağlanmasına izin verir.\n\nÖnemli: Etkinleştirmeden sonra MediaComponent içindeki varsayılan HTML elementi `<img>` olacaktır.\nYalnızca BannerComponent `'picture'` değerini iletmiştir. `<picture>` HTML elementini kullanmanız gerekirse\n`<cx-media>` öğesine `[elementType]=\"'picture'\"` iletmeniz gerekir.\n\nDoğru çalışması için media config içinde `pictureElementFormats` tanımlanmalıdır:\n ```ts\nprovideConfig({\n  pictureElementFormats: {\n   mediaQueries: '(max-width: 480px)',\n  },\n})\n```\n\nToggle, `MediaComponent` içindeki `@Input() elementType: 'img' | 'picture' = 'img'`\nve `@Input() sizesForImgElement: string` öğelerini etkinleştirir"
+        }
       }
     ],
     "added": [
@@ -1701,7 +1743,10 @@
         "affects": [],
         "defaultValue": false,
         "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/059ef1e522b6484dbef4071b37828ac1.html",
-        "usages": []
+        "usages": [],
+        "translations": {
+          "tr": "Quote Purchase Order Number input alanını Quote Request formunda\nve Quote Details sayfasında gösterir.\n\n`true` olarak ayarlandığında, kullanıcı teklif talep ederken\nPurchase Order Number girebilir ve bunu quote details içinde görebilir."
+        }
       },
       {
         "name": "enableReturnOrderReturnableQuantityConsigmentFallback",
@@ -1729,7 +1774,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, return request details sayfasına gidildiğinde `ReturnOrderComponent` üzerinde iade edilebilir sipariş miktarının\ndoğru görüntülenmemesi sorununu giderir."
+        }
       },
       {
         "name": "navigationMenuCloseOnSameLinkClick",
@@ -1757,7 +1805,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Bu feature toggle etkinleştirildiğinde, navigasyon menüsü aynı bağlantıya tıklandığında kapanır.\n\nBu, mobil cihazlarda aynı sayfaya yönlendiren bir bağlantıya tıkladıktan sonra\nmenünün açık kalması durumunda kullanıcı deneyimini iyileştirmek içindir."
+        }
       }
     ],
     "defaultEnabled": [
@@ -1793,7 +1844,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "`FormErrorsComponent`: varsayılan olarak role=\"alert\" yerine aria-live=\"atomic\" ile birlikte\n aria-live=\"polite\" kullanılır"
+        }
       },
       {
         "name": "a11yNgSelectLayering",
@@ -1838,7 +1892,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Yerel ng-select stillerinin neden olduğu katmanlama sorunlarını düzeltir.\nDropdown'un z-index özelliğini Spartacus ile daha uyumlu olacak şekilde ayarlar."
+        }
       },
       {
         "name": "a11yOptimizedMenuSpacing",
@@ -1889,7 +1946,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Farklı monitörlerde, metin boyutlarında ve zoom seviyelerinde daha iyi okunabilirlik için menülerde ve navigasyon dropdown'larında satır aralığını ayarlar."
+        }
       },
       {
         "name": "a11yWideScreenImprovements",
@@ -2031,7 +2091,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Geniş viewport layout sorunlarını iyileştirir.\nŞu bölümlerin stillerini etkiler: Order confirmation sayfası, product configurator."
+        }
       },
       {
         "name": "opfEnablePreventingFromCheckoutWithoutEmail",
@@ -2055,7 +2118,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, checkout'a erişmeden önce kullanıcının mevcut cart'a atanmış bir e-postası olup olmadığını kontrol eder.\nYoksa kullanıcıyı `/opf-checkout-email` sayfasına yönlendirir.\nE-posta girildikten sonra kullanıcı checkout'a geri yönlendirilir."
+        }
       }
     ]
   },
@@ -3405,7 +3471,10 @@
       "scope": null,
       "subject": "bump @angular/ssr version to 19.2.18",
       "jiraIds": [],
-      "pullRequest": 20852
+      "pullRequest": 20852,
+      "translations": {
+        "tr": "@angular/ssr sürümünü 19.2.18'e yükselt"
+      }
     },
     {
       "sha": "a6e1b92dfdadb75c2565bca0ef7be9ae8b3c2e6f",
@@ -3413,7 +3482,10 @@
       "scope": null,
       "subject": "show error when payment type is changed after editing the PONumber",
       "jiraIds": [],
-      "pullRequest": 20826
+      "pullRequest": 20826,
+      "translations": {
+        "tr": "PONumber düzenlendikten sonra payment type değiştirildiğinde hata göster"
+      }
     },
     {
       "sha": "bd45eb26f676daf2601ffd6d7377084117c26894",
@@ -3421,7 +3493,10 @@
       "scope": null,
       "subject": "add iframe breakout for the OPF verification component",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "OPF verification component için iframe breakout eklendi"
+      }
     },
     {
       "sha": "7d633c7b4809d7408559e835f918374a48628fe8",
@@ -3429,7 +3504,10 @@
       "scope": null,
       "subject": "Display subsequent document flow - S4OM",
       "jiraIds": [],
-      "pullRequest": 20771
+      "pullRequest": 20771,
+      "translations": {
+        "tr": "Sonraki belge akışını göster - S4OM"
+      }
     },
     {
       "sha": "e7bbabfe2058fa778740d51a56776435b2fc9d84",
@@ -3437,7 +3515,10 @@
       "scope": null,
       "subject": "remove deprecated feature flags",
       "jiraIds": [],
-      "pullRequest": 20800
+      "pullRequest": 20800,
+      "translations": {
+        "tr": "Kullanımdan kaldırılmış feature flag'leri kaldır"
+      }
     },
     {
       "sha": "48c7813d3e315099201b0794e379c8a9be17fdb4",
@@ -3445,7 +3526,10 @@
       "scope": null,
       "subject": "Protected access modified for new FeatureToggles usage in QuoteHeaderOverviewComponent",
       "jiraIds": [],
-      "pullRequest": 20803
+      "pullRequest": 20803,
+      "translations": {
+        "tr": "QuoteHeaderOverviewComponent içinde yeni FeatureToggles kullanımı için protected erişim değiştirildi"
+      }
     },
     {
       "sha": "e95a0c361d397916030ca7a980f1abe61a8fb38a",
@@ -3453,7 +3537,10 @@
       "scope": null,
       "subject": "refactor quote-checkout e2e test",
       "jiraIds": [],
-      "pullRequest": 20799
+      "pullRequest": 20799,
+      "translations": {
+        "tr": "quote-checkout e2e testini refactor et"
+      }
     },
     {
       "sha": "b7da15ec4165fecc0bfdfc47bf2df34a2cf9e653",
@@ -3461,7 +3548,10 @@
       "scope": null,
       "subject": "remove feature flag useExtendedMediaComponentConfiguration",
       "jiraIds": [],
-      "pullRequest": 20801
+      "pullRequest": 20801,
+      "translations": {
+        "tr": "`useExtendedMediaComponentConfiguration` feature flag'ini kaldır"
+      }
     },
     {
       "sha": "79a114ed81f91a1e44a2aba87e342a4c2f9e699d",
@@ -3469,7 +3559,10 @@
       "scope": null,
       "subject": "remove feature flag headerLayoutForSmallerViewports",
       "jiraIds": [],
-      "pullRequest": 20802
+      "pullRequest": 20802,
+      "translations": {
+        "tr": "`headerLayoutForSmallerViewports` feature flag'ini kaldır"
+      }
     },
     {
       "sha": "62b4a80a407b5e5d411a87e79c5e35e3984e1330",
@@ -3479,7 +3572,10 @@
       "jiraIds": [
         "CXSPA-10761"
       ],
-      "pullRequest": 20674
+      "pullRequest": 20674,
+      "translations": {
+        "tr": "OPF ile BOPIS özelliği CXSPA-10761"
+      }
     },
     {
       "sha": "83390ad2a6557c6935166991d091085902010e3f",
@@ -3487,7 +3583,10 @@
       "scope": null,
       "subject": "extend subscription",
       "jiraIds": [],
-      "pullRequest": 20789
+      "pullRequest": 20789,
+      "translations": {
+        "tr": "aboneliği uzat"
+      }
     },
     {
       "sha": "d143b9feb92df199d3f4462e892e39b5ebfb8970",
@@ -3495,7 +3594,10 @@
       "scope": null,
       "subject": "inclusion of PO number for quote creation",
       "jiraIds": [],
-      "pullRequest": 20781
+      "pullRequest": 20781,
+      "translations": {
+        "tr": "Quote oluşturma için PO numarasının eklenmesi"
+      }
     },
     {
       "sha": "3d43cba2ffc0ac4c06a9e3fa083c64262d9e2d66",
@@ -3505,7 +3607,10 @@
       "jiraIds": [
         "CXSPA-11151"
       ],
-      "pullRequest": 20794
+      "pullRequest": 20794,
+      "translations": {
+        "tr": "2511 için feature ve a11y toggle'larını etkinleştir (CXSPA-11151)"
+      }
     },
     {
       "sha": "40bbb3c32f1f7ebdc97e72bf563ebe50aef39afd",
@@ -3513,7 +3618,10 @@
       "scope": null,
       "subject": "fix the issue with Quantity To Return is not being visible",
       "jiraIds": [],
-      "pullRequest": 20772
+      "pullRequest": 20772,
+      "translations": {
+        "tr": "Quantity To Return alanının görünmemesi sorununu düzelt"
+      }
     },
     {
       "sha": "ff0c55f0784ec33799e32c98dcc7560882bab1dc",
@@ -3521,7 +3629,10 @@
       "scope": null,
       "subject": "Add resubscribe, withdraw, and cancel support",
       "jiraIds": [],
-      "pullRequest": 20786
+      "pullRequest": 20786,
+      "translations": {
+        "tr": "Yeniden abone olma, withdraw ve cancel desteği ekle"
+      }
     },
     {
       "sha": "cdd798e06c815eaa69a0e469d894661b9cc0d2b6",
@@ -3529,7 +3640,10 @@
       "scope": null,
       "subject": "refine  e2e test",
       "jiraIds": [],
-      "pullRequest": 20761
+      "pullRequest": 20761,
+      "translations": {
+        "tr": "e2e testini iyileştir"
+      }
     },
     {
       "sha": "9ffd5d0444381d087be187b27889dbc77465737c",
@@ -3537,7 +3651,10 @@
       "scope": null,
       "subject": "Subscription Billing - Cart",
       "jiraIds": [],
-      "pullRequest": 20787
+      "pullRequest": 20787,
+      "translations": {
+        "tr": "Subscription Billing - Sepet"
+      }
     },
     {
       "sha": "533bb90710cace56756238b47a389f27e1518033",
@@ -3545,7 +3662,10 @@
       "scope": null,
       "subject": "Product not in catalog",
       "jiraIds": [],
-      "pullRequest": 20770
+      "pullRequest": 20770,
+      "translations": {
+        "tr": "Ürün katalogda yok"
+      }
     },
     {
       "sha": "4905cd1f7c3ffdd314705dc3e22f2244ca51f1df",
@@ -3553,7 +3673,10 @@
       "scope": null,
       "subject": "remove searchBoxV2 and trendingSearches feature toggles for general availability",
       "jiraIds": [],
-      "pullRequest": 20788
+      "pullRequest": 20788,
+      "translations": {
+        "tr": "Genel kullanılabilirlik için searchBoxV2 ve trendingSearches feature toggle'larını kaldır"
+      }
     },
     {
       "sha": "393835c67da0de705c0d44e8eaf33d0b2f991eb3",
@@ -3561,7 +3684,10 @@
       "scope": null,
       "subject": "Delay in subscription details loading on route change",
       "jiraIds": [],
-      "pullRequest": 20791
+      "pullRequest": 20791,
+      "translations": {
+        "tr": "Route değişiminde abonelik detaylarının yüklenmesinde gecikme"
+      }
     },
     {
       "sha": "a698d72a8a6b0e3d1e1e6ab04a92e345c6dc651a",
@@ -3571,7 +3697,10 @@
       "jiraIds": [
         "CXSPA-11051"
       ],
-      "pullRequest": 20792
+      "pullRequest": 20792,
+      "translations": {
+        "tr": "product_configurator_e2e test suite'ini S2 ve S3 üzerinde daha sağlam hale getir (CXSPA-11051)"
+      }
     },
     {
       "sha": "b19e92c2fd0b39be973dcdbab12317c88a040727",
@@ -3579,7 +3708,10 @@
       "scope": null,
       "subject": "`Subscription` product scope is not being detected & `FULL` query param is required for details API",
       "jiraIds": [],
-      "pullRequest": 20782
+      "pullRequest": 20782,
+      "translations": {
+        "tr": "`Subscription` product scope algılanmıyor ve detaylar API'si için `FULL` query param gerekli"
+      }
     },
     {
       "sha": "6bb609f946d481be4529015bf36e57efa759d86f",
@@ -3589,7 +3721,10 @@
       "jiraIds": [
         "CXSPA-11119"
       ],
-      "pullRequest": 20785
+      "pullRequest": 20785,
+      "translations": {
+        "tr": "CXSPA-11119 tarih attribute'ları için input alanını ek olarak render et…"
+      }
     },
     {
       "sha": "8f8efdabfc09236f3390d3018abb005f371a8c69",
@@ -3597,7 +3732,10 @@
       "scope": null,
       "subject": "secure portal should use right site config",
       "jiraIds": [],
-      "pullRequest": 20783
+      "pullRequest": 20783,
+      "translations": {
+        "tr": "secure portal doğru site config'i kullanmalı"
+      }
     },
     {
       "sha": "77ed936a03b18d6fe83f9b1d0c9ba815e7bb118c",
@@ -3605,7 +3743,10 @@
       "scope": null,
       "subject": "address remaining new sonar warnings",
       "jiraIds": [],
-      "pullRequest": 20777
+      "pullRequest": 20777,
+      "translations": {
+        "tr": "kalan yeni sonar uyarılarını gider"
+      }
     },
     {
       "sha": "6f820bda347b87fd946f7c9bf4db23ddac246ebc",
@@ -3613,7 +3754,10 @@
       "scope": null,
       "subject": "comment the styling related to subscription billing",
       "jiraIds": [],
-      "pullRequest": 20775
+      "pullRequest": 20775,
+      "translations": {
+        "tr": "subscription billing ile ilgili styling'i yorum satırına al"
+      }
     },
     {
       "sha": "7064de97b99f0489b8d5967a9421ca480ed8396e",
@@ -3623,7 +3767,10 @@
       "jiraIds": [
         "CXSPA-11051"
       ],
-      "pullRequest": 20774
+      "pullRequest": 20774,
+      "translations": {
+        "tr": "product_configurator_e2e test suite'ini S2 ve S3 üzerinde daha sağlam hale getir (CXSPA-11051)"
+      }
     },
     {
       "sha": "5fbd6ba2d9d39f774be8919ef9b2dd280fede83a",
@@ -3631,7 +3778,10 @@
       "scope": null,
       "subject": "fix sonar warnings",
       "jiraIds": [],
-      "pullRequest": 20773
+      "pullRequest": 20773,
+      "translations": {
+        "tr": "sonar uyarılarını düzelt"
+      }
     },
     {
       "sha": "1dd4ddec976e69e829a221bf9cf6bce061d65c5d",
@@ -3639,7 +3789,10 @@
       "scope": null,
       "subject": "Subscription Billing - PDP, List, Details",
       "jiraIds": [],
-      "pullRequest": 20763
+      "pullRequest": 20763,
+      "translations": {
+        "tr": "Subscription Billing - PDP, Liste, Detaylar"
+      }
     },
     {
       "sha": "1c362c762bc9a24a5debe63737131b70b9a65ac9",
@@ -3647,7 +3800,10 @@
       "scope": null,
       "subject": "Update a11y-testing.md",
       "jiraIds": [],
-      "pullRequest": 20545
+      "pullRequest": 20545,
+      "translations": {
+        "tr": "a11y-testing.md dosyasını güncelle"
+      }
     },
     {
       "sha": "09dc2f3f19dd34e2c443e8c373312222faaf0853",
@@ -3655,7 +3811,10 @@
       "scope": null,
       "subject": "Compliance. Update OSS lib glob",
       "jiraIds": [],
-      "pullRequest": 20767
+      "pullRequest": 20767,
+      "translations": {
+        "tr": "Compliance. OSS lib glob'unu güncelle"
+      }
     },
     {
       "sha": "52ebac6d31f9d132b21b402c945d564c81bccac7",
@@ -3665,7 +3824,10 @@
       "jiraIds": [
         "CXSPA-11051"
       ],
-      "pullRequest": 20764
+      "pullRequest": 20764,
+      "translations": {
+        "tr": "product_configurator_e2e test suite'ini S2 ve S3 üzerinde daha sağlam hale getir (CXSPA-11051)"
+      }
     },
     {
       "sha": "82fc319629ee4388805d126089703162c2cc8431",
@@ -3673,7 +3835,10 @@
       "scope": null,
       "subject": "Enhance IntersectionService for SSR and browser platform detection",
       "jiraIds": [],
-      "pullRequest": 20756
+      "pullRequest": 20756,
+      "translations": {
+        "tr": "SSR ve browser platform tespiti için IntersectionService'i geliştir"
+      }
     },
     {
       "sha": "8fa23d3b2e8d14d06dd415a73a01f3b931c6ed2b",
@@ -3681,7 +3846,10 @@
       "scope": null,
       "subject": "update e2e registerUser to wait for success in jdk21 mode (#20758)",
       "jiraIds": [],
-      "pullRequest": 20760
+      "pullRequest": 20760,
+      "translations": {
+        "tr": "e2e registerUser'ı jdk21 modunda başarı durumunu bekleyecek şekilde güncelle (#20758)"
+      }
     },
     {
       "sha": "20b375201f22ecdff1ad850bccbae763969102a5",
@@ -3689,7 +3857,10 @@
       "scope": null,
       "subject": "fix hamburger menu opened issue when NavigationUIComponent is pressed",
       "jiraIds": [],
-      "pullRequest": 20753
+      "pullRequest": 20753,
+      "translations": {
+        "tr": "NavigationUIComponent'e basıldığında hamburger menünün açık kalması sorununu düzelt"
+      }
     },
     {
       "sha": "a5185b2cdab6253c4e962f689e57a0879fc3d09a",
@@ -3697,7 +3868,10 @@
       "scope": null,
       "subject": "update version after previous release",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "önceki release sonrası versiyonu güncelle"
+      }
     },
     {
       "sha": "63c8eeb06888896e2c4378105b6512eaa5ca39ae",
@@ -3705,7 +3879,10 @@
       "scope": null,
       "subject": "Refactor shell files",
       "jiraIds": [],
-      "pullRequest": 20754
+      "pullRequest": 20754,
+      "translations": {
+        "tr": "Shell dosyalarını refactor et"
+      }
     },
     {
       "sha": "eaa6a98429f19826a35cbf3a0643ea66f7ba2129",
@@ -3713,7 +3890,10 @@
       "scope": null,
       "subject": "should show login/register button when asm banner closed in jdk21",
       "jiraIds": [],
-      "pullRequest": 20749
+      "pullRequest": 20749,
+      "translations": {
+        "tr": "jdk21'de asm banner kapatıldığında login/register butonu gösterilmeli"
+      }
     },
     {
       "sha": "c42d8d7e04fb000e1f0c25fd738860ccacf11d35",
@@ -3721,7 +3901,10 @@
       "scope": null,
       "subject": "500 error in bind-cart and asm simulation cases",
       "jiraIds": [],
-      "pullRequest": 20752
+      "pullRequest": 20752,
+      "translations": {
+        "tr": "bind-cart ve asm simulation senaryolarında 500 hatası"
+      }
     },
     {
       "sha": "4a6ab6b17357676394369bb45920d744188078d5",
@@ -3729,7 +3912,10 @@
       "scope": null,
       "subject": "missing update of peerDeps listed in package-lock.json after updating Angular CLI 19.2.15 to 19.2.16",
       "jiraIds": [],
-      "pullRequest": 20744
+      "pullRequest": 20744,
+      "translations": {
+        "tr": "Angular CLI 19.2.15'ten 19.2.16'ya güncellendikten sonra package-lock.json içinde listelenen peerDeps'in güncellenmemesi"
+      }
     },
     {
       "sha": "3728f05bd6984f4482d58da0760b382f8bf7e9e6",
@@ -3737,7 +3923,10 @@
       "scope": null,
       "subject": "Collect a11y e2e failure screenshots",
       "jiraIds": [],
-      "pullRequest": 20690
+      "pullRequest": 20690,
+      "translations": {
+        "tr": "a11y e2e hata ekran görüntülerini topla"
+      }
     },
     {
       "sha": "72466b1cf62d654d50f90f34a079d3eb0fe3b18b",
@@ -3747,7 +3936,10 @@
       "jiraIds": [
         "CXSPA-11005"
       ],
-      "pullRequest": 20743
+      "pullRequest": 20743,
+      "translations": {
+        "tr": "CXSPA-11005: bind cart sorununun düzeltilmesi"
+      }
     },
     {
       "sha": "61080ce84a795779a976090f3ac383ca0128fda0",
@@ -3755,7 +3947,10 @@
       "scope": null,
       "subject": "refactor shell file run asm test on S2",
       "jiraIds": [],
-      "pullRequest": 20742
+      "pullRequest": 20742,
+      "translations": {
+        "tr": "S2 üzerinde asm testini çalıştıran shell dosyasını refactor et"
+      }
     }
   ]
 }

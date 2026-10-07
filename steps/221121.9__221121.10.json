@@ -43,7 +43,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "`FormErrorsComponent`: varsayılan olarak role=\"alert\" yerine aria-live=\"atomic\" ile birlikte\n aria-live=\"polite\" kullanılır"
+        }
       },
       {
         "name": "a11yNgSelectLayering",
@@ -88,7 +91,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Yerel ng-select stillerinin neden olduğu katmanlama sorunlarını düzeltir.\nDropdown'un z-index özelliğini Spartacus ile daha uyumlu olacak şekilde ayarlar."
+        }
       },
       {
         "name": "a11yOptimizedMenuSpacing",
@@ -139,7 +145,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Farklı monitörlerde, metin boyutlarında ve zoom seviyelerinde daha iyi okunabilirlik için menülerde ve navigasyon dropdown'larında satır aralığını ayarlar."
+        }
       },
       {
         "name": "a11yWideScreenImprovements",
@@ -281,7 +290,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Geniş viewport layout sorunlarını iyileştirir.\nŞu bölümlerin stillerini etkiler: Order confirmation sayfası, product configurator."
+        }
       },
       {
         "name": "opfEnablePreventingFromCheckoutWithoutEmail",
@@ -305,7 +317,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, checkout'a erişmeden önce kullanıcının mevcut cart'a atanmış bir e-postası olup olmadığını kontrol eder.\nYoksa kullanıcıyı `/opf-checkout-email` sayfasına yönlendirir.\nE-posta girildikten sonra kullanıcı checkout'a geri yönlendirilir."
+        }
       }
     ],
     "added": [
@@ -352,7 +367,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "\"Added to Cart\" dialog'unun erişilebilirliğini, dialog başlığı için div yerine semantik bir h2 başlığı kullanarak iyileştirir.\nBu, screen reader ile daha iyi gezinme sağlar ve WAI-ARIA dialog pattern en iyi uygulamalarına uyar."
+        }
       },
       {
         "name": "a11yCarouselPreventNavigationFocus",
@@ -406,7 +424,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde (varsayılan: true), carousel gezinme butonları mousedown üzerinde preventDefault çağırır.\nBu, carousel modal'ların veya arama kutularının içindeyken Safari'de oluşan istenmeyen blur davranışını düzeltir (Safari'de varsayılan olarak bozuktur).\n\nCarousel'i içeren veya onunla etkileşen elementlerde özel focus listener'larına (ör. addEventListener('focus', ...)) güveniyorsanız `false` olarak ayarlayın; çünkü mousedown varsayılan davranışını engellemek focus davranışını etkileyebilir."
+        }
       },
       {
         "name": "a11yCartItemListHideEmptyOutlets",
@@ -476,7 +497,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Sepet ürünü listesi tablosunda içeriği olmayan boş outlet sarmalayıcı elementlerini gizler.\nAksi halde screen reader'lar bunları fazladan tablo sütunları olarak yorumlar."
+        }
       },
       {
         "name": "a11yFacetFilterByLabel",
@@ -523,7 +547,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Masaüstü modundayken ürün facet'lerine Filter By etiketini ekler."
+        }
       },
       {
         "name": "a11yListSemanticsForFacets",
@@ -568,7 +595,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Facet component'inin elementleri doğru listbox semantiğiyle göstermesini sağlar.\nScreen reader, bağlantıları listbox seçenekleri olarak tanımalı ve görünür focus çerçevelerini doğru şekilde göstermelidir."
+        }
       },
       {
         "name": "a11yNgSelectReadonlyInputValue",
@@ -594,7 +624,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "ng-select (readonly) input değerini seçili seçeneğin metninden ayarlar;\nböylece ngSelect'in input elementi focus'tayken JAWS screen reader \"blank\" yerine seçili değeri okur."
+        }
       },
       {
         "name": "a11yPasswordVisibilityToggle",
@@ -639,7 +672,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Parola görünürlüğü toggle'ına statik bir title ve aria-label sağlayarak screen reader çıktısının çift okunmasını düzeltir."
+        }
       },
       {
         "name": "a11yReviewsKeyboardControls",
@@ -684,7 +720,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, yorumlar arasında ok tuşlarıyla gezinmeyi ekler ve screen reader'ların liste konumunu okuyabilmesi için\ndoğru liste semantiğini kullanır"
+        }
       },
       {
         "name": "enableB2BCostCenterSearch",
@@ -708,7 +747,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, organizasyondaki maliyet merkezlerinin ada göre aranmasına olanak tanır."
+        }
       },
       {
         "name": "enableB2BCustomerSearch",
@@ -732,7 +774,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, organizasyondaki B2B müşterilerinin ada göre aranmasına olanak tanır."
+        }
       },
       {
         "name": "enableB2BUnitSearch",
@@ -756,7 +801,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, organizasyon yönetiminde B2B birimlerinin ada göre aranmasına olanak tanır.\nTüm birim ağacı zaten yüklenmiş olduğundan bu arama client tarafında yapılır."
+        }
       },
       {
         "name": "enableMediaPrefix",
@@ -782,7 +830,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, MediaService içinde media URL'leri oluşturulurken\nbackend config'inden gelen media prefix kullanılır."
+        }
       },
       {
         "name": "showOnlyActiveCurrencies",
@@ -808,7 +859,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, para birimi selector'ünde yalnızca aktif para birimleri gösterilir.\nPara birimleri, backend'den dönen `active` property'sine göre filtrelenir."
+        }
       }
     ],
     "defaultEnabled": []
@@ -1712,7 +1766,10 @@
       "scope": null,
       "subject": "Patch security findings",
       "jiraIds": [],
-      "pullRequest": 21346
+      "pullRequest": 21346,
+      "translations": {
+        "tr": "Güvenlik bulgularını yamala"
+      }
     },
     {
       "sha": "0e70f1bd76be37ad106b0a80becd52ea8db838de",
@@ -1720,7 +1777,10 @@
       "scope": null,
       "subject": "adjust currency E2E test assertion to handle formatting variations",
       "jiraIds": [],
-      "pullRequest": 21347
+      "pullRequest": 21347,
+      "translations": {
+        "tr": "Biçimlendirme farklılıklarını ele almak için currency E2E test assertion'ını ayarla"
+      }
     },
     {
       "sha": "4535dc1eba56a34c2df7f19df9d87b0999ec7fa1",
@@ -1728,7 +1788,10 @@
       "scope": null,
       "subject": "handle full page redirection within smartedit (#21268)",
       "jiraIds": [],
-      "pullRequest": 21312
+      "pullRequest": 21312,
+      "translations": {
+        "tr": "smartedit içinde tam sayfa yönlendirmesini yönet (#21268)"
+      }
     },
     {
       "sha": "3b948e20e0302a3a255a018cd0e1098b95334610",
@@ -1736,7 +1799,10 @@
       "scope": null,
       "subject": "non-promise expression in promise aggregator",
       "jiraIds": [],
-      "pullRequest": 21283
+      "pullRequest": 21283,
+      "translations": {
+        "tr": "promise aggregator içinde promise olmayan ifade"
+      }
     },
     {
       "sha": "bb269bfbfb0d77af04f2664f7f309ea8ad18e52f",
@@ -1746,7 +1812,10 @@
       "jiraIds": [
         "CXSPA-12452"
       ],
-      "pullRequest": 21275
+      "pullRequest": 21275,
+      "translations": {
+        "tr": "(CXSPA-12452) Güvenlik açığını gidermek için @angular/ssr'ı v21.2.3 sürümüne güncelle"
+      }
     },
     {
       "sha": "2c3dd7eb13d6df5617009d0f63588f64b281f362",
@@ -1756,7 +1825,10 @@
       "jiraIds": [
         "CXSPA-12331"
       ],
-      "pullRequest": 21249
+      "pullRequest": 21249,
+      "translations": {
+        "tr": "(CXSPA-12331) - Facet component için listbox semantiği"
+      }
     },
     {
       "sha": "2dbae0212458801d3d4a6a7a4f7c3e8661044ee9",
@@ -1764,7 +1836,10 @@
       "scope": null,
       "subject": "remove api key from the OPF config",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "OPF config'inden api key'i kaldır"
+      }
     },
     {
       "sha": "073cd0493ddf353e1699701a8b4ea20a58b4a057",
@@ -1772,7 +1847,10 @@
       "scope": null,
       "subject": "activate authorizationCodeFlowByDefault and JDK21 e2e",
       "jiraIds": [],
-      "pullRequest": 21269
+      "pullRequest": 21269,
+      "translations": {
+        "tr": "authorizationCodeFlowByDefault ve JDK21 e2e'yi etkinleştir"
+      }
     },
     {
       "sha": "c94c76aed08f27fda9949a1dd6b0fa2467a2eae5",
@@ -1780,7 +1858,10 @@
       "scope": null,
       "subject": "cleanup stale feature flags",
       "jiraIds": [],
-      "pullRequest": 21259
+      "pullRequest": 21259,
+      "translations": {
+        "tr": "Eski feature flag'leri temizle"
+      }
     },
     {
       "sha": "617d530c4272513050484df42a6ad77e1cf1551e",
@@ -1788,7 +1869,10 @@
       "scope": null,
       "subject": "fix testing commands in SKILL.md for schematics and SSR",
       "jiraIds": [],
-      "pullRequest": 21267
+      "pullRequest": 21267,
+      "translations": {
+        "tr": "SKILL.md içindeki schematics ve SSR test komutlarını düzelt"
+      }
     },
     {
       "sha": "3ef7795ef7c2bb05472182400a86ab6b2b9eac0e",
@@ -1796,7 +1880,10 @@
       "scope": null,
       "subject": "remove AGENTS.md in favor of CLAUDE.md",
       "jiraIds": [],
-      "pullRequest": 21266
+      "pullRequest": 21266,
+      "translations": {
+        "tr": "CLAUDE.md lehine AGENTS.md'yi kaldır"
+      }
     },
     {
       "sha": "9d632e01afc665174967d63a880733ea88cbc556",
@@ -1806,7 +1893,10 @@
       "jiraIds": [
         "CXSPA-10547"
       ],
-      "pullRequest": 21263
+      "pullRequest": 21263,
+      "translations": {
+        "tr": "CXSPA-10547 exportProductToCsv çevirisindeki yazım hatası"
+      }
     },
     {
       "sha": "9fe8490516b6c00b77b57941ebbdd5295be4a62d",
@@ -1816,7 +1906,10 @@
       "jiraIds": [
         "CXSPA-12408"
       ],
-      "pullRequest": 21264
+      "pullRequest": 21264,
+      "translations": {
+        "tr": "CXSPA-12408 units e2e başarısız testini düzelt"
+      }
     },
     {
       "sha": "3ea036a9e90a8971b314d3842be5196072a3d8ae",
@@ -1824,7 +1917,10 @@
       "scope": null,
       "subject": "suppress i18next ad in logs",
       "jiraIds": [],
-      "pullRequest": 21260
+      "pullRequest": 21260,
+      "translations": {
+        "tr": "Loglardaki i18next reklamını bastır"
+      }
     },
     {
       "sha": "22fa83b6a1f1d41c3c7c0f147a779b9dfd5d9b73",
@@ -1832,7 +1928,10 @@
       "scope": null,
       "subject": "Remove FeaturesConfigModule from providers in QuoteListModule",
       "jiraIds": [],
-      "pullRequest": 21217
+      "pullRequest": 21217,
+      "translations": {
+        "tr": "QuoteListModule içindeki providers'dan FeaturesConfigModule'ü kaldır"
+      }
     },
     {
       "sha": "6b9b47957f8daa36962f336524cc4c86dc7b253b",
@@ -1842,7 +1941,10 @@
       "jiraIds": [
         "CXSPA-11223"
       ],
-      "pullRequest": 21224
+      "pullRequest": 21224,
+      "translations": {
+        "tr": "(CXSPA-11223) Login sayfasında site context değişikliklerini koru"
+      }
     },
     {
       "sha": "b2a0fc3dae93f76fefaafe71b2c05d501d3d71e7",
@@ -1850,7 +1952,10 @@
       "scope": null,
       "subject": "Remove opfEnablePreventingFromCheckoutWithoutEmail feature toggle",
       "jiraIds": [],
-      "pullRequest": 21256
+      "pullRequest": 21256,
+      "translations": {
+        "tr": "opfEnablePreventingFromCheckoutWithoutEmail feature toggle'ını kaldır"
+      }
     },
     {
       "sha": "be922fe6360e35000bd02281416ca7b9c1ac5d71",
@@ -1858,7 +1963,10 @@
       "scope": null,
       "subject": "handle full URLs in server request URL construction",
       "jiraIds": [],
-      "pullRequest": 21247
+      "pullRequest": 21247,
+      "translations": {
+        "tr": "Server request URL oluşturulurken tam URL'leri işle"
+      }
     },
     {
       "sha": "5071d1844c2196e2600ac4b905f0b6d4f1444f70",
@@ -1866,7 +1974,10 @@
       "scope": null,
       "subject": "Sub bill list date range",
       "jiraIds": [],
-      "pullRequest": 21241
+      "pullRequest": 21241,
+      "translations": {
+        "tr": "Alt fatura listesi tarih aralığı"
+      }
     },
     {
       "sha": "64b54477d2dee642a62d7af05acc08496fffba19",
@@ -1874,7 +1985,10 @@
       "scope": null,
       "subject": "As a B2B admin customer, I want to search b2b customers by name on Storefront",
       "jiraIds": [],
-      "pullRequest": 21198
+      "pullRequest": 21198,
+      "translations": {
+        "tr": "B2B admin müşterisi olarak, Storefront'ta B2B müşterilerini ada göre arayabilmek istiyorum"
+      }
     },
     {
       "sha": "55adc674bce98f52d4f4329d82eb4d0064ac7eb1",
@@ -1882,7 +1996,10 @@
       "scope": null,
       "subject": "upgrade [koa] to ^3.1.2 to address vulnerability issue",
       "jiraIds": [],
-      "pullRequest": 21244
+      "pullRequest": 21244,
+      "translations": {
+        "tr": "Güvenlik açığı sorununu gidermek için [koa] sürümünü ^3.1.2'ye yükselt"
+      }
     },
     {
       "sha": "37cd565a06417cfb00f7f14df68e4be044fe983b",
@@ -1890,7 +2007,10 @@
       "scope": null,
       "subject": "upgrade [undici] to ^7.24.0(direct) version to address OSS Vulnerabilities",
       "jiraIds": [],
-      "pullRequest": 21255
+      "pullRequest": 21255,
+      "translations": {
+        "tr": "OSS güvenlik açıklarını gidermek için [undici] sürümünü ^7.24.0'a (doğrudan) yükselt"
+      }
     },
     {
       "sha": "7fc265dfe09cb0597448c429e838e4f6cdcf284f",
@@ -1900,7 +2020,10 @@
       "jiraIds": [
         "CXSPA-12357"
       ],
-      "pullRequest": 21246
+      "pullRequest": 21246,
+      "translations": {
+        "tr": "(CXSPA-12357) Güvenlik açıklarını gidermek için Angular'ı v21.2.4'e yükselt"
+      }
     },
     {
       "sha": "e65e7763e4b796f32f53da7e02c108414fc0a090",
@@ -1908,7 +2031,10 @@
       "scope": null,
       "subject": "upgrade [minimatch] to 10.2.1 to address vulnerability issue",
       "jiraIds": [],
-      "pullRequest": 21242
+      "pullRequest": 21242,
+      "translations": {
+        "tr": "Güvenlik açığı sorununu gidermek için [minimatch] sürümünü 10.2.1'e yükselt"
+      }
     },
     {
       "sha": "bbbe62bd1aa5b942dd1f9896ff440e39852a0ad3",
@@ -1918,7 +2044,10 @@
       "jiraIds": [
         "CXSPA-12121"
       ],
-      "pullRequest": 21229
+      "pullRequest": 21229,
+      "translations": {
+        "tr": "(CXSPA-12121) - Sepet ürün listesi tablosunun screen reader çıktısını düzelt"
+      }
     },
     {
       "sha": "29efe5a1d80b755a905eece113cda0974c871b55",
@@ -1926,7 +2055,10 @@
       "scope": null,
       "subject": "fix searchbox carousel navigation behaviour",
       "jiraIds": [],
-      "pullRequest": 21141
+      "pullRequest": 21141,
+      "translations": {
+        "tr": "Searchbox carousel gezinme davranışını düzelt"
+      }
     },
     {
       "sha": "b1f12daaa996f3cd51a0a83977ac1f1801296290",
@@ -1934,7 +2066,10 @@
       "scope": null,
       "subject": "Cart not refreshed after re-order",
       "jiraIds": [],
-      "pullRequest": 21202
+      "pullRequest": 21202,
+      "translations": {
+        "tr": "Yeniden siparişten sonra sepet yenilenmiyor"
+      }
     },
     {
       "sha": "34250fed7d32ba5bca14043759907bcff8445cd3",
@@ -1942,7 +2077,10 @@
       "scope": null,
       "subject": "refactor remaining tests after Standalone Components migration to declare mocks via overrideComponent (add/remove imports)",
       "jiraIds": [],
-      "pullRequest": 21219
+      "pullRequest": 21219,
+      "translations": {
+        "tr": "Standalone Components migrasyonundan sonra kalan testleri, mock'ları overrideComponent ile (imports ekleyerek/kaldırarak) tanımlayacak şekilde yeniden düzenle"
+      }
     },
     {
       "sha": "ebcebb662c20f4541574e51adbb8f38e268be172",
@@ -1950,7 +2088,10 @@
       "scope": null,
       "subject": "Add channel property to the initiate OPF endpoint",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "OPF initiate endpoint'ine channel özelliği ekle"
+      }
     },
     {
       "sha": "25312b25d31af01e3da109fcb438b60057984c98",
@@ -1958,7 +2099,10 @@
       "scope": null,
       "subject": "Move storefrontapp occ config to 'private.providers.ts'; centralize common configs of b2b and b2c in one file; rename b2b and b2c files from '.module.ts' to '.providers.ts'\"",
       "jiraIds": [],
-      "pullRequest": 21181
+      "pullRequest": 21181,
+      "translations": {
+        "tr": "storefrontapp occ config'ini 'private.providers.ts' dosyasına taşı; b2b ve b2c'nin ortak config'lerini tek bir dosyada topla; b2b ve b2c dosyalarını '.module.ts'den '.providers.ts'e yeniden adlandır\""
+      }
     },
     {
       "sha": "17f76f66a73d2aba5929b3616960c9844a35fe1e",
@@ -1966,7 +2110,10 @@
       "scope": null,
       "subject": "make AGENTS.md more concise, remove rarely used skill (create-library) and gitignore explicitly '.claude/settings.local.json'",
       "jiraIds": [],
-      "pullRequest": 21231
+      "pullRequest": 21231,
+      "translations": {
+        "tr": "AGENTS.md'yi daha kısa hale getir, nadiren kullanılan skill'i (create-library) kaldır ve '.claude/settings.local.json' dosyasını açıkça gitignore'a ekle"
+      }
     },
     {
       "sha": "426e58226044f12ad2337b77495d549c9de9af3e",
@@ -1974,7 +2121,10 @@
       "scope": null,
       "subject": "dispatching QuoteDetailsReloadQueryEvent from QuoteLinksComponent",
       "jiraIds": [],
-      "pullRequest": 21196
+      "pullRequest": 21196,
+      "translations": {
+        "tr": "QuoteLinksComponent içinden QuoteDetailsReloadQueryEvent dispatch edilmesi"
+      }
     },
     {
       "sha": "1e0a1b81bf7e7b802b0620bad3906b3225f3217d",
@@ -1982,7 +2132,10 @@
       "scope": null,
       "subject": "add initial AGENTS.md and few SKILL.md",
       "jiraIds": [],
-      "pullRequest": 21186
+      "pullRequest": 21186,
+      "translations": {
+        "tr": "ilk AGENTS.md ve birkaç SKILL.md eklendi"
+      }
     },
     {
       "sha": "60759467ab263cb7e56dc270e3bbb34b22da0606",
@@ -1990,7 +2143,10 @@
       "scope": null,
       "subject": "add non-interactive mode to 'schematics/testing.ts' for AI DX",
       "jiraIds": [],
-      "pullRequest": 21223
+      "pullRequest": 21223,
+      "translations": {
+        "tr": "AI DX için 'schematics/testing.ts' dosyasına etkileşimsiz (non-interactive) mod ekle"
+      }
     },
     {
       "sha": "9bdd77fe220bdf56feddaf22982ba1131a02c2ae",
@@ -2000,7 +2156,10 @@
       "jiraIds": [
         "CXSPA-12108"
       ],
-      "pullRequest": 21211
+      "pullRequest": 21211,
+      "translations": {
+        "tr": "(CXSPA-12108) - Kapalı dropdown üzerinde Ng select değerinin okunması"
+      }
     },
     {
       "sha": "7c23449f962e24110e13ce1448d0b09f33d7ed52",
@@ -2010,7 +2169,10 @@
       "jiraIds": [
         "CXSPA-12110"
       ],
-      "pullRequest": 21216
+      "pullRequest": 21216,
+      "translations": {
+        "tr": "(CXSPA-12110) - Ürün yorumları klavye kontrolleri"
+      }
     },
     {
       "sha": "f7eb5793219badc738576ecb9c7df5cb86320fa3",
@@ -2018,7 +2180,10 @@
       "scope": null,
       "subject": "Dependency Updates via Npm Audit Fix. W10",
       "jiraIds": [],
-      "pullRequest": 21221
+      "pullRequest": 21221,
+      "translations": {
+        "tr": "Npm Audit Fix ile bağımlılık güncellemeleri. W10"
+      }
     },
     {
       "sha": "cf4a3d53e63b8b0a1161a048cc681d7df7c83408",
@@ -2028,7 +2193,10 @@
       "jiraIds": [
         "CXSPA-12100"
       ],
-      "pullRequest": 21220
+      "pullRequest": 21220,
+      "translations": {
+        "tr": "(CXSPA-12100) - Parola görünürlüğü e2e"
+      }
     },
     {
       "sha": "f33e8c8b91cfcb304e14a9b1dfe4414e6cc4c759",
@@ -2038,7 +2206,10 @@
       "jiraIds": [
         "CXSPA-12100"
       ],
-      "pullRequest": 21208
+      "pullRequest": 21208,
+      "translations": {
+        "tr": "(CXSPA-12100) - PasswordVisibilityToggle screen reader çıktısının iki kez okunması"
+      }
     },
     {
       "sha": "7f3eadb42b590f49e84ec478b57a1c6ed02b95e6",
@@ -2046,7 +2217,10 @@
       "scope": null,
       "subject": "filter inactive currencies from the currency service",
       "jiraIds": [],
-      "pullRequest": 21207
+      "pullRequest": 21207,
+      "translations": {
+        "tr": "aktif olmayan para birimlerini currency service içinden filtrele"
+      }
     },
     {
       "sha": "d8d8d19c32c3afcfd5ef6c5fa9829fd20d054e33",
@@ -2056,7 +2230,10 @@
       "jiraIds": [
         "CXSPA-12264"
       ],
-      "pullRequest": 21215
+      "pullRequest": 21215,
+      "translations": {
+        "tr": "CXSPA-12264 Güvenlik açıklarını gidermek için Angular yükseltildi"
+      }
     },
     {
       "sha": "55fc406b1c10ae33a63fc43060cf4234acbfab8d",
@@ -2064,7 +2241,10 @@
       "scope": null,
       "subject": "enhance accessibility of Added to Cart dialog with semantic heading",
       "jiraIds": [],
-      "pullRequest": 21197
+      "pullRequest": 21197,
+      "translations": {
+        "tr": "Sepete Eklendi dialog'unun erişilebilirliğini anlamsal başlık (semantic heading) ile iyileştir"
+      }
     },
     {
       "sha": "a8e83e28b586fc41d7c9cc49ca9776c62b7975d9",
@@ -2072,7 +2252,10 @@
       "scope": null,
       "subject": "on installer, handle single quote and multi line when editing core import list",
       "jiraIds": [],
-      "pullRequest": 21203
+      "pullRequest": 21203,
+      "translations": {
+        "tr": "installer'da, core import listesi düzenlenirken tek tırnak ve çok satırlı durumları ele al"
+      }
     },
     {
       "sha": "09aa836ad6d3ff30c85c1ced94774b4d7dd3350a",
@@ -2080,7 +2263,10 @@
       "scope": null,
       "subject": "handle null and empty file selections in file upload component",
       "jiraIds": [],
-      "pullRequest": 21199
+      "pullRequest": 21199,
+      "translations": {
+        "tr": "dosya yükleme component'inde null ve boş dosya seçimlerini ele al"
+      }
     },
     {
       "sha": "3e71f7a9219000437defd3f7382a7637024f051b",
@@ -2088,7 +2274,10 @@
       "scope": null,
       "subject": "fix a11y issue with login/register links label vocalisation",
       "jiraIds": [],
-      "pullRequest": 21168
+      "pullRequest": 21168,
+      "translations": {
+        "tr": "giriş/kayıt bağlantılarının etiketlerinin sesli okunmasındaki a11y sorununu düzelt"
+      }
     },
     {
       "sha": "9180596fb72b135ec407620138b7e596aa14b25c",
@@ -2096,7 +2285,10 @@
       "scope": null,
       "subject": "register page is not rendered by SSR",
       "jiraIds": [],
-      "pullRequest": 20624
+      "pullRequest": 20624,
+      "translations": {
+        "tr": "kayıt sayfası SSR tarafından render edilmiyor"
+      }
     },
     {
       "sha": "edbf1532b1cfa3bf8afc4d01e17400ae667ceae9",
@@ -2104,7 +2296,10 @@
       "scope": null,
       "subject": "skip first active language emission",
       "jiraIds": [],
-      "pullRequest": 21192
+      "pullRequest": 21192,
+      "translations": {
+        "tr": "ilk aktif dil emisyonunu atla"
+      }
     },
     {
       "sha": "02fd4dd991bebe060eae2860f62db02b5f3502c3",
@@ -2112,7 +2307,10 @@
       "scope": null,
       "subject": "address minor review comments on Standalone Components PR #20793",
       "jiraIds": [],
-      "pullRequest": 21130
+      "pullRequest": 21130,
+      "translations": {
+        "tr": "Standalone Components PR #20793 üzerindeki küçük review yorumlarını ele al"
+      }
     },
     {
       "sha": "437e5ba62ab0c2297f3a3a3c3eebc3f0030896d9",
@@ -2120,7 +2318,10 @@
       "scope": null,
       "subject": "Fix background style not showing in high contrast themes for tab accordian component",
       "jiraIds": [],
-      "pullRequest": 21183
+      "pullRequest": 21183,
+      "translations": {
+        "tr": "Tab accordion component için yüksek kontrast temalarında arka plan stilinin görünmemesi sorununu düzelt"
+      }
     },
     {
       "sha": "53c588ce6b132ee184fc9f9b0154e72f11ae1e04",
@@ -2128,7 +2329,10 @@
       "scope": null,
       "subject": "clarify that schematics utilities are not our official public API",
       "jiraIds": [],
-      "pullRequest": 21131
+      "pullRequest": 21131,
+      "translations": {
+        "tr": "schematics yardımcı araçlarının (utilities) resmi public API'miz olmadığını netleştir"
+      }
     },
     {
       "sha": "c5e028886bfd5446abba44901a8771288b7d389d",
@@ -2136,7 +2340,10 @@
       "scope": null,
       "subject": "bump tar@7.5.7 -> tar@7.5.9",
       "jiraIds": [],
-      "pullRequest": 21170
+      "pullRequest": 21170,
+      "translations": {
+        "tr": "tar@7.5.7 -> tar@7.5.9 sürümüne yükseltildi"
+      }
     },
     {
       "sha": "c42c26426ee9610be9f0947dabf4ff3142d1d17b",
@@ -2144,7 +2351,10 @@
       "scope": null,
       "subject": "isolate e2e tests that disabled testIsolation option",
       "jiraIds": [],
-      "pullRequest": 21177
+      "pullRequest": 21177,
+      "translations": {
+        "tr": "testIsolation seçeneğini devre dışı bırakan e2e testlerini izole et"
+      }
     },
     {
       "sha": "f156650fc402540d742af5150c4cad97bf8dc6f4",
@@ -2152,7 +2362,10 @@
       "scope": null,
       "subject": "add mediaApiPrefix env var and backend.media.prefix config",
       "jiraIds": [],
-      "pullRequest": 21096
+      "pullRequest": 21096,
+      "translations": {
+        "tr": "mediaApiPrefix env var ve backend.media.prefix config ekle"
+      }
     },
     {
       "sha": "8dfced6da022d9c299d742c8dc15e06b9d069eae",
@@ -2160,7 +2373,10 @@
       "scope": null,
       "subject": "fix pages title (breadcrumb section) on languge switch",
       "jiraIds": [],
-      "pullRequest": 21032
+      "pullRequest": 21032,
+      "translations": {
+        "tr": "dil değiştirildiğinde sayfa başlıklarını (breadcrumb bölümü) düzelt"
+      }
     },
     {
       "sha": "126bfe64cdd6f88f89a508405acd58f5d35a8936",
@@ -2170,7 +2386,10 @@
       "jiraIds": [
         "CXSPA-7459"
       ],
-      "pullRequest": 21176
+      "pullRequest": 21176,
+      "translations": {
+        "tr": "(CXSPA-7459) - units.e2e düzeltmesi"
+      }
     },
     {
       "sha": "e8e85b0dc9df49128d97da0599e7f2fb680b6c0e",
@@ -2178,7 +2397,10 @@
       "scope": null,
       "subject": "add FontAwesome auto-width css variable",
       "jiraIds": [],
-      "pullRequest": 21164
+      "pullRequest": 21164,
+      "translations": {
+        "tr": "FontAwesome için otomatik genişlik (auto-width) CSS değişkeni ekle"
+      }
     },
     {
       "sha": "f4c98195999ae48d0060dab54568ce527a35bcce",
@@ -2186,7 +2408,10 @@
       "scope": null,
       "subject": "remove unused schematics utils",
       "jiraIds": [],
-      "pullRequest": 21089
+      "pullRequest": 21089,
+      "translations": {
+        "tr": "kullanılmayan schematics utils'leri kaldır"
+      }
     },
     {
       "sha": "c1b3cbee4f52b76382aa90811ac3d7cae5605f35",
@@ -2194,7 +2419,10 @@
       "scope": null,
       "subject": "Filter by label visibility on desktop pdp",
       "jiraIds": [],
-      "pullRequest": 21159
+      "pullRequest": 21159,
+      "translations": {
+        "tr": "Masaüstü pdp'de label görünürlüğüne göre filtreleme"
+      }
     },
     {
       "sha": "f7b59a7b443c56d238f05a2ca6b43fe6446d3715",
@@ -2202,7 +2430,10 @@
       "scope": null,
       "subject": "add site context route handler to initialization to currency, language and basesite initialization",
       "jiraIds": [],
-      "pullRequest": 21151
+      "pullRequest": 21151,
+      "translations": {
+        "tr": "currency, language ve basesite initialization'a site context route handler eklendi"
+      }
     },
     {
       "sha": "03127bfca263888821dce6231ab07aa2ffb5886f",
@@ -2210,7 +2441,10 @@
       "scope": null,
       "subject": "update e2e tests to use breadcrumb order history header",
       "jiraIds": [],
-      "pullRequest": 21169
+      "pullRequest": 21169,
+      "translations": {
+        "tr": "e2e testleri breadcrumb order history header kullanacak şekilde güncellendi"
+      }
     },
     {
       "sha": "693108633677e2d22c5ed2ae067549b83ac21850",
@@ -2218,7 +2452,10 @@
       "scope": null,
       "subject": "hiding stock count for subscription products in PDP page",
       "jiraIds": [],
-      "pullRequest": 21142
+      "pullRequest": 21142,
+      "translations": {
+        "tr": "PDP sayfasında subscription ürünleri için stok sayısının gizlenmesi"
+      }
     }
   ]
 }
