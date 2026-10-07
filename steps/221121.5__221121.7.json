@@ -98,7 +98,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "`AnonymousConsentDialogComponent` içinde bildirimleri modal'ı kapatmadan modal'ın içinde göster"
+        }
       },
       {
         "name": "a11yFocusOnCardAfterSelecting",
@@ -144,7 +147,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Bir seçenek seçildikten ve checkout güncellendikten sonra focus'u karta geri verir."
+        }
       },
       {
         "name": "a11yHamburgerMenuTrapFocus",
@@ -170,7 +176,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Header. Menü genişletildiğinde mobilde menü öğelerinde focus'un hapsolması sorununu düzeltir.\nHeader bölümündeki görünür tüm focus alabilen öğeler için `tabindex` attribute'unu `-1` olarak ayarlar ve bunları\nklavye ile gezinmenin dışında bırakır"
+        }
       },
       {
         "name": "a11yHideConsentButtonWhenBannerVisible",
@@ -288,7 +297,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Çerez banner'ı görünürken 'Consent Management' butonunu tab sırasından çıkarır.\nOnay verildikten ve banner kaybolduktan sonra butonun yeniden etkinleştirilip tab sırasına dahil edilmesini sağlar.\nOnay verildikten sonra butonun adını \"View Details\" yerine \"Consent Management\" olarak değiştirir.\nButonun `AnonymousConsentOpenDialogComponent` içinde ortalanmasını ve klavye ile gezinirken dört kenarı da görünen net bir focus göstergesine sahip olmasını sağlar."
+        }
       },
       {
         "name": "a11yHighContrastBorders",
@@ -350,7 +362,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Yüksek kontrastlı koyu ve açık temalarda tüm UI öğelerindeki kenarlıkların görünür olmasını ve erişilebilirlik standartlarını karşılamasını sağlar.\nBu değişiklik, yüksek kontrast modlarına güvenen kullanıcılar için kullanılabilirliği artırmak amacıyla global olarak uygulanır."
+        }
       },
       {
         "name": "a11yKeyboardFocusInSearchBox",
@@ -449,7 +464,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "`SearchBoxComponent` içinde, fare etkileşimlerinin görsel durumunu etkilemeden klavye ile gezinme için görünür bir focus göstergesi ekler."
+        }
       },
       {
         "name": "a11yMiniCartFocusOnMobile",
@@ -492,7 +510,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "`MiniCart component` içinde mobilde görünür focus kontrastını iyileştirir."
+        }
       },
       {
         "name": "a11yNavigationButtonsAriaFixes",
@@ -592,7 +613,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Button öğelerinde geçersiz aria-level kullanımını kaldırır ve butonların aria-label veya aria-labelledby ile uygun bir erişilebilir ada sahip olmasını sağlar."
+        }
       },
       {
         "name": "a11yNgSelectAriaLabelDropdownCustomized",
@@ -616,7 +640,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "'NgSelectA11yDirective', özel\nariaLabelDropdown ng-select attribute değerini sağlanan common.ngSelectDropdownOptionsList çevirisine ayarlayarak ng-select dropdown'larını özelleştirir"
+        }
       },
       {
         "name": "a11yPopoverHighContrast",
@@ -640,7 +667,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Yüksek Kontrast Teması uygulandığında popover görünümünü düzeltir."
+        }
       },
       {
         "name": "a11yQuickOrderSearchBoxRefocusOnClose",
@@ -666,7 +696,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde `QuickOrderFormComponent` içindeki input öğesi, dropdown kapandıktan sonra focus'unu yeniden kazanır."
+        }
       },
       {
         "name": "a11yQuickOrderSearchListKeyboardNavigation",
@@ -709,7 +742,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "`QuickOrderFormComponent` - arama sonuçları listesi için Tab/Shift+Tab ile gezinmeyi devre dışı bırakır"
+        }
       },
       {
         "name": "a11yRegionAssociatedHeaders",
@@ -792,7 +828,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "İçerik bölgelerini başlıklarıyla ilişkilendirerek bölümler arasında gezinirken sesli okumayı iyileştirir."
+        }
       },
       {
         "name": "a11yRepeatingButtonsUniqueLabels",
@@ -833,7 +872,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Aynı metni içeren tekrarlayan butonlara benzersiz bir `aria-label` ekler."
+        }
       },
       {
         "name": "a11yResetFocusAfterNavigating",
@@ -859,7 +901,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Yeni bir sayfaya gidildikten sonra focus'u sıfırlar."
+        }
       },
       {
         "name": "a11yScrollToTopPositioning",
@@ -904,7 +949,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde scroll-to-top butonu, sayfanın altında diğer UI öğeleri\n(örneğin çerez onayı banner'ı) göründüğünde üst üste binmeyi önlemek için konumunu ayarlar"
+        }
       },
       {
         "name": "a11ySearchableDropdownFirstElementFocus",
@@ -950,7 +998,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Arama dropdown'ları, aşağı ok tuşuyla seçeneklere gidilirken focus halkasını doğru şekilde gösterir."
+        }
       },
       {
         "name": "a11yTabsManualActivation",
@@ -976,7 +1027,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "'TabComponent' otomatik tab etkinleştirmesine izin vermez."
+        }
       },
       {
         "name": "a11yTruncatedTextUnitLevelOrderHistory",
@@ -1057,7 +1111,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "`UnitLevelOrderHistoryComponent` filtre input etiketi ve tablodaki e-posta adresi\nkırpılmaz"
+        }
       },
       {
         "name": "a11yUseProperTextColorForFutureStockAccordion",
@@ -1104,7 +1161,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "`FutureStockAccordionComponent` içinde buton rengi için `cx-color-text` kullanılır"
+        }
       },
       {
         "name": "enableCarouselCategoryProducts",
@@ -1130,7 +1190,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Ürün carousel'inin belirtilen kategori kodlarına göre ürünleri içermesini sağlar.\n\n- Bu özellik etkinleştirildiğinde carousel, sağlanan `categoryCodes` ile\n  ilişkili ürünleri getirir ve gösterir.\n- `categoryCodes` SmartEdit üzerinden yapılandırılır ve yönetilir"
+        }
       },
       {
         "name": "enableClaimCustomerCouponWithCodeInRequestBody",
@@ -1154,7 +1217,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "CustomerCouponConnector içinde, müşteri kuponunun POST metoduyla httpRequest body'sinde kupon koduyla talep edilmesini sağlar.\n\n`false` olarak ayarlandığında müşteri kuponu talep etme, kupon kodunu URL'de parametre olarak kullanır; bu durum hassas verileri açığa çıkarır ve güvenlik riski taşır.\n`true` olarak ayarlandığında müşteri kuponu talep etme, kupon kodunu POST metoduyla httpRequest body'sinde kullanır (yeni Occ endpoint'i Commerce 2211.28'den itibaren mevcuttur) ve güvenlik riskini önler."
+        }
       },
       {
         "name": "updateConsentGivenInOnChanges",
@@ -1180,7 +1246,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "`consent` güncellendiğinde türetilmiş `consentGiven` durumunu günceller.\n\nEtkilenen component'ler:\n- `ConsentManagementFormComponent`\n- `MyAccountV2ConsentManagementFormComponent`"
+        }
       }
     ],
     "added": [
@@ -1227,7 +1296,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "FutureStockAccordionComponent içinde accordion kapalıyken aria-controls'un var olmayan bir öğeye referans vermesine neden olan a11y sorununu düzeltir. Etkinleştirildiğinde, içerik öğesi her zaman DOM'da bulunur ancak kapalıyken gizlenir; böylece aria-controls her zaman geçerli bir ID'ye referans verir."
+        }
       },
       {
         "name": "a11yNgSelectUnicodeCarets",
@@ -1274,7 +1346,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "ng-select dropdown caret'leri için unicode karakterler kullanır; böylece işletim sistemi theme'leri metni hedefleyerek varsayılanları override edebilir. Şekilleri çizmek için border kullanıldığında bu mümkün değildir."
+        }
       }
     ],
     "defaultEnabled": [
@@ -1369,7 +1444,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, ürün listesi sayfasındaki ürün kartlarına zorunlu tutarlı bir boyut uygulanır.\nŞu bileşenlerin stillerini etkiler: ProductGridItemComponent, ProductListItemComponent."
+        }
       },
       {
         "name": "createMediaPreconnectLink",
@@ -1377,7 +1455,10 @@
         "affects": [],
         "defaultValue": true,
         "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/b064b86b837544b2a41158f1d1c5e552.html",
-        "usages": []
+        "usages": [],
+        "translations": {
+          "tr": "index.html içinde <link rel=preconnect> kullanımını etkinleştiren feature toggle.\n\n## Etkinleştirildiğinde:\nBir <link> öğesine rel=preconnect eklemek, tarayıcıya sayfanızın başka bir domain'e bağlantı kurmayı amaçladığını\nve bu sürecin mümkün olan en kısa sürede başlamasını istediğinizi bildirir. Kurulum süreci tarayıcı kaynakları\nistediğinde zaten tamamlanmış olacağından kaynaklar daha hızlı yüklenir.\n\nNot: Media base url'in domain'i storefront'un domain'i ile aynıysa preconnect gerekmez (ve uygulanmaz)."
+        }
       },
       {
         "name": "defaultLayoutConfigWithoutPageFold",
@@ -1385,7 +1466,10 @@
         "affects": [],
         "defaultValue": true,
         "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/53c73f185b97463cb549b45df823153e.html",
-        "usages": []
+        "usages": [],
+        "translations": {
+          "tr": "Daha önce varsayılan Spartacus layout config'i aşağıdaki layout'lar için `pageFold` özelliğini içeriyordu:\n- `LandingPage2Template`\n- `CategoryPageTemplate`\n- `ProductDetailsPageTemplate`\n\nBu feature toggle etkinleştirildiğinde, `pageFold` özelliği bu layout config'lerinden kaldırılır.\n\nAmaç CLS (Cumulative Layout Shift) metriğini iyileştirmektir. Önceden `pageFold` özelliği, SSR sayfalarında bile\nCMS component'lerinin ancak kısa bir gecikmeden sonra render edilmesine ve dolayısıyla layout shift oluşmasına neden oluyordu.\n\n⚠️ Bu feature toggle'ı tam olarak etkinleştirmek için kod tabanınızdaki `provideConfig(layoutConfig)` çağrısını\n`provideConfigFactory(layoutConfigFactory)` ile değiştirmeniz de gerekir."
+        }
       },
       {
         "name": "defaultProductPageRouteAllowsNoProductName",
@@ -1393,7 +1477,10 @@
         "affects": [],
         "defaultValue": true,
         "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/bc80eb4d9f7742b292b0bd6ed7bf660c.html",
-        "usages": []
+        "usages": [],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, ürün sayfası için varsayılan routing config artık sadece şu değildir:\n`paths: ['product/:productCode/:name']`\nbunun yerine şudur:\n`paths: ['product/:productCode/:name', 'product/:productCode'],`\n\nBu, bağlantı oluşturma ve URL eşleştirmenin eski URL şemasının korunduğu anlamına gelir,\nancak artık URL eşleştirilirken daha kısa bir alias (ürün adı olmadan) da kabul edilir."
+        }
       },
       {
         "name": "disableCxPageSlotMarginAnimation",
@@ -1439,7 +1526,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "cx-page-slot component'i için margin animasyonunu devre dışı bırakan feature toggle.\n`cx-page-slot` component'indeki `margin` özelliğinin CSS animasyonunu devre dışı bırakır.\nBu animasyon, başlangıçta Spartacus'taki eski \"defer loading\" ve \"below the fold\"\nmekanizmasının bir parçasıydı. Bu mekanizma güncel storefront'ta artık kullanılmadığından,\nanimasyon gereksiz layout shift'lere (CLS) ve artan render maliyetine (TBT) neden olur.\n\nBu toggle'ı etkinleştirmek, performansı ve kullanıcı deneyimini iyileştirmek için margin animasyonunu kaldırır."
+        }
       },
       {
         "name": "lazyLoadImagesByDefault",
@@ -1463,7 +1553,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Varsayılan görsel yükleme stratejisini kontrol eden feature toggle.\n\nVarsayılan olarak `MediaComponent`, `MediaService` içindeki fallback mantığı nedeniyle tüm görseller için\n`loading=\"eager\"` attribute'unu kullanıyordu; bu mantık, açık bir config verilmediğinde\n`imageLoadingStrategy: EAGER` değerini varsayılan alır.\n\nBu toggle etkinleştirildiğinde, varsayılan görsel yükleme davranışı `loading=\"lazy\"` olacak şekilde değişir.\nBöylece below the fold görseller hemen indirilmez, gereksiz ağ kullanımı azalır ve performans artar.\n\nLazy loading, bant genişliğini serbest bırakarak sayfadaki en büyük içerik öğesi gibi daha önemli kaynaklara\nöncelik verilmesini sağlar; bu da LCP (Largest Contentful Paint) metriğini olumlu etkileyebilir.\n\nTüm görseller varsayılan olarak lazy yüklendiğinde, LCP görsellerine açıkça öncelik vermelisiniz;\nbunu Spartacus config'i üzerinden CMS component ID'lerini belirterek yapabilirsiniz:\n`provideConfig({ lcpCmsComponents: ... })`\n... ya da özel input'u doğrudan `MediaComponent`'e vererek:\n`<cx-media [fetchPriority]=\"ImageFetchPriority.HIGH\" ... >`\n\nVarsayılan olarak lazy loading'i etkinleştirmek için `true` yapın."
+        }
       },
       {
         "name": "productCarouselScrolling",
@@ -1765,7 +1858,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, aşağıdaki component'lerde eski `<cx-carousel>` yerine yeni `<cx-carousel-scrolling>` carousel component'i kullanılır:\n- `ProductCarouselComponent`\n- `ProductReferencesComponent`\n- `ProductImagesComponent` ve ilgili `ProductImageZoomProductImagesComponent`\n\nÖnceki carousel'in çeşitli sorunları vardı:\n- Masaüstü viewport'ta SSR'dan CSR'a geçişte büyük layout shift'e neden oluyordu,\n    çünkü SSR'da yalnızca 1 carousel öğesi render ediliyor, masaüstü CSR'da ise bir süre sonra 4 öğe\n    görünüyordu (özellikle Chrome DevTools Network throttling ile belirgindi)\n- Spartacus tüm görselleri lazy yükleyecek şekilde yapılandırılmış olsa bile\n    (`provideConfig({ imageLoadingStrategy: ImageLoadingStrategy.LAZY})`), görünmeyen slide'lardaki görselleri de eager yüklüyordu\n- Mobil cihazlarda swipe dostu değildi\n\nYeni carousel:\n- Artık SSR'dan CSR'a geçişte büyük layout shift'ten etkilenmez, çünkü aynı HTML hem SSR'da hem de\n   CSR bir gecikmeyle devreye girdiğinde render edilir;\n   böylece SSR HTML'inde ve CSR HTML'inde aynı sayıda carousel öğesi görünür.\n- Yerel yatay kaydırma sayesinde görünmeyen görselleri lazy yükler (Spartacus tüm görselleri lazy yükleyecek\n   şekilde yapılandırıldığında: `provideConfig({ imageLoadingStrategy: ImageLoadingStrategy.LAZY})`)\n- Yerel yatay kaydırması sayesinde dokunmatik cihazlarda swipe dostudur"
+        }
       },
       {
         "name": "productReviewCharactersLeft",
@@ -1843,7 +1939,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Ürün yorumu formu öğeleri için kalan karakter sayısını gösterir."
+        }
       },
       {
         "name": "readMoreDirective",
@@ -1888,7 +1987,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Uzun metin içeren öğeleri sunmak için read more directive'i ekler."
+        }
       },
       {
         "name": "reserveHorizontalSpaceStarRating",
@@ -1931,7 +2033,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "PDP'de CLS'yi önlemek için Star Rating component'i adına yatay alan ayırır.\nEtkinleştirildiğinde, `cx-star-rating` component'i PDP'de CLS'yi önlemek için star rating component'i adına yatay alan ayırır.\nAksi takdirde component başlangıçta genişliğe sahip olmaz ve yalnızca bir gecikmeden sonra genişler,\nyani Font Awesome fontu yüklendiğinde ve yıldız ikonları render edildiğinde."
+        }
       },
       {
         "name": "reserveSpaceForImagesOnPdpAndPlp",
@@ -2036,7 +2141,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "CLS (Cumulative Layout Shift) sorunlarını önlemek için ürün görselleri adına yer ayırmayı etkinleştiren feature toggle.\n\nEtkinleştirildiğinde, görseller yüklenmeden önce uygun alanın ayrılmasını sağlar ve\naşağıdaki bağlamlarda layout kararlılığını korur:\n\n- **PDP (Product Detail Page)**: Ana ürün görseli için yer ayırır.\n- **PLP (Product Listing Page) - List View**: Liste düzenindeki her ürün görseli için yer ayırır.\n- **PLP (Product Listing Page) - Grid View**: Grid düzenindeki her ürün görseli için yer ayırır.\n\nBu, görseller yüklenirken oluşan layout shift'leri önleyerek Core Web Vitals'ın iyileşmesine yardımcı olur."
+        }
       },
       {
         "name": "storeFinderFacadeCleanup",
@@ -2072,7 +2180,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, getDirections, getStoreLatitude ve getStoreLongitude için\nStoreFinderFacade (deprecated) yerine StoreLocationService kullanılır.\nArkasındaki mantık aynı kalır."
+        }
       },
       {
         "name": "topProgressBarUseTransformAnimation",
@@ -2121,7 +2232,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Üstteki progress bar animasyonu için `margin` özelliğini animasyonlamak yerine\n`transform: translateX` kullanımını etkinleştiren feature flag.\n\n## Bu flag neden var:\n`margin` özelliğini animasyonlamanın iki büyük dezavantajı vardır:\n\n1. **Cumulative Layout Shift (CLS)**: Margin değiştirmek, görsel kararlılığı olumsuz etkileyen layout kaymalarına neden olur.\n2. **Performans etkisi**: Margin animasyonları tarayıcıda yeniden layout'u (reflow) tetikler, layout ve paint maliyetlerini artırır,\n   bu da Total Blocking Time (TBT) gibi performans metriklerinin kötüleşmesine katkıda bulunur.\n\n## Etkinleştirildiğinde:\nÜstteki progress bar, GPU hızlandırmalı ve layout'tan bağımsız bir işlem olan `transform: translateX(...)` ile animasyonlanır;\nbu da görsel performansı iyileştirir ve layout kaymalarını önler."
+        }
       },
       {
         "name": "unifiedDefaultHeaderSlotsAcrossBreakpoints",
@@ -2166,7 +2280,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Layout shift'i azaltmak ve Cumulative Layout Shift (CLS) skorlarını iyileştirmek için breakpoint'ler arasında tutarlı header slot yapısını etkinleştiren feature toggle.\n\nMasaüstü cihazlarda (mobil olmayan), bazı header ve navigasyon öğeleri yalnızca client-side rendering (CSR)\nsonrasında render ediliyordu ve bu da belirgin layout shift'lere yol açıyordu. Bu durum kullanıcı deneyimini\nve CLS performansını olumsuz etkiliyordu.\n\nEtkinleştirildiğinde:\n- Masaüstü, mobil ile aynı header slot yapısını kullanır.\n- Layout shift azalır; algılanan performans ve görsel kararlılık iyileşir.\n\n ⚠️ Bu özelliği tam olarak etkinleştirmek için kod tabanınızdaki `provideConfig(layoutConfig)` çağrısını\n`provideConfigFactory(layoutConfigFactory)` ile değiştirin."
+        }
       }
     ]
   },
@@ -3757,7 +3874,10 @@
       "jiraIds": [
         "CXSPA-12069"
       ],
-      "pullRequest": 21127
+      "pullRequest": 21127,
+      "translations": {
+        "tr": "(CXSPA-12069) Typescript manuel dokümantasyon güncellemeleri"
+      }
     },
     {
       "sha": "70bc432142621a74b3509c1c7900b323fc658095",
@@ -3765,7 +3885,10 @@
       "scope": null,
       "subject": "move back storefrontapp occ config to 'app.module.ts', and restore b2b- and b2c-configuration.module.ts",
       "jiraIds": [],
-      "pullRequest": 21120
+      "pullRequest": 21120,
+      "translations": {
+        "tr": "storefrontapp occ yapılandırmasını 'app.module.ts' dosyasına geri taşı ve b2b- ve b2c-configuration.module.ts dosyalarını geri yükle"
+      }
     },
     {
       "sha": "83e8f35ee93f11aa22ef38d3a84722d69ce18dde",
@@ -3773,7 +3896,10 @@
       "scope": null,
       "subject": "generate breaking changes docs",
       "jiraIds": [],
-      "pullRequest": 21110
+      "pullRequest": 21110,
+      "translations": {
+        "tr": "breaking changes dokümanlarını oluştur"
+      }
     },
     {
       "sha": "b4871991dfc8366188c0d26d218a6a2fd535f36f",
@@ -3781,7 +3907,10 @@
       "scope": null,
       "subject": "Provide breaking changes related to angular upgrade",
       "jiraIds": [],
-      "pullRequest": 21087
+      "pullRequest": 21087,
+      "translations": {
+        "tr": "Angular upgrade ile ilgili breaking changes bilgilerini ekle"
+      }
     },
     {
       "sha": "6e30604f321941c685a8d7a83a0766cd9bc7bc1b",
@@ -3791,7 +3920,10 @@
       "jiraIds": [
         "CXSPA-12031"
       ],
-      "pullRequest": 21119
+      "pullRequest": 21119,
+      "translations": {
+        "tr": "(CXSPA-12031) Kullanımdan kaldırılmış büyük translations objelerini kaldır, yerine dile özel olanları kullan"
+      }
     },
     {
       "sha": "d3399906489d75feaf79f631ceec70a05ddc7a37",
@@ -3799,7 +3931,10 @@
       "scope": null,
       "subject": "removed the deprecated 'OptimizedSsrEngine.log' method in favor of 'this.logger'",
       "jiraIds": [],
-      "pullRequest": 21117
+      "pullRequest": 21117,
+      "translations": {
+        "tr": "kullanımdan kaldırılmış 'OptimizedSsrEngine.log' metodu kaldırıldı, yerine 'this.logger' kullanılıyor"
+      }
     },
     {
       "sha": "c87afb70d6ddbe5943ebc2e0663aabb39cbdad3d",
@@ -3807,7 +3942,10 @@
       "scope": null,
       "subject": "Migration - adjustments",
       "jiraIds": [],
-      "pullRequest": 21111
+      "pullRequest": 21111,
+      "translations": {
+        "tr": "Migration - düzenlemeler"
+      }
     },
     {
       "sha": "194b262bc8378e8d26dbebf31832d641bdcdee15",
@@ -3817,7 +3955,10 @@
       "jiraIds": [
         "CXSPA-12025"
       ],
-      "pullRequest": 21106
+      "pullRequest": 21106,
+      "translations": {
+        "tr": "CXSPA-12025 CCv2 uyumluluğu için package.json dosyasına 'build:ssr' script'i ekle"
+      }
     },
     {
       "sha": "cf77211722455508f19a97f8d1fa8afa38070849",
@@ -3825,7 +3966,10 @@
       "scope": null,
       "subject": "Remove deprecated media token",
       "jiraIds": [],
-      "pullRequest": 21104
+      "pullRequest": 21104,
+      "translations": {
+        "tr": "Kullanımdan kaldırılmış media token'ı kaldır"
+      }
     },
     {
       "sha": "735384a2e460155eabec70de5c4bbf575ab8ddcf",
@@ -3835,7 +3979,10 @@
       "jiraIds": [
         "CXSPA-12009"
       ],
-      "pullRequest": 21103
+      "pullRequest": 21103,
+      "translations": {
+        "tr": "CXSPA-12009 Migration - dokümanları düzenle ve manuel adımları fallback olarak işaretle"
+      }
     },
     {
       "sha": "14c09286beab0087075db39dc0f79ef5c2a1a047",
@@ -3845,7 +3992,10 @@
       "jiraIds": [
         "CXSPA-11970"
       ],
-      "pullRequest": 21097
+      "pullRequest": 21097,
+      "translations": {
+        "tr": "(CXSPA-11970) Migration dokümanları - yükseltilen kütüphaneler hakkında bilgi ekle"
+      }
     },
     {
       "sha": "b67aaf92c089d4539f640cdd8fe5f8098b9958ec",
@@ -3853,7 +4003,10 @@
       "scope": null,
       "subject": "Bump tar to v7.5.7",
       "jiraIds": [],
-      "pullRequest": 21102
+      "pullRequest": 21102,
+      "translations": {
+        "tr": "tar sürümünü v7.5.7'ye yükselt"
+      }
     },
     {
       "sha": "3ec07e32e40d984b8c2b82188f537c1a535fe150",
@@ -3861,7 +4014,10 @@
       "scope": null,
       "subject": "width of icon in card",
       "jiraIds": [],
-      "pullRequest": 21098
+      "pullRequest": 21098,
+      "translations": {
+        "tr": "Card içindeki ikonun genişliği"
+      }
     },
     {
       "sha": "281e59034d056772bc4a65e988a6b0eca46dfb94",
@@ -3869,7 +4025,10 @@
       "scope": null,
       "subject": "Rating stars wrapped to new line",
       "jiraIds": [],
-      "pullRequest": 21095
+      "pullRequest": 21095,
+      "translations": {
+        "tr": "Rating yıldızları yeni satıra taşıyor"
+      }
     },
     {
       "sha": "0ae032f0709314aa89d4d7993fade564cbe06620",
@@ -3877,7 +4036,10 @@
       "scope": null,
       "subject": "add padding for large screens in future stock accordion",
       "jiraIds": [],
-      "pullRequest": 21099
+      "pullRequest": 21099,
+      "translations": {
+        "tr": "Future stock accordion içinde büyük ekranlar için padding ekle"
+      }
     },
     {
       "sha": "4ff05b5fb41e300337abb8d03f8408bdf508d838",
@@ -3885,7 +4047,10 @@
       "scope": null,
       "subject": "add migration instructions for enabling non-destructive hydration in SSR applications",
       "jiraIds": [],
-      "pullRequest": 21064
+      "pullRequest": 21064,
+      "translations": {
+        "tr": "SSR uygulamalarında non-destructive hydration'ı etkinleştirmek için migration talimatları ekle"
+      }
     },
     {
       "sha": "ddc7ba73904a03797f328d5b80ad394bd53c5b30",
@@ -3895,7 +4060,10 @@
       "jiraIds": [
         "CXSPA-11713"
       ],
-      "pullRequest": 21090
+      "pullRequest": 21090,
+      "translations": {
+        "tr": "CXSPA-11713 Migration - `provideZoneChangeDetection` işlemini ele al"
+      }
     },
     {
       "sha": "992e8cc482db488ebb03460b1bb34724279d4a83",
@@ -3905,7 +4073,10 @@
       "jiraIds": [
         "CXSPA-11969"
       ],
-      "pullRequest": 21094
+      "pullRequest": 21094,
+      "translations": {
+        "tr": "(CXSPA-11969) Şubat release'i için a11y toggle'larının \"deprecated\" durumunu kaldır"
+      }
     },
     {
       "sha": "88ba15e10a31e78af2e53c6e554917b5bc9c22c0",
@@ -3913,7 +4084,10 @@
       "scope": null,
       "subject": "Added breaking changes for CDC services",
       "jiraIds": [],
-      "pullRequest": 21093
+      "pullRequest": 21093,
+      "translations": {
+        "tr": "CDC servisleri için breaking changes eklendi"
+      }
     },
     {
       "sha": "9c3a96b5c637375a88d1e924abd3c49ebda87556",
@@ -3923,7 +4097,10 @@
       "jiraIds": [
         "CXSPA-11614"
       ],
-      "pullRequest": 21065
+      "pullRequest": 21065,
+      "translations": {
+        "tr": "CXSPA-11614 Migrate edilen uygulamalarda tsconfig.json dosyasını güncelle"
+      }
     },
     {
       "sha": "29b9b6ddeb34557460d83e78ba77549de02e8a0a",
@@ -3931,7 +4108,10 @@
       "scope": null,
       "subject": "Angular 21.1 - cleanup",
       "jiraIds": [],
-      "pullRequest": 21085
+      "pullRequest": 21085,
+      "translations": {
+        "tr": "Angular 21.1 - temizlik"
+      }
     },
     {
       "sha": "6622a52921085dfd950aec9a482952043b4cdfd6",
@@ -3939,7 +4119,10 @@
       "scope": null,
       "subject": "use standalone-friendly bootstrapApplication Angular API instead of bootstrapModule",
       "jiraIds": [],
-      "pullRequest": 21059
+      "pullRequest": 21059,
+      "translations": {
+        "tr": "bootstrapModule yerine standalone uyumlu bootstrapApplication Angular API'sini kullan"
+      }
     },
     {
       "sha": "a7085407af428e382d8ff84b4bf8d33b2c8f029a",
@@ -3949,7 +4132,10 @@
       "jiraIds": [
         "CXSPA-11736"
       ],
-      "pullRequest": 21063
+      "pullRequest": 21063,
+      "translations": {
+        "tr": "CXSPA-11736 Migration - Express'i v5.1.0'a yükselt, server.ts dosyasını düzenle"
+      }
     },
     {
       "sha": "61da2f376364949b9ce0a53c1bce60bf9128dc88",
@@ -3959,7 +4145,10 @@
       "jiraIds": [
         "CXSPA-11949"
       ],
-      "pullRequest": 21057
+      "pullRequest": 21057,
+      "translations": {
+        "tr": "(CXSPA-11949) [BEFORE DF] Breaking changes için migration dokümanları"
+      }
     },
     {
       "sha": "bd796a7bcaffc869195a0111c7ecf53b1ebdcc1d",
@@ -3967,7 +4156,10 @@
       "scope": null,
       "subject": "Missing 'provideServerRendering' in fresh apps",
       "jiraIds": [],
-      "pullRequest": 21079
+      "pullRequest": 21079,
+      "translations": {
+        "tr": "Yeni oluşturulan uygulamalarda 'provideServerRendering' eksik"
+      }
     },
     {
       "sha": "87eceabad543f666b3cd2af134cdc07c1393015d",
@@ -3975,7 +4167,10 @@
       "scope": null,
       "subject": "Bump lodash to 4.17.23 - backport to release branch",
       "jiraIds": [],
-      "pullRequest": 21069
+      "pullRequest": 21069,
+      "translations": {
+        "tr": "lodash sürümünü 4.17.23'e yükselt - release branch'e backport"
+      }
     },
     {
       "sha": "cfcebfb0755de29830cc7f116614c70098f6424b",
@@ -3983,7 +4178,10 @@
       "scope": null,
       "subject": "Update Angular dependencies to v21.1.0",
       "jiraIds": [],
-      "pullRequest": 21060
+      "pullRequest": 21060,
+      "translations": {
+        "tr": "Angular bağımlılıklarını v21.1.0'a güncelle"
+      }
     },
     {
       "sha": "5982682b2f0153b513bab4f3145d9c728f70e28f",
@@ -3991,7 +4189,10 @@
       "scope": null,
       "subject": "make featureConfigService usages private",
       "jiraIds": [],
-      "pullRequest": 21055
+      "pullRequest": 21055,
+      "translations": {
+        "tr": "featureConfigService kullanımlarını private yap"
+      }
     },
     {
       "sha": "cca09111838c74f2b722853c2607bead32eb5ef4",
@@ -3999,7 +4200,10 @@
       "scope": null,
       "subject": "Update Spartacus version to 221121.7.0-1",
       "jiraIds": [],
-      "pullRequest": 21053
+      "pullRequest": 21053,
+      "translations": {
+        "tr": "Spartacus sürümünü 221121.7.0-1 olarak güncelle"
+      }
     },
     {
       "sha": "7b554a6d0a1fbd27273b28b6c66f543137acd42c",
@@ -4007,7 +4211,10 @@
       "scope": null,
       "subject": "remove old major-version migration schematics for versions v3-v6 (but leave v2211+)",
       "jiraIds": [],
-      "pullRequest": 21046
+      "pullRequest": 21046,
+      "translations": {
+        "tr": "v3-v6 sürümleri için eski major sürüm migration schematics'lerini kaldır (v2211+ olanları bırak)"
+      }
     },
     {
       "sha": "1c259ce01da8a957ab8f4d0b8b3053e1eb148222",
@@ -4015,7 +4222,10 @@
       "scope": null,
       "subject": "Update address data to be taken from the API call",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "Adres verilerinin API çağrısından alınacak şekilde güncellenmesi"
+      }
     },
     {
       "sha": "f6372aebc2b88f3caf868c73d95740372e682740",
@@ -4023,7 +4233,10 @@
       "scope": null,
       "subject": "Future stock accordion breaks unique ID rule",
       "jiraIds": [],
-      "pullRequest": 21033
+      "pullRequest": 21033,
+      "translations": {
+        "tr": "Future stock accordion benzersiz ID kuralını ihlal ediyor"
+      }
     },
     {
       "sha": "2d73af6f15a9295b06598ebdcf8b86c35c00d566",
@@ -4031,7 +4244,10 @@
       "scope": null,
       "subject": "Update hono package to v4.11.4",
       "jiraIds": [],
-      "pullRequest": 21042
+      "pullRequest": 21042,
+      "translations": {
+        "tr": "hono paketini v4.11.4 sürümüne güncelle"
+      }
     },
     {
       "sha": "ccd6d576ef7d8736265742f9a75ebc72844ef2ca",
@@ -4039,7 +4255,10 @@
       "scope": null,
       "subject": "Update installation script config to use 'develop' branch",
       "jiraIds": [],
-      "pullRequest": 21037
+      "pullRequest": 21037,
+      "translations": {
+        "tr": "Kurulum script yapılandırmasını 'develop' branch'ini kullanacak şekilde güncelle"
+      }
     },
     {
       "sha": "8d8a29c54fc83943257e65ab4d7713748bf29052",
@@ -4049,7 +4268,10 @@
       "jiraIds": [
         "CXSPA-11613"
       ],
-      "pullRequest": 20954
+      "pullRequest": 20954,
+      "translations": {
+        "tr": "CXSPA-11613 Migration - 'angular.json' dosyasından kullanılmayan 'index' özelliğinin kaldırılması"
+      }
     },
     {
       "sha": "171e2f28c6704edd9b9e995f295f8cc057983a4e",
@@ -4057,7 +4279,10 @@
       "scope": null,
       "subject": "SSR returns page with status 500 when CmsPageNotFoundOutboundHttpError occurs",
       "jiraIds": [],
-      "pullRequest": 21035
+      "pullRequest": 21035,
+      "translations": {
+        "tr": "CmsPageNotFoundOutboundHttpError oluştuğunda SSR sayfayı 500 durum koduyla döndürüyor"
+      }
     },
     {
       "sha": "5373b8e4db733a1f1d79e46b908ed8c00667bc7a",
@@ -4065,7 +4290,10 @@
       "scope": null,
       "subject": "update Node.js engine version in package.json to ^22.22.0",
       "jiraIds": [],
-      "pullRequest": 20936
+      "pullRequest": 20936,
+      "translations": {
+        "tr": "package.json içindeki Node.js engine sürümünü ^22.22.0 olarak güncelle"
+      }
     },
     {
       "sha": "22cff41a800a36cd594fb610a0980744be17f353",
@@ -4073,7 +4301,10 @@
       "scope": null,
       "subject": "site theme e2e test fix",
       "jiraIds": [],
-      "pullRequest": 21034
+      "pullRequest": 21034,
+      "translations": {
+        "tr": "site theme e2e test düzeltmesi"
+      }
     },
     {
       "sha": "8a6e390286a97d43685b344e655ceaa99d6ee267",
@@ -4083,7 +4314,10 @@
       "jiraIds": [
         "CXSPA-11806"
       ],
-      "pullRequest": 21005
+      "pullRequest": 21005,
+      "translations": {
+        "tr": "(CXSPA-11806) Kullanımdan kaldırılmış (deprecated) kodu kaldır"
+      }
     },
     {
       "sha": "9ae179f0b47e93c413ca41159b54a1e1913e3e85",
@@ -4093,7 +4327,10 @@
       "jiraIds": [
         "CXSPA-11616"
       ],
-      "pullRequest": 20968
+      "pullRequest": 20968,
+      "translations": {
+        "tr": "CXSPA-11616 Migration - 'provideBrowserGlobalErrorListeners' ekle"
+      }
     },
     {
       "sha": "36a669b7783c050621e3afeb252bebc578a43f6e",
@@ -4103,7 +4340,10 @@
       "jiraIds": [
         "CXSPA-11692"
       ],
-      "pullRequest": 21023
+      "pullRequest": 21023,
+      "translations": {
+        "tr": "CXSPA-11692 Spartacus sürümünü 221121.8.0-1 olarak yükselt"
+      }
     },
     {
       "sha": "31658cdba26e816eecde50ca28d88529d0945e2a",
@@ -4111,7 +4351,10 @@
       "scope": null,
       "subject": "convert all components to standalone, but leave NgModules for backward compatibility",
       "jiraIds": [],
-      "pullRequest": 20793
+      "pullRequest": 20793,
+      "translations": {
+        "tr": "Tüm component'leri standalone'a dönüştür, ancak geriye dönük uyumluluk için NgModule'leri bırak"
+      }
     },
     {
       "sha": "fce7ab022876bf646a045c11b3229183d5b8340d",
@@ -4119,7 +4362,10 @@
       "scope": null,
       "subject": "Bump angular-builders/custom-esbuild ot stable version",
       "jiraIds": [],
-      "pullRequest": 21021
+      "pullRequest": 21021,
+      "translations": {
+        "tr": "angular-builders/custom-esbuild paketini kararlı sürüme yükselt"
+      }
     },
     {
       "sha": "7c67d0936ab65ea6ff6bc029f26bfa4ef79f0cd3",
@@ -4127,7 +4373,10 @@
       "scope": null,
       "subject": "update OPF global functions logic for addresses",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "OPF global fonksiyonlarının adresler için mantığını güncelle"
+      }
     },
     {
       "sha": "b7ff89f254e5d8646d47fa778f762282f9390311",
@@ -4135,7 +4384,10 @@
       "scope": null,
       "subject": "Quote link not showing up in Order details",
       "jiraIds": [],
-      "pullRequest": 21003
+      "pullRequest": 21003,
+      "translations": {
+        "tr": "Quote bağlantısı Order details sayfasında görünmüyor"
+      }
     },
     {
       "sha": "6177d169034b5d496ed4fd7187099ccf8b1404ef",
@@ -4143,7 +4395,10 @@
       "scope": null,
       "subject": "remove pickup in store dependency from OPF",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "OPF'den pickup in store bağımlılığını kaldır"
+      }
     },
     {
       "sha": "86cf9124250683c1354471cc44051f3160e51550",
@@ -4151,7 +4406,10 @@
       "scope": null,
       "subject": "bump-schematics-deps",
       "jiraIds": [],
-      "pullRequest": 21009
+      "pullRequest": 21009,
+      "translations": {
+        "tr": "bump-schematics-deps"
+      }
     },
     {
       "sha": "3972b0b65df5c034234d952fd8c89a88cb72d8a5",
@@ -4159,7 +4417,10 @@
       "scope": null,
       "subject": "Update fontsource and fortawesome libs to latest versions",
       "jiraIds": [],
-      "pullRequest": 21007
+      "pullRequest": 21007,
+      "translations": {
+        "tr": "fontsource ve fortawesome kütüphanelerini en son sürümlere güncelle"
+      }
     },
     {
       "sha": "716e24f96a954e43086555a7a126ef13b220786a",
@@ -4167,7 +4428,10 @@
       "scope": null,
       "subject": "Update i18next and i18next-http-backend to latest versions",
       "jiraIds": [],
-      "pullRequest": 21004
+      "pullRequest": 21004,
+      "translations": {
+        "tr": "i18next ve i18next-http-backend paketlerini en son sürümlere güncelle"
+      }
     },
     {
       "sha": "a8c51b53bb91142f9ef76a43abf949104413e939",
@@ -4175,7 +4439,10 @@
       "scope": null,
       "subject": "Update installation script config to use 'develop-next-major'",
       "jiraIds": [],
-      "pullRequest": 21012
+      "pullRequest": 21012,
+      "translations": {
+        "tr": "Kurulum script yapılandırmasını 'develop-next-major' kullanacak şekilde güncelle"
+      }
     },
     {
       "sha": "733a02b0575495ef2b26d0e59f18fee299fc7c93",
@@ -4183,7 +4450,10 @@
       "scope": null,
       "subject": "Upgrade to Angular 21",
       "jiraIds": [],
-      "pullRequest": 20946
+      "pullRequest": 20946,
+      "translations": {
+        "tr": "Angular 21'e yükselt"
+      }
     },
     {
       "sha": "367ba7801204e04b0a000240d13a6706bd243f85",
@@ -4193,7 +4463,10 @@
       "jiraIds": [
         "CXSPA-11646"
       ],
-      "pullRequest": 21000
+      "pullRequest": 21000,
+      "translations": {
+        "tr": "CXSPA-11646: Çeviriyi değiştir"
+      }
     },
     {
       "sha": "a970b9d98a048240307f7864d44aafda27fc3525",
@@ -4201,7 +4474,10 @@
       "scope": null,
       "subject": "remove OPF-guest flow",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "OPF-guest flow'unu kaldır"
+      }
     },
     {
       "sha": "6f9e2ed96eaf6d9a6bbb6ebe4ee2c3462f84d4fe",
@@ -4211,7 +4487,10 @@
       "jiraIds": [
         "CXSPA-11812"
       ],
-      "pullRequest": 20997
+      "pullRequest": 20997,
+      "translations": {
+        "tr": "Feb 2026 release için feature ve a11y toggle'larını etkinleştir (CXSPA-11812)"
+      }
     },
     {
       "sha": "5a03354829b6e047c154f05983e2482f08f21cd5",
@@ -4221,7 +4500,10 @@
       "jiraIds": [
         "CXSPA-11706"
       ],
-      "pullRequest": 20991
+      "pullRequest": 20991,
+      "translations": {
+        "tr": "(CXSPA-11706) enableCarouselCategoryProducts feature toggle'ını deprecate et"
+      }
     },
     {
       "sha": "db8076da69e6ab838ee8ef6f6b64db4284c8a7d9",
@@ -4229,7 +4511,10 @@
       "scope": null,
       "subject": "removing deprecated cdc code",
       "jiraIds": [],
-      "pullRequest": 20989
+      "pullRequest": 20989,
+      "translations": {
+        "tr": "deprecated cdc kodunu kaldırma"
+      }
     },
     {
       "sha": "14166c011fb8ca6037a2677d54d2dd5de3d24aa2",
@@ -4237,7 +4522,10 @@
       "scope": null,
       "subject": "add login page missing translations",
       "jiraIds": [],
-      "pullRequest": 20994
+      "pullRequest": 20994,
+      "translations": {
+        "tr": "login sayfasında eksik çevirileri ekle"
+      }
     },
     {
       "sha": "8f0b2892d8250edff0911515ac7f4ebd2a569663",
@@ -4245,7 +4533,10 @@
       "scope": null,
       "subject": "removed duplicate text and add disabled style",
       "jiraIds": [],
-      "pullRequest": 20982
+      "pullRequest": 20982,
+      "translations": {
+        "tr": "yinelenen metni kaldır ve disabled stili ekle"
+      }
     },
     {
       "sha": "8df035a633653c3edb5032f652d68f03048a07fe",
@@ -4253,7 +4544,10 @@
       "scope": null,
       "subject": "make ng-select ariaLabelDropdown translateable",
       "jiraIds": [],
-      "pullRequest": 20960
+      "pullRequest": 20960,
+      "translations": {
+        "tr": "ng-select ariaLabelDropdown değerini çevrilebilir yap"
+      }
     },
     {
       "sha": "3e57ec54ae93056ae0375331df5996981e4be4dd",
@@ -4261,7 +4555,10 @@
       "scope": "ssr installation schematics",
       "subject": "add missing semicolon in the generated app server.ts",
       "jiraIds": [],
-      "pullRequest": 20988
+      "pullRequest": 20988,
+      "translations": {
+        "tr": "oluşturulan uygulamanın server.ts dosyasındaki eksik noktalı virgülü ekle"
+      }
     },
     {
       "sha": "c79fcd162f0756544cb725c896decd291c5faf35",
@@ -4269,7 +4566,10 @@
       "scope": null,
       "subject": "Failing unit tests for checkout components",
       "jiraIds": [],
-      "pullRequest": 20990
+      "pullRequest": 20990,
+      "translations": {
+        "tr": "Checkout component'leri için başarısız olan unit testler"
+      }
     },
     {
       "sha": "6a201d7a9f7f337256d37bee0fba55619c130d89",
@@ -4277,7 +4577,10 @@
       "scope": null,
       "subject": "add OPF Global Functions for the Quick Buy support",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "Quick Buy desteği için OPF Global Functions ekle"
+      }
     },
     {
       "sha": "684498e985bc9c44c88967624fae9844f0203794",
@@ -4285,7 +4588,10 @@
       "scope": null,
       "subject": "remove leftovers after toggle removal",
       "jiraIds": [],
-      "pullRequest": 20974
+      "pullRequest": 20974,
+      "translations": {
+        "tr": "toggle kaldırıldıktan sonra kalan artıkları temizle"
+      }
     },
     {
       "sha": "a7681771d6e6ed6a74b70331910a523abfee6b23",
@@ -4293,7 +4599,10 @@
       "scope": null,
       "subject": "add `.gitignore` to Punchout schematics",
       "jiraIds": [],
-      "pullRequest": 20984
+      "pullRequest": 20984,
+      "translations": {
+        "tr": "Punchout schematics'e `.gitignore` ekle"
+      }
     },
     {
       "sha": "25618b65faf0c03a247ef06f5498ce15751f3834",
@@ -4301,7 +4610,10 @@
       "scope": null,
       "subject": "Update license header for declaration merging builder",
       "jiraIds": [],
-      "pullRequest": 20985
+      "pullRequest": 20985,
+      "translations": {
+        "tr": "Declaration merging builder için lisans başlığını güncelle"
+      }
     },
     {
       "sha": "677e6d945cc7cce18100951707925c886eceabd7",
@@ -4309,7 +4621,10 @@
       "scope": null,
       "subject": "Remove the bug fix toggle enableClaimCustomerCouponWithCodeInRequestBody for Feb 2026 release",
       "jiraIds": [],
-      "pullRequest": 20972
+      "pullRequest": 20972,
+      "translations": {
+        "tr": "Feb 2026 release için enableClaimCustomerCouponWithCodeInRequestBody bug fix toggle'ını kaldır"
+      }
     },
     {
       "sha": "75343c0215ce9adba7f577a5f0110d30845adef1",
@@ -4317,7 +4632,10 @@
       "scope": null,
       "subject": "expose TabPanelModule in public_api",
       "jiraIds": [],
-      "pullRequest": 20981
+      "pullRequest": 20981,
+      "translations": {
+        "tr": "TabPanelModule'ü public_api içinde dışa aç"
+      }
     },
     {
       "sha": "cadc163053d859a64f96a38f760a274c27d3faa5",
@@ -4325,7 +4643,10 @@
       "scope": null,
       "subject": "removes leftover branch from ci.yml",
       "jiraIds": [],
-      "pullRequest": 20890
+      "pullRequest": 20890,
+      "translations": {
+        "tr": "ci.yml dosyasından kalan branch'i kaldırır"
+      }
     },
     {
       "sha": "bb39ba015b3e6550c0bc959275ee1cade18c7ecf",
@@ -4333,7 +4654,10 @@
       "scope": null,
       "subject": "expose CheckoutReview components in public_api",
       "jiraIds": [],
-      "pullRequest": 20978
+      "pullRequest": 20978,
+      "translations": {
+        "tr": "CheckoutReview component'lerini public_api içinde dışa aç"
+      }
     },
     {
       "sha": "e9aed934da1c1646445ecdbca1479b897903f6f9",
@@ -4341,7 +4665,10 @@
       "scope": null,
       "subject": "bump applepay, googlepay, googlemaps",
       "jiraIds": [],
-      "pullRequest": 20976
+      "pullRequest": 20976,
+      "translations": {
+        "tr": "applepay, googlepay, googlemaps sürümlerini yükselt"
+      }
     },
     {
       "sha": "7126b5a7f36cf13cb9b801679201fd2b4c429ec4",
@@ -4349,7 +4676,10 @@
       "scope": null,
       "subject": "Update license headers",
       "jiraIds": [],
-      "pullRequest": 20977
+      "pullRequest": 20977,
+      "translations": {
+        "tr": "Lisans başlıklarını güncelle"
+      }
     },
     {
       "sha": "82d149b9af64d80ef17d1a086569cc710f8a0d61",
@@ -4357,7 +4687,10 @@
       "scope": null,
       "subject": "Update license headers",
       "jiraIds": [],
-      "pullRequest": 20975
+      "pullRequest": 20975,
+      "translations": {
+        "tr": "Lisans başlıklarını güncelle"
+      }
     },
     {
       "sha": "d38002a4dbed8ea58dffe225e3a541285ad9943e",
@@ -4365,7 +4698,10 @@
       "scope": null,
       "subject": "Deprecate updateConsentGivenInOnChanges feature toggle",
       "jiraIds": [],
-      "pullRequest": 20971
+      "pullRequest": 20971,
+      "translations": {
+        "tr": "updateConsentGivenInOnChanges feature toggle'ını deprecate et"
+      }
     },
     {
       "sha": "dcfa426815d724301b8b1032a8965b1564e57e39",
@@ -4373,7 +4709,10 @@
       "scope": null,
       "subject": "Deprecate a11y toggles for Feb 2026 release",
       "jiraIds": [],
-      "pullRequest": 20964
+      "pullRequest": 20964,
+      "translations": {
+        "tr": "Feb 2026 release için a11y toggle'larını deprecate et"
+      }
     },
     {
       "sha": "d605218925ac94f5384c044118a8f34847b9e654",
@@ -4381,7 +4720,10 @@
       "scope": null,
       "subject": "Generate RBSC descriptors during repo sync",
       "jiraIds": [],
-      "pullRequest": 20969
+      "pullRequest": 20969,
+      "translations": {
+        "tr": "Repo sync sırasında RBSC descriptor'larını oluştur"
+      }
     },
     {
       "sha": "49acebeb6ea51eb93ba5b65509bd922a764b8933",
@@ -4389,7 +4731,10 @@
       "scope": null,
       "subject": "Add missing thead in SavedCartListComponent",
       "jiraIds": [],
-      "pullRequest": 20966
+      "pullRequest": 20966,
+      "translations": {
+        "tr": "SavedCartListComponent içine eksik thead'i ekle"
+      }
     },
     {
       "sha": "646ffd16ce8b31d000406229d53a47799e46e282",
@@ -4397,7 +4742,10 @@
       "scope": null,
       "subject": "missing-placeholder-selectors-in-body: unify user lib",
       "jiraIds": [],
-      "pullRequest": 20962
+      "pullRequest": 20962,
+      "translations": {
+        "tr": "missing-placeholder-selectors-in-body: user lib'i birleştir"
+      }
     },
     {
       "sha": "dbd34755b43b19b2b2512aff3d2d1a83d54d401a",
@@ -4405,7 +4753,10 @@
       "scope": null,
       "subject": "enhance organization conflict handler",
       "jiraIds": [],
-      "pullRequest": 20948
+      "pullRequest": 20948,
+      "translations": {
+        "tr": "organization conflict handler'ı geliştir"
+      }
     },
     {
       "sha": "b6b906f140869a325de9ff0e4f14e41d74ecc1ea",
@@ -4415,7 +4766,10 @@
       "jiraIds": [
         "CXSPA-11582"
       ],
-      "pullRequest": 20959
+      "pullRequest": 20959,
+      "translations": {
+        "tr": "CXSPA-11582 - Sonar Typescript uyarılarını düzelt"
+      }
     },
     {
       "sha": "bb4f8d895263963e4ff130ff1c0991daf594a53d",
@@ -4423,7 +4777,10 @@
       "scope": null,
       "subject": "failing-unit-test horizontal-scrolling-position.directive",
       "jiraIds": [],
-      "pullRequest": 20953
+      "pullRequest": 20953,
+      "translations": {
+        "tr": "failing-unit-test horizontal-scrolling-position.directive"
+      }
     },
     {
       "sha": "0cd3217f5ab8e674d1d66edfc4b24241ed0686e0",
@@ -4433,7 +4790,10 @@
       "jiraIds": [
         "CXSPA-11603"
       ],
-      "pullRequest": 20949
+      "pullRequest": 20949,
+      "translations": {
+        "tr": "product-configurator e2e testlerini yeniden yapılandır (CXSPA-11603)"
+      }
     },
     {
       "sha": "86eafea3eaf55121033bb8980ab8ba939953118f",
@@ -4441,7 +4801,10 @@
       "scope": null,
       "subject": "make PSP iframe sandbox flag configurable",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "PSP iframe sandbox flag'ini yapılandırılabilir hale getir"
+      }
     },
     {
       "sha": "18bac3d67655dea3930dbcc9bc94b92569fcb94b",
@@ -4449,7 +4812,10 @@
       "scope": null,
       "subject": "remove PSP display name if there is only one option",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "Yalnızca tek bir seçenek varsa PSP display name'i kaldır"
+      }
     },
     {
       "sha": "249a4503e53f5d8bca3b81b7e74cc02da9c61f01",
@@ -4459,7 +4825,10 @@
       "jiraIds": [
         "CXSPA-11633"
       ],
-      "pullRequest": 20943
+      "pullRequest": 20943,
+      "translations": {
+        "tr": "CXSPA-11633: müşteri oluşturmayı devre dışı bırakmak için asm config ekle"
+      }
     },
     {
       "sha": "df69d1c1fc3c850a53c6729b2ef75b7038727b97",
@@ -4469,7 +4838,10 @@
       "jiraIds": [
         "CXSPA-11615"
       ],
-      "pullRequest": 20941
+      "pullRequest": 20941,
+      "translations": {
+        "tr": "CXSPA-11615 Yeni SPA uygulamasında server routes config'ini kaldırmak için schematics"
+      }
     },
     {
       "sha": "48244cc13e1b9d2122fd329d216f0cd70ee06c88",
@@ -4477,7 +4849,10 @@
       "scope": null,
       "subject": "add  SSR Tests proxy config for ccv2 server",
       "jiraIds": [],
-      "pullRequest": 20935
+      "pullRequest": 20935,
+      "translations": {
+        "tr": "ccv2 server için SSR Tests proxy config ekle"
+      }
     },
     {
       "sha": "d8a450de2ec3ffe8187f9a9b211bd96b984f7823",
@@ -4487,7 +4862,10 @@
       "jiraIds": [
         "CXSPA-11605"
       ],
-      "pullRequest": 20929
+      "pullRequest": 20929,
+      "translations": {
+        "tr": "CXSPA-11605 cms sayfaları ASM modunda yüklenemiyor"
+      }
     },
     {
       "sha": "d8e707eb0ba3e557240b47c738bef63bd10c360b",
@@ -4497,7 +4875,10 @@
       "jiraIds": [
         "CXSPA-11603"
       ],
-      "pullRequest": 20940
+      "pullRequest": 20940,
+      "translations": {
+        "tr": "Başarısız olan product-configurator e2e testlerini düzelt (CXSPA-11603)"
+      }
     },
     {
       "sha": "7ebf72daca3b91ad099b4704a814dfa0f80c8519",
@@ -4507,7 +4888,10 @@
       "jiraIds": [
         "CXSPA-11501"
       ],
-      "pullRequest": 20926
+      "pullRequest": 20926,
+      "translations": {
+        "tr": "CXSPA-11501: müşteri emüle edilirken asmsession oluşturmayı destekle"
+      }
     },
     {
       "sha": "f150ee9e8cc4ac11a6f6c796b69a46cb44d4375a",
@@ -4515,7 +4899,10 @@
       "scope": null,
       "subject": "Reverting back changes related to auth flow e2e tests",
       "jiraIds": [],
-      "pullRequest": 20942
+      "pullRequest": 20942,
+      "translations": {
+        "tr": "Auth flow e2e testleriyle ilgili değişiklikleri geri al"
+      }
     },
     {
       "sha": "bd90c7c5c4544fdea075e59eae844e41942fec19",
@@ -4523,7 +4910,10 @@
       "scope": null,
       "subject": "CXEC-57851: Migrate Argonauts' e2e cypress test to JDK21 API support",
       "jiraIds": [],
-      "pullRequest": 20938
+      "pullRequest": 20938,
+      "translations": {
+        "tr": "CXEC-57851: Argonauts'un e2e cypress testini JDK21 API desteğine taşı"
+      }
     },
     {
       "sha": "936c9d8b1cd5d6fce3c175609c95f7611498d47f",
@@ -4531,7 +4921,10 @@
       "scope": null,
       "subject": "fix Language/Currency/Theme selectbox label arrow cutt-off issue",
       "jiraIds": [],
-      "pullRequest": 20928
+      "pullRequest": 20928,
+      "translations": {
+        "tr": "Language/Currency/Theme selectbox label okunun kesilme sorununu düzelt"
+      }
     },
     {
       "sha": "8045fc9580ae237f1c879a1b046d2c2755f991fd",
@@ -4539,7 +4932,10 @@
       "scope": null,
       "subject": "Angular 20 - adjust config for installation script",
       "jiraIds": [],
-      "pullRequest": 20937
+      "pullRequest": 20937,
+      "translations": {
+        "tr": "Angular 20 - kurulum scripti için config'i ayarla"
+      }
     },
     {
       "sha": "f697d5d4c3393aef3e9f24d31f3fbac1ff9bb01f",
@@ -4547,7 +4943,10 @@
       "scope": null,
       "subject": "Bump @angular/common and @angular/compiler",
       "jiraIds": [],
-      "pullRequest": 20932
+      "pullRequest": 20932,
+      "translations": {
+        "tr": "@angular/common ve @angular/compiler sürümlerini yükselt"
+      }
     },
     {
       "sha": "2f632358a63c3f7d20e0eaf7b058a8df294e0d9d",
@@ -4555,7 +4954,10 @@
       "scope": null,
       "subject": "Angular 20 upgrade",
       "jiraIds": [],
-      "pullRequest": 20914
+      "pullRequest": 20914,
+      "translations": {
+        "tr": "Angular 20 yükseltmesi"
+      }
     },
     {
       "sha": "ad29fdc4c8a4a473142002cdc04b05f242bd9df1",
@@ -4563,7 +4965,10 @@
       "scope": null,
       "subject": "add high contrast theme support for the OPF",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "OPF için yüksek kontrast theme desteği ekle"
+      }
     },
     {
       "sha": "7d3bb9c7e2a64df08dacc59bd1cd903c849fb64f",
@@ -4571,7 +4976,10 @@
       "scope": null,
       "subject": "Use caret unicode characters for dropdowns over border shapes",
       "jiraIds": [],
-      "pullRequest": 20912
+      "pullRequest": 20912,
+      "translations": {
+        "tr": "Border şekillerinin üzerindeki dropdown'lar için caret unicode karakterlerini kullan"
+      }
     },
     {
       "sha": "d356369df928c42729b6c52e4e1efcbc3353df26",
@@ -4579,7 +4987,10 @@
       "scope": null,
       "subject": "Fix flaky a11y tests",
       "jiraIds": [],
-      "pullRequest": 20682
+      "pullRequest": 20682,
+      "translations": {
+        "tr": "Kararsız (flaky) a11y testlerini düzelt"
+      }
     },
     {
       "sha": "821cbb467b9521d86510b4cbd5746a26dc8245e4",
@@ -4587,7 +4998,10 @@
       "scope": null,
       "subject": "Revert \"chore: sync develop-next-major with develop\"",
       "jiraIds": [],
-      "pullRequest": 20904
+      "pullRequest": 20904,
+      "translations": {
+        "tr": "Revert \"chore: sync develop-next-major with develop\""
+      }
     },
     {
       "sha": "fda936804d24e8b19927fc56de54a1133b31221e",
@@ -4595,7 +5009,10 @@
       "scope": null,
       "subject": "sync develop-next-major with develop",
       "jiraIds": [],
-      "pullRequest": 20903
+      "pullRequest": 20903,
+      "translations": {
+        "tr": "develop-next-major'ı develop ile senkronize et"
+      }
     },
     {
       "sha": "4d56194d7ae089e77e093940a284323fe9503bd1",
@@ -4603,7 +5020,10 @@
       "scope": null,
       "subject": "Fix focus lost in anonymous consent dialog when selecting input",
       "jiraIds": [],
-      "pullRequest": 20850
+      "pullRequest": 20850,
+      "translations": {
+        "tr": "Input seçilirken anonymous consent dialog'unda focus kaybolması sorununu düzelt"
+      }
     },
     {
       "sha": "3451d3e2c1e9124a73ff890d4f69e9467ac44339",
@@ -4613,7 +5033,10 @@
       "jiraIds": [
         "CXSPA-11294"
       ],
-      "pullRequest": 20900
+      "pullRequest": 20900,
+      "translations": {
+        "tr": "CXSPA-11294 - CSR modu için kurulum scriptine SSL seçeneği ekle"
+      }
     },
     {
       "sha": "677d6e80020c96ef635cde3da5f22ca9cbda9f04",
@@ -4623,7 +5046,10 @@
       "jiraIds": [
         "CXSPA-11517"
       ],
-      "pullRequest": 20892
+      "pullRequest": 20892,
+      "translations": {
+        "tr": "CXSPA-11517: B2B asm c360 case düzeltmesi"
+      }
     },
     {
       "sha": "8473d31e538fcf7161aab2f08919a5bfedc6dceb",
@@ -4631,7 +5057,10 @@
       "scope": null,
       "subject": "Feature toggles analyzer",
       "jiraIds": [],
-      "pullRequest": 20882
+      "pullRequest": 20882,
+      "translations": {
+        "tr": "Feature toggle analizörü"
+      }
     },
     {
       "sha": "7303814dcb0044687c9518b2eb9a11f9a4f671a2",
@@ -4639,7 +5068,10 @@
       "scope": null,
       "subject": "disable CustomLoginGuard in SSR",
       "jiraIds": [],
-      "pullRequest": 20884
+      "pullRequest": 20884,
+      "translations": {
+        "tr": "SSR'da CustomLoginGuard'ı devre dışı bırak"
+      }
     },
     {
       "sha": "2ef30863ddd3be9c777e10a763c9670a400849fc",
@@ -4647,7 +5079,10 @@
       "scope": null,
       "subject": "add CSP support for the OPF PSP scripts",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "OPF PSP script'leri için CSP desteği ekle"
+      }
     },
     {
       "sha": "8da1e43d953e3c18c2d2a129081085309d9f3c26",
@@ -4657,7 +5092,10 @@
       "jiraIds": [
         "CXSPA-10748"
       ],
-      "pullRequest": 20872
+      "pullRequest": 20872,
+      "translations": {
+        "tr": "CXSPA-10748"
+      }
     },
     {
       "sha": "b9f9b57a63562216889611bea80110a5c4f57ec7",
@@ -4665,7 +5103,10 @@
       "scope": null,
       "subject": "make the PO number input readonly in the checkout payment type page if the PO number comes from the quote checkout",
       "jiraIds": [],
-      "pullRequest": 20861
+      "pullRequest": 20861,
+      "translations": {
+        "tr": "PO number değeri quote checkout'tan geliyorsa, checkout payment type sayfasındaki PO number input'unu readonly yap"
+      }
     }
   ]
 }

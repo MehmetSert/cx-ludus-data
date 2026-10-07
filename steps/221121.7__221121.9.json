@@ -77,7 +77,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "'NgSelectA11yDirective', screen reader kullanılırken Escape tuşuna basıldığında seçenekler içeren dropdown'u kapatır.\nAşağıdaki component içinde select yerine ng-select component'ini kullanır:\n`CustomerTicketingCreateDialogComponent`"
+        }
       }
     ],
     "added": [
@@ -161,7 +164,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, organization'ın table component'i her veri güncellemesinde satırlarını yeniden render etmeyi bırakır.\nBu, notification message component'inin screen reader deneyimini iyileştirir."
+        }
       },
       {
         "name": "a11yCustomerTicketingVisualFocusFix",
@@ -216,7 +222,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Customer Ticketing dialog'undaki bazı butonlar arasında Tab ile geçilirken klavye focus'unun görünmemesi sorununu düzeltir."
+        }
       },
       {
         "name": "removeDuplicatedOrderHistoryHeader",
@@ -242,7 +251,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, Order History sayfasındaki yinelenen Order History header sorununu giderir."
+        }
       }
     ],
     "defaultEnabled": [
@@ -287,7 +299,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Configurator overview sayfasında, VPC modunda 'H' tuşuyla gezinirken grup başlıklarının heading olarak algılanmasını sağlar."
+        }
       },
       {
         "name": "authorizationCodeFlowByDefault",
@@ -604,7 +619,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, varsayılan oAuth yapılandırmasını PKCE ile authorization code flow kullanacak şekilde ayarlar.\nBu, varsayılan yapılandırma olarak daha güvenli bir yetkilendirme şemasıyla sonuçlanır.\n\nNOT: Bu flag yalnızca Eylül 2025 güncellemesini veya daha yenisini çalıştıran bir CCv2 Authorization Server ile birlikte kullanıldığında etkinleştirilmelidir. CCv2 Authorization Server, bu sürümden itibaren public client'lar için yalnızca Authorization Code flow'u destekler."
+        }
       },
       {
         "name": "cdsLoginEventsToken",
@@ -628,7 +646,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "İzleme için ActionsSubject LOGIN stream'i yerine yeni LOGIN_EVENTS token'ının kullanılmasını sağlayan feature flag.\n\nEtkinleştirildiğinde, ActionsSubject LOGIN stream'i yerine yeni LOGIN_EVENTS token'ı kullanılır.\nBu, code flow authentication desteği için gereklidir. ActionsSubject LOGIN stream'i kullanılırsa,\nauth server'dan geri yönlendirildikten sonra login event'i yakalanmaz.\n\n`ProfileTagLifecycleService` içinde kullanılır"
+        }
       },
       {
         "name": "dispatchLoginActionOnlyWhenTokenReceived",
@@ -658,7 +679,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "OAuth URL parametreleri kontrol edilirken Login action'ının ne zaman dispatch edileceğini kontrol eder.\n\n`true` olarak ayarlandığında, Login action'ı yalnızca `tokenReceived` true olduğunda, yani token mevcut `tryLogin()` denemesi sırasında alındığında dispatch edilen yeni davranış etkinleşir.\n\n`false` olarak ayarlandığında, `checkOAuthParamsInUrl()` sırasında başarılı olan tüm login senaryolarında, token'ın mevcut denemede alınmış olmasından veya storage'dan alınmış olmasından (ör. sayfa yenileme) bağımsız olarak Login action'ının dispatch edildiği eski davranış korunur."
+        }
       }
     ]
   },
@@ -1562,7 +1586,10 @@
       "scope": null,
       "subject": "update vulnerable dependencies",
       "jiraIds": [],
-      "pullRequest": 21252
+      "pullRequest": 21252,
+      "translations": {
+        "tr": "Güvenlik açığı bulunan dependency'ler güncellendi"
+      }
     },
     {
       "sha": "687b27fb0da7088512520cd4aa8ebf07c6032563",
@@ -1572,7 +1599,10 @@
       "jiraIds": [
         "CXSPA-12264"
       ],
-      "pullRequest": 21218
+      "pullRequest": 21218,
+      "translations": {
+        "tr": "CXSPA-12264 Güvenlik açıklarını gidermek için Angular yükseltildi"
+      }
     },
     {
       "sha": "8049e7ba4981cced2f90eab39c1ad0bf4f82b86b",
@@ -1580,7 +1610,10 @@
       "scope": null,
       "subject": "Cherry-pick unit-e2e fix",
       "jiraIds": [],
-      "pullRequest": 21182
+      "pullRequest": 21182,
+      "translations": {
+        "tr": "unit-e2e düzeltmesi cherry-pick yapıldı"
+      }
     },
     {
       "sha": "6cba5576b0e626e72d5544812b93ae0d97a7a056",
@@ -1588,7 +1621,10 @@
       "scope": null,
       "subject": "add FontAwesome auto-width css variable (#21164)",
       "jiraIds": [],
-      "pullRequest": 21180
+      "pullRequest": 21180,
+      "translations": {
+        "tr": "FontAwesome auto-width css değişkeni eklendi (#21164)"
+      }
     },
     {
       "sha": "4f7ebcc5389d4a165250329a852c5766b2736a38",
@@ -1596,7 +1632,10 @@
       "scope": null,
       "subject": "update order history header to use breadcrumb component",
       "jiraIds": [],
-      "pullRequest": 21172
+      "pullRequest": 21172,
+      "translations": {
+        "tr": "Sipariş geçmişi başlığı breadcrumb component'i kullanacak şekilde güncellendi"
+      }
     },
     {
       "sha": "360a2eab9d497048af7655a2090a3402ffff27d9",
@@ -1604,7 +1643,10 @@
       "scope": null,
       "subject": "bump tar@7.5.7 -> tar@7.5.9",
       "jiraIds": [],
-      "pullRequest": 21171
+      "pullRequest": 21171,
+      "translations": {
+        "tr": "tar@7.5.7 -> tar@7.5.9 sürümüne yükseltildi"
+      }
     },
     {
       "sha": "14de6aa67880c3ce24ec80a9a441217cff23ff3c",
@@ -1612,7 +1654,10 @@
       "scope": null,
       "subject": "remove redundant heading for orders in order history",
       "jiraIds": [],
-      "pullRequest": 21154
+      "pullRequest": 21154,
+      "translations": {
+        "tr": "sipariş geçmişindeki siparişler için gereksiz başlığı kaldır"
+      }
     },
     {
       "sha": "b5ecee3ca8085147f2cdc3d55bce7b87e17e81be",
@@ -1622,7 +1667,10 @@
       "jiraIds": [
         "CXSPA-12155"
       ],
-      "pullRequest": 21165
+      "pullRequest": 21165,
+      "translations": {
+        "tr": "2603 için a11y toggle'ı etkinleştir (CXSPA-12155)"
+      }
     },
     {
       "sha": "f1c36c596e3ce4ab1ddd58bb91d5a645a83aeada",
@@ -1632,7 +1680,10 @@
       "jiraIds": [
         "CXSPA-7459"
       ],
-      "pullRequest": 21158
+      "pullRequest": 21158,
+      "translations": {
+        "tr": "(CXSPA-7459) - Organization table bildirim okunması düzeltmesi"
+      }
     },
     {
       "sha": "02f75956419a916e5ba629537c656ee6fea6cd68",
@@ -1642,7 +1693,10 @@
       "jiraIds": [
         "CXSPA-12138"
       ],
-      "pullRequest": 21160
+      "pullRequest": 21160,
+      "translations": {
+        "tr": "(CXSPA-12138) - a11ySelectImprovementsCustomerTicketingCreateSelectbox feature flag'ini kaldır"
+      }
     },
     {
       "sha": "8c10677c243d3530080620a66f9bd7200a844381",
@@ -1652,7 +1706,10 @@
       "jiraIds": [
         "CXSPA-12139"
       ],
-      "pullRequest": 21157
+      "pullRequest": 21157,
+      "translations": {
+        "tr": "2603 için feature toggle'ları etkinleştir (CXSPA-12139)"
+      }
     },
     {
       "sha": "2e5bb1878e3ffcafd148505e4c08ea75ba963089",
@@ -1662,7 +1719,10 @@
       "jiraIds": [
         "CXSPA-11888"
       ],
-      "pullRequest": 21143
+      "pullRequest": 21143,
+      "translations": {
+        "tr": "CXSPA-11888: Gezinilemeyen çakışmaları yönet"
+      }
     },
     {
       "sha": "303ff4e162135a9773f6ffa8e7df5e01889043d5",
@@ -1670,7 +1730,10 @@
       "scope": null,
       "subject": "revert cy jdk21 prod conf cmd",
       "jiraIds": [],
-      "pullRequest": 21155
+      "pullRequest": 21155,
+      "translations": {
+        "tr": "cy jdk21 prod conf cmd değişikliğini geri al"
+      }
     },
     {
       "sha": "03fc45c6b80d2d3222f583f4b97cc477e7334af5",
@@ -1678,7 +1741,10 @@
       "scope": null,
       "subject": "Fix tabIndex typo in pagination to restore keyboard a11y",
       "jiraIds": [],
-      "pullRequest": 21149
+      "pullRequest": 21149,
+      "translations": {
+        "tr": "Klavye a11y'sini geri getirmek için pagination içindeki tabIndex yazım hatasını düzelt"
+      }
     },
     {
       "sha": "2d2f0bd2ee09859e9c00a5dae654cec820c5c1c1",
@@ -1686,7 +1752,10 @@
       "scope": null,
       "subject": "Update vulnerable dependencies per npm audit fix run",
       "jiraIds": [],
-      "pullRequest": 21145
+      "pullRequest": 21145,
+      "translations": {
+        "tr": "npm audit fix çalıştırmasına göre savunmasız bağımlılıkları güncelle"
+      }
     },
     {
       "sha": "8d59589c26f710a695a03379348ef43e3e30a4ca",
@@ -1694,7 +1763,10 @@
       "scope": null,
       "subject": "modify e2e tests to use mock order history for JDK21",
       "jiraIds": [],
-      "pullRequest": 21134
+      "pullRequest": 21134,
+      "translations": {
+        "tr": "JDK21 için e2e testlerini mock sipariş geçmişini kullanacak şekilde değiştir"
+      }
     },
     {
       "sha": "9b30c7685bb4573c8fa4fbc627abb419f6e98295",
@@ -1702,7 +1774,10 @@
       "scope": null,
       "subject": "Fix visual focus on customer ticketing dialog",
       "jiraIds": [],
-      "pullRequest": 20965
+      "pullRequest": 20965,
+      "translations": {
+        "tr": "Customer ticketing dialog üzerindeki görsel focus'u düzelt"
+      }
     },
     {
       "sha": "9260f39950a19f371a7e44f1ca9870134a04fe7d",
@@ -1710,7 +1785,10 @@
       "scope": null,
       "subject": "add missing peerDependencies on subscription-billing lib",
       "jiraIds": [],
-      "pullRequest": 21146
+      "pullRequest": 21146,
+      "translations": {
+        "tr": "subscription-billing lib'ine eksik peerDependencies ekle"
+      }
     },
     {
       "sha": "23ee994776325c5583f6431989d91585bc231b99",
@@ -1718,7 +1796,10 @@
       "scope": null,
       "subject": "missing peerDependency '@angular/forms' in 'subscription-billing' lib",
       "jiraIds": [],
-      "pullRequest": 21148
+      "pullRequest": 21148,
+      "translations": {
+        "tr": "'subscription-billing' lib'inde eksik peerDependency '@angular/forms'"
+      }
     },
     {
       "sha": "d138514b73e2c9547ae79ef82eb8a3b5c7e00265",
@@ -1726,7 +1807,10 @@
       "scope": null,
       "subject": "add missing exports for OPF CTA components",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "OPF CTA component'leri için eksik export'ları ekle"
+      }
     },
     {
       "sha": "6178d23f52b32fe5fc8ae5985334a3af6818dd4d",
@@ -1734,7 +1818,10 @@
       "scope": null,
       "subject": "provide OCC cart endpoint for the OPF global functions",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "OPF global fonksiyonları için OCC cart endpoint'i sağla"
+      }
     },
     {
       "sha": "ebca37291d95085f2f12797205f44dab028a9a01",
@@ -1742,7 +1829,10 @@
       "scope": null,
       "subject": "subscription billing (List and Details pages)",
       "jiraIds": [],
-      "pullRequest": 21108
+      "pullRequest": 21108,
+      "translations": {
+        "tr": "subscription billing (Liste ve Detay sayfaları)"
+      }
     },
     {
       "sha": "904a1acd16f2f23cf2d4a01bf21277e315942cd7",
@@ -1750,7 +1840,10 @@
       "scope": null,
       "subject": "trigger submit-complete for 3DS transactions",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "3DS işlemleri için submit-complete tetikle"
+      }
     },
     {
       "sha": "d65fb45bed4221ca5145ba2dd084d05903833ccb",
@@ -1758,7 +1851,10 @@
       "scope": null,
       "subject": "ASM load issue when early login enabled.",
       "jiraIds": [],
-      "pullRequest": 21109
+      "pullRequest": 21109,
+      "translations": {
+        "tr": "Early login etkinken ASM yükleme sorunu."
+      }
     },
     {
       "sha": "df7c961f72cc3c2f677d51a58ecff000c9d6e90d",
@@ -1766,7 +1862,10 @@
       "scope": null,
       "subject": "e2e improvement prior switch to JDK21 ccv2",
       "jiraIds": [],
-      "pullRequest": 21128
+      "pullRequest": 21128,
+      "translations": {
+        "tr": "JDK21 ccv2'ye geçiş öncesi e2e iyileştirmesi"
+      }
     },
     {
       "sha": "186e0faffc67c695b08181f2a8a27f3f8bf01b46",
@@ -1774,7 +1873,10 @@
       "scope": null,
       "subject": "disable service worker in storefrontapp",
       "jiraIds": [],
-      "pullRequest": 21116
+      "pullRequest": 21116,
+      "translations": {
+        "tr": "storefrontapp içinde service worker'ı devre dışı bırak"
+      }
     },
     {
       "sha": "a342f7ba450013d27ea9106fe38f35a4fdae9702",
@@ -1782,7 +1884,10 @@
       "scope": null,
       "subject": "Analyze git history for feature toggles properly",
       "jiraIds": [],
-      "pullRequest": 21050
+      "pullRequest": 21050,
+      "translations": {
+        "tr": "Feature toggle'lar için git geçmişini doğru şekilde analiz et"
+      }
     },
     {
       "sha": "37f879d5133338ac40a9ce247db590fb3cd9852a",
@@ -1792,7 +1897,10 @@
       "jiraIds": [
         "CXSPA-11978"
       ],
-      "pullRequest": 21092
+      "pullRequest": 21092,
+      "translations": {
+        "tr": "CXSPA-11978: core içindeki emailvalidator iyileştirmesi nedeniyle otomasyonu kaldır"
+      }
     },
     {
       "sha": "e2278f6c99a0ae5abe0bd21af80102a6757d4c2f",
@@ -1802,7 +1910,10 @@
       "jiraIds": [
         "CXSPA-11819"
       ],
-      "pullRequest": 21084
+      "pullRequest": 21084,
+      "translations": {
+        "tr": "CXSPA-11819 - Submit'i 'savePaymentDetail' flag'ini kabul edecek şekilde geliştir"
+      }
     },
     {
       "sha": "88d22dddefe2152e1d9e0a1daca46604af7cb029",
@@ -1810,7 +1921,10 @@
       "scope": null,
       "subject": "add error handling for OPF payments 401 case",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "OPF ödemelerinde 401 durumu için hata yönetimi ekle"
+      }
     },
     {
       "sha": "3814342cae52c5da39f44341e6e506b59aaca68b",
@@ -1818,7 +1932,10 @@
       "scope": null,
       "subject": "Refresh neasted component when update in smart edit",
       "jiraIds": [],
-      "pullRequest": 21081
+      "pullRequest": 21081,
+      "translations": {
+        "tr": "Smart edit içinde güncelleme yapıldığında iç içe (nested) component'i yenile"
+      }
     },
     {
       "sha": "e0eb4c0b331a230be484432834a43b4e4ca90286",
@@ -1826,7 +1943,10 @@
       "scope": null,
       "subject": "Add optional chaining for the additional data in the OPF Context",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "OPF Context içindeki ek veriler için optional chaining ekle"
+      }
     },
     {
       "sha": "3c0a1fe19d836a715086f647409dc55dec1149da",
@@ -1834,7 +1954,10 @@
       "scope": null,
       "subject": "Add CTA Quick Buy Button support",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "CTA Quick Buy Button desteği ekle"
+      }
     },
     {
       "sha": "2d512a3bdc6ed6631fb2fde7ee743f9dfa608857",
@@ -1842,7 +1965,10 @@
       "scope": null,
       "subject": "Bump lodash to 4.17.23",
       "jiraIds": [],
-      "pullRequest": 21068
+      "pullRequest": 21068,
+      "translations": {
+        "tr": "lodash'i 4.17.23 sürümüne yükselt"
+      }
     },
     {
       "sha": "c04060425fe776764effb650e666a0f1dabd4bfe",
@@ -1850,7 +1976,10 @@
       "scope": null,
       "subject": "Update Angular dependencies to v21.1.0 - develop",
       "jiraIds": [],
-      "pullRequest": 21061
+      "pullRequest": 21061,
+      "translations": {
+        "tr": "Angular bağımlılıklarını v21.1.0 sürümüne güncelle - develop"
+      }
     },
     {
       "sha": "c7e2144914a305706cb5c62fc510577606f4c16b",
@@ -1858,7 +1987,10 @@
       "scope": null,
       "subject": "Update Spartacus version to 221121.7.0-1 - backport for develop branch",
       "jiraIds": [],
-      "pullRequest": 21054
+      "pullRequest": 21054,
+      "translations": {
+        "tr": "Spartacus sürümünü 221121.7.0-1 olarak güncelle - develop branch için backport"
+      }
     }
   ]
 }

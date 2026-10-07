@@ -33,7 +33,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "İsteğe bağlı `aria-controls` attribute'u NgSelect implementasyonunda geçersiz kılınacaktır.\nGüncellenen kütüphane, buton ile dropdown arasındaki ilişkiyi belirtmek için `aria-controls` attribute'unu kullanır.\nBu değişiklik, tercih edilirse yine de özel bir id kullanabilmemizi sağlar."
+        }
       },
       {
         "name": "enableReadDomainValuesOnDemand",
@@ -41,7 +44,10 @@
         "affects": [],
         "defaultValue": true,
         "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/5538fae3282f4b4592674b96703f8cd7.html",
-        "usages": []
+        "usages": [],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, `ConfiguratorAttributeHeaderComponent` component'i attribute adının altında bir `ConfiguratorShowOptionsComponent` component'i görüntüler.\n`ConfiguratorShowOptionsComponent` component'i, back-end domain değerlerinin henüz mevcut olmadığını bildirdiğinde, `Show Options` düğmesine tıklanarak domain değerlerinin talep üzerine yüklenmesine olanak tanır."
+        }
       }
     ],
     "added": [
@@ -112,7 +118,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Login sayfasında, CMS tarafından yönetilen paragraf ve bağlantının yerini alan özel B2B register bölümünü etkinleştirir."
+        }
       },
       {
         "name": "a11yPreventWindowsHighContrastOverride",
@@ -168,7 +177,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, Windows yüksek kontrast modunun Spartacus temasını geçersiz kılmasını engeller.\nBu, işletim sistemi erişilebilirlik modu etkinken uygulamanın amaçlanan stilini korumasını sağlar; kullanıcılar yine de Spartacus yüksek kontrast temalarını manuel olarak seçebilir."
+        }
       },
       {
         "name": "alignNavigationMenuWithHeader",
@@ -238,7 +250,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, navigation header ve menüdeki stil daha tutarlı olacak şekilde değiştirilir."
+        }
       },
       {
         "name": "enableCartReloadOnContextChange",
@@ -246,7 +261,10 @@
         "affects": [],
         "defaultValue": false,
         "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/10201c4371ab47f2891ab4d8106c6f48.html",
-        "usages": []
+        "usages": [],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, context (dil veya para birimi) değiştiğinde sepetin bazen doğru şekilde yeniden yüklenmemesi ve sepetten ürün silinmesi (özellikle şu sırada: logout - tekrar login - context değişikliği) ile ilgili bilinen bir sorunu düzeltir."
+        }
       },
       {
         "name": "opfPaymentVerificationCheckProcessingCartOnErrorOnly",
@@ -357,7 +375,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Ürün listesi öğesi özetine read more directive'i ekler"
+        }
       },
       {
         "name": "showSortFieldsOnlyAtTop",
@@ -434,7 +455,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, sıralama alanlarını yalnızca tablonun üstünde gösterir.\nDevre dışı bırakıldığında, sıralama alanlarını hem üstte hem altta gösterir."
+        }
       }
     ],
     "defaultEnabled": [
@@ -462,7 +486,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, \"Password expired\" hata mesajını Spartacus i18n kullanarak kullanıcının seçtiği dile çevirir."
+        }
       }
     ]
   },
@@ -1314,7 +1341,10 @@
       "scope": null,
       "subject": "declare type:commonjs on libraries shipping schematics",
       "jiraIds": [],
-      "pullRequest": 21591
+      "pullRequest": 21591,
+      "translations": {
+        "tr": "schematics içeren kütüphanelerde type:commonjs tanımla"
+      }
     },
     {
       "sha": "1203355c84c1ec464a15db7b27a6c07de0282f0e",
@@ -1322,7 +1352,10 @@
       "scope": null,
       "subject": "sonar/renovate fixes for 221121.13.x",
       "jiraIds": [],
-      "pullRequest": 21584
+      "pullRequest": 21584,
+      "translations": {
+        "tr": "221121.13.x için sonar/renovate düzeltmeleri"
+      }
     },
     {
       "sha": "1f03f115b2c4d131a03854570b2c869a88edc36b",
@@ -1330,7 +1363,10 @@
       "scope": null,
       "subject": "Move global npm pakages to pakage.json (#21501)",
       "jiraIds": [],
-      "pullRequest": 21510
+      "pullRequest": 21510,
+      "translations": {
+        "tr": "Global npm paketlerini package.json dosyasına taşı (#21501)"
+      }
     },
     {
       "sha": "e63fcb5760dd9acf622f7add5a8186db40afa200",
@@ -1338,7 +1374,10 @@
       "scope": null,
       "subject": "update package version",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "paket sürümünü güncelle"
+      }
     },
     {
       "sha": "d4140e8e0d57f1d42245a30f81149b29d0425575",
@@ -1346,7 +1385,10 @@
       "scope": null,
       "subject": "preserve payment redirect query params for verify HMAC",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "HMAC doğrulaması için ödeme yönlendirmesi query param'larını koru"
+      }
     },
     {
       "sha": "a1f7f65eac1138e91d936b45cdc09085af46a695",
@@ -1356,7 +1398,10 @@
       "jiraIds": [
         "CXSPA-12872"
       ],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "Configurator add-to-cart satırında 320 CSS px genişlikte yatay scroll'u önle (#21466, CXSPA-12872)"
+      }
     },
     {
       "sha": "6e6a75947bf2726f1f0e98c9cbfdbd3404b270a5",
@@ -1366,7 +1411,10 @@
       "jiraIds": [
         "CXSPA-12194"
       ],
-      "pullRequest": 21478
+      "pullRequest": 21478,
+      "translations": {
+        "tr": "(CXSPA-12194) 5 kütüphaneyi /projects klasöründen /core-libs klasörüne taşıyan script"
+      }
     },
     {
       "sha": "975b8e6af54cc4febbe7b081f26e02db980998b6",
@@ -1374,7 +1422,10 @@
       "scope": null,
       "subject": "improve a11y label for rating buttons review form",
       "jiraIds": [],
-      "pullRequest": 21426
+      "pullRequest": 21426,
+      "translations": {
+        "tr": "Değerlendirme formundaki puanlama düğmeleri için a11y label'ını iyileştir"
+      }
     },
     {
       "sha": "f2de65b0505e14d48706d339584303a158d3cbcf",
@@ -1382,7 +1433,10 @@
       "scope": null,
       "subject": "(CXSPA - 13024) RefreshCart instead of ResetCart on context change",
       "jiraIds": [],
-      "pullRequest": 21475
+      "pullRequest": 21475,
+      "translations": {
+        "tr": "(CXSPA - 13024) Context değişikliğinde ResetCart yerine RefreshCart kullan"
+      }
     },
     {
       "sha": "991c0dbde2cc0fa198865e26cd36b0606599b07a",
@@ -1390,7 +1444,10 @@
       "scope": null,
       "subject": "improve a11y of unit tree list rows",
       "jiraIds": [],
-      "pullRequest": 21463
+      "pullRequest": 21463,
+      "translations": {
+        "tr": "Unit tree liste satırlarının a11y'sini iyileştir"
+      }
     },
     {
       "sha": "1d3fbe69ff7bbb214c0037b7889e0b0599f83659",
@@ -1398,7 +1455,10 @@
       "scope": null,
       "subject": "Remove unsecure npm token input and PAT from git api url",
       "jiraIds": [],
-      "pullRequest": 21497
+      "pullRequest": 21497,
+      "translations": {
+        "tr": "Güvensiz npm token girdisini ve git api URL'sindeki PAT'i kaldır"
+      }
     },
     {
       "sha": "83a147df361a4345b88158dc982323f23137fd10",
@@ -1406,7 +1466,10 @@
       "scope": null,
       "subject": "Fix OPF redirect return timing to prevent false cart redirection after successful payment",
       "jiraIds": [],
-      "pullRequest": 21495
+      "pullRequest": 21495,
+      "translations": {
+        "tr": "Başarılı ödeme sonrası yanlış sepet yönlendirmesini önlemek için OPF redirect return zamanlamasını düzelt"
+      }
     },
     {
       "sha": "30235b8acbcd873a77a325bf1a0329a447ed8ead",
@@ -1416,7 +1479,10 @@
       "jiraIds": [
         "CXSPA-13064"
       ],
-      "pullRequest": 21490
+      "pullRequest": 21490,
+      "translations": {
+        "tr": "(CXSPA-13064) feature flag değeri değişikliği"
+      }
     },
     {
       "sha": "4ae068ad3ef763d25bb66bcfa44f2951ad420b62",
@@ -1426,7 +1492,10 @@
       "jiraIds": [
         "CXSPA-12871"
       ],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "Configurator'da klavye focus'u sabit footer tarafından kapatılıyor (#21485, CXSPA-12871)"
+      }
     },
     {
       "sha": "d6786daa471c47584b68bf4424cab4e5a2560509",
@@ -1434,7 +1503,10 @@
       "scope": null,
       "subject": "Bump lighthouse and move it to package.json",
       "jiraIds": [],
-      "pullRequest": 21492
+      "pullRequest": 21492,
+      "translations": {
+        "tr": "lighthouse sürümünü yükselt ve package.json dosyasına taşı"
+      }
     },
     {
       "sha": "4141501ed628753d1ed73db349f57a2654799871",
@@ -1442,7 +1514,10 @@
       "scope": null,
       "subject": "Move inputs and branch names to env vars",
       "jiraIds": [],
-      "pullRequest": 21467
+      "pullRequest": 21467,
+      "translations": {
+        "tr": "Girdileri ve branch adlarını env değişkenlerine taşı"
+      }
     },
     {
       "sha": "7e20650b5edc3ba32ca130f4c5c082ba77805dff",
@@ -1452,7 +1527,10 @@
       "jiraIds": [
         "CXSPA-13214"
       ],
-      "pullRequest": 21479
+      "pullRequest": 21479,
+      "translations": {
+        "tr": "product-configurator cypress testini başka bir test suite'ine taşı (CXSPA-13214)"
+      }
     },
     {
       "sha": "eff208c20a365ae7a987eff254f1fe99cf9719b7",
@@ -1462,7 +1540,10 @@
       "jiraIds": [
         "CXSPA-12867"
       ],
-      "pullRequest": 21465
+      "pullRequest": 21465,
+      "translations": {
+        "tr": "(CXSPA-12867) Yapılandırma grupları için screen reader metnini iyileştir"
+      }
     },
     {
       "sha": "d11d2185cbb9d221cc9d7db7eca782e7a7546862",
@@ -1470,7 +1551,10 @@
       "scope": null,
       "subject": "security issues in repo sync and prepend license",
       "jiraIds": [],
-      "pullRequest": 21459
+      "pullRequest": 21459,
+      "translations": {
+        "tr": "repo sync ve prepend license içindeki güvenlik sorunları"
+      }
     },
     {
       "sha": "544fac7d6b0bc731521cef175525407b93b4bcce",
@@ -1478,7 +1562,10 @@
       "scope": null,
       "subject": "Security finding in update-claud-repo workflow",
       "jiraIds": [],
-      "pullRequest": 21458
+      "pullRequest": 21458,
+      "translations": {
+        "tr": "update-claud-repo workflow'undaki güvenlik bulgusu"
+      }
     },
     {
       "sha": "c2cea999bcc1660ed36d6e5c0d864da2713f1a55",
@@ -1486,7 +1573,10 @@
       "scope": null,
       "subject": "add LoginRegisterB2bComponent for B2B login page register section",
       "jiraIds": [],
-      "pullRequest": 21431
+      "pullRequest": 21431,
+      "translations": {
+        "tr": "B2B giriş sayfasındaki kayıt bölümü için LoginRegisterB2bComponent ekle"
+      }
     },
     {
       "sha": "17b110e43cb3f560e04ba692ac215d87c03c8931",
@@ -1494,7 +1584,10 @@
       "scope": null,
       "subject": "improve navigation menu styling with header",
       "jiraIds": [],
-      "pullRequest": 21436
+      "pullRequest": 21436,
+      "translations": {
+        "tr": "header ile birlikte navigasyon menüsü stilini iyileştir"
+      }
     },
     {
       "sha": "38b7da87311b2e79a4ed522bb7d3b2c2d593f31c",
@@ -1504,7 +1597,10 @@
       "jiraIds": [
         "CXSPA-12671"
       ],
-      "pullRequest": 21429
+      "pullRequest": 21429,
+      "translations": {
+        "tr": "(CXSPA-12671 ) cx-read-more directive'ini ProductList içine dahil et…"
+      }
     },
     {
       "sha": "41d23b57334393cfc308657b6a7c430a26b0bd9d",
@@ -1512,7 +1608,10 @@
       "scope": null,
       "subject": "Prevent script injection in github action",
       "jiraIds": [],
-      "pullRequest": 21445
+      "pullRequest": 21445,
+      "translations": {
+        "tr": "GitHub action'da script injection'ı önle"
+      }
     },
     {
       "sha": "477d52fcecd86c93c8ab2f62c917ed92d578e991",
@@ -1520,7 +1619,10 @@
       "scope": null,
       "subject": "Enhance B2B Payment Flow for Tokensiation: Default/Delete Saved Cards",
       "jiraIds": [],
-      "pullRequest": 21455
+      "pullRequest": 21455,
+      "translations": {
+        "tr": "Tokenizasyon için B2B ödeme akışını geliştir: Kayıtlı kartları varsayılan yap/sil"
+      }
     },
     {
       "sha": "d5cc43f503c623dfedbe0b233790ab55bc50e2ed",
@@ -1530,7 +1632,10 @@
       "jiraIds": [
         "CXSPA-9202"
       ],
-      "pullRequest": 21433
+      "pullRequest": 21433,
+      "translations": {
+        "tr": "(CXSPA-9202) geri gidildiğinde OTP form verilerini koru"
+      }
     },
     {
       "sha": "d5167961cbea6e41da7f040732e69b35d24f4682",
@@ -1538,7 +1643,10 @@
       "scope": null,
       "subject": "a11y - append \"optional\" indicator to select box aria label",
       "jiraIds": [],
-      "pullRequest": 21437
+      "pullRequest": 21437,
+      "translations": {
+        "tr": "a11y - select box aria label'ına \"optional\" göstergesini ekle"
+      }
     },
     {
       "sha": "6e0e931c180b49bd0807bed7e40edf523e3c4b02",
@@ -1546,7 +1654,10 @@
       "scope": null,
       "subject": "adjust consent cross button alignment",
       "jiraIds": [],
-      "pullRequest": 21428
+      "pullRequest": 21428,
+      "translations": {
+        "tr": "consent çarpı butonunun hizalamasını düzenle"
+      }
     },
     {
       "sha": "0c29d66c46dfae724de7732f0a3e16f06cb82ba2",
@@ -1554,7 +1665,10 @@
       "scope": null,
       "subject": "eslint rule for feature toggles being enabled in demo app",
       "jiraIds": [],
-      "pullRequest": 21438
+      "pullRequest": 21438,
+      "translations": {
+        "tr": "demo uygulamasında etkinleştirilen feature toggle'lar için eslint kuralı"
+      }
     },
     {
       "sha": "c380adeaff44a666685c5af9d51486f094af19c9",
@@ -1562,7 +1676,10 @@
       "scope": null,
       "subject": "remove giftcard from default installation array",
       "jiraIds": [],
-      "pullRequest": 21448
+      "pullRequest": 21448,
+      "translations": {
+        "tr": "giftcard'ı varsayılan kurulum dizisinden kaldır"
+      }
     },
     {
       "sha": "73f659a01d472c41fa1a91dbe168c61e586b5efc",
@@ -1570,7 +1687,10 @@
       "scope": null,
       "subject": "CXOPF-5209 : Pagination for saved card in Checkout Page and other fixes",
       "jiraIds": [],
-      "pullRequest": 21443
+      "pullRequest": 21443,
+      "translations": {
+        "tr": "CXOPF-5209 : Checkout sayfasında kayıtlı kart için sayfalama ve diğer düzeltmeler"
+      }
     },
     {
       "sha": "9f3b8821673d4e6e74ddf292cb9bf7c102193897",
@@ -1578,7 +1698,10 @@
       "scope": null,
       "subject": "override giftcard cart/order endpoints for b2c & opf only",
       "jiraIds": [],
-      "pullRequest": 21442
+      "pullRequest": 21442,
+      "translations": {
+        "tr": "giftcard cart/order endpoint'lerini yalnızca b2c ve opf için override et"
+      }
     },
     {
       "sha": "22162ee74d6a077a1a837c1bcf9416eb3c16edc0",
@@ -1588,7 +1711,10 @@
       "jiraIds": [
         "CXSPA-13047"
       ],
-      "pullRequest": 21430
+      "pullRequest": 21430,
+      "translations": {
+        "tr": "Haziran sürümü için feature toggle'ı etkinleştir (CXSPA-13047)"
+      }
     },
     {
       "sha": "0849ee435803ff2c2ad294d713e79e0f762c5f79",
@@ -1598,7 +1724,10 @@
       "jiraIds": [
         "CXSPA-13054"
       ],
-      "pullRequest": 21434
+      "pullRequest": 21434,
+      "translations": {
+        "tr": "enableReadDomainValuesOnDemand feature toggle'ını kod tabanından kaldır (CXSPA-13054)"
+      }
     },
     {
       "sha": "ba9bbc0fd1ca278ee358d0dbe622a91d9e570585",
@@ -1606,7 +1735,10 @@
       "scope": null,
       "subject": "set toggle \"enableQuotePurchaseOrderNumber\" to true",
       "jiraIds": [],
-      "pullRequest": 21444
+      "pullRequest": 21444,
+      "translations": {
+        "tr": "\"enableQuotePurchaseOrderNumber\" toggle'ını true olarak ayarla"
+      }
     },
     {
       "sha": "a8f1b34956216666dce8053cb7239efb8b0b4b0b",
@@ -1616,7 +1748,10 @@
       "jiraIds": [
         "CXSPA-13048"
       ],
-      "pullRequest": 21435
+      "pullRequest": 21435,
+      "translations": {
+        "tr": "(CXSPA-13048) -a11yNgSelectAriaControls toggle'ını deprecate et"
+      }
     },
     {
       "sha": "d2f4203625483d99ae82f506b55c3444d38539f0",
@@ -1624,7 +1759,10 @@
       "scope": null,
       "subject": "Fix keyboard tabbing order in product image zoom view",
       "jiraIds": [],
-      "pullRequest": 21353
+      "pullRequest": 21353,
+      "translations": {
+        "tr": "Ürün görseli zoom görünümünde klavye tab sırasını düzelt"
+      }
     },
     {
       "sha": "c5f92c02bff25c7803440508531de11d4311a015",
@@ -1634,7 +1772,10 @@
       "jiraIds": [
         "CXSPA-12990"
       ],
-      "pullRequest": 21423
+      "pullRequest": 21423,
+      "translations": {
+        "tr": "Kayıtlı Ödeme Bilgileri'nde (My Account & Checkout) süresi dolmuş kart yönetimini uygula CXSPA-12990"
+      }
     },
     {
       "sha": "66a0bc62ff0793496761cd23b720de2e21a0cb50",
@@ -1642,7 +1783,10 @@
       "scope": null,
       "subject": "giftcard bugs",
       "jiraIds": [],
-      "pullRequest": 21406
+      "pullRequest": 21406,
+      "translations": {
+        "tr": "giftcard hataları"
+      }
     },
     {
       "sha": "411210349834a6f7b754824e039faaf378d8f717",
@@ -1650,7 +1794,10 @@
       "scope": null,
       "subject": "Update e2e header validation after translation key got updated",
       "jiraIds": [],
-      "pullRequest": 21425
+      "pullRequest": 21425,
+      "translations": {
+        "tr": "Çeviri anahtarı güncellendikten sonra e2e header doğrulamasını güncelle"
+      }
     },
     {
       "sha": "d99891883aadefd392a0f4a4dd318a10ae0466b1",
@@ -1660,7 +1807,10 @@
       "jiraIds": [
         "CXSPA-12359"
       ],
-      "pullRequest": 21375
+      "pullRequest": 21375,
+      "translations": {
+        "tr": "Kayıtlı Ödeme Bilgileri (My Account & Checkout) için setDefault'u uygula CXSPA-12359"
+      }
     },
     {
       "sha": "2d12384c6beb9c1c672bd9c6ad7ac371de88295d",
@@ -1670,7 +1820,10 @@
       "jiraIds": [
         "CXSPA-13003"
       ],
-      "pullRequest": 21412
+      "pullRequest": 21412,
+      "translations": {
+        "tr": "CXSPA-13003- Sabit kodlanmış 'current' değeri yerine geçerli kullanıcı ID'sini enjekte et"
+      }
     },
     {
       "sha": "b8b11ff4ea7772cb1299ae6632b5be0db5139e8a",
@@ -1678,7 +1831,10 @@
       "scope": null,
       "subject": "Remove sort fields at bottom of unit-level orders, order approvals, my coupons",
       "jiraIds": [],
-      "pullRequest": 21371
+      "pullRequest": 21371,
+      "translations": {
+        "tr": "Birim düzeyindeki siparişlerin, sipariş onaylarının ve kuponlarım sayfasının altındaki sıralama alanlarını kaldır"
+      }
     },
     {
       "sha": "023aa3ebf0375279ad0664d9ea81ca99e4f7b48f",
@@ -1686,7 +1842,10 @@
       "scope": null,
       "subject": "Prevent Windows forced-colors taking over site theme",
       "jiraIds": [],
-      "pullRequest": 21384
+      "pullRequest": 21384,
+      "translations": {
+        "tr": "Windows forced-colors'ın site temasını ele geçirmesini önleme"
+      }
     },
     {
       "sha": "44ee282e2ab3e387478dbf1e0c8df44fea1549aa",
@@ -1694,7 +1853,10 @@
       "scope": null,
       "subject": "As a shopper, I want to manage my desired products with wishlist V2 backed by wishlist OCC API",
       "jiraIds": [],
-      "pullRequest": 21359
+      "pullRequest": 21359,
+      "translations": {
+        "tr": "Bir alışveriş yapan kullanıcı olarak, wishlist OCC API tarafından desteklenen wishlist V2 ile istediğim ürünleri yönetmek istiyorum"
+      }
     },
     {
       "sha": "9ff2cda08d8316cfbbc7601fe34717813f6aab6c",
@@ -1702,7 +1864,10 @@
       "scope": null,
       "subject": "support multiple payment gateway",
       "jiraIds": [],
-      "pullRequest": 21374
+      "pullRequest": 21374,
+      "translations": {
+        "tr": "birden fazla ödeme gateway'i desteği"
+      }
     },
     {
       "sha": "c73c2287fe774c14a457c7078faa1325c1c2c949",
@@ -1714,7 +1879,10 @@
         "CXSPA-12878",
         "CXSPA-12882"
       ],
-      "pullRequest": 21407
+      "pullRequest": 21407,
+      "translations": {
+        "tr": "CustomerListComponent için a11y düzeltmesi (CXSPA-12877, CXSPA-12878, CXSPA-12882)"
+      }
     },
     {
       "sha": "ccc1d39e376e20cd6f187a093bf83a6387a3bf1a",
@@ -1722,7 +1890,10 @@
       "scope": null,
       "subject": "Add tooltips to search in B2B Administration",
       "jiraIds": [],
-      "pullRequest": 21368
+      "pullRequest": 21368,
+      "translations": {
+        "tr": "B2B Administration içindeki aramaya tooltip'ler ekleme"
+      }
     },
     {
       "sha": "f6fd3c8672aba65ef4347dec8870a0d68e3946d0",
@@ -1730,7 +1901,10 @@
       "scope": null,
       "subject": "Spartacus ASM _Input_ Label not read and additional info read & Spartacus ASM_ Button_ State od corresponding red color is not read",
       "jiraIds": [],
-      "pullRequest": 21397
+      "pullRequest": 21397,
+      "translations": {
+        "tr": "Spartacus ASM _Input_ Label okunmuyor ve ek bilgi okunuyor & Spartacus ASM_ Button_ ilgili kırmızı rengin durumu okunmuyor"
+      }
     },
     {
       "sha": "f2628f90d09820f40f243cb4b8f5799e356ddd48",
@@ -1738,7 +1912,10 @@
       "scope": null,
       "subject": "add a fixed space for the GooglePay button",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "GooglePay butonu için sabit bir boşluk ekleme"
+      }
     },
     {
       "sha": "a4cdc00c07a61bfe2dde3354d02d94bf401e5ebf",
@@ -1748,7 +1925,10 @@
       "jiraIds": [
         "CXSPA-12884"
       ],
-      "pullRequest": 21396
+      "pullRequest": 21396,
+      "translations": {
+        "tr": "(A11y)CXSPA-12884: agent'ı agent için zaman sınırları hakkında bilgilendirme"
+      }
     },
     {
       "sha": "a8d0321b2e6ebf735bc7fe268c7332c6dac95566",
@@ -1756,7 +1936,10 @@
       "scope": null,
       "subject": "Add handler to prevent Punchout overwriting AuthHttpHeader",
       "jiraIds": [],
-      "pullRequest": 21363
+      "pullRequest": 21363,
+      "translations": {
+        "tr": "Punchout'un AuthHttpHeader'ı ezmesini önlemek için handler ekle"
+      }
     },
     {
       "sha": "d8b084aadd9ecaf702b5ffbc338c3d2e7b140273",
@@ -1766,7 +1949,10 @@
       "jiraIds": [
         "CXSPA-12985"
       ],
-      "pullRequest": 21392
+      "pullRequest": 21392,
+      "translations": {
+        "tr": "CXSPA-12985 platform-server SSRF güvenlik açığını gidermek için Angular'ı 21.2.9 sürümüne yükseltme"
+      }
     },
     {
       "sha": "64358da4c2185f7eba35d5fade7c842c3e4465af",
@@ -1776,7 +1962,10 @@
       "jiraIds": [
         "CXSPA-12994"
       ],
-      "pullRequest": 21393
+      "pullRequest": 21393,
+      "translations": {
+        "tr": "CXSPA-12994-add-missing-storefinder-cxroutes"
+      }
     },
     {
       "sha": "b2e09eac3816c8a05e5648a337c2c384ea1538bd",
@@ -1784,7 +1973,10 @@
       "scope": null,
       "subject": "Update first name, last name, city placeholders in address book",
       "jiraIds": [],
-      "pullRequest": 21370
+      "pullRequest": 21370,
+      "translations": {
+        "tr": "Adres defterindeki ad, soyad ve şehir placeholder'larını güncelleme"
+      }
     },
     {
       "sha": "6598d0fd388512821444c8f4b076d2225f15587c",
@@ -1792,7 +1984,10 @@
       "scope": null,
       "subject": "A11y bug fix for AsmCreateCustomerFormComponent",
       "jiraIds": [],
-      "pullRequest": 21395
+      "pullRequest": 21395,
+      "translations": {
+        "tr": "AsmCreateCustomerFormComponent için a11y hata düzeltmesi"
+      }
     },
     {
       "sha": "32c94e14c917e0e0307861c946d744fd9c233958",
@@ -1800,7 +1995,10 @@
       "scope": null,
       "subject": "adjust scroll margins for anonymous consent management banner and form elements of the register page",
       "jiraIds": [],
-      "pullRequest": 21343
+      "pullRequest": 21343,
+      "translations": {
+        "tr": "anonim onay yönetimi banner'ı ve kayıt sayfasındaki form öğeleri için scroll margin değerlerini ayarlama"
+      }
     }
   ]
 }

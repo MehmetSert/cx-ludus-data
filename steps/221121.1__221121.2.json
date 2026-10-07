@@ -39,7 +39,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "'AddToWishListComponent', wishlist'e öğe ekledikten veya öğeyi kaldırdıktan sonra focus'u butona geri verir."
+        }
       },
       {
         "name": "a11yCarouselArrowKeysNavigation",
@@ -116,7 +119,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "`ProductImageZoomProductImagesComponent`, `ProductImageZoomThumbnailsComponent` - carousel için ok tuşlarıyla gezinme etkinleştirildi"
+        }
       },
       {
         "name": "a11yCartImportConfirmationMessage",
@@ -159,7 +165,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "`ImportToNewSavedCartFormComponent`, `ImportEntriesFormComponent` içinde dosya seçildikten sonra\nonay mesajı gösterilir ve sesli okunur"
+        }
       },
       {
         "name": "a11yDeliveryMethodFieldset",
@@ -219,7 +228,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, 'PickupOptionsComponent' içindeki form bir fieldset ile sarılır ve bir legend içerir."
+        }
       },
       {
         "name": "a11yDialogTriggerRefocus",
@@ -304,7 +316,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, dialog kapatıldıktan sonra focus tetikleyici öğeye geri döndürülür.\nEtkilenen component'ler: 'AddtoCartComponent', 'PickupOptionsComponent', CartPickupOptionsContainerComponent, PDPPickupOptionsContainerComponent"
+        }
       },
       {
         "name": "a11yMobileFocusOnFirstNavigationItem",
@@ -330,7 +345,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "`StorefrontComponent`, hamburger menü açıldıktan sonra ilk navigasyon öğesine focus olur"
+        }
       },
       {
         "name": "a11yPreventHorizontalScroll",
@@ -426,7 +444,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "`CartItemListComponent`, `AddedToCartDialogComponent` için küçük ekranlarda yatay kaydırma çubuğunun görünmesi engellendi"
+        }
       },
       {
         "name": "a11ySearchBoxFocusOnEscape",
@@ -452,7 +473,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "`SearchBoxComponent` artık esc tuşuyla popup kapatıldıktan sonra focus'u kaybetmemelidir."
+        }
       },
       {
         "name": "a11yShowMoreReviewsBtnFocus",
@@ -495,7 +519,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "'ProductReviewsComponent' içinde 'show more/less reviews' butonu artık aktive edildiğinde focus'u kaybetmeyecek."
+        }
       },
       {
         "name": "a11yTabComponent",
@@ -713,7 +740,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "PLP ve PDP sayfalarında TabComponent kullanımını etkinleştirir; böylece FacetListComponent ve TabParagraphComponent'in bazı işlevleri klavyeyle erişilebilir hale getirilir ve tab ile accordion stillerinde responsive çalışır."
+        }
       },
       {
         "name": "a11yUseTrapTabInsteadOfTrapInDialogs",
@@ -739,7 +769,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Dialog'larda yalnızca Tab/Shift+Tab klavye navigasyonunu etkinleştirir ve yukarı/aşağı tuşlarının varsayılan kaydırma davranışını korur.\nComponent'ler:\n- `PickupOptionDialogComponent`"
+        }
       },
       {
         "name": "allPageMetaResolversEnabledInCsr",
@@ -763,7 +796,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Client-Side Rendering (CSR) modunda *tüm* page meta resolver'ları etkinleştirir;\nbelirli resolver'lar için ayarlanan `config.pageMeta.resolvers[index].disabledInCsr` konfigürasyon seçeneğini yok sayar.\n\nNot: `disabledInCsr` konfigürasyon seçeneği artık deprecated durumdadır ve\n      ileride bu feature toggle ile birlikte kaldırılacaktır."
+        }
       },
       {
         "name": "enableConsecutiveCharactersPasswordRequirement",
@@ -853,7 +889,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Parolaların ardışık aynı karakterler içermemesi gerekliliğini etkinleştirir.\n\n`true` olarak ayarlandığında uygulama, parolaların ardışık aynı karakterler içermemesini zorunlu kılar\n(ör. \"aa\", \"11\" veya \"$$\" izin verilmez)."
+        }
       },
       {
         "name": "enablePasswordsCannotMatchInPasswordUpdateForm",
@@ -877,7 +916,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Parola güncelleme formunda yeni parolanın mevcut parolayla aynı olmasını engelleyen bir doğrulamayı etkinleştirir.\n\n`true` olarak ayarlandığında kullanıcı, parolasını güncellerken mevcut parolasını yeniden kullanamaz.\nUygulama, yeni parolanın eski parolayla eşleşmediğini kontrol eder."
+        }
       },
       {
         "name": "propagateErrorsToServer",
@@ -901,7 +943,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Server ortamında (SSR veya Prerendering) Angular uygulamasında yakalanan tüm hataları\n(Angular'ın `ErrorHandler` class'ında) server katmanına iletir.\n\nSSR'da bu şekilde iletim, server katmanının (ör. ExpressJS) bu hataları işlemesine olanak tanır;\nör. oluşan hata nedeniyle muhtemelen bozuk olan render edilmiş HTML yerine,\nistemciye uygun bir Error Page göndermek gibi."
+        }
       },
       {
         "name": "ssrStrictErrorHandlingForHttpAndNgrx",
@@ -955,7 +1000,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "SSR'da aşağıdaki hatalar log'lara yazdırılır (ve ayrıca yalnızca diğer feature toggle olan `propagateErrorsToServer` etkinse\nExpressJS'e de iletilebilir):\n\n1. giden herhangi bir HTTP request hatası (4xx-5xx status)\n2. `error` property'sine sahip herhangi bir NgRx action"
+        }
       },
       {
         "name": "useSiteThemeService",
@@ -983,7 +1031,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "1. \"Site theme\" değeri için doğruluk kaynağı olarak yeni `SiteThemeService` kullanılır\n(bu değer zamanla değişebilir, ör. yeni `SiteThemeSwitcherComponent` içinde yeni bir değer seçildiğinde).\nÖnceden \"site theme\" yalnızca sayfa başlangıcında ayarlanabiliyordu (statik config `config.context.theme` ile veya \"automatic site-context configuration\" özelliği kullanılırken CMS üzerinden).\n2. Artık özel bir theme seçilmediğinde varsayılan theme değeri boş string `''` olur;\nglobal config `config.context.theme` (veya CMS) ile farklı yapılandırılmadıysa.\nÖnceden tanımsız theme değeri `undefined` idi."
+        }
       }
     ],
     "added": [],
@@ -1877,7 +1928,10 @@
       "scope": null,
       "subject": "update e2e registerUser to wait for success in jdk21 mode",
       "jiraIds": [],
-      "pullRequest": 20758
+      "pullRequest": 20758,
+      "translations": {
+        "tr": "jdk21 modunda başarıyı beklemek için e2e registerUser'ı güncelle"
+      }
     },
     {
       "sha": "aaf36a6ded3eb26b7ae9cfb3fe8570391fdbdd71",
@@ -1885,7 +1939,10 @@
       "scope": null,
       "subject": "OPF auto submit payment form to the iframe",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "OPF ödeme formunu iframe'e otomatik submit et"
+      }
     },
     {
       "sha": "9b2fe53e635784a7d91fc79ae1860d29b4d389f4",
@@ -1893,7 +1950,10 @@
       "scope": null,
       "subject": "Update schematics test to handle new spartcus version length",
       "jiraIds": [],
-      "pullRequest": 20746
+      "pullRequest": 20746,
+      "translations": {
+        "tr": "Yeni spartacus versiyon uzunluğunu işlemek için schematics test'ini güncelle"
+      }
     },
     {
       "sha": "e35aca05ea8d92328dab323baac0da9ebd6a45a6",
@@ -1901,7 +1961,10 @@
       "scope": null,
       "subject": "[port to release/221121.2.x] missing update of peerDeps listed in package-lock.json after updating Angular CLI 19.2.15 to 19.2.16",
       "jiraIds": [],
-      "pullRequest": 20745
+      "pullRequest": 20745,
+      "translations": {
+        "tr": "[port to release/221121.2.x] Angular CLI 19.2.15'ten 19.2.16'ya güncellendikten sonra package-lock.json içinde listelenen peerDeps güncellemesi eksik"
+      }
     },
     {
       "sha": "ebda4aa913190f570a318c8c6e7c2322dd200079",
@@ -1909,7 +1972,10 @@
       "scope": null,
       "subject": "update `@angular/cli` and folks (including `@angular/ssr`) from 19.2.15 to 19.2.16 patch",
       "jiraIds": [],
-      "pullRequest": 20741
+      "pullRequest": 20741,
+      "translations": {
+        "tr": "`@angular/cli` ve ilgili paketleri (`@angular/ssr` dahil) 19.2.15'ten 19.2.16 patch sürümüne güncelle"
+      }
     },
     {
       "sha": "0c607a64f76c6b77203b4c1bb7ce9c1387830f5b",
@@ -1919,7 +1985,10 @@
       "jiraIds": [
         "CXSPA-10817"
       ],
-      "pullRequest": 20739
+      "pullRequest": 20739,
+      "translations": {
+        "tr": "CXSPA-10817: asm B2C vendor değişiklikleri için JDK21 uyarlaması (V1)"
+      }
     },
     {
       "sha": "497ad6390f3164de90103e2fa9e147ffcc499eb1",
@@ -1927,7 +1996,10 @@
       "scope": null,
       "subject": "Check Asm related feature run results on WTF",
       "jiraIds": [],
-      "pullRequest": 20738
+      "pullRequest": 20738,
+      "translations": {
+        "tr": "Asm ile ilgili feature çalıştırma sonuçlarını WTF üzerinde kontrol et"
+      }
     },
     {
       "sha": "0471f0d7b223b77b029ac66732a08b33d643dfab",
@@ -1935,7 +2007,10 @@
       "scope": null,
       "subject": "Check Asm related feature run results on WTF",
       "jiraIds": [],
-      "pullRequest": 20737
+      "pullRequest": 20737,
+      "translations": {
+        "tr": "Asm ile ilgili feature çalıştırma sonuçlarını WTF üzerinde kontrol et"
+      }
     },
     {
       "sha": "dd596b47e5ad41099b648a374eb91ec14b541220",
@@ -1943,7 +2018,10 @@
       "scope": null,
       "subject": "update Angular minor version from 19.0.4 to 19.2.15",
       "jiraIds": [],
-      "pullRequest": 20735
+      "pullRequest": 20735,
+      "translations": {
+        "tr": "Angular minor versiyonunu 19.0.4'ten 19.2.15'e güncelle"
+      }
     },
     {
       "sha": "b8e01922c118b504aa03da9f483d620154756e38",
@@ -1951,7 +2029,10 @@
       "scope": null,
       "subject": "Update sample data script to release jdk21",
       "jiraIds": [],
-      "pullRequest": 20733
+      "pullRequest": 20733,
+      "translations": {
+        "tr": "Sample data script'ini jdk21 release için güncelle"
+      }
     },
     {
       "sha": "c64621d1d3266ed04865797d3faaa0a56c63efe6",
@@ -1961,7 +2042,10 @@
       "jiraIds": [
         "CXSPA-10818"
       ],
-      "pullRequest": 20728
+      "pullRequest": 20728,
+      "translations": {
+        "tr": "CXSPA-10818: ASM B2B otomasyonu için mevcut müşteri kullanıldı"
+      }
     },
     {
       "sha": "a23af3a220700e12b7258590472a51763fb6d0f7",
@@ -1969,7 +2053,10 @@
       "scope": null,
       "subject": "export secure-portal-config-initializer",
       "jiraIds": [],
-      "pullRequest": 20730
+      "pullRequest": 20730,
+      "translations": {
+        "tr": "secure-portal-config-initializer'ı export et"
+      }
     },
     {
       "sha": "1b0a201fd0cc99f2f3178934ba25a134e7bfa837",
@@ -1979,7 +2066,10 @@
       "jiraIds": [
         "CXSPA-10931"
       ],
-      "pullRequest": 20720
+      "pullRequest": 20720,
+      "translations": {
+        "tr": "CXSPA-10931 yetkisiz kullanıcının asm login yapmasını engelle"
+      }
     },
     {
       "sha": "e328cbbe6e49b922e350f58925598f8795ea1353",
@@ -1989,7 +2079,10 @@
       "jiraIds": [
         "CXSPA-10932"
       ],
-      "pullRequest": 20725
+      "pullRequest": 20725,
+      "translations": {
+        "tr": "CXSPA-10932: client asm olduğunda login butonunu gizle"
+      }
     },
     {
       "sha": "f9d3c4f3d300e5a982650ac58b7d4200819f3402",
@@ -1997,7 +2090,10 @@
       "scope": null,
       "subject": "Cleanup avoidCachingErrors feature flag",
       "jiraIds": [],
-      "pullRequest": 20712
+      "pullRequest": 20712,
+      "translations": {
+        "tr": "avoidCachingErrors feature flag'ini temizle"
+      }
     },
     {
       "sha": "59dead4664f6d1447be9a3c6bae62f6d4004aa1b",
@@ -2005,7 +2101,10 @@
       "scope": null,
       "subject": "Remove normalizeHttpError in favor of tryNormalizeHttpError",
       "jiraIds": [],
-      "pullRequest": 20718
+      "pullRequest": 20718,
+      "translations": {
+        "tr": "normalizeHttpError kaldırıldı, yerine tryNormalizeHttpError kullanılıyor"
+      }
     },
     {
       "sha": "be1d6691bd59f084e5b047bb71ccb2a20376923f",
@@ -2013,7 +2112,10 @@
       "scope": null,
       "subject": "add authConfig for JDK21 ssr app",
       "jiraIds": [],
-      "pullRequest": 20714
+      "pullRequest": 20714,
+      "translations": {
+        "tr": "JDK21 ssr app için authConfig ekle"
+      }
     },
     {
       "sha": "aa9ffaf37d63617d8faa5fab11fec57f7f18f962",
@@ -2021,7 +2123,10 @@
       "scope": null,
       "subject": "support local resources loading for PSP's",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "PSP'ler için yerel kaynak yüklemeyi destekle"
+      }
     },
     {
       "sha": "b0a6d1a3e754d4fdcbc9094dbc0544e93537fa39",
@@ -2031,7 +2136,10 @@
       "jiraIds": [
         "CXSPA-10816"
       ],
-      "pullRequest": 20717
+      "pullRequest": 20717,
+      "translations": {
+        "tr": "CXSPA-10816: ASM core case, otomasyonu çalıştırmak için mevcut müşteriyi kullandı"
+      }
     },
     {
       "sha": "ab509941b7d2d38eae48197872daa672e8c0a687",
@@ -2039,7 +2147,10 @@
       "scope": null,
       "subject": "Sonar issues",
       "jiraIds": [],
-      "pullRequest": 20716
+      "pullRequest": 20716,
+      "translations": {
+        "tr": "Sonar sorunları"
+      }
     },
     {
       "sha": "f4905e7497ca3f474a8b07cfa29ef9dfb568b202",
@@ -2047,7 +2158,10 @@
       "scope": null,
       "subject": "remove allPageMetaResolversEnabledInCsr feature flag",
       "jiraIds": [],
-      "pullRequest": 20715
+      "pullRequest": 20715,
+      "translations": {
+        "tr": "allPageMetaResolversEnabledInCsr feature flag'ini kaldır"
+      }
     },
     {
       "sha": "986bb4a4592a69fe5b19f30d8fd84768dc567d57",
@@ -2055,7 +2169,10 @@
       "scope": null,
       "subject": "Cleanup ssrStrictErrorHandlingForHttpAndNgrx feature toggle",
       "jiraIds": [],
-      "pullRequest": 20711
+      "pullRequest": 20711,
+      "translations": {
+        "tr": "ssrStrictErrorHandlingForHttpAndNgrx feature toggle'ını temizle"
+      }
     },
     {
       "sha": "1e47ba7e4758fb068cb576baab575093a6e1bc44",
@@ -2063,7 +2180,10 @@
       "scope": null,
       "subject": "Clean up propagateErrorsToServer toggle",
       "jiraIds": [],
-      "pullRequest": 20710
+      "pullRequest": 20710,
+      "translations": {
+        "tr": "propagateErrorsToServer toggle'ını temizle"
+      }
     },
     {
       "sha": "bb47cd37769513cc1ac04eea090c98ff2af9932f",
@@ -2071,7 +2191,10 @@
       "scope": null,
       "subject": "remove password validator feature flags",
       "jiraIds": [],
-      "pullRequest": 20706
+      "pullRequest": 20706,
+      "translations": {
+        "tr": "password validator feature flag'lerini kaldır"
+      }
     },
     {
       "sha": "e7bbc90e0bac002beb08c6aaff68ac18f2ae615d",
@@ -2079,7 +2202,10 @@
       "scope": null,
       "subject": "Deprecate a11y toggles for October 2025 release",
       "jiraIds": [],
-      "pullRequest": 20708
+      "pullRequest": 20708,
+      "translations": {
+        "tr": "Ekim 2025 release'i için a11y toggle'larını kullanımdan kaldır (deprecate)"
+      }
     },
     {
       "sha": "3d79b5244c2792629f3f61dba0b63040a417fcf4",
@@ -2089,7 +2215,10 @@
       "jiraIds": [
         "CXSPA-10925"
       ],
-      "pullRequest": 20713
+      "pullRequest": 20713,
+      "translations": {
+        "tr": "useSiteThemeService feature toggle'ını kaldır (CXSPA-10925)"
+      }
     },
     {
       "sha": "c0817f656a0736d0b546ea0a32cfe48df0b4ac66",
@@ -2099,7 +2228,10 @@
       "jiraIds": [
         "CXSPA-10924"
       ],
-      "pullRequest": 20709
+      "pullRequest": 20709,
+      "translations": {
+        "tr": "CXSPA-10924 address card içinde metnin çok uzun olması sorununu düzelt"
+      }
     },
     {
       "sha": "41089a8ccecc75777c1c04418595dacff37cd81e",
@@ -2109,7 +2241,10 @@
       "jiraIds": [
         "CXSPA-10752"
       ],
-      "pullRequest": 20702
+      "pullRequest": 20702,
+      "translations": {
+        "tr": "product_configurator_e2e test suite'i S2 ve S3 üzerinde başarısız oluyor (CXSPA-10752)"
+      }
     },
     {
       "sha": "a2a19b4cebadb038df58c7da432e1ee05e87c596",
@@ -2117,7 +2252,10 @@
       "scope": null,
       "subject": "bump @types/googlepay version",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "@types/googlepay sürümünü yükselt"
+      }
     },
     {
       "sha": "77abfc793b53db291973a67f4205739da9d39f8d",
@@ -2125,7 +2263,10 @@
       "scope": null,
       "subject": "adapt my account v2 test case to support otp login",
       "jiraIds": [],
-      "pullRequest": 20696
+      "pullRequest": 20696,
+      "translations": {
+        "tr": "my account v2 test case'ini otp login'i destekleyecek şekilde uyarla"
+      }
     },
     {
       "sha": "24c449468b25c870faf928de648560d91aa5dd29",
@@ -2135,7 +2276,10 @@
       "jiraIds": [
         "CXSPA-10752"
       ],
-      "pullRequest": 20698
+      "pullRequest": 20698,
+      "translations": {
+        "tr": "product_configurator_e2e test suite'i S2 ve S3 üzerinde başarısız oluyor (CXSPA-10752)"
+      }
     },
     {
       "sha": "a36e7dbe12fa9982273b57729c078be39bf243ae",
@@ -2145,7 +2289,10 @@
       "jiraIds": [
         "CXSPA-10752"
       ],
-      "pullRequest": 20695
+      "pullRequest": 20695,
+      "translations": {
+        "tr": "product_configurator_e2e test suite'i S2 ve S3 üzerinde başarısız oluyor (CXSPA-10752)"
+      }
     },
     {
       "sha": "f99f22760345496bfc7138008c1d493763a39b66",
@@ -2155,7 +2302,10 @@
       "jiraIds": [
         "CXSPA-10752"
       ],
-      "pullRequest": 20691
+      "pullRequest": 20691,
+      "translations": {
+        "tr": "Tekrarlanan testleri kaldır ve configuration interceptor oluştur (CXSPA-10752)"
+      }
     },
     {
       "sha": "1f32e7809baf269ca725749a9dabda7ce9cca377",
@@ -2163,7 +2313,10 @@
       "scope": null,
       "subject": "update nx from 20.4.6 to 21.4.1",
       "jiraIds": [],
-      "pullRequest": 20693
+      "pullRequest": 20693,
+      "translations": {
+        "tr": "nx'i 20.4.6 sürümünden 21.4.1 sürümüne güncelle"
+      }
     },
     {
       "sha": "d48a156e4820699cf9fac09d3884ac3cd8a46761",
@@ -2171,7 +2324,10 @@
       "scope": null,
       "subject": "Compliance. Updates to OSS libs karma, fs-extra, browser-sync",
       "jiraIds": [],
-      "pullRequest": 20692
+      "pullRequest": 20692,
+      "translations": {
+        "tr": "Compliance. OSS kütüphaneleri karma, fs-extra, browser-sync güncellemeleri"
+      }
     },
     {
       "sha": "0bc8650421316e7377f8da7b9d204d82d7a53d9d",
@@ -2179,7 +2335,10 @@
       "scope": null,
       "subject": "add JDK toggle and client auth within install script",
       "jiraIds": [],
-      "pullRequest": 20644
+      "pullRequest": 20644,
+      "translations": {
+        "tr": "Install script içine JDK toggle ve client auth ekle"
+      }
     },
     {
       "sha": "f744f290d5626b806910a6f876f98a25e51c8901",
@@ -2187,7 +2346,10 @@
       "scope": null,
       "subject": "Sonar bugs",
       "jiraIds": [],
-      "pullRequest": 20656
+      "pullRequest": 20656,
+      "translations": {
+        "tr": "Sonar bug'ları"
+      }
     },
     {
       "sha": "2e9365b8480aeb7c7e8f184fe71705b760d4f57e",
@@ -2195,7 +2357,10 @@
       "scope": null,
       "subject": "Updating contribution guidelines",
       "jiraIds": [],
-      "pullRequest": 20475
+      "pullRequest": 20475,
+      "translations": {
+        "tr": "Katkı (contribution) kılavuzlarını güncelle"
+      }
     },
     {
       "sha": "444acc3f7ecd614979524230cb37aed9af657231",
@@ -2205,7 +2370,10 @@
       "jiraIds": [
         "CXSPA-10755"
       ],
-      "pullRequest": 20672
+      "pullRequest": 20672,
+      "translations": {
+        "tr": "CXSPA-10755 Eksik Slack Token'ı ekle"
+      }
     },
     {
       "sha": "2936a64526cd4b54b03b88d12c1fb58f43e2f9b1",
@@ -2213,7 +2381,10 @@
       "scope": null,
       "subject": "Enable cypress recording for a11y tests on develop",
       "jiraIds": [],
-      "pullRequest": 20662
+      "pullRequest": 20662,
+      "translations": {
+        "tr": "develop üzerinde a11y testleri için cypress kaydını etkinleştir"
+      }
     },
     {
       "sha": "e6790e7b8d895ad0a6ee47db6f57b7564b3a74a3",
@@ -2221,7 +2392,10 @@
       "scope": null,
       "subject": "Update slack-github-action to v2.1.1 and adjust payload format",
       "jiraIds": [],
-      "pullRequest": 20614
+      "pullRequest": 20614,
+      "translations": {
+        "tr": "slack-github-action'ı v2.1.1'e güncelle ve payload formatını uyarla"
+      }
     },
     {
       "sha": "3f0344b6477580ef1631a3c4ff77303303362e52",
@@ -2229,7 +2403,10 @@
       "scope": null,
       "subject": "Adapt e2e tests for ASM login",
       "jiraIds": [],
-      "pullRequest": 20650
+      "pullRequest": 20650,
+      "translations": {
+        "tr": "e2e testlerini ASM login'e uyarla"
+      }
     },
     {
       "sha": "f470e83a6e8d5671ce7b062e7278b4fe4c5b213a",
@@ -2237,7 +2414,10 @@
       "scope": null,
       "subject": "Fix script of asm b2b case running on S2",
       "jiraIds": [],
-      "pullRequest": 20655
+      "pullRequest": 20655,
+      "translations": {
+        "tr": "S2 üzerinde çalışan asm b2b case script'ini düzelt"
+      }
     },
     {
       "sha": "956ae906e31621ba7c9f919bfbb20d7c6c176540",
@@ -2245,7 +2425,10 @@
       "scope": null,
       "subject": "adjust OTP e2e test and update mailhog",
       "jiraIds": [],
-      "pullRequest": 20645
+      "pullRequest": 20645,
+      "translations": {
+        "tr": "OTP e2e testini ayarla ve mailhog'u güncelle"
+      }
     },
     {
       "sha": "f18041dc307be87f34a1e1f21645db7290b7a49a",
@@ -2253,7 +2436,10 @@
       "scope": null,
       "subject": "Improper Textbox appears for Password in SSR mode",
       "jiraIds": [],
-      "pullRequest": 20621
+      "pullRequest": 20621,
+      "translations": {
+        "tr": "SSR modunda Password için hatalı Textbox görünüyor"
+      }
     },
     {
       "sha": "ccfddeb3d032e3868fc203f1f9c0786b078bca0f",
@@ -2263,7 +2449,10 @@
       "jiraIds": [
         "CXSPA-2415"
       ],
-      "pullRequest": 20616
+      "pullRequest": 20616,
+      "translations": {
+        "tr": "CXSPA-2415 - birden fazla event davranışını düzelt"
+      }
     }
   ]
 }

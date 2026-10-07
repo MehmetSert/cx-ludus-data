@@ -17,7 +17,10 @@
         "affects": [],
         "defaultValue": true,
         "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/7fd5cb51f6f14414832056e1f7f1094b.html",
-        "usages": []
+        "usages": [],
+        "translations": {
+          "tr": "İzleme için ActionsSubject LOGIN stream'i yerine yeni LOGIN_EVENTS token'ının kullanılmasını sağlayan feature flag.\n\nEtkinleştirildiğinde, ActionsSubject LOGIN stream'i yerine yeni LOGIN_EVENTS token'ı kullanılır.\nBu, code flow authentication desteği için gereklidir. ActionsSubject LOGIN stream'i kullanılırsa,\nauth server'dan geri yönlendirildikten sonra login event'i yakalanmaz.\n\n`ProfileTagLifecycleService` içinde kullanılır"
+        }
       },
       {
         "name": "dispatchLoginActionOnlyWhenTokenReceived",
@@ -27,7 +30,10 @@
         ],
         "defaultValue": true,
         "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/c734311fbaf3479e8628a9ad037836d3.html",
-        "usages": []
+        "usages": [],
+        "translations": {
+          "tr": "OAuth URL parametreleri kontrol edilirken Login action'ının ne zaman dispatch edileceğini kontrol eder.\n\n`true` olarak ayarlandığında, Login action'ı yalnızca `tokenReceived` true olduğunda, yani token mevcut `tryLogin()` denemesi sırasında alındığında dispatch edilen yeni davranış etkinleşir.\n\n`false` olarak ayarlandığında, `checkOAuthParamsInUrl()` sırasında başarılı olan tüm login senaryolarında, token'ın mevcut denemede alınmış olmasından veya storage'dan alınmış olmasından (ör. sayfa yenileme) bağımsız olarak Login action'ının dispatch edildiği eski davranış korunur."
+        }
       },
       {
         "name": "incrementProcessesCountForMergeCart",
@@ -35,7 +41,10 @@
         "affects": [],
         "defaultValue": true,
         "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/05d5b90582c147b6924a3601cd2ac9d5.html",
-        "usages": []
+        "usages": [],
+        "translations": {
+          "tr": "Merge cart action'ı için process count'un artırılmasını sağlayan feature flag.\n\nEtkinleştirildiğinde, merge cart action'ı için process count artırılır.\nBu, özellikle auth server'a yönlendirme ve geri dönüş gerektiren authorization code flow'u etkileyen erken cart yüklemesini önlemek için gereklidir."
+        }
       }
     ],
     "added": [
@@ -84,7 +93,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, devre dışı action butonları (`.btn-primary`, `.btn-secondary`,\n`.btn-tertiary`) `--cx-color-border-focus` yerine yeni `--cx-color-disabled` token'ını kullanır; böylece border/background/text değerleri\nWCAG 1.4.11 3:1 (yüksek kontrastlı theme'lerde 7:1) metin dışı kontrast\ngereksinimini karşılar."
+        }
       },
       {
         "name": "a11yFilteredFacetAnnouncement",
@@ -203,7 +215,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "`ActiveFacetsComponent` içinde filtre değişikliklerini screen reader'lara duyurur.\nÖnce: uygulanan filtreler bölümüne bir filtre eklendiğinde veya kaldırıldığında duyuru yapılmaz.\nSonra: assertive bir `aria-live` mesajı okunur — \"Filter added: <name>\" veya \"Filter removed: <name>\"."
+        }
       },
       {
         "name": "a11yFocusBreadcrumbOnNavigation",
@@ -213,7 +228,10 @@
         ],
         "defaultValue": false,
         "docUrl": null,
-        "usages": []
+        "usages": [],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, header navigasyon linki ile bir `CategoryPage`'e (ör. Product Listing Page) gidildikten sonra\nklavye focus'u, `<main>` içindeki ilk focuslanabilir öğe yerine `cx-breadcrumb` içindeki ilk anchor'a\n(`StorefrontComponent.categoryPageFocusSelector` ile çözümlenir) taşınır.\nBreadcrumb yoksa veya hedef bir CategoryPage değilse mevcut `cx-main` skip-link hedefine geri döner."
+        }
       },
       {
         "name": "a11yFocusIndicatorContrast",
@@ -239,7 +257,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, varsayılan theme'in klavye focus göstergesi rengi\n(`--cx-color-visual-focus`) koyulaştırılır; böylece tüm UI\nöğelerinin (input alanları, arama kutusu, combobox'lar, checkbox'lar, radio butonlar\nvb.) focus çerçevesi, bitişik yüzeye karşı WCAG 1.4.11 metin dışı kontrast gereksinimi olan >=3:1'i karşılar."
+        }
       },
       {
         "name": "a11yFormErrorIconContrast",
@@ -286,7 +307,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, form hata ikonu glifi (`cx-form-errors`)\n`--cx-color-inverse` yerine `--cx-color-danger-accent` rengini kullanır; böylece yüksek kontrastlı koyu theme'de\ndanger arka planı üzerinde okunabilir kalır\n(beyaz yerine siyah glif)."
+        }
       },
       {
         "name": "a11yFormFieldSectionLegend",
@@ -417,7 +441,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, form kontrollerini görünür sayfa başlığına referans veren `aria-labelledby` içeren bir `<fieldset>` ile sarar; böylece gruptaki herhangi bir alan focus aldığında screen reader'lar bölüm başlığını duyurur.\n\n         UpdatePasswordComponent, MyAccountV2PasswordComponent,\n         UpdateEmailComponent, MyAccountV2EmailComponent,\n         ConsentManagementComponent"
+        }
       },
       {
         "name": "a11yImproveAddressFormFocus",
@@ -462,7 +489,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, adres formu ilk klavye focus'unu yönetmek için autofocus ile `cxFocus` directive'ini uygular ve yeni cxFocusFirstInvalidField directive'ini kullanır."
+        }
       },
       {
         "name": "a11yImproveCheckoutFocus",
@@ -575,7 +605,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Checkout süreci sırasında otomatik focus'u iyileştirir."
+        }
       },
       {
         "name": "a11yMessagingListKeyboardFocus",
@@ -698,7 +731,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Chat mesajlaşma listesi öğeleri için klavye focus'unu ve screen reader tarih duyurusunu düzeltir.\ntabindex ve aria-label'ı role=\"listitem\" öğesine taşır; böylece tüm mesajlara klavye ile erişilebilir\nve tarihler VoiceOver ve JAWS tarafından duyurulur."
+        }
       },
       {
         "name": "a11yNavigationChevronContrast",
@@ -745,7 +781,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, organization (My Company) liste satırlarında ve detay navigasyon kartlarında\nrender edilen navigasyon chevron'u (`--list-bg`), WCAG 1.4.11 metin dışı kontrast\ngereksinimini (varsayılan theme'de >=3:1; yüksek kontrastlı theme'lerde 7:1) karşılamak için\ndaha yüksek kontrastlı bir stroke kullanır.\nVarsayılan theme stroke'u `#D3D6DA` (~1.4:1) değerinden `#556b82` (~5.3:1) değerine değişir ve\nyüksek kontrastlı açık/koyu theme'lerde özel siyah/beyaz stroke'lar uygulanır."
+        }
       },
       {
         "name": "a11yNavigationSpaceKeyOnKeyUp",
@@ -756,7 +795,10 @@
         ],
         "defaultValue": false,
         "docUrl": null,
-        "usages": []
+        "usages": [],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, navigasyon menüsü butonları (ör. \"My Account\") ve dropdown\nheader'ları, boşluk tuşuna *basıldığında* (`keydown`) değil, tuş *bırakıldığında* (`keyup`) etkinleşir;\nböylece tuş basılı tutulurken action'ın tekrar tekrar tetiklenmesi önlenir.\nWCAG 2.5.2 (Pointer Cancellation) ACC-270.16 (Level A) sorununu giderir."
+        }
       },
       {
         "name": "enableApplyVoucherEndpoint",
@@ -764,7 +806,10 @@
         "affects": [],
         "defaultValue": false,
         "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/469a1684bce349bba70f67207d6b44c3.html",
-        "usages": []
+        "usages": [],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, `POST /carts/{cartId}/vouchers?voucherId={voucherId}` yerine voucherId'yi\nrequest body içinde gönderen `POST /carts/{cartId}/applyVoucher` kullanılır.\nBackend'de ilgili OCC endpoint'inin mevcut olmasını gerektirir (2211.28 sürümünden itibaren)."
+        }
       },
       {
         "name": "mergeGuestCartOnCodeFlowLogin",
@@ -774,7 +819,10 @@
         ],
         "defaultValue": false,
         "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/91497fe33c9b4fcdb36771cb518ec261.html",
-        "usages": []
+        "usages": [],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, login OAuth 2.1 authorization-code flow'u ile yapılsa bile\n(SPA'yı tamamen yeniden bootstrap eder ve bellekteki state'i siler) guest cart, login sonrasında kullanıcı cart'ına merge edilir.\n\nGuest cart girdileri yönlendirmeden önce storage'a kaydedilir ve login sonrasında\nkullanıcı cart'ına yeniden eklenir. Bu gereklidir, çünkü backend bir guest cart'ın native merge işlemini reddeder (`\"Cart is not anonymous\"`) ve\nguest cart login sonrasında kullanıcı token'ı ile artık erişilebilir değildir.\n\nNOT: En çok `authorizationCodeFlowByDefault` etkin olduğunda önemlidir."
+        }
       },
       {
         "name": "orderOverviewCardsInlinePadding",
@@ -824,7 +872,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Büyük ekranlarda sipariş özeti kartlarına (`.cx-order-details-cards`) `10rem` inline-start padding uygular. Devre dışı bırakıldığında kartlar\niçeri doğru itilmez; böylece geniş viewport'larda yatay kayma önlenir."
+        }
       },
       {
         "name": "productConfiguratorConsolidatedButtonDisabling",
@@ -919,7 +970,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, product configurator ürün kartı action butonları, bir configuration güncelleme round trip'i devam ederken\ntutarlı biçimde devre dışı bırakılır (`disableActions$`). Özellikle çoklu seçimdeki \"Remove\"\n(secondary) butonu, eşzamanlı ve potansiyel olarak çakışan bir request tetiklenmesini önlemek için yükleme sırasında devre dışı bırakılır."
+        }
       },
       {
         "name": "reloadOnLanguageChange",
@@ -929,7 +983,10 @@
         ],
         "defaultValue": false,
         "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/deb52d4a69ff425f92fd048c7d614c75.html",
-        "usages": []
+        "usages": [],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, dil değişikliğinden sonra tam sayfa yenileme tetikler; böylece\ntüm `href` attribute'ları (banner'lar, navigasyon linkleri, mini-cart, login) manuel sayfa yenilemesi gerekmeden\nyeni dili hemen yansıtır.\n\nSSR sırasında yenileme atlanır — server, herhangi bir yenileme mekanizması olmadan sayfayı\nistenen dilde render eder."
+        }
       },
       {
         "name": "searchBoxEmptyQueryResultsPanel",
@@ -1026,7 +1083,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "`SearchBoxComponent` içindeki boş sorgu sonuç panelini kontrol eder.\n\nÖnce (devre dışı):\n- `searchBoxRecentSearchesRemoval` etkinken, boş sorgu masaüstünde sonuç panelini\n  kapatır. Sorgunun temizlenmesi paneli kapatır.\n- Bu toggle olmadan, masaüstünde boş sorguyla sonuç paneli gösterilebilir.\n\nSonra (etkin):\n- Masaüstünde, boş sorgu sonuç panelini yalnızca trending veya\n  recent searches mevcutsa açar; aksi halde panel kapalı kalır.\n- Sorgunun temizlenmesi, panelde kalan OCC suggestion'larını, ürünleri veya\n  eşleşme yok mesajını bırakmaz.\n- Mobilde, input daralmasın diye arama kutusu boş sorgu için açık kalır. Arama panelindeki Close butonu gizlenir; Clear kalır."
+        }
       }
     ],
     "defaultEnabled": [
@@ -1041,7 +1101,10 @@
         ],
         "defaultValue": true,
         "docUrl": null,
-        "usages": []
+        "usages": [],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, organization'ın table component'i her veri güncellemesinde satırlarını yeniden render etmeyi bırakır.\nBu, notification message component'inin screen reader deneyimini iyileştirir."
+        }
       },
       {
         "name": "a11yCustomerTicketingVisualFocusFix",
@@ -1096,7 +1159,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Customer Ticketing dialog'undaki bazı butonlar arasında Tab ile geçilirken klavye focus'unun görünmemesi sorununu düzeltir."
+        }
       },
       {
         "name": "removeDuplicatedOrderHistoryHeader",
@@ -1122,7 +1188,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, Order History sayfasındaki yinelenen Order History header sorununu giderir."
+        }
       }
     ]
   },
@@ -2101,7 +2170,10 @@
       "jiraIds": [
         "CXSPA-14114"
       ],
-      "pullRequest": 21897
+      "pullRequest": 21897,
+      "translations": {
+        "tr": "CXSPA-14114 Safari'de bozuk olan address submit düzeltmesi"
+      }
     },
     {
       "sha": "d29236c507cf51bc3bb1773aaafd74f1268e7d5a",
@@ -2109,7 +2181,10 @@
       "scope": null,
       "subject": "improve incorrect handling of results in searchBox",
       "jiraIds": [],
-      "pullRequest": 21899
+      "pullRequest": 21899,
+      "translations": {
+        "tr": "searchBox içinde sonuçların hatalı işlenmesinin iyileştirilmesi"
+      }
     },
     {
       "sha": "32a71e419cd2120ad6aa1fe5995f64c049ea1b12",
@@ -2119,7 +2194,10 @@
       "jiraIds": [
         "CXSPA-14028"
       ],
-      "pullRequest": 21878
+      "pullRequest": 21878,
+      "translations": {
+        "tr": "CXSPA-14028 feature toggle'ların deprecate edilmesi"
+      }
     },
     {
       "sha": "d98a2afc766bd99858e078c5403e20fa6db2eaec",
@@ -2127,7 +2205,10 @@
       "scope": null,
       "subject": "fix multiple CVEs release",
       "jiraIds": [],
-      "pullRequest": 21875
+      "pullRequest": 21875,
+      "translations": {
+        "tr": "birden fazla CVE'yi düzelten release"
+      }
     },
     {
       "sha": "ebc596b62332fc41d3f1e8844ebea7db64a05e50",
@@ -2137,7 +2218,10 @@
       "jiraIds": [
         "CXSPA-14068"
       ],
-      "pullRequest": 21859
+      "pullRequest": 21859,
+      "translations": {
+        "tr": "CXSPA-14068 angular sürümünün 21.2.19'a yükseltilmesi"
+      }
     },
     {
       "sha": "5b7df2da7c6c54784f6d112706ed018cacfc1d02",
@@ -2147,7 +2231,10 @@
       "jiraIds": [
         "CXSPA-12745"
       ],
-      "pullRequest": 21849
+      "pullRequest": 21849,
+      "translations": {
+        "tr": "org list navigation chevron kontrastının artırılması (CXSPA-12745)"
+      }
     },
     {
       "sha": "60f51d8c37e5ca77e993605bb51c2994cce2574f",
@@ -2157,7 +2244,10 @@
       "jiraIds": [
         "CXSPA-13731"
       ],
-      "pullRequest": 21803
+      "pullRequest": 21803,
+      "translations": {
+        "tr": "CXSPA-13731 - feature-libs/asm'in Karma/Jasmine'den vitest'e taşınması"
+      }
     },
     {
       "sha": "4f8abcd942420512a6c967d6c50601bc570de40f",
@@ -2167,7 +2257,10 @@
       "jiraIds": [
         "CXSPA-13730"
       ],
-      "pullRequest": 21794
+      "pullRequest": 21794,
+      "translations": {
+        "tr": "CXSPA-13730 - feature-libs/cart'ın Karma/Jasmine'den Vitest'e taşınması"
+      }
     },
     {
       "sha": "aeeceb7565731f30f8df4c8b110d736788d318db",
@@ -2175,7 +2268,10 @@
       "scope": null,
       "subject": "bump i18next-resources-to-backend@1.2.2",
       "jiraIds": [],
-      "pullRequest": 21848
+      "pullRequest": 21848,
+      "translations": {
+        "tr": "i18next-resources-to-backend@1.2.2 sürümüne yükseltme"
+      }
     },
     {
       "sha": "470f8dfc41fad422374663ca1e49d4f9cdb06755",
@@ -2185,7 +2281,10 @@
       "jiraIds": [
         "CXSPA-14005"
       ],
-      "pullRequest": 21844
+      "pullRequest": 21844,
+      "translations": {
+        "tr": "CXSPA-14005 SPA'nın CPQ ConfigurationSummaryLineItemData geliştirmeleri için hazırlanması"
+      }
     },
     {
       "sha": "57730a94b626bd5022e24fbb03b418c6e2e8efe4",
@@ -2195,7 +2294,10 @@
       "jiraIds": [
         "CXSPA-14029"
       ],
-      "pullRequest": 21843
+      "pullRequest": 21843,
+      "translations": {
+        "tr": "2609 için toggle'ların etkinleştirilmesi (CXSPA-14029)"
+      }
     },
     {
       "sha": "2428310dc23589753cd1d43eedf07bbaa0e9813e",
@@ -2203,7 +2305,10 @@
       "scope": null,
       "subject": "documentation regarding Spa and BFF integration",
       "jiraIds": [],
-      "pullRequest": 21671
+      "pullRequest": 21671,
+      "translations": {
+        "tr": "Spa ve BFF entegrasyonuna ilişkin dokümantasyon"
+      }
     },
     {
       "sha": "686917bfd27d7d7e8a925c3e522d34bf497331f6",
@@ -2213,7 +2318,10 @@
       "jiraIds": [
         "CXSPA-13729"
       ],
-      "pullRequest": 21762
+      "pullRequest": 21762,
+      "translations": {
+        "tr": "CXSPA-13729"
+      }
     },
     {
       "sha": "69fc08fd461caa96edeeb134c712832420a833ae",
@@ -2221,7 +2329,10 @@
       "scope": null,
       "subject": "AuthConfigInitializer uses correct default redirectUri when inactive",
       "jiraIds": [],
-      "pullRequest": 21835
+      "pullRequest": 21835,
+      "translations": {
+        "tr": "AuthConfigInitializer, inaktifken doğru varsayılan redirectUri değerini kullanır"
+      }
     },
     {
       "sha": "e68b3bfd145bc2d0085fb4ed2d01bd677d29b66b",
@@ -2229,7 +2340,10 @@
       "scope": null,
       "subject": "address sonar warnings",
       "jiraIds": [],
-      "pullRequest": 21728
+      "pullRequest": 21728,
+      "translations": {
+        "tr": "sonar uyarılarının giderilmesi"
+      }
     },
     {
       "sha": "c4f135a35358219c4caf521efcdfca5d59069dff",
@@ -2239,7 +2353,10 @@
       "jiraIds": [
         "CXSPA-13925"
       ],
-      "pullRequest": 21809
+      "pullRequest": 21809,
+      "translations": {
+        "tr": "CXSPA-13925: agent girişinden sonra simüle edilen kullanıcıda oluşan 404 sorununun düzeltilmesi"
+      }
     },
     {
       "sha": "346494e3f4a11f5ac2b3dfc6f3907c1a3673ce2c",
@@ -2249,7 +2366,10 @@
       "jiraIds": [
         "CXSPA-13989"
       ],
-      "pullRequest": 21820
+      "pullRequest": 21820,
+      "translations": {
+        "tr": "CXSPA-13989: B2B asm durumunda login SSR timeout sorununun düzeltilmesi"
+      }
     },
     {
       "sha": "fe008b1b498e48edc18a38ad20b7e8027d27acc7",
@@ -2259,7 +2379,10 @@
       "jiraIds": [
         "CXSPA-13837"
       ],
-      "pullRequest": 21775
+      "pullRequest": 21775,
+      "translations": {
+        "tr": "CXSPA-13837 guest cart'ın birleştirilmesi"
+      }
     },
     {
       "sha": "7c3974a3440d9607477d26fb8333f07ee4061482",
@@ -2267,7 +2390,10 @@
       "scope": null,
       "subject": "fix outdated language in the app links on language switch using full page reload",
       "jiraIds": [],
-      "pullRequest": 21765
+      "pullRequest": 21765,
+      "translations": {
+        "tr": "tam sayfa yenilemesiyle dil değiştirilirken uygulama linklerinde kalan eski dilin düzeltilmesi"
+      }
     },
     {
       "sha": "d4aac76e722fe71e2561abd4d8c0fe1d1734a7e1",
@@ -2275,7 +2401,10 @@
       "scope": null,
       "subject": "add missing channel to payment initiation request payload",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "ödeme başlatma isteği payload'ına eksik channel eklenmesi"
+      }
     },
     {
       "sha": "72d3385f4c9a89697d3e70543cdf3db4c33569a8",
@@ -2285,7 +2414,10 @@
       "jiraIds": [
         "CXSPA-13924"
       ],
-      "pullRequest": 21797
+      "pullRequest": 21797,
+      "translations": {
+        "tr": "CXSPA-13924: SSO agent girişinden sonra müşteri emülasyonunun korunması"
+      }
     },
     {
       "sha": "a30ba205d02cd1bcb2507d66d93118e42c3671e4",
@@ -2293,7 +2425,10 @@
       "scope": null,
       "subject": "post navigation links click focus issues",
       "jiraIds": [],
-      "pullRequest": 21799
+      "pullRequest": 21799,
+      "translations": {
+        "tr": "navigasyon linklerine tıklandıktan sonra oluşan focus sorunları"
+      }
     },
     {
       "sha": "97174debd5188ae181e5131da79ec00dd4522097",
@@ -2301,7 +2436,10 @@
       "scope": null,
       "subject": "section details is not read out by screen reader (reusing CMS page title via fieldset/egend)",
       "jiraIds": [],
-      "pullRequest": 21773
+      "pullRequest": 21773,
+      "translations": {
+        "tr": "bölüm detayları screen reader tarafından okunmuyor (CMS sayfa başlığının fieldset/legend üzerinden yeniden kullanılması)"
+      }
     },
     {
       "sha": "d535a0aa58b3367a256e8fa00363db894cfc261d",
@@ -2309,7 +2447,10 @@
       "scope": null,
       "subject": "activate navigation components on space keyup",
       "jiraIds": [],
-      "pullRequest": 21781
+      "pullRequest": 21781,
+      "translations": {
+        "tr": "navigasyon component'lerinin space keyup ile etkinleştirilmesi"
+      }
     },
     {
       "sha": "2c6ad3211d8fff652455d39bf58fa4d71128003e",
@@ -2319,7 +2460,10 @@
       "jiraIds": [
         "CXSPA-13935"
       ],
-      "pullRequest": 21798
+      "pullRequest": 21798,
+      "translations": {
+        "tr": "Kararsız (flaky) product configurator conflict-dialog E2E testi stabilize edildi (CXSPA-13935)"
+      }
     },
     {
       "sha": "f2f60e688547bc57b996b06602ff7e615b504364",
@@ -2327,7 +2471,10 @@
       "scope": null,
       "subject": "Keyboard focus indication is not meeting minimum contrast ratio",
       "jiraIds": [],
-      "pullRequest": 21791
+      "pullRequest": 21791,
+      "translations": {
+        "tr": "Klavye focus göstergesi minimum kontrast oranını karşılamıyor"
+      }
     },
     {
       "sha": "c17d3ae2998aa3993b1450e790f1f474ffd8a774",
@@ -2335,7 +2482,10 @@
       "scope": null,
       "subject": "Minimum contrast ratio not met issue",
       "jiraIds": [],
-      "pullRequest": 21790
+      "pullRequest": 21790,
+      "translations": {
+        "tr": "Minimum kontrast oranının karşılanmaması sorunu"
+      }
     },
     {
       "sha": "f102ae04775fae2a04c3908762151ce7eae23a45",
@@ -2345,7 +2495,10 @@
       "jiraIds": [
         "CXSPA-12839"
       ],
-      "pullRequest": 21782
+      "pullRequest": 21782,
+      "translations": {
+        "tr": "CXSPA-12839 başlangıç focus eklendi"
+      }
     },
     {
       "sha": "28fe8c7d410c3fd79196a9796af1ec444a54263c",
@@ -2353,7 +2506,10 @@
       "scope": null,
       "subject": "replace deprecated vouchers api",
       "jiraIds": [],
-      "pullRequest": 21770
+      "pullRequest": 21770,
+      "translations": {
+        "tr": "kullanımdan kaldırılmış (deprecated) vouchers api değiştirildi"
+      }
     },
     {
       "sha": "401ed181630d5e44ad014044ac8851b6d20b68e6",
@@ -2361,7 +2517,10 @@
       "scope": "a11y",
       "subject": "keyboard focus and screen reader accessibility for messaging list (ACC-270.2, ACC-264.1)",
       "jiraIds": [],
-      "pullRequest": 21777
+      "pullRequest": 21777,
+      "translations": {
+        "tr": "mesaj listesi için klavye focus ve screen reader erişilebilirliği (ACC-270.2, ACC-264.1)"
+      }
     },
     {
       "sha": "fa9302528cdffc9ae73d7137947a88dc0035195c",
@@ -2369,7 +2528,10 @@
       "scope": null,
       "subject": "add feature toggle functionality to improve focus during checkou…",
       "jiraIds": [],
-      "pullRequest": 21754
+      "pullRequest": 21754,
+      "translations": {
+        "tr": "checkout sırasında focus'u iyileştirmek için feature toggle işlevselliği eklendi"
+      }
     },
     {
       "sha": "f7d02712a4edcfb1d1a41f0d5393beec5fb8c1b8",
@@ -2377,7 +2539,10 @@
       "scope": null,
       "subject": "add OPF Quick Buy for the PDP",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "PDP için OPF Quick Buy eklendi"
+      }
     },
     {
       "sha": "a38e33f5db2fd59f534d2e89366e6c21ad504846",
@@ -2385,7 +2550,10 @@
       "scope": null,
       "subject": "indent order details in order overview container",
       "jiraIds": [],
-      "pullRequest": 21783
+      "pullRequest": 21783,
+      "translations": {
+        "tr": "sipariş özeti container'ında sipariş detayları girintilendi"
+      }
     },
     {
       "sha": "cc7ef4042324ceb97e141c80334c73f946c8e740",
@@ -2395,7 +2563,10 @@
       "jiraIds": [
         "CXSPA-12803"
       ],
-      "pullRequest": 21779
+      "pullRequest": 21779,
+      "translations": {
+        "tr": "CXSPA-12803 hata ikonunun kontrastı artırıldı"
+      }
     },
     {
       "sha": "388fbb002d616d1948c626a912811959f5485089",
@@ -2403,7 +2574,10 @@
       "scope": null,
       "subject": "CXIEP-10205 - Hide values for OV attributes with non-supported UI type",
       "jiraIds": [],
-      "pullRequest": 21771
+      "pullRequest": 21771,
+      "translations": {
+        "tr": "CXIEP-10205 - Desteklenmeyen UI tipine sahip OV attribute'ları için değerler gizlendi"
+      }
     },
     {
       "sha": "43831bebbf620e9239f2892992d6f4b1b75be9c3",
@@ -2413,7 +2587,10 @@
       "jiraIds": [
         "CXSPA-13424"
       ],
-      "pullRequest": 21776
+      "pullRequest": 21776,
+      "translations": {
+        "tr": "CXSPA-13424 - Login form render edilene kadar beklemek için login sorunu düzeltildi"
+      }
     },
     {
       "sha": "24589a07dd4935aa0dcaeaa9a265e8aaeb6fcc72",
@@ -2421,7 +2598,10 @@
       "scope": "a11y",
       "subject": "announce filter add/remove to screen readers in ActiveFacetsComponent (#ACC-264)",
       "jiraIds": [],
-      "pullRequest": 21749
+      "pullRequest": 21749,
+      "translations": {
+        "tr": "ActiveFacetsComponent içinde filtre ekleme/kaldırma işlemi screen reader'lara duyurulur (#ACC-264)"
+      }
     },
     {
       "sha": "eacc65e673373b91da76de0752d3a7c78a4996a8",
@@ -2429,7 +2609,10 @@
       "scope": null,
       "subject": "OPF redirect APM return no longer triggers false payment error",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "OPF redirect APM dönüşü artık yanlış ödeme hatası tetiklemiyor"
+      }
     },
     {
       "sha": "ef6f80ecd2acad199030d1f17663cd5b73b032b7",
@@ -2439,7 +2622,10 @@
       "jiraIds": [
         "CXSPA-13057"
       ],
-      "pullRequest": 21753
+      "pullRequest": 21753,
+      "translations": {
+        "tr": "ürün kartı butonlarının devre dışı bırakılması disableActions$ üzerinde birleştirildi (CXSPA-13057)"
+      }
     },
     {
       "sha": "0e2275220622292594a2254ed560f1c3b11c8c0d",
@@ -2449,7 +2635,10 @@
       "jiraIds": [
         "CXSPA-13470"
       ],
-      "pullRequest": 21556
+      "pullRequest": 21556,
+      "translations": {
+        "tr": "CPQ 2.0 API destekli CPQ configurator süreci (CXSPA-13470)"
+      }
     },
     {
       "sha": "3ee4d9e4783eb75e87ba0484cfacf822ee7e6a00",
@@ -2459,7 +2648,10 @@
       "jiraIds": [
         "CXSPA-13860"
       ],
-      "pullRequest": 21758
+      "pullRequest": 21758,
+      "translations": {
+        "tr": "yapılandırma güncelleme istekleri sıralı hale getirildi (CXSPA-13860)"
+      }
     },
     {
       "sha": "359e9101032339ce0b0f31c09ed27175262ea0da",
@@ -2469,7 +2661,10 @@
       "jiraIds": [
         "CXSPA-13858"
       ],
-      "pullRequest": 21756
+      "pullRequest": 21756,
+      "translations": {
+        "tr": "CXSPA-13858 ürün kartı miktarının sıfıra düşürülmesine izin verilmediğinde seçimi kaldırma mesajı gösterilir"
+      }
     },
     {
       "sha": "01d34ec4aa427013a345ba60d96cbf0f1753f8c3",
@@ -2479,7 +2674,10 @@
       "jiraIds": [
         "CXSPA-13857"
       ],
-      "pullRequest": 21759
+      "pullRequest": 21759,
+      "translations": {
+        "tr": "CXSPA-13857 stepper devre dışıyken hâlâ tıklanabiliyor"
+      }
     },
     {
       "sha": "f5e0ff3e81c7d561319131d83648dfdeb9f7072d",
@@ -2489,7 +2687,10 @@
       "jiraIds": [
         "CXSPA-13499"
       ],
-      "pullRequest": 21711
+      "pullRequest": 21711,
+      "translations": {
+        "tr": "CXSPA-13499 release branch'in stabil olduğundan emin ol"
+      }
     }
   ]
 }

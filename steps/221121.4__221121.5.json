@@ -60,7 +60,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "`UnitFormComponent` içinde, `ApprovalProcess` select'i için 'clearable' değerini false olarak ayarla."
+        }
       },
       {
         "name": "a11yCroppedFocusRing",
@@ -421,7 +424,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "UI'daki focus ring'in çeşitli yerlerde kırpılması sorunlarını düzeltir.\nEtkileşimli elementlerdeki focus ring'in tüm kenarları görünür olmalı ve fazladan padding içermemelidir.\nŞu bileşenlerin stillerini etkiler: 'CartItemListComponent, CartItemComponent, ListComponent, FutureStockAccordionComponent,\nQuoteConfirmDialogComponent, MessagingComponent, TabComponent, ProductImageZoomViewComponent"
+        }
       },
       {
         "name": "a11yDifferentiateFocusedAndSelected",
@@ -525,7 +531,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Listedeki focus almış ve seçili öğeleri birbirinden ayırt etmeye yardımcı olmak için ek stil ekler."
+        }
       },
       {
         "name": "a11yImproveButtonsInCardComponent",
@@ -644,7 +653,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "`Card component` içinde, button class'larını .btn .btn-tertiary ile değiştir ve normal <a> tag'i yerine cx-generic link kullan.\n`My Preferred Store component` içinde, `Get directions` action'ını CardAction yerine CardLinkAction olarak değiştir,\nböylece Card component bunu bir link olarak algılar;"
+        }
       },
       {
         "name": "a11yNgSelectCloseDropdownOnEscape",
@@ -668,7 +680,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "'NgSelectA11yDirective', screen reader kullanıldığında Escape tuşuna basıldığında seçenekleri içeren dropdown'ı kapatır."
+        }
       },
       {
         "name": "a11yPdpGridArrangement",
@@ -751,7 +766,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Daha iyi erişilebilirlik için Product Details Page'deki grid düzenini değiştirir:\n- add to cart butonu son adım olmalı\n- future stock accordion, add to cart butonunun önüne taşındı"
+        }
       },
       {
         "name": "a11yPostRegisterSuccessMessage",
@@ -790,7 +808,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Başarılı kayıt mesajını daha bilgilendirici olacak şekilde değiştirir. `RegisterComponentService`'i etkiler."
+        }
       },
       {
         "name": "a11ySearchboxAssistiveMessage",
@@ -816,7 +837,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Sonuçlar `SearchBoxComponent`'e sağlandıktan sonra yardımcı mesajın tekrarlanmasını kaldırır."
+        }
       },
       {
         "name": "a11ySelectLabelWithContextForSelectedAddrOrPayment",
@@ -867,7 +891,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirilirse, \"Checkout Shipping address/Payment\" görünümleri, kullanıcının seçili Address veya Payment bölgesinde olduğunu belirten bağlamı içeren, a11y açısından daha uygun bir seçili label'a sahip olur."
+        }
       },
       {
         "name": "a11yShowDownArrowOnFocusedSelectMenu",
@@ -960,7 +987,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "`SiteContextSelectComponent` ve `SiteThemeSwitcherComponent` içinde, caret stilini güncelle."
+        }
       },
       {
         "name": "a11yShowLabelOfSelect",
@@ -1141,7 +1171,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "`CustomerListComponent`, `OrderApprovalListComponent` ve `ConfiguratorAttriuteSingleSelectionBundleDropdownComponent` içinde, her `ng-select` ve `select` için label'ı göster."
+        }
       },
       {
         "name": "a11yStoreInStockIconContrast",
@@ -1186,7 +1219,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "`StoreComponent` `In Stock` ikonu varsayılan theme içinde kabul edilebilir bir kontrast oranına sahiptir"
+        }
       },
       {
         "name": "a11yStyleExternalLinksAsLinks",
@@ -1229,7 +1265,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "`true` olarak ayarlandığında, `StoreFinderListItemComponent` içindeki harici bağlantılar\ndaha çok bağlantı gibi görünen bir stil alır; button yerine link gibi görünür. İçeriği yeni bir pencerede açtıkları için bu semantik olarak daha doğrudur\nve daha sezgisel bir kullanıcı deneyimi sağlar."
+        }
       },
       {
         "name": "a11yTableHeaderReadout",
@@ -1578,7 +1617,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Tablo sütun başlığının screen reader'lar tarafından doğru şekilde okunmasını sağlar.\nŞu component'lerdeki tabloları etkiler: SavedCartListComponent, ReplenishmentOrderHistoryComponent, OrderReturnRequestListComponent,\nAccountSummaryDocumentComponent, OrderDetailPermissionResultsComponent, OrderApprovalListComponent, UnitLevelOrderHistoryComponent,\nInvoicesListComponent, MyInterestsComponent"
+        }
       },
       {
         "name": "a11yTextSpacingAdjustments",
@@ -1682,7 +1724,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "a11y metin aralığı etkinken oluşan metin biçimlendirme sorunlarını düzeltir."
+        }
       },
       {
         "name": "a11yTruncatedTextStoreFinder",
@@ -1727,7 +1772,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "`StoreFinderListItemComponent` sokak adı artık kısaltılmaz"
+        }
       },
       {
         "name": "a11yWrapReviewOrderInSection",
@@ -1751,7 +1799,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Checkout'un \"Review Order\" sayfasında aria-label uygulanmış bir section öğesi oluşturur.\nComponent'leri bu section öğesinin alt öğeleri olacak şekilde taşır."
+        }
       },
       {
         "name": "enableSecurePasswordValidation",
@@ -1841,7 +1892,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde daha güçlü parola doğrulama kuralları uygular:\nbüyük harf, küçük harf,\nözel karakter ve rakam karışımı zorunluluğu, ardışık karakter olmaması\nve ayrıca minimum ile maksimum parola uzunluğu zorunluluğu."
+        }
       },
       {
         "name": "showRealTimeStockInPDP",
@@ -1849,7 +1903,10 @@
         "affects": [],
         "defaultValue": true,
         "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/4828aae62cf64a2bbba021b96e02dd03.html",
-        "usages": []
+        "usages": [],
+        "translations": {
+          "tr": "PDP sayfasında gerçek zamanlı stok gösterimini etkinleştirir.\n`true` olarak ayarlandığında kullanıcı PDP'de gerçek zamanlı stoğu görebilir"
+        }
       }
     ],
     "added": [
@@ -1877,7 +1934,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, \"Password expired\" hata mesajını Spartacus i18n kullanarak kullanıcının seçtiği dile çevirir."
+        }
       }
     ],
     "defaultEnabled": [
@@ -1903,7 +1963,10 @@
               }
             ]
           }
-        ]
+        ],
+        "translations": {
+          "tr": "İsteğe bağlı `aria-controls` attribute'u NgSelect implementasyonunda geçersiz kılınacaktır.\nGüncellenen kütüphane, buton ile dropdown arasındaki ilişkiyi belirtmek için `aria-controls` attribute'unu kullanır.\nBu değişiklik, tercih edilirse yine de özel bir id kullanabilmemizi sağlar."
+        }
       },
       {
         "name": "enableReadDomainValuesOnDemand",
@@ -1911,7 +1974,10 @@
         "affects": [],
         "defaultValue": true,
         "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/5538fae3282f4b4592674b96703f8cd7.html",
-        "usages": []
+        "usages": [],
+        "translations": {
+          "tr": "Etkinleştirildiğinde, `ConfiguratorAttributeHeaderComponent` component'i attribute adının altında bir `ConfiguratorShowOptionsComponent` component'i görüntüler.\n`ConfiguratorShowOptionsComponent` component'i, back-end domain değerlerinin henüz mevcut olmadığını bildirdiğinde, `Show Options` düğmesine tıklanarak domain değerlerinin talep üzerine yüklenmesine olanak tanır."
+        }
       }
     ]
   },
@@ -3254,7 +3320,10 @@
       "jiraIds": [
         "CXSPA-11488"
       ],
-      "pullRequest": 20908
+      "pullRequest": 20908,
+      "translations": {
+        "tr": "CXSPA-11488 - productTypes subscription extension içinde mevcut değil"
+      }
     },
     {
       "sha": "59b3d211325d6371678990d2761e879f37158578",
@@ -3262,7 +3331,10 @@
       "scope": null,
       "subject": "resolve withdrawal subscription action error",
       "jiraIds": [],
-      "pullRequest": 20899
+      "pullRequest": 20899,
+      "translations": {
+        "tr": "withdrawal subscription action hatasını çöz"
+      }
     },
     {
       "sha": "c93028c4975701a351d76896cb79df6f6998933e",
@@ -3270,7 +3342,10 @@
       "scope": null,
       "subject": "disable CustomLoginGuard in SSR",
       "jiraIds": [],
-      "pullRequest": 20891
+      "pullRequest": 20891,
+      "translations": {
+        "tr": "SSR'da CustomLoginGuard'ı devre dışı bırak"
+      }
     },
     {
       "sha": "39fc2276c6446242250ade1b225520edebe0ae70",
@@ -3278,7 +3353,10 @@
       "scope": null,
       "subject": "Avoiding to install EPD library",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "EPD library kurulumundan kaçınma"
+      }
     },
     {
       "sha": "d3c2d288b9eab39a537318463e395058caae9a55",
@@ -3286,7 +3364,10 @@
       "scope": null,
       "subject": "add CSP support for the OPF PSP scripts",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "OPF PSP script'leri için CSP desteği ekle"
+      }
     },
     {
       "sha": "1be50934b3cabf285e455f0c6907a2c4e665f98d",
@@ -3296,7 +3377,10 @@
       "jiraIds": [
         "CXSPA-10748"
       ],
-      "pullRequest": 20872
+      "pullRequest": 20872,
+      "translations": {
+        "tr": "CXSPA-10748"
+      }
     },
     {
       "sha": "2d37f022d94f1e97c87bbd0534f44f482866b041",
@@ -3304,7 +3388,10 @@
       "scope": null,
       "subject": "make the PO number input readonly in the checkout payment type page if the PO number comes from the quote checkout",
       "jiraIds": [],
-      "pullRequest": 20861
+      "pullRequest": 20861,
+      "translations": {
+        "tr": "PO number değeri quote checkout'tan geliyorsa, checkout payment type sayfasındaki PO number input'unu readonly yap"
+      }
     },
     {
       "sha": "3d8efb5fcc315c9257ace99122cffa0c1c7563b7",
@@ -3312,7 +3399,10 @@
       "scope": null,
       "subject": "Remove deprecated feature flags for December",
       "jiraIds": [],
-      "pullRequest": 20869
+      "pullRequest": 20869,
+      "translations": {
+        "tr": "Aralık için kullanımdan kaldırılmış feature flag'leri kaldır"
+      }
     },
     {
       "sha": "77deacefded51dfefeef0c5523fc31bf506073fa",
@@ -3320,7 +3410,10 @@
       "scope": null,
       "subject": "remove enableSecurePasswordValidation toggle",
       "jiraIds": [],
-      "pullRequest": 20867
+      "pullRequest": 20867,
+      "translations": {
+        "tr": "enableSecurePasswordValidation toggle'ını kaldır"
+      }
     },
     {
       "sha": "ba27aa44d49d59cb67a42877558567633d55cfaf",
@@ -3330,7 +3423,10 @@
       "jiraIds": [
         "CXSPA-11460"
       ],
-      "pullRequest": 20868
+      "pullRequest": 20868,
+      "translations": {
+        "tr": "Aralık sürümü için toggle'ları etkinleştir (CXSPA-11460)"
+      }
     },
     {
       "sha": "09e1252686d844ed15016b847751325683c36d88",
@@ -3338,7 +3434,10 @@
       "scope": null,
       "subject": "Enabling subscription billing feature",
       "jiraIds": [],
-      "pullRequest": 20857
+      "pullRequest": 20857,
+      "translations": {
+        "tr": "Subscription billing özelliğini etkinleştirme"
+      }
     },
     {
       "sha": "d1a9b07de2814067c93246f5d2defa64df1b31ca",
@@ -3346,7 +3445,10 @@
       "scope": null,
       "subject": "add i18n support for password expired errors",
       "jiraIds": [],
-      "pullRequest": 20768
+      "pullRequest": 20768,
+      "translations": {
+        "tr": "Parolanın süresi dolduğunda oluşan hatalar için i18n desteği ekle"
+      }
     },
     {
       "sha": "4712fa33e00eb6cf2a7c8a298c2faf4eee128b0c",
@@ -3354,7 +3456,10 @@
       "scope": null,
       "subject": "changed epd-visualization deprecation annotation version to 221121.5.0",
       "jiraIds": [],
-      "pullRequest": 20856
+      "pullRequest": 20856,
+      "translations": {
+        "tr": "epd-visualization deprecation annotation sürümünü 221121.5.0 olarak değiştir"
+      }
     },
     {
       "sha": "47c0f94f115a46bab4742823f6bfbf6b467ae640",
@@ -3362,7 +3467,10 @@
       "scope": null,
       "subject": "show error when payment type is changed after editing the PONumber",
       "jiraIds": [],
-      "pullRequest": 20822
+      "pullRequest": 20822,
+      "translations": {
+        "tr": "PONumber düzenlendikten sonra payment type değiştirildiğinde hata göster"
+      }
     },
     {
       "sha": "ee9e708caf020836a67c126a61f63a9294f44eb7",
@@ -3370,7 +3478,10 @@
       "scope": null,
       "subject": "add iframe breakout for the OPF verification component",
       "jiraIds": [],
-      "pullRequest": null
+      "pullRequest": null,
+      "translations": {
+        "tr": "OPF verification component için iframe breakout eklendi"
+      }
     },
     {
       "sha": "2d49efc7624d382ef6a0e1c3a914b0356f805734",
@@ -3378,7 +3489,10 @@
       "scope": null,
       "subject": "clear searchBox input on enter for category match",
       "jiraIds": [],
-      "pullRequest": 20817
+      "pullRequest": 20817,
+      "translations": {
+        "tr": "Kategori eşleşmesinde enter tuşuna basıldığında searchBox input'unu temizle"
+      }
     },
     {
       "sha": "dcb605056bdf73d0b9bd8bcee8d179a21689d936",
@@ -3386,7 +3500,10 @@
       "scope": null,
       "subject": "bump @angular/ssr version to 19.2.18",
       "jiraIds": [],
-      "pullRequest": 20818
+      "pullRequest": 20818,
+      "translations": {
+        "tr": "@angular/ssr sürümünü 19.2.18'e yükselt"
+      }
     },
     {
       "sha": "e675b18bb578b6cb1b463206eae670d50fbaf653",
@@ -3394,7 +3511,10 @@
       "scope": null,
       "subject": "deprecate epd-visualization integration library",
       "jiraIds": [],
-      "pullRequest": 20814
+      "pullRequest": 20814,
+      "translations": {
+        "tr": "epd-visualization integration library'yi kullanımdan kaldır (deprecate)"
+      }
     },
     {
       "sha": "19b155e1a50d3a52356514f964186a024317bf22",
@@ -3404,7 +3524,10 @@
       "jiraIds": [
         "CXSPA-11051"
       ],
-      "pullRequest": 20809
+      "pullRequest": 20809,
+      "translations": {
+        "tr": "product_configurator_e2e test suite'ini S2 ve S3 üzerinde daha sağlam hale getir (CXSPA-11051)"
+      }
     },
     {
       "sha": "eb2a9b6b86c6bd9ce4d67cf58bae170a29961087",
@@ -3414,7 +3537,10 @@
       "jiraIds": [
         "CXSPA-10817"
       ],
-      "pullRequest": 20808
+      "pullRequest": 20808,
+      "translations": {
+        "tr": "CXSPA-10817: JDK21 için asm vendor durumunu iyileştir"
+      }
     },
     {
       "sha": "f2a5e0cd0308b0f0292974d0fa735cb2aa02e72f",
@@ -3422,7 +3548,10 @@
       "scope": null,
       "subject": "refine my-account-v2 e2e tests",
       "jiraIds": [],
-      "pullRequest": 20807
+      "pullRequest": 20807,
+      "translations": {
+        "tr": "my-account-v2 e2e testlerini iyileştir"
+      }
     }
   ]
 }
