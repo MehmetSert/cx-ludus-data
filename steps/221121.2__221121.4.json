@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatorVersion": 2,
+  "generatorVersion": 3,
   "from": {
     "release": "221121.2",
     "gitTag": "221121.2.0"
@@ -18,6 +18,49 @@
         "defaultValue": true,
         "docUrl": null,
         "usages": [],
+        "references": [
+          {
+            "file": "feature-libs/checkout/base/components/checkout-delivery-address/checkout-delivery-address.component.html",
+            "kind": "other",
+            "symbols": [
+              "CheckoutDeliveryAddressComponent"
+            ],
+            "selectors": [
+              "cx-delivery-address"
+            ],
+            "members": [],
+            "snippets": [
+              {
+                "line": 3,
+                "code": "<section\n  *ngIf=\"\n    featureConfigService?.isEnabled('a11yCheckoutStepsLandmarks');\n    else content\n  \"\n  [attr.aria-label]=\"'checkoutAddress.shippingAddress' | cxTranslate\"\n>\n  <ng-template [ngTemplateOutlet]=\"content\"></ng-template>\n</section>"
+              }
+            ]
+          },
+          {
+            "file": "feature-libs/checkout/base/components/checkout-payment-method/checkout-payment-method.component.html",
+            "kind": "other",
+            "symbols": [
+              "CheckoutPaymentMethodComponent"
+            ],
+            "selectors": [
+              "cx-payment-method"
+            ],
+            "members": [],
+            "snippets": [
+              {
+                "line": 3,
+                "code": "<section\n  *ngIf=\"\n    featureConfigService?.isEnabled('a11yCheckoutStepsLandmarks');\n    else content\n  \"\n  [attr.aria-label]=\"'paymentForm.payment' | cxTranslate\"\n>\n  <ng-template [ngTemplateOutlet]=\"content\"></ng-template>\n</section>"
+              }
+            ]
+          }
+        ],
+        "commits": [
+          "e7bbabfe2058fa778740d51a56776435b2fc9d84"
+        ],
+        "rollout": {
+          "defaultOn": "2211.41",
+          "mandatory": "221121.4"
+        },
         "translations": {
           "tr": "`Checkout`: adımları temsil eden içeriğe landmark'lar ekle"
         }
@@ -66,6 +109,14 @@
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "e7bbabfe2058fa778740d51a56776435b2fc9d84"
+        ],
+        "rollout": {
+          "defaultOn": "2211.41",
+          "mandatory": "221121.4"
+        },
         "translations": {
           "tr": "`CardComponent` içinde `Delete` butonunu `Cancel` butonundan önce yerleştir."
         }
@@ -89,13 +140,17 @@
             ],
             "snippets": [
               {
-                "line": 74,
-                "code": "// TODO: The styles for \":disabled\" selector should be deleted when \"a11yItemCounterFocus\" feature flag has been removed\n&:disabled {\n  color: var(--cx-color-light);\n  cursor: not-allowed;\n}"
+                "line": 80,
+                "code": "@include forFeature('a11yItemCounterFocus') {\n  &[aria-disabled='true'] {\n    color: var(--cx-color-dark);\n    cursor: not-allowed;\n  }\n}"
               },
               {
-                "line": 82,
-                "code": "color: var(--cx-color-dark);"
+                "line": 91,
+                "code": "@include forFeature('a11yItemCounterFocus') {\n  &[aria-disabled='true'] {\n    color: var(--cx-color-dark);\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-item-counter button",
+              "cx-item-counter button[aria-disabled='true']"
             ]
           },
           {
@@ -155,9 +210,20 @@
                 "line": 85,
                 "code": "useFeatureStyles('a11yItemCounterFocus');"
               }
+            ],
+            "members": [
+              "ItemCounterComponent.constructor"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "e7bbabfe2058fa778740d51a56776435b2fc9d84"
+        ],
+        "rollout": {
+          "defaultOn": "2211.41",
+          "mandatory": "221121.4"
+        },
         "translations": {
           "tr": "`ItemCounterComponenet` içinde, sayı 2 olduğunda Remove butonu etkinleştirildikten sonra artık focus'u kaybetmez.\nSayı `max - 1` olduğunda Add butonu etkinleştirildikten sonra artık focus'u kaybetmez."
         }
@@ -184,6 +250,9 @@
                 "line": 31,
                 "code": "useFeatureStyles('a11yPasswordVisibliltyBtnValueOverflow');"
               }
+            ],
+            "members": [
+              "CSAgentLoginFormComponent.constructor"
             ]
           },
           {
@@ -201,6 +270,9 @@
                 "line": 64,
                 "code": "useFeatureStyles('a11yPasswordVisibliltyBtnValueOverflow');"
               }
+            ],
+            "members": [
+              "OrderGuestRegisterFormComponent.constructor"
             ]
           },
           {
@@ -218,6 +290,9 @@
                 "line": 34,
                 "code": "useFeatureStyles('a11yPasswordVisibliltyBtnValueOverflow');"
               }
+            ],
+            "members": [
+              "UserChangePasswordFormComponent.constructor"
             ]
           },
           {
@@ -235,6 +310,9 @@
                 "line": 36,
                 "code": "useFeatureStyles('a11yPasswordVisibliltyBtnValueOverflow');"
               }
+            ],
+            "members": [
+              "LoginFormComponent.constructor"
             ]
           },
           {
@@ -252,6 +330,9 @@
                 "line": 65,
                 "code": "useFeatureStyles('a11yPasswordVisibliltyBtnValueOverflow');"
               }
+            ],
+            "members": [
+              "OneTimePasswordLoginFormComponent.constructor"
             ]
           },
           {
@@ -269,6 +350,9 @@
                 "line": 109,
                 "code": "useFeatureStyles('a11yPasswordVisibliltyBtnValueOverflow');"
               }
+            ],
+            "members": [
+              "OneTimePasswordRegisterComponent.constructor"
             ]
           },
           {
@@ -283,9 +367,12 @@
             ],
             "snippets": [
               {
-                "line": 113,
-                "code": "  protected registerComponentService: RegisterComponentService\n) {\n  useFeatureStyles('a11yPasswordVisibliltyBtnValueOverflow');\n}"
+                "line": 115,
+                "code": "useFeatureStyles('a11yPasswordVisibliltyBtnValueOverflow');"
               }
+            ],
+            "members": [
+              "RegisterComponent.constructor"
             ]
           },
           {
@@ -303,6 +390,9 @@
                 "line": 27,
                 "code": "useFeatureStyles('a11yPasswordVisibliltyBtnValueOverflow');"
               }
+            ],
+            "members": [
+              "ResetPasswordComponent.constructor"
             ]
           },
           {
@@ -320,6 +410,9 @@
                 "line": 22,
                 "code": "useFeatureStyles('a11yPasswordVisibliltyBtnValueOverflow');"
               }
+            ],
+            "members": [
+              "UpdateEmailComponent.constructor"
             ]
           },
           {
@@ -337,6 +430,9 @@
                 "line": 32,
                 "code": "useFeatureStyles('a11yPasswordVisibliltyBtnValueOverflow');"
               }
+            ],
+            "members": [
+              "MyAccountV2PasswordComponent.constructor"
             ]
           },
           {
@@ -354,6 +450,9 @@
                 "line": 31,
                 "code": "useFeatureStyles('a11yPasswordVisibliltyBtnValueOverflow');"
               }
+            ],
+            "members": [
+              "UpdatePasswordComponent.constructor"
             ]
           },
           {
@@ -370,12 +469,20 @@
             ],
             "snippets": [
               {
-                "line": 479,
-                "code": "input:-webkit-autofill:focus {\n  transition:\n    background-color 0s 600000s,\n    color 0s 600000s !important;\n}"
+                "line": 488,
+                "code": "@include forFeature('a11yPasswordVisibliltyBtnValueOverflow') {\n  $password-visibbility-btn-width: 30px;\n  padding-inline-end: calc(\n    $password-visibbility-btn-width + $input-padding-x\n  );\n}"
               }
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "e7bbabfe2058fa778740d51a56776435b2fc9d84"
+        ],
+        "rollout": {
+          "defaultOn": "2211.41",
+          "mandatory": "221121.4"
+        },
         "translations": {
           "tr": "Input değerinin 'PasswordVisibilityToggleComponent' öğesini engellemesini önler."
         }
@@ -399,9 +506,12 @@
             ],
             "snippets": [
               {
-                "line": 267,
-                "code": "  numberOfEntriesBeforeAdd: number,\n  storeName?: string\n) {\n  const newEvent = new CartUiEventAddToCart();\n  newEvent.productCode = productCode;\n  newEvent.quantity = quantity;\n  newEvent.numberOfEntriesBeforeAdd = numberOfEntriesBeforeAdd;\n  newEvent.pickupStoreName = storeName;\n  newEvent.triggerElementRef = this.addToCartDialogTriggerEl;\n  return newEvent;\n}"
+                "line": 281,
+                "code": "  this.featureConfigService.isEnabled('a11yPickupOptionsTabs') &&\n  this.pickupOptionCompRef instanceof ComponentRef\n) {\n  this.subscription.add(\n    this.pickupOptionCompRef.instance.intendedPickupChange.subscribe(\n      (\n        intendedPickupLocation:\n          | { pickupOption?: 'pickup' | 'delivery'; displayName?: string }\n          | undefined\n      ) => {\n        this.disabled =\n          intendedPickupLocation?.pickupOption === 'pickup' &&\n          !intendedPickupLocation.displayName;\n      }\n    )\n  );\n}"
               }
+            ],
+            "members": [
+              "AddToCartComponent.onPickupOptionsCompLoaded"
             ]
           },
           {
@@ -416,9 +526,12 @@
             ],
             "snippets": [
               {
-                "line": 100,
-                "code": "  @Optional() protected outlet?: OutletContextData<ItemListContext>\n) {\n  useFeatureStyles('a11yQTY2Quantity');\n  useFeatureStyles('a11yPickupOptionsTabs');\n  useFeatureStyles('a11yCroppedFocusRing');\n}"
+                "line": 103,
+                "code": "useFeatureStyles('a11yPickupOptionsTabs');"
               }
+            ],
+            "members": [
+              "CartItemListComponent.constructor"
             ]
           },
           {
@@ -453,6 +566,16 @@
                 "line": 96,
                 "code": "@include forFeature('a11yPickupOptionsTabs') {\n  cx-pickup-options {\n    &,\n    & button {\n      @include type('7');\n    }\n\n    .cx-pickup-options-legend {\n      @include type('8');\n    }\n\n    .cx-pickup-options-container {\n      padding: 0.5rem;\n    }\n\n    .cx-pickup-options {\n      width: 75%;\n    }\n\n    cx-tab {\n      --cx-tab-panel-bg: var(--cx-color-inverse);\n      --cx-tab-panel-padding: 0.5rem 1rem;\n      --cx-tab-gap: 0.5rem;\n      --cx-tab-btn-bg-color: var(--cx-color-inverse);\n      --cx-tab-panel-margin-top: 0.5rem;\n\n      .tab-btn:after {\n        margin-top: 5px;\n      }\n    }\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-cart-item-list .cx-cart-addons cx-cart-pickup-options-container",
+              "cx-cart-item-list .cx-cart-addons cx-cart-pickup-options-container cx-pickup-options",
+              "cx-cart-item-list .cx-cart-addons cx-cart-pickup-options-container cx-pickup-options .cx-pickup-options",
+              "cx-cart-item-list .cx-cart-addons cx-cart-pickup-options-container cx-pickup-options .cx-pickup-options-container",
+              "cx-cart-item-list .cx-cart-addons cx-cart-pickup-options-container cx-pickup-options .cx-pickup-options-legend",
+              "cx-cart-item-list .cx-cart-addons cx-cart-pickup-options-container cx-pickup-options button",
+              "cx-cart-item-list .cx-cart-addons cx-cart-pickup-options-container cx-pickup-options cx-tab",
+              "cx-cart-item-list .cx-cart-addons cx-cart-pickup-options-container cx-pickup-options cx-tab .tab-btn:after"
             ]
           },
           {
@@ -467,9 +590,12 @@
             ],
             "snippets": [
               {
-                "line": 292,
-                "code": "if ("
+                "line": 293,
+                "code": "  !this.featureConfigService.isEnabled('a11yPickupOptionsTabs') &&\n  !this.displayNameIsSet\n) {\n  this.openDialog(event.triggerElement);\n}"
               }
+            ],
+            "members": [
+              "CartPickupOptionsContainerComponent.onPickupOptionChange"
             ]
           },
           {
@@ -487,6 +613,9 @@
                 "line": 197,
                 "code": "if (!this.featureConfigService.isEnabled('a11yPickupOptionsTabs')) {\n  if (option === 'delivery') {\n    return;\n  }\n  if (!this.displayNameIsSet) {\n    this.openDialog(triggerElement);\n  }\n}"
               }
+            ],
+            "members": [
+              "PdpPickupOptionsContainerComponent.onPickupOptionChange"
             ]
           },
           {
@@ -504,6 +633,9 @@
                 "line": 163,
                 "code": "if (!this.featureConfigService.isEnabled('a11yPickupOptionsTabs')) {\n  this.intendedPickupLocationService\n    .getIntendedLocation(this.productCode)\n    .pipe(\n      filter(\n        (store: AugmentedPointOfService | undefined) =>\n          typeof store !== 'undefined'\n      ),\n      map((store) => store as AugmentedPointOfService),\n      filter((store) => !store.name),\n      take(1),\n      tap(() =>\n        this.intendedPickupLocationService.setPickupOption(\n          this.productCode,\n          'delivery'\n        )\n      )\n    )\n    .subscribe();\n  this.pickupOptionFacade.setPickupOption(this.entryNumber, 'delivery');\n}"
               }
+            ],
+            "members": [
+              "PickupOptionDialogComponent.close"
             ]
           },
           {
@@ -538,6 +670,9 @@
                 "line": 68,
                 "code": "<ng-container *cxFeature=\"'a11yPickupOptionsTabs'\">\n  <div class=\"cx-pickup-options\">\n    <div class=\"cx-pickup-options-container\">\n      <div class=\"cx-pickup-options-legend\">\n        {{ 'pickupOptions.legend' | cxTranslate }}\n      </div>\n\n      <cx-tab\n        *ngIf=\"tabs\"\n        [disabled]=\"disableControls\"\n        [tabs]=\"tabs\"\n        [config]=\"tabConfig\"\n      ></cx-tab>\n    </div>\n    <div aria-live=\"assertive\" aria-atomic=\"true\">\n      <span\n        *ngIf=\"validationError\"\n        role=\"alert\"\n        tabindex=\"0\"\n        class=\"cx-invalid-message\"\n      >\n        {{ validationError | cxTranslate }}\n      </span>\n    </div>\n  </div>\n\n  <ng-template #deliveryTabPanel>{{\n    'pickupOptions.freeReturn' | cxTranslate\n  }}</ng-template>\n  <ng-template #pickupTabPanel>\n    <ng-container *ngIf=\"displayPickupLocation\">\n      <strong\n        class=\"cx-pickup-store\"\n        [attr.data-pickup-location]=\"displayPickupLocation\"\n      >\n        {{ displayPickupLocation }}\n      </strong>\n    </ng-container>\n\n    <button\n…"
               }
+            ],
+            "components": [
+              "cx-tab"
             ]
           },
           {
@@ -552,9 +687,12 @@
             ],
             "snippets": [
               {
-                "line": 85,
-                "code": "return null;"
+                "line": 89,
+                "code": "useFeatureStyles('a11yPickupOptionsTabs');"
               }
+            ],
+            "members": [
+              "PickupOptionsComponent.constructor"
             ]
           },
           {
@@ -569,13 +707,17 @@
             ],
             "snippets": [
               {
-                "line": 92,
-                "code": "ngOnChanges(): void {\n  if (this.featureConfigService.isEnabled('a11yPickupOptionsTabs')) {\n    this.onSelectedOptionChange();\n  }"
+                "line": 93,
+                "code": "if (this.featureConfigService.isEnabled('a11yPickupOptionsTabs')) {\n  this.onSelectedOptionChange();\n}"
               },
               {
-                "line": 104,
-                "code": "ngAfterViewInit() {\n  if (this.featureConfigService.isEnabled('a11yPickupOptionsTabs')) {\n    this.initializeTabs();\n    this.subscription.add(\n      this.tabComponent?.openTabs$.subscribe((openTabs) => {\n        // open tabs should have one tab opened for mode \"TAB\"\n        const openedTab = openTabs[0];\n        const selectedOption =\n          openedTab === PickupOptionsTabs.DELIVERY ? 'delivery' : 'pickup';\n        if (this.selectedOption !== selectedOption) {\n          this.onPickupOptionChange(selectedOption);\n        }\n      })\n    );\n  }"
+                "line": 105,
+                "code": "if (this.featureConfigService.isEnabled('a11yPickupOptionsTabs')) {\n  this.initializeTabs();\n  this.subscription.add(\n    this.tabComponent?.openTabs$.subscribe((openTabs) => {\n      // open tabs should have one tab opened for mode \"TAB\"\n      const openedTab = openTabs[0];\n      const selectedOption =\n        openedTab === PickupOptionsTabs.DELIVERY ? 'delivery' : 'pickup';\n      if (this.selectedOption !== selectedOption) {\n        this.onPickupOptionChange(selectedOption);\n      }\n    })\n  );\n}"
               }
+            ],
+            "members": [
+              "PickupOptionsComponent.ngAfterViewInit",
+              "PickupOptionsComponent.ngOnChanges"
             ]
           },
           {
@@ -597,9 +739,23 @@
                 "line": 6,
                 "code": "@include forFeature('a11yPickupOptionsTabs') {\n  .cx-pickup-options {\n    margin-bottom: 1.5rem;\n  }\n\n  .cx-pickup-options-container {\n    background-color: var(--cx-color-background);\n    border-radius: 1rem;\n    padding: 1rem;\n    display: flex;\n    flex-direction: column;\n    gap: 1rem;\n  }\n\n  .cx-pickup-options-legend {\n    font-weight: bold;\n    margin: 0;\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-pickup-options",
+              "cx-pickup-options .cx-pickup-options",
+              "cx-pickup-options .cx-pickup-options-container",
+              "cx-pickup-options .cx-pickup-options-legend"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "e7bbabfe2058fa778740d51a56776435b2fc9d84"
+        ],
+        "rollout": {
+          "defaultOn": "2211.41",
+          "mandatory": "221121.4"
+        },
         "translations": {
           "tr": "Pickup seçenekleri için radio group yerine tab'lar kullanılır. Screen reader anlatımını ve klavye ile gezinme düzenini iyileştirir.\nDeğiştirilen component'ler:\n - `PickupOptionsComponent`\n - `PdpPickupOptionsContainerComponent`\n - `CartPickupOptionsContainerComponent`\n - `AddToCartComponent`"
         }
@@ -660,6 +816,9 @@
                 "line": 43,
                 "code": "useFeatureStyles('a11yQTY2Quantity');"
               }
+            ],
+            "members": [
+              "AsmSaveCartDialogComponent.constructor"
             ]
           },
           {
@@ -711,6 +870,9 @@
                 "line": 124,
                 "code": "useFeatureStyles('a11yQTY2Quantity');"
               }
+            ],
+            "members": [
+              "AddToCartComponent.constructor"
             ]
           },
           {
@@ -765,6 +927,9 @@
                 "line": 28,
                 "code": "useFeatureStyles('a11yQTY2Quantity');"
               }
+            ],
+            "members": [
+              "CartItemListRowComponent.constructor"
             ]
           },
           {
@@ -813,9 +978,12 @@
             ],
             "snippets": [
               {
-                "line": 98,
-                "code": "protected multiCartService: MultiCartFacade,"
+                "line": 102,
+                "code": "useFeatureStyles('a11yQTY2Quantity');"
               }
+            ],
+            "members": [
+              "CartItemListComponent.constructor"
             ]
           },
           {
@@ -864,9 +1032,12 @@
             ],
             "snippets": [
               {
-                "line": 47,
-                "code": "constructor(protected cartItemContextSource: CartItemContextSource) {\n  useFeatureStyles('a11yQTY2Quantity');\n  useFeatureStyles('a11yCroppedFocusRing');\n}"
+                "line": 48,
+                "code": "useFeatureStyles('a11yQTY2Quantity');"
               }
+            ],
+            "members": [
+              "CartItemComponent.constructor"
             ]
           },
           {
@@ -901,6 +1072,9 @@
                 "line": 9,
                 "code": "@include forFeature('a11yQTY2Quantity') {\n  text-transform: none;\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-cart-item-list .cx-item-list-header .cx-item-list-qty"
             ]
           },
           {
@@ -918,6 +1092,9 @@
                 "line": 29,
                 "code": "<label\n  *cxFeature=\"'a11yQTY2Quantity'\"\n  class=\"cx-cart-quick-order-form-label\"\n>\n  {{ 'quickOrderCartForm.quantityFullLabel' | cxTranslate }}\n  <cx-form-required-asterisks />\n</label>"
               }
+            ],
+            "components": [
+              "cx-form-required-asterisks"
             ]
           },
           {
@@ -935,6 +1112,9 @@
                 "line": 37,
                 "code": "<label\n  *cxFeature=\"'!a11yQTY2Quantity'\"\n  class=\"cx-cart-quick-order-form-label\"\n>\n  {{ 'quickOrderCartForm.quantityLabel' | cxTranslate }}\n  <cx-form-required-asterisks />\n</label>"
               }
+            ],
+            "components": [
+              "cx-form-required-asterisks"
             ]
           },
           {
@@ -952,6 +1132,9 @@
                 "line": 52,
                 "code": "useFeatureStyles('a11yQTY2Quantity');"
               }
+            ],
+            "members": [
+              "CartQuickOrderFormComponent.constructor"
             ]
           },
           {
@@ -1006,6 +1189,9 @@
                 "line": 54,
                 "code": "useFeatureStyles('a11yQTY2Quantity');"
               }
+            ],
+            "members": [
+              "QuickOrderItemComponent.constructor"
             ]
           },
           {
@@ -1057,6 +1243,9 @@
                 "line": 25,
                 "code": "useFeatureStyles('a11yQTY2Quantity');"
               }
+            ],
+            "members": [
+              "QuickOrderTableComponent.constructor"
             ]
           },
           {
@@ -1124,6 +1313,9 @@
                 "line": 67,
                 "code": "useFeatureStyles('a11yQTY2Quantity');"
               }
+            ],
+            "members": [
+              "SavedCartListComponent.constructor"
             ]
           },
           {
@@ -1172,9 +1364,12 @@
             ],
             "snippets": [
               {
-                "line": 101,
-                "code": "  protected globalMessageService: GlobalMessageService\n) {\n  useFeatureStyles('a11yQTY2Quantity');\n}"
+                "line": 103,
+                "code": "useFeatureStyles('a11yQTY2Quantity');"
               }
+            ],
+            "members": [
+              "SavedCartFormDialogComponent.constructor"
             ]
           },
           {
@@ -1213,6 +1408,9 @@
                 "line": 35,
                 "code": "useFeatureStyles('a11yQTY2Quantity');"
               }
+            ],
+            "members": [
+              "EstimatedDeliveryDateComponent.constructor"
             ]
           },
           {
@@ -1272,9 +1470,20 @@
                 "line": 37,
                 "code": "  useFeatureStyles('a11yQTY2Quantity');\n}\nngOnInit() {\n  this.component.data$\n    .pipe(\n      tap((data: CmsPickupItemDetails) => {\n        this.showEdit = data.showEdit;\n        this.context = data.context;\n        this.itemsDetails =\n          data.context === 'order'\n            ? this.deliveryPointsService.getDeliveryPointsOfServiceFromOrder()\n            : this.deliveryPointsService.getDeliveryPointsOfServiceFromCart();\n      }),\n      take(1)\n    )\n    .subscribe();\n}"
               }
+            ],
+            "members": [
+              "PickUpItemsDetailsComponent.constructor"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "e7bbabfe2058fa778740d51a56776435b2fc9d84"
+        ],
+        "rollout": {
+          "defaultOn": "2211.41",
+          "mandatory": "221121.4"
+        },
         "translations": {
           "tr": "`CartItemListComponent` içinde QTY ifadesini Quantity olarak değiştir."
         }
@@ -1298,12 +1507,23 @@
             ],
             "snippets": [
               {
-                "line": 78,
-                "code": "  tabsComponent && this.getTabByLabel(reviewsTabLabel, tabsComponent);\nif (reviewsTab) {\n  this.clickTabIfInactive(reviewsTab);\n  setTimeout(() => {\n    if (\n      this.featureConfigService?.isEnabled(\n        'a11yScrollToReviewByShowReview'\n      )\n    ) {\n      requestAnimationFrame(() => {\n        reviewsTab.scrollIntoView({\n          behavior: 'smooth',\n          block: 'start',\n        });\n        reviewsTab.focus({ preventScroll: true });\n      });\n    } else {\n      reviewsTab.scrollIntoView({ behavior: 'smooth', block: 'start' });\n      reviewsTab.focus({ preventScroll: true });\n    }\n  });\n}"
+                "line": 83,
+                "code": "this.featureConfigService?.isEnabled("
               }
+            ],
+            "members": [
+              "ProductIntroComponent.showReviews"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "e7bbabfe2058fa778740d51a56776435b2fc9d84"
+        ],
+        "rollout": {
+          "defaultOn": "2211.41",
+          "mandatory": "221121.4"
+        },
         "translations": {
           "tr": "`ProductIntroComponent` artık 'Show Review' butonuna ilk tıklamada Review sekmesine kaydırmalıdır."
         }
@@ -1330,6 +1550,9 @@
                 "line": 2,
                 "code": "<div\n  *cxFeature=\"'!a11ySearchboxLabel'\"\n  [attr.aria-label]=\"'searchBox.productSearch' | cxTranslate\"\n  role=\"search\"\n>\n  <label class=\"searchbox\" [class.dirty]=\"!!searchInput.value\">\n    <input\n      #searchInput\n      [placeholder]=\"'searchBox.placeholder' | cxTranslate\"\n      autocomplete=\"off\"\n      aria-describedby=\"initialDescription\"\n      aria-controls=\"results\"\n      [attr.tabindex]=\"getTabIndex(isMobile | async)\"\n      [attr.aria-label]=\"'searchBox.placeholder' | cxTranslate\"\n      (click)=\"search(searchInput.value)\"\n      (input)=\"search(searchInput.value)\"\n      (blur)=\"close()\"\n      (keydown.tab)=\"close()\"\n      (keydown.escape)=\"close()\"\n      (keydown.enter)=\"\n        close(true);\n        launchSearchResult(searchInput.value);\n        updateChosenWord(searchInput.value)\n      \"\n      (keydown.arrowup)=\"focusPreviousChild($any($event))\"\n      (keydown.arrowdown)=\"focusNextChild($any($event))\"\n      value=\"{{ chosenWord }}\"\n    />\n\n    <button\n      [attr.aria-label]=\"'common.reset' | cxTranslate\"\n      [title]=\"'common.reset' | cxTranslate\"\n      (click)=\"clear(searchInput)\"\n      class=\"reset\"\n    >\n      <cx-icon [type]=\"iconTypes.RESET\"></cx-icon>\n    </button>\n\n    <div\n      role=\"presentation\"\n…"
               }
+            ],
+            "components": [
+              "cx-icon"
             ]
           },
           {
@@ -1347,6 +1570,9 @@
                 "line": 59,
                 "code": "<div\n  *cxFeature=\"'a11ySearchboxLabel'\"\n  [attr.aria-label]=\"'searchBox.productSearch' | cxTranslate\"\n  role=\"search\"\n  class=\"cx-searchbox-container\"\n>\n  <label\n    class=\"searchbox cxFeat_a11ySearchboxLabel\"\n    [class.dirty]=\"!!searchInput?.value\"\n  >\n    <span class=\"cx-input-label\">{{ 'common.search' | cxTranslate }}</span>\n    <div class=\"cx-label-inner-container\">\n      <input\n        #searchInput\n        [placeholder]=\"'searchBox.placeholder' | cxTranslate\"\n        autocomplete=\"off\"\n        aria-describedby=\"initialDescription\"\n        aria-controls=\"results\"\n        [attr.tabindex]=\"getTabIndex(isMobile | async)\"\n        (click)=\"open()\"\n        (input)=\"search(searchInput.value)\"\n        (blur)=\"close()\"\n        (keydown.tab)=\"close()\"\n        (keydown.escape)=\"close()\"\n        (keydown.enter)=\"\n          close(true);\n          launchSearchResult(searchInput.value);\n          updateChosenWord(searchInput.value)\n        \"\n        (keydown.arrowup)=\"focusPreviousChild($any($event))\"\n        (keydown.arrowdown)=\"focusNextChild($any($event))\"\n        value=\"{{ chosenWord }}\"\n      />\n\n      <button\n        [attr.aria-label]=\"'common.reset' | cxTranslate\"\n        [title]=\"'common.reset' | cxTranslate\"\n        (click)=\"clear(searchInput)\"\n        class=\"reset\"\n      >\n…"
               }
+            ],
+            "components": [
+              "cx-icon"
             ]
           },
           {
@@ -1361,9 +1587,12 @@
             ],
             "snippets": [
               {
-                "line": 149,
-                "code": "  protected winRef: WindowRef,\n  protected routingService: RoutingService\n) {\n  useFeatureStyles('a11ySearchboxLabel');\n  useFeatureStyles('a11yKeyboardFocusInSearchBox');\n}"
+                "line": 152,
+                "code": "useFeatureStyles('a11ySearchboxLabel');"
               }
+            ],
+            "members": [
+              "SearchBoxComponent.constructor"
             ]
           },
           {
@@ -1388,20 +1617,34 @@
             ],
             "snippets": [
               {
-                "line": 76,
-                "code": "// 2. We can't apply changes for when feature flag is NOT enabled and it would be"
+                "line": 130,
+                "code": "@include forFeature('a11ySearchboxLabel') {\n  > .cx-searchbox-container {\n    @include media-breakpoint-up(md) {\n      background-color: unset;\n      position: unset;\n    }\n  }\n}"
               },
               {
-                "line": 79,
-                "code": "// and all styles for label:not(.cxFeat_a11ySearchboxLabel)\nlabel:not(.cxFeat_a11ySearchboxLabel) {\n  input {\n    // we cannot use display:none, visible:hidden or opacity: 0\n    // as this will no longer emit a focus event to the controller logic\n    width: 0;\n    padding: 0;\n  }\n}"
+                "line": 146,
+                "code": "@include forFeature('a11ySearchboxLabel') {\n  .cx-input-label {\n    color: var(--cx-color-text);\n\n    @include media-breakpoint-down(sm) {\n      position: absolute;\n      top: var(--cx-mobile-header-height);\n      left: 10px;\n      z-index: 30;\n    }\n  }\n}"
               },
               {
-                "line": 310,
-                "code": "width: 100%;"
+                "line": 390,
+                "code": "@include forFeature('a11ySearchboxLabel') {\n  top: calc(var(--cx-mobile-header-height) + 79px);\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-searchbox",
+              "cx-searchbox .cx-input-label",
+              "cx-searchbox .results",
+              "cx-searchbox > .cx-searchbox-container"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "e7bbabfe2058fa778740d51a56776435b2fc9d84"
+        ],
+        "rollout": {
+          "defaultOn": "2211.41",
+          "mandatory": "221121.4"
+        },
         "translations": {
           "tr": "`SearchBoxComponent` search input'una label ekler"
         }
@@ -1462,9 +1705,20 @@
                 "line": 97,
                 "code": "useFeatureStyles('a11yUpdatingCartNoNarration');"
               }
+            ],
+            "members": [
+              "AddedToCartDialogComponent.constructor"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "e7bbabfe2058fa778740d51a56776435b2fc9d84"
+        ],
+        "rollout": {
+          "defaultOn": "2211.41",
+          "mandatory": "221121.4"
+        },
         "translations": {
           "tr": "`AddedToCartDialogComponent` içinde `Updating cart...` metni artık screen reader tarafından okunmamalıdır."
         }
@@ -1491,6 +1745,9 @@
                 "line": 110,
                 "code": "useFeatureStyles('a11yViewHoursButtonIconContrast');"
               }
+            ],
+            "members": [
+              "MyPreferredStoreComponent.constructor"
             ]
           },
           {
@@ -1508,6 +1765,9 @@
                 "line": 34,
                 "code": "useFeatureStyles('a11yViewHoursButtonIconContrast');"
               }
+            ],
+            "members": [
+              "StoreComponent.constructor"
             ]
           },
           {
@@ -1528,6 +1788,9 @@
                 "line": 11,
                 "code": "@include forFeature('a11yViewHoursButtonIconContrast') {\n  opacity: var(--cx-opacity, 1);\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-my-preferred-store .cx-store-opening-hours-toggle .cx-store-opening-hours-icon"
             ]
           },
           {
@@ -1547,9 +1810,20 @@
                 "line": 36,
                 "code": "@include forFeature('a11yViewHoursButtonIconContrast') {\n  opacity: var(--cx-opacity, 1);\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-store .cx-store-opening-hours-toggle .cx-store-opening-hours-icon"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "e7bbabfe2058fa778740d51a56776435b2fc9d84"
+        ],
+        "rollout": {
+          "defaultOn": "2211.41",
+          "mandatory": "221121.4"
+        },
         "translations": {
           "tr": "`StoreComponent and MyPreferredStoreComponent`: mağazanın çalışma saatlerini göstermeyi tetikleyen butondaki ikon, varsayılan temada kabul edilebilir bir kontrast oranına sahiptir"
         }
@@ -1573,9 +1847,12 @@
             ],
             "snippets": [
               {
-                "line": 88,
-                "code": "  protected keyboardFocusService: KeyboardFocusService\n) {\n  useFeatureStyles('headerLayoutForSmallerViewports');\n  useFeatureStyles('a11yPdpGridArrangement');\n  useFeatureStyles('a11yKeyboardFocusInSearchBox');\n  useFeatureStyles('a11yNgSelectLayering');\n  useFeatureStyles('topProgressBarUseTransformAnimation');\n  useFeatureStyles('unifiedDefaultHeaderSlotsAcrossBreakpoints');\n}"
+                "line": 90,
+                "code": "useFeatureStyles('headerLayoutForSmallerViewports');"
               }
+            ],
+            "members": [
+              "StorefrontComponent.constructor"
             ]
           },
           {
@@ -1596,16 +1873,27 @@
                 "code": "@include forFeature('headerLayoutForSmallerViewports') {\n  padding-inline-end: 0;\n}"
               },
               {
-                "line": 180,
-                "code": "padding: $space $space * 2 $space / 2;"
+                "line": 183,
+                "code": "@include forFeature('headerLayoutForSmallerViewports') {\n  .SiteLinks {\n    flex-direction: column;\n    a {\n      padding: $space / 2 $space * 2 $space;\n      line-height: 48px;\n    }\n  }\n}"
               },
               {
-                "line": 228,
-                "code": "color: var(--cx-color-primary);\n\n@include forFeature('headerLayoutForSmallerViewports') {\n  flex-wrap: nowrap;\n}"
+                "line": 230,
+                "code": "@include forFeature('headerLayoutForSmallerViewports') {\n  flex-wrap: nowrap;\n}"
               }
+            ],
+            "styleScopes": [
+              "header .SiteLinks cx-link"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "79a114ed81f91a1e44a2aba87e342a4c2f9e699d"
+        ],
+        "rollout": {
+          "defaultOn": "2211.41",
+          "mandatory": "221121.4"
+        },
         "translations": {
           "tr": "`StorefrontComponent`: Header bağlantılarının küçük ekran boyutlarında alt satıra kaymasını önler.\nHeader layout için 0.12em'e kadar artırılmış letter-spacing desteğini etkinleştirir"
         }
@@ -1617,6 +1905,47 @@
         "defaultValue": true,
         "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/16bfdef6ff0d48d48f67f1af8cd49cc5.html",
         "usages": [],
+        "references": [
+          {
+            "file": "projects/storefrontlib/cms-components/navigation/search-box/search-box-features.model.ts",
+            "kind": "other",
+            "symbols": [],
+            "selectors": [],
+            "members": [],
+            "snippets": [
+              {
+                "line": 8,
+                "code": "SEARCH_BOX_V2 = 'searchBoxV2',"
+              }
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/cms-components/navigation/search-box/search-box.component.ts",
+            "kind": "other",
+            "symbols": [
+              "SearchBoxComponent"
+            ],
+            "selectors": [
+              "cx-searchbox"
+            ],
+            "members": [
+              "SearchBoxComponent.searchBoxV2"
+            ],
+            "snippets": [
+              {
+                "line": 82,
+                "code": "@HostBinding('class.search-box-v2') get searchBoxV2() {\n  return this.isEnabledFeature(SearchBoxFeatures.SEARCH_BOX_V2);\n}"
+              }
+            ]
+          }
+        ],
+        "commits": [
+          "4905cd1f7c3ffdd314705dc3e22f2244ca51f1df"
+        ],
+        "rollout": {
+          "defaultOn": "2211.41",
+          "mandatory": "221121.4"
+        },
         "translations": {
           "tr": "Yeni YENİDEN TASARLANMIŞ search-box component'i"
         }
@@ -1628,6 +1957,135 @@
         "defaultValue": true,
         "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/cc4728a0b55a420e8f8737ae68b22a5a.html",
         "usages": [],
+        "references": [
+          {
+            "file": "integration-libs/cds/src/trending-searches/trending-searches.component.html",
+            "kind": "other",
+            "symbols": [
+              "TrendingSearchesComponent"
+            ],
+            "selectors": [],
+            "members": [],
+            "snippets": [
+              {
+                "line": 5,
+                "code": "<h3>\n  {{ 'searchBox.trendingSearches' | cxTranslate }}\n</h3>"
+              }
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/cms-components/navigation/search-box/search-box-features.model.ts",
+            "kind": "other",
+            "symbols": [],
+            "selectors": [],
+            "members": [],
+            "snippets": [
+              {
+                "line": 9,
+                "code": "TRENDING_SEARCHES_FEATURE = 'trendingSearches',"
+              }
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/cms-components/navigation/search-box/search-box.component.html",
+            "kind": "other",
+            "symbols": [
+              "SearchBoxComponent"
+            ],
+            "selectors": [
+              "cx-searchbox"
+            ],
+            "members": [],
+            "snippets": [
+              {
+                "line": 347,
+                "code": "<h3\n  class=\"trendingSearches-header\"\n  *ngIf=\"searchInputEl?.nativeElement?.value?.length === 0\"\n>\n  {{ 'searchBox.trendingSearches' | cxTranslate }}\n</h3>"
+              },
+              {
+                "line": 350,
+                "code": "<h3\n  class=\"trendingSearches-header\"\n  *ngIf=\"searchInputEl?.nativeElement?.value?.length === 0\"\n>\n  {{ 'searchBox.trendingSearches' | cxTranslate }}\n</h3>"
+              }
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/cms-components/navigation/search-box/search-box.component.ts",
+            "kind": "other",
+            "symbols": [
+              "SearchBoxComponent"
+            ],
+            "selectors": [
+              "cx-searchbox"
+            ],
+            "members": [
+              "SearchBoxComponent.checkOuterResults"
+            ],
+            "snippets": [
+              {
+                "line": 53,
+                "code": "trendingSearches: true,"
+              },
+              {
+                "line": 313,
+                "code": "const trendingSearches = this.elementRef.nativeElement.querySelector("
+              },
+              {
+                "line": 317,
+                "code": "if (recentSearches || trendingSearches) {\n  this.renderer.addClass(results, 'has-outer-results');\n}"
+              }
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/cms-components/navigation/search-box/search-box.model.ts",
+            "kind": "other",
+            "symbols": [],
+            "selectors": [],
+            "members": [],
+            "snippets": [
+              {
+                "line": 16,
+                "code": "trendingSearches?: boolean | string;"
+              }
+            ]
+          },
+          {
+            "file": "projects/storefrontstyles/scss/components/product/search/_searchbox.scss",
+            "kind": "other",
+            "symbols": [
+              "CarouselComponent",
+              "IconComponent",
+              "MediaComponent",
+              "MockIconComponent",
+              "SearchBoxComponent",
+              "StorefrontComponent"
+            ],
+            "selectors": [
+              "[cxIcon]",
+              "cx-carousel",
+              "cx-icon",
+              "cx-media",
+              "cx-searchbox",
+              "cx-storefront"
+            ],
+            "members": [],
+            "snippets": [
+              {
+                "line": 562,
+                "code": ".trendingSearches-header {\n  width: 20%;\n}"
+              },
+              {
+                "line": 578,
+                "code": "  .trendingSearches-header {\n  display: inline-block;\n}"
+              }
+            ]
+          }
+        ],
+        "commits": [
+          "4905cd1f7c3ffdd314705dc3e22f2244ca51f1df"
+        ],
+        "rollout": {
+          "defaultOn": "2211.41",
+          "mandatory": "221121.4"
+        },
         "translations": {
           "tr": "`SearchBoxComponent` içinde trend aramaları gösterir."
         }
@@ -1658,6 +2116,9 @@
                 "line": 34,
                 "code": "<cx-media\n  *cxFeature=\"'useExtendedMediaComponentConfiguration'\"\n  [container]=\"getImage(data)\"\n  [elementType]=\"'picture'\"\n  [fetchPriority]=\"lcpContext.fetchPriority$ | async\"\n></cx-media>"
               }
+            ],
+            "components": [
+              "cx-media"
             ]
           },
           {
@@ -1679,6 +2140,9 @@
                 "line": 40,
                 "code": "<cx-media\n  *cxFeature=\"'!useExtendedMediaComponentConfiguration'\"\n  [container]=\"getImage(data)\"\n  [fetchPriority]=\"lcpContext.fetchPriority$ | async\"\n></cx-media>"
               }
+            ],
+            "components": [
+              "cx-media"
             ]
           },
           {
@@ -1728,9 +2192,20 @@
                 "line": 54,
                 "code": "this.featureConfigService.isEnabled("
               }
+            ],
+            "members": [
+              "MediaService.getMediaBasedOnHTMLElementType"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "b7da15ec4165fecc0bfdfc47bf2df34a2cf9e653"
+        ],
+        "rollout": {
+          "defaultOn": "2211.41",
+          "mandatory": "221121.4"
+        },
         "translations": {
           "tr": "Etkinleştirildiğinde, MediaComponent içinde kullanılıyorsa <picture> elementi için genişletilmiş formatlar ve media query'ler sağlanmasına izin verir.\n\nÖnemli: Etkinleştirmeden sonra MediaComponent içindeki varsayılan HTML elementi `<img>` olacaktır.\nYalnızca BannerComponent `'picture'` değerini iletmiştir. `<picture>` HTML elementini kullanmanız gerekirse\n`<cx-media>` öğesine `[elementType]=\"'picture'\"` iletmeniz gerekir.\n\nDoğru çalışması için media config içinde `pictureElementFormats` tanımlanmalıdır:\n ```ts\nprovideConfig({\n  pictureElementFormats: {\n   mediaQueries: '(max-width: 480px)',\n  },\n})\n```\n\nToggle, `MediaComponent` içindeki `@Input() elementType: 'img' | 'picture' = 'img'`\nve `@Input() sizesForImgElement: string` öğelerini etkinleştirir"
         }
@@ -1744,6 +2219,53 @@
         "defaultValue": false,
         "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/059ef1e522b6484dbef4071b37828ac1.html",
         "usages": [],
+        "references": [
+          {
+            "file": "feature-libs/quote/components/header/buyer-edit/quote-header-buyer-edit.component.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "QuoteHeaderBuyerEditComponent"
+            ],
+            "selectors": [
+              "cx-quote-header-buyer-edit"
+            ],
+            "members": [
+              "QuoteHeaderBuyerEditComponent.enablePurchaseOrderNumber"
+            ],
+            "snippets": [
+              {
+                "line": 51,
+                "code": "this.featureToggles.enableQuotePurchaseOrderNumber;"
+              }
+            ]
+          },
+          {
+            "file": "feature-libs/quote/components/header/overview/quote-header-overview.component.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "QuoteHeaderOverviewComponent"
+            ],
+            "selectors": [
+              "cx-quote-header-overview"
+            ],
+            "members": [
+              "QuoteHeaderOverviewComponent.enablePurchaseOrderNumber"
+            ],
+            "snippets": [
+              {
+                "line": 50,
+                "code": "  this.featureToggles.enableQuotePurchaseOrderNumber;\n\nprotected defineQuoteMetaData(event: SaveEvent): QuoteMetadata {\n  let metaData: QuoteMetadata = {};\n  if (Object.getOwnPropertyNames(event).length >= 1) {\n    const { name, description, purchaseOrderNumber } = event;\n\n    metaData = {\n      ...metaData,\n      ...(event.name && { name }),\n      ...{ description },\n      ...(event.purchaseOrderNumber && {\n        sapPurchaseOrderNumber: purchaseOrderNumber,\n      }),\n    };\n  }\n  return metaData;\n}"
+              }
+            ]
+          }
+        ],
+        "commits": [
+          "d143b9feb92df199d3f4462e892e39b5ebfb8970"
+        ],
+        "rollout": {
+          "defaultOn": "221121.11",
+          "mandatory": "Q4 2026"
+        },
         "translations": {
           "tr": "Quote Purchase Order Number input alanını Quote Request formunda\nve Quote Details sayfasında gösterir.\n\n`true` olarak ayarlandığında, kullanıcı teklif talep ederken\nPurchase Order Number girebilir ve bunu quote details içinde görebilir."
         }
@@ -1769,12 +2291,23 @@
             ],
             "snippets": [
               {
-                "line": 52,
-                "code": "? {\n    ...entry,\n    returnableQuantity:\n      consignmentEntry.shippedQuantity ??\n      (this.featureConfigService?.isEnabled(\n        'enableReturnOrderReturnableQuantityConsigmentFallback'\n      )\n        ? entry.returnableQuantity\n        : null) ??\n      0,\n  }"
+                "line": 56,
+                "code": "(this.featureConfigService?.isEnabled("
               }
+            ],
+            "members": [
+              "ReturnOrderComponent.entries$"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "40bbb3c32f1f7ebdc97e72bf563ebe50aef39afd"
+        ],
+        "rollout": {
+          "defaultOn": "221121.11",
+          "mandatory": "Q4 2026"
+        },
         "translations": {
           "tr": "Etkinleştirildiğinde, return request details sayfasına gidildiğinde `ReturnOrderComponent` üzerinde iade edilebilir sipariş miktarının\ndoğru görüntülenmemesi sorununu giderir."
         }
@@ -1803,9 +2336,20 @@
                 "line": 155,
                 "code": "this.featureConfigService?.isEnabled("
               }
+            ],
+            "members": [
+              "NavigationUIComponent.closeIfClickedTheSameLink"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "20b375201f22ecdff1ad850bccbae763969102a5"
+        ],
+        "rollout": {
+          "defaultOn": "221121.11",
+          "mandatory": "Q4 2026"
+        },
         "translations": {
           "tr": "Bu feature toggle etkinleştirildiğinde, navigasyon menüsü aynı bağlantıya tıklandığında kapanır.\n\nBu, mobil cihazlarda aynı sayfaya yönlendiren bir bağlantıya tıkladıktan sonra\nmenünün açık kalması durumunda kullanıcı deneyimini iyileştirmek içindir."
         }
@@ -1835,16 +2379,29 @@
                 "code": "  this.featureConfigService.isEnabled('a11yImprovedErrorMessage') &&\n  this.elementRef?.nativeElement?.getAttribute('aria-live') === 'polite'\n) {\n  // due to the way we detect changes here, JAWS doesn't always respect\n  // aria live `polite`, so we need to move this in the next event-loop queue\n  setTimeout(() => {\n    this.previousTouchedState = this.control.touched;\n    this.ChangeDetectionRef.markForCheck();\n  });\n}"
               },
               {
-                "line": 135,
-                "code": "@HostBinding('class.cx-visually-hidden') get hidden() {\n  return !(this.invalid && (this.touched || this.dirty));\n}"
-              },
-              {
                 "line": 138,
                 "code": "@HostBinding('attr.role') role = this.featureConfigService.isEnabled("
+              },
+              {
+                "line": 145,
+                "code": "!this.featureConfigService.isEnabled('a11yImprovedErrorMessage')"
               }
+            ],
+            "members": [
+              "FormErrorsComponent.ariaLive",
+              "FormErrorsComponent.ngDoCheck",
+              "FormErrorsComponent.role"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "3d43cba2ffc0ac4c06a9e3fa083c64262d9e2d66"
+        ],
+        "rollout": {
+          "defaultOn": "221121.4",
+          "mandatory": "221121.10"
+        },
         "translations": {
           "tr": "`FormErrorsComponent`: varsayılan olarak role=\"alert\" yerine aria-live=\"atomic\" ile birlikte\n aria-live=\"polite\" kullanılır"
         }
@@ -1868,9 +2425,12 @@
             ],
             "snippets": [
               {
-                "line": 91,
-                "code": "useFeatureStyles('a11yKeyboardFocusInSearchBox');"
+                "line": 92,
+                "code": "useFeatureStyles('a11yNgSelectLayering');"
               }
+            ],
+            "members": [
+              "StorefrontComponent.constructor"
             ]
           },
           {
@@ -1893,6 +2453,14 @@
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "3d43cba2ffc0ac4c06a9e3fa083c64262d9e2d66"
+        ],
+        "rollout": {
+          "defaultOn": "221121.4",
+          "mandatory": "221121.10"
+        },
         "translations": {
           "tr": "Yerel ng-select stillerinin neden olduğu katmanlama sorunlarını düzeltir.\nDropdown'un z-index özelliğini Spartacus ile daha uyumlu olacak şekilde ayarlar."
         }
@@ -1921,6 +2489,9 @@
                 "line": 121,
                 "code": "useFeatureStyles('a11yOptimizedMenuSpacing');"
               }
+            ],
+            "members": [
+              "NavigationUIComponent.constructor"
             ]
           },
           {
@@ -1941,12 +2512,23 @@
             ],
             "snippets": [
               {
-                "line": 182,
-                "code": "@include type('5');"
+                "line": 210,
+                "code": "@include forFeature('a11yOptimizedMenuSpacing') {\n  padding: 0;\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-navigation-ui nav ul.childs > li > cx-generic-link > a"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "3d43cba2ffc0ac4c06a9e3fa083c64262d9e2d66"
+        ],
+        "rollout": {
+          "defaultOn": "221121.4",
+          "mandatory": "221121.10"
+        },
         "translations": {
           "tr": "Farklı monitörlerde, metin boyutlarında ve zoom seviyelerinde daha iyi okunabilirlik için menülerde ve navigasyon dropdown'larında satır aralığını ayarlar."
         }
@@ -1975,6 +2557,10 @@
                 "line": 4,
                 "code": "@include forFeature('a11yWideScreenImprovements') {\n  cx-order-summary {\n    padding: 1rem;\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-order-confirmation-totals .cx-order-summary",
+              "cx-order-confirmation-totals .cx-order-summary cx-order-summary"
             ]
           },
           {
@@ -1992,6 +2578,9 @@
                 "line": 24,
                 "code": "useFeatureStyles('a11yWideScreenImprovements');"
               }
+            ],
+            "members": [
+              "OrderConfirmationTotalsComponent.constructor"
             ]
           },
           {
@@ -2024,6 +2613,14 @@
                 "line": 104,
                 "code": "@include forFeature('a11yWideScreenImprovements') {\n  flex: 1;\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-order-overview .cx-order-summary .container",
+              "cx-order-overview .cx-order-summary .container .cx-summary-card",
+              "cx-order-overview .cx-order-summary .container .cx-summary-card:first-child",
+              "cx-order-overview .cx-order-summary .container .cx-summary-card:first-child .cx-card-body",
+              "cx-order-overview .cx-order-summary .container .cx-summary-card:last-child",
+              "cx-order-overview .cx-order-summary .container .cx-summary-card:last-child .cx-card-body"
             ]
           },
           {
@@ -2041,6 +2638,9 @@
                 "line": 89,
                 "code": "useFeatureStyles('a11yWideScreenImprovements');"
               }
+            ],
+            "members": [
+              "ConfiguratorProductTitleComponent.constructor"
             ]
           },
           {
@@ -2070,6 +2670,11 @@
                 "line": 34,
                 "code": "@include forFeature('a11yWideScreenImprovements') {\n  box-shadow: unset;\n  justify-content: center;\n  max-width: 1140px;\n  margin: auto;\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-configurator-product-title",
+              "cx-configurator-product-title:not(:empty) .cx-general-product-info",
+              "cx-configurator-product-title:not(:empty) .cx-ghost-general-product-info"
             ]
           },
           {
@@ -2089,9 +2694,21 @@
                 "line": 10,
                 "code": "@include forFeature('a11yWideScreenImprovements') {\n  @include media-breakpoint-up(xl) {\n    flex: none;\n    width: var(--cx-page-width-max);\n    margin-inline-start: 100%;\n    margin-inline-end: 100%;\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "OrderConfirmationPageTemplate cx-order-confirmation-shipping",
+              "OrderConfirmationPageTemplate cx-order-detail-billing"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "3d43cba2ffc0ac4c06a9e3fa083c64262d9e2d66"
+        ],
+        "rollout": {
+          "defaultOn": "221121.4",
+          "mandatory": "221121.10"
+        },
         "translations": {
           "tr": "Geniş viewport layout sorunlarını iyileştirir.\nŞu bölümlerin stillerini etkiler: Order confirmation sayfası, product configurator."
         }
@@ -2116,9 +2733,20 @@
                 "line": 40,
                 "code": "!this.featureConfigService?.isEnabled("
               }
+            ],
+            "members": [
+              "OpfCheckoutAuthGuard.canActivate"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "3d43cba2ffc0ac4c06a9e3fa083c64262d9e2d66"
+        ],
+        "rollout": {
+          "defaultOn": "221121.4",
+          "mandatory": "221121.10"
+        },
         "translations": {
           "tr": "Etkinleştirildiğinde, checkout'a erişmeden önce kullanıcının mevcut cart'a atanmış bir e-postası olup olmadığını kontrol eder.\nYoksa kullanıcıyı `/opf-checkout-email` sayfasına yönlendirir.\nE-posta girildikten sonra kullanıcı checkout'a geri yönlendirilir."
         }
@@ -3952,5 +4580,843 @@
         "tr": "S2 üzerinde asm testini çalıştıran shell dosyasını refactor et"
       }
     }
-  ]
+  ],
+  "toggleCommits": [
+    {
+      "sha": "20b375201f22ecdff1ad850bccbae763969102a5",
+      "subject": "fix: fix hamburger menu opened issue when NavigationUIComponent is pressed (#20753)",
+      "files": [
+        {
+          "file": "projects/storefrontlib/cms-components/navigation/navigation/navigation-ui.component.ts",
+          "members": [
+            "NavigationUIComponent.closeIfClickedTheSameLink"
+          ],
+          "diff": "@@ -151,7 +151,15 @@ export class NavigationUIComponent implements OnInit, OnDestroy {\n       this.winRef.nativeWindow?.location.href.includes(navNode.url)\n     ) {\n       this.reinitializeMenu();\n-      this.hamburgerMenuService.toggle();\n+      if (\n+        this.featureConfigService?.isEnabled(\n+          'navigationMenuCloseOnSameLinkClick'\n+        )\n+      ) {\n+        this.hamburgerMenuService.toggle(true);\n+      } else {\n+        this.hamburgerMenuService.toggle();\n+      }\n     }\n   }"
+        }
+      ]
+    },
+    {
+      "sha": "4905cd1f7c3ffdd314705dc3e22f2244ca51f1df",
+      "subject": "feat: remove searchBoxV2 and trendingSearches feature toggles for general availability (#20788)",
+      "files": [
+        {
+          "file": "projects/storefrontlib/cms-components/navigation/search-box/search-box-features.model.ts",
+          "members": [],
+          "diff": "@@ -1,10 +0,0 @@\n-/*\n- * SPDX-FileCopyrightText: 2025 SAP Spartacus team <spartacus-team@sap.com>\n- *\n- * SPDX-License-Identifier: Apache-2.0\n- */\n-\n-export enum SearchBoxFeatures {\n-  SEARCH_BOX_V2 = 'searchBoxV2',\n-  TRENDING_SEARCHES_FEATURE = 'trendingSearches',\n-}"
+        },
+        {
+          "file": "projects/storefrontlib/cms-components/navigation/search-box/search-box.component.html",
+          "members": [],
+          "diff": "@@ -123,13 +123,8 @@\n   class=\"results\"\n   id=\"results\"\n   (click)=\"close(true)\"\n-  [class.no-headers]=\"\n-    !isEnabledFeature(searchBoxFeatures.TRENDING_SEARCHES_FEATURE) &&\n-    !isEnabledFeature(searchBoxFeatures.SEARCH_BOX_V2)\n-  \"\n >\n   <button\n-    *ngIf=\"isEnabledFeature(searchBoxFeatures.SEARCH_BOX_V2)\"\n     class=\"btn btn-tertiary search-panel-close-btn\"\n     (keydown.arrowdown)=\"focusPreviousGroup($any($event))\"\n     (click)=\"close()\"\n@@ -142,24 +137,13 @@\n     class=\"suggestions\"\n     *ngIf=\"(searchInputEl?.nativeElement?.value ?? '').length > 0\"\n   >\n-    <ng-container\n-      *ngIf=\"\n-        isEnabledFeature(searchBoxFeatures.TRENDING_SEARCHES_FEATURE) ||\n-        isEnabledFeature(searchBoxFeatures.SEARCH_BOX_V2)\n-      \"\n-    >\n-      <h3>\n-        {{ 'searchBox.suggestions' | cxTranslate }}\n-      </h3>\n-    </ng-container>\n+    <h3>\n+      {{ 'searchBox.suggestions' | cxTranslate }}\n+    </h3>\n     <ul\n       tabindex=\"0\"\n       attr.aria-label=\"{{ 'searchBox.ariaLabelSuggestions' | cxTranslate }}\"\n       role=\"listbox\"\n-      [class.no-headers]=\"\n-        !isEnabledFeature(searchBoxFeatures.TRENDING_SEARCHES_FEATURE) &&\n-        !isEnabledFeature(searchBoxFeatures.SEARCH_BOX_V2)\n-      \"\n     >\n       <li *ngFor=\"let suggestion of result.suggestions\" role=\"option\">\n         <a\n@@ -200,16 +184,12 @@\n     class=\"trending-searches-container\"\n     [class.d-block]=\"searchInputEl?.nativeElement?.value?.length === 0\"\n   >\n-    <ng-container *ngIf=\"searchBoxFeatures.TRENDING_SEARCHES_FEATURE\">\n-      <ng-container *cxFeature=\"searchBoxFeatures.TRENDING_SEARCHES_FEATURE\">\n-        <ng-template\n-          [cxOutlet]=\"searchBoxOutlets.TRENDING_SEARCHES\"\n-          [cxOutletContext]=\"{\n-            maxTrendingSearches: config.maxTrendingSearches,\n-          }\"\n-        ></ng-template>\n-      </ng-container>\n-    </ng-container>\n+    <ng-template\n+      [cxOutlet]=\"searchBoxOutlets.TRENDING_SEARCHES\"\n+      [cxOutletContext]=\"{\n+        maxTrendingSearches: config.maxTrendingSearches,\n+      }\"\n+    ></ng-template>\n   </div>\n \n   <!--  RECENT SEARCHES-->\n@@ -224,58 +204,9 @@\n   ></ng-template>\n   <!--RESULT  PRODUCTS-->\n   <div class=\"products\">\n-    <ng-container\n-      *ngIf=\"\n-        isEnabledFeature(searchBoxFeatures.TRENDING_SEARCHES_FEATURE) ||\n-        isEnabledFeature(searchBoxFeatures.SEARCH_BOX_V2)\n-      \"\n-    >\n-      <h3 *ngIf=\"result.products?.length\">\n-        {{ 'searchBox.products' | cxTranslate }}\n-      </h3>\n-    </ng-container>\n-    <ul\n…"
+        },
+        {
+          "file": "projects/storefrontlib/cms-components/navigation/search-box/search-box.component.ts",
+          "members": [
+            "SearchBoxComponent.hasSearchBoxV2",
+            "SearchBoxComponent.searchBoxFeatures",
+            "SearchBoxComponent.searchBoxV2"
+          ],
+          "diff": "@@ -33,7 +33,6 @@ import { ICON_TYPE } from '../../../cms-components/misc/icon/index';\n import { CmsComponentData } from '../../../cms-structure/page/model/cms-component-data';\n import { BREAKPOINT, BreakpointService } from '../../../layout/';\n import { SearchBoxComponentService } from './search-box-component.service';\n-import { SearchBoxFeatures } from './search-box-features.model';\n import { SearchBoxOutlets } from './search-box-outlets.model';\n import {\n   SearchBoxProductSelectedEvent,\n@@ -65,7 +64,6 @@ export class SearchBoxComponent implements OnInit, OnDestroy {\n   private elementRef = inject(ElementRef);\n   private renderer = inject(Renderer2);\n   readonly searchBoxOutlets = SearchBoxOutlets;\n-  readonly searchBoxFeatures = SearchBoxFeatures;\n   @Input() config: SearchBoxConfig;\n \n   /**\n@@ -80,12 +78,7 @@ export class SearchBoxComponent implements OnInit, OnDestroy {\n   }\n \n   @HostBinding('class.search-box-v2') get searchBoxV2() {\n-    return this.isEnabledFeature(SearchBoxFeatures.SEARCH_BOX_V2);\n-  }\n-\n-  get hasSearchBoxV2(): boolean {\n-    const hostElement = this.elementRef.nativeElement;\n-    return hostElement.classList.contains('search-box-v2');\n+    return true;\n   }\n \n   /**"
+        }
+      ]
+    },
+    {
+      "sha": "40bbb3c32f1f7ebdc97e72bf563ebe50aef39afd",
+      "subject": "fix: fix the issue with Quantity To Return is not being visible (#20772)",
+      "files": [
+        {
+          "file": "feature-libs/order/components/amend-order/returns/return-order/return-order.component.ts",
+          "members": [
+            "ReturnOrderComponent.entries$",
+            "ReturnOrderComponent.featureConfigService"
+          ],
+          "diff": "@@ -4,12 +4,13 @@\n  * SPDX-License-Identifier: Apache-2.0\n  */\n \n-import { ChangeDetectionStrategy, Component } from '@angular/core';\n+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';\n import { UntypedFormGroup } from '@angular/forms';\n import { OrderEntry } from '@spartacus/cart/base/root';\n import { Consignment } from '@spartacus/order/root';\n import { Observable, combineLatest, map, tap } from 'rxjs';\n import { OrderAmendService } from '../../amend-order.service';\n+import { FeatureConfigService } from '@spartacus/core';\n \n @Component({\n   selector: 'cx-return-order',\n@@ -19,6 +20,9 @@ import { OrderAmendService } from '../../amend-order.service';\n })\n export class ReturnOrderComponent {\n   orderCode: string;\n+  protected featureConfigService = inject(FeatureConfigService, {\n+    optional: true,\n+  });\n \n   form$: Observable<UntypedFormGroup> = this.orderAmendService\n     .getForm()\n@@ -47,7 +51,14 @@ export class ReturnOrderComponent {\n           return consignmentEntry\n             ? {\n                 ...entry,\n-                returnableQuantity: consignmentEntry.shippedQuantity ?? 0,\n+                returnableQuantity:\n+                  consignmentEntry.shippedQuantity ??\n+                  (this.featureConfigService?.isEnabled(\n+                    'enableReturnOrderReturnableQuantityConsigmentFallback'\n+                  )\n+                    ? entry.returnableQuantity\n+                    : null) ??\n+                  0,\n               }\n             : null;\n         })"
+        }
+      ]
+    },
+    {
+      "sha": "3d43cba2ffc0ac4c06a9e3fa083c64262d9e2d66",
+      "subject": "chore: enable feature and a11y toggles for 2511  (CXSPA-11151) (#20794)",
+      "files": []
+    },
+    {
+      "sha": "d143b9feb92df199d3f4462e892e39b5ebfb8970",
+      "subject": "feat: inclusion of PO number for quote creation (#20781)",
+      "files": [
+        {
+          "file": "feature-libs/checkout/b2b/components/checkout-payment-type/checkout-payment-type.component.html",
+          "members": [],
+          "diff": "@@ -20,6 +20,7 @@\n           <input\n             #poNumber\n             class=\"form-control\"\n+            id=\"poNumberInput\"\n             formControlName=\"poNumber\"\n             type=\"text\"\n             placeholder=\"{{ 'checkoutB2B.placeholder' | cxTranslate }}\""
+        },
+        {
+          "file": "feature-libs/checkout/b2b/components/checkout-payment-type/checkout-payment-type.component.ts",
+          "members": [
+            "CheckoutPaymentTypeComponent.next"
+          ],
+          "diff": "@@ -171,7 +171,15 @@ export class CheckoutPaymentTypeComponent {\n       .subscribe({\n         // we don't call onSuccess here, because it can cause a spinner flickering\n         complete: () => this.checkoutStepService.next(this.activatedRoute),\n-        error: () => this.onError(),\n+        error: (error) => {\n+          if (error.details?.[0]?.message) {\n+            this.globalMessageService.add(\n+              error.details?.[0]?.message,\n+              GlobalMessageType.MSG_TYPE_ERROR\n+            );\n+          }\n+          this.onError();\n+        },\n       });\n   }"
+        },
+        {
+          "file": "feature-libs/checkout/b2b/styles/components/steps/payment-type/_payment-type.scss",
+          "members": [],
+          "diff": "@@ -29,4 +29,10 @@\n   @include cx-highContrastTheme {\n     border-color: var(--cx-color-dark);\n   }\n+  #poNumberInput:read-only {\n+    cursor: not-allowed;\n+  }\n+  #poNumberInput:read-only:focus {\n+    background-color: var(--cx-color-secondary);\n+  }\n }"
+        },
+        {
+          "file": "feature-libs/quote/components/header/buyer-edit/quote-header-buyer-edit.component.html",
+          "members": [],
+          "diff": "@@ -66,6 +66,24 @@\n               </ng-container>\n             </div>\n           </div>\n+          <div class=\"cx-card-paragraph\" *ngIf=\"enablePurchaseOrderNumber\">\n+            <div\n+              class=\"cx-card-paragraph-title\"\n+              id=\"cx-quote-header-buyer-edit-purchase-order-number\"\n+            >\n+              {{ 'quote.header.overview.purchaseOrderNumber' | cxTranslate }}\n+              ({{ 'quote.header.overview.optional' | cxTranslate }})\n+            </div>\n+            <div class=\"form-group\">\n+              <input\n+                aria-labelledby=\"cx-quote-header-buyer-edit-purchase-order-number\"\n+                class=\"form-control\"\n+                type=\"text\"\n+                name=\"purchaseOrderNumber\"\n+                formControlName=\"purchaseOrderNumber\"\n+              />\n+            </div>\n+          </div>\n         </form>\n       </div>\n     </div>"
+        },
+        {
+          "file": "feature-libs/quote/components/header/buyer-edit/quote-header-buyer-edit.component.ts",
+          "members": [
+            "QuoteHeaderBuyerEditComponent.enablePurchaseOrderNumber",
+            "QuoteHeaderBuyerEditComponent.featureToggles",
+            "QuoteHeaderBuyerEditComponent.ngOnInit"
+          ],
+          "diff": "@@ -4,18 +4,28 @@\n  * SPDX-License-Identifier: Apache-2.0\n  */\n \n-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\n+import {\n+  Component,\n+  EventEmitter,\n+  inject,\n+  Input,\n+  OnInit,\n+  Output,\n+} from '@angular/core';\n import { FormControl, FormGroup } from '@angular/forms';\n+import { FeatureToggles } from '@spartacus/core';\n import { ICON_TYPE } from '@spartacus/storefront';\n \n export interface SaveEvent {\n   name?: string;\n   description?: string;\n+  purchaseOrderNumber?: string;\n }\n \n export interface EditCard {\n   name: string;\n   description: string;\n+  purchaseOrderNumber?: string;\n   charactersLimit?: number;\n }\n \n@@ -36,6 +46,10 @@ export class QuoteHeaderBuyerEditComponent implements OnInit {\n   @Input()\n   content: EditCard;\n \n+  private featureToggles = inject(FeatureToggles);\n+  enablePurchaseOrderNumber =\n+    this.featureToggles.enableQuotePurchaseOrderNumber;\n+\n   /**\n    * Cancels the view of the edit card tile.\n    */\n@@ -82,5 +96,11 @@ export class QuoteHeaderBuyerEditComponent implements OnInit {\n   ngOnInit() {\n     this.defineFormControl('name', this.content.name);\n     this.defineFormControl('description', this.content.description);\n+    if (this.enablePurchaseOrderNumber) {\n+      this.defineFormControl(\n+        'purchaseOrderNumber',\n+        this.content.purchaseOrderNumber ?? ''\n+      );\n+    }\n   }\n }"
+        },
+        {
+          "file": "feature-libs/quote/components/header/overview/quote-header-overview.component.html",
+          "members": [],
+          "diff": "@@ -19,8 +19,11 @@\n         <ng-container *ngIf=\"!editMode\">\n           <cx-card\n             [content]=\"\n-              getQuoteInformation(quoteDetails.name, quoteDetails.description)\n-                | async\n+              getQuoteInformation(\n+                quoteDetails.name,\n+                quoteDetails.description,\n+                quoteDetails.sapPurchaseOrderNumber\n+              ) | async\n             \"\n             [truncateParagraphText]=\"true\"\n             [charactersLimit]=\"getCharactersLimitForCardTile()\"\n@@ -38,7 +41,11 @@\n         <cx-quote-header-buyer-edit\n           *ngIf=\"editMode\"\n           [content]=\"\n-            getEditQuoteInformation(quoteDetails.name, quoteDetails.description)\n+            getEditQuoteInformation(\n+              quoteDetails.name,\n+              quoteDetails.description,\n+              quoteDetails.sapPurchaseOrderNumber\n+            )\n           \"\n           (saveCard)=\"save(quoteDetails, $event)\"\n           (cancelCard)=\"cancel()\""
+        },
+        {
+          "file": "feature-libs/quote/components/header/overview/quote-header-overview.component.ts",
+          "members": [
+            "QuoteHeaderOverviewComponent.defineQuoteMetaData",
+            "QuoteHeaderOverviewComponent.enablePurchaseOrderNumber",
+            "QuoteHeaderOverviewComponent.featureToggles",
+            "QuoteHeaderOverviewComponent.getEditQuoteInformation",
+            "QuoteHeaderOverviewComponent.getQuoteInformation"
+          ],
+          "diff": "@@ -5,7 +5,11 @@\n  */\n \n import { Component, inject } from '@angular/core';\n-import { EventService, TranslationService } from '@spartacus/core';\n+import {\n+  EventService,\n+  FeatureToggles,\n+  TranslationService,\n+} from '@spartacus/core';\n import {\n   Quote,\n   QuoteAction,\n@@ -33,6 +37,7 @@ export class QuoteHeaderOverviewComponent {\n   protected eventService = inject(EventService);\n   protected translationService = inject(TranslationService);\n   protected quoteUIConfig = inject(QuoteUIConfig);\n+  protected featureToggles = inject(FeatureToggles);\n \n   protected static NO_DATA = '-';\n   protected static CHARACTERS_LIMIT = 255;\n@@ -41,16 +46,21 @@ export class QuoteHeaderOverviewComponent {\n   quoteDetails$: Observable<Quote> = this.quoteFacade.getQuoteDetails();\n   iconTypes = ICON_TYPE;\n   editMode = false;\n+  enablePurchaseOrderNumber =\n+    this.featureToggles.enableQuotePurchaseOrderNumber;\n \n   protected defineQuoteMetaData(event: SaveEvent): QuoteMetadata {\n     let metaData: QuoteMetadata = {};\n     if (Object.getOwnPropertyNames(event).length >= 1) {\n-      const [name, description] = [event.name, event.description];\n+      const { name, description, purchaseOrderNumber } = event;\n \n       metaData = {\n         ...metaData,\n         ...(event.name && { name }),\n         ...{ description },\n+        ...(event.purchaseOrderNumber && {\n+          sapPurchaseOrderNumber: purchaseOrderNumber,\n+        }),\n       };\n     }\n     return metaData;\n@@ -107,27 +117,52 @@ export class QuoteHeaderOverviewComponent {\n    * @param description - Quote description\n    * @returns Observable emitting a card content\n    */\n-  getQuoteInformation(name?: string, description?: string): Observable<Card> {\n+  getQuoteInformation(\n+    name?: string,\n+    description?: string,\n+    purchaseOrderNumber?: string\n+  ): Observable<Card> {\n     return combineLatest([\n       this.translationService.translate('quote.header.overview.information'),\n       this.translationService.translate('quote.header.overview.name'),\n       this.translationService.translate('quote.header.overview.description'),\n+      this.translationService.translate(\n+        'quote.header.overview.purchaseOrderNumber'\n+      ),\n     ]).pipe(\n-      map(([infoTitle, nameTitle, descriptionTitle]) => {\n-        return {\n-          title: infoTitle,\n-          paragraphs: [\n-            {\n-              title: nameTitle,\n-              text: [name ?? QuoteHeaderOverviewComponent.NO_DATA],\n-            },\n-            {\n-              title: descriptionTitle,\n-              text: [description ?? QuoteHeaderOverviewComponent.NO_DATA],\n-            },\n-          ],\n-        };\n-      })\n+      map(\n+        ([\n+          infoTitle,\n…"
+        },
+        {
+          "file": "feature-libs/quote/root/model/quote.model.ts",
+          "members": [],
+          "diff": "@@ -34,6 +34,7 @@ export interface OccQuote {\n   updatedTime?: Date;\n   version?: number;\n   sapOrderCode?: string;\n+  sapPurchaseOrderNumber?: string;\n }\n \n export type Quote = Omit<OccQuote, 'allowedActions'> & {\n@@ -122,6 +123,7 @@ export interface QuoteMetadata {\n   // 2023-08-26T09:13:00+02:00\n   expirationTime?: string;\n   name?: string;\n+  purchaseOrderNumber?: string;\n }\n \n export interface QuoteStarter {"
+        }
+      ]
+    },
+    {
+      "sha": "79a114ed81f91a1e44a2aba87e342a4c2f9e699d",
+      "subject": "chore: remove feature flag headerLayoutForSmallerViewports (#20802)",
+      "files": [
+        {
+          "file": "projects/storefrontlib/layout/main/storefront.component.ts",
+          "members": [
+            "StorefrontComponent.constructor"
+          ],
+          "diff": "@@ -87,7 +87,6 @@ export class StorefrontComponent implements OnInit, OnDestroy {\n     protected elementRef: ElementRef<HTMLElement>,\n     protected keyboardFocusService: KeyboardFocusService\n   ) {\n-    useFeatureStyles('headerLayoutForSmallerViewports');\n     useFeatureStyles('a11yPdpGridArrangement');\n     useFeatureStyles('a11yKeyboardFocusInSearchBox');\n     useFeatureStyles('a11yNgSelectLayering');"
+        },
+        {
+          "file": "projects/storefrontstyles/scss/components/layout/header/_header.scss",
+          "members": [],
+          "diff": "@@ -97,11 +97,7 @@ $space: 0.5rem;\n     --cx-display: block;\n     cx-link {\n       display: block;\n-      padding-inline-end: 10px;\n-\n-      @include forFeature('headerLayoutForSmallerViewports') {\n-        padding-inline-end: 0;\n-      }\n+      padding-inline-end: 0;\n     }\n   }\n \n@@ -180,13 +176,11 @@ $space: 0.5rem;\n       padding: $space $space * 2 $space / 2;\n     }\n \n-    @include forFeature('headerLayoutForSmallerViewports') {\n-      .SiteLinks {\n-        flex-direction: column;\n-        a {\n-          padding: $space / 2 $space * 2 $space;\n-          line-height: 48px;\n-        }\n+    .SiteLinks {\n+      flex-direction: column;\n+      a {\n+        padding: $space / 2 $space * 2 $space;\n+        line-height: 48px;\n       }\n     }\n   }\n@@ -226,10 +220,7 @@ $space: 0.5rem;\n     .SiteLinks {\n       justify-content: flex-end;\n       color: var(--cx-color-primary);\n-\n-      @include forFeature('headerLayoutForSmallerViewports') {\n-        flex-wrap: nowrap;\n-      }\n+      flex-wrap: nowrap;\n     }\n \n     .SiteLogin {"
+        }
+      ]
+    },
+    {
+      "sha": "b7da15ec4165fecc0bfdfc47bf2df34a2cf9e653",
+      "subject": "chore: remove feature flag useExtendedMediaComponentConfiguration (#20801)",
+      "files": [
+        {
+          "file": "projects/storefrontlib/cms-components/content/banner/banner.component.html",
+          "members": [],
+          "diff": "@@ -10,16 +10,10 @@\n       </cx-generic-link>\n       <p class=\"headline\" *ngIf=\"data.headline\" [innerHTML]=\"data.headline\"></p>\n       <cx-media\n-        *cxFeature=\"'useExtendedMediaComponentConfiguration'\"\n         [container]=\"getImage(data)\"\n         [elementType]=\"'picture'\"\n         [fetchPriority]=\"lcpContext.fetchPriority$ | async\"\n       ></cx-media>\n-      <cx-media\n-        *cxFeature=\"'!useExtendedMediaComponentConfiguration'\"\n-        [container]=\"getImage(data)\"\n-        [fetchPriority]=\"lcpContext.fetchPriority$ | async\"\n-      ></cx-media>\n       <p class=\"content\" *ngIf=\"data.content\" [innerHTML]=\"data.content\"></p>\n     </ng-container>\n \n@@ -31,16 +25,10 @@\n           [innerHTML]=\"data.headline\"\n         ></p>\n         <cx-media\n-          *cxFeature=\"'useExtendedMediaComponentConfiguration'\"\n           [container]=\"getImage(data)\"\n           [elementType]=\"'picture'\"\n           [fetchPriority]=\"lcpContext.fetchPriority$ | async\"\n         ></cx-media>\n-        <cx-media\n-          *cxFeature=\"'!useExtendedMediaComponentConfiguration'\"\n-          [container]=\"getImage(data)\"\n-          [fetchPriority]=\"lcpContext.fetchPriority$ | async\"\n-        ></cx-media>\n         <p class=\"content\" *ngIf=\"data.content\" [innerHTML]=\"data.content\"></p>\n       </div>\n     </ng-container>"
+        },
+        {
+          "file": "projects/storefrontlib/shared/components/media/media.component.html",
+          "members": [],
+          "diff": "@@ -1,87 +1,47 @@\n <ng-container *ngIf=\"!!media\">\n-  <ng-container *cxFeature=\"'useExtendedMediaComponentConfiguration'\">\n-    <picture\n-      *ngIf=\"\n-        !!media?.sources?.length && elementType !== 'img';\n-        else imageElementTmp\n-      \"\n-    >\n-      <source\n-        *ngFor=\"let source of media.sources; trackBy: trackByMedia\"\n-        [media]=\"source.media\"\n-        [srcset]=\"source.srcset\"\n-        [attr.width]=\"source.width\"\n-        [attr.height]=\"source.height\"\n-      />\n+  <picture\n+    *ngIf=\"\n+      !!media?.sources?.length && elementType !== 'img';\n+      else imageElementTmp\n+    \"\n+  >\n+    <source\n+      *ngFor=\"let source of media.sources; trackBy: trackByMedia\"\n+      [media]=\"source.media\"\n+      [srcset]=\"source.srcset\"\n+      [attr.width]=\"source.width\"\n+      [attr.height]=\"source.height\"\n+    />\n \n-      <img\n-        [loading]=\"effectiveLoadingStrategy\"\n-        [attr.fetchpriority]=\"fetchPriority\"\n-        [alt]=\"media.alt\"\n-        [title]=\"media.alt\"\n-        [src]=\"media.src\"\n-        [attr.role]=\"media.role\"\n-        [attr.width]=\"media.width\"\n-        [attr.height]=\"media.height\"\n-        (load)=\"loadHandler()\"\n-        (error)=\"errorHandler()\"\n-      />\n-    </picture>\n+    <img\n+      [loading]=\"effectiveLoadingStrategy\"\n+      [attr.fetchpriority]=\"fetchPriority\"\n+      [alt]=\"media.alt\"\n+      [title]=\"media.alt\"\n+      [src]=\"media.src\"\n+      [attr.role]=\"media.role\"\n+      [attr.width]=\"media.width\"\n+      [attr.height]=\"media.height\"\n+      (load)=\"loadHandler()\"\n+      (error)=\"errorHandler()\"\n+    />\n+  </picture>\n \n-    <ng-template #imageElementTmp>\n-      <img\n-        *ngIf=\"media.src\"\n-        [loading]=\"effectiveLoadingStrategy\"\n-        [attr.fetchpriority]=\"fetchPriority\"\n-        [alt]=\"media.alt\"\n-        [title]=\"media.alt\"\n-        [src]=\"media.src\"\n-        [srcset]=\"media.srcset || media.src\"\n-        [attr.role]=\"media.role\"\n-        [attr.width]=\"media.width\"\n-        [attr.height]=\"media.height\"\n-        [attr.sizes]=\"sizesForImgElement\"\n-        (load)=\"loadHandler()\"\n-        (error)=\"errorHandler()\"\n-      />\n-    </ng-template>\n-  </ng-container>\n-\n-  <ng-container *cxFeature=\"'!useExtendedMediaComponentConfiguration'\">\n-    <picture *ngIf=\"media.srcset && !isLegacy; else legacyImgTmp\">\n-      <source\n-        *ngFor=\"\n…"
+        },
+        {
+          "file": "projects/storefrontlib/shared/components/media/media.component.ts",
+          "members": [
+            "MediaComponent.elementType",
+            "MediaComponent.isLegacy",
+            "MediaComponent.sizesForImgElement"
+          ],
+          "diff": "@@ -98,9 +98,7 @@ export class MediaComponent implements OnChanges {\n   @Input() fetchPriority?: ImageFetchPriority | null;\n \n   /**\n-   * Works only when `useExtendedMediaComponentConfiguration` toggle is true\n-   *\n-   * @default img\n+   * @default 'img'\n    */\n   @Input() elementType: 'img' | 'picture' = 'img';\n \n@@ -116,8 +114,6 @@ export class MediaComponent implements OnChanges {\n    *\n    * This input is applicable only when the `elementType` input is set to `'img'`, as the `sizes` attribute\n    * is currently added only to the `<img>` HTML element.\n-   *\n-   * Works only when the `useExtendedMediaComponentConfiguration` toggle is set to `true`.\n    */\n   @Input() sizesForImgElement: string;\n \n@@ -159,8 +155,7 @@ export class MediaComponent implements OnChanges {\n    * @deprecated since 2211.31. It will be eventually removed in the future\n    *\n    * To use `img` HTML element instead of `picture`\n-   * use `useExtendedMediaComponentConfiguration` feature flag\n-   * and pass `[elementType]=\"'img'\"` input to the component\n+   * pass `[elementType]=\"'img'\"` input to the component\n    */\n   protected isLegacy =\n     inject(USE_LEGACY_MEDIA_COMPONENT, { optional: true }) ||"
+        },
+        {
+          "file": "projects/storefrontlib/shared/components/media/media.service.ts",
+          "members": [
+            "MediaService.getMediaBasedOnHTMLElementType"
+          ],
+          "diff": "@@ -50,10 +50,7 @@ export class MediaService {\n     alt?: string,\n     role?: string\n   ): Media | undefined {\n-    const shouldGetMediaForPictureElement =\n-      this.featureConfigService.isEnabled(\n-        'useExtendedMediaComponentConfiguration'\n-      ) && elementType !== 'img';\n+    const shouldGetMediaForPictureElement = elementType !== 'img';\n \n     return shouldGetMediaForPictureElement\n       ? this.getMediaForPictureElement(mediaContainer, format, alt, role)"
+        }
+      ]
+    },
+    {
+      "sha": "e7bbabfe2058fa778740d51a56776435b2fc9d84",
+      "subject": "chore: remove deprecated feature flags (#20800)",
+      "files": [
+        {
+          "file": "feature-libs/asm/components/asm-save-cart-dialog/asm-save-cart-dialog.component.html",
+          "members": [],
+          "diff": "@@ -53,17 +53,10 @@\n         </div>\n         <div class=\"cx-dialog-row row\">\n           <div\n-            *cxFeature=\"'a11yQTY2Quantity'\"\n             class=\"cx-dialog-item col-sm-6 col-md-6 text-right item-left-text\"\n           >\n             {{ 'asm.saveCart.dialog.row.qtyFull' | cxTranslate }}\n           </div>\n-          <div\n-            *cxFeature=\"'!a11yQTY2Quantity'\"\n-            class=\"cx-dialog-item col-sm-6 col-md-6 text-right item-left-text\"\n-          >\n-            {{ 'asm.saveCart.dialog.row.qty' | cxTranslate }}\n-          </div>\n           <div\n             class=\"cx-dialog-item col-sm-6 col-md-6 text-left item-right-text\"\n           >"
+        },
+        {
+          "file": "feature-libs/asm/components/asm-save-cart-dialog/asm-save-cart-dialog.component.ts",
+          "members": [
+            "AsmSaveCartDialogComponent.constructor"
+          ],
+          "diff": "@@ -7,7 +7,7 @@\n import { Component, OnInit } from '@angular/core';\n import { Cart } from '@spartacus/cart/base/root';\n import { SavedCartFacade } from '@spartacus/cart/saved-cart/root';\n-import { GlobalMessageType, useFeatureStyles } from '@spartacus/core';\n+import { GlobalMessageType } from '@spartacus/core';\n import { FocusConfig, LaunchDialogService } from '@spartacus/storefront';\n import { BehaviorSubject } from 'rxjs';\n import { take } from 'rxjs/operators';\n@@ -39,9 +39,7 @@ export class AsmSaveCartDialogComponent implements OnInit {\n   constructor(\n     protected launchDialogService: LaunchDialogService,\n     protected savedCartFacade: SavedCartFacade\n-  ) {\n-    useFeatureStyles('a11yQTY2Quantity');\n-  }\n+  ) {}\n \n   ngOnInit(): void {\n     this.launchDialogService.data$.pipe(take(1)).subscribe((data: Cart) => {"
+        },
+        {
+          "file": "feature-libs/asm/components/csagent-login-form/csagent-login-form.component.ts",
+          "members": [
+            "CSAgentLoginFormComponent.constructor"
+          ],
+          "diff": "@@ -28,7 +28,6 @@ export class CSAgentLoginFormComponent implements OnInit {\n   submitEvent = new EventEmitter<{ userId: string; password: string }>();\n \n   constructor(protected fb: UntypedFormBuilder) {\n-    useFeatureStyles('a11yPasswordVisibliltyBtnValueOverflow');\n     useFeatureStyles('a11yTextSpacingAdjustments');\n   }"
+        },
+        {
+          "file": "feature-libs/cart/base/components/add-to-cart/add-to-cart.component.html",
+          "members": [],
+          "diff": "@@ -1,11 +1,6 @@\n <form *ngIf=\"productCode\" [formGroup]=\"addToCartForm\" (submit)=\"addToCart()\">\n   <div class=\"quantity\" *ngIf=\"showQuantity\">\n-    <label *cxFeature=\"'a11yQTY2Quantity'\">{{\n-      'addToCart.quantityFull' | cxTranslate\n-    }}</label>\n-    <label *cxFeature=\"'!a11yQTY2Quantity'\">{{\n-      'addToCart.quantity' | cxTranslate\n-    }}</label>\n+    <label>{{ 'addToCart.quantityFull' | cxTranslate }}</label>\n     <div class=\"cx-counter-stock\">\n       <cx-item-counter\n         *ngIf=\"hasStock\""
+        },
+        {
+          "file": "feature-libs/cart/base/components/add-to-cart/add-to-cart.component.ts",
+          "members": [
+            "AddToCartComponent.constructor",
+            "AddToCartComponent.featureConfigService",
+            "AddToCartComponent.onPickupOptionsCompLoaded"
+          ],
+          "diff": "@@ -29,14 +29,12 @@ import {\n import {\n   CmsAddToCartComponent,\n   EventService,\n-  FeatureConfigService,\n   FeatureToggles,\n   Product,\n   ProductAvailabilityService,\n   ProductCatalogService,\n   ProductScope,\n   isNotNullable,\n-  useFeatureStyles,\n } from '@spartacus/core';\n import {\n   CmsComponentData,\n@@ -96,7 +94,6 @@ export class AddToCartComponent implements OnInit, OnDestroy {\n \n   iconTypes = ICON_TYPE;\n \n-  private featureConfigService = inject(FeatureConfigService);\n   private featureToggles = inject(FeatureToggles);\n   private productAvailabilityService = inject(ProductAvailabilityService);\n   protected productCatalogService = inject(ProductCatalogService);\n@@ -123,9 +120,7 @@ export class AddToCartComponent implements OnInit, OnDestroy {\n     protected component: CmsComponentData<CmsAddToCartComponent>,\n     protected eventService: EventService,\n     @Optional() protected productListItemContext?: ProductListItemContext\n-  ) {\n-    useFeatureStyles('a11yQTY2Quantity');\n-  }\n+  ) {}\n \n   ngOnInit() {\n     if (this.product) {\n@@ -285,10 +280,7 @@ export class AddToCartComponent implements OnInit, OnDestroy {\n   }\n \n   onPickupOptionsCompLoaded() {\n-    if (\n-      this.featureConfigService.isEnabled('a11yPickupOptionsTabs') &&\n-      this.pickupOptionCompRef instanceof ComponentRef\n-    ) {\n+    if (this.pickupOptionCompRef instanceof ComponentRef) {\n       this.subscription.add(\n         this.pickupOptionCompRef.instance.intendedPickupChange.subscribe(\n           ("
+        },
+        {
+          "file": "feature-libs/cart/base/components/added-to-cart-dialog/added-to-cart-dialog.component.html",
+          "members": [],
+          "diff": "@@ -12,27 +12,9 @@\n       aria-atomic=\"true\"\n       class=\"cx-dialog-header modal-header\"\n     >\n-      <div\n-        *cxFeature=\"'a11yUpdatingCartNoNarration'\"\n-        id=\"dialogTitle\"\n-        class=\"cx-dialog-title modal-title\"\n-        role=\"none\"\n-      >\n+      <div id=\"dialogTitle\" class=\"cx-dialog-title modal-title\" role=\"none\">\n         {{ 'addToCart.itemAddedToYourCart' | cxTranslate }}\n       </div>\n-      <div\n-        *cxFeature=\"'!a11yUpdatingCartNoNarration'\"\n-        id=\"dialogTitle\"\n-        class=\"cx-dialog-title modal-title\"\n-      >\n-        {{\n-          (loaded$ | async)\n-            ? (addedEntryWasMerged$ | async)\n-              ? ('addToCart.itemsIncrementedInYourCart' | cxTranslate)\n-              : ('addToCart.itemsAddedToYourCart' | cxTranslate)\n-            : ('addToCart.updatingCart' | cxTranslate)\n-        }}\n-      </div>\n       <button\n         type=\"button\"\n         class=\"close\""
+        },
+        {
+          "file": "feature-libs/cart/base/components/added-to-cart-dialog/added-to-cart-dialog.component.ts",
+          "members": [
+            "AddedToCartDialogComponent.constructor"
+          ],
+          "diff": "@@ -21,7 +21,7 @@ import {\n   OrderEntry,\n   PromotionLocation,\n } from '@spartacus/cart/base/root';\n-import { RoutingService, useFeatureStyles } from '@spartacus/core';\n+import { RoutingService } from '@spartacus/core';\n import {\n   FocusConfig,\n   ICON_TYPE,\n@@ -93,9 +93,7 @@ export class AddedToCartDialogComponent implements OnInit, OnDestroy {\n     protected launchDialogService: LaunchDialogService,\n     protected routingService: RoutingService,\n     protected el: ElementRef\n-  ) {\n-    useFeatureStyles('a11yUpdatingCartNoNarration');\n-  }\n+  ) {}\n \n   ngOnInit(): void {\n     this.subscription.add("
+        },
+        {
+          "file": "feature-libs/cart/base/components/cart-shared/cart-item-list-row/cart-item-list-row.component.html",
+          "members": [],
+          "diff": "@@ -122,21 +122,12 @@\n   <!-- Item Quantity -->\n   <td role=\"cell\" class=\"cx-quantity\">\n     <div\n-      *cxFeature=\"'a11yQTY2Quantity'\"\n       class=\"cx-mobile-header\"\n       placement=\"left\"\n       title=\"{{ 'cartItems.quantityTitle' | cxTranslate }}\"\n     >\n       {{ 'cartItems.quantityFull' | cxTranslate }}\n     </div>\n-    <div\n-      *cxFeature=\"'!a11yQTY2Quantity'\"\n-      class=\"cx-mobile-header\"\n-      placement=\"left\"\n-      title=\"{{ 'cartItems.quantityTitle' | cxTranslate }}\"\n-    >\n-      {{ 'cartItems.quantity' | cxTranslate }}\n-    </div>\n     <div class=\"cx-value\" [class.readonly-value]=\"readonly\">\n       <cx-item-counter\n         [control]=\"quantityControl\""
+        },
+        {
+          "file": "feature-libs/cart/base/components/cart-shared/cart-item-list-row/cart-item-list-row.component.ts",
+          "members": [
+            "CartItemListRowComponent.constructor"
+          ],
+          "diff": "@@ -6,7 +6,6 @@\n \n import { Component, inject, Input, Optional } from '@angular/core';\n import { CartItemContext, OrderEntry } from '@spartacus/cart/base/root';\n-import { useFeatureStyles } from '@spartacus/core';\n import { CartItemComponent } from '../cart-item/cart-item.component';\n import { CartItemContextSource } from '../cart-item/model/cart-item-context-source.model';\n import { CartItemListComponentService } from './cart-item-list-row.component.service';\n@@ -26,6 +25,5 @@ export class CartItemListRowComponent extends CartItemComponent {\n   isFlagQuote = this.componentService.showBasePriceWithDiscount();\n   constructor(cartItemContextSource: CartItemContextSource) {\n     super(cartItemContextSource);\n-    useFeatureStyles('a11yQTY2Quantity');\n   }\n }"
+        },
+        {
+          "file": "feature-libs/cart/base/components/cart-shared/cart-item-list/cart-item-list.component.html",
+          "members": [],
+          "diff": "@@ -24,22 +24,9 @@\n         [cxOutlet]=\"CartOutlets.CPQ_QUOTE_HEADING\"\n         [cxOutletContext]=\"items\"\n       ></ng-template>\n-      <th\n-        *cxFeature=\"'a11yQTY2Quantity'\"\n-        role=\"columnheader\"\n-        scope=\"col\"\n-        class=\"cx-item-list-qty\"\n-      >\n+      <th role=\"columnheader\" scope=\"col\" class=\"cx-item-list-qty\">\n         {{ 'cartItems.quantityFull' | cxTranslate }}\n       </th>\n-      <th\n-        *cxFeature=\"'!a11yQTY2Quantity'\"\n-        role=\"columnheader\"\n-        scope=\"col\"\n-        class=\"cx-item-list-qty\"\n-      >\n-        {{ 'cartItems.quantity' | cxTranslate }}\n-      </th>\n       <ng-container *ngIf=\"options.isSaveForLater; else totalHeader\">\n         <th role=\"columnheader\" scope=\"col\" class=\"cx-item-list-total\">\n           {{ 'saveForLaterItems.stock' | cxTranslate }}"
+        },
+        {
+          "file": "feature-libs/cart/base/components/cart-shared/cart-item-list/cart-item-list.component.ts",
+          "members": [
+            "CartItemListComponent.constructor"
+          ],
+          "diff": "@@ -27,9 +27,9 @@ import {\n } from '@spartacus/cart/base/root';\n import {\n   FeatureConfigService,\n+  ProductCatalogService,\n   UserIdService,\n   useFeatureStyles,\n-  ProductCatalogService,\n } from '@spartacus/core';\n import { OutletContextData } from '@spartacus/storefront';\n import { Observable, Subscription } from 'rxjs';\n@@ -101,8 +101,6 @@ export class CartItemListComponent implements OnInit, OnDestroy {\n     protected cd: ChangeDetectorRef,\n     @Optional() protected outlet?: OutletContextData<ItemListContext>\n   ) {\n-    useFeatureStyles('a11yQTY2Quantity');\n-    useFeatureStyles('a11yPickupOptionsTabs');\n     useFeatureStyles('a11yCroppedFocusRing');\n   }"
+        },
+        {
+          "file": "feature-libs/cart/base/components/cart-shared/cart-item/cart-item.component.html",
+          "members": [],
+          "diff": "@@ -87,7 +87,6 @@\n         <!-- Item Quantity -->\n         <div class=\"cx-quantity\" [ngClass]=\"compact ? '' : ' col-3'\">\n           <div\n-            *cxFeature=\"'a11yQTY2Quantity'\"\n             class=\"cx-label\"\n             [ngClass]=\"compact ? '' : ' d-block d-md-none d-lg-none d-xl-none'\"\n             placement=\"left\"\n@@ -95,15 +94,6 @@\n           >\n             {{ 'cartItems.quantityFull' | cxTranslate }}\n           </div>\n-          <div\n-            *cxFeature=\"'!a11yQTY2Quantity'\"\n-            class=\"cx-label\"\n-            [ngClass]=\"compact ? '' : ' d-block d-md-none d-lg-none d-xl-none'\"\n-            placement=\"left\"\n-            title=\"{{ 'cartItems.quantityTitle' | cxTranslate }}\"\n-          >\n-            {{ 'cartItems.quantity' | cxTranslate }}\n-          </div>\n           <div class=\"cx-value\" [class.readonly-value]=\"readonly\">\n             <cx-item-counter\n               [control]=\"quantityControl\""
+        },
+        {
+          "file": "feature-libs/cart/base/components/cart-shared/cart-item/cart-item.component.ts",
+          "members": [
+            "CartItemComponent.constructor"
+          ],
+          "diff": "@@ -45,7 +45,6 @@ export class CartItemComponent implements OnChanges {\n   readonly CartOutlets = CartOutlets;\n \n   constructor(protected cartItemContextSource: CartItemContextSource) {\n-    useFeatureStyles('a11yQTY2Quantity');\n     useFeatureStyles('a11yCroppedFocusRing');\n   }"
+        },
+        {
+          "file": "feature-libs/cart/base/styles/components/_cart-item-list.scss",
+          "members": [],
+          "diff": "@@ -9,10 +9,7 @@\n     border-bottom: none;\n \n     .cx-item-list-qty {\n-      text-transform: uppercase;\n-      @include forFeature('a11yQTY2Quantity') {\n-        text-transform: none;\n-      }\n+      text-transform: none;\n     }\n   }\n \n@@ -97,35 +94,33 @@\n     cx-cart-pickup-options-container {\n       margin-inline-start: 6rem;\n \n-      @include forFeature('a11yPickupOptionsTabs') {\n-        cx-pickup-options {\n-          &,\n-          & button {\n-            @include type('7');\n-          }\n+      cx-pickup-options {\n+        &,\n+        & button {\n+          @include type('7');\n+        }\n \n-          .cx-pickup-options-legend {\n-            @include type('8');\n-          }\n+        .cx-pickup-options-legend {\n+          @include type('8');\n+        }\n \n-          .cx-pickup-options-container {\n-            padding: 0.5rem;\n-          }\n+        .cx-pickup-options-container {\n+          padding: 0.5rem;\n+        }\n \n-          .cx-pickup-options {\n-            width: 75%;\n-          }\n+        .cx-pickup-options {\n+          width: 75%;\n+        }\n \n-          cx-tab {\n-            --cx-tab-panel-bg: var(--cx-color-inverse);\n-            --cx-tab-panel-padding: 0.5rem 1rem;\n-            --cx-tab-gap: 0.5rem;\n-            --cx-tab-btn-bg-color: var(--cx-color-inverse);\n-            --cx-tab-panel-margin-top: 0.5rem;\n+        cx-tab {\n+          --cx-tab-panel-bg: var(--cx-color-inverse);\n+          --cx-tab-panel-padding: 0.5rem 1rem;\n+          --cx-tab-gap: 0.5rem;\n+          --cx-tab-btn-bg-color: var(--cx-color-inverse);\n+          --cx-tab-panel-margin-top: 0.5rem;\n \n-            .tab-btn:after {\n-              margin-top: 5px;\n-            }\n+          .tab-btn:after {\n+            margin-top: 5px;\n           }\n         }\n       }"
+        },
+        {
+          "file": "feature-libs/cart/base/styles/components/_item-counter.scss",
+          "members": [],
+          "diff": "@@ -71,32 +71,15 @@\n       box-shadow: 0 0 0 0;\n     }\n \n-    // TODO: The styles for \":disabled\" selector should be deleted when \"a11yItemCounterFocus\" feature flag has been removed\n-    &:disabled {\n-      color: var(--cx-color-light);\n+    &[aria-disabled='true'] {\n+      color: var(--cx-color-dark);\n       cursor: not-allowed;\n     }\n \n-    @include forFeature('a11yItemCounterFocus') {\n-      &[aria-disabled='true'] {\n-        color: var(--cx-color-dark);\n-        cursor: not-allowed;\n-      }\n-    }\n-\n     font-size: var(--cx-font-size, 1.7rem);\n     line-height: 0;\n     padding-inline-start: 0;\n     padding-inline-end: 0;\n-    @include forFeature('a11yItemCounterFocus') {\n-      &[aria-disabled='true'] {\n-        color: var(--cx-color-dark);\n-      }\n-    }\n-  }\n-\n-  :disabled {\n-    cursor: not-allowed;\n   }\n \n   @include cx-highContrastTheme {"
+        }
+      ]
+    }
+  ],
+  "i18n": {
+    "added": [
+      {
+        "chunk": "cart",
+        "key": "cartItems.dueNow",
+        "texts": {
+          "en": "Due now"
+        }
+      },
+      {
+        "chunk": "documentFlow",
+        "key": "documentFlow.button",
+        "texts": {
+          "en": "View Document Flow"
+        }
+      },
+      {
+        "chunk": "documentFlow",
+        "key": "documentFlow.dialog.closeModal",
+        "texts": {
+          "en": "Close Modal"
+        }
+      },
+      {
+        "chunk": "documentFlow",
+        "key": "documentFlow.dialog.date",
+        "texts": {
+          "en": "Date"
+        }
+      },
+      {
+        "chunk": "documentFlow",
+        "key": "documentFlow.dialog.deliveryItemId",
+        "texts": {
+          "en": "Delivery Item ID"
+        }
+      },
+      {
+        "chunk": "documentFlow",
+        "key": "documentFlow.dialog.empty",
+        "texts": {
+          "en": "Documents are available here after they are added to an order in the backend SAP S/4HANA system."
+        }
+      },
+      {
+        "chunk": "documentFlow",
+        "key": "documentFlow.dialog.error",
+        "texts": {
+          "en": "Please try again later as an error occurred while retrieving the documents."
+        }
+      },
+      {
+        "chunk": "documentFlow",
+        "key": "documentFlow.dialog.name",
+        "texts": {
+          "en": "Document name"
+        }
+      },
+      {
+        "chunk": "documentFlow",
+        "key": "documentFlow.dialog.orderItemId",
+        "texts": {
+          "en": "Order Item ID"
+        }
+      },
+      {
+        "chunk": "documentFlow",
+        "key": "documentFlow.dialog.orderItems",
+        "texts": {
+          "en": "Order Items"
+        }
+      },
+      {
+        "chunk": "documentFlow",
+        "key": "documentFlow.dialog.status",
+        "texts": {
+          "en": "Status"
+        }
+      },
+      {
+        "chunk": "documentFlow",
+        "key": "documentFlow.dialog.status_COMPLETED",
+        "texts": {
+          "en": "Completed"
+        }
+      },
+      {
+        "chunk": "documentFlow",
+        "key": "documentFlow.dialog.status_IN_PROCESS",
+        "texts": {
+          "en": "In process"
+        }
+      },
+      {
+        "chunk": "documentFlow",
+        "key": "documentFlow.dialog.status_NOT_RELEVANT",
+        "texts": {
+          "en": "Not relevant"
+        }
+      },
+      {
+        "chunk": "documentFlow",
+        "key": "documentFlow.dialog.status_OPEN",
+        "texts": {
+          "en": "Open"
+        }
+      },
+      {
+        "chunk": "documentFlow",
+        "key": "documentFlow.dialog.time",
+        "texts": {
+          "en": "Time"
+        }
+      },
+      {
+        "chunk": "documentFlow",
+        "key": "documentFlow.dialog.title",
+        "texts": {
+          "en": "Document"
+        }
+      },
+      {
+        "chunk": "opfCheckout",
+        "key": "opfCheckout.errors.noBillingAddress",
+        "texts": {
+          "en": "Billing address is required"
+        }
+      },
+      {
+        "chunk": "product",
+        "key": "addToCart.unavailable",
+        "texts": {
+          "en": "Not Orderable"
+        }
+      },
+      {
+        "chunk": "quote",
+        "key": "quote.header.overview.optional",
+        "texts": {
+          "en": "optional"
+        }
+      },
+      {
+        "chunk": "quote",
+        "key": "quote.header.overview.purchaseOrderNumber",
+        "texts": {
+          "en": "Purchase order number"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionActions.askConfirm",
+        "texts": {
+          "en": "{{ action }} your subscription?"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionActions.cancel",
+        "texts": {
+          "en": "Cancel"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionActions.cancelSuccess",
+        "texts": {
+          "en": "The subscription has been cancelled successfully."
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionActions.changeMind",
+        "texts": {
+          "en": "If you change your mind, you can reactivate your subscription before the end of the billing period."
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionActions.changeMindresubscribe",
+        "texts": {
+          "en": "You can manage your subscription anytime later."
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionActions.closeModal",
+        "texts": {
+          "en": "Close modal"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionActions.confirm",
+        "texts": {
+          "en": "Confirm"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionActions.confirmExtensionTitle",
+        "texts": {
+          "en": "Confirm Extension Period"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionActions.disclaimer",
+        "texts": {
+          "en": "You are about to extend your subscription under the same Terms & Conditions and Cancellation Policy."
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionActions.disclaimerWithExtensionEndDate",
+        "texts": {
+          "en": "You are about to extend your subscription until {{ endDate }} under the same Terms & Conditions and Cancellation Policy."
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionActions.durationInputLabel",
+        "texts": {
+          "en": "Extend Subscription By"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionActions.durationInputPlaceholder",
+        "texts": {
+          "en": "Enter duration in {{ frequency }}"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionActions.extend",
+        "texts": {
+          "en": "Extend"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionActions.extendedSuccessfully",
+        "texts": {
+          "en": "Your subscription has been extended successfully"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionActions.loseSubscription",
+        "texts": {
+          "en": "If you confirm, you will lose access to the subscription features on {{ date }}. You won't be charged again."
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionActions.noActionMessage",
+        "texts": {
+          "en": "No further action is required unless, you wish to make changes to your subscription."
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionActions.resubscribeConfirm",
+        "texts": {
+          "en": "By confirming, you are renewing your subscription and will gain access to our subscription features. "
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionActions.reverseCancellationSuccess",
+        "texts": {
+          "en": "The subscription has been reversed successfully."
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionActions.unknownError",
+        "texts": {
+          "en": "An unknown error occurred. Please contact support."
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionActions.withdrawConfirm",
+        "texts": {
+          "en": "By confirming, you are ending your trial period.You will lose access to subscription features on by the end of today.No additional charges apply."
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionActions.withdrawSuccess",
+        "texts": {
+          "en": "The subscription has been withdrawn successfully."
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionCartItemList.dueNowHeader",
+        "texts": {
+          "en": "Due Now"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionCartItemList.itemPriceHeader",
+        "texts": {
+          "en": "Item Price"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionDetails.back",
+        "texts": {
+          "en": "View All Subscriptions"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionDetails.cancelSubscription",
+        "texts": {
+          "en": "Cancel Subscription"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionDetails.endDate",
+        "texts": {
+          "en": "Subscription End Date: {{ date }}"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionDetails.extendSubscription",
+        "texts": {
+          "en": "Extend Subscription"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionDetails.info",
+        "texts": {
+          "en": "Subscription/Contract Details:"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionDetails.orderCode",
+        "texts": {
+          "en": "Order Code:"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionDetails.productCode",
+        "texts": {
+          "en": "Subscription Service (Product) Code:"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionDetails.reSubscribe",
+        "texts": {
+          "en": "Re-subscribe"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionDetails.withdrawSubscription",
+        "texts": {
+          "en": "Withdraw Subscription"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionDetails.withdrawalEnd",
+        "texts": {
+          "en": "Withdrawal Period End Date: {{ date }}"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionList.amount",
+        "texts": {
+          "en": "Billing Amount: {{ amount }} {{ time }}"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionList.id",
+        "texts": {
+          "en": "Subscription ID: {{ id }}"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionList.manageService",
+        "texts": {
+          "en": "Manage Service"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionList.noSubscriptions",
+        "texts": {
+          "en": "You don't have any subscriptions"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionList.product",
+        "texts": {
+          "en": "Subscription Product"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionList.sortOrders",
+        "texts": {
+          "en": "Sort orders"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionList.sortSubtitle",
+        "texts": {
+          "en": "Sort By"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionList.sorts.byDocumentNumberAsc",
+        "texts": {
+          "en": "Document Number Ascending"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionList.sorts.byDocumentNumberDesc",
+        "texts": {
+          "en": "Document Number Descending"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionList.startDate",
+        "texts": {
+          "en": "Subscription Start Date: {{ date }}"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionList.status",
+        "texts": {
+          "en": "Status: {{ value }}"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionList.title",
+        "texts": {
+          "en": "All Subscriptions"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionProduct.includedQuantity",
+        "texts": {
+          "en": "Included Quantity: {{ quantity }}"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionProduct.minimumTerm",
+        "texts": {
+          "en": "Minimum Subscription duration is {{ term }}"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionProduct.multiBlockUsage",
+        "texts": {
+          "en": "{{ price }} for every {{ block }}"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionProduct.oneBlockUsage",
+        "texts": {
+          "en": " {{ price }} per {{ usage }} "
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionProduct.percentageUsage",
+        "texts": {
+          "en": "Included Ratio {{ ratio }} at {{ price }} per {{ usage }}"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionProduct.renewalTerm",
+        "texts": {
+          "en": "Renewal after {{ term }}"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionProduct.subscriptionTerms",
+        "texts": {
+          "en": "Subscription Terms:"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionProduct.tierOverageUsage",
+        "texts": {
+          "en": "From {{ from }} to Unlimited: {{ price }} per {{ usage }}"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionProduct.tierUsage",
+        "texts": {
+          "en": "From {{ from }} to {{ to }}: {{ price }} per {{ usage }}"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionProduct.tierUsageMessage",
+        "texts": {
+          "en": "*You will be charged as per each applicable tier"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionProduct.usageCharges",
+        "texts": {
+          "en": "Pricing Details"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionProduct.volumeOverageUsage",
+        "texts": {
+          "en": "For {{ from }} to Unlimited: {{ fixed }} plus {{ price }} per {{ usage }}"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionProduct.volumeUsage",
+        "texts": {
+          "en": "For {{ from }} to {{ to }}: {{ fixed }} plus {{ price }} per {{ usage }}"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionProduct.volumeUsageMessage",
+        "texts": {
+          "en": "*You will be charged as per the highest applicable tier"
+        }
+      }
+    ],
+    "removed": [],
+    "changed": [
+      {
+        "chunk": "order",
+        "key": "attachments.dialog.downloadError",
+        "before": "An error occured while fetching documents. Refresh the page or try again later.",
+        "after": "An error occurred while fetching documents. Refresh the page or try again later."
+      }
+    ],
+    "translated": []
+  }
 }

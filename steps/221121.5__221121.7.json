@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatorVersion": 2,
+  "generatorVersion": 3,
   "from": {
     "release": "221121.5",
     "gitTag": "221121.5.0"
@@ -33,6 +33,9 @@
                 "line": 37,
                 "code": "<ng-container *cxFeature=\"'a11yAnonymousConsentMessageInDialog'\">\n  <div class=\"cx-dialog-message\" aria-live=\"assertive\" aria-atomic=\"true\">\n    <cx-message\n      *ngIf=\"message$ | async as message\"\n      [text]=\"message.key | cxTranslate\"\n      [type]=\"message.type\"\n      [isVisibleCloseButton]=\"true\"\n      (closeMessage)=\"closeMessage()\"\n      [cxFocus]=\"{ autofocus: '.cx-message' }\"\n    ></cx-message>\n  </div>\n</ng-container>"
               }
+            ],
+            "components": [
+              "cx-message"
             ]
           },
           {
@@ -47,9 +50,12 @@
             ],
             "snippets": [
               {
-                "line": 80,
-                "code": "this.requiredConsents = this.config.anonymousConsents.requiredConsents;"
+                "line": 83,
+                "code": "useFeatureStyles('a11yAnonymousConsentMessageInDialog');"
               }
+            ],
+            "members": [
+              "AnonymousConsentDialogComponent.constructor"
             ]
           },
           {
@@ -64,17 +70,23 @@
             ],
             "snippets": [
               {
-                "line": 121,
-                "code": ");"
+                "line": 123,
+                "code": "!this.featureConfigService.isEnabled("
               },
               {
-                "line": 157,
-                "code": ");"
+                "line": 159,
+                "code": "!this.featureConfigService.isEnabled("
               },
               {
-                "line": 205,
-                "code": "protected onConsentGivenSuccess(): void {\n  if (\n    this.featureConfigService.isEnabled('a11yAnonymousConsentMessageInDialog')\n  ) {\n    this.message$.next({\n      type: GlobalMessageType.MSG_TYPE_CONFIRMATION,\n      key: 'consentManagementForm.message.success.given',\n    });\n  } else {\n    this.globalMessageService?.add(\n      { key: 'consentManagementForm.message.success.given' },\n      GlobalMessageType.MSG_TYPE_CONFIRMATION\n    );\n  }\n}"
+                "line": 207,
+                "code": "  this.featureConfigService.isEnabled('a11yAnonymousConsentMessageInDialog')\n) {\n  this.message$.next({\n    type: GlobalMessageType.MSG_TYPE_CONFIRMATION,\n    key: 'consentManagementForm.message.success.given',\n  });\n}"
               }
+            ],
+            "members": [
+              "AnonymousConsentDialogComponent.allowAll",
+              "AnonymousConsentDialogComponent.onConsentGivenSuccess",
+              "AnonymousConsentDialogComponent.onConsentWithdrawnSuccess",
+              "AnonymousConsentDialogComponent.rejectAll"
             ]
           },
           {
@@ -96,9 +108,22 @@
                 "line": 35,
                 "code": "@include forFeature('a11yAnonymousConsentMessageInDialog') {\n  .cx-dialog-message {\n    padding: 1.5rem 1.75rem 0;\n\n    .cx-message {\n      margin: 0;\n    }\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-anonymous-consent-dialog .cx-anonymous-consent-dialog .cx-dialog-content",
+              "cx-anonymous-consent-dialog .cx-anonymous-consent-dialog .cx-dialog-content .cx-dialog-message",
+              "cx-anonymous-consent-dialog .cx-anonymous-consent-dialog .cx-dialog-content .cx-dialog-message .cx-message"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "dcfa426815d724301b8b1032a8965b1564e57e39"
+        ],
+        "rollout": {
+          "defaultOn": "2211.42",
+          "mandatory": "221121.7"
+        },
         "translations": {
           "tr": "`AnonymousConsentDialogComponent` içinde bildirimleri modal'ı kapatmadan modal'ın içinde göster"
         }
@@ -128,6 +153,9 @@
                 "line": 163,
                 "code": "if (this.featureConfigService?.isEnabled('a11yFocusOnCardAfterSelecting')) {\n  this.focusCardAfterSelecting();\n}"
               }
+            ],
+            "members": [
+              "CheckoutDeliveryAddressComponent.selectAddress"
             ]
           },
           {
@@ -145,9 +173,20 @@
                 "line": 221,
                 "code": "if (this.featureConfigService?.isEnabled('a11yFocusOnCardAfterSelecting')) {\n  this.focusCardAfterSelecting();\n}"
               }
+            ],
+            "members": [
+              "CheckoutPaymentMethodComponent.selectPaymentMethod"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "dcfa426815d724301b8b1032a8965b1564e57e39"
+        ],
+        "rollout": {
+          "defaultOn": "2211.42",
+          "mandatory": "221121.7"
+        },
         "translations": {
           "tr": "Bir seçenek seçildikten ve checkout güncellendikten sonra focus'u karta geri verir."
         }
@@ -174,9 +213,20 @@
                 "line": 109,
                 "code": "if (this.featureConfigService.isEnabled('a11yHamburgerMenuTrapFocus')) {\n  this.trapFocusOnMenuIfExpanded();\n}"
               }
+            ],
+            "members": [
+              "StorefrontComponent.ngOnInit"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "dcfa426815d724301b8b1032a8965b1564e57e39"
+        ],
+        "rollout": {
+          "defaultOn": "2211.42",
+          "mandatory": "221121.7"
+        },
         "translations": {
           "tr": "Header. Menü genişletildiğinde mobilde menü öğelerinde focus'un hapsolması sorununu düzeltir.\nHeader bölümündeki görünür tüm focus alabilen öğeler için `tabindex` attribute'unu `-1` olarak ayarlar ve bunları\nklavye ile gezinmenin dışında bırakır"
         }
@@ -274,6 +324,9 @@
                 "line": 34,
                 "code": "useFeatureStyles('a11yHideConsentButtonWhenBannerVisible');"
               }
+            ],
+            "members": [
+              "AnonymousConsentOpenDialogComponent.constructor"
             ]
           },
           {
@@ -295,9 +348,21 @@
                 "line": 14,
                 "code": "@include forFeature('a11yHideConsentButtonWhenBannerVisible') {\n  margin: 1.5vw 3vw;\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-anonymous-consent-open-dialog",
+              "cx-anonymous-consent-open-dialog .btn-link"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "dcfa426815d724301b8b1032a8965b1564e57e39"
+        ],
+        "rollout": {
+          "defaultOn": "2211.42",
+          "mandatory": "221121.7"
+        },
         "translations": {
           "tr": "Çerez banner'ı görünürken 'Consent Management' butonunu tab sırasından çıkarır.\nOnay verildikten ve banner kaybolduktan sonra butonun yeniden etkinleştirilip tab sırasına dahil edilmesini sağlar.\nOnay verildikten sonra butonun adını \"View Details\" yerine \"Consent Management\" olarak değiştirir.\nButonun `AnonymousConsentOpenDialogComponent` içinde ortalanmasını ve klavye ile gezinirken dört kenarı da görünen net bir focus göstergesine sahip olmasını sağlar."
         }
@@ -328,6 +393,9 @@
                 "line": 67,
                 "code": "useFeatureStyles('a11yHighContrastBorders');"
               }
+            ],
+            "members": [
+              "SavedCartListComponent.constructor"
             ]
           },
           {
@@ -343,6 +411,9 @@
                 "line": 41,
                 "code": "useFeatureStyles('a11yHighContrastBorders');"
               }
+            ],
+            "members": [
+              "CheckoutReviewPaymentComponent.constructor"
             ]
           },
           {
@@ -360,9 +431,20 @@
                 "line": 36,
                 "code": "useFeatureStyles('a11yHighContrastBorders');"
               }
+            ],
+            "members": [
+              "CustomerTicketingListComponent.constructor"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "dcfa426815d724301b8b1032a8965b1564e57e39"
+        ],
+        "rollout": {
+          "defaultOn": "2211.42",
+          "mandatory": "221121.7"
+        },
         "translations": {
           "tr": "Yüksek kontrastlı koyu ve açık temalarda tüm UI öğelerindeki kenarlıkların görünür olmasını ve erişilebilirlik standartlarını karşılamasını sağlar.\nBu değişiklik, yüksek kontrast modlarına güvenen kullanıcılar için kullanılabilirliği artırmak amacıyla global olarak uygulanır."
         }
@@ -388,9 +470,12 @@
             ],
             "snippets": [
               {
-                "line": 150,
-                "code": "  protected winRef: WindowRef,\n  protected routingService: RoutingService\n) {\n  useFeatureStyles('a11yKeyboardFocusInSearchBox');\n}"
+                "line": 153,
+                "code": "useFeatureStyles('a11yKeyboardFocusInSearchBox');"
               }
+            ],
+            "members": [
+              "SearchBoxComponent.constructor"
             ]
           },
           {
@@ -405,9 +490,12 @@
             ],
             "snippets": [
               {
-                "line": 88,
-                "code": "  protected keyboardFocusService: KeyboardFocusService\n) {\n  useFeatureStyles('a11yKeyboardFocusInSearchBox');\n  useFeatureStyles('a11yNgSelectLayering');\n  useFeatureStyles('topProgressBarUseTransformAnimation');\n  useFeatureStyles('unifiedDefaultHeaderSlotsAcrossBreakpoints');\n}"
+                "line": 90,
+                "code": "useFeatureStyles('a11yKeyboardFocusInSearchBox');"
               }
+            ],
+            "members": [
+              "StorefrontComponent.constructor"
             ]
           },
           {
@@ -424,9 +512,13 @@
             ],
             "snippets": [
               {
-                "line": 52,
-                "code": "--cx-visual-focus-width: 0;"
+                "line": 57,
+                "code": "@include forFeature('a11yKeyboardFocusInSearchBox') {\n  :focus-within {\n    --cx-visual-focus-width: 0;\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-storefront .mouse-focus",
+              "cx-storefront .mouse-focus :focus-within"
             ]
           },
           {
@@ -451,20 +543,34 @@
             ],
             "snippets": [
               {
-                "line": 134,
-                "code": "}"
+                "line": 168,
+                "code": "@include forFeature('a11yKeyboardFocusInSearchBox') {\n  &:focus-within {\n    @include visible-focus();\n  }\n}"
               },
               {
-                "line": 165,
-                "code": "padding-bottom: 6px;"
+                "line": 191,
+                "code": "@include forFeature('a11yKeyboardFocusInSearchBox') {\n  &:focus-within {\n    padding: 27px 10px 8px;\n    outline: 0;\n  }\n}"
               },
               {
-                "line": 183,
-                "code": "position: absolute;"
+                "line": 213,
+                "code": "@include forFeature('a11yKeyboardFocusInSearchBox') {\n  &:focus {\n    @include visible-focus();\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-searchbox label .cx-label-inner-container",
+              "cx-searchbox label .cx-label-inner-container:focus-within",
+              "cx-searchbox label input",
+              "cx-searchbox label input:focus"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "dcfa426815d724301b8b1032a8965b1564e57e39"
+        ],
+        "rollout": {
+          "defaultOn": "2211.42",
+          "mandatory": "221121.7"
+        },
         "translations": {
           "tr": "`SearchBoxComponent` içinde, fare etkileşimlerinin görsel durumunu etkilemeden klavye ile gezinme için görünür bir focus göstergesi ekler."
         }
@@ -491,6 +597,9 @@
                 "line": 27,
                 "code": "useFeatureStyles('a11yMiniCartFocusOnMobile');"
               }
+            ],
+            "members": [
+              "MiniCartComponent.constructor"
             ]
           },
           {
@@ -508,9 +617,22 @@
                 "line": 52,
                 "code": "@include forFeature('a11yMiniCartFocusOnMobile') {\n  @include media-breakpoint-down(md) {\n    a {\n      &:focus {\n        outline-offset: -4px;\n        outline-color: var(--cx-color-inverse);\n        box-shadow: 0 0 0 2px var(--cx-color-visual-focus) inset;\n      }\n    }\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-mini-cart",
+              "cx-mini-cart a",
+              "cx-mini-cart a:focus"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "dcfa426815d724301b8b1032a8965b1564e57e39"
+        ],
+        "rollout": {
+          "defaultOn": "2211.42",
+          "mandatory": "221121.7"
+        },
         "translations": {
           "tr": "`MiniCart component` içinde mobilde görünür focus kontrastını iyileştirir."
         }
@@ -539,6 +661,9 @@
                 "line": 70,
                 "code": "<ng-container *cxFeature=\"'!a11yNavigationButtonsAriaFixes'\">\n  <button\n    aria-level=\"4\"\n    [attr.role]=\"(isDesktop$ | async) && depth ? 'heading' : 'button'\"\n    [attr.aria-haspopup]=\"true\"\n    [attr.aria-expanded]=\"false\"\n    [attr.aria-controls]=\"node.title\"\n    [attr.aria-describedby]=\"'greeting'\"\n    (click)=\"toggleOpen($any($event))\"\n    (mouseenter)=\"onMouseEnter($event)\"\n    (keydown.space)=\"onSpace($any($event))\"\n    (keydown.enter)=\"onSpace($any($event))\"\n    (keydown.esc)=\"back()\"\n    (keydown.arrowDown)=\"focusOnNode($any($event))\"\n    (focus)=\"depth || reinitializeMenu()\"\n  >\n    <ng-container *ngIf=\"!node.url\">\n      {{ node.title }}\n    </ng-container>\n    <cx-icon [type]=\"iconType.CARET_DOWN\"></cx-icon>\n  </button>\n</ng-container>"
               }
+            ],
+            "components": [
+              "cx-icon"
             ]
           },
           {
@@ -556,6 +681,9 @@
                 "line": 92,
                 "code": "<ng-container *cxFeature=\"'a11yNavigationButtonsAriaFixes'\">\n  <h4\n    *ngIf=\"(isDesktop$ | async) && depth; else dropdownHeader\"\n    (keydown.arrowDown)=\"focusOnNode($any($event))\"\n    (keydown.space)=\"onSpace($any($event))\"\n    tabindex=\"0\"\n  >\n    {{ node.title }}\n  </h4>\n  <ng-template #dropdownHeader>\n    <button\n      [attr.aria-haspopup]=\"true\"\n      [attr.aria-expanded]=\"false\"\n      [attr.aria-label]=\"node.url ? node.title : null\"\n      [attr.aria-controls]=\"transformIntoValidID(node.title)\"\n      [attr.title]=\"\n        'navigation.menuButonTitle' | cxTranslate: { title: node.title }\n      \"\n      (click)=\"toggleOpen($any($event))\"\n      (mouseenter)=\"onMouseEnter($event)\"\n      (keydown.space)=\"onSpace($any($event))\"\n      (keydown.enter)=\"onSpace($any($event))\"\n      (keydown.esc)=\"back()\"\n      (keydown.arrowDown)=\"focusOnNode($any($event))\"\n      (focus)=\"depth || reinitializeMenu()\"\n    >\n      <ng-container *ngIf=\"!node.url\">\n        {{ node.title }}\n      </ng-container>\n      <cx-icon [type]=\"iconType.CARET_DOWN\"></cx-icon>\n    </button>\n  </ng-template>\n</ng-container>"
               }
+            ],
+            "components": [
+              "cx-icon"
             ]
           },
           {
@@ -573,6 +701,9 @@
                 "line": 122,
                 "code": "useFeatureStyles('a11yNavigationButtonsAriaFixes');"
               }
+            ],
+            "members": [
+              "NavigationUIComponent.constructor"
             ]
           },
           {
@@ -590,6 +721,9 @@
                 "line": 268,
                 "code": "  this.featureConfigService?.isEnabled('a11yNavigationButtonsAriaFixes')\n) {\n  const firstFocusableNode = (<HTMLElement>(\n    event.target\n  ))?.nextElementSibling?.querySelector('button, h4, a') as HTMLElement;\n  firstFocusableNode?.focus();\n}"
               }
+            ],
+            "members": [
+              "NavigationUIComponent.focusOnNode"
             ]
           },
           {
@@ -608,12 +742,24 @@
             ],
             "snippets": [
               {
-                "line": 6,
-                "code": "cx-navigation-ui > nav > ul > li > cx-generic-link {\n  text-transform: uppercase;\n  font-weight: 600;\n  width: 100%;\n}"
+                "line": 12,
+                "code": "@include forFeature('a11yNavigationButtonsAriaFixes') {\n  h4 {\n    text-transform: uppercase;\n    font-weight: 600;\n    width: 100%;\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-category-navigation",
+              "cx-category-navigation h4"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "dcfa426815d724301b8b1032a8965b1564e57e39"
+        ],
+        "rollout": {
+          "defaultOn": "2211.42",
+          "mandatory": "221121.7"
+        },
         "translations": {
           "tr": "Button öğelerinde geçersiz aria-level kullanımını kaldırır ve butonların aria-label veya aria-labelledby ile uygun bir erişilebilir ada sahip olmasını sağlar."
         }
@@ -635,12 +781,23 @@
             "selectors": [],
             "snippets": [
               {
-                "line": 95,
-                "code": "this.renderer.setAttribute(inputCombobox, 'aria-expanded', 'false');"
+                "line": 97,
+                "code": "this.featureConfigService?.isEnabled("
               }
+            ],
+            "members": [
+              "NgSelectA11yDirective.ngAfterViewInit"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "dcfa426815d724301b8b1032a8965b1564e57e39"
+        ],
+        "rollout": {
+          "defaultOn": "2211.42",
+          "mandatory": "221121.7"
+        },
         "translations": {
           "tr": "'NgSelectA11yDirective', özel\nariaLabelDropdown ng-select attribute değerini sağlanan common.ngSelectDropdownOptionsList çevirisine ayarlayarak ng-select dropdown'larını özelleştirir"
         }
@@ -665,9 +822,20 @@
                 "line": 221,
                 "code": "const element = this.featureConfigService?.isEnabled("
               }
+            ],
+            "members": [
+              "PopoverDirective.renderPopover"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "dcfa426815d724301b8b1032a8965b1564e57e39"
+        ],
+        "rollout": {
+          "defaultOn": "2211.42",
+          "mandatory": "221121.7"
+        },
         "translations": {
           "tr": "Yüksek Kontrast Teması uygulandığında popover görünümünü düzeltir."
         }
@@ -691,12 +859,23 @@
             ],
             "snippets": [
               {
-                "line": 86,
-                "code": "if ("
+                "line": 87,
+                "code": "this.featureConfigService.isEnabled("
               }
+            ],
+            "members": [
+              "QuickOrderFormComponent.clear"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "dcfa426815d724301b8b1032a8965b1564e57e39"
+        ],
+        "rollout": {
+          "defaultOn": "2211.42",
+          "mandatory": "221121.7"
+        },
         "translations": {
           "tr": "Etkinleştirildiğinde `QuickOrderFormComponent` içindeki input öğesi, dropdown kapandıktan sonra focus'unu yeniden kazanır."
         }
@@ -723,6 +902,9 @@
                 "line": 70,
                 "code": "<button\n  *cxFeature=\"'!a11yQuickOrderSearchListKeyboardNavigation'\"\n  (blur)=\"onBlur($event)\"\n  (mousedown)=\"add(product, $event)\"\n  (keydown.arrowdown)=\"focusNextChild($event)\"\n  (keydown.arrowup)=\"focusPreviousChild($event)\"\n  (keydown.enter)=\"add(product, $event)\"\n  (keydown.escape)=\"clear($event)\"\n  [class.has-media]=\"\n    config?.quickOrder?.searchForm?.displayProductImages\n  \"\n  class=\"quick-order-results-product\"\n  role=\"option\"\n>\n  <cx-media\n    *ngIf=\"config?.quickOrder?.searchForm?.displayProductImages\"\n    [alt]=\"product.name\"\n    [container]=\"product.images?.PRIMARY\"\n    class=\"media\"\n    format=\"thumbnail\"\n    role=\"presentation\"\n  ></cx-media>\n  <div class=\"name\" [innerHTML]=\"product.name\"></div>\n  <span class=\"id\">\n    {{\n      'quickOrderForm.id'\n        | cxTranslate\n          : {\n              id: product.code,\n            }\n    }}\n  </span>\n  <span class=\"price\">{{ product.price?.formattedValue }}</span>\n</button>"
               }
+            ],
+            "components": [
+              "cx-media"
             ]
           },
           {
@@ -740,9 +922,20 @@
                 "line": 104,
                 "code": "<button\n  *cxFeature=\"'a11yQuickOrderSearchListKeyboardNavigation'\"\n  (blur)=\"onBlur($event)\"\n  (mousedown)=\"add(product, $event)\"\n  (keydown.arrowdown)=\"focusNextChild($event)\"\n  (keydown.arrowup)=\"focusPreviousChild($event)\"\n  (keydown.enter)=\"add(product, $event)\"\n  (keydown.escape)=\"clear($event)\"\n  (keydown.tab)=\"close()\"\n  (keydown.shift.tab)=\"close()\"\n  [class.has-media]=\"\n    config?.quickOrder?.searchForm?.displayProductImages\n  \"\n  class=\"quick-order-results-product\"\n  role=\"option\"\n>\n  <cx-media\n    *ngIf=\"config?.quickOrder?.searchForm?.displayProductImages\"\n    [alt]=\"product.name\"\n    [container]=\"product.images?.PRIMARY\"\n    class=\"media\"\n    format=\"thumbnail\"\n    role=\"presentation\"\n  ></cx-media>\n  <div class=\"name\" [innerHTML]=\"product.name\"></div>\n  <span class=\"id\">\n    {{\n      'quickOrderForm.id'\n        | cxTranslate\n          : {\n              id: product.code,\n            }\n    }}\n  </span>\n  <span class=\"price\">{{ product.price?.formattedValue }}</span>\n</button>"
               }
+            ],
+            "components": [
+              "cx-media"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "dcfa426815d724301b8b1032a8965b1564e57e39"
+        ],
+        "rollout": {
+          "defaultOn": "2211.42",
+          "mandatory": "221121.7"
+        },
         "translations": {
           "tr": "`QuickOrderFormComponent` - arama sonuçları listesi için Tab/Shift+Tab ile gezinmeyi devre dışı bırakır"
         }
@@ -829,6 +1022,14 @@
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "dcfa426815d724301b8b1032a8965b1564e57e39"
+        ],
+        "rollout": {
+          "defaultOn": "2211.42",
+          "mandatory": "221121.7"
+        },
         "translations": {
           "tr": "İçerik bölgelerini başlıklarıyla ilişkilendirerek bölümler arasında gezinirken sesli okumayı iyileştirir."
         }
@@ -855,6 +1056,9 @@
                 "line": 1,
                 "code": "<ng-container *cxFeature=\"'a11yRepeatingButtonsUniqueLabels'\">\n  <ng-container *ngIf=\"{ storeSelected: storeSelected$ | async } as data\">\n    <div\n      [attr.data-preferred-store]=\"pointOfServiceName.name\"\n      [attr.data-store-is-selected]=\"\n        pointOfServiceName.name === data.storeSelected?.name\n      \"\n      class=\"setpreferredstore-container\"\n      (click)=\"setAsPreferred()\"\n    >\n      <div\n        [ngClass]=\"\n          pointOfServiceName.name === data.storeSelected?.name\n            ? 'icon-selected'\n            : 'icon-not-selected'\n        \"\n      >\n        <cx-icon aria-hidden=\"true\" [type]=\"ICON_TYPE.HEART\"></cx-icon>\n      </div>\n      <button\n        data-text=\"setPreferredStore.myStore\"\n        [attr.data-preferred-store]=\"pointOfServiceName.name\"\n        class=\"set-preferred-heading\"\n        [attr.aria-label]=\"\n          (getSetStoreButtonLabel(data.storeSelected?.name || '')\n            | cxTranslate) +\n          ', ' +\n          pointOfServiceName.displayName\n        \"\n      >\n        {{\n          getSetStoreButtonLabel(data.storeSelected?.name || '') | cxTranslate\n        }}\n      </button>\n    </div>\n  </ng-container>\n</ng-container>"
               }
+            ],
+            "components": [
+              "cx-icon"
             ]
           },
           {
@@ -870,9 +1074,20 @@
                 "line": 38,
                 "code": "<ng-container *cxFeature=\"'!a11yRepeatingButtonsUniqueLabels'\">\n  <div\n    [attr.data-preferred-store]=\"pointOfServiceName.name\"\n    [attr.data-store-is-selected]=\"\n      pointOfServiceName.name === (storeSelected$ | async)?.name\n    \"\n    class=\"setpreferredstore-container\"\n    (click)=\"setAsPreferred()\"\n  >\n    <div\n      [ngClass]=\"{\n        'icon-selected':\n          pointOfServiceName.name === (storeSelected$ | async)?.name,\n        'icon-not-selected':\n          pointOfServiceName.name !== (storeSelected$ | async)?.name,\n      }\"\n    >\n      <cx-icon aria-hidden=\"true\" [type]=\"ICON_TYPE.HEART\"></cx-icon>\n    </div>\n    <button\n      data-text=\"setPreferredStore.myStore\"\n      [attr.data-preferred-store]=\"pointOfServiceName.name\"\n      class=\"set-preferred-heading\"\n    >\n      {{\n        pointOfServiceName.name === (storeSelected$ | async)?.name\n          ? ('setPreferredStore.myStore' | cxTranslate)\n          : ('setPreferredStore.makeThisMyStore' | cxTranslate)\n      }}\n    </button>\n  </div>\n</ng-container>"
               }
+            ],
+            "components": [
+              "cx-icon"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "dcfa426815d724301b8b1032a8965b1564e57e39"
+        ],
+        "rollout": {
+          "defaultOn": "2211.42",
+          "mandatory": "221121.7"
+        },
         "translations": {
           "tr": "Aynı metni içeren tekrarlayan butonlara benzersiz bir `aria-label` ekler."
         }
@@ -896,12 +1111,23 @@
             ],
             "snippets": [
               {
-                "line": 162,
-                "code": "// After clicking a link the focus should move to the first available item in the main content area."
+                "line": 164,
+                "code": "this.featureConfigService.isEnabled('a11yResetFocusAfterNavigating') &&"
               }
+            ],
+            "members": [
+              "StorefrontComponent.onNavigation"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "dcfa426815d724301b8b1032a8965b1564e57e39"
+        ],
+        "rollout": {
+          "defaultOn": "2211.42",
+          "mandatory": "221121.7"
+        },
         "translations": {
           "tr": "Yeni bir sayfaya gidildikten sonra focus'u sıfırlar."
         }
@@ -928,6 +1154,9 @@
                 "line": 30,
                 "code": "useFeatureStyles('a11yScrollToTopPositioning');"
               }
+            ],
+            "members": [
+              "AnonymousConsentManagementBannerComponent.constructor"
             ]
           },
           {
@@ -947,9 +1176,21 @@
                 "line": 54,
                 "code": "@include forFeature('a11yScrollToTopPositioning') {\n  &:has(.anonymous-consent-banner) ~ cx-scroll-to-top {\n    bottom: 180px;\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-anonymous-consent-management-banner",
+              "cx-anonymous-consent-management-banner:has(.anonymous-consent-banner) ~ cx-scroll-to-top"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "dcfa426815d724301b8b1032a8965b1564e57e39"
+        ],
+        "rollout": {
+          "defaultOn": "2211.42",
+          "mandatory": "221121.7"
+        },
         "translations": {
           "tr": "Etkinleştirildiğinde scroll-to-top butonu, sayfanın altında diğer UI öğeleri\n(örneğin çerez onayı banner'ı) göründüğünde üst üste binmeyi önlemek için konumunu ayarlar"
         }
@@ -976,9 +1217,12 @@
             ],
             "snippets": [
               {
-                "line": 136,
-                "code": "} else if (this.getFocusedIndex() !== -1) {\n  const product = this.results[this.getFocusedIndex()];\n  this.add(product, event);\n}"
+                "line": 158,
+                "code": "this.featureConfigService.isEnabled("
               }
+            ],
+            "members": [
+              "QuickOrderFormComponent.focusNextChild"
             ]
           },
           {
@@ -993,12 +1237,23 @@
             ],
             "snippets": [
               {
-                "line": 438,
-                "code": "const [results, focusedIndex] = ["
+                "line": 463,
+                "code": "this.featureConfigService?.isEnabled("
               }
+            ],
+            "members": [
+              "SearchBoxComponent.focusNextChild"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "dcfa426815d724301b8b1032a8965b1564e57e39"
+        ],
+        "rollout": {
+          "defaultOn": "2211.42",
+          "mandatory": "221121.7"
+        },
         "translations": {
           "tr": "Arama dropdown'ları, aşağı ok tuşuyla seçeneklere gidilirken focus halkasını doğru şekilde gösterir."
         }
@@ -1025,9 +1280,20 @@
                 "line": 116,
                 "code": "if (this.featureConfigService?.isEnabled('a11yTabsManualActivation')) {\n  switch (mode) {\n    case TAB_MODE.TAB:\n    case TAB_MODE.ACCORDIAN:\n      return this.focus(tabNum);\n  }\n}"
               }
+            ],
+            "members": [
+              "TabComponent.selectOrFocus"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "dcfa426815d724301b8b1032a8965b1564e57e39"
+        ],
+        "rollout": {
+          "defaultOn": "2211.42",
+          "mandatory": "221121.7"
+        },
         "translations": {
           "tr": "'TabComponent' otomatik tab etkinleştirmesine izin vermez."
         }
@@ -1085,9 +1351,12 @@
             ],
             "snippets": [
               {
-                "line": 38,
-                "code": "  protected unitOrdersFacade: UnitOrderFacade,\n  protected translation: TranslationService\n) {\n  useFeatureStyles('a11yTruncatedTextUnitLevelOrderHistory');\n}"
+                "line": 41,
+                "code": "useFeatureStyles('a11yTruncatedTextUnitLevelOrderHistory');"
               }
+            ],
+            "members": [
+              "UnitLevelOrderHistoryComponent.constructor"
             ]
           },
           {
@@ -1106,12 +1375,23 @@
             ],
             "snippets": [
               {
-                "line": 20,
-                "code": "display: none;"
+                "line": 26,
+                "code": "@include forFeature('a11yTruncatedTextUnitLevelOrderHistory') {\n  width: unset;\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-unit-level-order-history .cx-unit-level-order-history-filter-label-wrapper"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "dcfa426815d724301b8b1032a8965b1564e57e39"
+        ],
+        "rollout": {
+          "defaultOn": "2211.42",
+          "mandatory": "221121.7"
+        },
         "translations": {
           "tr": "`UnitLevelOrderHistoryComponent` filtre input etiketi ve tablodaki e-posta adresi\nkırpılmaz"
         }
@@ -1138,6 +1418,9 @@
                 "line": 23,
                 "code": "useFeatureStyles('a11yUseProperTextColorForFutureStockAccordion');"
               }
+            ],
+            "members": [
+              "FutureStockAccordionComponent.constructor"
             ]
           },
           {
@@ -1159,9 +1442,20 @@
                 "line": 20,
                 "code": "@include forFeature('a11yUseProperTextColorForFutureStockAccordion') {\n  color: var(--cx-color-text);\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-future-stock-accordion .cx-future-stock-accordion-header"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "dcfa426815d724301b8b1032a8965b1564e57e39"
+        ],
+        "rollout": {
+          "defaultOn": "2211.42",
+          "mandatory": "221121.7"
+        },
         "translations": {
           "tr": "`FutureStockAccordionComponent` içinde buton rengi için `cx-color-text` kullanılır"
         }
@@ -1185,12 +1479,23 @@
             ],
             "snippets": [
               {
-                "line": 93,
-                "code": "if ("
+                "line": 95,
+                "code": "  this.featureConfigService.isEnabled('enableCarouselCategoryProducts')\n) {\n  return zip(\n    categoryCodes.map((categoryCode) =>\n      this.productSearchByCategoryService.get({\n        categoryCode,\n        scope: ProductScope.CODE,\n      })\n    )\n  ).pipe(\n    map((results) => {\n      const codes = results\n        .flat()\n        .map((product) => product?.code)\n        .join(' ');\n\n      return {\n        ...data,\n        productCodes: data.productCodes + ' ' + codes,\n      };\n    })\n  );\n}"
               }
+            ],
+            "members": [
+              "ProductCarouselComponent.handleCategoryCodes"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "5a03354829b6e047c154f05983e2482f08f21cd5"
+        ],
+        "rollout": {
+          "defaultOn": "2211.42",
+          "mandatory": "221121.7"
+        },
         "translations": {
           "tr": "Ürün carousel'inin belirtilen kategori kodlarına göre ürünleri içermesini sağlar.\n\n- Bu özellik etkinleştirildiğinde carousel, sağlanan `categoryCodes` ile\n  ilişkili ürünleri getirir ve gösterir.\n- `categoryCodes` SmartEdit üzerinden yapılandırılır ve yönetilir"
         }
@@ -1215,9 +1520,20 @@
                 "line": 49,
                 "code": "this.featureConfigService.isEnabled("
               }
+            ],
+            "members": [
+              "CustomerCouponConnector.claimCustomerCoupon"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "677e6d945cc7cce18100951707925c886eceabd7"
+        ],
+        "rollout": {
+          "defaultOn": "2211.42",
+          "mandatory": "221121.7"
+        },
         "translations": {
           "tr": "CustomerCouponConnector içinde, müşteri kuponunun POST metoduyla httpRequest body'sinde kupon koduyla talep edilmesini sağlar.\n\n`false` olarak ayarlandığında müşteri kuponu talep etme, kupon kodunu URL'de parametre olarak kullanır; bu durum hassas verileri açığa çıkarır ve güvenlik riski taşır.\n`true` olarak ayarlandığında müşteri kuponu talep etme, kupon kodunu POST metoduyla httpRequest body'sinde kullanır (yeni Occ endpoint'i Commerce 2211.28'den itibaren mevcuttur) ve güvenlik riskini önler."
         }
@@ -1241,12 +1557,23 @@
             ],
             "snippets": [
               {
-                "line": 65,
-                "code": "if ("
+                "line": 66,
+                "code": "  this.featureConfigService?.isEnabled('updateConsentGivenInOnChanges') &&\n  (changes.consent || changes.consentTemplate)\n) {\n  this.updateConsentGiven();\n}"
               }
+            ],
+            "members": [
+              "ConsentManagementFormComponent.ngOnChanges"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "d38002a4dbed8ea58dffe225e3a541285ad9943e"
+        ],
+        "rollout": {
+          "defaultOn": "2211.42",
+          "mandatory": "221121.7"
+        },
         "translations": {
           "tr": "`consent` güncellendiğinde türetilmiş `consentGiven` durumunu günceller.\n\nEtkilenen component'ler:\n- `ConsentManagementFormComponent`\n- `MyAccountV2ConsentManagementFormComponent`"
         }
@@ -1297,6 +1624,14 @@
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "f6372aebc2b88f3caf868c73d95740372e682740"
+        ],
+        "rollout": {
+          "defaultOn": "221121.17",
+          "mandatory": "Q1 2027"
+        },
         "translations": {
           "tr": "FutureStockAccordionComponent içinde accordion kapalıyken aria-controls'un var olmayan bir öğeye referans vermesine neden olan a11y sorununu düzeltir. Etkinleştirildiğinde, içerik öğesi her zaman DOM'da bulunur ancak kapalıyken gizlenir; böylece aria-controls her zaman geçerli bir ID'ye referans verir."
         }
@@ -1321,6 +1656,9 @@
                 "line": 81,
                 "code": "useFeatureStyles('a11yNgSelectUnicodeCarets');"
               }
+            ],
+            "members": [
+              "NgSelectA11yDirective.constructor"
             ]
           },
           {
@@ -1347,6 +1685,14 @@
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "7d3bb9c7e2a64df08dacc59bd1cd903c849fb64f"
+        ],
+        "rollout": {
+          "defaultOn": "221121.17",
+          "mandatory": "Q1 2027"
+        },
         "translations": {
           "tr": "ng-select dropdown caret'leri için unicode karakterler kullanır; böylece işletim sistemi theme'leri metni hedefleyerek varsayılanları override edebilir. Şekilleri çizmek için border kullanıldığında bu mümkün değildir."
         }
@@ -1375,6 +1721,9 @@
                 "line": 71,
                 "code": "useFeatureStyles('consistentSizeProductCards');"
               }
+            ],
+            "members": [
+              "ProductGridItemComponent.constructor"
             ]
           },
           {
@@ -1392,6 +1741,9 @@
                 "line": 71,
                 "code": "useFeatureStyles('consistentSizeProductCards');"
               }
+            ],
+            "members": [
+              "ProductListItemComponent.constructor"
             ]
           },
           {
@@ -1415,6 +1767,11 @@
                 "line": 41,
                 "code": "@include forFeature('consistentSizeProductCards') {\n  @include media-breakpoint-up(md) {\n    img {\n      max-height: 255px;\n    }\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-product-grid-item .cx-product-image",
+              "cx-product-grid-item .cx-product-image img",
+              "cx-product-grid-item .cx-product-image-container"
             ]
           },
           {
@@ -1442,9 +1799,24 @@
                 "line": 47,
                 "code": "@include forFeature('consistentSizeProductCards') {\n  @include media-breakpoint-up(md) {\n    display: flex;\n    img {\n      margin-top: auto;\n      margin-bottom: auto;\n      max-height: 255px;\n    }\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-product-list-item",
+              "cx-product-list-item .cx-product-image",
+              "cx-product-list-item .cx-product-image img",
+              "cx-product-list-item .cx-product-summary",
+              "cx-product-list-item > div"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "6f9e2ed96eaf6d9a6bbb6ebe4ee2c3462f84d4fe"
+        ],
+        "rollout": {
+          "defaultOn": "221121.7",
+          "mandatory": "221121.17"
+        },
         "translations": {
           "tr": "Etkinleştirildiğinde, ürün listesi sayfasındaki ürün kartlarına zorunlu tutarlı bir boyut uygulanır.\nŞu bileşenlerin stillerini etkiler: ProductGridItemComponent, ProductListItemComponent."
         }
@@ -1456,6 +1828,32 @@
         "defaultValue": true,
         "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/b064b86b837544b2a41158f1d1c5e552.html",
         "usages": [],
+        "references": [
+          {
+            "file": "projects/storefrontlib/cms-structure/seo/media-preconnect.service.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "MediaPreconnectService"
+            ],
+            "selectors": [],
+            "members": [
+              "MediaPreconnectService.addPreconnectLink"
+            ],
+            "snippets": [
+              {
+                "line": 22,
+                "code": "if (!this.featureToggles.createMediaPreconnectLink) {\n  return;\n}"
+              }
+            ]
+          }
+        ],
+        "commits": [
+          "6f9e2ed96eaf6d9a6bbb6ebe4ee2c3462f84d4fe"
+        ],
+        "rollout": {
+          "defaultOn": "221121.7",
+          "mandatory": "221121.17"
+        },
         "translations": {
           "tr": "index.html içinde <link rel=preconnect> kullanımını etkinleştiren feature toggle.\n\n## Etkinleştirildiğinde:\nBir <link> öğesine rel=preconnect eklemek, tarayıcıya sayfanızın başka bir domain'e bağlantı kurmayı amaçladığını\nve bu sürecin mümkün olan en kısa sürede başlamasını istediğinizi bildirir. Kurulum süreci tarayıcı kaynakları\nistediğinde zaten tamamlanmış olacağından kaynaklar daha hızlı yüklenir.\n\nNot: Media base url'in domain'i storefront'un domain'i ile aynıysa preconnect gerekmez (ve uygulanmaz)."
         }
@@ -1467,6 +1865,30 @@
         "defaultValue": true,
         "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/53c73f185b97463cb549b45df823153e.html",
         "usages": [],
+        "references": [
+          {
+            "file": "projects/storefrontlib/recipes/config/layout-config.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [],
+            "selectors": [],
+            "members": [
+              "layoutConfigFactory"
+            ],
+            "snippets": [
+              {
+                "line": 166,
+                "code": "if (featureToggles.defaultLayoutConfigWithoutPageFold) {\n  const homepageConfig =\n    (config?.layoutSlots?.LandingPage2Template as SlotConfig) ?? {};\n  delete homepageConfig.pageFold;\n\n  const categoryPageConfig =\n    (config?.layoutSlots?.CategoryPageTemplate as SlotConfig) ?? {};\n  delete categoryPageConfig.pageFold;\n\n  const productDetailsPageConfig =\n    (config?.layoutSlots?.ProductDetailsPageTemplate as SlotConfig) ?? {};\n  delete productDetailsPageConfig.pageFold;\n  delete ((productDetailsPageConfig as SlotGroup).lg ?? {}).pageFold;\n}"
+              }
+            ]
+          }
+        ],
+        "commits": [
+          "6f9e2ed96eaf6d9a6bbb6ebe4ee2c3462f84d4fe"
+        ],
+        "rollout": {
+          "defaultOn": "221121.7",
+          "mandatory": "221121.17"
+        },
         "translations": {
           "tr": "Daha önce varsayılan Spartacus layout config'i aşağıdaki layout'lar için `pageFold` özelliğini içeriyordu:\n- `LandingPage2Template`\n- `CategoryPageTemplate`\n- `ProductDetailsPageTemplate`\n\nBu feature toggle etkinleştirildiğinde, `pageFold` özelliği bu layout config'lerinden kaldırılır.\n\nAmaç CLS (Cumulative Layout Shift) metriğini iyileştirmektir. Önceden `pageFold` özelliği, SSR sayfalarında bile\nCMS component'lerinin ancak kısa bir gecikmeden sonra render edilmesine ve dolayısıyla layout shift oluşmasına neden oluyordu.\n\n⚠️ Bu feature toggle'ı tam olarak etkinleştirmek için kod tabanınızdaki `provideConfig(layoutConfig)` çağrısını\n`provideConfigFactory(layoutConfigFactory)` ile değiştirmeniz de gerekir."
         }
@@ -1478,6 +1900,28 @@
         "defaultValue": true,
         "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/bc80eb4d9f7742b292b0bd6ed7bf660c.html",
         "usages": [],
+        "references": [
+          {
+            "file": "projects/storefrontlib/cms-structure/routing/default-routing-config.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [],
+            "selectors": [],
+            "members": [],
+            "snippets": [
+              {
+                "line": 13,
+                "code": "  featureToggles.defaultProductPageRouteAllowsNoProductName;\n\nconst routingConfig = {\n  routing: {\n    routes: {\n      home: { paths: [''] },\n      notFound: { paths: ['not-found'] },\n\n      // semantic links for login related pages\n      login: {\n        /*\n         * New auth flow requires 2 paths for login trigger and login form\n         * where we are redirected from oauth server.\n         * Legacy path will stay, new one is updated.           *\n         */\n        paths: [\n          featureToggles.authorizationCodeFlowByDefault ? 'sign-in' : 'login',\n        ],\n        protected: false,\n        authFlow: true,\n      },\n      verifyToken: {\n        paths: ['login/verify-token'],\n        protected: false,\n        authFlow: true,\n      },\n      verifyTokenForRegistration: {\n        paths: ['register/verify-token'],\n        protected: false,\n        authFlow: true,\n      },\n      register: {\n        paths: ['login/register'],\n        protected: false,\n        authFlow: true,\n      },\n      forgotPassword: {\n        paths: ['login/forgot-password'],\n        protected: false,\n        authFlow: true,\n…"
+              }
+            ]
+          }
+        ],
+        "commits": [
+          "6f9e2ed96eaf6d9a6bbb6ebe4ee2c3462f84d4fe"
+        ],
+        "rollout": {
+          "defaultOn": "221121.7",
+          "mandatory": "221121.15"
+        },
         "translations": {
           "tr": "Etkinleştirildiğinde, ürün sayfası için varsayılan routing config artık sadece şu değildir:\n`paths: ['product/:productCode/:name']`\nbunun yerine şudur:\n`paths: ['product/:productCode/:name', 'product/:productCode'],`\n\nBu, bağlantı oluşturma ve URL eşleştirmenin eski URL şemasının korunduğu anlamına gelir,\nancak artık URL eşleştirilirken daha kısa bir alias (ürün adı olmadan) da kabul edilir."
         }
@@ -1504,6 +1948,9 @@
                 "line": 56,
                 "code": "useFeatureStyles('disableCxPageSlotMarginAnimation');"
               }
+            ],
+            "members": [
+              "PageLayoutComponent.constructor"
             ]
           },
           {
@@ -1521,12 +1968,23 @@
             ],
             "snippets": [
               {
-                "line": 8,
-                "code": "// The real estate of pending elements below-the-fold (btf) is"
+                "line": 26,
+                "code": "@include forFeature('disableCxPageSlotMarginAnimation') {\n  transition: none;\n  transition-delay: 0s;\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-page-layout cx-page-slot"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "6f9e2ed96eaf6d9a6bbb6ebe4ee2c3462f84d4fe"
+        ],
+        "rollout": {
+          "defaultOn": "221121.7",
+          "mandatory": "221121.17"
+        },
         "translations": {
           "tr": "cx-page-slot component'i için margin animasyonunu devre dışı bırakan feature toggle.\n`cx-page-slot` component'indeki `margin` özelliğinin CSS animasyonunu devre dışı bırakır.\nBu animasyon, başlangıçta Spartacus'taki eski \"defer loading\" ve \"below the fold\"\nmekanizmasının bir parçasıydı. Bu mekanizma güncel storefront'ta artık kullanılmadığından,\nanimasyon gereksiz layout shift'lere (CLS) ve artan render maliyetine (TBT) neden olur.\n\nBu toggle'ı etkinleştirmek, performansı ve kullanıcı deneyimini iyileştirmek için margin animasyonunu kaldırır."
         }
@@ -1551,9 +2009,20 @@
                 "line": 163,
                 "code": "const fallbackStrategy = this.featureConfigService.isEnabled("
               }
+            ],
+            "members": [
+              "MediaService.loadingStrategy"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "6f9e2ed96eaf6d9a6bbb6ebe4ee2c3462f84d4fe"
+        ],
+        "rollout": {
+          "defaultOn": "221121.7",
+          "mandatory": "221121.17"
+        },
         "translations": {
           "tr": "Varsayılan görsel yükleme stratejisini kontrol eden feature toggle.\n\nVarsayılan olarak `MediaComponent`, `MediaService` içindeki fallback mantığı nedeniyle tüm görseller için\n`loading=\"eager\"` attribute'unu kullanıyordu; bu mantık, açık bir config verilmediğinde\n`imageLoadingStrategy: EAGER` değerini varsayılan alır.\n\nBu toggle etkinleştirildiğinde, varsayılan görsel yükleme davranışı `loading=\"lazy\"` olacak şekilde değişir.\nBöylece below the fold görseller hemen indirilmez, gereksiz ağ kullanımı azalır ve performans artar.\n\nLazy loading, bant genişliğini serbest bırakarak sayfadaki en büyük içerik öğesi gibi daha önemli kaynaklara\nöncelik verilmesini sağlar; bu da LCP (Largest Contentful Paint) metriğini olumlu etkileyebilir.\n\nTüm görseller varsayılan olarak lazy yüklendiğinde, LCP görsellerine açıkça öncelik vermelisiniz;\nbunu Spartacus config'i üzerinden CMS component ID'lerini belirterek yapabilirsiniz:\n`provideConfig({ lcpCmsComponents: ... })`\n... ya da özel input'u doğrudan `MediaComponent`'e vererek:\n`<cx-media [fetchPriority]=\"ImageFetchPriority.HIGH\" ... >`\n\nVarsayılan olarak lazy loading'i etkinleştirmek için `true` yapın."
         }
@@ -1580,6 +2049,9 @@
                 "line": 17,
                 "code": "<ng-container *cxFeature=\"'productCarouselScrolling'\">\n  <cx-carousel-scrolling\n    role=\"region\"\n    [attr.aria-label]=\"\n      'carousel.carouselForProduct' | cxTranslate: { product: product.name }\n    \"\n    tabindex=\"-1\"\n    *ngIf=\"thumbs.length\"\n    class=\"thumbs\"\n    [items]=\"thumbs\"\n    [template]=\"thumb\"\n    [trackByFn]=\"trackByFn\"\n  ></cx-carousel-scrolling>\n</ng-container>"
               }
+            ],
+            "components": [
+              "cx-carousel-scrolling"
             ]
           },
           {
@@ -1597,6 +2069,9 @@
                 "line": 31,
                 "code": "<ng-container *cxFeature=\"'!productCarouselScrolling'\">\n  <cx-carousel\n    role=\"region\"\n    [attr.aria-label]=\"\n      'carousel.carouselForProduct' | cxTranslate: { product: product.name }\n    \"\n    tabindex=\"-1\"\n    *ngIf=\"thumbs.length\"\n    class=\"thumbs\"\n    [items]=\"thumbs\"\n    itemWidth=\"120px\"\n    [hideIndicators]=\"false\"\n    [template]=\"thumb\"\n  ></cx-carousel>\n</ng-container>"
               }
+            ],
+            "components": [
+              "cx-carousel"
             ]
           },
           {
@@ -1614,6 +2089,9 @@
                 "line": 1,
                 "code": "<ng-container *cxFeature=\"'productCarouselScrolling'\">\n  <cx-carousel-scrolling\n    *ngIf=\"items$ | async as items\"\n    role=\"region\"\n    [attr.aria-label]=\"\n      'productCarousel.carouselLabel' | cxTranslate: { title: title$ | async }\n    \"\n    [items]=\"items\"\n    [title]=\"title$ | async\"\n    [template]=\"carouselItem\"\n    [trackByFn]=\"trackByFn\"\n  >\n  </cx-carousel-scrolling>\n</ng-container>"
               }
+            ],
+            "components": [
+              "cx-carousel-scrolling"
             ]
           },
           {
@@ -1631,6 +2109,9 @@
                 "line": 15,
                 "code": "<ng-container *cxFeature=\"'!productCarouselScrolling'\">\n  <cx-carousel\n    *ngIf=\"items$ | async as items\"\n    role=\"region\"\n    [attr.aria-label]=\"\n      'productCarousel.carouselLabel' | cxTranslate: { title: title$ | async }\n    \"\n    [items]=\"items\"\n    [title]=\"title$ | async\"\n    [template]=\"carouselItem\"\n    itemWidth=\"285px\"\n    [trackByFn]=\"trackByFn\"\n  >\n  </cx-carousel>\n</ng-container>"
               }
+            ],
+            "components": [
+              "cx-carousel"
             ]
           },
           {
@@ -1648,6 +2129,9 @@
                 "line": 97,
                 "code": "useFeatureStyles('productCarouselScrolling');"
               }
+            ],
+            "members": [
+              "ProductCarouselComponent.constructor"
             ]
           },
           {
@@ -1665,6 +2149,9 @@
                 "line": 1,
                 "code": "<ng-container *cxFeature=\"'productCarouselScrolling'\">\n  <ng-container *ngIf=\"items$ | async as items\">\n    <cx-carousel-scrolling\n      *ngIf=\"items.length\"\n      [title]=\"title$ | async\"\n      [items]=\"items\"\n      [template]=\"carouselItem\"\n      [trackByFn]=\"trackByFn\"\n    >\n    </cx-carousel-scrolling>\n  </ng-container>\n</ng-container>"
               }
+            ],
+            "components": [
+              "cx-carousel-scrolling"
             ]
           },
           {
@@ -1682,6 +2169,9 @@
                 "line": 13,
                 "code": "<ng-container *cxFeature=\"'!productCarouselScrolling'\">\n  <ng-container *ngIf=\"items$ | async as items\">\n    <cx-carousel\n      *ngIf=\"items$ | async as items\"\n      [title]=\"title$ | async\"\n      [items]=\"items\"\n      [template]=\"carouselItem\"\n      [trackByFn]=\"trackByFn\"\n    >\n    </cx-carousel>\n  </ng-container>\n</ng-container>"
               }
+            ],
+            "components": [
+              "cx-carousel"
             ]
           },
           {
@@ -1699,6 +2189,9 @@
                 "line": 53,
                 "code": "useFeatureStyles('productCarouselScrolling');"
               }
+            ],
+            "members": [
+              "ProductReferencesComponent.constructor"
             ]
           },
           {
@@ -1716,6 +2209,9 @@
                 "line": 10,
                 "code": "<ng-container *cxFeature=\"'productCarouselScrolling'\">\n  <cx-carousel-scrolling\n    *ngIf=\"thumbs.length\"\n    class=\"thumbs\"\n    [items]=\"thumbs\"\n    [template]=\"thumb\"\n    [trackByFn]=\"trackByFn\"\n  ></cx-carousel-scrolling>\n</ng-container>"
               }
+            ],
+            "components": [
+              "cx-carousel-scrolling"
             ]
           },
           {
@@ -1733,6 +2229,9 @@
                 "line": 20,
                 "code": "<ng-container *cxFeature=\"'!productCarouselScrolling'\">\n  <cx-carousel\n    *ngIf=\"thumbs.length\"\n    class=\"thumbs\"\n    [items]=\"thumbs\"\n    itemWidth=\"120px\"\n    [hideIndicators]=\"false\"\n    [template]=\"thumb\"\n  ></cx-carousel>\n</ng-container>"
               }
+            ],
+            "components": [
+              "cx-carousel"
             ]
           },
           {
@@ -1750,6 +2249,9 @@
                 "line": 66,
                 "code": "useFeatureStyles('productCarouselScrolling');"
               }
+            ],
+            "members": [
+              "ProductImagesComponent.constructor"
             ]
           },
           {
@@ -1764,9 +2266,13 @@
             ],
             "snippets": [
               {
-                "line": 52,
-                "code": "margin: 4px 4px 0 4px; // show visual focus outline, even when container has overflow-x: auto"
+                "line": 55,
+                "code": "@include forFeature('productCarouselScrolling') {\n  img {\n    width: 100%;\n    height: auto;\n    aspect-ratio: 1/1;\n    object-fit: scale-down;\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-carousel-scrolling .carousel-items .item",
+              "cx-carousel-scrolling .carousel-items .item img"
             ]
           },
           {
@@ -1784,6 +2290,9 @@
                 "line": 5,
                 "code": "@include forFeature('productCarouselScrolling') {\n  width: 70%;\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-product-carousel-item .actions"
             ]
           },
           {
@@ -1809,6 +2318,11 @@
                 "line": 43,
                 "code": "@include forFeature('productCarouselScrolling') {\n  &.is-loading {\n    background-color: #f5f5f5;\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-product-carousel",
+              "cx-product-carousel cx-media",
+              "cx-product-carousel cx-media.is-loading"
             ]
           },
           {
@@ -1832,6 +2346,10 @@
                 "line": 27,
                 "code": "@include forFeature('productCarouselScrolling') {\n  width: 300px;\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-product-references",
+              "cx-product-references cx-media"
             ]
           },
           {
@@ -1853,12 +2371,24 @@
                 "code": "@include forFeature('productCarouselScrolling') {\n  overflow: auto;\n}"
               },
               {
-                "line": 66,
-                "code": "&.is-waiting:after {\n  --cx-opacity: 1;\n}"
+                "line": 77,
+                "code": "@include forFeature('productCarouselScrolling') {\n  width: 120px;\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-product-images",
+              "cx-product-images .thumbs cx-media"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "6f9e2ed96eaf6d9a6bbb6ebe4ee2c3462f84d4fe"
+        ],
+        "rollout": {
+          "defaultOn": "221121.7",
+          "mandatory": "221121.17"
+        },
         "translations": {
           "tr": "Etkinleştirildiğinde, aşağıdaki component'lerde eski `<cx-carousel>` yerine yeni `<cx-carousel-scrolling>` carousel component'i kullanılır:\n- `ProductCarouselComponent`\n- `ProductReferencesComponent`\n- `ProductImagesComponent` ve ilgili `ProductImageZoomProductImagesComponent`\n\nÖnceki carousel'in çeşitli sorunları vardı:\n- Masaüstü viewport'ta SSR'dan CSR'a geçişte büyük layout shift'e neden oluyordu,\n    çünkü SSR'da yalnızca 1 carousel öğesi render ediliyor, masaüstü CSR'da ise bir süre sonra 4 öğe\n    görünüyordu (özellikle Chrome DevTools Network throttling ile belirgindi)\n- Spartacus tüm görselleri lazy yükleyecek şekilde yapılandırılmış olsa bile\n    (`provideConfig({ imageLoadingStrategy: ImageLoadingStrategy.LAZY})`), görünmeyen slide'lardaki görselleri de eager yüklüyordu\n- Mobil cihazlarda swipe dostu değildi\n\nYeni carousel:\n- Artık SSR'dan CSR'a geçişte büyük layout shift'ten etkilenmez, çünkü aynı HTML hem SSR'da hem de\n   CSR bir gecikmeyle devreye girdiğinde render edilir;\n   böylece SSR HTML'inde ve CSR HTML'inde aynı sayıda carousel öğesi görünür.\n- Yerel yatay kaydırma sayesinde görünmeyen görselleri lazy yükler (Spartacus tüm görselleri lazy yükleyecek\n   şekilde yapılandırıldığında: `provideConfig({ imageLoadingStrategy: ImageLoadingStrategy.LAZY})`)\n- Yerel yatay kaydırması sayesinde dokunmatik cihazlarda swipe dostudur"
         }
@@ -1937,9 +2467,20 @@
                 "line": 167,
                 "code": "  this.featureConfigService.isEnabled('productReviewCharactersLeft');\nthis.reviewForm = this.fb.group({\n  title: [\n    '',\n    !isProductReviewCharactersLeftEnabled\n      ? Validators.required\n      : [\n          Validators.required,\n          Validators.maxLength(this.maxLengthReviewTitle),\n        ],\n  ],\n  comment: [\n    '',\n    !isProductReviewCharactersLeftEnabled\n      ? Validators.required\n      : [\n          Validators.required,\n          Validators.maxLength(this.maxLengthReviewComment),\n        ],\n  ],\n  rating: [null, Validators.required],\n  reviewerName: !isProductReviewCharactersLeftEnabled\n    ? ''\n    : ['', Validators.maxLength(this.maxLengthReviewerName)],\n}"
               }
+            ],
+            "members": [
+              "ProductReviewsComponent.resetReviewForm"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "6f9e2ed96eaf6d9a6bbb6ebe4ee2c3462f84d4fe"
+        ],
+        "rollout": {
+          "defaultOn": "221121.7",
+          "mandatory": "221121.17"
+        },
         "translations": {
           "tr": "Ürün yorumu formu öğeleri için kalan karakter sayısını gösterir."
         }
@@ -1985,9 +2526,20 @@
                 "line": 42,
                 "code": "<cx-read-more\n  *cxFeature=\"'readMoreDirective'\"\n  class=\"text\"\n  [text]=\"review.comment!\"\n></cx-read-more>"
               }
+            ],
+            "components": [
+              "cx-read-more"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "6f9e2ed96eaf6d9a6bbb6ebe4ee2c3462f84d4fe"
+        ],
+        "rollout": {
+          "defaultOn": "221121.7",
+          "mandatory": "221121.17"
+        },
         "translations": {
           "tr": "Uzun metin içeren öğeleri sunmak için read more directive'i ekler."
         }
@@ -2011,9 +2563,12 @@
             ],
             "snippets": [
               {
-                "line": 57,
-                "code": "@Output() change = new EventEmitter<number>();\n\nconstructor() {\n  useFeatureStyles('reserveHorizontalSpaceStarRating');\n}"
+                "line": 60,
+                "code": "useFeatureStyles('reserveHorizontalSpaceStarRating');"
               }
+            ],
+            "members": [
+              "StarRatingComponent.constructor"
             ]
           },
           {
@@ -2031,9 +2586,20 @@
                 "line": 4,
                 "code": "@include forFeature('reserveHorizontalSpaceStarRating') {\n  min-width: 9rem;\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-star-rating"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "6f9e2ed96eaf6d9a6bbb6ebe4ee2c3462f84d4fe"
+        ],
+        "rollout": {
+          "defaultOn": "221121.7",
+          "mandatory": "221121.15"
+        },
         "translations": {
           "tr": "PDP'de CLS'yi önlemek için Star Rating component'i adına yatay alan ayırır.\nEtkinleştirildiğinde, `cx-star-rating` component'i PDP'de CLS'yi önlemek için star rating component'i adına yatay alan ayırır.\nAksi takdirde component başlangıçta genişliğe sahip olmaz ve yalnızca bir gecikmeden sonra genişler,\nyani Font Awesome fontu yüklendiğinde ve yıldız ikonları render edildiğinde."
         }
@@ -2060,6 +2626,9 @@
                 "line": 65,
                 "code": "useFeatureStyles('reserveSpaceForImagesOnPdpAndPlp');"
               }
+            ],
+            "members": [
+              "ProductImagesComponent.constructor"
             ]
           },
           {
@@ -2077,6 +2646,9 @@
                 "line": 64,
                 "code": "useFeatureStyles('reserveSpaceForImagesOnPdpAndPlp');"
               }
+            ],
+            "members": [
+              "ProductListComponent.constructor"
             ]
           },
           {
@@ -2097,6 +2669,9 @@
                 "line": 32,
                 "code": "@include forFeature('reserveSpaceForImagesOnPdpAndPlp') {\n  width: 100%;\n  height: auto;\n  aspect-ratio: 1 / 1;\n  object-fit: scale-down;\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-product-images cx-media"
             ]
           },
           {
@@ -2116,6 +2691,10 @@
                 "line": 18,
                 "code": "@include forFeature('reserveSpaceForImagesOnPdpAndPlp') {\n  img {\n    aspect-ratio: 1 / 1;\n    width: 100%;\n    height: auto;\n    object-fit: scale-down;\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-product-grid-item",
+              "cx-product-grid-item img"
             ]
           },
           {
@@ -2139,9 +2718,21 @@
                 "line": 118,
                 "code": "@include forFeature('reserveSpaceForImagesOnPdpAndPlp') {\n  img {\n    aspect-ratio: 1 / 1;\n    width: 100%;\n    height: auto;\n    object-fit: scale-down;\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-product-list-item",
+              "cx-product-list-item img"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "6f9e2ed96eaf6d9a6bbb6ebe4ee2c3462f84d4fe"
+        ],
+        "rollout": {
+          "defaultOn": "221121.7",
+          "mandatory": "221121.17"
+        },
         "translations": {
           "tr": "CLS (Cumulative Layout Shift) sorunlarını önlemek için ürün görselleri adına yer ayırmayı etkinleştiren feature toggle.\n\nEtkinleştirildiğinde, görseller yüklenmeden önce uygun alanın ayrılmasını sağlar ve\naşağıdaki bağlamlarda layout kararlılığını korur:\n\n- **PDP (Product Detail Page)**: Ana ürün görseli için yer ayırır.\n- **PLP (Product Listing Page) - List View**: Liste düzenindeki her ürün görseli için yer ayırır.\n- **PLP (Product Listing Page) - Grid View**: Grid düzenindeki her ürün görseli için yer ayırır.\n\nBu, görseller yüklenirken oluşan layout shift'leri önleyerek Core Web Vitals'ın iyileşmesine yardımcı olur."
         }
@@ -2178,9 +2769,22 @@
                 "line": 251,
                 "code": "const linkToDirections = this.featureConfigService.isEnabled("
               }
+            ],
+            "members": [
+              "MyPreferredStoreComponent.constructor",
+              "MyPreferredStoreComponent.getDirectionsToStore",
+              "MyPreferredStoreComponent.ngOnInit"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "6f9e2ed96eaf6d9a6bbb6ebe4ee2c3462f84d4fe"
+        ],
+        "rollout": {
+          "defaultOn": "221121.7",
+          "mandatory": "221121.15"
+        },
         "translations": {
           "tr": "Etkinleştirildiğinde, getDirections, getStoreLatitude ve getStoreLongitude için\nStoreFinderFacade (deprecated) yerine StoreLocationService kullanılır.\nArkasındaki mantık aynı kalır."
         }
@@ -2204,9 +2808,12 @@
             ],
             "snippets": [
               {
-                "line": 109,
-                "code": "useFeatureStyles('a11yNgSelectLayering');"
+                "line": 110,
+                "code": "useFeatureStyles('topProgressBarUseTransformAnimation');"
               }
+            ],
+            "members": [
+              "StorefrontComponent.constructor"
             ]
           },
           {
@@ -2230,9 +2837,21 @@
                 "line": 30,
                 "code": "@include forFeature("
               }
+            ],
+            "styleScopes": [
+              "cx-storefront.start-navigating",
+              "cx-storefront.stop-navigating"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "6f9e2ed96eaf6d9a6bbb6ebe4ee2c3462f84d4fe"
+        ],
+        "rollout": {
+          "defaultOn": "221121.7",
+          "mandatory": "221121.15"
+        },
         "translations": {
           "tr": "Üstteki progress bar animasyonu için `margin` özelliğini animasyonlamak yerine\n`transform: translateX` kullanımını etkinleştiren feature flag.\n\n## Bu flag neden var:\n`margin` özelliğini animasyonlamanın iki büyük dezavantajı vardır:\n\n1. **Cumulative Layout Shift (CLS)**: Margin değiştirmek, görsel kararlılığı olumsuz etkileyen layout kaymalarına neden olur.\n2. **Performans etkisi**: Margin animasyonları tarayıcıda yeniden layout'u (reflow) tetikler, layout ve paint maliyetlerini artırır,\n   bu da Total Blocking Time (TBT) gibi performans metriklerinin kötüleşmesine katkıda bulunur.\n\n## Etkinleştirildiğinde:\nÜstteki progress bar, GPU hızlandırmalı ve layout'tan bağımsız bir işlem olan `transform: translateX(...)` ile animasyonlanır;\nbu da görsel performansı iyileştirir ve layout kaymalarını önler."
         }
@@ -2256,9 +2875,12 @@
             ],
             "snippets": [
               {
-                "line": 110,
-                "code": "useFeatureStyles('topProgressBarUseTransformAnimation');"
+                "line": 111,
+                "code": "useFeatureStyles('unifiedDefaultHeaderSlotsAcrossBreakpoints');"
               }
+            ],
+            "members": [
+              "StorefrontComponent.constructor"
             ]
           },
           {
@@ -2281,6 +2903,30 @@
             ]
           }
         ],
+        "references": [
+          {
+            "file": "projects/storefrontlib/recipes/config/layout-config.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [],
+            "selectors": [],
+            "members": [
+              "layoutConfigFactory"
+            ],
+            "snippets": [
+              {
+                "line": 146,
+                "code": "featureToggles.unifiedDefaultHeaderSlotsAcrossBreakpoints &&"
+              }
+            ]
+          }
+        ],
+        "commits": [
+          "6f9e2ed96eaf6d9a6bbb6ebe4ee2c3462f84d4fe"
+        ],
+        "rollout": {
+          "defaultOn": "221121.7",
+          "mandatory": "221121.17"
+        },
         "translations": {
           "tr": "Layout shift'i azaltmak ve Cumulative Layout Shift (CLS) skorlarını iyileştirmek için breakpoint'ler arasında tutarlı header slot yapısını etkinleştiren feature toggle.\n\nMasaüstü cihazlarda (mobil olmayan), bazı header ve navigasyon öğeleri yalnızca client-side rendering (CSR)\nsonrasında render ediliyordu ve bu da belirgin layout shift'lere yol açıyordu. Bu durum kullanıcı deneyimini\nve CLS performansını olumsuz etkiliyordu.\n\nEtkinleştirildiğinde:\n- Masaüstü, mobil ile aynı header slot yapısını kullanır.\n- Layout shift azalır; algılanan performans ve görsel kararlılık iyileşir.\n\n ⚠️ Bu özelliği tam olarak etkinleştirmek için kod tabanınızdaki `provideConfig(layoutConfig)` çağrısını\n`provideConfigFactory(layoutConfigFactory)` ile değiştirin."
         }
@@ -5108,5 +5754,227 @@
         "tr": "PO number değeri quote checkout'tan geliyorsa, checkout payment type sayfasındaki PO number input'unu readonly yap"
       }
     }
-  ]
+  ],
+  "toggleCommits": [
+    {
+      "sha": "7d3bb9c7e2a64df08dacc59bd1cd903c849fb64f",
+      "subject": "fix: Use caret unicode characters for dropdowns over border shapes (#20912)",
+      "files": [
+        {
+          "file": "projects/storefrontlib/shared/components/ng-select-a11y/ng-select-a11y.directive.ts",
+          "members": [
+            "NgSelectA11yDirective.constructor"
+          ],
+          "diff": "@@ -22,7 +22,11 @@ import {\n import { takeUntilDestroyed } from '@angular/core/rxjs-interop';\n import { DomSanitizer } from '@angular/platform-browser';\n import { NgSelectComponent } from '@ng-select/ng-select';\n-import { FeatureConfigService, TranslationService } from '@spartacus/core';\n+import {\n+  FeatureConfigService,\n+  TranslationService,\n+  useFeatureStyles,\n+} from '@spartacus/core';\n import { filter, merge, take } from 'rxjs';\n import { map } from 'rxjs/operators';\n import { BREAKPOINT, BreakpointService } from '../../../layout';\n@@ -85,7 +89,9 @@ export class NgSelectA11yDirective implements AfterViewInit {\n   constructor(\n     private renderer: Renderer2,\n     private elementRef: ElementRef\n-  ) {}\n+  ) {\n+    useFeatureStyles('a11yNgSelectUnicodeCarets');\n+  }\n \n   ngAfterViewInit(): void {\n     const inputCombobox ="
+        },
+        {
+          "file": "projects/storefrontstyles/scss/cxbase/blocks/forms.scss",
+          "members": [],
+          "diff": "@@ -325,6 +325,20 @@ input[type='radio'] {\n     }\n   }\n \n+  @include forFeature('a11yNgSelectUnicodeCarets') {\n+    .ng-arrow-wrapper {\n+      .ng-arrow {\n+        border: none;\n+      }\n+      .ng-arrow::after {\n+        content: '\\25BC'; // Down Caret\n+        font-size: 90%;\n+        position: absolute;\n+        transform: translate(-75%, -75%);\n+      }\n+    }\n+  }\n+\n   .ng-select-container {\n     padding: 0.6875rem 0;\n     line-height: 1.6;\n@@ -381,6 +395,14 @@ ng-select .ng-dropdown-panel {\n   @include forFeature('a11yNgSelectLayering') {\n     z-index: 10;\n   }\n+\n+  @include forFeature('a11yNgSelectUnicodeCarets') {\n+    .ng-arrow-wrapper {\n+      .ng-arrow::after {\n+        content: '\\25B2'; // Up Caret\n+      }\n+    }\n+  }\n }\n \n :focus:not(main) {"
+        }
+      ]
+    },
+    {
+      "sha": "dcfa426815d724301b8b1032a8965b1564e57e39",
+      "subject": "fix: Deprecate a11y toggles for Feb 2026 release (#20964)",
+      "files": [
+        {
+          "file": "feature-libs/cart/base/components/mini-cart/mini-cart.component.ts",
+          "members": [
+            "MiniCartComponent.constructor"
+          ],
+          "diff": "@@ -6,7 +6,6 @@\n \n import { ChangeDetectionStrategy, Component } from '@angular/core';\n import { ICON_TYPE } from '@spartacus/storefront';\n-import { useFeatureStyles } from '@spartacus/core';\n import { Observable } from 'rxjs';\n import { MiniCartComponentService } from './mini-cart-component.service';\n \n@@ -23,7 +22,5 @@ export class MiniCartComponent {\n \n   total$: Observable<string> = this.miniCartComponentService.getTotalPrice();\n \n-  constructor(protected miniCartComponentService: MiniCartComponentService) {\n-    useFeatureStyles('a11yMiniCartFocusOnMobile');\n-  }\n+  constructor(protected miniCartComponentService: MiniCartComponentService) {}\n }"
+        },
+        {
+          "file": "feature-libs/cart/base/styles/components/_mini-cart.scss",
+          "members": [],
+          "diff": "@@ -49,14 +49,12 @@\n     }\n   }\n \n-  @include forFeature('a11yMiniCartFocusOnMobile') {\n-    @include media-breakpoint-down(md) {\n-      a {\n-        &:focus {\n-          outline-offset: -4px;\n-          outline-color: var(--cx-color-inverse);\n-          box-shadow: 0 0 0 2px var(--cx-color-visual-focus) inset;\n-        }\n+  @include media-breakpoint-down(md) {\n+    a {\n+      &:focus {\n+        outline-offset: -4px;\n+        outline-color: var(--cx-color-inverse);\n+        box-shadow: 0 0 0 2px var(--cx-color-visual-focus) inset;\n       }\n     }\n   }"
+        },
+        {
+          "file": "feature-libs/cart/quick-order/components/quick-order/form/quick-order-form.component.html",
+          "members": [],
+          "diff": "@@ -67,41 +67,6 @@\n         class=\"quick-order-results-product-container\"\n       >\n         <button\n-          *cxFeature=\"'!a11yQuickOrderSearchListKeyboardNavigation'\"\n-          (blur)=\"onBlur($event)\"\n-          (mousedown)=\"add(product, $event)\"\n-          (keydown.arrowdown)=\"focusNextChild($event)\"\n-          (keydown.arrowup)=\"focusPreviousChild($event)\"\n-          (keydown.enter)=\"add(product, $event)\"\n-          (keydown.escape)=\"clear($event)\"\n-          [class.has-media]=\"\n-            config?.quickOrder?.searchForm?.displayProductImages\n-          \"\n-          class=\"quick-order-results-product\"\n-          role=\"option\"\n-        >\n-          <cx-media\n-            *ngIf=\"config?.quickOrder?.searchForm?.displayProductImages\"\n-            [alt]=\"product.name\"\n-            [container]=\"product.images?.PRIMARY\"\n-            class=\"media\"\n-            format=\"thumbnail\"\n-            role=\"presentation\"\n-          ></cx-media>\n-          <div class=\"name\" [innerHTML]=\"product.name\"></div>\n-          <span class=\"id\">\n-            {{\n-              'quickOrderForm.id'\n-                | cxTranslate\n-                  : {\n-                      id: product.code,\n-                    }\n-            }}\n-          </span>\n-          <span class=\"price\">{{ product.price?.formattedValue }}</span>\n-        </button>\n-        <button\n-          *cxFeature=\"'a11yQuickOrderSearchListKeyboardNavigation'\"\n           (blur)=\"onBlur($event)\"\n           (mousedown)=\"add(product, $event)\"\n           (keydown.arrowdown)=\"focusNextChild($event)\""
+        },
+        {
+          "file": "feature-libs/cart/quick-order/components/quick-order/form/quick-order-form.component.ts",
+          "members": [
+            "QuickOrderFormComponent.clear",
+            "QuickOrderFormComponent.featureConfigService",
+            "QuickOrderFormComponent.focusNextChild"
+          ],
+          "diff": "@@ -9,7 +9,6 @@ import {\n   ChangeDetectorRef,\n   Component,\n   ElementRef,\n-  inject,\n   Input,\n   OnDestroy,\n   OnInit,\n@@ -17,12 +16,7 @@ import {\n } from '@angular/core';\n import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';\n import { QuickOrderFacade } from '@spartacus/cart/quick-order/root';\n-import {\n-  Config,\n-  FeatureConfigService,\n-  Product,\n-  WindowRef,\n-} from '@spartacus/core';\n+import { Config, Product, WindowRef } from '@spartacus/core';\n import { ICON_TYPE } from '@spartacus/storefront';\n import { Observable, Subscription } from 'rxjs';\n import {\n@@ -52,7 +46,6 @@ export class QuickOrderFormComponent implements OnInit, OnDestroy {\n \n   @ViewChild('quickOrderInput') quickOrderInput: ElementRef;\n \n-  private featureConfigService = inject(FeatureConfigService);\n   protected subscription = new Subscription();\n   protected searchSubscription = new Subscription();\n \n@@ -83,15 +76,10 @@ export class QuickOrderFormComponent implements OnInit, OnDestroy {\n \n     if (this.isResultsBoxOpen()) {\n       this.toggleBodyClass(SEARCH_BOX_ACTIVE_CLASS, false);\n-      if (\n-        this.featureConfigService.isEnabled(\n-          'a11yQuickOrderSearchBoxRefocusOnClose'\n-        )\n-      ) {\n-        requestAnimationFrame(() => {\n-          this.quickOrderInput.nativeElement.focus();\n-        });\n-      }\n+\n+      requestAnimationFrame(() => {\n+        this.quickOrderInput.nativeElement.focus();\n+      });\n     }\n \n     const product = this.form.get('product')?.value;\n@@ -154,15 +142,9 @@ export class QuickOrderFormComponent implements OnInit, OnDestroy {\n \n     // Focus on first index moving to last\n     if (results.length) {\n-      if (\n-        this.featureConfigService.isEnabled(\n-          'a11ySearchableDropdownFirstElementFocus'\n-        )\n-      ) {\n-        this.winRef.document\n-          .querySelector('main')\n-          ?.classList.remove('mouse-focus');\n-      }\n+      this.winRef.document\n+        .querySelector('main')\n+        ?.classList.remove('mouse-focus');\n       if (focusedIndex >= results.length - 1) {\n         results[0].focus();\n       } else {"
+        },
+        {
+          "file": "feature-libs/cart/saved-cart/components/list/saved-cart-list.component.ts",
+          "members": [
+            "SavedCartListComponent.constructor"
+          ],
+          "diff": "@@ -19,7 +19,7 @@ import {\n   SavedCartFacade,\n   SavedCartFormType,\n } from '@spartacus/cart/saved-cart/root';\n-import { RoutingService, useFeatureStyles } from '@spartacus/core';\n+import { RoutingService } from '@spartacus/core';\n import {\n   LAUNCH_CALLER,\n   LaunchDialogService,\n@@ -63,9 +63,7 @@ export class SavedCartListComponent implements OnInit, OnDestroy {\n     protected savedCartService: SavedCartFacade,\n     protected vcr: ViewContainerRef,\n     protected launchDialogService: LaunchDialogService\n-  ) {\n-    useFeatureStyles('a11yHighContrastBorders');\n-  }\n+  ) {}\n \n   ngOnInit(): void {\n     this.isLoading$ = this.savedCartService.getSavedCartListProcessLoading();"
+        },
+        {
+          "file": "feature-libs/checkout/base/components/checkout-delivery-address/checkout-delivery-address.component.ts",
+          "members": [
+            "CheckoutDeliveryAddressComponent.selectAddress"
+          ],
+          "diff": "@@ -160,9 +160,7 @@ export class CheckoutDeliveryAddressComponent implements OnInit {\n     );\n \n     this.setAddress(address);\n-    if (this.featureConfigService?.isEnabled('a11yFocusOnCardAfterSelecting')) {\n-      this.focusCardAfterSelecting();\n-    }\n+    this.focusCardAfterSelecting();\n   }\n \n   /**"
+        },
+        {
+          "file": "feature-libs/checkout/base/components/checkout-payment-method/checkout-payment-method.component.ts",
+          "members": [
+            "CheckoutPaymentMethodComponent.selectPaymentMethod"
+          ],
+          "diff": "@@ -218,9 +218,7 @@ export class CheckoutPaymentMethodComponent implements OnInit, OnDestroy {\n     );\n \n     this.savePaymentMethod(paymentDetails);\n-    if (this.featureConfigService?.isEnabled('a11yFocusOnCardAfterSelecting')) {\n-      this.focusCardAfterSelecting();\n-    }\n+    this.focusCardAfterSelecting();\n   }\n \n   /**"
+        },
+        {
+          "file": "feature-libs/checkout/base/components/checkout-review/checkout-review-payment/checkout-review-payment.component.ts",
+          "members": [
+            "CheckoutReviewPaymentComponent.constructor"
+          ],
+          "diff": "@@ -9,11 +9,7 @@ import {\n   CheckoutPaymentFacade,\n   CheckoutStepType,\n } from '@spartacus/checkout/base/root';\n-import {\n-  PaymentDetails,\n-  TranslationService,\n-  useFeatureStyles,\n-} from '@spartacus/core';\n+import { PaymentDetails, TranslationService } from '@spartacus/core';\n import { billingAddressCard, paymentMethodCard } from '@spartacus/order/root';\n import { Card, ICON_TYPE } from '@spartacus/storefront';\n import { Observable, combineLatest } from 'rxjs';\n@@ -37,9 +33,7 @@ export class CheckoutReviewPaymentComponent {\n     protected checkoutStepService: CheckoutStepService,\n     protected checkoutPaymentFacade: CheckoutPaymentFacade,\n     protected translationService: TranslationService\n-  ) {\n-    useFeatureStyles('a11yHighContrastBorders');\n-  }\n+  ) {}\n \n   paymentDetails$: Observable<PaymentDetails | undefined> =\n     this.checkoutPaymentFacade.getPaymentDetailsState().pipe("
+        },
+        {
+          "file": "feature-libs/customer-ticketing/components/list/customer-ticketing-list/customer-ticketing-list.component.ts",
+          "members": [
+            "CustomerTicketingListComponent.constructor"
+          ],
+          "diff": "@@ -5,11 +5,7 @@\n  */\n \n import { Component } from '@angular/core';\n-import {\n-  RoutingService,\n-  TranslationService,\n-  useFeatureStyles,\n-} from '@spartacus/core';\n+import { RoutingService, TranslationService } from '@spartacus/core';\n import {\n   CustomerTicketingConfig,\n   CustomerTicketingFacade,\n@@ -32,9 +28,7 @@ export class CustomerTicketingListComponent {\n     protected routingService: RoutingService,\n     protected translationService: TranslationService,\n     protected customerTicketingConfig: CustomerTicketingConfig\n-  ) {\n-    useFeatureStyles('a11yHighContrastBorders');\n-  }\n+  ) {}\n   PAGE_SIZE =\n     this.customerTicketingConfig.customerTicketing?.listViewPageSize || 5;\n   sortType: string;"
+        },
+        {
+          "file": "feature-libs/organization/administration/components/shared/card/card.component.html",
+          "members": [],
+          "diff": "@@ -8,15 +8,9 @@\n     <div class=\"title-bar\">\n       <div class=\"title\">\n         <h3>\n-          <span\n-            *cxFeature=\"'a11yRegionAssociatedHeaders'\"\n-            id=\"{{ i18nRoot + '_title' }}\"\n-          >\n+          <span id=\"{{ i18nRoot + '_title' }}\">\n             {{ i18nRoot + '.title' | cxTranslate: { item: item$ | async } }}\n           </span>\n-          <ng-container *cxFeature=\"'!a11yRegionAssociatedHeaders'\">\n-            {{ i18nRoot + '.title' | cxTranslate: { item: item$ | async } }}\n-          </ng-container>\n           <button\n             *ngIf=\"showHint\"\n             [cxPopover]=\"detailHint\""
+        },
+        {
+          "file": "feature-libs/organization/administration/components/shared/list/list.component.html",
+          "members": [],
+          "diff": "@@ -10,21 +10,12 @@\n         <div aria-live=\"polite\" class=\"title\">\n           <!-- TODO: (CXSPA-6624) - Remove feature flag next major release -->\n           <h2>\n-            <span\n-              *cxFeature=\"'a11yRegionAssociatedHeaders'\"\n-              id=\"{{ viewType + '_title' }}\"\n-            >\n+            <span id=\"{{ viewType + '_title' }}\">\n               {{\n                 viewType + '.header'\n                   | cxTranslate: { count: getListCount(data) }\n               }}\n             </span>\n-            <ng-container *cxFeature=\"'!a11yRegionAssociatedHeaders'\">\n-              {{\n-                viewType + '.header'\n-                  | cxTranslate: { count: getListCount(data) }\n-              }}\n-            </ng-container>\n             <button\n               [cxPopover]=\"listHint\"\n               [cxPopoverOptions]=\"{"
+        },
+        {
+          "file": "feature-libs/organization/unit-order/components/unit-level-order-history/unit-level-order-history.component.html",
+          "members": [],
+          "diff": "@@ -143,18 +143,7 @@\n                     class=\"cx-unit-level-order-history-value\"\n                   >\n                     {{ order?.orgCustomer?.name }}\n-                    <ng-container\n-                      *cxFeature=\"'a11yTruncatedTextUnitLevelOrderHistory'\"\n-                    >\n-                      <span>{{ order?.orgCustomer?.email }}</span>\n-                    </ng-container>\n-                    <ng-container\n-                      *cxFeature=\"'!a11yTruncatedTextUnitLevelOrderHistory'\"\n-                    >\n-                      <span class=\"text-ellipsis\">{{\n-                        order?.orgCustomer?.email\n-                      }}</span>\n-                    </ng-container>\n+                    <span>{{ order?.orgCustomer?.email }}</span>\n                   </a>\n                 </td>\n                 <td class=\"cx-unit-level-order-history-unit\">"
+        },
+        {
+          "file": "feature-libs/organization/unit-order/components/unit-level-order-history/unit-level-order-history.component.ts",
+          "members": [
+            "UnitLevelOrderHistoryComponent.constructor"
+          ],
+          "diff": "@@ -5,11 +5,7 @@\n  */\n \n import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';\n-import {\n-  RoutingService,\n-  TranslationService,\n-  useFeatureStyles,\n-} from '@spartacus/core';\n+import { RoutingService, TranslationService } from '@spartacus/core';\n import { Order, OrderHistoryList } from '@spartacus/order/root';\n import { OrderHistoryQueryParams } from '@spartacus/organization/unit-order/core';\n import { UnitOrderFacade } from '@spartacus/organization/unit-order/root';\n@@ -37,9 +33,7 @@ export class UnitLevelOrderHistoryComponent implements OnDestroy {\n     protected routing: RoutingService,\n     protected unitOrdersFacade: UnitOrderFacade,\n     protected translation: TranslationService\n-  ) {\n-    useFeatureStyles('a11yTruncatedTextUnitLevelOrderHistory');\n-  }\n+  ) {}\n \n   orders$: Observable<OrderHistoryList | undefined> = this.unitOrdersFacade\n     .getOrderHistoryList(this.PAGE_SIZE)"
+        },
+        {
+          "file": "feature-libs/organization/unit-order/styles/components/unit-level-order-history/_unit-level-order-history.scss",
+          "members": [],
+          "diff": "@@ -22,10 +22,7 @@\n   }\n \n   .cx-unit-level-order-history-filter-label-wrapper {\n-    width: 200px;\n-    @include forFeature('a11yTruncatedTextUnitLevelOrderHistory') {\n-      width: unset;\n-    }\n+    width: unset;\n     border: 1px solid var(--cx-color-secondary);\n     border-radius: 3px;\n   }\n@@ -109,14 +106,6 @@\n           padding-bottom: 1.25rem;\n         }\n       }\n-      // TODO: Remove following .text-ellipsis block once 'a11yTruncatedTextUnitLevelOrderHistory' feature flag is removed\n-      .text-ellipsis {\n-        @include media-breakpoint-up(md) {\n-          overflow: hidden;\n-          text-overflow: ellipsis;\n-          white-space: nowrap;\n-        }\n-      }\n \n       span {\n         color: var(--cx-color-secondary);"
+        },
+        {
+          "file": "feature-libs/pickup-in-store/components/container/set-preferred-store/set-preferred-store.component.html",
+          "members": [],
+          "diff": "@@ -1,56 +1,18 @@\n-<ng-container *cxFeature=\"'a11yRepeatingButtonsUniqueLabels'\">\n-  <ng-container *ngIf=\"{ storeSelected: storeSelected$ | async } as data\">\n-    <div\n-      [attr.data-preferred-store]=\"pointOfServiceName.name\"\n-      [attr.data-store-is-selected]=\"\n-        pointOfServiceName.name === data.storeSelected?.name\n-      \"\n-      class=\"setpreferredstore-container\"\n-      (click)=\"setAsPreferred()\"\n-    >\n-      <div\n-        [ngClass]=\"\n-          pointOfServiceName.name === data.storeSelected?.name\n-            ? 'icon-selected'\n-            : 'icon-not-selected'\n-        \"\n-      >\n-        <cx-icon aria-hidden=\"true\" [type]=\"ICON_TYPE.HEART\"></cx-icon>\n-      </div>\n-      <button\n-        data-text=\"setPreferredStore.myStore\"\n-        [attr.data-preferred-store]=\"pointOfServiceName.name\"\n-        class=\"set-preferred-heading\"\n-        [attr.aria-label]=\"\n-          (getSetStoreButtonLabel(data.storeSelected?.name || '')\n-            | cxTranslate) +\n-          ', ' +\n-          pointOfServiceName.displayName\n-        \"\n-      >\n-        {{\n-          getSetStoreButtonLabel(data.storeSelected?.name || '') | cxTranslate\n-        }}\n-      </button>\n-    </div>\n-  </ng-container>\n-</ng-container>\n-<ng-container *cxFeature=\"'!a11yRepeatingButtonsUniqueLabels'\">\n+<ng-container *ngIf=\"{ storeSelected: storeSelected$ | async } as data\">\n   <div\n     [attr.data-preferred-store]=\"pointOfServiceName.name\"\n     [attr.data-store-is-selected]=\"\n-      pointOfServiceName.name === (storeSelected$ | async)?.name\n+      pointOfServiceName.name === data.storeSelected?.name\n     \"\n     class=\"setpreferredstore-container\"\n     (click)=\"setAsPreferred()\"\n   >\n     <div\n-      [ngClass]=\"{\n-        'icon-selected':\n-          pointOfServiceName.name === (storeSelected$ | async)?.name,\n-        'icon-not-selected':\n-          pointOfServiceName.name !== (storeSelected$ | async)?.name,\n-      }\"\n+      [ngClass]=\"\n+        pointOfServiceName.name === data.storeSelected?.name\n+          ? 'icon-selected'\n+          : 'icon-not-selected'\n+      \"\n     >\n       <cx-icon aria-hidden=\"true\" [type]=\"ICON_TYPE.HEART\"></cx-icon>\n     </div>\n@@ -58,12 +20,13 @@\n       data-text=\"setPreferredStore.myStore\"\n       [attr.data-preferred-store]=\"pointOfServiceName.name\"\n       class=\"set-preferred-heading\"\n+      [attr.aria-label]=\"\n+        (getSetStoreButtonLabel(data.storeSelected?.name || '') | cxTranslate) +\n+        ', ' +\n+        pointOfServiceName.displayName\n+      \"\n     >\n-      {{\n-        pointOfServiceName.name === (storeSelected$ | async)?.name\n-          ? ('setPreferredStore.myStore' | cxTranslate)\n-          : ('setPreferredStore.makeThisMyStore' | cxTranslate)\n-      }}\n+      {{ getSetStoreButtonLabel(data.storeSelected?.name || '') | cxTranslate }}\n…"
+        }
+      ]
+    },
+    {
+      "sha": "d38002a4dbed8ea58dffe225e3a541285ad9943e",
+      "subject": "feat: Deprecate updateConsentGivenInOnChanges feature toggle (#20971)",
+      "files": [
+        {
+          "file": "projects/storefrontlib/cms-components/myaccount/consent-management/components/consent-form/consent-management-form.component.ts",
+          "members": [
+            "ConsentManagementFormComponent.featureConfigService",
+            "ConsentManagementFormComponent.ngOnChanges"
+          ],
+          "diff": "@@ -7,7 +7,6 @@\n import {\n   Component,\n   EventEmitter,\n-  inject,\n   Input,\n   OnChanges,\n   OnInit,\n@@ -18,7 +17,6 @@ import {\n   AnonymousConsent,\n   ANONYMOUS_CONSENT_STATUS,\n   ConsentTemplate,\n-  FeatureConfigService,\n } from '@spartacus/core';\n \n @Component({\n@@ -49,10 +47,6 @@ export class ConsentManagementFormComponent implements OnInit, OnChanges {\n     template: ConsentTemplate;\n   }>();\n \n-  private featureConfigService = inject(FeatureConfigService, {\n-    optional: true,\n-  });\n-\n   constructor() {\n     // Intentional empty constructor\n   }\n@@ -62,10 +56,7 @@ export class ConsentManagementFormComponent implements OnInit, OnChanges {\n   }\n \n   ngOnChanges(changes: SimpleChanges): void {\n-    if (\n-      this.featureConfigService?.isEnabled('updateConsentGivenInOnChanges') &&\n-      (changes.consent || changes.consentTemplate)\n-    ) {\n+    if (changes.consent || changes.consentTemplate) {\n       this.updateConsentGiven();\n     }\n   }"
+        }
+      ]
+    },
+    {
+      "sha": "677e6d945cc7cce18100951707925c886eceabd7",
+      "subject": "fix: Remove the bug fix toggle enableClaimCustomerCouponWithCodeInRequestBody for Feb 2026 release (#20972)",
+      "files": [
+        {
+          "file": "projects/core/src/user/connectors/customer-coupon/customer-coupon.connector.ts",
+          "members": [
+            "CustomerCouponConnector.claimCustomerCoupon",
+            "CustomerCouponConnector.featureConfigService"
+          ],
+          "diff": "@@ -4,7 +4,7 @@\n  * SPDX-License-Identifier: Apache-2.0\n  */\n \n-import { inject, Injectable } from '@angular/core';\n+import { Injectable } from '@angular/core';\n import { Observable } from 'rxjs';\n import {\n   CustomerCoupon2Customer,\n@@ -12,13 +12,11 @@ import {\n   CustomerCouponSearchResult,\n } from '../../../model/customer-coupon.model';\n import { CustomerCouponAdapter } from './customer-coupon.adapter';\n-import { FeatureConfigService } from '../../../features-config/services/feature-config.service';\n \n @Injectable({\n   providedIn: 'root',\n })\n export class CustomerCouponConnector {\n-  private featureConfigService = inject(FeatureConfigService);\n   constructor(protected adapter: CustomerCouponAdapter) {}\n \n   getCustomerCoupons(\n@@ -45,15 +43,7 @@ export class CustomerCouponConnector {\n     userId: string,\n     couponCode: string\n   ): Observable<CustomerCoupon2Customer> {\n-    if (\n-      this.featureConfigService.isEnabled(\n-        'enableClaimCustomerCouponWithCodeInRequestBody'\n-      )\n-    ) {\n-      return this.adapter.claimCustomerCouponWithCodeInBody(userId, couponCode);\n-    } else {\n-      return this.adapter.claimCustomerCoupon(userId, couponCode);\n-    }\n+    return this.adapter.claimCustomerCouponWithCodeInBody(userId, couponCode);\n   }\n \n   disclaimCustomerCoupon("
+        }
+      ]
+    },
+    {
+      "sha": "5a03354829b6e047c154f05983e2482f08f21cd5",
+      "subject": "fix: (CXSPA-11706) Deprecate enableCarouselCategoryProducts feature toggle (#20991)",
+      "files": [
+        {
+          "file": "projects/storefrontlib/cms-components/product/carousel/product-carousel/product-carousel.component.ts",
+          "members": [
+            "ProductCarouselComponent.featureConfigService",
+            "ProductCarouselComponent.handleCategoryCodes"
+          ],
+          "diff": "@@ -11,7 +11,6 @@ import {\n   TrackByFunction,\n } from '@angular/core';\n import {\n-  FeatureConfigService,\n   CmsProductCarouselComponent as model,\n   Product,\n   ProductScope,\n@@ -31,8 +30,6 @@ import { CmsComponentData } from '../../../../cms-structure/page/model/cms-compo\n   standalone: false,\n })\n export class ProductCarouselComponent {\n-  private featureConfigService: FeatureConfigService =\n-    inject(FeatureConfigService);\n   protected productSearchByCodeService: ProductSearchByCodeService = inject(\n     ProductSearchByCodeService\n   );\n@@ -88,12 +85,8 @@ export class ProductCarouselComponent {\n \n   handleCategoryCodes(data: model): Observable<model> {\n     const categoryCodes = data?.categoryCodes?.split(' ');\n-\n     // Try to add category codes to the carousel product codes\n-    if (\n-      categoryCodes &&\n-      this.featureConfigService.isEnabled('enableCarouselCategoryProducts')\n-    ) {\n+    if (categoryCodes) {\n       return zip(\n         categoryCodes.map((categoryCode) =>\n           this.productSearchByCategoryService.get({"
+        }
+      ]
+    },
+    {
+      "sha": "6f9e2ed96eaf6d9a6bbb6ebe4ee2c3462f84d4fe",
+      "subject": "chore: enable feature and a11y toggles for Feb 2026 release (CXSPA-11812) (#20997)",
+      "files": [
+        {
+          "file": "core-libs/setup/ssr/optimized-engine/ssr-optimization-options.ts",
+          "members": [],
+          "diff": "@@ -260,6 +260,6 @@ export const defaultSsrOptimizationOptions: DefaultSsrOptimizationOptions = {\n   shouldCacheRenderingResult: ({ entry: { err } }) => !err,\n   renderKeyResolver: getDefaultRenderKey,\n   ssrFeatureToggles: {\n-    limitCacheByMemory: false,\n+    limitCacheByMemory: true,\n   },\n };"
+        }
+      ]
+    },
+    {
+      "sha": "f6372aebc2b88f3caf868c73d95740372e682740",
+      "subject": "fix: Future stock accordion breaks unique ID rule (#21033)",
+      "files": [
+        {
+          "file": "feature-libs/product/future-stock/components/future-stock-accordion/future-stock-accordion.component.html",
+          "members": [],
+          "diff": "@@ -13,28 +13,55 @@\n     ></cx-icon>\n   </button>\n \n-  <ng-container *ngIf=\"expanded\">\n-    <ng-container *ngIf=\"futureStocks?.futureStocks?.length; else noStocks\">\n-      <div\n-        id=\"cx-future-stock-accordion-content\"\n-        class=\"cx-future-stock-accordion-content\"\n-        aria-labelledby=\"cx-future-stock-accordion-header\"\n-        *ngFor=\"let futureStock of futureStocks.futureStocks\"\n-      >\n-        {{ futureStock.formattedDate }} -\n-        {{ 'futureStockDropdown.quantity' | cxTranslate }}\n-        {{ futureStock.stock.stockLevel }}\n-      </div>\n+  <ng-container *cxFeature=\"'!a11yFutureStockAccordionAriaControls'\">\n+    <ng-container *ngIf=\"expanded\">\n+      <ng-container *ngIf=\"futureStocks?.futureStocks?.length; else noStocks\">\n+        <div\n+          id=\"cx-future-stock-accordion-content\"\n+          class=\"cx-future-stock-accordion-content\"\n+          aria-labelledby=\"cx-future-stock-accordion-header\"\n+          *ngFor=\"let futureStock of futureStocks.futureStocks\"\n+        >\n+          {{ futureStock.formattedDate }} -\n+          {{ 'futureStockDropdown.quantity' | cxTranslate }}\n+          {{ futureStock.stock.stockLevel }}\n+        </div>\n+      </ng-container>\n+\n+      <ng-template #noStocks>\n+        <div\n+          id=\"cx-future-stock-accordion-content\"\n+          class=\"cx-future-stock-accordion-content\"\n+          aria-labelledby=\"cx-future-stock-accordion-header\"\n+        >\n+          {{ 'futureStockDropdown.noFutureStocks' | cxTranslate }}\n+        </div>\n+      </ng-template>\n     </ng-container>\n+  </ng-container>\n+\n+  <ng-container *cxFeature=\"'a11yFutureStockAccordionAriaControls'\">\n+    <div id=\"cx-future-stock-accordion-content\" [hidden]=\"!expanded\">\n+      <ng-container *ngIf=\"futureStocks?.futureStocks?.length; else noStocks\">\n+        <div\n+          class=\"cx-future-stock-accordion-content\"\n+          aria-labelledby=\"cx-future-stock-accordion-header\"\n+          *ngFor=\"let futureStock of futureStocks.futureStocks\"\n+        >\n+          {{ futureStock.formattedDate }} -\n+          {{ 'futureStockDropdown.quantity' | cxTranslate }}\n+          {{ futureStock.stock.stockLevel }}\n+        </div>\n+      </ng-container>\n \n-    <ng-template #noStocks>\n-      <div\n-        id=\"cx-future-stock-accordion-content\"\n-        class=\"cx-future-stock-accordion-content\"\n-        aria-labelledby=\"cx-future-stock-accordion-header\"\n-      >\n-        {{ 'futureStockDropdown.noFutureStocks' | cxTranslate }}\n-      </div>\n-    </ng-template>\n+      <ng-template #noStocks>\n+        <div\n+          class=\"cx-future-stock-accordion-content\"\n+          aria-labelledby=\"cx-future-stock-accordion-header\"\n+        >\n+          {{ 'futureStockDropdown.noFutureStocks' | cxTranslate }}\n+        </div>\n+      </ng-template>\n+    </div>\n   </ng-container>\n </ng-container>"
+        },
+        {
+          "file": "feature-libs/product/future-stock/components/future-stock-accordion/future-stock-accordion.component.ts",
+          "members": [],
+          "diff": "@@ -6,14 +6,21 @@\n \n import { AsyncPipe, NgFor, NgIf } from '@angular/common';\n import { Component } from '@angular/core';\n-import { TranslatePipe } from '@spartacus/core';\n+import { FeatureDirective, TranslatePipe } from '@spartacus/core';\n import { FutureStockFacade } from '@spartacus/product/future-stock/root';\n import { ICON_TYPE, IconComponent } from '@spartacus/storefront';\n \n @Component({\n   selector: 'cx-future-stock-accordion',\n   templateUrl: './future-stock-accordion.component.html',\n-  imports: [NgIf, IconComponent, NgFor, AsyncPipe, TranslatePipe],\n+  imports: [\n+    NgIf,\n+    IconComponent,\n+    NgFor,\n+    AsyncPipe,\n+    TranslatePipe,\n+    FeatureDirective,\n+  ],\n })\n export class FutureStockAccordionComponent {\n   futureStocks$ = this.futureStockService.getFutureStock();"
+        }
+      ]
+    }
+  ],
+  "i18n": {
+    "added": [
+      {
+        "chunk": "common",
+        "key": "common.currency",
+        "texts": {
+          "en": "Currency"
+        }
+      },
+      {
+        "chunk": "common",
+        "key": "common.language",
+        "texts": {
+          "en": "Language"
+        }
+      }
+    ],
+    "removed": [],
+    "changed": [
+      {
+        "chunk": "documentFlow",
+        "key": "documentFlow.dialog.closeModal",
+        "before": "Close Modal",
+        "after": "Close"
+      },
+      {
+        "chunk": "order",
+        "key": "attachments.dialog.closeModal",
+        "before": "Close Modal",
+        "after": "Close"
+      }
+    ],
+    "translated": []
+  }
 }

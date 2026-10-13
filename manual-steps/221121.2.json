@@ -1,0 +1,268 @@
+{
+  "schemaVersion": 1,
+  "release": "221121.2",
+  "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/4b769ba91cf248d9b24da0b9f36bc8c8.html",
+  "pageHash": "10151801a00c0bbf29ae7723231bc7d7d4d2a13ff6a29dc9a9db81a67b8d8c73",
+  "steps": [
+    {
+      "id": "angular-update",
+      "kind": "install",
+      "title": {
+        "en": "Update Angular and Angular CLI",
+        "tr": "Angular ve Angular CLI'ı güncelleyin"
+      },
+      "text": {
+        "en": "Run ng update to move Angular to 19.2.15 and Angular CLI to 19.2.16 to avoid peer dependency conflicts. The --verbose flag is optional.",
+        "tr": "Peer dependency çakışmalarını önlemek için ng update komutuyla Angular'ı 19.2.15, Angular CLI'ı 19.2.16 sürümüne güncelleyin. --verbose bayrağı isteğe bağlıdır."
+      },
+      "quote": "Run the following command to update the local version of Angular to version",
+      "condition": null,
+      "code": {
+        "language": "bash",
+        "content": "ng update @angular/cli@19.2.16 @angular/core@19.2.15 --verbose"
+      },
+      "repeatsEarlier": false,
+      "check": null
+    },
+    {
+      "id": "app-routing-module-import",
+      "kind": "code",
+      "title": {
+        "en": "Import AppRoutingModule from @spartacus/storefront",
+        "tr": "AppRoutingModule'ü @spartacus/storefront'tan import edin"
+      },
+      "text": {
+        "en": "Make sure app.module.ts imports AppRoutingModule from @spartacus/storefront.",
+        "tr": "app.module.ts dosyasının AppRoutingModule'ü @spartacus/storefront paketinden import ettiğinden emin olun."
+      },
+      "quote": "Ensure your project imports the AppRoutingModule from",
+      "condition": null,
+      "code": {
+        "language": "typescript",
+        "content": "import { AppRoutingModule } from \"@spartacus/storefront\";\n"
+      },
+      "repeatsEarlier": true,
+      "check": null
+    },
+    {
+      "id": "spartacus-versions",
+      "kind": "automated",
+      "title": {
+        "en": "Set @spartacus libraries to ~221121.2.0",
+        "tr": "@spartacus kütüphanelerini ~221121.2.0 olarak ayarlayın"
+      },
+      "text": {
+        "en": "In package.json, set all @spartacus libraries to \"~221121.2.0\", always using ~ and not ^.",
+        "tr": "package.json içinde tüm @spartacus kütüphanelerini \"~221121.2.0\" olarak ayarlayın; her zaman ^ değil ~ kullanın."
+      },
+      "quote": "In package.json , set your @spartacus",
+      "condition": null,
+      "code": null,
+      "repeatsEarlier": true,
+      "check": null
+    },
+    {
+      "id": "remove-feature-toggles",
+      "kind": "automated",
+      "title": {
+        "en": "Remove non-configurable feature toggles",
+        "tr": "Yapılandırılamaz feature toggle'ları kaldırın"
+      },
+      "text": {
+        "en": "In spartacus-features.module.ts, remove every feature toggle listed as \"Activated (non-configurable)\" for 221121.2. If a removed toggle was set to false, additional code changes may be required.",
+        "tr": "spartacus-features.module.ts içinde 221121.2 için \"Activated (non-configurable)\" olarak listelenen tüm feature toggle'ları kaldırın. Kaldırılan toggle false ise ek kod değişiklikleri gerekebilir."
+      },
+      "quote": "In src/app/spartacus/spartacus-features.module.ts , remove",
+      "condition": null,
+      "code": null,
+      "repeatsEarlier": true,
+      "check": null
+    },
+    {
+      "id": "remove-accessibility-toggles",
+      "kind": "automated",
+      "title": {
+        "en": "Remove non-configurable accessibility toggles",
+        "tr": "Yapılandırılamaz accessibility toggle'ları kaldırın"
+      },
+      "text": {
+        "en": "In spartacus-features.module.ts, remove every accessibility toggle listed as \"Activated (non-configurable)\" for 221121.2. If a removed toggle was set to false, additional code changes may be required.",
+        "tr": "spartacus-features.module.ts içinde 221121.2 için \"Activated (non-configurable)\" olarak listelenen tüm accessibility toggle'ları kaldırın. Kaldırılan toggle false ise ek kod değişiklikleri gerekebilir."
+      },
+      "quote": "In src/app/spartacus/spartacus-features.module.ts , remove",
+      "condition": null,
+      "code": null,
+      "repeatsEarlier": true,
+      "check": null
+    },
+    {
+      "id": "isolated-modules",
+      "kind": "code",
+      "title": {
+        "en": "Set isolatedModules back to true",
+        "tr": "isolatedModules değerini tekrar true yapın"
+      },
+      "text": {
+        "en": "In tsconfig.json, set isolatedModules back to true. The const enum issue is resolved in 2211.38 and newer.",
+        "tr": "tsconfig.json içinde isolatedModules değerini tekrar true yapın. const enum sorunu 2211.38 ve sonrasında çözülmüştür."
+      },
+      "quote": "In tsconfig.json , if you had previously set",
+      "condition": {
+        "en": "If you had previously set isolatedModules to false",
+        "tr": "isolatedModules değerini daha önce false yaptıysanız"
+      },
+      "code": null,
+      "repeatsEarlier": true,
+      "check": {
+        "type": "tsconfig-option",
+        "option": "isolatedModules",
+        "value": true
+      }
+    },
+    {
+      "id": "delete-node-modules",
+      "kind": "automated",
+      "title": {
+        "en": "Delete the node_modules folder",
+        "tr": "node_modules klasörünü silin"
+      },
+      "text": {
+        "en": "Delete your node_modules folder.",
+        "tr": "node_modules klasörünü silin."
+      },
+      "quote": "Delete your node_modules folder.",
+      "condition": null,
+      "code": null,
+      "repeatsEarlier": true,
+      "check": null
+    },
+    {
+      "id": "npm-install",
+      "kind": "automated",
+      "title": {
+        "en": "Run npm install",
+        "tr": "npm install çalıştırın"
+      },
+      "text": {
+        "en": "Run npm install to reinstall the dependencies.",
+        "tr": "Bağımlılıkları yeniden yüklemek için npm install çalıştırın."
+      },
+      "quote": "Run npm install .",
+      "condition": null,
+      "code": null,
+      "repeatsEarlier": true,
+      "check": null
+    },
+    {
+      "id": "oauth-feature-toggles",
+      "kind": "code",
+      "title": {
+        "en": "Enable OAuth 2.1 feature toggles",
+        "tr": "OAuth 2.1 feature toggle'larını etkinleştirin"
+      },
+      "text": {
+        "en": "In spartacus-features.module.ts, set authorizationCodeFlowByDefault, incrementProcessesCountForMergeCart, dispatchLoginActionOnlyWhenTokenReceived and cdsLoginEventsToken to true. These enable OAuth 2.1 support with Authorization Code Flow.",
+        "tr": "spartacus-features.module.ts içinde authorizationCodeFlowByDefault, incrementProcessesCountForMergeCart, dispatchLoginActionOnlyWhenTokenReceived ve cdsLoginEventsToken toggle'larını true yapın. Bunlar Authorization Code Flow ile OAuth 2.1 desteğini etkinleştirir."
+      },
+      "quote": "set the following feature flags to true .",
+      "condition": {
+        "en": "If you use SAP Commerce Cloud 2211-jdk21.1",
+        "tr": "SAP Commerce Cloud 2211-jdk21.1 kullanıyorsanız"
+      },
+      "code": null,
+      "repeatsEarlier": true,
+      "check": {
+        "type": "toggles-enabled",
+        "toggles": [
+          "authorizationCodeFlowByDefault",
+          "incrementProcessesCountForMergeCart",
+          "dispatchLoginActionOnlyWhenTokenReceived",
+          "cdsLoginEventsToken"
+        ]
+      }
+    },
+    {
+      "id": "oauth-public-client",
+      "kind": "backend",
+      "title": {
+        "en": "Create a public OAuth client in SAP Commerce Cloud",
+        "tr": "SAP Commerce Cloud'da public OAuth client oluşturun"
+      },
+      "text": {
+        "en": "Create new OAuth client credentials with the public property set to true and without a client secret, for example with the given ImpEx.",
+        "tr": "public özelliği true olan ve client secret içermeyen yeni OAuth client credentials oluşturun, örneğin verilen ImpEx ile."
+      },
+      "quote": "Create new OAuth client credentials in SAP Commerce Cloud",
+      "condition": {
+        "en": "If you use SAP Commerce Cloud 2211-jdk21.1",
+        "tr": "SAP Commerce Cloud 2211-jdk21.1 kullanıyorsanız"
+      },
+      "code": {
+        "language": "impex",
+        "content": "# Public OAuth Client Credential\n  INSERT_UPDATE OAuthClientDetails; clientId[unique=true]      ;public ;authorities ;scope ;authorizedGrantTypes             ;registeredRedirectUri ;loginPageUri   \n                                  ; mobile_android_public      ;true   ;ROLE_CLIENT ;basic ;authorization_code,refresh_token ;http://localhost:4200 ;http://localhost:4200/login"
+      },
+      "repeatsEarlier": true,
+      "check": null
+    },
+    {
+      "id": "custom-login-page",
+      "kind": "optional",
+      "title": {
+        "en": "Use composable storefront as a custom login page",
+        "tr": "Composable storefront'u özel giriş sayfası olarak kullanın"
+      },
+      "text": {
+        "en": "Optionally set up composable storefront as a custom login page instead of the authorization server page. This requires implementation steps in both the SAP Commerce Cloud back end and the storefront front end.",
+        "tr": "İsteğe bağlı olarak, authorization server sayfası yerine composable storefront'u özel giriş sayfası olarak ayarlayın. Bu, hem SAP Commerce Cloud back end hem de storefront front end tarafında adımlar gerektirir."
+      },
+      "quote": "Optionally, set up composable",
+      "condition": {
+        "en": "If you want to use composable storefront as a custom login page",
+        "tr": "Composable storefront'u özel giriş sayfası olarak kullanmak istiyorsanız"
+      },
+      "code": null,
+      "repeatsEarlier": true,
+      "check": null
+    },
+    {
+      "id": "additional-oauth-features",
+      "kind": "optional",
+      "title": {
+        "en": "Adopt later OAuth 2.1 features",
+        "tr": "Sonraki sürümlerdeki OAuth 2.1 özelliklerini kullanın"
+      },
+      "text": {
+        "en": "Optionally take advantage of OAuth features introduced in later releases of composable storefront.",
+        "tr": "İsteğe bağlı olarak composable storefront'un sonraki sürümlerinde eklenen OAuth özelliklerinden yararlanın."
+      },
+      "quote": "Take advantage of OAuth features introduced in later releases of composable",
+      "condition": {
+        "en": "If you use SAP Commerce Cloud 2211-jdk21.1",
+        "tr": "SAP Commerce Cloud 2211-jdk21.1 kullanıyorsanız"
+      },
+      "code": null,
+      "repeatsEarlier": true,
+      "check": null
+    },
+    {
+      "id": "ssr-error-handling",
+      "kind": "optional",
+      "title": {
+        "en": "Troubleshoot SSR error handling",
+        "tr": "SSR hata yönetimi sorunlarını giderin"
+      },
+      "text": {
+        "en": "The propagateErrorsToServer, ssrStrictErrorHandlingForHttpAndNgrx and avoidCachingErrors toggles are removed. If you did not enable them before updating, you may need to customize error handling (PropagatingToServerErrorHandler, ErrorActionService, HttpErrorHandlerInterceptor, ExpressJS error handlers, shouldCacheRenderingResult).",
+        "tr": "propagateErrorsToServer, ssrStrictErrorHandlingForHttpAndNgrx ve avoidCachingErrors toggle'ları kaldırıldı. Güncellemeden önce etkinleştirmediyseniz hata yönetimini özelleştirmeniz gerekebilir (PropagatingToServerErrorHandler, ErrorActionService, HttpErrorHandlerInterceptor, ExpressJS error handler'ları, shouldCacheRenderingResult)."
+      },
+      "quote": "If you did not have a chance to enable these feature",
+      "condition": {
+        "en": "If you did not enable these toggles before updating and encounter SSR errors",
+        "tr": "Bu toggle'ları güncellemeden önce etkinleştirmediyseniz ve SSR hataları alıyorsanız"
+      },
+      "code": null,
+      "repeatsEarlier": false,
+      "check": null
+    }
+  ]
+}

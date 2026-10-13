@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatorVersion": 2,
+  "generatorVersion": 3,
   "from": {
     "release": "221121.15",
     "gitTag": "221121.15.1"
@@ -53,6 +53,14 @@
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "ca885067db2557f57c469decdb4ba5b167f41e8f"
+        ],
+        "rollout": {
+          "defaultOn": "221121.9",
+          "mandatory": "221121.17"
+        },
         "translations": {
           "tr": "Configurator overview sayfasında, VPC modunda 'H' tuşuyla gezinirken grup başlıklarının heading olarak algılanmasını sağlar."
         }
@@ -79,6 +87,9 @@
                 "line": 71,
                 "code": "useFeatureStyles('consistentSizeProductCards');"
               }
+            ],
+            "members": [
+              "ProductGridItemComponent.constructor"
             ]
           },
           {
@@ -96,6 +107,9 @@
                 "line": 80,
                 "code": "useFeatureStyles('consistentSizeProductCards');"
               }
+            ],
+            "members": [
+              "ProductListItemComponent.constructor"
             ]
           },
           {
@@ -119,6 +133,11 @@
                 "line": 41,
                 "code": "@include forFeature('consistentSizeProductCards') {\n  @include media-breakpoint-up(md) {\n    img {\n      max-height: 255px;\n    }\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-product-grid-item .cx-product-image",
+              "cx-product-grid-item .cx-product-image img",
+              "cx-product-grid-item .cx-product-image-container"
             ]
           },
           {
@@ -146,9 +165,24 @@
                 "line": 61,
                 "code": "@include forFeature('consistentSizeProductCards') {\n  @include media-breakpoint-up(md) {\n    display: flex;\n    img {\n      margin-top: auto;\n      margin-bottom: auto;\n      max-height: 255px;\n    }\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-product-list-item",
+              "cx-product-list-item .cx-product-image",
+              "cx-product-list-item .cx-product-image img",
+              "cx-product-list-item .cx-product-summary",
+              "cx-product-list-item > div"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "bf77135ae94532603614d05058e1d0a0bc2caf3c"
+        ],
+        "rollout": {
+          "defaultOn": "221121.7",
+          "mandatory": "221121.17"
+        },
         "translations": {
           "tr": "Etkinleştirildiğinde, ürün listesi sayfasındaki ürün kartlarına zorunlu tutarlı bir boyut uygulanır.\nŞu bileşenlerin stillerini etkiler: ProductGridItemComponent, ProductListItemComponent."
         }
@@ -160,6 +194,32 @@
         "defaultValue": true,
         "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/b064b86b837544b2a41158f1d1c5e552.html",
         "usages": [],
+        "references": [
+          {
+            "file": "core-libs/storefront/cms-structure/seo/media-preconnect.service.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "MediaPreconnectService"
+            ],
+            "selectors": [],
+            "members": [
+              "MediaPreconnectService.addPreconnectLink"
+            ],
+            "snippets": [
+              {
+                "line": 22,
+                "code": "if (!this.featureToggles.createMediaPreconnectLink) {\n  return;\n}"
+              }
+            ]
+          }
+        ],
+        "commits": [
+          "aa8cf96286edb09550c9c452391e34f4d896a197"
+        ],
+        "rollout": {
+          "defaultOn": "221121.7",
+          "mandatory": "221121.17"
+        },
         "translations": {
           "tr": "index.html içinde <link rel=preconnect> kullanımını etkinleştiren feature toggle.\n\n## Etkinleştirildiğinde:\nBir <link> öğesine rel=preconnect eklemek, tarayıcıya sayfanızın başka bir domain'e bağlantı kurmayı amaçladığını\nve bu sürecin mümkün olan en kısa sürede başlamasını istediğinizi bildirir. Kurulum süreci tarayıcı kaynakları\nistediğinde zaten tamamlanmış olacağından kaynaklar daha hızlı yüklenir.\n\nNot: Media base url'in domain'i storefront'un domain'i ile aynıysa preconnect gerekmez (ve uygulanmaz)."
         }
@@ -171,6 +231,30 @@
         "defaultValue": true,
         "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/53c73f185b97463cb549b45df823153e.html",
         "usages": [],
+        "references": [
+          {
+            "file": "core-libs/storefront/recipes/config/layout-config.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [],
+            "selectors": [],
+            "members": [
+              "layoutConfigFactory"
+            ],
+            "snippets": [
+              {
+                "line": 186,
+                "code": "if (featureToggles.defaultLayoutConfigWithoutPageFold) {\n  applyWithoutPageFold(config);\n}"
+              }
+            ]
+          }
+        ],
+        "commits": [
+          "8c9feb0341ff82020c8e6caf74f68fd5fe4c46bf"
+        ],
+        "rollout": {
+          "defaultOn": "221121.7",
+          "mandatory": "221121.17"
+        },
         "translations": {
           "tr": "Daha önce varsayılan Spartacus layout config'i aşağıdaki layout'lar için `pageFold` özelliğini içeriyordu:\n- `LandingPage2Template`\n- `CategoryPageTemplate`\n- `ProductDetailsPageTemplate`\n\nBu feature toggle etkinleştirildiğinde, `pageFold` özelliği bu layout config'lerinden kaldırılır.\n\nAmaç CLS (Cumulative Layout Shift) metriğini iyileştirmektir. Önceden `pageFold` özelliği, SSR sayfalarında bile\nCMS component'lerinin ancak kısa bir gecikmeden sonra render edilmesine ve dolayısıyla layout shift oluşmasına neden oluyordu.\n\n⚠️ Bu feature toggle'ı tam olarak etkinleştirmek için kod tabanınızdaki `provideConfig(layoutConfig)` çağrısını\n`provideConfigFactory(layoutConfigFactory)` ile değiştirmeniz de gerekir."
         }
@@ -197,6 +281,9 @@
                 "line": 56,
                 "code": "useFeatureStyles('disableCxPageSlotMarginAnimation');"
               }
+            ],
+            "members": [
+              "PageLayoutComponent.constructor"
             ]
           },
           {
@@ -214,12 +301,23 @@
             ],
             "snippets": [
               {
-                "line": 8,
-                "code": "// The real estate of pending elements below-the-fold (btf) is"
+                "line": 26,
+                "code": "@include forFeature('disableCxPageSlotMarginAnimation') {\n  transition: none;\n  transition-delay: 0s;\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-page-layout cx-page-slot"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "596e66c8ab07dff5e852547889331b493544892a"
+        ],
+        "rollout": {
+          "defaultOn": "221121.7",
+          "mandatory": "221121.17"
+        },
         "translations": {
           "tr": "cx-page-slot component'i için margin animasyonunu devre dışı bırakan feature toggle.\n`cx-page-slot` component'indeki `margin` özelliğinin CSS animasyonunu devre dışı bırakır.\nBu animasyon, başlangıçta Spartacus'taki eski \"defer loading\" ve \"below the fold\"\nmekanizmasının bir parçasıydı. Bu mekanizma güncel storefront'ta artık kullanılmadığından,\nanimasyon gereksiz layout shift'lere (CLS) ve artan render maliyetine (TBT) neden olur.\n\nBu toggle'ı etkinleştirmek, performansı ve kullanıcı deneyimini iyileştirmek için margin animasyonunu kaldırır."
         }
@@ -244,9 +342,20 @@
                 "line": 169,
                 "code": "const fallbackStrategy = this.featureConfigService.isEnabled("
               }
+            ],
+            "members": [
+              "MediaService.loadingStrategy"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "d72063145e8970f6b02117574e61b5bf007ee978"
+        ],
+        "rollout": {
+          "defaultOn": "221121.7",
+          "mandatory": "221121.17"
+        },
         "translations": {
           "tr": "Varsayılan görsel yükleme stratejisini kontrol eden feature toggle.\n\nVarsayılan olarak `MediaComponent`, `MediaService` içindeki fallback mantığı nedeniyle tüm görseller için\n`loading=\"eager\"` attribute'unu kullanıyordu; bu mantık, açık bir config verilmediğinde\n`imageLoadingStrategy: EAGER` değerini varsayılan alır.\n\nBu toggle etkinleştirildiğinde, varsayılan görsel yükleme davranışı `loading=\"lazy\"` olacak şekilde değişir.\nBöylece below the fold görseller hemen indirilmez, gereksiz ağ kullanımı azalır ve performans artar.\n\nLazy loading, bant genişliğini serbest bırakarak sayfadaki en büyük içerik öğesi gibi daha önemli kaynaklara\nöncelik verilmesini sağlar; bu da LCP (Largest Contentful Paint) metriğini olumlu etkileyebilir.\n\nTüm görseller varsayılan olarak lazy yüklendiğinde, LCP görsellerine açıkça öncelik vermelisiniz;\nbunu Spartacus config'i üzerinden CMS component ID'lerini belirterek yapabilirsiniz:\n`provideConfig({ lcpCmsComponents: ... })`\n... ya da özel input'u doğrudan `MediaComponent`'e vererek:\n`<cx-media [fetchPriority]=\"ImageFetchPriority.HIGH\" ... >`\n\nVarsayılan olarak lazy loading'i etkinleştirmek için `true` yapın."
         }
@@ -273,6 +382,9 @@
                 "line": 1,
                 "code": "<ng-container *cxFeature=\"'productCarouselScrolling'\">\n  <cx-carousel-scrolling\n    *ngIf=\"items$ | async as items\"\n    role=\"region\"\n    [attr.aria-label]=\"\n      'productCarousel.carouselLabel' | cxTranslate: { title: title$ | async }\n    \"\n    [items]=\"items\"\n    [title]=\"title$ | async\"\n    [template]=\"carouselItem\"\n    [trackByFn]=\"trackByFn\"\n  >\n  </cx-carousel-scrolling>\n</ng-container>"
               }
+            ],
+            "components": [
+              "cx-carousel-scrolling"
             ]
           },
           {
@@ -290,6 +402,9 @@
                 "line": 15,
                 "code": "<ng-container *cxFeature=\"'!productCarouselScrolling'\">\n  <cx-carousel\n    *ngIf=\"items$ | async as items\"\n    role=\"region\"\n    [attr.aria-label]=\"\n      'productCarousel.carouselLabel' | cxTranslate: { title: title$ | async }\n    \"\n    [items]=\"items\"\n    [title]=\"title$ | async\"\n    [template]=\"carouselItem\"\n    itemWidth=\"285px\"\n    [trackByFn]=\"trackByFn\"\n  >\n  </cx-carousel>\n</ng-container>"
               }
+            ],
+            "components": [
+              "cx-carousel"
             ]
           },
           {
@@ -307,6 +422,9 @@
                 "line": 97,
                 "code": "useFeatureStyles('productCarouselScrolling');"
               }
+            ],
+            "members": [
+              "ProductCarouselComponent.constructor"
             ]
           },
           {
@@ -324,6 +442,9 @@
                 "line": 1,
                 "code": "<ng-container *cxFeature=\"'productCarouselScrolling'\">\n  <ng-container *ngIf=\"items$ | async as items\">\n    <cx-carousel-scrolling\n      *ngIf=\"items.length\"\n      [title]=\"title$ | async\"\n      [items]=\"items\"\n      [template]=\"carouselItem\"\n      [trackByFn]=\"trackByFn\"\n    >\n    </cx-carousel-scrolling>\n  </ng-container>\n</ng-container>"
               }
+            ],
+            "components": [
+              "cx-carousel-scrolling"
             ]
           },
           {
@@ -341,6 +462,9 @@
                 "line": 13,
                 "code": "<ng-container *cxFeature=\"'!productCarouselScrolling'\">\n  <ng-container *ngIf=\"items$ | async as items\">\n    <cx-carousel\n      *ngIf=\"items$ | async as items\"\n      [title]=\"title$ | async\"\n      [items]=\"items\"\n      [template]=\"carouselItem\"\n      [trackByFn]=\"trackByFn\"\n    >\n    </cx-carousel>\n  </ng-container>\n</ng-container>"
               }
+            ],
+            "components": [
+              "cx-carousel"
             ]
           },
           {
@@ -358,6 +482,9 @@
                 "line": 53,
                 "code": "useFeatureStyles('productCarouselScrolling');"
               }
+            ],
+            "members": [
+              "ProductReferencesComponent.constructor"
             ]
           },
           {
@@ -375,6 +502,9 @@
                 "line": 10,
                 "code": "<ng-container *cxFeature=\"'productCarouselScrolling'\">\n  <cx-carousel-scrolling\n    *ngIf=\"thumbs.length\"\n    class=\"thumbs\"\n    [items]=\"thumbs\"\n    [template]=\"thumb\"\n    [trackByFn]=\"trackByFn\"\n  ></cx-carousel-scrolling>\n</ng-container>"
               }
+            ],
+            "components": [
+              "cx-carousel-scrolling"
             ]
           },
           {
@@ -392,6 +522,9 @@
                 "line": 20,
                 "code": "<ng-container *cxFeature=\"'!productCarouselScrolling'\">\n  <cx-carousel\n    *ngIf=\"thumbs.length\"\n    class=\"thumbs\"\n    [items]=\"thumbs\"\n    itemWidth=\"120px\"\n    [hideIndicators]=\"false\"\n    [template]=\"thumb\"\n  ></cx-carousel>\n</ng-container>"
               }
+            ],
+            "components": [
+              "cx-carousel"
             ]
           },
           {
@@ -409,6 +542,9 @@
                 "line": 66,
                 "code": "useFeatureStyles('productCarouselScrolling');"
               }
+            ],
+            "members": [
+              "ProductImagesComponent.constructor"
             ]
           },
           {
@@ -423,9 +559,13 @@
             ],
             "snippets": [
               {
-                "line": 52,
-                "code": "margin: 4px 4px 0 4px; // show visual focus outline, even when container has overflow-x: auto"
+                "line": 55,
+                "code": "@include forFeature('productCarouselScrolling') {\n  img {\n    width: 100%;\n    height: auto;\n    aspect-ratio: 1/1;\n    object-fit: scale-down;\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-carousel-scrolling .carousel-items .item",
+              "cx-carousel-scrolling .carousel-items .item img"
             ]
           },
           {
@@ -443,6 +583,9 @@
                 "line": 5,
                 "code": "@include forFeature('productCarouselScrolling') {\n  width: 70%;\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-product-carousel-item .actions"
             ]
           },
           {
@@ -468,6 +611,11 @@
                 "line": 43,
                 "code": "@include forFeature('productCarouselScrolling') {\n  &.is-loading {\n    background-color: #f5f5f5;\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-product-carousel",
+              "cx-product-carousel cx-media",
+              "cx-product-carousel cx-media.is-loading"
             ]
           },
           {
@@ -491,6 +639,10 @@
                 "line": 27,
                 "code": "@include forFeature('productCarouselScrolling') {\n  width: 300px;\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-product-references",
+              "cx-product-references cx-media"
             ]
           },
           {
@@ -512,9 +664,13 @@
                 "code": "@include forFeature('productCarouselScrolling') {\n  overflow: auto;\n}"
               },
               {
-                "line": 66,
-                "code": "&.is-waiting:after {\n  --cx-opacity: 1;\n}"
+                "line": 77,
+                "code": "@include forFeature('productCarouselScrolling') {\n  width: 120px;\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-product-images",
+              "cx-product-images .thumbs cx-media"
             ]
           },
           {
@@ -532,6 +688,9 @@
                 "line": 17,
                 "code": "<ng-container *cxFeature=\"'productCarouselScrolling'\">\n  <cx-carousel-scrolling\n    role=\"region\"\n    [attr.aria-label]=\"\n      'carousel.carouselForProduct' | cxTranslate: { product: product.name }\n    \"\n    tabindex=\"-1\"\n    *ngIf=\"thumbs.length\"\n    class=\"thumbs\"\n    [items]=\"thumbs\"\n    [template]=\"thumb\"\n    [trackByFn]=\"trackByFn\"\n  ></cx-carousel-scrolling>\n</ng-container>"
               }
+            ],
+            "components": [
+              "cx-carousel-scrolling"
             ]
           },
           {
@@ -549,9 +708,20 @@
                 "line": 31,
                 "code": "<ng-container *cxFeature=\"'!productCarouselScrolling'\">\n  <cx-carousel\n    role=\"region\"\n    [attr.aria-label]=\"\n      'carousel.carouselForProduct' | cxTranslate: { product: product.name }\n    \"\n    tabindex=\"-1\"\n    *ngIf=\"thumbs.length\"\n    class=\"thumbs\"\n    [items]=\"thumbs\"\n    itemWidth=\"120px\"\n    [hideIndicators]=\"false\"\n    [template]=\"thumb\"\n  ></cx-carousel>\n</ng-container>"
               }
+            ],
+            "components": [
+              "cx-carousel"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "e1e9f24fdba4878835f47bbd4559638208f36335"
+        ],
+        "rollout": {
+          "defaultOn": "221121.7",
+          "mandatory": "221121.17"
+        },
         "translations": {
           "tr": "Etkinleştirildiğinde, aşağıdaki component'lerde eski `<cx-carousel>` yerine yeni `<cx-carousel-scrolling>` carousel component'i kullanılır:\n- `ProductCarouselComponent`\n- `ProductReferencesComponent`\n- `ProductImagesComponent` ve ilgili `ProductImageZoomProductImagesComponent`\n\nÖnceki carousel'in çeşitli sorunları vardı:\n- Masaüstü viewport'ta SSR'dan CSR'a geçişte büyük layout shift'e neden oluyordu,\n    çünkü SSR'da yalnızca 1 carousel öğesi render ediliyor, masaüstü CSR'da ise bir süre sonra 4 öğe\n    görünüyordu (özellikle Chrome DevTools Network throttling ile belirgindi)\n- Spartacus tüm görselleri lazy yükleyecek şekilde yapılandırılmış olsa bile\n    (`provideConfig({ imageLoadingStrategy: ImageLoadingStrategy.LAZY})`), görünmeyen slide'lardaki görselleri de eager yüklüyordu\n- Mobil cihazlarda swipe dostu değildi\n\nYeni carousel:\n- Artık SSR'dan CSR'a geçişte büyük layout shift'ten etkilenmez, çünkü aynı HTML hem SSR'da hem de\n   CSR bir gecikmeyle devreye girdiğinde render edilir;\n   böylece SSR HTML'inde ve CSR HTML'inde aynı sayıda carousel öğesi görünür.\n- Yerel yatay kaydırma sayesinde görünmeyen görselleri lazy yükler (Spartacus tüm görselleri lazy yükleyecek\n   şekilde yapılandırıldığında: `provideConfig({ imageLoadingStrategy: ImageLoadingStrategy.LAZY})`)\n- Yerel yatay kaydırması sayesinde dokunmatik cihazlarda swipe dostudur"
         }
@@ -630,9 +800,20 @@
                 "line": 182,
                 "code": "  this.featureConfigService.isEnabled('productReviewCharactersLeft');\nthis.reviewForm = this.fb.group({\n  title: [\n    '',\n    !isProductReviewCharactersLeftEnabled\n      ? Validators.required\n      : [\n          Validators.required,\n          Validators.maxLength(this.maxLengthReviewTitle),\n        ],\n  ],\n  comment: [\n    '',\n    !isProductReviewCharactersLeftEnabled\n      ? Validators.required\n      : [\n          Validators.required,\n          Validators.maxLength(this.maxLengthReviewComment),\n        ],\n  ],\n  rating: [null, Validators.required],\n  reviewerName: !isProductReviewCharactersLeftEnabled\n    ? ''\n    : ['', Validators.maxLength(this.maxLengthReviewerName)],\n}"
               }
+            ],
+            "members": [
+              "ProductReviewsComponent.resetReviewForm"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "0914b317eeebadce3c61459ce4a3a4e5c0f858b0"
+        ],
+        "rollout": {
+          "defaultOn": "221121.7",
+          "mandatory": "221121.17"
+        },
         "translations": {
           "tr": "Ürün yorumu formu öğeleri için kalan karakter sayısını gösterir."
         }
@@ -686,9 +867,20 @@
                 "line": 71,
                 "code": "<cx-read-more\n  *cxFeature=\"'readMoreDirective'\"\n  class=\"text\"\n  [text]=\"review.comment!\"\n></cx-read-more>"
               }
+            ],
+            "components": [
+              "cx-read-more"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "a630f9a32ce9ffacf1c2e636e7dbb016f0224f3a"
+        ],
+        "rollout": {
+          "defaultOn": "221121.7",
+          "mandatory": "221121.17"
+        },
         "translations": {
           "tr": "Uzun metin içeren öğeleri sunmak için read more directive'i ekler."
         }
@@ -715,6 +907,9 @@
                 "line": 65,
                 "code": "useFeatureStyles('reserveSpaceForImagesOnPdpAndPlp');"
               }
+            ],
+            "members": [
+              "ProductImagesComponent.constructor"
             ]
           },
           {
@@ -732,6 +927,9 @@
                 "line": 64,
                 "code": "useFeatureStyles('reserveSpaceForImagesOnPdpAndPlp');"
               }
+            ],
+            "members": [
+              "ProductListComponent.constructor"
             ]
           },
           {
@@ -752,6 +950,9 @@
                 "line": 32,
                 "code": "@include forFeature('reserveSpaceForImagesOnPdpAndPlp') {\n  width: 100%;\n  height: auto;\n  aspect-ratio: 1 / 1;\n  object-fit: scale-down;\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-product-images cx-media"
             ]
           },
           {
@@ -771,6 +972,10 @@
                 "line": 18,
                 "code": "@include forFeature('reserveSpaceForImagesOnPdpAndPlp') {\n  img {\n    aspect-ratio: 1 / 1;\n    width: 100%;\n    height: auto;\n    object-fit: scale-down;\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-product-grid-item",
+              "cx-product-grid-item img"
             ]
           },
           {
@@ -794,9 +999,21 @@
                 "line": 135,
                 "code": "@include forFeature('reserveSpaceForImagesOnPdpAndPlp') {\n  img {\n    aspect-ratio: 1 / 1;\n    width: 100%;\n    height: auto;\n    object-fit: scale-down;\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-product-list-item",
+              "cx-product-list-item img"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "6925f6c189aa4dde7c315a9993dd7f999c6e8ea9"
+        ],
+        "rollout": {
+          "defaultOn": "221121.7",
+          "mandatory": "221121.17"
+        },
         "translations": {
           "tr": "CLS (Cumulative Layout Shift) sorunlarını önlemek için ürün görselleri adına yer ayırmayı etkinleştiren feature toggle.\n\nEtkinleştirildiğinde, görseller yüklenmeden önce uygun alanın ayrılmasını sağlar ve\naşağıdaki bağlamlarda layout kararlılığını korur:\n\n- **PDP (Product Detail Page)**: Ana ürün görseli için yer ayırır.\n- **PLP (Product Listing Page) - List View**: Liste düzenindeki her ürün görseli için yer ayırır.\n- **PLP (Product Listing Page) - Grid View**: Grid düzenindeki her ürün görseli için yer ayırır.\n\nBu, görseller yüklenirken oluşan layout shift'leri önleyerek Core Web Vitals'ın iyileşmesine yardımcı olur."
         }
@@ -820,9 +1037,12 @@
             ],
             "snippets": [
               {
-                "line": 113,
-                "code": "  protected keyboardFocusService: KeyboardFocusService\n) {\n  useFeatureStyles('unifiedDefaultHeaderSlotsAcrossBreakpoints');\n  useFeatureStyles('a11yPreventWindowsHighContrastOverride');\n  useFeatureStyles('alignNavigationMenuWithHeader');\n  useFeatureStyles('cdsBottomHeaderSlotAdjustPosition');\n}"
+                "line": 115,
+                "code": "useFeatureStyles('unifiedDefaultHeaderSlotsAcrossBreakpoints');"
               }
+            ],
+            "members": [
+              "StorefrontComponent.constructor"
             ]
           },
           {
@@ -845,6 +1065,30 @@
             ]
           }
         ],
+        "references": [
+          {
+            "file": "core-libs/storefront/recipes/config/layout-config.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [],
+            "selectors": [],
+            "members": [
+              "layoutConfigFactory"
+            ],
+            "snippets": [
+              {
+                "line": 182,
+                "code": "if (featureToggles.unifiedDefaultHeaderSlotsAcrossBreakpoints) {\n  applyUnifiedHeaderSlots(config);\n}"
+              }
+            ]
+          }
+        ],
+        "commits": [
+          "372727b7e632b21f892813a47cf7cc6fc9b0fc56"
+        ],
+        "rollout": {
+          "defaultOn": "221121.7",
+          "mandatory": "221121.17"
+        },
         "translations": {
           "tr": "Layout shift'i azaltmak ve Cumulative Layout Shift (CLS) skorlarını iyileştirmek için breakpoint'ler arasında tutarlı header slot yapısını etkinleştiren feature toggle.\n\nMasaüstü cihazlarda (mobil olmayan), bazı header ve navigasyon öğeleri yalnızca client-side rendering (CSR)\nsonrasında render ediliyordu ve bu da belirgin layout shift'lere yol açıyordu. Bu durum kullanıcı deneyimini\nve CLS performansını olumsuz etkiliyordu.\n\nEtkinleştirildiğinde:\n- Masaüstü, mobil ile aynı header slot yapısını kullanır.\n- Layout shift azalır; algılanan performans ve görsel kararlılık iyileşir.\n\n ⚠️ Bu özelliği tam olarak etkinleştirmek için kod tabanınızdaki `provideConfig(layoutConfig)` çağrısını\n`provideConfigFactory(layoutConfigFactory)` ile değiştirin."
         }
@@ -896,6 +1140,14 @@
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "fe3120e13380260bf4212929bde8020f3c0743cb"
+        ],
+        "rollout": {
+          "defaultOn": "Q1 2027",
+          "mandatory": "Q3 2027"
+        },
         "translations": {
           "tr": "Checkout sırasında klavye ile gezinirken seçili delivery mode radio button'ı üzerindeki klavye focus'unu korur."
         }
@@ -924,6 +1176,9 @@
                 "line": 32,
                 "code": "useFeatureStyles('a11yIncreaseContastGlobalMessageCloseButton');"
               }
+            ],
+            "members": [
+              "GlobalMessageComponent.constructor"
             ]
           },
           {
@@ -941,9 +1196,21 @@
                 "line": 20,
                 "code": "@include forFeature('a11yIncreaseContastGlobalMessageCloseButton') {\n  .close {\n    opacity: 1;\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-global-message",
+              "cx-global-message .close"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "7a1a676d9de1c8b1f3d6b1728c93213dc3cf856e"
+        ],
+        "rollout": {
+          "defaultOn": "Q1 2027",
+          "mandatory": "Q3 2027"
+        },
         "translations": {
           "tr": "Etkinleştirildiğinde, WCAG kontrast gereksinimlerini karşılamak için global message component'indeki kapatma butonunun renk kontrastını artırır."
         }
@@ -992,6 +1259,15 @@
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "0759b6ca1c88af1dc5143d5cc410321832fb0a64",
+          "6f668bc97f8f80ddc145e5db34092db075a1ece8"
+        ],
+        "rollout": {
+          "defaultOn": "Q1 2027",
+          "mandatory": "Q3 2027"
+        },
         "translations": {
           "tr": "Etkinleştirildiğinde, loading state toggle olurken focus'un korunması için consent management butonlarında disabled yerine aria-disabled kullanılır."
         }
@@ -1021,6 +1297,9 @@
                 "line": 97,
                 "code": "useFeatureStyles('a11yRegistrationTermsAsteriskMargin');"
               }
+            ],
+            "members": [
+              "OneTimePasswordRegisterComponent.constructor"
             ]
           },
           {
@@ -1035,9 +1314,12 @@
             ],
             "snippets": [
               {
-                "line": 145,
-                "code": "  protected registerComponentService: RegisterComponentService\n) {\n  useFeatureStyles('a11yRegistrationTermsAsteriskMargin');\n}"
+                "line": 147,
+                "code": "useFeatureStyles('a11yRegistrationTermsAsteriskMargin');"
               }
+            ],
+            "members": [
+              "RegisterComponent.constructor"
             ]
           },
           {
@@ -1057,6 +1339,10 @@
                 "line": 22,
                 "code": "@include forFeature('a11yRegistrationTermsAsteriskMargin') {\n  .form-check-label :is(a, button) + cx-form-required-asterisks {\n    margin-inline-start: 6px;\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-otp-register-form",
+              "cx-otp-register-form .form-check-label :is(a, button) + cx-form-required-asterisks"
             ]
           },
           {
@@ -1076,9 +1362,21 @@
                 "line": 32,
                 "code": "@include forFeature('a11yRegistrationTermsAsteriskMargin') {\n  .form-check-label :is(a, button) + cx-form-required-asterisks {\n    margin-inline-start: 6px;\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-register form",
+              "cx-register form .form-check-label :is(a, button) + cx-form-required-asterisks"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "09d84842069e61a3360c16fc7e5eb6bb5853442f"
+        ],
+        "rollout": {
+          "defaultOn": "Q1 2027",
+          "mandatory": "Q3 2027"
+        },
         "translations": {
           "tr": "Etkinleştirildiğinde, kayıt sayfasındaki Terms & Conditions bağlantısının yanındaki zorunlu alan yıldızına 6px inline margin ekler."
         }
@@ -1108,6 +1406,9 @@
                 "line": 3,
                 "code": "<div *cxFeature=\"'a11ySiteContextCaretClick'\" class=\"cx-select-wrapper\">\n  <select (change)=\"active = $any($event).target.value\">\n    <option\n      [attr.aria-label]=\"ariaLabel$(item.label, i, items.length) | async\"\n      *ngFor=\"let item of items; index as i\"\n      value=\"{{ item.isocode }}\"\n      [attr.selected]=\"(activeItem$ | async) === item.isocode ? '' : null\"\n    >\n      {{ item.label }}\n    </option>\n  </select>\n  <cx-icon\n    aria-hidden=\"true\"\n    [type]=\"iconTypes.CARET_DOWN\"\n    class=\"small\"\n  ></cx-icon>\n</div>"
               }
+            ],
+            "components": [
+              "cx-icon"
             ]
           },
           {
@@ -1125,6 +1426,9 @@
                 "line": 20,
                 "code": "<ng-container *cxFeature=\"'!a11ySiteContextCaretClick'\">\n  <select (change)=\"active = $any($event).target.value\">\n    <option\n      [attr.aria-label]=\"ariaLabel$(item.label, i, items.length) | async\"\n      *ngFor=\"let item of items; index as i\"\n      value=\"{{ item.isocode }}\"\n      [attr.selected]=\"(activeItem$ | async) === item.isocode ? '' : null\"\n    >\n      {{ item.label }}\n    </option>\n  </select>\n  <cx-icon\n    aria-hidden=\"true\"\n    [type]=\"iconTypes.CARET_DOWN\"\n    class=\"small\"\n  ></cx-icon>\n</ng-container>"
               }
+            ],
+            "components": [
+              "cx-icon"
             ]
           },
           {
@@ -1142,6 +1446,9 @@
                 "line": 55,
                 "code": "useFeatureStyles('a11ySiteContextCaretClick');"
               }
+            ],
+            "members": [
+              "SiteContextSelectorComponent.constructor"
             ]
           },
           {
@@ -1159,6 +1466,9 @@
                 "line": 3,
                 "code": "<div *cxFeature=\"'a11ySiteContextCaretClick'\" class=\"cx-select-wrapper\">\n  <select (change)=\"activeItem = $any($event).target.value\">\n    <option\n      [attr.aria-label]=\"ariaLabel$(theme, i, themes.length) | async\"\n      *ngFor=\"let theme of themes; index as i\"\n      value=\"{{ theme.className }}\"\n      [selected]=\"(activeItem$ | async) === theme.className\"\n    >\n      {{\n        theme.i18nNameKey\n          ? (theme.i18nNameKey | cxTranslate)\n          : theme.className\n      }}\n    </option>\n  </select>\n  <cx-icon aria-hidden=\"true\" [type]=\"iconTypes.CARET_DOWN\" class=\"small\" />\n</div>"
               }
+            ],
+            "components": [
+              "cx-icon"
             ]
           },
           {
@@ -1176,6 +1486,9 @@
                 "line": 20,
                 "code": "<ng-container *cxFeature=\"'!a11ySiteContextCaretClick'\">\n  <select (change)=\"activeItem = $any($event).target.value\">\n    <option\n      [attr.aria-label]=\"ariaLabel$(theme, i, themes.length) | async\"\n      *ngFor=\"let theme of themes; index as i\"\n      value=\"{{ theme.className }}\"\n      [selected]=\"(activeItem$ | async) === theme.className\"\n    >\n      {{\n        theme.i18nNameKey\n          ? (theme.i18nNameKey | cxTranslate)\n          : theme.className\n      }}\n    </option>\n  </select>\n  <cx-icon aria-hidden=\"true\" [type]=\"iconTypes.CARET_DOWN\" class=\"small\" />\n</ng-container>"
               }
+            ],
+            "components": [
+              "cx-icon"
             ]
           },
           {
@@ -1193,6 +1506,9 @@
                 "line": 43,
                 "code": "useFeatureStyles('a11ySiteContextCaretClick');"
               }
+            ],
+            "members": [
+              "SiteThemeSwitcherComponent.constructor"
             ]
           },
           {
@@ -1214,6 +1530,13 @@
                 "line": 63,
                 "code": "@include forFeature('a11ySiteContextCaretClick') {\n  .cx-select-wrapper {\n    display: flex;\n    align-items: center;\n\n    cx-icon {\n      margin-inline-start: -10px;\n      z-index: 1;\n      pointer-events: none;\n      color: var(--cx-color-text);\n    }\n\n    &:focus-within {\n      @include visible-focus();\n    }\n  }\n\n  select:focus {\n    outline: none;\n    box-shadow: none;\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-site-context-selector",
+              "cx-site-context-selector .cx-select-wrapper",
+              "cx-site-context-selector .cx-select-wrapper cx-icon",
+              "cx-site-context-selector .cx-select-wrapper:focus-within",
+              "cx-site-context-selector select:focus"
             ]
           },
           {
@@ -1235,9 +1558,24 @@
                 "line": 63,
                 "code": "@include forFeature('a11ySiteContextCaretClick') {\n  .cx-select-wrapper {\n    display: flex;\n    align-items: center;\n\n    cx-icon {\n      margin-inline-start: -10px;\n      z-index: 1;\n      pointer-events: none;\n      color: var(--cx-color-text);\n    }\n\n    &:focus-within {\n      @include visible-focus();\n    }\n  }\n\n  select:focus {\n    outline: none;\n    box-shadow: none;\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-site-theme-switcher",
+              "cx-site-theme-switcher .cx-select-wrapper",
+              "cx-site-theme-switcher .cx-select-wrapper cx-icon",
+              "cx-site-theme-switcher .cx-select-wrapper:focus-within",
+              "cx-site-theme-switcher select:focus"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "442b228032c8d3f51562490009455a7c6ba3182d"
+        ],
+        "rollout": {
+          "defaultOn": "Q1 2027",
+          "mandatory": "Q3 2027"
+        },
         "translations": {
           "tr": "Etkinleştirildiğinde, Language ve Theme selector'larındaki caret görünürlüğünü düzeltir:\nselect ve caret ikonunu, focus halkasını caret ile çakışmak yerine her iki öğenin çevresinde\ngösteren bir container içine sarar."
         }
@@ -1251,6 +1589,59 @@
         "defaultValue": false,
         "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/ef882ed019f544ceb26a1527ccb7c245.html",
         "usages": [],
+        "references": [
+          {
+            "file": "core-libs/core/src/site-theme/facade/site-theme.service.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "SiteThemeService"
+            ],
+            "selectors": [],
+            "members": [
+              "SiteThemeService.getDefaultClassName",
+              "SiteThemeService.isValid"
+            ],
+            "snippets": [
+              {
+                "line": 59,
+                "code": "if (this.featureToggles.applyBaseSiteThemeFromCms) {\n  return this.readActiveBaseSiteTheme() ?? this.FALLBACK_DEFAULT_THEME_ID;\n}"
+              },
+              {
+                "line": 131,
+                "code": "if (this.featureToggles.applyBaseSiteThemeFromCms) {\n  // Empty string is valid — it means \"default / no theme\".\n  // Persistence is guarded separately in SiteThemePersistenceService.onRead.\n  return className !== null && className !== undefined;\n}"
+              }
+            ]
+          },
+          {
+            "file": "core-libs/core/src/site-theme/services/site-theme-initializer.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "SiteThemeInitializer"
+            ],
+            "selectors": [],
+            "members": [
+              "SiteThemeInitializer.initialize",
+              "SiteThemeInitializer.setDefaultFromConfig"
+            ],
+            "snippets": [
+              {
+                "line": 47,
+                "code": "if (this.featureToggles.applyBaseSiteThemeFromCms) {\n  this.subscription.add(this.applyThemeFromActiveBaseSite().subscribe());\n}"
+              },
+              {
+                "line": 77,
+                "code": "if (this.featureToggles.applyBaseSiteThemeFromCms) {\n  const staticTheme = getContextParameterDefault(\n    this.siteContextConfig,\n    THEME_CONTEXT_ID\n  );\n  const activeTheme = this.readActiveTheme();\n  if (\n    staticTheme &&\n    activeTheme !== staticTheme &&\n    !this.isUserPickedOptionalTheme(activeTheme)\n  ) {\n    this.siteThemeService.setActive(staticTheme);\n  }\n}"
+              }
+            ]
+          }
+        ],
+        "commits": [
+          "dafc76b304abfa0e941697b0fd64f4a93f713f21"
+        ],
+        "rollout": {
+          "defaultOn": "Q1 2027",
+          "mandatory": "Q3 2027"
+        },
         "translations": {
           "tr": "Etkinleştirildiğinde, storefront'un aktif theme'i aktif base site'ın `theme` alanını takip eder (SAP Commerce BackOffice'te yapılandırılır). Theme, `ThemeService` tarafından uygulamanın root öğesine CSS class olarak uygulanır.\n\nBu toggle olmadan, storefront `context.baseSite` değerini statik olarak yapılandırdığında (yaygın durum) CMS `theme` alanı yok sayılır, çünkü bu senaryoda `SiteContextConfigInitializer` çalışmaz.\n\nÖncelik sırası: statik `config.context.theme` en önce gelir, ardından Theme Switcher'dan kullanıcının seçtiği isteğe bağlı theme (örn. high-contrast), sonra CMS `BaseSite.theme`."
         }
@@ -1262,6 +1653,51 @@
         "defaultValue": false,
         "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/e61a5206dae846ba9ef0843d80ae2a86.html",
         "usages": [],
+        "references": [
+          {
+            "file": "core-libs/core/src/occ/adapters/user/occ-user-cost-centers.adapter.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "OccUserCostCenterAdapter"
+            ],
+            "selectors": [],
+            "members": [
+              "OccUserCostCenterAdapter.getCostCentersEndpoint"
+            ],
+            "snippets": [
+              {
+                "line": 47,
+                "code": "const fields = this.featureToggles.b2bCheckoutShippingAddressFilter\n  ? { fields: 'DEFAULT,unit(BASIC,addresses(FULL))' }"
+              }
+            ]
+          },
+          {
+            "file": "feature-libs/checkout/b2b/components/checkout-delivery-address/checkout-delivery-address.component.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "B2BCheckoutDeliveryAddressComponent"
+            ],
+            "selectors": [
+              "cx-delivery-address"
+            ],
+            "members": [
+              "B2BCheckoutDeliveryAddressComponent.costCenterAddresses$"
+            ],
+            "snippets": [
+              {
+                "line": 86,
+                "code": "this.featureToggles.b2bCheckoutShippingAddressFilter"
+              }
+            ]
+          }
+        ],
+        "commits": [
+          "a352e82ac746536933905e1e0749b24826fced7e"
+        ],
+        "rollout": {
+          "defaultOn": "Q1 2027",
+          "mandatory": "Q3 2027"
+        },
         "translations": {
           "tr": "Etkinleştirildiğinde, B2B checkout teslimat adresi adımında yalnızca `shippingAddress` değeri açıkça `false` olarak ayarlanmamış adresler gösterilir."
         }
@@ -1285,9 +1721,12 @@
             ],
             "snippets": [
               {
-                "line": 96,
-                "code": "return null;"
+                "line": 100,
+                "code": "useFeatureStyles('improvedTabStyling');"
               }
+            ],
+            "members": [
+              "PickupOptionsComponent.constructor"
             ]
           },
           {
@@ -1309,9 +1748,22 @@
                 "line": 50,
                 "code": "@include forFeature('improvedTabStyling') {\n  .tab-btn {\n    position: relative;\n    padding-bottom: 13px;\n\n    // Override the underline effect from %cx-tab so the active/hover\n    // indicator sits flush with the panel and is exactly 5px tall,\n    // regardless of the button's own height.\n    &:after {\n      // Anchor the border to the bottom edge of the button so it stays\n      // flush with the tab panel, instead of being pushed down by\n      // `margin-top`.\n      position: absolute;\n      bottom: 0;\n      inset-inline-start: 0;\n      inset-inline-end: 0;\n      border-radius: 0 0 var(--cx-tab-btn-border-radius)\n        var(--cx-tab-btn-border-radius);\n\n      // Occupy 50% of the button's height to match the border radius,\n      // but paint only the bottom 5px — everything above stays\n      // transparent — via a hard-stop gradient anchored to a fixed\n      // pixel offset from the bottom.\n      height: 50%;\n      background: linear-gradient(\n        to bottom,\n        transparent calc(100% - 5px),\n        var(--cx-color-primary) calc(100% - 5px)\n      );\n    }\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-pickup-options cx-tab",
+              "cx-pickup-options cx-tab .tab-btn",
+              "cx-pickup-options cx-tab .tab-btn:after"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "80cecbac360a00ff497883cb28dcd3a87741b7fb"
+        ],
+        "rollout": {
+          "defaultOn": "Q1 2027",
+          "mandatory": "Q3 2027"
+        },
         "translations": {
           "tr": "`cx-tab` aktif/hover border'ını iyileştirir: border'ı butonun altına sabitler ve alt köşelerini yuvarlar."
         }
@@ -1323,6 +1775,40 @@
         "defaultValue": false,
         "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/9d81309d97e64f04a19618fd36b16b1c.html",
         "usages": [],
+        "references": [
+          {
+            "file": "feature-libs/user/account/components/login-form/login-form-component.service.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "LoginFormComponentService"
+            ],
+            "selectors": [],
+            "members": [
+              "LoginFormComponentService.login"
+            ],
+            "snippets": [
+              {
+                "line": 112,
+                "code": "this.featureToggles.siteIsolationForCustomLoginPage"
+              },
+              {
+                "line": 126,
+                "code": "if (this.featureToggles.siteIsolationForCustomLoginPage) {\n  this.submitWithUsernameOverride(nativeForm, userId);\n}"
+              },
+              {
+                "line": 185,
+                "code": "} else if (this.featureToggles.siteIsolationForCustomLoginPage) {\n  this.getUserId()\n    .pipe(take(1))\n    .subscribe((userId) => {\n      this.setOauthRedirectFlowFlag();\n      this.submitWithUsernameOverride(nativeForm, userId);\n      this.busy$.next(true);\n    });\n}"
+              }
+            ]
+          }
+        ],
+        "commits": [
+          "f39e9851fee61da79bb6491468dbf712a75320b5"
+        ],
+        "rollout": {
+          "defaultOn": "Q1 2027",
+          "mandatory": "Q3 2027"
+        },
         "translations": {
           "tr": "Etkinleştirildiğinde, Custom Login Page form gönderimi sırasında gönderilen kullanıcı kimlik bilgilerine site isolation decorator ekler."
         }
@@ -1350,9 +1836,12 @@
             ],
             "snippets": [
               {
-                "line": 139,
-                "code": "  protected service: CarouselService\n) {\n  useFeatureStyles('a11yAddPaddingToCarouselPanel');\n}"
+                "line": 141,
+                "code": "useFeatureStyles('a11yAddPaddingToCarouselPanel');"
               }
+            ],
+            "members": [
+              "CarouselComponent.constructor"
             ]
           },
           {
@@ -1374,9 +1863,20 @@
                 "line": 23,
                 "code": "@include forFeature('a11yAddPaddingToCarouselPanel') {\n  padding: 0 0.375rem;\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-carousel .carousel-panel"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "d4a6dca2b43114392911173cef13be591803a154"
+        ],
+        "rollout": {
+          "defaultOn": "221121.17",
+          "mandatory": "Q1 2027"
+        },
         "translations": {
           "tr": "'carousel-panel' öğesine yatay padding ekler; böylece carousel bölümündeki 'Previous slide' ve 'Next slide' butonlarında focus'un yalnızca üç kenarı kaplaması sorunu giderilir."
         }
@@ -1425,6 +1925,14 @@
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "d4a6dca2b43114392911173cef13be591803a154"
+        ],
+        "rollout": {
+          "defaultOn": "221121.17",
+          "mandatory": "Q1 2027"
+        },
         "translations": {
           "tr": "FutureStockAccordionComponent içinde accordion kapalıyken aria-controls'un var olmayan bir öğeye referans vermesine neden olan a11y sorununu düzeltir. Etkinleştirildiğinde, içerik öğesi her zaman DOM'da bulunur ancak kapalıyken gizlenir; böylece aria-controls her zaman geçerli bir ID'ye referans verir."
         }
@@ -1455,6 +1963,10 @@
                 "line": 68,
                 "code": "<div class=\"cx-zoom-btn-container\" *cxFeature=\"'a11yKeyboardAccessibleZoom'\">\n  <button\n    #zoomButton\n    [disabled]=\"!(imageLoaded | async)\"\n    [attr.aria-label]=\"\n      isZoomed\n        ? ('common.zoomOut' | cxTranslate)\n        : ('common.zoomIn' | cxTranslate)\n    \"\n    title=\"{{\n      isZoomed\n        ? ('common.zoomOut' | cxTranslate)\n        : ('common.zoomIn' | cxTranslate)\n    }}\"\n    class=\"btn btn-link cx-zoom-btn\"\n    (click)=\"zoom()\"\n  >\n    <cx-icon\n      [type]=\"iconType.SEARCH_PLUS\"\n      *ngIf=\"!isZoomed\"\n      class=\"cx-zoom-indicator\"\n    ></cx-icon>\n    <cx-icon\n      [type]=\"iconType.SEARCH_MINUS\"\n      *ngIf=\"isZoomed\"\n      class=\"cx-zoom-indicator\"\n    ></cx-icon>\n  </button>\n</div>"
               }
+            ],
+            "components": [
+              "cx-icon",
+              "cx-media"
             ]
           },
           {
@@ -1472,6 +1984,9 @@
                 "line": 37,
                 "code": "<ng-container *cxFeature=\"'!a11yKeyboardAccessibleZoom'\">\n  <cx-media\n    #defaultImage\n    class=\"cx-default-image-zoom\"\n    *ngIf=\"!isZoomed\"\n    [container]=\"main\"\n  >\n  </cx-media>\n  <div #zoomContainer class=\"cx-zoom-container\" *ngIf=\"isZoomed\">\n    <cx-media\n      #zoomedImage\n      class=\"cx-image-zoomed\"\n      [container]=\"main\"\n      (mousemove)=\"pointerMove($event)\"\n      (touchmove)=\"touchMove($event)\"\n      (touchend)=\"clearTouch()\"\n    >\n    </cx-media></div\n></ng-container>"
               }
+            ],
+            "components": [
+              "cx-media"
             ]
           },
           {
@@ -1489,6 +2004,9 @@
                 "line": 187,
                 "code": "useFeatureStyles('a11yKeyboardAccessibleZoom');"
               }
+            ],
+            "members": [
+              "ProductImageZoomViewComponent.constructor"
             ]
           },
           {
@@ -1503,9 +2021,15 @@
             ],
             "snippets": [
               {
-                "line": 48,
-                "code": "// Landscape phones\n@media only screen and (max-width: 900px) and (orientation: landscape) {\n  padding: 0;\n}"
+                "line": 54,
+                "code": "@include forFeature('a11yKeyboardAccessibleZoom') {\n  .btn:focus,\n  .close:focus,\n  [cxFocusableCarouselItem]:focus {\n    --cx-visual-focus-width: 2px;\n    @include visible-focus();\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-product-image-zoom-dialog .cx-image-zoom-dialog",
+              "cx-product-image-zoom-dialog .cx-image-zoom-dialog .btn:focus",
+              "cx-product-image-zoom-dialog .cx-image-zoom-dialog .close:focus",
+              "cx-product-image-zoom-dialog .cx-image-zoom-dialog [cxFocusableCarouselItem]:focus"
             ]
           },
           {
@@ -1524,20 +2048,60 @@
             ],
             "snippets": [
               {
-                "line": 13,
-                "code": "height: 100%;\n// TODO: (CXSPA-7492) - Remove feature flag next major release.\n@include forFeature('a11yKeyboardAccessibleZoom') {\n  cx-media {\n    display: unset;\n  }\n}"
+                "line": 15,
+                "code": "@include forFeature('a11yKeyboardAccessibleZoom') {\n  cx-media {\n    display: unset;\n  }\n}"
               },
               {
-                "line": 31,
-                "code": ".btn:active {\n  box-shadow: none;\n  outline-offset: -2px;\n}"
+                "line": 37,
+                "code": "@include forFeature('a11yKeyboardAccessibleZoom') {\n  @include media-breakpoint-up(lg) {\n    height: calc(90vh - 200px);\n  }\n}"
               },
               {
-                "line": 44,
-                "code": "display: flex;"
+                "line": 51,
+                "code": "@include forFeature('a11yKeyboardAccessibleZoom') {\n  &:has(picture) {\n    height: unset;\n  }\n}"
+              }
+            ],
+            "styleScopes": [
+              "cx-product-image-zoom-view",
+              "cx-product-image-zoom-view .cx-image-container",
+              "cx-product-image-zoom-view .cx-main-image-group",
+              "cx-product-image-zoom-view .cx-main-image-group .cx-default-image-zoom",
+              "cx-product-image-zoom-view .cx-main-image-group .cx-default-image-zoom:has(picture)",
+              "cx-product-image-zoom-view .cx-main-image-group cx-media",
+              "cx-product-image-zoom-view .cx-zoom-btn",
+              "cx-product-image-zoom-view .cx-zoom-btn .cx-zoom-indicator",
+              "cx-product-image-zoom-view .cx-zoom-btn-container",
+              "cx-product-image-zoom-view .cx-zoom-btn:focus"
+            ]
+          }
+        ],
+        "references": [
+          {
+            "file": "feature-libs/product/image-zoom/components/product-image-zoom/product-image-zoom-view/product-image-zoom-view.component.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "ProductImageZoomViewComponent"
+            ],
+            "selectors": [
+              "cx-product-image-zoom-view"
+            ],
+            "members": [
+              "ProductImageZoomViewComponent.zoom"
+            ],
+            "snippets": [
+              {
+                "line": 234,
+                "code": "if (this.featureToggles.a11yKeyboardAccessibleZoom) {\n  this.imageLoaded.next(false);\n  this.imageLoaded.pipe(filter(Boolean), take(1)).subscribe(() => {\n    // Removed/disabled state removes focus from this element\n    // so we need to restore it.\n    setTimeout(() => {\n      this.zoomButton.nativeElement.focus();\n    }, 1);\n  });\n}"
               }
             ]
           }
         ],
+        "commits": [
+          "d4a6dca2b43114392911173cef13be591803a154"
+        ],
+        "rollout": {
+          "defaultOn": "221121.17",
+          "mandatory": "Q1 2027"
+        },
         "translations": {
           "tr": "`ProductImageZoomViewComponent` bileşenine klavyeyle erişilebilen bir zoom butonu ekler."
         }
@@ -1598,6 +2162,9 @@
                 "line": 6,
                 "code": "<ng-container *cxFeature=\"'a11yLinkBtnsToTertiaryBtns'\">\n  <div\n    *ngIf=\"\n      getProductInWishList(product, entries) as entry;\n      else addItem\n    \"\n  >\n    <button\n      #removeFromWishlistButton\n      class=\"btn btn-tertiary button-remove\"\n      (click)=\"remove(entry)\"\n      [disabled]=\"loading$ | async\"\n      [cxAtMessage]=\"'addToWishList.removedFromWishList' | cxTranslate\"\n    >\n      <cx-icon aria-hidden=\"true\" [type]=\"iconTypes.HEART\"></cx-icon>\n      <span class=\"button-text\">{{\n        'addToWishList.remove' | cxTranslate\n      }}</span>\n    </button>\n  </div>\n  <ng-template #addItem>\n    <button\n      #addToWishlistButton\n      class=\"btn btn-tertiary button-add\"\n      (click)=\"add(product)\"\n      [disabled]=\"loading$ | async\"\n      [cxAtMessage]=\"'addToWishList.addedToWishList' | cxTranslate\"\n    >\n      <cx-icon\n        aria-hidden=\"true\"\n        [type]=\"iconTypes.EMPTY_HEART\"\n      ></cx-icon>\n      <span class=\"button-text\">{{\n        'addToWishList.add' | cxTranslate\n      }}</span>\n    </button>\n  </ng-template>\n</ng-container>"
               }
+            ],
+            "components": [
+              "cx-icon"
             ]
           },
           {
@@ -1615,6 +2182,9 @@
                 "line": 44,
                 "code": "<ng-container *cxFeature=\"'!a11yLinkBtnsToTertiaryBtns'\"\n  ><div\n    *ngIf=\"\n      getProductInWishList(product, entries) as entry;\n      else addItem\n    \"\n  >\n    <button\n      class=\"btn btn-link button-remove cx-action-link\"\n      (click)=\"remove(entry)\"\n      [disabled]=\"loading$ | async\"\n      [cxAtMessage]=\"'addToWishList.removedFromWishList' | cxTranslate\"\n    >\n      <cx-icon aria-hidden=\"true\" [type]=\"iconTypes.HEART\"></cx-icon>\n      <span class=\"button-text\">{{\n        'addToWishList.remove' | cxTranslate\n      }}</span>\n    </button>\n  </div>\n  <ng-template #addItem>\n    <button\n      class=\"btn btn-link button-add cx-action-link\"\n      (click)=\"add(product)\"\n      [disabled]=\"loading$ | async\"\n      [cxAtMessage]=\"'addToWishList.addedToWishList' | cxTranslate\"\n    >\n      <cx-icon\n        aria-hidden=\"true\"\n        [type]=\"iconTypes.EMPTY_HEART\"\n      ></cx-icon>\n      <span class=\"button-text\">{{\n        'addToWishList.add' | cxTranslate\n      }}</span>\n    </button>\n  </ng-template>\n</ng-container>"
               }
+            ],
+            "components": [
+              "cx-icon"
             ]
           },
           {
@@ -1632,6 +2202,9 @@
                 "line": 3,
                 "code": "<button\n  *cxFeature=\"'a11yLinkBtnsToTertiaryBtns'\"\n  #expandButton\n  class=\"btn btn-tertiary\"\n  (click)=\"triggerZoom()\"\n>\n  {{ 'productImageZoomTrigger.expand' | cxTranslate }}\n  <cx-icon [type]=\"iconType.EXPAND_ARROWS\"></cx-icon>\n</button>"
               }
+            ],
+            "components": [
+              "cx-icon"
             ]
           },
           {
@@ -1649,6 +2222,9 @@
                 "line": 13,
                 "code": "<button\n  *cxFeature=\"'!a11yLinkBtnsToTertiaryBtns'\"\n  #expandButton\n  class=\"btn btn-link cx-action-link\"\n  (click)=\"triggerZoom()\"\n>\n  <span>\n    {{ 'productImageZoomTrigger.expand' | cxTranslate }}\n    <cx-icon [type]=\"iconType.EXPAND_ARROWS\"></cx-icon\n  ></span>\n</button>"
               }
+            ],
+            "components": [
+              "cx-icon"
             ]
           },
           {
@@ -1663,9 +2239,12 @@
             ],
             "snippets": [
               {
-                "line": 57,
-                "code": "  protected launchDialogService: LaunchDialogService,\n  protected vcr: ViewContainerRef\n) {\n  useFeatureStyles('a11yLinkBtnsToTertiaryBtns');\n}"
+                "line": 60,
+                "code": "useFeatureStyles('a11yLinkBtnsToTertiaryBtns');"
               }
+            ],
+            "members": [
+              "ProductImageZoomTriggerComponent.constructor"
             ]
           },
           {
@@ -1684,12 +2263,27 @@
             ],
             "snippets": [
               {
-                "line": 14,
-                "code": "// TODO: (CXSPA-7603) - Remove feature flag next major release.\n@include forFeature('a11yLinkBtnsToTertiaryBtns') {\n  .cx-action-link {\n    padding: unset;\n    height: unset;\n    margin: unset;\n\n    cx-icon {\n      padding: unset;\n    }\n  }\n\n  .btn-tertiary {\n    padding: 0;\n    height: 24px;\n    margin: 0.5em auto;\n\n    cx-icon {\n      padding: 0 0 0 0.4em;\n    }\n  }\n}"
+                "line": 15,
+                "code": "@include forFeature('a11yLinkBtnsToTertiaryBtns') {\n  .cx-action-link {\n    padding: unset;\n    height: unset;\n    margin: unset;\n\n    cx-icon {\n      padding: unset;\n    }\n  }\n\n  .btn-tertiary {\n    padding: 0;\n    height: 24px;\n    margin: 0.5em auto;\n\n    cx-icon {\n      padding: 0 0 0 0.4em;\n    }\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-product-image-zoom-trigger",
+              "cx-product-image-zoom-trigger .btn-tertiary",
+              "cx-product-image-zoom-trigger .btn-tertiary cx-icon",
+              "cx-product-image-zoom-trigger .cx-action-link",
+              "cx-product-image-zoom-trigger .cx-action-link cx-icon"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "d4a6dca2b43114392911173cef13be591803a154"
+        ],
+        "rollout": {
+          "defaultOn": "221121.17",
+          "mandatory": "Q1 2027"
+        },
         "translations": {
           "tr": "Aşağıdaki component'lerde link'e benzeyen butonları tertiary butonlarla değiştirir:\n`AddToWishListComponent`, `ProductIntroComponent`, `ProductImageZoomTriggerComponent`"
         }
@@ -1714,6 +2308,9 @@
                 "line": 101,
                 "code": "useFeatureStyles('a11yNgSelectUnicodeCarets');\nif (this.featureToggles.a11yVocalizeDropdownItemCount) {\n  this.vocalizeItemCount();\n}"
               }
+            ],
+            "members": [
+              "NgSelectA11yDirective.constructor"
             ]
           },
           {
@@ -1740,6 +2337,14 @@
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "d4a6dca2b43114392911173cef13be591803a154"
+        ],
+        "rollout": {
+          "defaultOn": "221121.17",
+          "mandatory": "Q1 2027"
+        },
         "translations": {
           "tr": "ng-select dropdown caret'leri için unicode karakterler kullanır; böylece işletim sistemi theme'leri metni hedefleyerek varsayılanları override edebilir. Şekilleri çizmek için border kullanıldığında bu mümkün değildir."
         }
@@ -1751,6 +2356,34 @@
         "defaultValue": true,
         "docUrl": null,
         "usages": [],
+        "references": [
+          {
+            "file": "feature-libs/cart/base/components/cart-shared/cart-item-list/cart-item-list.component.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "CartItemListComponent"
+            ],
+            "selectors": [
+              "cx-cart-item-list"
+            ],
+            "members": [
+              "CartItemListComponent.updateItemsOnContextChange"
+            ],
+            "snippets": [
+              {
+                "line": 172,
+                "code": "this.featureToggles.a11yPreventCartItemsFormRedundantRecreation;"
+              }
+            ]
+          }
+        ],
+        "commits": [
+          "d4a6dca2b43114392911173cef13be591803a154"
+        ],
+        "rollout": {
+          "defaultOn": "221121.17",
+          "mandatory": "Q1 2027"
+        },
         "translations": {
           "tr": "CartItemListComponent bir outlet olarak kullanıldığında ([cxOutlet]=\"CartOutlets.CART_ITEM_LIST\"): ne items ne de bağımlı diğer özellikler (örn. readonly) değişmediyse form'un yeniden oluşturulmasını önler."
         }
@@ -1777,6 +2410,9 @@
                 "line": 2,
                 "code": "<div class=\"row\" *cxFeature=\"'!a11yStoreFinderLabel'\">\n  <div class=\"col-md-12 col-lg-6\">\n    <div class=\"form-group search-wrapper\">\n      <input\n        #queryInput\n        [formControl]=\"searchBox\"\n        (keyup)=\"onKey($event)\"\n        type=\"text\"\n        class=\"form-control\"\n        [attr.aria-label]=\"'storeFinder.searchBoxLabel' | cxTranslate\"\n        placeholder=\"{{ 'storeFinder.searchBox' | cxTranslate }}\"\n      />\n      <cx-icon\n        [attr.tabindex]=\"queryInput.value?.length ? 0 : -1\"\n        [type]=\"iconTypes.SEARCH\"\n        role=\"button\"\n        [attr.aria-label]=\"'storeFinder.searchNearestStores' | cxTranslate\"\n        [attr.title]=\"'storeFinder.searchNearestStores' | cxTranslate\"\n        class=\"search\"\n        (keyup)=\"onKey($event)\"\n        [routerLink]=\"['/store-finder/find']\"\n        [queryParams]=\"{ query: queryInput.value }\"\n        [ngClass]=\"{\n          'disabled-action': !(queryInput.value && queryInput.value.length),\n        }\"\n      ></cx-icon>\n    </div>\n  </div>\n  <ng-template [ngTemplateOutlet]=\"searchActionButtons\"></ng-template>\n</div>"
               }
+            ],
+            "components": [
+              "cx-icon"
             ]
           },
           {
@@ -1794,9 +2430,20 @@
                 "line": 33,
                 "code": "<div class=\"row align-items-end\" *cxFeature=\"'a11yStoreFinderLabel'\">\n  <div class=\"col-md-12 col-lg-6\">\n    <div class=\"form-group\">\n      <label for=\"store-finder-search-input\">\n        <span class=\"text-left label-content\">\n          {{ 'storeFinder.findStoreBy' | cxTranslate }}\n        </span>\n        <div class=\"search-wrapper\">\n          <input\n            #queryInput\n            id=\"store-finder-search-input\"\n            [formControl]=\"searchBox\"\n            (keyup)=\"onKey($event)\"\n            type=\"text\"\n            class=\"form-control\"\n            placeholder=\"{{ 'storeFinder.searchBox' | cxTranslate }}\"\n          />\n          <cx-icon\n            [attr.tabindex]=\"queryInput.value?.length ? 0 : -1\"\n            [type]=\"iconTypes.SEARCH\"\n            role=\"button\"\n            [attr.aria-label]=\"\n              'storeFinder.searchNearestStores' | cxTranslate\n            \"\n            [attr.title]=\"'storeFinder.searchNearestStores' | cxTranslate\"\n            class=\"search\"\n            (keyup)=\"onKey($event)\"\n            [routerLink]=\"['/store-finder/find']\"\n            [queryParams]=\"{ query: queryInput.value }\"\n            [ngClass]=\"{\n              'disabled-action': !(\n                queryInput.value && queryInput.value.length\n              ),\n            }\"\n          ></cx-icon>\n        </div>\n      </label>\n    </div>\n  </div>\n  <ng-template [ngTemplateOutlet]=\"searchActionButtons\"></ng-template>\n…"
               }
+            ],
+            "components": [
+              "cx-icon"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "d4a6dca2b43114392911173cef13be591803a154"
+        ],
+        "rollout": {
+          "defaultOn": "221121.17",
+          "mandatory": "Q1 2027"
+        },
         "translations": {
           "tr": "'StoreFinderSearchComponent' mağaza arama input alanına label ekler."
         }
@@ -3551,5 +4198,714 @@
         "tr": "site context selector'larının caret simgesi tıklanamıyor"
       }
     }
-  ]
+  ],
+  "toggleCommits": [
+    {
+      "sha": "442b228032c8d3f51562490009455a7c6ba3182d",
+      "subject": "fix: site context selectors caret not clickable (#21624)",
+      "files": [
+        {
+          "file": "core-libs/storefront/cms-components/misc/site-context-selector/site-context-selector.component.html",
+          "members": [],
+          "diff": "@@ -1,18 +1,37 @@\n <label *ngIf=\"(items$ | async)?.length > 1 && (items$ | async) as items\">\n   <span>{{ label$ | async | cxTranslate }}:</span>\n-  <select (change)=\"active = $any($event).target.value\">\n-    <option\n-      [attr.aria-label]=\"ariaLabel$(item.label, i, items.length) | async\"\n-      *ngFor=\"let item of items; index as i\"\n-      value=\"{{ item.isocode }}\"\n-      [attr.selected]=\"(activeItem$ | async) === item.isocode ? '' : null\"\n-    >\n-      {{ item.label }}\n-    </option>\n-  </select>\n-  <cx-icon\n-    aria-hidden=\"true\"\n-    [type]=\"iconTypes.CARET_DOWN\"\n-    class=\"small\"\n-  ></cx-icon>\n+  <div *cxFeature=\"'a11ySiteContextCaretClick'\" class=\"cx-select-wrapper\">\n+    <select (change)=\"active = $any($event).target.value\">\n+      <option\n+        [attr.aria-label]=\"ariaLabel$(item.label, i, items.length) | async\"\n+        *ngFor=\"let item of items; index as i\"\n+        value=\"{{ item.isocode }}\"\n+        [attr.selected]=\"(activeItem$ | async) === item.isocode ? '' : null\"\n+      >\n+        {{ item.label }}\n+      </option>\n+    </select>\n+    <cx-icon\n+      aria-hidden=\"true\"\n+      [type]=\"iconTypes.CARET_DOWN\"\n+      class=\"small\"\n+    ></cx-icon>\n+  </div>\n+  <ng-container *cxFeature=\"'!a11ySiteContextCaretClick'\">\n+    <select (change)=\"active = $any($event).target.value\">\n+      <option\n+        [attr.aria-label]=\"ariaLabel$(item.label, i, items.length) | async\"\n+        *ngFor=\"let item of items; index as i\"\n+        value=\"{{ item.isocode }}\"\n+        [attr.selected]=\"(activeItem$ | async) === item.isocode ? '' : null\"\n+      >\n+        {{ item.label }}\n+      </option>\n+    </select>\n+    <cx-icon\n+      aria-hidden=\"true\"\n+      [type]=\"iconTypes.CARET_DOWN\"\n+      class=\"small\"\n+    ></cx-icon>\n+  </ng-container>\n </label>"
+        },
+        {
+          "file": "core-libs/storefront/cms-components/misc/site-context-selector/site-context-selector.component.ts",
+          "members": [
+            "SiteContextSelectorComponent.constructor"
+          ],
+          "diff": "@@ -11,7 +11,13 @@ import {\n   inject,\n   Input,\n } from '@angular/core';\n-import { I18nModule, SiteContext, TranslationService } from '@spartacus/core';\n+import {\n+  FeatureDirective,\n+  I18nModule,\n+  SiteContext,\n+  TranslationService,\n+  useFeatureStyles,\n+} from '@spartacus/core';\n import { map, Observable } from 'rxjs';\n import { IconComponent } from '../icon/icon.component';\n import { ICON_TYPE } from '../icon/icon.model';\n@@ -22,7 +28,14 @@ import { SiteContextType } from './site-context.model';\n   selector: 'cx-site-context-selector',\n   templateUrl: './site-context-selector.component.html',\n   changeDetection: ChangeDetectionStrategy.OnPush,\n-  imports: [NgIf, NgFor, IconComponent, AsyncPipe, I18nModule],\n+  imports: [\n+    NgIf,\n+    NgFor,\n+    IconComponent,\n+    AsyncPipe,\n+    I18nModule,\n+    FeatureDirective,\n+  ],\n })\n export class SiteContextSelectorComponent {\n   /**\n@@ -38,7 +51,9 @@ export class SiteContextSelectorComponent {\n \n   protected translationService = inject(TranslationService);\n \n-  constructor(private componentService: SiteContextComponentService) {}\n+  constructor(private componentService: SiteContextComponentService) {\n+    useFeatureStyles('a11ySiteContextCaretClick');\n+  }\n \n   get items$(): Observable<any> {\n     return this.componentService.getItems(this.context);"
+        },
+        {
+          "file": "core-libs/storefront/cms-components/misc/site-theme-switcher/site-theme-switcher.component.html",
+          "members": [],
+          "diff": "@@ -1,16 +1,37 @@\n <label *ngIf=\"items$ | async as themes\">\n   <span> {{ 'siteThemeSwitcher.theme' | cxTranslate }}:</span>\n-  <select (change)=\"activeItem = $any($event).target.value\">\n-    <option\n-      [attr.aria-label]=\"ariaLabel$(theme, i, themes.length) | async\"\n-      *ngFor=\"let theme of themes; index as i\"\n-      value=\"{{ theme.className }}\"\n-      [selected]=\"(activeItem$ | async) === theme.className\"\n-    >\n-      {{\n-        theme.i18nNameKey ? (theme.i18nNameKey | cxTranslate) : theme.className\n-      }}\n-    </option>\n-  </select>\n-  <cx-icon aria-hidden=\"true\" [type]=\"iconTypes.CARET_DOWN\" class=\"small\" />\n+  <div *cxFeature=\"'a11ySiteContextCaretClick'\" class=\"cx-select-wrapper\">\n+    <select (change)=\"activeItem = $any($event).target.value\">\n+      <option\n+        [attr.aria-label]=\"ariaLabel$(theme, i, themes.length) | async\"\n+        *ngFor=\"let theme of themes; index as i\"\n+        value=\"{{ theme.className }}\"\n+        [selected]=\"(activeItem$ | async) === theme.className\"\n+      >\n+        {{\n+          theme.i18nNameKey\n+            ? (theme.i18nNameKey | cxTranslate)\n+            : theme.className\n+        }}\n+      </option>\n+    </select>\n+    <cx-icon aria-hidden=\"true\" [type]=\"iconTypes.CARET_DOWN\" class=\"small\" />\n+  </div>\n+  <ng-container *cxFeature=\"'!a11ySiteContextCaretClick'\">\n+    <select (change)=\"activeItem = $any($event).target.value\">\n+      <option\n+        [attr.aria-label]=\"ariaLabel$(theme, i, themes.length) | async\"\n+        *ngFor=\"let theme of themes; index as i\"\n+        value=\"{{ theme.className }}\"\n+        [selected]=\"(activeItem$ | async) === theme.className\"\n+      >\n+        {{\n+          theme.i18nNameKey\n+            ? (theme.i18nNameKey | cxTranslate)\n+            : theme.className\n+        }}\n+      </option>\n+    </select>\n+    <cx-icon aria-hidden=\"true\" [type]=\"iconTypes.CARET_DOWN\" class=\"small\" />\n+  </ng-container>\n </label>"
+        },
+        {
+          "file": "core-libs/storefront/cms-components/misc/site-theme-switcher/site-theme-switcher.component.ts",
+          "members": [
+            "SiteThemeSwitcherComponent.constructor"
+          ],
+          "diff": "@@ -6,7 +6,13 @@\n \n import { AsyncPipe, NgFor, NgIf } from '@angular/common';\n import { ChangeDetectionStrategy, Component, inject } from '@angular/core';\n-import { SiteTheme, TranslatePipe, TranslationService } from '@spartacus/core';\n+import {\n+  FeatureDirective,\n+  SiteTheme,\n+  TranslatePipe,\n+  TranslationService,\n+  useFeatureStyles,\n+} from '@spartacus/core';\n import { combineLatest, Observable, of } from 'rxjs';\n import { map, take } from 'rxjs/operators';\n import { IconComponent } from '../icon/icon.component';\n@@ -20,13 +26,22 @@ import { SiteThemeSwitcherComponentService } from './site-theme-switcher.compone\n   selector: 'cx-site-theme-switcher',\n   templateUrl: './site-theme-switcher.component.html',\n   changeDetection: ChangeDetectionStrategy.OnPush,\n-  imports: [NgIf, NgFor, IconComponent, AsyncPipe, TranslatePipe],\n+  imports: [\n+    NgIf,\n+    NgFor,\n+    IconComponent,\n+    AsyncPipe,\n+    TranslatePipe,\n+    FeatureDirective,\n+  ],\n })\n export class SiteThemeSwitcherComponent {\n   readonly translationService = inject(TranslationService);\n   iconTypes = ICON_TYPE;\n \n-  constructor() {}\n+  constructor() {\n+    useFeatureStyles('a11ySiteContextCaretClick');\n+  }\n \n   protected themeSwitcherComponentService = inject(\n     SiteThemeSwitcherComponentService"
+        },
+        {
+          "file": "core-libs/styles/scss/components/layout/header/_site-context-selector.scss",
+          "members": [],
+          "diff": "@@ -60,6 +60,29 @@ $caretSize: 7px;\n     }\n   }\n \n+  @include forFeature('a11ySiteContextCaretClick') {\n+    .cx-select-wrapper {\n+      display: flex;\n+      align-items: center;\n+\n+      cx-icon {\n+        margin-inline-start: -10px;\n+        z-index: 1;\n+        pointer-events: none;\n+        color: var(--cx-color-text);\n+      }\n+\n+      &:focus-within {\n+        @include visible-focus();\n+      }\n+    }\n+\n+    select:focus {\n+      outline: none;\n+      box-shadow: none;\n+    }\n+  }\n+\n   @include cx-highContrastTheme {\n     select {\n       color: var(--cx-color-text);"
+        },
+        {
+          "file": "core-libs/styles/scss/components/misc/site-theme-switcher/_site-theme-switcher.scss",
+          "members": [],
+          "diff": "@@ -60,6 +60,29 @@ $caretSize: 7px;\n     }\n   }\n \n+  @include forFeature('a11ySiteContextCaretClick') {\n+    .cx-select-wrapper {\n+      display: flex;\n+      align-items: center;\n+\n+      cx-icon {\n+        margin-inline-start: -10px;\n+        z-index: 1;\n+        pointer-events: none;\n+        color: var(--cx-color-text);\n+      }\n+\n+      &:focus-within {\n+        @include visible-focus();\n+      }\n+    }\n+\n+    select:focus {\n+      outline: none;\n+      box-shadow: none;\n+    }\n+  }\n+\n   @include cx-highContrastTheme {\n     select {\n       color: var(--cx-color-text);"
+        }
+      ]
+    },
+    {
+      "sha": "09d84842069e61a3360c16fc7e5eb6bb5853442f",
+      "subject": "fix: add margin to registration page required tacs asterix (#21596)",
+      "files": [
+        {
+          "file": "feature-libs/user/profile/components/otp-login-register/otp-login-register.component.ts",
+          "members": [
+            "OneTimePasswordRegisterComponent.constructor"
+          ],
+          "diff": "@@ -30,6 +30,7 @@ import {\n   RoutingService,\n   TranslatePipe,\n   UrlPipe,\n+  useFeatureStyles,\n } from '@spartacus/core';\n import {\n   CaptchaComponent,\n@@ -92,6 +93,10 @@ export class OneTimePasswordRegisterComponent implements OnInit, OnDestroy {\n     VerificationTokenFacade\n   );\n \n+  constructor() {\n+    useFeatureStyles('a11yRegistrationTermsAsteriskMargin');\n+  }\n+\n   titles$: Observable<Title[]>;\n \n   isLoading$ = new BehaviorSubject(false);"
+        },
+        {
+          "file": "feature-libs/user/profile/components/register/register.component.ts",
+          "members": [
+            "RegisterComponent.constructor"
+          ],
+          "diff": "@@ -31,6 +31,7 @@ import {\n   RoutingService,\n   TranslatePipe,\n   UrlPipe,\n+  useFeatureStyles,\n } from '@spartacus/core';\n import {\n   CaptchaComponent,\n@@ -143,7 +144,9 @@ export class RegisterComponent implements OnInit, OnDestroy {\n     protected anonymousConsentsConfig: AnonymousConsentsConfig,\n     protected authConfigService: AuthConfigService,\n     protected registerComponentService: RegisterComponentService\n-  ) {}\n+  ) {\n+    useFeatureStyles('a11yRegistrationTermsAsteriskMargin');\n+  }\n \n   ngOnInit() {\n     this.titles$ = this.registerComponentService.getTitles().pipe("
+        },
+        {
+          "file": "feature-libs/user/profile/styles/_otp-register-form.scss",
+          "members": [],
+          "diff": "@@ -18,4 +18,10 @@\n     text-underline-position: from-font;\n     text-decoration-skip-ink: none;\n   }\n+\n+  @include forFeature('a11yRegistrationTermsAsteriskMargin') {\n+    .form-check-label :is(a, button) + cx-form-required-asterisks {\n+      margin-inline-start: 6px;\n+    }\n+  }\n }"
+        },
+        {
+          "file": "feature-libs/user/profile/styles/_register.scss",
+          "members": [],
+          "diff": "@@ -28,5 +28,11 @@\n         scroll-margin-bottom: $cx-anonymous-consent-banner-offset;\n       }\n     }\n+\n+    @include forFeature('a11yRegistrationTermsAsteriskMargin') {\n+      .form-check-label :is(a, button) + cx-form-required-asterisks {\n+        margin-inline-start: 6px;\n+      }\n+    }\n   }\n }"
+        }
+      ]
+    },
+    {
+      "sha": "0759b6ca1c88af1dc5143d5cc410321832fb0a64",
+      "subject": "fix: Persist focus on consent management. (#21652)",
+      "files": [
+        {
+          "file": "core-libs/storefront/cms-components/myaccount/consent-management/components/consent-management.component.html",
+          "members": [],
+          "diff": "@@ -7,7 +7,7 @@\n >\n   <ng-container *ngIf=\"data.templateList as templateList\">\n     <div class=\"cx-consent-action-links\">\n-      <ng-container *cxFeature=\"'keepFocusOnConsentManagementButtons'\">\n+      <ng-container *cxFeature=\"'a11ykeepFocusOnConsentManagementButtons'\">\n         <div class=\"col-sm-12 col-md-8 col-lg-6\">\n           <button\n             class=\"btn btn-link cx-action-link\"\n@@ -25,7 +25,7 @@\n           </button>\n         </div>\n       </ng-container>\n-      <ng-container *cxFeature=\"'!keepFocusOnConsentManagementButtons'\">\n+      <ng-container *cxFeature=\"'!a11yKeepFocusOnConsentManagementButtons'\">\n         <div class=\"col-sm-12 col-md-8 col-lg-6\">\n           <button\n             class=\"btn btn-link cx-action-link\""
+        }
+      ]
+    },
+    {
+      "sha": "6f668bc97f8f80ddc145e5db34092db075a1ece8",
+      "subject": "chore: remove-feature-config-service-usage (#21649)",
+      "files": [
+        {
+          "file": "core-libs/core/src/auth/user-auth/services/auth-http-header.service.ts",
+          "members": [
+            "AuthHttpHeaderService.featureConfig",
+            "AuthHttpHeaderService.featureToggles",
+            "AuthHttpHeaderService.handleExpiredRefreshToken"
+          ],
+          "diff": "@@ -33,7 +33,7 @@ import {\n   tap,\n   withLatestFrom,\n } from 'rxjs/operators';\n-import { FeatureConfigService } from '../../../features-config/services/feature-config.service';\n+import { FeatureToggles } from '../../../features-config';\n import { GlobalMessageService } from '../../../global-message/facade/global-message.service';\n import { GlobalMessageType } from '../../../global-message/models/global-message.model';\n import { OccEndpointsService } from '../../../occ/services/occ-endpoints.service';\n@@ -88,7 +88,7 @@ export const DELEGATED_AUTH_HTTP_HEADER_SERVICE =\n   providedIn: 'root',\n })\n export class AuthHttpHeaderService implements OnDestroy {\n-  private featureConfig = inject(FeatureConfigService);\n+  private featureToggles = inject(FeatureToggles);\n \n   /**\n    * Starts the refresh of the access token\n@@ -263,7 +263,7 @@ export class AuthHttpHeaderService implements OnDestroy {\n    * Logout user, redirected to login page and informs about expired session.\n    */\n   public handleExpiredRefreshToken(): void {\n-    if (!this.featureConfig.isEnabled('enableExpiredRefreshTokenHandlers')) {\n+    if (!this.featureToggles.enableExpiredRefreshTokenHandlers) {\n       this.handleExpiredRefreshTokenFallback();\n       return;\n     }"
+        },
+        {
+          "file": "core-libs/core/src/auth/user-auth/services/auth-redirect.service.ts",
+          "members": [
+            "AuthRedirectService.featureConfigService",
+            "AuthRedirectService.featureToggles",
+            "AuthRedirectService.init"
+          ],
+          "diff": "@@ -17,7 +17,7 @@ import { RoutingService } from '../../../routing/facade/routing.service';\n import { SiteContextUrlSerializer } from '../../../site-context/services/site-context-url-serializer';\n import { AuthFlowRoutesService } from './auth-flow-routes.service';\n import { AuthRedirectStorageService } from './auth-redirect-storage.service';\n-import { FeatureConfigService } from '../../../features-config';\n+import { FeatureToggles } from '../../../features-config';\n /**\n  * Responsible for saving last accessed page (or attempted) before login and for redirecting to that page after login.\n  */\n@@ -26,7 +26,7 @@ import { FeatureConfigService } from '../../../features-config';\n })\n export class AuthRedirectService implements OnDestroy {\n   protected siteContextUrlSerializer = inject(SiteContextUrlSerializer);\n-  private featureConfigService = inject(FeatureConfigService);\n+  private featureToggles = inject(FeatureToggles);\n \n   /**\n    * This service is responsible for remembering the last page before the authentication. \"The last page\" can be:\n@@ -60,9 +60,7 @@ export class AuthRedirectService implements OnDestroy {\n    * overwriting the saved redirect URL\n    */\n   protected init() {\n-    if (\n-      this.featureConfigService.isEnabled('redirectOnlyOnTrueNavigationEnd')\n-    ) {\n+    if (this.featureToggles.redirectOnlyOnTrueNavigationEnd) {\n       this.manageSavedRedirectUriOnTrueNavigations();\n     } else {\n       this.subscription = this.router.events.subscribe((event: any) => {"
+        },
+        {
+          "file": "core-libs/core/src/features-config/config/features-config.ts",
+          "members": [
+            "FeaturesConfig.features"
+          ],
+          "diff": "@@ -99,6 +99,8 @@ export abstract class FeaturesConfig {\n     consignmentTracking?: boolean;\n \n     /**\n+     * @deprecated - this feature will be moved into INJECTION_TOKEN in https://jira.tools.sap/browse/CXSPA-13592\n+     *\n      * The 3.0 version introduced an unified configuration that emits new configuration\n      * every time lazy loaded module is instantiated. To ease transition to this new\n      * mechanism, the same changes are also published to global Config token under"
+        },
+        {
+          "file": "core-libs/core/src/features-config/directives/feature-level.directive.ts",
+          "members": [],
+          "diff": "@@ -7,6 +7,9 @@\n import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';\n import { FeatureConfigService } from '../services/feature-config.service';\n \n+/**\n+ * @deprecated  Unused directive. Please use named feature flags instead of feature level.\n+ */\n @Directive({ selector: '[cxFeatureLevel]' })\n export class FeatureLevelDirective {\n   constructor("
+        },
+        {
+          "file": "core-libs/core/src/features-config/directives/feature.directive.ts",
+          "members": [
+            "FeatureDirective.cxFeature"
+          ],
+          "diff": "@@ -6,6 +6,7 @@\n \n import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';\n import { FeatureConfigService } from '../services/feature-config.service';\n+import { FeatureToggleExpression } from '../feature-toggles';\n \n @Directive({ selector: '[cxFeature]' })\n export class FeatureDirective {\n@@ -17,7 +18,7 @@ export class FeatureDirective {\n \n   private hasView = false;\n \n-  @Input() set cxFeature(feature: string) {\n+  @Input() set cxFeature(feature: FeatureToggleExpression) {\n     if (this.featureConfig.isEnabled(feature) && !this.hasView) {\n       this.viewContainer.createEmbeddedView(this.templateRef);\n       this.hasView = true;"
+        },
+        {
+          "file": "core-libs/core/src/features-config/feature-toggles/feature-toggles-tokens.ts",
+          "members": [],
+          "diff": "@@ -24,6 +24,9 @@ import { FeatureTogglesInterface } from './config/feature-toggles';\n export abstract class FeatureToggles {}\n export interface FeatureToggles extends FeatureTogglesInterface {}\n \n+export type FeatureToggleKey = keyof FeatureToggles;\n+export type FeatureToggleExpression = FeatureToggleKey | `!${FeatureToggleKey}`;\n+\n /**\n  * DefaultFeatureToggles token, used to build FeatureToggles. Built from DefaultFeatureTogglesChunk's\n  */"
+        },
+        {
+          "file": "core-libs/core/src/features-config/feature-toggles/index.ts",
+          "members": [],
+          "diff": "@@ -7,3 +7,4 @@\n // don't export from './config/feature-toggles' as it contains private API. The type `FeatureToggles` is exported from a different file\n export * from './feature-toggles-providers';\n export * from './feature-toggles-tokens';\n+export * from './testing/index';"
+        },
+        {
+          "file": "core-libs/core/src/features-config/services/feature-config.service.ts",
+          "members": [
+            "FeatureConfigService.isEnabled"
+          ],
+          "diff": "@@ -10,7 +10,11 @@ import {\n   isFeatureEnabled,\n   isFeatureLevel,\n } from '../utils/feature-config-utils';\n+import { FeatureToggleExpression } from '../feature-toggles';\n \n+/**\n+ * @deprecated - Use FeatureToggles instead\n+ */\n @Injectable({\n   providedIn: 'root',\n })\n@@ -21,7 +25,7 @@ export class FeatureConfigService {\n     return isFeatureLevel(this.config, version);\n   }\n \n-  isEnabled(feature: string) {\n+  isEnabled(feature: FeatureToggleExpression) {\n     return isFeatureEnabled(this.config, feature);\n   }\n }"
+        },
+        {
+          "file": "core-libs/core/src/features-config/services/feature-styles.service.ts",
+          "members": [
+            "FeatureStylesService.addClass",
+            "FeatureStylesService.featureConfig",
+            "FeatureStylesService.featureToggles",
+            "FeatureStylesService.getCssClass",
+            "FeatureStylesService.init",
+            "FeatureStylesService.isEnabled",
+            "FeatureStylesService.registerUsage",
+            "FeatureStylesService.removeClass",
+            "FeatureStylesService.unregisterUsage"
+          ],
+          "diff": "@@ -12,7 +12,7 @@ import {\n   isDevMode,\n } from '@angular/core';\n import { LoggerService } from '../../logger/logger.service';\n-import { FeatureConfigService } from './feature-config.service';\n+import { FeatureToggleKey, FeatureToggles } from '../feature-toggles';\n \n /**\n  * Automatically adds/removes CSS classes to/from the root element of the application,\n@@ -25,7 +25,7 @@ import { FeatureConfigService } from './feature-config.service';\n @Injectable({ providedIn: 'root' })\n export class FeatureStylesService {\n   private rendererFactory = inject(RendererFactory2); // private, because needed only to create a renderer\n-  private featureConfig = inject(FeatureConfigService);\n+  private featureToggles = inject(FeatureToggles);\n   protected logger = inject(LoggerService);\n \n   /**\n@@ -71,7 +71,7 @@ export class FeatureStylesService {\n     //       which happens before the hook APP_BOOTSTRAP_LISTENER is invoked by Angular, therefore before `init` is invoked.)\n     for (const [feature, count] of this.usagesCounter.entries()) {\n       if (count > 0) {\n-        this.addClass(feature);\n+        this.addClass(feature as FeatureToggleKey);\n       }\n     }\n   }\n@@ -86,7 +86,7 @@ export class FeatureStylesService {\n    * Note: Please mind to call `unregisterUsage()` when the feature is not used anymore.\n    *       Otherwise, the feature's CSS class will be added to the root element forever.\n    */\n-  registerUsage(feature: string): void {\n+  registerUsage(feature: FeatureToggleKey): void {\n     const currentCounter = this.usagesCounter.get(feature) ?? 0;\n     if (this.isEnabled(feature) && currentCounter === 0) {\n       this.addClass(feature);\n@@ -100,7 +100,7 @@ export class FeatureStylesService {\n    * If the feature flag is enabled, this method removes the feature's CSS class\n    * from the root element (unless there are other registered usages of the same feature yet).\n    */\n-  unregisterUsage(feature: string): void {\n+  unregisterUsage(feature: FeatureToggleKey): void {\n     const currentCounter = this.usagesCounter.get(feature) ?? 0;\n     if (currentCounter === 0 && isDevMode()) {\n       this.logger.warn(\n@@ -117,8 +117,8 @@ export class FeatureStylesService {\n   /**\n    * Returns whether the given feature flag is enabled.\n    */\n-  protected isEnabled(feature: string): boolean {\n-    return this.featureConfig.isEnabled(feature);\n+  protected isEnabled(feature: FeatureToggleKey): boolean {\n+    return !!this.featureToggles[feature];\n   }\n \n   /**\n@@ -127,7 +127,7 @@ export class FeatureStylesService {\n    * It does nothing if the feature flag is disabled\n    * or if the root element is not yet available.\n    */\n-  protected addClass(feature: string) {\n+  protected addClass(feature: FeatureToggleKey) {\n     const cssClass = this.getCssClass(feature);\n     if (!this.rootElement || !cssClass) {\n       return;\n@@ -141,7 +141,7 @@ export class FeatureStylesService {\n    * It does nothing if the feature flag is disabled\n    * or if the root element is not yet available.\n    */\n-  protected removeClass(feature: string) {\n+  protected removeClass(feature: FeatureToggleKey) {\n     const cssClass = this.getCssClass(feature);\n     if (!this.rootElement || !cssClass) {\n       return;\n@@ -155,8 +155,8 @@ export class FeatureStylesService {\n    * The CSS class name consists of the prefix `cxFeat_`\n    * and the feature flag name.\n    */\n-  protected getCssClass(feature: string): string | undefined {\n-    return this.featureConfig.isEnabled(feature)\n…"
+        },
+        {
+          "file": "core-libs/core/src/features-config/utils/feature-config-utils.ts",
+          "members": [
+            "isFeatureEnabled"
+          ],
+          "diff": "@@ -6,6 +6,7 @@\n \n import { Config } from '../../config/config-tokens';\n import { FeaturesConfig } from '../config/features-config';\n+import { FeatureToggleExpression } from '../feature-toggles';\n \n function isFeatureConfig(config: Config): config is Required<FeaturesConfig> {\n   return typeof config === 'object' && !!config.features;\n@@ -38,7 +39,10 @@ export function isFeatureLevel(config: Config, level: string): boolean {\n   return false;\n }\n \n-export function isFeatureEnabled(config: Config, feature: string): boolean {\n+export function isFeatureEnabled(\n+  config: Config,\n+  feature: FeatureToggleExpression | 'disableConfigUpdates'\n+): boolean {\n   if (isFeatureConfig(config)) {\n     const featureConfig =\n       feature[0] === '!'"
+        },
+        {
+          "file": "core-libs/core/src/features-config/utils/use-feature-styles.ts",
+          "members": [
+            "useFeatureStyles"
+          ],
+          "diff": "@@ -6,6 +6,7 @@\n \n import { DestroyRef, assertInInjectionContext, inject } from '@angular/core';\n import { FeatureStylesService } from '../services/feature-styles.service';\n+import { FeatureToggleKey } from '../feature-toggles';\n \n /**\n  * Registers the usage of the feature flag's styles in the component. Must be called in the component's constructor.\n@@ -28,7 +29,7 @@ import { FeatureStylesService } from '../services/feature-styles.service';\n  * Note: When your component is destroyed, the CSS class is removed from the root element\n  * (unless there exist yet other components that declared using the same feature flag's styles).\n  */\n-export function useFeatureStyles(feature: string): void {\n+export function useFeatureStyles(feature: FeatureToggleKey): void {\n   assertInInjectionContext(useFeatureStyles);\n \n   const featureStylesService = inject(FeatureStylesService);"
+        },
+        {
+          "file": "core-libs/core/src/global-message/http-interceptors/handlers/bad-request/bad-request.handler.ts",
+          "members": [
+            "BadRequestHandler.featureConfigService",
+            "BadRequestHandler.featureToggles",
+            "BadRequestHandler.handleBadPassword"
+          ],
+          "diff": "@@ -12,7 +12,7 @@ import { GlobalMessageType } from '../../../models/global-message.model';\n import { HttpResponseStatus } from '../../../models/response-status.model';\n import { HttpErrorHandler } from '../http-error.handler';\n import { Translatable } from '../../../../i18n/translatable';\n-import { FeatureConfigService } from '../../../../features-config/services/feature-config.service';\n+import { FeatureToggles } from '../../../../features-config';\n \n const OAUTH_ENDPOINT = '/authorizationserver/oauth/token';\n \n@@ -21,7 +21,7 @@ const OAUTH_ENDPOINT = '/authorizationserver/oauth/token';\n })\n export class BadRequestHandler extends HttpErrorHandler {\n   responseStatus = HttpResponseStatus.BAD_REQUEST;\n-  private featureConfigService = inject(FeatureConfigService);\n+  private featureToggles = inject(FeatureToggles);\n \n   handleError(request: HttpRequest<any>, response: HttpErrorResponse): void {\n     this.handleBadPassword(request, response);\n@@ -47,11 +47,7 @@ export class BadRequestHandler extends HttpErrorHandler {\n         errorMessage:\n           response.error.error_description || response.message || '',\n       };\n-      if (\n-        this.featureConfigService.isEnabled(\n-          'enablePasswordExpiredErrorTranslation'\n-        )\n-      ) {\n+      if (this.featureToggles.enablePasswordExpiredErrorTranslation) {\n         const isPasswordExpiredError = key.startsWith(\n           `${translationPrefix}.password_expired_for_the_user`\n         );"
+        },
+        {
+          "file": "core-libs/core/src/occ/adapters/user/occ-user-address.adapter.ts",
+          "members": [
+            "OccUserAddressAdapter.featureConfigService",
+            "OccUserAddressAdapter.featureToggles",
+            "OccUserAddressAdapter.loadAll"
+          ],
+          "diff": "@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';\n import { Injectable, inject } from '@angular/core';\n import { Observable } from 'rxjs';\n import { catchError, map } from 'rxjs/operators';\n-import { FeatureConfigService } from '../../../features-config/services/feature-config.service';\n+import { FeatureToggles } from '../../../features-config';\n import { LoggerService } from '../../../logger';\n import { Address, AddressValidation } from '../../../model/address.model';\n import {\n@@ -32,7 +32,7 @@ const CONTENT_TYPE_JSON_HEADER = { 'Content-Type': 'application/json' };\n @Injectable()\n export class OccUserAddressAdapter implements UserAddressAdapter {\n   protected logger = inject(LoggerService);\n-  private featureConfigService = inject(FeatureConfigService);\n+  private featureToggles = inject(FeatureToggles);\n \n   constructor(\n     protected http: HttpClient,\n@@ -48,9 +48,7 @@ export class OccUserAddressAdapter implements UserAddressAdapter {\n       ...CONTENT_TYPE_JSON_HEADER,\n     });\n \n-    const options = this.featureConfigService.isEnabled(\n-      'enableHierarchicalAddressFormat'\n-    )\n+    const options = this.featureToggles.enableHierarchicalAddressFormat\n       ? { headers, params: { fields: 'addresses(FULL)' } }\n       : { headers };"
+        },
+        {
+          "file": "core-libs/core/src/site-context/facade/currency.service.ts",
+          "members": [
+            "CurrencyService.featureConfigService",
+            "CurrencyService.featureToggles",
+            "CurrencyService.getAll"
+          ],
+          "diff": "@@ -8,7 +8,7 @@ import { inject, Injectable } from '@angular/core';\n import { select, Store } from '@ngrx/store';\n import { map, Observable } from 'rxjs';\n import { filter, take, tap } from 'rxjs/operators';\n-import { FeatureConfigService } from '../../features-config/services/feature-config.service';\n+import { FeatureToggles } from '../../features-config';\n import { Currency } from '../../model/misc.model';\n import { isNotNullable } from '../../util/type-guards';\n import { getContextParameterValues } from '../config/context-config-utils';\n@@ -24,7 +24,7 @@ import { SiteContext } from './site-context.interface';\n  */\n @Injectable()\n export class CurrencyService implements SiteContext<Currency> {\n-  private featureConfigService = inject(FeatureConfigService);\n+  private featureToggles = inject(FeatureToggles);\n \n   constructor(\n     protected store: Store<StateWithSiteContext>,\n@@ -44,7 +44,7 @@ export class CurrencyService implements SiteContext<Currency> {\n       }),\n       filter(isNotNullable),\n       map((currencies) =>\n-        this.featureConfigService.isEnabled('showOnlyActiveCurrencies')\n+        this.featureToggles.showOnlyActiveCurrencies\n           ? currencies.filter((currency) => currency.active)\n           : currencies\n       )"
+        },
+        {
+          "file": "core-libs/storefront/cms-components/myaccount/consent-management/components/consent-form/consent-management-form.component.ts",
+          "members": [
+            "ConsentManagementFormComponent.featureConfigService",
+            "ConsentManagementFormComponent.featureToggles",
+            "ConsentManagementFormComponent.ngAfterViewChecked",
+            "ConsentManagementFormComponent.ngOnChanges"
+          ],
+          "diff": "@@ -22,7 +22,7 @@ import {\n   ANONYMOUS_CONSENT_STATUS,\n   AnonymousConsent,\n   ConsentTemplate,\n-  FeatureConfigService,\n+  FeatureToggles,\n   TranslatePipe,\n } from '@spartacus/core';\n \n@@ -60,7 +60,7 @@ export class ConsentManagementFormComponent\n \n   private hadFocus = false;\n   private document = inject(ElementRef).nativeElement.ownerDocument;\n-  private featureConfigService = inject(FeatureConfigService);\n+  private featureToggles = inject(FeatureToggles);\n \n   constructor() {\n     // Intentional empty constructor\n@@ -76,9 +76,7 @@ export class ConsentManagementFormComponent\n     }\n     if (\n       changes.disabled?.currentValue === true &&\n-      this.featureConfigService.isEnabled(\n-        'a11yConsentManagementFocusPreservation'\n-      )\n+      this.featureToggles.a11yConsentManagementFocusPreservation\n     ) {\n       this.hadFocus =\n         this.checkboxInput?.nativeElement === this.document.activeElement;\n@@ -90,9 +88,7 @@ export class ConsentManagementFormComponent\n       this.hadFocus &&\n       !this.disabled &&\n       this.checkboxInput?.nativeElement &&\n-      this.featureConfigService.isEnabled(\n-        'a11yConsentManagementFocusPreservation'\n-      )\n+      this.featureToggles.a11yConsentManagementFocusPreservation\n     ) {\n       this.hadFocus = false;\n       this.checkboxInput.nativeElement.focus();"
+        }
+      ]
+    },
+    {
+      "sha": "dafc76b304abfa0e941697b0fd64f4a93f713f21",
+      "subject": "fix: apply basesite theme from cms (#21668)",
+      "files": [
+        {
+          "file": "core-libs/core/src/site-theme/facade/site-theme.service.ts",
+          "members": [
+            "SiteThemeService.baseSiteService",
+            "SiteThemeService.featureToggles",
+            "SiteThemeService.getDefault",
+            "SiteThemeService.getDefaultClassName",
+            "SiteThemeService.isValid",
+            "SiteThemeService.readActiveBaseSiteTheme"
+          ],
+          "diff": "@@ -12,21 +12,24 @@ import { filter, take } from 'rxjs/operators';\n import { Observable, of } from 'rxjs';\n \n import { Config } from '../../config';\n+import { FeatureToggles } from '../../features-config/feature-toggles/feature-toggles-tokens';\n import { SiteTheme } from '../../model/misc.model';\n-import {\n-  getContextParameterDefault,\n-  SiteContext,\n-  THEME_CONTEXT_ID,\n-} from '../../site-context';\n+import { getContextParameterDefault } from '../../site-context/config/context-config-utils';\n+import { BaseSiteService } from '../../site-context/facade/base-site.service';\n+import { SiteContext } from '../../site-context/facade/site-context.interface';\n+import { THEME_CONTEXT_ID } from '../../site-context/providers/context-ids';\n import { isNotNullable } from '../../util/type-guards';\n+import { getLastValueSync } from '../../util/rxjs/get-last-value-sync';\n import { SiteThemeActions } from '../store/actions';\n import { SiteThemeSelectors } from '../store/selectors';\n import { StateWithSiteTheme } from '../store/state';\n \n @Injectable()\n export class SiteThemeService implements SiteContext<SiteTheme> {\n+  private featureToggles = inject(FeatureToggles);\n   protected store = inject(Store<StateWithSiteTheme>);\n   protected config = inject(Config);\n+  protected baseSiteService = inject(BaseSiteService);\n \n   /**\n    * Fallback default theme ID to be used when `config.context.theme` is not defined.\n@@ -34,16 +37,39 @@ export class SiteThemeService implements SiteContext<SiteTheme> {\n   protected readonly FALLBACK_DEFAULT_THEME_ID = '';\n \n   getDefault(): SiteTheme {\n-    const defaultThemeId =\n-      getContextParameterDefault(this.config, THEME_CONTEXT_ID) ??\n-      this.FALLBACK_DEFAULT_THEME_ID;\n-\n     return {\n-      className: defaultThemeId,\n+      className: this.getDefaultClassName(),\n       i18nNameKey: 'siteThemeSwitcher.themes.default',\n     };\n   }\n \n+  /**\n+   * Resolves the \"Default\" theme: static `config.context.theme` if set,\n+   * otherwise (when `applyBaseSiteThemeFromCms` is on) the active base\n+   * site's `theme`. Falls back to an empty string.\n+   */\n+  protected getDefaultClassName(): string {\n+    const staticDefault = getContextParameterDefault(\n+      this.config,\n+      THEME_CONTEXT_ID\n+    );\n+    if (staticDefault) {\n+      return staticDefault;\n+    }\n+    if (this.featureToggles.applyBaseSiteThemeFromCms) {\n+      return this.readActiveBaseSiteTheme() ?? this.FALLBACK_DEFAULT_THEME_ID;\n+    }\n+    return this.FALLBACK_DEFAULT_THEME_ID;\n+  }\n+\n+  /**\n+   * Synchronously reads `theme` of the currently active base site.\n+   * Returns `undefined` when no base site has resolved yet.\n+   */\n+  protected readActiveBaseSiteTheme(): string | undefined {\n+    return getLastValueSync(this.baseSiteService.get())?.theme;\n+  }\n+\n   /**\n    * List of possible themes.\n    *\n@@ -102,6 +128,12 @@ export class SiteThemeService implements SiteContext<SiteTheme> {\n   }\n \n   protected isValid(className: string): boolean {\n+    if (this.featureToggles.applyBaseSiteThemeFromCms) {\n…"
+        },
+        {
+          "file": "core-libs/core/src/site-theme/services/site-theme-initializer.ts",
+          "members": [
+            "SiteThemeInitializer.applyThemeFromActiveBaseSite",
+            "SiteThemeInitializer.baseSiteService",
+            "SiteThemeInitializer.featureToggles",
+            "SiteThemeInitializer.hasStaticTheme",
+            "SiteThemeInitializer.initialize",
+            "SiteThemeInitializer.isUserPickedOptionalTheme",
+            "SiteThemeInitializer.ngOnDestroy",
+            "SiteThemeInitializer.readActiveTheme",
+            "SiteThemeInitializer.setDefaultFromConfig",
+            "SiteThemeInitializer.siteContextConfig",
+            "SiteThemeInitializer.siteThemeConfig",
+            "SiteThemeInitializer.subscription"
+          ],
+          "diff": "@@ -6,29 +6,47 @@\n \n import { inject, Injectable, OnDestroy } from '@angular/core';\n import { Observable, Subscription } from 'rxjs';\n-import { switchMap, tap } from 'rxjs/operators';\n+import { distinctUntilChanged, filter, switchMap, tap } from 'rxjs/operators';\n import { ConfigInitializerService } from '../../config/config-initializer/config-initializer.service';\n+import { FeatureToggles } from '../../features-config/feature-toggles/feature-toggles-tokens';\n+import { BaseSite } from '../../model/misc.model';\n+import { getContextParameterDefault } from '../../site-context/config/context-config-utils';\n+import { SiteContextConfig } from '../../site-context/config/site-context-config';\n+import { BaseSiteService } from '../../site-context/facade/base-site.service';\n+import { THEME_CONTEXT_ID } from '../../site-context/providers/context-ids';\n+import { SiteThemeConfig } from '../config/site-theme-config';\n import { SiteThemeService } from '../facade/site-theme.service';\n+import { getLastValueSync } from '../../util/rxjs/get-last-value-sync';\n import { SiteThemePersistenceService } from './site-theme-persistence.service';\n \n @Injectable({ providedIn: 'root' })\n export class SiteThemeInitializer implements OnDestroy {\n+  private featureToggles = inject(FeatureToggles);\n   protected siteThemeService = inject(SiteThemeService);\n   protected siteThemePersistenceService = inject(SiteThemePersistenceService);\n   protected configInit = inject(ConfigInitializerService);\n-  protected subscription: Subscription;\n+  protected baseSiteService = inject(BaseSiteService);\n+  protected siteThemeConfig = inject(SiteThemeConfig);\n+  protected siteContextConfig = inject(SiteContextConfig);\n+  protected subscription = new Subscription();\n \n   /**\n    * Initializes the value of the active theme.\n    */\n   initialize(): void {\n-    this.subscription = this.configInit\n-      .getStable('context')\n-      .pipe(\n-        switchMap(() => this.siteThemePersistenceService.initSync()),\n-        switchMap(() => this.setFallbackValue())\n-      )\n-      .subscribe();\n+    this.subscription.add(\n+      this.configInit\n+        .getStable('context')\n+        .pipe(\n+          switchMap(() => this.siteThemePersistenceService.initSync()),\n+          switchMap(() => this.setFallbackValue())\n+        )\n+        .subscribe()\n+    );\n+\n+    if (this.featureToggles.applyBaseSiteThemeFromCms) {\n+      this.subscription.add(this.applyThemeFromActiveBaseSite().subscribe());\n+    }\n   }\n \n   /**\n@@ -50,10 +68,90 @@ export class SiteThemeInitializer implements OnDestroy {\n     if (!this.siteThemeService.isInitialized()) {\n       const defaultTheme = this.siteThemeService.getDefault();\n       this.siteThemeService.setActive(defaultTheme.className);\n+      return;\n+    }\n+\n+    // Persistence restored an active theme. When `applyBaseSiteThemeFromCms`\n+    // is on and the storefront pins a theme statically, that static value\n+    // must win over any stale persisted CMS theme.\n+    if (this.featureToggles.applyBaseSiteThemeFromCms) {\n+      const staticTheme = getContextParameterDefault(\n+        this.siteContextConfig,\n+        THEME_CONTEXT_ID\n+      );\n+      const activeTheme = this.readActiveTheme();\n+      if (\n+        staticTheme &&\n+        activeTheme !== staticTheme &&\n+        !this.isUserPickedOptionalTheme(activeTheme)\n+      ) {\n+        this.siteThemeService.setActive(staticTheme);\n+      }\n…"
+        }
+      ]
+    },
+    {
+      "sha": "a352e82ac746536933905e1e0749b24826fced7e",
+      "subject": "fix: filter non-shipping addresses in B2B checkout delivery address step (#21631)",
+      "files": [
+        {
+          "file": "core-libs/core/src/occ/adapters/user/occ-user-cost-centers.adapter.ts",
+          "members": [
+            "OccUserCostCenterAdapter.featureToggles",
+            "OccUserCostCenterAdapter.getCostCentersEndpoint"
+          ],
+          "diff": "@@ -5,9 +5,10 @@\n  */\n \n import { HttpClient, HttpContext } from '@angular/common/http';\n-import { Injectable } from '@angular/core';\n+import { inject, Injectable } from '@angular/core';\n import { Observable } from 'rxjs';\n import { COST_CENTERS_NORMALIZER } from '../../../cost-center/connectors/cost-center/converters';\n+import { FeatureToggles } from '../../../features-config/feature-toggles/feature-toggles-tokens';\n import { EntitiesModel } from '../../../model/misc.model';\n import { CostCenter } from '../../../model/org-unit.model';\n import { SearchConfig } from '../../../product/model/search-config';\n@@ -19,6 +20,8 @@ import { OCC_HTTP_TOKEN } from '../../utils';\n \n @Injectable()\n export class OccUserCostCenterAdapter implements UserCostCenterAdapter {\n+  private featureToggles = inject(FeatureToggles);\n+\n   constructor(\n     protected http: HttpClient,\n     protected occEndpoints: OccEndpointsService,\n@@ -41,9 +44,13 @@ export class OccUserCostCenterAdapter implements UserCostCenterAdapter {\n     userId: string,\n     params?: SearchConfig\n   ): string {\n+    const fields = this.featureToggles.b2bCheckoutShippingAddressFilter\n+      ? { fields: 'DEFAULT,unit(BASIC,addresses(FULL))' }\n+      : {};\n+\n     return this.occEndpoints.buildUrl('getActiveCostCenters', {\n       urlParams: { userId },\n-      queryParams: params,\n+      queryParams: { ...params, ...fields },\n     });\n   }\n }"
+        },
+        {
+          "file": "feature-libs/checkout/b2b/components/checkout-delivery-address/checkout-delivery-address.component.ts",
+          "members": [
+            "B2BCheckoutDeliveryAddressComponent.costCenterAddresses$",
+            "B2BCheckoutDeliveryAddressComponent.featureToggles"
+          ],
+          "diff": "@@ -8,6 +8,7 @@ import { AsyncPipe, NgFor, NgIf } from '@angular/common';\n import {\n   ChangeDetectionStrategy,\n   Component,\n+  inject,\n   OnDestroy,\n   OnInit,\n } from '@angular/core';\n@@ -27,6 +28,7 @@ import {\n } from '@spartacus/checkout/base/root';\n import {\n   Address,\n+  FeatureToggles,\n   GlobalMessageService,\n   TranslatePipe,\n   TranslationService,\n@@ -62,6 +64,7 @@ export class B2BCheckoutDeliveryAddressComponent\n   implements OnInit, OnDestroy\n {\n   protected subscriptions = new Subscription();\n+  private featureToggles = inject(FeatureToggles);\n \n   protected isAccountPayment$: Observable<boolean> =\n     this.checkoutPaymentTypeFacade\n@@ -76,7 +79,15 @@ export class B2BCheckoutDeliveryAddressComponent\n       switchMap((costCenter) => {\n         this.doneAutoSelect = false;\n         return costCenter?.code\n-          ? this.userCostCenterService.getCostCenterAddresses(costCenter.code)\n+          ? this.userCostCenterService\n+              .getCostCenterAddresses(costCenter.code)\n+              .pipe(\n+                map((addresses) =>\n+                  this.featureToggles.b2bCheckoutShippingAddressFilter\n+                    ? addresses.filter((a) => a.shippingAddress === true)\n+                    : addresses\n+                )\n+              )\n           : of([]);\n       })\n     );"
+        }
+      ]
+    },
+    {
+      "sha": "7a1a676d9de1c8b1f3d6b1728c93213dc3cf856e",
+      "subject": "fix: CXSPA-12683 increase contrast of close button of global msg (#21679)",
+      "files": [
+        {
+          "file": "core-libs/storefront/cms-components/misc/global-message/global-message.component.ts",
+          "members": [
+            "GlobalMessageComponent.constructor"
+          ],
+          "diff": "@@ -11,6 +11,7 @@ import {\n   GlobalMessageService,\n   GlobalMessageType,\n   TranslatePipe,\n+  useFeatureStyles,\n } from '@spartacus/core';\n import { Observable } from 'rxjs';\n import { ICON_TYPE } from '../../../cms-components/misc/icon/icon.model';\n@@ -27,7 +28,9 @@ export class GlobalMessageComponent implements OnInit {\n   messages$: Observable<GlobalMessageEntities>;\n   messageType: typeof GlobalMessageType = GlobalMessageType;\n \n-  constructor(protected globalMessageService: GlobalMessageService) {}\n+  constructor(protected globalMessageService: GlobalMessageService) {\n+    useFeatureStyles('a11yIncreaseContastGlobalMessageCloseButton');\n+  }\n \n   ngOnInit(): void {\n     this.messages$ = this.globalMessageService.get();"
+        },
+        {
+          "file": "core-libs/styles/scss/components/content/global-message/_global-message.scss",
+          "members": [],
+          "diff": "@@ -16,4 +16,10 @@\n       color: var(--cx-color-text);\n     }\n   }\n+\n+  @include forFeature('a11yIncreaseContastGlobalMessageCloseButton') {\n+    .close {\n+      opacity: 1;\n+    }\n+  }\n }"
+        }
+      ]
+    },
+    {
+      "sha": "d4a6dca2b43114392911173cef13be591803a154",
+      "subject": "chore: enable a11y toggles for 2608 release (#21680)",
+      "files": []
+    },
+    {
+      "sha": "ca885067db2557f57c469decdb4ba5b167f41e8f",
+      "subject": "refactor: (CXSPA-13724) remove feature toggle a11yConfiguratorOverviewHeaderVPC (#21682)",
+      "files": [
+        {
+          "file": "feature-libs/product-configurator/rulebased/components/overview-form/configurator-overview-form.component.html",
+          "members": [],
+          "diff": "@@ -35,33 +35,17 @@\n       id=\"{{ getGroupId(idPrefix, group.id) }}\"\n       [ngClass]=\"getGroupLevelStyleClasses(level, group.subGroups)\"\n     >\n-      <ng-container *cxFeature=\"'a11yConfiguratorOverviewHeaderVPC'\">\n-        <h2>\n-          <span class=\"cx-visually-hidden\">\n-            {{\n-              'configurator.a11y.group'\n-                | cxTranslate: { group: group.groupDescription }\n-            }}\n-          </span>\n-          <span aria-hidden=\"true\">\n-            {{ group.groupDescription }}\n-          </span>\n-        </h2>\n-      </ng-container>\n-      <ng-container *cxFeature=\"'!a11yConfiguratorOverviewHeaderVPC'\">\n+      <h2>\n         <span class=\"cx-visually-hidden\">\n           {{\n             'configurator.a11y.group'\n-              | cxTranslate\n-                : {\n-                    group: group.groupDescription,\n-                  }\n+              | cxTranslate: { group: group.groupDescription }\n           }}\n         </span>\n-        <h2 aria-hidden=\"true\">\n-          <span>{{ group.groupDescription }}</span>\n-        </h2>\n-      </ng-container>\n+        <span aria-hidden=\"true\">\n+          {{ group.groupDescription }}\n+        </span>\n+      </h2>\n \n       <div\n         *ngFor=\"let attributeOverview of group.attributes; let i = index\""
+        }
+      ]
+    },
+    {
+      "sha": "596e66c8ab07dff5e852547889331b493544892a",
+      "subject": "chore: CXSPA-13712 deprecate toggle disableCxPageSlotMarginAnimation (#21697)",
+      "files": [
+        {
+          "file": "core-libs/storefront/cms-structure/page/page-layout/page-layout.component.ts",
+          "members": [
+            "PageLayoutComponent.constructor"
+          ],
+          "diff": "@@ -53,7 +53,6 @@ export class PageLayoutComponent {\n     );\n \n   constructor(protected pageLayoutService: PageLayoutService) {\n-    useFeatureStyles('disableCxPageSlotMarginAnimation');\n     useFeatureStyles('a11yB2BRegisterComponent');\n   }\n }"
+        },
+        {
+          "file": "core-libs/styles/scss/layout/_page-fold.scss",
+          "members": [],
+          "diff": "@@ -14,19 +14,13 @@\n \n cx-page-layout {\n   cx-page-slot {\n-    transition:\n-      margin-top 0s,\n-      min-height 0s;\n-    // we delay the minimal real estate for pending slots\n-    transition-delay: var(--btf-delay);\n-\n     min-height: initial;\n     margin-top: initial;\n-\n-    @include forFeature('disableCxPageSlotMarginAnimation') {\n-      transition: none;\n-      transition-delay: 0s;\n-    }\n+    // Guard against consumer/vendor CSS animating these properties —\n+    // the below-the-fold logic manipulates them programmatically and\n+    // any transition would cause ghosting or delay IntersectionObserver\n+    transition: none;\n+    transition-delay: 0s;\n \n     &.cx-pending {\n       // we need a minimum height for pending items, as the slot would"
+        }
+      ]
+    },
+    {
+      "sha": "aa8cf96286edb09550c9c452391e34f4d896a197",
+      "subject": "chore: CXSPA-13715 deprecate toggle createMediaPreconnectLink (#21698)",
+      "files": [
+        {
+          "file": "core-libs/storefront/cms-structure/seo/media-preconnect.service.ts",
+          "members": [
+            "MediaPreconnectService.addPreconnectLink",
+            "MediaPreconnectService.featureToggles"
+          ],
+          "diff": "@@ -5,9 +5,9 @@\n  */\n \n import { inject, Injectable } from '@angular/core';\n-import { PageMetaLinkService } from './page-meta-link.service';\n-import { WindowRef, FeatureToggles } from '@spartacus/core';\n+import { WindowRef } from '@spartacus/core';\n import { MediaService } from '../../shared/components/media/media.service';\n+import { PageMetaLinkService } from './page-meta-link.service';\n \n @Injectable({\n   providedIn: 'root',\n@@ -15,14 +15,9 @@ import { MediaService } from '../../shared/components/media/media.service';\n export class MediaPreconnectService {\n   protected pageMetaLinkService = inject(PageMetaLinkService);\n   protected mediaService = inject(MediaService);\n-  private featureToggles = inject(FeatureToggles);\n   protected windowRef = inject(WindowRef);\n \n   addPreconnectLink(): void {\n-    if (!this.featureToggles.createMediaPreconnectLink) {\n-      return;\n-    }\n-\n     const url = this.mediaService.getBaseUrl();\n     let domain: string | undefined;\n     try {"
+        }
+      ]
+    },
+    {
+      "sha": "f39e9851fee61da79bb6491468dbf712a75320b5",
+      "subject": "fix: site isolation decorator not used on custom login form (#21670)",
+      "files": [
+        {
+          "file": "feature-libs/user/account/components/login-form/login-form-component.service.ts",
+          "members": [
+            "LoginFormComponentService.authMultisiteIsolationService",
+            "LoginFormComponentService.getUserId",
+            "LoginFormComponentService.login",
+            "LoginFormComponentService.submitWithUsernameOverride"
+          ],
+          "diff": "@@ -14,6 +14,7 @@ import {\n import { ActivatedRoute, Router } from '@angular/router';\n import {\n   AuthConfigService,\n+  AuthMultisiteIsolationService,\n   AuthService,\n   CsrfStateService,\n   FeatureToggles,\n@@ -24,7 +25,14 @@ import {\n   WindowRef,\n } from '@spartacus/core';\n import { CustomFormValidators } from '@spartacus/storefront';\n-import { BehaviorSubject, EMPTY, from } from 'rxjs';\n+import {\n+  BehaviorSubject,\n+  combineLatest,\n+  EMPTY,\n+  from,\n+  Observable,\n+  of,\n+} from 'rxjs';\n import { catchError, take, tap, withLatestFrom } from 'rxjs/operators';\n import {\n   LOGIN_ERROR_KEY,\n@@ -39,6 +47,9 @@ export class LoginFormComponentService {\n   protected router = inject(Router);\n   protected activatedRoute = inject(ActivatedRoute);\n   protected federatedLoginService = inject(FederatedLoginService);\n+  protected authMultisiteIsolationService = inject(\n+    AuthMultisiteIsolationService\n+  );\n   protected readonly customFormValidErrors = [\n     'bad_credentials',\n     'account_disabled',\n@@ -96,11 +107,15 @@ export class LoginFormComponentService {\n         // below by redirecting to /login?error=session_expired so the\n         // existing handleCustomLoginError() pipeline shows the friendly\n         // message.\n-        this.auth\n-          .refreshCsrfToken()\n+        combineLatest([\n+          this.auth.refreshCsrfToken(),\n+          this.featureToggles.siteIsolationForCustomLoginPage\n+            ? this.getUserId()\n+            : of(undefined),\n+        ])\n           .pipe(\n             take(1),\n-            tap((csrfToken) => {\n+            tap(([csrfToken, userId]) => {\n               this.csrfStateService.set(csrfToken);\n               this.form.get('csrf')?.setValue(csrfToken.token);\n               this.setOauthRedirectFlowFlag();\n@@ -108,7 +123,11 @@ export class LoginFormComponentService {\n               // form.disable(), which sets disabled=true on every bound input,\n               // and the browser excludes disabled inputs from native form\n               // submissions — resulting in an empty POST body and a 403.\n-              nativeForm.submit();\n+              if (this.featureToggles.siteIsolationForCustomLoginPage) {\n+                this.submitWithUsernameOverride(nativeForm, userId);\n+              } else {\n+                nativeForm.submit();\n+              }\n               this.busy$.next(true);\n             }),\n             catchError(() => {\n@@ -163,6 +182,14 @@ export class LoginFormComponentService {\n             })\n           )\n           .subscribe();\n+      } else if (this.featureToggles.siteIsolationForCustomLoginPage) {\n+        this.getUserId()\n+          .pipe(take(1))\n+          .subscribe((userId) => {\n+            this.setOauthRedirectFlowFlag();\n+            this.submitWithUsernameOverride(nativeForm, userId);\n+            this.busy$.next(true);\n+          });\n       } else {\n         this.setOauthRedirectFlowFlag();\n…"
+        }
+      ]
+    },
+    {
+      "sha": "bf77135ae94532603614d05058e1d0a0bc2caf3c",
+      "subject": "feat: remove consistentSizeProductCards feature flag (#21710)",
+      "files": [
+        {
+          "file": "core-libs/storefront/cms-components/product/product-list/product-grid-item/product-grid-item.component.ts",
+          "members": [
+            "ProductGridItemComponent.constructor"
+          ],
+          "diff": "@@ -68,7 +68,6 @@ export class ProductGridItemComponent implements OnChanges {\n   constructor(\n     protected productListItemContextSource: ProductListItemContextSource\n   ) {\n-    useFeatureStyles('consistentSizeProductCards');\n     useFeatureStyles('a11yProductListItemNameMargin');\n   }"
+        },
+        {
+          "file": "core-libs/storefront/cms-components/product/product-list/product-list-item/product-list-item.component.ts",
+          "members": [
+            "ProductListItemComponent.constructor"
+          ],
+          "diff": "@@ -77,7 +77,6 @@ export class ProductListItemComponent implements OnChanges {\n   constructor(\n     protected productListItemContextSource: ProductListItemContextSource\n   ) {\n-    useFeatureStyles('consistentSizeProductCards');\n     useFeatureStyles('productListItemSummaryReadMore');\n     useFeatureStyles('a11yProductListItemNameMargin');\n   }"
+        },
+        {
+          "file": "core-libs/styles/scss/components/product/list/_product-grid-item.scss",
+          "members": [],
+          "diff": "@@ -27,22 +27,18 @@\n   .cx-product-image-container {\n     display: block;\n     text-align: center;\n-    @include forFeature('consistentSizeProductCards') {\n-      @include media-breakpoint-up(md) {\n-        margin-top: auto;\n-        margin-bottom: auto;\n-      }\n+    @include media-breakpoint-up(md) {\n+      margin-top: auto;\n+      margin-bottom: auto;\n     }\n   }\n \n   .cx-product-image {\n     width: 100%;\n     margin: 3rem 0;\n-    @include forFeature('consistentSizeProductCards') {\n-      @include media-breakpoint-up(md) {\n-        img {\n-          max-height: 255px;\n-        }\n+    @include media-breakpoint-up(md) {\n+      img {\n+        max-height: 255px;\n       }\n     }\n   }"
+        },
+        {
+          "file": "core-libs/styles/scss/components/product/list/_product-list-item.scss",
+          "members": [],
+          "diff": "@@ -1,19 +1,17 @@\n %cx-product-list-item {\n   padding-bottom: 1rem;\n-  @include forFeature('consistentSizeProductCards') {\n-    @include media-breakpoint-up(md) {\n-      height: 272px;\n-      & > div {\n-        height: 100%;\n-      }\n+  @include media-breakpoint-up(md) {\n+    height: 272px;\n+    & > div {\n+      height: 100%;\n+    }\n \n-      .cx-product-summary {\n-        display: -webkit-box;\n-        -webkit-line-clamp: 5;\n-        line-clamp: 5;\n-        -webkit-box-orient: vertical;\n-        overflow: hidden;\n-      }\n+    .cx-product-summary {\n+      display: -webkit-box;\n+      -webkit-line-clamp: 5;\n+      line-clamp: 5;\n+      -webkit-box-orient: vertical;\n+      overflow: hidden;\n     }\n   }\n \n@@ -58,14 +56,12 @@\n     width: 100%;\n     height: 100%;\n     display: block;\n-    @include forFeature('consistentSizeProductCards') {\n-      @include media-breakpoint-up(md) {\n-        display: flex;\n-        img {\n-          margin-top: auto;\n-          margin-bottom: auto;\n-          max-height: 255px;\n-        }\n+    @include media-breakpoint-up(md) {\n+      display: flex;\n+      img {\n+        margin-top: auto;\n+        margin-bottom: auto;\n+        max-height: 255px;\n       }\n     }\n   }"
+        }
+      ]
+    },
+    {
+      "sha": "fe3120e13380260bf4212929bde8020f3c0743cb",
+      "subject": "fix(CXSPA-12763): Set focus on selected delivery mode radio button during navigation (#21538)",
+      "files": [
+        {
+          "file": "feature-libs/checkout/base/components/checkout-delivery-mode/checkout-delivery-mode.component.html",
+          "members": [],
+          "diff": "@@ -1,5 +1,68 @@\n <section [attr.aria-label]=\"'checkoutProgress.deliveryMode' | cxTranslate\">\n-  <fieldset role=\"radiogroup\">\n+  <fieldset\n+    *cxFeature=\"'a11yDeliveryModeFocusPreservation'\"\n+    role=\"radiogroup\"\n+    [cxFocus]=\"{ autofocus: true, refreshFocus: isUpdating$ | async }\"\n+  >\n+    <legend class=\"cx-checkout-title d-none d-lg-block d-xl-block\">\n+      {{ 'checkoutMode.deliveryOptions' | cxTranslate }}\n+    </legend>\n+    <ng-container\n+      *ngIf=\"\n+        !(isUpdating$ | async) &&\n+          (supportedDeliveryModes$ | async) as supportedDeliveryModes;\n+        else loading\n+      \"\n+    >\n+      <div [formGroup]=\"mode\" class=\"cx-delivery-mode-wrapper\">\n+        <div class=\"form-check\" *ngFor=\"let mode of supportedDeliveryModes\">\n+          <input\n+            [attr.aria-checked]=\"getAriaChecked(mode.code)\"\n+            class=\"form-check-input\"\n+            type=\"radio\"\n+            (change)=\"changeMode(mode.code, $event)\"\n+            (click)=\"changeMode(mode.code, $event)\"\n+            [value]=\"mode.code\"\n+            formControlName=\"deliveryModeId\"\n+            id=\"deliveryMode-{{ mode.code }}\"\n+            [cxFocus]=\"{ key: mode.code }\"\n+            [attr.aria-label]=\"\n+              mode.name +\n+              ' ' +\n+              mode.description +\n+              ' ' +\n+              mode.deliveryCost?.formattedValue\n+            \"\n+          />\n+          <label\n+            class=\"cx-delivery-label form-check-label form-radio-label\"\n+            for=\"deliveryMode-{{ mode.code }}\"\n+            aria-hidden=\"true\"\n+          >\n+            <div class=\"cx-delivery-mode\">\n+              {{ mode.name }}\n+              <span class=\"cx-delivery-mode-description\"\n+                >({{ mode.description }})</span\n+              >\n+            </div>\n+            <div class=\"cx-delivery-price\">\n+              {{ mode.deliveryCost?.formattedValue }}\n+            </div>\n+            <div class=\"cx-delivery-details\"></div>\n+          </label>\n+        </div>\n+        <ng-template\n+          [cxOutlet]=\"CartOutlets.DELIVERY_MODE\"\n+          [cxOutletContext]=\"{\n+            item: activeCartFacade.getActive() | async,\n+          }\"\n+        >\n+        </ng-template>\n+      </div>\n+    </ng-container>\n+  </fieldset>\n+\n+  <fieldset *cxFeature=\"'!a11yDeliveryModeFocusPreservation'\" role=\"radiogroup\">\n     <legend class=\"cx-checkout-title d-none d-lg-block d-xl-block\">\n       {{ 'checkoutMode.deliveryOptions' | cxTranslate }}\n     </legend>"
+        },
+        {
+          "file": "feature-libs/checkout/base/components/checkout-delivery-mode/checkout-delivery-mode.component.ts",
+          "members": [],
+          "diff": "@@ -17,11 +17,13 @@ import { ActivatedRoute } from '@angular/router';\n import { ActiveCartFacade, CartOutlets } from '@spartacus/cart/base/root';\n import { CheckoutDeliveryModesFacade } from '@spartacus/checkout/base/root';\n import {\n+  FeatureDirective,\n   GlobalMessageService,\n   GlobalMessageType,\n   TranslatePipe,\n } from '@spartacus/core';\n import {\n+  FocusDirective,\n   InnerComponentsHostDirective,\n   OutletDirective,\n   SpinnerComponent,\n@@ -52,6 +54,8 @@ import { CheckoutStepService } from '../services/checkout-step.service';\n     InnerComponentsHostDirective,\n     AsyncPipe,\n     TranslatePipe,\n+    FocusDirective,\n+    FeatureDirective,\n   ],\n })\n export class CheckoutDeliveryModeComponent {"
+        }
+      ]
+    },
+    {
+      "sha": "80cecbac360a00ff497883cb28dcd3a87741b7fb",
+      "subject": "style: improve tab styling for delivery pickup-options (#21718)",
+      "files": [
+        {
+          "file": "core-libs/storefront/cms-components/content/tab/tab.component.ts",
+          "members": [
+            "TabComponent.constructor"
+          ],
+          "diff": "@@ -63,8 +63,6 @@ export class TabComponent implements OnInit, AfterViewInit, OnDestroy {\n   mode$: Observable<TAB_MODE>;\n   protected subscriptions = new Subscription();\n \n-  constructor() {}\n-\n   ngOnInit(): void {\n     this.openTabs$ = new BehaviorSubject<number[]>(this.config?.openTabs ?? []);\n     this.mode$ = this.getMode();"
+        },
+        {
+          "file": "feature-libs/pickup-in-store/components/presentational/pickup-options/pickup-options.component.ts",
+          "members": [
+            "PickupOptionsComponent.constructor"
+          ],
+          "diff": "@@ -27,7 +27,7 @@ import {\n   FormsModule,\n   ReactiveFormsModule,\n } from '@angular/forms';\n-import { TranslatePipe } from '@spartacus/core';\n+import { TranslatePipe, useFeatureStyles } from '@spartacus/core';\n import { PickupOption } from '@spartacus/pickup-in-store/root';\n import { Tab, TAB_MODE, TabComponent, TabConfig } from '@spartacus/storefront';\n import { Subscription, take } from 'rxjs';\n@@ -96,6 +96,10 @@ export class PickupOptionsComponent\n     return null;\n   }\n \n+  constructor() {\n+    useFeatureStyles('improvedTabStyling');\n+  }\n+\n   ngOnChanges(): void {\n     this.onSelectedOptionChange();\n   }"
+        },
+        {
+          "file": "feature-libs/pickup-in-store/styles/_pickup-options.scss",
+          "members": [],
+          "diff": "@@ -46,6 +46,39 @@\n     --cx-tab-panel-border-end: 1px var(--cx-color-light) solid;\n     --cx-tab-panel-border-bottom: 1px var(--cx-color-light) solid;\n     --cx-tab-panel-border-start: 1px var(--cx-color-light) solid;\n+\n+    @include forFeature('improvedTabStyling') {\n+      .tab-btn {\n+        position: relative;\n+        padding-bottom: 13px;\n+\n+        // Override the underline effect from %cx-tab so the active/hover\n+        // indicator sits flush with the panel and is exactly 5px tall,\n+        // regardless of the button's own height.\n+        &:after {\n+          // Anchor the border to the bottom edge of the button so it stays\n+          // flush with the tab panel, instead of being pushed down by\n+          // `margin-top`.\n+          position: absolute;\n+          bottom: 0;\n+          inset-inline-start: 0;\n+          inset-inline-end: 0;\n+          border-radius: 0 0 var(--cx-tab-btn-border-radius)\n+            var(--cx-tab-btn-border-radius);\n+\n+          // Occupy 50% of the button's height to match the border radius,\n+          // but paint only the bottom 5px — everything above stays\n+          // transparent — via a hard-stop gradient anchored to a fixed\n+          // pixel offset from the bottom.\n+          height: 50%;\n+          background: linear-gradient(\n+            to bottom,\n+            transparent calc(100% - 5px),\n+            var(--cx-color-primary) calc(100% - 5px)\n+          );\n+        }\n+      }\n+    }\n   }\n \n   .cx-invalid-message {"
+        }
+      ]
+    },
+    {
+      "sha": "a630f9a32ce9ffacf1c2e636e7dbb016f0224f3a",
+      "subject": "chore: CXSPA-13708 deprecate readMoreDirective toggle (#21716)",
+      "files": [
+        {
+          "file": "core-libs/storefront/cms-components/product/product-tabs/product-reviews/product-reviews.component.html",
+          "members": [],
+          "diff": "@@ -42,14 +42,7 @@\n               {{ review.alias ? review.alias : review.principal?.name }}\n             </div>\n             <div class=\"date\">{{ review.date | cxDate }}</div>\n-            <div *cxFeature=\"'!readMoreDirective'\" class=\"text\">\n-              {{ review.comment }}\n-            </div>\n-            <cx-read-more\n-              *cxFeature=\"'readMoreDirective'\"\n-              class=\"text\"\n-              [text]=\"review.comment!\"\n-            ></cx-read-more>\n+            <cx-read-more class=\"text\" [text]=\"review.comment!\" />\n           </li>\n         </ul>\n         <ng-container *cxFeature=\"'!a11yReviewsKeyboardControls'\">\n@@ -64,14 +57,7 @@\n               {{ review.alias ? review.alias : review.principal?.name }}\n             </div>\n             <div class=\"date\">{{ review.date | cxDate }}</div>\n-            <div *cxFeature=\"'!readMoreDirective'\" class=\"text\">\n-              {{ review.comment }}\n-            </div>\n-            <cx-read-more\n-              *cxFeature=\"'readMoreDirective'\"\n-              class=\"text\"\n-              [text]=\"review.comment!\"\n-            ></cx-read-more>\n+            <cx-read-more class=\"text\" [text]=\"review.comment!\" />\n           </div>\n         </ng-container>\n         <div *ngIf=\"reviews.length > initialMaxListItems\">"
+        }
+      ]
+    },
+    {
+      "sha": "8c9feb0341ff82020c8e6caf74f68fd5fe4c46bf",
+      "subject": "chore: CXSPA-13719 deprecate feature togle defaultLayoutConfigWithout… (#21714)",
+      "files": [
+        {
+          "file": "core-libs/storefront/recipes/config/layout-config.ts",
+          "members": [
+            "applyWithoutPageFold",
+            "layoutConfigFactory"
+          ],
+          "diff": "@@ -157,6 +157,20 @@ function applyUnifiedHeaderSlots(config: LayoutConfig): void {\n   }\n }\n \n+/**\n+ * Removes the `pageFold` property from the `LandingPage2Template`,\n+ * `CategoryPageTemplate` and `ProductDetailsPageTemplate` layout configs.\n+ *\n+ * Always applied to the factory-produced config to avoid CLS (Cumulative\n+ * Layout Shift) regressions: the `pageFold` property caused CMS components\n+ * to be rendered only after a small delay even in SSR pages, which caused\n+ * a layout shift.\n+ *\n+ * Note: the `pageFold` values are still present in the deprecated\n+ * `layoutConfig` const to preserve behavior for consumers that use\n+ * `provideConfig(layoutConfig)` directly instead of\n+ * `provideConfigFactory(layoutConfigFactory)`.\n+ */\n function applyWithoutPageFold(config: LayoutConfig): void {\n   const homepageConfig =\n     (config?.layoutSlots?.LandingPage2Template as SlotConfig) ?? {};\n@@ -183,9 +197,7 @@ export function layoutConfigFactory(): LayoutConfig {\n     applyUnifiedHeaderSlots(config);\n   }\n \n-  if (featureToggles.defaultLayoutConfigWithoutPageFold) {\n-    applyWithoutPageFold(config);\n-  }\n+  applyWithoutPageFold(config);\n \n   return config;\n }"
+        }
+      ]
+    },
+    {
+      "sha": "6925f6c189aa4dde7c315a9993dd7f999c6e8ea9",
+      "subject": "chore: remove reserveSpaceForImagesOnPdpAndPlp feature toggle (#21748)",
+      "files": [
+        {
+          "file": "core-libs/storefront/cms-components/product/product-images/product-images.component.ts",
+          "members": [
+            "ProductImagesComponent.constructor"
+          ],
+          "diff": "@@ -62,7 +62,6 @@ export class ProductImagesComponent {\n   ]).pipe(map(([, container]) => container));\n \n   constructor(protected currentProductService: CurrentProductService) {\n-    useFeatureStyles('reserveSpaceForImagesOnPdpAndPlp');\n     useFeatureStyles('productCarouselScrolling');\n   }"
+        },
+        {
+          "file": "core-libs/storefront/cms-components/product/product-list/container/product-list.component.ts",
+          "members": [
+            "ProductListComponent.constructor"
+          ],
+          "diff": "@@ -11,7 +11,6 @@ import {\n   GlobalMessageType,\n   ProductSearchPage,\n   TranslatePipe,\n-  useFeatureStyles,\n } from '@spartacus/core';\n import { BehaviorSubject, Observable, Subscription, combineLatest } from 'rxjs';\n import { filter, skip, take } from 'rxjs/operators';\n@@ -60,9 +59,7 @@ export class ProductListComponent implements OnInit, OnDestroy {\n     private productListComponentService: ProductListComponentService,\n     private globalMessageService: GlobalMessageService,\n     public scrollConfig: ViewConfig\n-  ) {\n-    useFeatureStyles('reserveSpaceForImagesOnPdpAndPlp');\n-  }\n+  ) {}\n \n   ngOnInit(): void {\n     this.isInfiniteScroll = this.scrollConfig.view?.infiniteScroll?.active;"
+        },
+        {
+          "file": "core-libs/styles/scss/components/product/details/_product-images.scss",
+          "members": [],
+          "diff": "@@ -29,12 +29,10 @@ $productThumbSize: 75px !default;\n     text-align: center;\n     cursor: zoom-in;\n \n-    @include forFeature('reserveSpaceForImagesOnPdpAndPlp') {\n-      width: 100%;\n-      height: auto;\n-      aspect-ratio: 1 / 1;\n-      object-fit: scale-down;\n-    }\n+    width: 100%;\n+    height: auto;\n+    aspect-ratio: 1 / 1;\n+    object-fit: scale-down;\n \n     &.is-missing {\n       min-height: 30vh;"
+        },
+        {
+          "file": "core-libs/styles/scss/components/product/list/_product-grid-item.scss",
+          "members": [],
+          "diff": "@@ -15,13 +15,11 @@\n   cx-media.is-missing {\n     min-height: 255px;\n   }\n-  @include forFeature('reserveSpaceForImagesOnPdpAndPlp') {\n-    img {\n-      aspect-ratio: 1 / 1;\n-      width: 100%;\n-      height: auto;\n-      object-fit: scale-down;\n-    }\n+  img {\n+    aspect-ratio: 1 / 1;\n+    width: 100%;\n+    height: auto;\n+    object-fit: scale-down;\n   }\n \n   .cx-product-image-container {"
+        },
+        {
+          "file": "core-libs/styles/scss/components/product/list/_product-list-item.scss",
+          "members": [],
+          "diff": "@@ -128,13 +128,11 @@\n     min-height: 255px;\n   }\n \n-  @include forFeature('reserveSpaceForImagesOnPdpAndPlp') {\n-    img {\n-      aspect-ratio: 1 / 1;\n-      width: 100%;\n-      height: auto;\n-      object-fit: scale-down;\n-    }\n+  img {\n+    aspect-ratio: 1 / 1;\n+    width: 100%;\n+    height: auto;\n+    object-fit: scale-down;\n   }\n \n   cx-variant-style-icons {"
+        }
+      ]
+    },
+    {
+      "sha": "372727b7e632b21f892813a47cf7cc6fc9b0fc56",
+      "subject": "chore: remove unifiedDefaultHeaderSlotsAcrossBreakpoints feature toggle (#21746)",
+      "files": [
+        {
+          "file": "core-libs/storefront/layout/main/storefront.component.ts",
+          "members": [
+            "StorefrontComponent.constructor"
+          ],
+          "diff": "@@ -112,7 +112,6 @@ export class StorefrontComponent implements OnInit, OnDestroy {\n     protected elementRef: ElementRef<HTMLElement>,\n     protected keyboardFocusService: KeyboardFocusService\n   ) {\n-    useFeatureStyles('unifiedDefaultHeaderSlotsAcrossBreakpoints');\n     useFeatureStyles('a11yPreventWindowsHighContrastOverride');\n     useFeatureStyles('alignNavigationMenuWithHeader');\n     useFeatureStyles('cdsBottomHeaderSlotAdjustPosition');"
+        },
+        {
+          "file": "core-libs/storefront/recipes/config/layout-config.ts",
+          "members": [
+            "layoutConfigFactory"
+          ],
+          "diff": "@@ -4,8 +4,6 @@\n  * SPDX-License-Identifier: Apache-2.0\n  */\n \n-import { inject } from '@angular/core';\n-import { FeatureToggles } from '@spartacus/core';\n import {\n   LayoutConfig,\n   SlotConfig,\n@@ -191,11 +189,8 @@ function applyWithoutPageFold(config: LayoutConfig): void {\n  */\n export function layoutConfigFactory(): LayoutConfig {\n   const config: LayoutConfig = JSON.parse(JSON.stringify(layoutConfig));\n-  const featureToggles = inject(FeatureToggles);\n \n-  if (featureToggles.unifiedDefaultHeaderSlotsAcrossBreakpoints) {\n-    applyUnifiedHeaderSlots(config);\n-  }\n+  applyUnifiedHeaderSlots(config);\n \n   applyWithoutPageFold(config);"
+        },
+        {
+          "file": "core-libs/styles/scss/components/layout/header/_header.scss",
+          "members": [],
+          "diff": "@@ -20,14 +20,12 @@ $space: 0.5rem;\n       padding: 0 10px;\n     }\n \n-    @include forFeature('unifiedDefaultHeaderSlotsAcrossBreakpoints') {\n-      @include media-breakpoint-down(md) {\n-        .SiteContext,\n-        .SiteLinks,\n-        .SiteLogin,\n-        .NavigationBar {\n-          display: none;\n-        }\n+    @include media-breakpoint-down(md) {\n+      .SiteContext,\n+      .SiteLinks,\n+      .SiteLogin,\n+      .NavigationBar {\n+        display: none;\n       }\n     }"
+        }
+      ]
+    },
+    {
+      "sha": "e1e9f24fdba4878835f47bbd4559638208f36335",
+      "subject": "chore: remove productCarouselScrolling feature toggle (#21750)",
+      "files": [
+        {
+          "file": "core-libs/storefront/cms-components/product/carousel/product-carousel/product-carousel.component.html",
+          "members": [],
+          "diff": "@@ -1,32 +1,15 @@\n-<ng-container *cxFeature=\"'productCarouselScrolling'\">\n-  <cx-carousel-scrolling\n-    *ngIf=\"items$ | async as items\"\n-    role=\"region\"\n-    [attr.aria-label]=\"\n-      'productCarousel.carouselLabel' | cxTranslate: { title: title$ | async }\n-    \"\n-    [items]=\"items\"\n-    [title]=\"title$ | async\"\n-    [template]=\"carouselItem\"\n-    [trackByFn]=\"trackByFn\"\n-  >\n-  </cx-carousel-scrolling>\n-</ng-container>\n-<ng-container *cxFeature=\"'!productCarouselScrolling'\">\n-  <cx-carousel\n-    *ngIf=\"items$ | async as items\"\n-    role=\"region\"\n-    [attr.aria-label]=\"\n-      'productCarousel.carouselLabel' | cxTranslate: { title: title$ | async }\n-    \"\n-    [items]=\"items\"\n-    [title]=\"title$ | async\"\n-    [template]=\"carouselItem\"\n-    itemWidth=\"285px\"\n-    [trackByFn]=\"trackByFn\"\n-  >\n-  </cx-carousel>\n-</ng-container>\n+<cx-carousel-scrolling\n+  *ngIf=\"items$ | async as items\"\n+  role=\"region\"\n+  [attr.aria-label]=\"\n+    'productCarousel.carouselLabel' | cxTranslate: { title: title$ | async }\n+  \"\n+  [items]=\"items\"\n+  [title]=\"title$ | async\"\n+  [template]=\"carouselItem\"\n+  [trackByFn]=\"trackByFn\"\n+>\n+</cx-carousel-scrolling>\n \n <ng-template #carouselItem let-item=\"item\" let-itemIndex=\"itemIndex\">\n   <cx-product-carousel-item"
+        },
+        {
+          "file": "core-libs/storefront/cms-components/product/carousel/product-carousel/product-carousel.component.ts",
+          "members": [
+            "ProductCarouselComponent.constructor"
+          ],
+          "diff": "@@ -12,7 +12,6 @@ import {\n   TrackByFunction,\n } from '@angular/core';\n import {\n-  FeatureDirective,\n   CmsProductCarouselComponent as model,\n   Product,\n   ProductScope,\n@@ -20,13 +19,11 @@ import {\n   ProductSearchByCodeService,\n   ProductService,\n   TranslatePipe,\n-  useFeatureStyles,\n } from '@spartacus/core';\n import { Observable, of, switchMap, zip } from 'rxjs';\n import { filter, map } from 'rxjs/operators';\n import { CmsComponentData } from '../../../../cms-structure/page/model/cms-component-data';\n import { CarouselScrollingComponent } from '../../../../shared/components/carousel-scrolling/carousel-scrolling.component';\n-import { CarouselComponent } from '../../../../shared/components/carousel/carousel.component';\n import { ProductCarouselItemComponent } from '../product-carousel-item/product-carousel-item.component';\n \n @Component({\n@@ -34,10 +31,8 @@ import { ProductCarouselItemComponent } from '../product-carousel-item/product-c\n   templateUrl: './product-carousel.component.html',\n   changeDetection: ChangeDetectionStrategy.OnPush,\n   imports: [\n-    FeatureDirective,\n     NgIf,\n     CarouselScrollingComponent,\n-    CarouselComponent,\n     ProductCarouselItemComponent,\n     AsyncPipe,\n     TranslatePipe,\n@@ -93,9 +88,7 @@ export class ProductCarouselComponent {\n   constructor(\n     protected componentData: CmsComponentData<model>,\n     protected productService: ProductService\n-  ) {\n-    useFeatureStyles('productCarouselScrolling');\n-  }\n+  ) {}\n \n   handleCategoryCodes(data: model): Observable<model> {\n     const categoryCodes = data?.categoryCodes?.split(' ');"
+        },
+        {
+          "file": "core-libs/storefront/cms-components/product/carousel/product-references/product-references.component.html",
+          "members": [],
+          "diff": "@@ -1,26 +1,12 @@\n-<ng-container *cxFeature=\"'productCarouselScrolling'\">\n-  <ng-container *ngIf=\"items$ | async as items\">\n-    <cx-carousel-scrolling\n-      *ngIf=\"items.length\"\n-      [title]=\"title$ | async\"\n-      [items]=\"items\"\n-      [template]=\"carouselItem\"\n-      [trackByFn]=\"trackByFn\"\n-    >\n-    </cx-carousel-scrolling>\n-  </ng-container>\n-</ng-container>\n-<ng-container *cxFeature=\"'!productCarouselScrolling'\">\n-  <ng-container *ngIf=\"items$ | async as items\">\n-    <cx-carousel\n-      *ngIf=\"items$ | async as items\"\n-      [title]=\"title$ | async\"\n-      [items]=\"items\"\n-      [template]=\"carouselItem\"\n-      [trackByFn]=\"trackByFn\"\n-    >\n-    </cx-carousel>\n-  </ng-container>\n+<ng-container *ngIf=\"items$ | async as items\">\n+  <cx-carousel-scrolling\n+    *ngIf=\"items.length\"\n+    [title]=\"title$ | async\"\n+    [items]=\"items\"\n+    [template]=\"carouselItem\"\n+    [trackByFn]=\"trackByFn\"\n+  >\n+  </cx-carousel-scrolling>\n </ng-container>\n \n <ng-template #carouselItem let-item=\"item\">"
+        },
+        {
+          "file": "core-libs/storefront/cms-components/product/carousel/product-references/product-references.component.ts",
+          "members": [
+            "ProductReferencesComponent.constructor"
+          ],
+          "diff": "@@ -13,19 +13,16 @@ import {\n import { RouterLink } from '@angular/router';\n import {\n   CmsProductReferencesComponent,\n-  FeatureDirective,\n   isNotNullable,\n   Product,\n   ProductReference,\n   ProductReferenceService,\n   UrlPipe,\n-  useFeatureStyles,\n } from '@spartacus/core';\n import { Observable, of } from 'rxjs';\n import { filter, map, switchMap, tap, withLatestFrom } from 'rxjs/operators';\n import { CmsComponentData } from '../../../../cms-structure/page/model/cms-component-data';\n import { CarouselScrollingComponent } from '../../../../shared/components/carousel-scrolling/carousel-scrolling.component';\n-import { CarouselComponent } from '../../../../shared/components/carousel/carousel.component';\n import { MediaComponent } from '../../../../shared/components/media/media.component';\n import { CurrentProductService } from '../../current-product.service';\n \n@@ -34,10 +31,8 @@ import { CurrentProductService } from '../../current-product.service';\n   templateUrl: './product-references.component.html',\n   changeDetection: ChangeDetectionStrategy.OnPush,\n   imports: [\n-    FeatureDirective,\n     NgIf,\n     CarouselScrollingComponent,\n-    CarouselComponent,\n     RouterLink,\n     MediaComponent,\n     AsyncPipe,\n@@ -49,9 +44,7 @@ export class ProductReferencesComponent {\n     protected cmsComponentData: CmsComponentData<CmsProductReferencesComponent>,\n     protected currentProductService: CurrentProductService,\n     protected productReferenceService: ProductReferenceService\n-  ) {\n-    useFeatureStyles('productCarouselScrolling');\n-  }\n+  ) {}\n \n   protected get componentData$(): Observable<CmsProductReferencesComponent> {\n     return this.cmsComponentData.data$.pipe(filter((data) => Boolean(data)));"
+        },
+        {
+          "file": "core-libs/storefront/cms-components/product/product-images/product-images.component.html",
+          "members": [],
+          "diff": "@@ -7,26 +7,13 @@\n </ng-container>\n \n <ng-container *ngIf=\"thumbs$ | async as thumbs\">\n-  <ng-container *cxFeature=\"'productCarouselScrolling'\">\n-    <cx-carousel-scrolling\n-      *ngIf=\"thumbs.length\"\n-      class=\"thumbs\"\n-      [items]=\"thumbs\"\n-      [template]=\"thumb\"\n-      [trackByFn]=\"trackByFn\"\n-    ></cx-carousel-scrolling>\n-  </ng-container>\n-\n-  <ng-container *cxFeature=\"'!productCarouselScrolling'\">\n-    <cx-carousel\n-      *ngIf=\"thumbs.length\"\n-      class=\"thumbs\"\n-      [items]=\"thumbs\"\n-      itemWidth=\"120px\"\n-      [hideIndicators]=\"false\"\n-      [template]=\"thumb\"\n-    ></cx-carousel>\n-  </ng-container>\n+  <cx-carousel-scrolling\n+    *ngIf=\"thumbs.length\"\n+    class=\"thumbs\"\n+    [items]=\"thumbs\"\n+    [template]=\"thumb\"\n+    [trackByFn]=\"trackByFn\"\n+  ></cx-carousel-scrolling>\n </ng-container>\n \n <ng-template #thumb let-item=\"item\">"
+        },
+        {
+          "file": "core-libs/storefront/cms-components/product/product-images/product-images.component.ts",
+          "members": [
+            "ProductImagesComponent.constructor"
+          ],
+          "diff": "@@ -10,17 +10,10 @@ import {\n   Component,\n   TrackByFunction,\n } from '@angular/core';\n-import {\n-  FeatureDirective,\n-  ImageGroup,\n-  Product,\n-  isNotNullable,\n-  useFeatureStyles,\n-} from '@spartacus/core';\n+import { ImageGroup, Product, isNotNullable } from '@spartacus/core';\n import { BehaviorSubject, Observable, combineLatest, of } from 'rxjs';\n import { distinctUntilChanged, filter, map, tap } from 'rxjs/operators';\n import { CarouselScrollingComponent } from '../../../shared/components/carousel-scrolling/carousel-scrolling.component';\n-import { CarouselComponent } from '../../../shared/components/carousel/carousel.component';\n import { MediaComponent } from '../../../shared/components/media/media.component';\n import { LcpContextDirective } from '../../../shared/lcp-context/lcp-context.directive';\n import { CurrentProductService } from '../current-product.service';\n@@ -34,9 +27,7 @@ import { CurrentProductService } from '../current-product.service';\n     LcpContextDirective,\n     MediaComponent,\n     CarouselScrollingComponent,\n-    CarouselComponent,\n     AsyncPipe,\n-    FeatureDirective,\n   ],\n })\n export class ProductImagesComponent {\n@@ -61,9 +52,7 @@ export class ProductImagesComponent {\n     this.mainMediaContainer,\n   ]).pipe(map(([, container]) => container));\n \n-  constructor(protected currentProductService: CurrentProductService) {\n-    useFeatureStyles('productCarouselScrolling');\n-  }\n+  constructor(protected currentProductService: CurrentProductService) {}\n \n   openImage(item: any): void {\n     this.mainMediaContainer.next(item);"
+        },
+        {
+          "file": "core-libs/styles/scss/components/product/carousel/_carousel-scrolling.scss",
+          "members": [],
+          "diff": "@@ -52,13 +52,11 @@\n         margin: 4px 4px 0 4px; // show visual focus outline, even when container has overflow-x: auto\n       }\n \n-      @include forFeature('productCarouselScrolling') {\n-        img {\n-          width: 100%;\n-          height: auto;\n-          aspect-ratio: 1/1;\n-          object-fit: scale-down;\n-        }\n+      img {\n+        width: 100%;\n+        height: auto;\n+        aspect-ratio: 1/1;\n+        object-fit: scale-down;\n       }\n     }"
+        },
+        {
+          "file": "core-libs/styles/scss/components/product/carousel/_product-carousel-item.scss",
+          "members": [],
+          "diff": "@@ -1,10 +1,6 @@\n %cx-product-carousel-item {\n   .actions {\n-    width: 60%;\n-\n-    @include forFeature('productCarouselScrolling') {\n-      width: 70%;\n-    }\n+    width: 70%;\n \n     margin: auto;"
+        },
+        {
+          "file": "core-libs/styles/scss/components/product/carousel/_product-carousel.scss",
+          "members": [],
+          "diff": "@@ -1,9 +1,6 @@\n %cx-product-carousel {\n   display: flex;\n-\n-  @include forFeature('productCarouselScrolling') {\n-    max-width: 100%;\n-  }\n+  max-width: 100%;\n \n   a {\n     display: flex;\n@@ -40,10 +37,8 @@\n     align-self: center;\n     width: 60%;\n \n-    @include forFeature('productCarouselScrolling') {\n-      &.is-loading {\n-        background-color: #f5f5f5;\n-      }\n+    &.is-loading {\n+      background-color: #f5f5f5;\n     }\n \n     &.is-missing {"
+        },
+        {
+          "file": "core-libs/styles/scss/components/product/carousel/_product-references.scss",
+          "members": [],
+          "diff": "@@ -1,9 +1,6 @@\n %cx-product-references {\n   padding-bottom: 50px;\n-\n-  @include forFeature('productCarouselScrolling') {\n-    max-width: 100%;\n-  }\n+  max-width: 100%;\n \n   a {\n     display: flex;\n@@ -22,11 +19,7 @@\n \n   cx-media {\n     align-self: center;\n-    width: 60%;\n-\n-    @include forFeature('productCarouselScrolling') {\n-      width: 300px;\n-    }\n+    width: 300px;\n \n     &.is-missing {\n       min-height: 200px;"
+        },
+        {
+          "file": "core-libs/styles/scss/components/product/details/_product-images.scss",
+          "members": [],
+          "diff": "@@ -9,10 +9,7 @@ $productThumbSize: 75px !default;\n %cx-product-images {\n   display: flex;\n   flex-direction: column;\n-\n-  @include forFeature('productCarouselScrolling') {\n-    overflow: auto;\n-  }\n+  overflow: auto;\n \n   height: 100%;\n   > cx-media {\n@@ -72,9 +69,7 @@ $productThumbSize: 75px !default;\n       margin: 0.5vw;\n       padding: 0.5vw;\n \n-      @include forFeature('productCarouselScrolling') {\n-        width: 120px;\n-      }\n+      width: 120px;\n \n       cursor: pointer;"
+        },
+        {
+          "file": "feature-libs/product/image-zoom/components/product-image-zoom/product-image-zoom-product-images/product-image-zoom-product-images.component.html",
+          "members": [],
+          "diff": "@@ -14,35 +14,18 @@\n \n <ng-container *ngIf=\"thumbs$ | async as thumbs\">\n   <ng-container *ngIf=\"product$ | async as product\">\n-    <ng-container *cxFeature=\"'productCarouselScrolling'\">\n-      <cx-carousel-scrolling\n-        role=\"region\"\n-        [attr.aria-label]=\"\n-          'carousel.carouselForProduct' | cxTranslate: { product: product.name }\n-        \"\n-        tabindex=\"-1\"\n-        *ngIf=\"thumbs.length\"\n-        class=\"thumbs\"\n-        [items]=\"thumbs\"\n-        [template]=\"thumb\"\n-        [trackByFn]=\"trackByFn\"\n-      ></cx-carousel-scrolling>\n-    </ng-container>\n-    <ng-container *cxFeature=\"'!productCarouselScrolling'\">\n-      <cx-carousel\n-        role=\"region\"\n-        [attr.aria-label]=\"\n-          'carousel.carouselForProduct' | cxTranslate: { product: product.name }\n-        \"\n-        tabindex=\"-1\"\n-        *ngIf=\"thumbs.length\"\n-        class=\"thumbs\"\n-        [items]=\"thumbs\"\n-        itemWidth=\"120px\"\n-        [hideIndicators]=\"false\"\n-        [template]=\"thumb\"\n-      ></cx-carousel>\n-    </ng-container>\n+    <cx-carousel-scrolling\n+      role=\"region\"\n+      [attr.aria-label]=\"\n+        'carousel.carouselForProduct' | cxTranslate: { product: product.name }\n+      \"\n+      tabindex=\"-1\"\n+      *ngIf=\"thumbs.length\"\n+      class=\"thumbs\"\n+      [items]=\"thumbs\"\n+      [template]=\"thumb\"\n+      [trackByFn]=\"trackByFn\"\n+    ></cx-carousel-scrolling>\n   </ng-container>\n </ng-container>"
+        },
+        {
+          "file": "feature-libs/product/image-zoom/components/product-image-zoom/product-image-zoom-product-images/product-image-zoom-product-images.component.ts",
+          "members": [],
+          "diff": "@@ -6,9 +6,8 @@\n \n import { AsyncPipe, NgIf } from '@angular/common';\n import { ChangeDetectionStrategy, Component } from '@angular/core';\n-import { FeatureDirective, Product, TranslatePipe } from '@spartacus/core';\n+import { Product, TranslatePipe } from '@spartacus/core';\n import {\n-  CarouselComponent,\n   CarouselScrollingComponent,\n   CurrentProductService,\n   FocusableCarouselItemDirective,\n@@ -28,9 +27,7 @@ import { ProductImageZoomTriggerComponent } from '../product-image-zoom-trigger/\n     LcpContextDirective,\n     MediaComponent,\n     ProductImageZoomTriggerComponent,\n-    FeatureDirective,\n     CarouselScrollingComponent,\n-    CarouselComponent,\n     FocusableCarouselItemDirective,\n     AsyncPipe,\n     TranslatePipe,"
+        }
+      ]
+    },
+    {
+      "sha": "d72063145e8970f6b02117574e61b5bf007ee978",
+      "subject": "chore: remove lazyLoadImagesByDefault feature toggle (#21747)",
+      "files": [
+        {
+          "file": "core-libs/storefront/shared/components/media/media.service.ts",
+          "members": [
+            "MediaService.loadingStrategy"
+          ],
+          "diff": "@@ -158,15 +158,12 @@ export class MediaService {\n   /**\n    * Reads the loading strategy from the `MediaConfig`.\n    *\n-   * Defaults to `ImageLoadingStrategy.EAGER`.\n+   * Defaults to `ImageLoadingStrategy.LAZY`.\n    */\n   get loadingStrategy(): ImageLoadingStrategy {\n-    const fallbackStrategy = this.featureToggles.lazyLoadImagesByDefault\n-      ? ImageLoadingStrategy.LAZY\n-      : ImageLoadingStrategy.EAGER;\n-\n     return (\n-      (this.config as MediaConfig)?.imageLoadingStrategy ?? fallbackStrategy\n+      (this.config as MediaConfig)?.imageLoadingStrategy ??\n+      ImageLoadingStrategy.LAZY\n     );\n   }"
+        }
+      ]
+    },
+    {
+      "sha": "0914b317eeebadce3c61459ce4a3a4e5c0f858b0",
+      "subject": "chore: CXSPA-13709 deprecate productReviewCharactersLeft (#21719)",
+      "files": [
+        {
+          "file": "core-libs/storefront/cms-components/product/product-tabs/product-reviews/product-reviews.component.html",
+          "members": [],
+          "diff": "@@ -92,20 +92,6 @@\n             <cx-form-required-asterisks />\n           </span>\n           <input\n-            *cxFeature=\"'!productReviewCharactersLeft'\"\n-            required=\"true\"\n-            #titleInput\n-            type=\"text\"\n-            class=\"form-control\"\n-            formControlName=\"title\"\n-            [attr.aria-invalid]=\"\n-              reviewForm.get('title')?.touched &&\n-              reviewForm.get('title')?.invalid\n-            \"\n-            [attr.aria-errormessage]=\"'titleError'\"\n-          />\n-          <input\n-            *cxFeature=\"'productReviewCharactersLeft'\"\n             required=\"true\"\n             #titleInput\n             type=\"text\"\n@@ -125,7 +111,7 @@\n               label: 'productReview.reviewTitle' | cxTranslate,\n             }\"\n             [control]=\"reviewForm.get('title')\"\n-          ></cx-form-errors>\n+          />\n         </label>\n       </div>\n       <div class=\"form-group\">\n@@ -135,19 +121,6 @@\n             <cx-form-required-asterisks />\n           </span>\n           <textarea\n-            *cxFeature=\"'!productReviewCharactersLeft'\"\n-            required=\"true\"\n-            class=\"form-control\"\n-            rows=\"3\"\n-            formControlName=\"comment\"\n-            [attr.aria-invalid]=\"\n-              reviewForm.get('comment')?.touched &&\n-              reviewForm.get('comment')?.invalid\n-            \"\n-            [attr.aria-errormessage]=\"'commentError'\"\n-          ></textarea>\n-          <textarea\n-            *cxFeature=\"'productReviewCharactersLeft'\"\n             required=\"true\"\n             class=\"form-control\"\n             rows=\"3\"\n@@ -167,7 +140,7 @@\n               label: 'productReview.writeYourComments' | cxTranslate,\n             }\"\n             [control]=\"reviewForm.get('comment')\"\n-          ></cx-form-errors>\n+          />\n         </label>\n       </div>\n       <div class=\"form-group\">\n@@ -212,13 +185,6 @@\n             >{{ 'productReview.reviewerName' | cxTranslate }}\n           </span>\n           <input\n-            *cxFeature=\"'!productReviewCharactersLeft'\"\n-            type=\"text\"\n-            class=\"form-control\"\n-            formControlName=\"reviewerName\"\n-          />\n-          <input\n-            *cxFeature=\"'productReviewCharactersLeft'\"\n             type=\"text\"\n             class=\"form-control\"\n             formControlName=\"reviewerName\"\n@@ -230,11 +196,8 @@\n               label: 'productReview.reviewerName' | cxTranslate,\n             }\"\n             [control]=\"reviewForm.get('reviewerName')\"\n-          ></cx-form-errors>\n-          <p\n-            *cxFeature=\"'productReviewCharactersLeft'\"\n…"
+        },
+        {
+          "file": "core-libs/storefront/cms-components/product/product-tabs/product-reviews/product-reviews.component.ts",
+          "members": [
+            "ProductReviewsComponent.featureToggles",
+            "ProductReviewsComponent.resetReviewForm"
+          ],
+          "diff": "@@ -10,7 +10,6 @@ import {\n   ChangeDetectorRef,\n   Component,\n   ElementRef,\n-  inject,\n   Input,\n   QueryList,\n   ViewChild,\n@@ -25,7 +24,6 @@ import {\n } from '@angular/forms';\n import {\n   CxDatePipe,\n-  FeatureToggles,\n   FeatureDirective,\n   isNotNullable,\n   Product,\n@@ -84,7 +82,6 @@ export class ProductReviewsComponent {\n   initialMaxListItems = 5;\n   maxListItems: number;\n   reviewForm: UntypedFormGroup;\n-  private featureToggles = inject(FeatureToggles);\n \n   product$: Observable<Product | null> =\n     this.currentProductService.getProduct();\n@@ -178,31 +175,20 @@ export class ProductReviewsComponent {\n   }\n \n   private resetReviewForm(): void {\n-    const isProductReviewCharactersLeftEnabled =\n-      this.featureToggles.productReviewCharactersLeft;\n     this.reviewForm = this.fb.group({\n       title: [\n         '',\n-        !isProductReviewCharactersLeftEnabled\n-          ? Validators.required\n-          : [\n-              Validators.required,\n-              Validators.maxLength(this.maxLengthReviewTitle),\n-            ],\n+        [Validators.required, Validators.maxLength(this.maxLengthReviewTitle)],\n       ],\n       comment: [\n         '',\n-        !isProductReviewCharactersLeftEnabled\n-          ? Validators.required\n-          : [\n-              Validators.required,\n-              Validators.maxLength(this.maxLengthReviewComment),\n-            ],\n+        [\n+          Validators.required,\n+          Validators.maxLength(this.maxLengthReviewComment),\n+        ],\n       ],\n       rating: [null, Validators.required],\n-      reviewerName: !isProductReviewCharactersLeftEnabled\n-        ? ''\n-        : ['', Validators.maxLength(this.maxLengthReviewerName)],\n+      reviewerName: ['', Validators.maxLength(this.maxLengthReviewerName)],\n     });\n   }\n }"
+        }
+      ]
+    }
+  ],
+  "i18n": {
+    "added": [],
+    "removed": [],
+    "changed": [],
+    "translated": [
+      {
+        "chunk": "common",
+        "key": "common.currency",
+        "texts": {
+          "cs": "Měna",
+          "de": "Währung",
+          "es": "Moneda",
+          "es_CO": "Moneda",
+          "fr": "Devise",
+          "hi": "मुद्रा",
+          "hu": "Pénznem",
+          "id": "Mata Uang",
+          "it": "Valuta",
+          "ja": "通貨",
+          "ko": "통화",
+          "pl": "Waluta",
+          "pt": "Moeda",
+          "ru": "Валюта",
+          "zh": "货币",
+          "zh_TW": "貨幣"
+        }
+      },
+      {
+        "chunk": "common",
+        "key": "common.language",
+        "texts": {
+          "cs": "Jazyk",
+          "de": "Sprache",
+          "es": "Idioma",
+          "es_CO": "Idioma",
+          "fr": "Langue",
+          "hi": "भाषा",
+          "hu": "Nyelv",
+          "id": "Bahasa",
+          "it": "Lingua",
+          "ja": "言語",
+          "ko": "언어",
+          "pl": "Język",
+          "pt": "Idioma",
+          "ru": "Язык",
+          "zh": "语言",
+          "zh_TW": "語言"
+        }
+      },
+      {
+        "chunk": "common",
+        "key": "common.readLess",
+        "texts": {
+          "cs": "Méně informací",
+          "de": "Weniger lesen",
+          "es": "Menos información",
+          "es_CO": "Menos información",
+          "fr": "En savoir moins",
+          "hi": "कम पढ़ें",
+          "hu": "Kevesebb információ",
+          "id": "Baca lebih sedikit",
+          "it": "Meno dettagli",
+          "ja": "表示を減らす",
+          "ko": "간략히 보기",
+          "pl": "Mniej",
+          "pt": "Ler menos",
+          "ru": "Скрыть",
+          "zh": "收起",
+          "zh_TW": "顯示較少"
+        }
+      },
+      {
+        "chunk": "common",
+        "key": "common.readMore",
+        "texts": {
+          "cs": "Další informace",
+          "de": "Mehr lesen",
+          "es": "Más información",
+          "es_CO": "Más información",
+          "fr": "En savoir plus",
+          "hi": "अधिक पढ़ें",
+          "hu": "További információ",
+          "id": "Baca selengkapnya",
+          "it": "Maggiori dettagli",
+          "ja": "詳細を表示",
+          "ko": "자세히 보기",
+          "pl": "Więcej",
+          "pt": "Ler mais",
+          "ru": "Подробнее",
+          "zh": "继续阅读",
+          "zh_TW": "讀取更多"
+        }
+      }
+    ]
+  }
 }

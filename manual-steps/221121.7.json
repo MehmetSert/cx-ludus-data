@@ -1,0 +1,282 @@
+{
+  "schemaVersion": 1,
+  "release": "221121.7",
+  "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/cc1b1ab2e6d246c6bd3431893f0f96e0.html",
+  "pageHash": "8dfe66e97f11b4c7efcacc50e0ee41440473982460e71f35636c53b286d91b97",
+  "steps": [
+    {
+      "id": "update-to-221121-5",
+      "kind": "code",
+      "title": {
+        "en": "Update to version 221121.5 first",
+        "tr": "Önce 221121.5 sürümüne güncelleyin"
+      },
+      "text": {
+        "en": "Update your Spartacus app to version 221121.5 (with Angular 19) before updating to 221121.7.",
+        "tr": "221121.7 sürümüne geçmeden önce Spartacus uygulamanızı 221121.5 sürümüne (Angular 19 ile) güncelleyin."
+      },
+      "quote": "Update your Spartacus app to version 221121.5 (with Angular 19).",
+      "condition": null,
+      "code": null,
+      "repeatsEarlier": false,
+      "check": null
+    },
+    {
+      "id": "node-22",
+      "kind": "install",
+      "title": {
+        "en": "Install Node.js 22",
+        "tr": "Node.js 22 kurun"
+      },
+      "text": {
+        "en": "Ensure Node.js 22 is installed. Version 22.22.0 is the minimum required, and the most recent 22.x version is strongly recommended.",
+        "tr": "Node.js 22'nin kurulu olduğundan emin olun. Minimum gerekli sürüm 22.22.0'dır; en güncel 22.x sürümü şiddetle önerilir."
+      },
+      "quote": "Ensure you have Node.js 22 installed.",
+      "condition": null,
+      "code": null,
+      "repeatsEarlier": false,
+      "check": null
+    },
+    {
+      "id": "angular-20-update",
+      "kind": "install",
+      "title": {
+        "en": "Update Angular to version 20",
+        "tr": "Angular'ı 20 sürümüne güncelleyin"
+      },
+      "text": {
+        "en": "Run ng update to update Angular and compatible third-party Angular dependencies to version 20, then commit the changes.",
+        "tr": "Angular'ı ve uyumlu üçüncü taraf Angular bağımlılıklarını 20 sürümüne güncellemek için ng update çalıştırın, ardından değişiklikleri commit edin."
+      },
+      "quote": "Run the following command, which updates the Angular version locally, and also updates other third-party dependencies from the Angular ecosystem to versions that are compatible with Angular 20, such as @ng-select/ng-select@20 , @ngrx/store@20 , angular-oauth2-oidc@20 , and ngx-infinite-scroll@20 :",
+      "condition": null,
+      "code": {
+        "language": "bash",
+        "content": "ng update @angular/core@20 @angular/cli@20 @ngrx/store@20 angular-oauth2-oidc@20 @ng-select/ng-select@20 ngx-infinite-scroll@20 --force\ngit add .\ngit commit -m \"update angular 20 and 3rd party deps angular 20 compatible\""
+      },
+      "repeatsEarlier": false,
+      "check": null
+    },
+    {
+      "id": "application-builder-migration",
+      "kind": "code",
+      "title": {
+        "en": "Migrate to the new application build system",
+        "tr": "Yeni uygulama build sistemine geçin"
+      },
+      "text": {
+        "en": "Run the use-application-builder migration, offered during the Angular 20 or Angular 21 update, to replace the old @angular-devkit/build-angular builders with the @angular/build builders.",
+        "tr": "Eski @angular-devkit/build-angular builder'larını @angular/build builder'larıyla değiştirmek için Angular 20 veya 21 güncellemesi sırasında sunulan use-application-builder migrasyonunu çalıştırın."
+      },
+      "quote": "During the update to Angular 21, if you have not already done so, migrate application projects to the new build system (which is to say, run the migration to replace old builders located under @angular-devkit/build-angular with new builders located under @angular/build ).",
+      "condition": null,
+      "code": null,
+      "repeatsEarlier": false,
+      "check": null
+    },
+    {
+      "id": "control-flow-migration",
+      "kind": "code",
+      "title": {
+        "en": "Run the Angular control flow migration",
+        "tr": "Angular control flow migrasyonunu çalıştırın"
+      },
+      "text": {
+        "en": "After finishing the Angular 20 update, run the control flow migration in the project root, review any errors, and commit the changes.",
+        "tr": "Angular 20 güncellemesini bitirdikten sonra proje kökünde control flow migrasyonunu çalıştırın, hataları inceleyin ve değişiklikleri commit edin."
+      },
+      "quote": "In the root folder of your project, run the following command, which will migrate your code to",
+      "condition": null,
+      "code": {
+        "language": "bash",
+        "content": "ng generate @angular/core:control-flow"
+      },
+      "repeatsEarlier": false,
+      "check": null
+    },
+    {
+      "id": "angular-21-update",
+      "kind": "install",
+      "title": {
+        "en": "Update Angular to version 21",
+        "tr": "Angular'ı 21 sürümüne güncelleyin"
+      },
+      "text": {
+        "en": "Run ng update to update Angular and compatible third-party Angular dependencies to version 21 (angular-oauth2-oidc stays at 20), then commit the changes.",
+        "tr": "Angular'ı ve uyumlu üçüncü taraf Angular bağımlılıklarını 21 sürümüne güncellemek için ng update çalıştırın (angular-oauth2-oidc 20'de kalır), ardından değişiklikleri commit edin."
+      },
+      "quote": "Run the following command, which updates the Angular version locally, and also updates other third-party dependencies from the Angular ecosystem to versions that are compatible with Angular 21, such as @ng-select/ng-select@21 , @ngrx/store@21 , angular-oauth2-oidc@20 , and ngx-infinite-scroll@21 :",
+      "condition": null,
+      "code": {
+        "language": "bash",
+        "content": "ng update @angular/core@21 @angular/cli@21 @ngrx/store@21 angular-oauth2-oidc@20 @ng-select/ng-select@21 ngx-infinite-scroll@21 --force\ngit add .\ngit commit -m \"update angular 21 and 3rd party deps angular 21 compatible\""
+      },
+      "repeatsEarlier": false,
+      "check": null
+    },
+    {
+      "id": "update-spartacus-schematics",
+      "kind": "automated",
+      "title": {
+        "en": "Update Spartacus to 221121.7",
+        "tr": "Spartacus'ı 221121.7 sürümüne güncelleyin"
+      },
+      "text": {
+        "en": "Run the Spartacus update schematics in the workspace of your Angular application.",
+        "tr": "Angular uygulamanızın workspace'inde Spartacus update schematics'i çalıştırın."
+      },
+      "quote": "Update Spartacus to 221121.7.",
+      "condition": null,
+      "code": {
+        "language": "bash",
+        "content": "ng update @spartacus/schematics@221121.7"
+      },
+      "repeatsEarlier": false,
+      "check": null
+    },
+    {
+      "id": "remove-output-path",
+      "kind": "optional",
+      "title": {
+        "en": "Remove redundant outputPath from angular.json",
+        "tr": "angular.json'dan gereksiz outputPath'i kaldırın"
+      },
+      "text": {
+        "en": "Optionally remove the outputPath property from angular.json if it matches the default dist/<your-project-name>. This is a manual change not handled by the schematics.",
+        "tr": "İsteğe bağlı olarak, varsayılan dist/<your-project-name> değeriyle aynıysa angular.json içindeki outputPath özelliğini kaldırın. Bu, schematics tarafından yapılmayan manuel bir değişikliktir."
+      },
+      "quote": "In angular.json , you can optionally remove the redundant outputPath property if it matches the default value.",
+      "condition": {
+        "en": "If outputPath is set to dist/<your-project-name>",
+        "tr": "outputPath dist/<your-project-name> olarak ayarlıysa"
+      },
+      "code": null,
+      "repeatsEarlier": false,
+      "check": null
+    },
+    {
+      "id": "spartacus-todo-comments",
+      "kind": "code",
+      "title": {
+        "en": "Review TODO:Spartacus comments",
+        "tr": "TODO:Spartacus yorumlarını inceleyin"
+      },
+      "text": {
+        "en": "After the update, inspect your code for comments beginning with // TODO:Spartacus and handle them using the technical changes and TypeScript breaking changes documentation for 221121.7.",
+        "tr": "Güncellemeden sonra kodunuzda // TODO:Spartacus ile başlayan yorumları inceleyin ve 221121.7 için teknik değişiklikler ile TypeScript breaking changes dokümantasyonuna göre ele alın."
+      },
+      "quote": "When the update has finished running, inspect your code for comments that begin with // TODO:Spartacus .",
+      "condition": null,
+      "code": null,
+      "repeatsEarlier": false,
+      "check": null
+    },
+    {
+      "id": "standalone-bootstrap",
+      "kind": "code",
+      "title": {
+        "en": "Modernize to standalone bootstrapApplication()",
+        "tr": "Standalone bootstrapApplication() kullanımına geçin"
+      },
+      "text": {
+        "en": "Run the Spartacus schematics to modernize your app to use bootstrapApplication() and convert the root AppComponent to a standalone component.",
+        "tr": "Uygulamanızı bootstrapApplication() kullanacak şekilde modernize etmek ve kök AppComponent'i standalone bileşene dönüştürmek için Spartacus schematics'i çalıştırın."
+      },
+      "quote": "To modernize your app to use the Angular bootstrapApplication() API and convert your root AppComponent to a standalone component, run the following command from your project root directory:",
+      "condition": null,
+      "code": {
+        "language": "bash",
+        "content": "ng g @spartacus/schematics:modernize-app-to-standalone-bootstrap-application"
+      },
+      "repeatsEarlier": false,
+      "check": null
+    },
+    {
+      "id": "custom-standalone-components",
+      "kind": "optional",
+      "title": {
+        "en": "Migrate custom components to standalone",
+        "tr": "Özel bileşenleri standalone'a dönüştürün"
+      },
+      "text": {
+        "en": "Strongly recommended: run the Angular standalone migration and select \"Convert all components, directives and pipes to standalone\". Do not follow the other steps of the Angular guide.",
+        "tr": "Şiddetle önerilir: Angular standalone migrasyonunu çalıştırın ve \"Convert all components, directives and pipes to standalone\" seçeneğini seçin. Angular kılavuzundaki diğer adımları uygulamayın."
+      },
+      "quote": "To automatically convert your custom components to Angular standalone components, from your project root directory, run ng g @angular/core:standalone and select \"Convert all components, directives and pipes to standalone\".",
+      "condition": null,
+      "code": {
+        "language": "bash",
+        "content": "ng g @angular/core:standalone"
+      },
+      "repeatsEarlier": false,
+      "check": null
+    },
+    {
+      "id": "stub-child-components-in-tests",
+      "kind": "code",
+      "title": {
+        "en": "Update unit tests that stub child components",
+        "tr": "Alt bileşenleri stub'layan unit testleri güncelleyin"
+      },
+      "text": {
+        "en": "Stub child components of standard composable storefront components differently, because stubbing standalone components works differently in Angular.",
+        "tr": "Standalone bileşenlerin stub'lanması Angular'da farklı çalıştığından, standart composable storefront bileşenlerinin alt bileşenlerini farklı şekilde stub'layın."
+      },
+      "quote": "If you have unit tests that stub child components of standard composable",
+      "condition": {
+        "en": "If you have unit tests that stub child components of standard composable storefront components",
+        "tr": "Standart composable storefront bileşenlerinin alt bileşenlerini stub'layan unit testleriniz varsa"
+      },
+      "code": null,
+      "repeatsEarlier": false,
+      "check": null
+    },
+    {
+      "id": "non-destructive-hydration",
+      "kind": "code",
+      "title": {
+        "en": "Enable non-destructive hydration",
+        "tr": "Non-destructive hydration'ı etkinleştirin"
+      },
+      "text": {
+        "en": "Add provideClientHydration() with withEventReplay() and withNoHttpTransferCache() to your app.config.ts, then test your application thoroughly.",
+        "tr": "app.config.ts dosyanıza withEventReplay() ve withNoHttpTransferCache() ile provideClientHydration() ekleyin, ardından uygulamanızı iyice test edin."
+      },
+      "quote": "You enable non-destructive hydration by adding provideClientHydration() with withEventReplay() and withNoHttpTransferCache() in your app.config.ts file, as shown in the following example:",
+      "condition": {
+        "en": "If your storefront application uses server-side rendering (SSR)",
+        "tr": "Storefront uygulamanız server-side rendering (SSR) kullanıyorsa"
+      },
+      "code": {
+        "language": "typescript",
+        "content": "import { ApplicationConfig } from '@angular/core';\nimport {\n  provideClientHydration,\n  withEventReplay,\n  withNoHttpTransferCache,\n} from '@angular/platform-browser';\n\nexport const appConfig: ApplicationConfig = {\n  providers: [\n    provideClientHydration(withEventReplay(), withNoHttpTransferCache()),\n    // ...\n  ]\n};"
+      },
+      "repeatsEarlier": false,
+      "check": null
+    },
+    {
+      "id": "font-awesome-fixed-width",
+      "kind": "code",
+      "title": {
+        "en": "Work around the Font Awesome fixed icon width",
+        "tr": "Font Awesome sabit ikon genişliği için geçici çözüm uygulayın"
+      },
+      "text": {
+        "en": "Manually add --fa-width: auto; in root.scss to fix icons overlapping sibling HTML elements.",
+        "tr": "Kardeş HTML öğeleriyle çakışan ikonları düzeltmek için root.scss içine manuel olarak --fa-width: auto; ekleyin."
+      },
+      "quote": "This issue can be resolved by manually adding the following in",
+      "condition": {
+        "en": "If Font Awesome icons overlap sibling HTML elements",
+        "tr": "Font Awesome ikonları kardeş HTML öğeleriyle çakışıyorsa"
+      },
+      "code": {
+        "language": "scss",
+        "content": "--fa-width: auto;"
+      },
+      "repeatsEarlier": false,
+      "check": null
+    }
+  ]
+}
