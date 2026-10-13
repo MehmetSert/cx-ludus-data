@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatorVersion": 2,
+  "generatorVersion": 3,
   "from": {
     "release": "221121.9",
     "gitTag": "221121.9.0"
@@ -34,16 +34,29 @@
                 "code": "  this.featureConfigService.isEnabled('a11yImprovedErrorMessage') &&\n  this.elementRef?.nativeElement?.getAttribute('aria-live') === 'polite'\n) {\n  // due to the way we detect changes here, JAWS doesn't always respect\n  // aria live `polite`, so we need to move this in the next event-loop queue\n  setTimeout(() => {\n    this.previousTouchedState = this.control.touched;\n    this.ChangeDetectionRef.markForCheck();\n  });\n}"
               },
               {
-                "line": 136,
-                "code": "@HostBinding('class.cx-visually-hidden') get hidden() {\n  return !(this.invalid && (this.touched || this.dirty));\n}"
-              },
-              {
                 "line": 139,
                 "code": "@HostBinding('attr.role') role = this.featureConfigService.isEnabled("
+              },
+              {
+                "line": 146,
+                "code": "!this.featureConfigService.isEnabled('a11yImprovedErrorMessage')"
               }
+            ],
+            "members": [
+              "FormErrorsComponent.ariaLive",
+              "FormErrorsComponent.ngDoCheck",
+              "FormErrorsComponent.role"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "c94c76aed08f27fda9949a1dd6b0fa2467a2eae5"
+        ],
+        "rollout": {
+          "defaultOn": "221121.4",
+          "mandatory": "221121.10"
+        },
         "translations": {
           "tr": "`FormErrorsComponent`: varsayılan olarak role=\"alert\" yerine aria-live=\"atomic\" ile birlikte\n aria-live=\"polite\" kullanılır"
         }
@@ -67,9 +80,12 @@
             ],
             "snippets": [
               {
-                "line": 107,
-                "code": "  protected keyboardFocusService: KeyboardFocusService\n) {\n  useFeatureStyles('a11yNgSelectLayering');\n  useFeatureStyles('topProgressBarUseTransformAnimation');\n  useFeatureStyles('unifiedDefaultHeaderSlotsAcrossBreakpoints');\n}"
+                "line": 109,
+                "code": "useFeatureStyles('a11yNgSelectLayering');"
               }
+            ],
+            "members": [
+              "StorefrontComponent.constructor"
             ]
           },
           {
@@ -92,6 +108,14 @@
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "c94c76aed08f27fda9949a1dd6b0fa2467a2eae5"
+        ],
+        "rollout": {
+          "defaultOn": "221121.4",
+          "mandatory": "221121.10"
+        },
         "translations": {
           "tr": "Yerel ng-select stillerinin neden olduğu katmanlama sorunlarını düzeltir.\nDropdown'un z-index özelliğini Spartacus ile daha uyumlu olacak şekilde ayarlar."
         }
@@ -120,6 +144,9 @@
                 "line": 132,
                 "code": "useFeatureStyles('a11yOptimizedMenuSpacing');"
               }
+            ],
+            "members": [
+              "NavigationUIComponent.constructor"
             ]
           },
           {
@@ -140,12 +167,23 @@
             ],
             "snippets": [
               {
-                "line": 182,
-                "code": "@include type('5');"
+                "line": 210,
+                "code": "@include forFeature('a11yOptimizedMenuSpacing') {\n  padding: 0;\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-navigation-ui nav ul.childs > li > cx-generic-link > a"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "c94c76aed08f27fda9949a1dd6b0fa2467a2eae5"
+        ],
+        "rollout": {
+          "defaultOn": "221121.4",
+          "mandatory": "221121.10"
+        },
         "translations": {
           "tr": "Farklı monitörlerde, metin boyutlarında ve zoom seviyelerinde daha iyi okunabilirlik için menülerde ve navigasyon dropdown'larında satır aralığını ayarlar."
         }
@@ -174,6 +212,10 @@
                 "line": 4,
                 "code": "@include forFeature('a11yWideScreenImprovements') {\n  cx-order-summary {\n    padding: 1rem;\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-order-confirmation-totals .cx-order-summary",
+              "cx-order-confirmation-totals .cx-order-summary cx-order-summary"
             ]
           },
           {
@@ -191,6 +233,9 @@
                 "line": 26,
                 "code": "useFeatureStyles('a11yWideScreenImprovements');"
               }
+            ],
+            "members": [
+              "OrderConfirmationTotalsComponent.constructor"
             ]
           },
           {
@@ -223,6 +268,14 @@
                 "line": 104,
                 "code": "@include forFeature('a11yWideScreenImprovements') {\n  flex: 1;\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-order-overview .cx-order-summary .container",
+              "cx-order-overview .cx-order-summary .container .cx-summary-card",
+              "cx-order-overview .cx-order-summary .container .cx-summary-card:first-child",
+              "cx-order-overview .cx-order-summary .container .cx-summary-card:first-child .cx-card-body",
+              "cx-order-overview .cx-order-summary .container .cx-summary-card:last-child",
+              "cx-order-overview .cx-order-summary .container .cx-summary-card:last-child .cx-card-body"
             ]
           },
           {
@@ -240,6 +293,9 @@
                 "line": 103,
                 "code": "useFeatureStyles('a11yWideScreenImprovements');"
               }
+            ],
+            "members": [
+              "ConfiguratorProductTitleComponent.constructor"
             ]
           },
           {
@@ -269,6 +325,11 @@
                 "line": 34,
                 "code": "@include forFeature('a11yWideScreenImprovements') {\n  box-shadow: unset;\n  justify-content: center;\n  max-width: 1140px;\n  margin: auto;\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-configurator-product-title",
+              "cx-configurator-product-title:not(:empty) .cx-general-product-info",
+              "cx-configurator-product-title:not(:empty) .cx-ghost-general-product-info"
             ]
           },
           {
@@ -288,9 +349,21 @@
                 "line": 10,
                 "code": "@include forFeature('a11yWideScreenImprovements') {\n  @include media-breakpoint-up(xl) {\n    flex: none;\n    width: var(--cx-page-width-max);\n    margin-inline-start: 100%;\n    margin-inline-end: 100%;\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "OrderConfirmationPageTemplate cx-order-confirmation-shipping",
+              "OrderConfirmationPageTemplate cx-order-detail-billing"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "c94c76aed08f27fda9949a1dd6b0fa2467a2eae5"
+        ],
+        "rollout": {
+          "defaultOn": "221121.4",
+          "mandatory": "221121.10"
+        },
         "translations": {
           "tr": "Geniş viewport layout sorunlarını iyileştirir.\nŞu bölümlerin stillerini etkiler: Order confirmation sayfası, product configurator."
         }
@@ -315,9 +388,20 @@
                 "line": 37,
                 "code": "!this.featureConfigService?.isEnabled("
               }
+            ],
+            "members": [
+              "OpfCheckoutAuthGuard.canActivate"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "b2a0fc3dae93f76fefaafe71b2c05d501d3d71e7"
+        ],
+        "rollout": {
+          "defaultOn": "221121.4",
+          "mandatory": "221121.10"
+        },
         "translations": {
           "tr": "Etkinleştirildiğinde, checkout'a erişmeden önce kullanıcının mevcut cart'a atanmış bir e-postası olup olmadığını kontrol eder.\nYoksa kullanıcıyı `/opf-checkout-email` sayfasına yönlendirir.\nE-posta girildikten sonra kullanıcı checkout'a geri yönlendirilir."
         }
@@ -368,6 +452,14 @@
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "55fc406b1c10ae33a63fc43060cf4234acbfab8d"
+        ],
+        "rollout": {
+          "defaultOn": "Q4 2026",
+          "mandatory": "Q2 2027"
+        },
         "translations": {
           "tr": "\"Added to Cart\" dialog'unun erişilebilirliğini, dialog başlığı için div yerine semantik bir h2 başlığı kullanarak iyileştirir.\nBu, screen reader ile daha iyi gezinme sağlar ve WAI-ARIA dialog pattern en iyi uygulamalarına uyar."
         }
@@ -401,6 +493,9 @@
                 "line": 76,
                 "code": "<button\n  *cxFeature=\"'a11yCarouselPreventNavigationFocus'\"\n  class=\"next\"\n  (mousedown)=\"onNavigationMouseDown($event)\"\n  (click)=\"onNextClick($event, size)\"\n  [attr.aria-disabled]=\"activeSlide > items.length - size - 1\"\n  [attr.aria-label]=\"'carousel.nextSlide' | cxTranslate\"\n  [attr.title]=\"'carousel.nextSlide' | cxTranslate\"\n  (keydown.arrowleft)=\"shareEvent($any($event))\"\n  (keydown.arrowright)=\"shareEvent($any($event))\"\n  (keydown.arrowup)=\"shareEvent($any($event))\"\n  (keydown.arrowdown)=\"shareEvent($any($event))\"\n>\n  <cx-icon [type]=\"nextIcon\"></cx-icon>\n</button>"
               }
+            ],
+            "components": [
+              "cx-icon"
             ]
           },
           {
@@ -422,9 +517,20 @@
                 "line": 91,
                 "code": "<button\n  *cxFeature=\"'!a11yCarouselPreventNavigationFocus'\"\n  class=\"next\"\n  (click)=\"\n    $event.stopPropagation();\n    activeSlide > items.length - size - 1\n      ? null\n      : (activeSlide = activeSlide + size)\n  \"\n  [attr.aria-disabled]=\"activeSlide > items.length - size - 1\"\n  [attr.aria-label]=\"'carousel.nextSlide' | cxTranslate\"\n  [attr.title]=\"'carousel.nextSlide' | cxTranslate\"\n  (keydown.arrowleft)=\"shareEvent($any($event))\"\n  (keydown.arrowright)=\"shareEvent($any($event))\"\n  (keydown.arrowup)=\"shareEvent($any($event))\"\n  (keydown.arrowdown)=\"shareEvent($any($event))\"\n>\n  <cx-icon [type]=\"nextIcon\"></cx-icon>\n</button>"
               }
+            ],
+            "components": [
+              "cx-icon"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "29efe5a1d80b755a905eece113cda0974c871b55"
+        ],
+        "rollout": {
+          "defaultOn": "Q4 2026",
+          "mandatory": "Q2 2027"
+        },
         "translations": {
           "tr": "Etkinleştirildiğinde (varsayılan: true), carousel gezinme butonları mousedown üzerinde preventDefault çağırır.\nBu, carousel modal'ların veya arama kutularının içindeyken Safari'de oluşan istenmeyen blur davranışını düzeltir (Safari'de varsayılan olarak bozuktur).\n\nCarousel'i içeren veya onunla etkileşen elementlerde özel focus listener'larına (ör. addEventListener('focus', ...)) güveniyorsanız `false` olarak ayarlayın; çünkü mousedown varsayılan davranışını engellemek focus davranışını etkileyebilir."
         }
@@ -450,9 +556,12 @@
             ],
             "snippets": [
               {
-                "line": 110,
-                "code": "protected multiCartService: MultiCartFacade,"
+                "line": 114,
+                "code": "useFeatureStyles('a11yCartItemListHideEmptyOutlets');"
               }
+            ],
+            "members": [
+              "CartItemListComponent.constructor"
             ]
           },
           {
@@ -495,9 +604,28 @@
                 "line": 175,
                 "code": "@include forFeature('a11yCartItemListHideEmptyOutlets') {\n  cx-subscription-cart-price-heading,\n  cx-subscription-cart-price-body,\n  cx-cpq-quote-heading,\n  cx-cpq-quote {\n    &:empty {\n      display: none;\n    }\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-cart-item-list",
+              "cx-cart-item-list cx-cpq-quote",
+              "cx-cart-item-list cx-cpq-quote-heading",
+              "cx-cart-item-list cx-cpq-quote-heading:empty",
+              "cx-cart-item-list cx-cpq-quote:empty",
+              "cx-cart-item-list cx-subscription-cart-price-body",
+              "cx-cart-item-list cx-subscription-cart-price-body:empty",
+              "cx-cart-item-list cx-subscription-cart-price-heading",
+              "cx-cart-item-list cx-subscription-cart-price-heading:empty"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "bbbe62bd1aa5b942dd1f9896ff440e39852a0ad3"
+        ],
+        "rollout": {
+          "defaultOn": "Q4 2026",
+          "mandatory": "Q2 2027"
+        },
         "translations": {
           "tr": "Sepet ürünü listesi tablosunda içeriği olmayan boş outlet sarmalayıcı elementlerini gizler.\nAksi halde screen reader'lar bunları fazladan tablo sütunları olarak yorumlar."
         }
@@ -524,6 +652,9 @@
                 "line": 116,
                 "code": "useFeatureStyles('a11yFacetFilterByLabel');"
               }
+            ],
+            "members": [
+              "FacetListComponent.constructor"
             ]
           },
           {
@@ -542,12 +673,26 @@
             ],
             "snippets": [
               {
-                "line": 104,
-                "code": "display: none;"
+                "line": 107,
+                "code": "@include forFeature('a11yFacetFilterByLabel') {\n  .list-header {\n    display: flex;\n    h4 {\n      display: block;\n    }\n    button.close {\n      display: none;\n    }\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-facet-list .inner",
+              "cx-facet-list .inner .list-header",
+              "cx-facet-list .inner .list-header button.close",
+              "cx-facet-list .inner .list-header h4"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "c1b3cbee4f52b76382aa90811ac3d7cae5605f35"
+        ],
+        "rollout": {
+          "defaultOn": "Q4 2026",
+          "mandatory": "Q2 2027"
+        },
         "translations": {
           "tr": "Masaüstü modundayken ürün facet'lerine Filter By etiketini ekler."
         }
@@ -596,6 +741,14 @@
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "2c3dd7eb13d6df5617009d0f63588f64b281f362"
+        ],
+        "rollout": {
+          "defaultOn": "Q4 2026",
+          "mandatory": "Q2 2027"
+        },
         "translations": {
           "tr": "Facet component'inin elementleri doğru listbox semantiğiyle göstermesini sağlar.\nScreen reader, bağlantıları listbox seçenekleri olarak tanımalı ve görünür focus çerçevelerini doğru şekilde göstermelidir."
         }
@@ -619,12 +772,23 @@
             "selectors": [],
             "snippets": [
               {
-                "line": 125,
-                "code": "if (inputCombobox.readOnly && isPlatformBrowser(this.platformId)) {\n  if (\n    this.featureConfigService.isEnabled('a11yNgSelectReadonlyInputValue')\n  ) {\n    this.setInputValue(inputCombobox);\n    this.selectObserver = new MutationObserver(() => {\n      this.setInputValue(inputCombobox);\n    });\n    this.selectObserver.observe(this.elementRef.nativeElement, {\n      subtree: true,\n      characterData: true,\n      childList: true,\n    });\n    this.destroyRef.onDestroy(() => this.selectObserver?.disconnect());\n  } else {\n    this.breakpointService\n      ?.isDown(BREAKPOINT.md)\n      .pipe(filter(Boolean), take(1))\n      .subscribe(() => {\n        const selectObserver = new MutationObserver((changes, observer) => {\n          this.appendValueToAriaLabel(changes, observer, inputCombobox);\n        });\n        selectObserver.observe(this.elementRef.nativeElement, {\n          subtree: true,\n          characterData: true,\n          childList: true,\n        });\n      });\n  }\n}"
+                "line": 127,
+                "code": "  this.featureConfigService.isEnabled('a11yNgSelectReadonlyInputValue')\n) {\n  this.setInputValue(inputCombobox);\n  this.selectObserver = new MutationObserver(() => {\n    this.setInputValue(inputCombobox);\n  });\n  this.selectObserver.observe(this.elementRef.nativeElement, {\n    subtree: true,\n    characterData: true,\n    childList: true,\n  });\n  this.destroyRef.onDestroy(() => this.selectObserver?.disconnect());\n}"
               }
+            ],
+            "members": [
+              "NgSelectA11yDirective.ngAfterViewInit"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "9bdd77fe220bdf56feddaf22982ba1131a02c2ae"
+        ],
+        "rollout": {
+          "defaultOn": "Q4 2026",
+          "mandatory": "Q2 2027"
+        },
         "translations": {
           "tr": "ng-select (readonly) input değerini seçili seçeneğin metninden ayarlar;\nböylece ngSelect'in input elementi focus'tayken JAWS screen reader \"blank\" yerine seçili değeri okur."
         }
@@ -653,6 +817,9 @@
                 "line": 2,
                 "code": "<button\n  *cxFeature=\"'!a11yPasswordVisibilityToggle'\"\n  type=\"button\"\n  (click)=\"toggle()\"\n  [attr.aria-label]=\"state.ariaLabel | cxTranslate\"\n  [attr.title]=\"state.ariaLabel | cxTranslate\"\n  [attr.aria-pressed]=\"state.inputType === showState.inputType\"\n>\n  <span aria-hidden=\"true\">\n    <cx-icon [type]=\"state.icon\"></cx-icon>\n  </span>\n</button>"
               }
+            ],
+            "components": [
+              "cx-icon"
             ]
           },
           {
@@ -670,9 +837,20 @@
                 "line": 14,
                 "code": "<button\n  *cxFeature=\"'a11yPasswordVisibilityToggle'\"\n  type=\"button\"\n  (click)=\"toggle()\"\n  [attr.aria-label]=\"'passwordVisibility.togglePassword' | cxTranslate\"\n  [attr.title]=\"'passwordVisibility.togglePassword' | cxTranslate\"\n  [attr.aria-pressed]=\"state.inputType === showState.inputType\"\n>\n  <span aria-hidden=\"true\">\n    <cx-icon [type]=\"state.icon\"></cx-icon>\n  </span>\n</button>"
               }
+            ],
+            "components": [
+              "cx-icon"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "f33e8c8b91cfcb304e14a9b1dfe4414e6cc4c759"
+        ],
+        "rollout": {
+          "defaultOn": "Q4 2026",
+          "mandatory": "Q2 2027"
+        },
         "translations": {
           "tr": "Parola görünürlüğü toggle'ına statik bir title ve aria-label sağlayarak screen reader çıktısının çift okunmasını düzeltir."
         }
@@ -701,6 +879,10 @@
                 "line": 27,
                 "code": "<ul *cxFeature=\"'a11yReviewsKeyboardControls'\" class=\"review-list\">\n  <li\n    #reviewItem\n    class=\"review\"\n    tabindex=\"0\"\n    *ngFor=\"\n      let review of reviews | slice: 0 : maxListItems;\n      let i = index\n    \"\n    (keydown.arrowdown)=\"focusNextReview($event, i)\"\n    (keydown.arrowup)=\"focusPreviousReview($event, i)\"\n  >\n    <div class=\"title\">{{ review.headline }}</div>\n    <cx-star-rating [rating]=\"review.rating ?? 0\"></cx-star-rating>\n    <div class=\"name\">\n      {{ review.alias ? review.alias : review.principal?.name }}\n    </div>\n    <div class=\"date\">{{ review.date | cxDate }}</div>\n    <div *cxFeature=\"'!readMoreDirective'\" class=\"text\">\n      {{ review.comment }}\n    </div>\n    <cx-read-more\n      *cxFeature=\"'readMoreDirective'\"\n      class=\"text\"\n      [text]=\"review.comment!\"\n    ></cx-read-more>\n  </li>\n</ul>"
               }
+            ],
+            "components": [
+              "cx-read-more",
+              "cx-star-rating"
             ]
           },
           {
@@ -718,9 +900,21 @@
                 "line": 55,
                 "code": "<ng-container *cxFeature=\"'!a11yReviewsKeyboardControls'\">\n  <div\n    class=\"review\"\n    tabindex=\"0\"\n    *ngFor=\"let review of reviews | slice: 0 : maxListItems\"\n  >\n    <div class=\"title\">{{ review.headline }}</div>\n    <cx-star-rating [rating]=\"review.rating ?? 0\"></cx-star-rating>\n    <div class=\"name\">\n      {{ review.alias ? review.alias : review.principal?.name }}\n    </div>\n    <div class=\"date\">{{ review.date | cxDate }}</div>\n    <div *cxFeature=\"'!readMoreDirective'\" class=\"text\">\n      {{ review.comment }}\n    </div>\n    <cx-read-more\n      *cxFeature=\"'readMoreDirective'\"\n      class=\"text\"\n      [text]=\"review.comment!\"\n    ></cx-read-more>\n  </div>\n</ng-container>"
               }
+            ],
+            "components": [
+              "cx-read-more",
+              "cx-star-rating"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "7c23449f962e24110e13ce1448d0b09f33d7ed52"
+        ],
+        "rollout": {
+          "defaultOn": "Q4 2026",
+          "mandatory": "Q2 2027"
+        },
         "translations": {
           "tr": "Etkinleştirildiğinde, yorumlar arasında ok tuşlarıyla gezinmeyi ekler ve screen reader'ların liste konumunu okuyabilmesi için\ndoğru liste semantiğini kullanır"
         }
@@ -745,9 +939,20 @@
                 "line": 56,
                 "code": "return this.featureConfigService.isEnabled('enableB2BCostCenterSearch');"
               }
+            ],
+            "members": [
+              "CostCenterListService.isSearchEnabled"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "64b54477d2dee642a62d7af05acc08496fffba19"
+        ],
+        "rollout": {
+          "defaultOn": "Q4 2026",
+          "mandatory": "Q2 2027"
+        },
         "translations": {
           "tr": "Etkinleştirildiğinde, organizasyondaki maliyet merkezlerinin ada göre aranmasına olanak tanır."
         }
@@ -772,9 +977,20 @@
                 "line": 93,
                 "code": "return this.featureConfigService.isEnabled('enableB2BCustomerSearch');"
               }
+            ],
+            "members": [
+              "UserListService.isSearchEnabled"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "64b54477d2dee642a62d7af05acc08496fffba19"
+        ],
+        "rollout": {
+          "defaultOn": "Q4 2026",
+          "mandatory": "Q2 2027"
+        },
         "translations": {
           "tr": "Etkinleştirildiğinde, organizasyondaki B2B müşterilerinin ada göre aranmasına olanak tanır."
         }
@@ -799,9 +1015,20 @@
                 "line": 51,
                 "code": "return this.featureConfigService.isEnabled('enableB2BUnitSearch');"
               }
+            ],
+            "members": [
+              "UnitListService.isSearchEnabled"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "64b54477d2dee642a62d7af05acc08496fffba19"
+        ],
+        "rollout": {
+          "defaultOn": "Q4 2026",
+          "mandatory": "Q2 2027"
+        },
         "translations": {
           "tr": "Etkinleştirildiğinde, organizasyon yönetiminde B2B birimlerinin ada göre aranmasına olanak tanır.\nTüm birim ağacı zaten yüklenmiş olduğundan bu arama client tarafında yapılır."
         }
@@ -828,9 +1055,20 @@
                 "line": 415,
                 "code": "if (!this.featureConfigService.isEnabled('enableMediaPrefix')) {\n  return baseUrl;\n}"
               }
+            ],
+            "members": [
+              "MediaService.getBaseUrl"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "f156650fc402540d742af5150c4cad97bf8dc6f4"
+        ],
+        "rollout": {
+          "defaultOn": "Q4 2026",
+          "mandatory": "Q2 2027"
+        },
         "translations": {
           "tr": "Etkinleştirildiğinde, MediaService içinde media URL'leri oluşturulurken\nbackend config'inden gelen media prefix kullanılır."
         }
@@ -857,9 +1095,20 @@
                 "line": 47,
                 "code": "this.featureConfigService.isEnabled('showOnlyActiveCurrencies')"
               }
+            ],
+            "members": [
+              "CurrencyService.getAll"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "7f3eadb42b590f49e84ec478b57a1c6ed02b95e6"
+        ],
+        "rollout": {
+          "defaultOn": "Q4 2026",
+          "mandatory": "Q2 2027"
+        },
         "translations": {
           "tr": "Etkinleştirildiğinde, para birimi selector'ünde yalnızca aktif para birimleri gösterilir.\nPara birimleri, backend'den dönen `active` property'sine göre filtrelenir."
         }
@@ -2457,5 +2706,534 @@
         "tr": "PDP sayfasında subscription ürünleri için stok sayısının gizlenmesi"
       }
     }
-  ]
+  ],
+  "toggleCommits": [
+    {
+      "sha": "c1b3cbee4f52b76382aa90811ac3d7cae5605f35",
+      "subject": "fix: Filter by label visibility on desktop pdp (#21159)",
+      "files": [
+        {
+          "file": "projects/storefrontlib/cms-components/product/product-list/product-facet-navigation/facet-list/facet-list.component.ts",
+          "members": [
+            "FacetListComponent.constructor"
+          ],
+          "diff": "@@ -24,7 +24,7 @@ import {\n   ViewChildren,\n   inject,\n } from '@angular/core';\n-import { Facet, TranslatePipe } from '@spartacus/core';\n+import { Facet, TranslatePipe, useFeatureStyles } from '@spartacus/core';\n import { BehaviorSubject, Observable, Subscription } from 'rxjs';\n import { filter, map, take } from 'rxjs/operators';\n import { FocusDirective } from '../../../../../layout/a11y/keyboard-focus/focus.directive';\n@@ -112,7 +112,9 @@ export class FacetListComponent implements OnInit, OnDestroy, AfterViewInit {\n     protected facetService: FacetService,\n     protected elementRef: ElementRef,\n     protected renderer: Renderer2\n-  ) {}\n+  ) {\n+    useFeatureStyles('a11yFacetFilterByLabel');\n+  }\n \n   ngOnInit(): void {\n     this.enableFocusHandlingOnFacetListChanges();"
+        },
+        {
+          "file": "projects/storefrontstyles/scss/components/product/list/_facet-list.scss",
+          "members": [],
+          "diff": "@@ -103,6 +103,18 @@ body.modal-open {\n       .list-header {\n         display: none;\n       }\n+\n+      @include forFeature('a11yFacetFilterByLabel') {\n+        .list-header {\n+          display: flex;\n+          h4 {\n+            display: block;\n+          }\n+          button.close {\n+            display: none;\n+          }\n+        }\n+      }\n     }\n \n     .cx-facet-list-footer {"
+        }
+      ]
+    },
+    {
+      "sha": "f156650fc402540d742af5150c4cad97bf8dc6f4",
+      "subject": "feat: add mediaApiPrefix env var and backend.media.prefix config (#21096)",
+      "files": [
+        {
+          "file": "projects/core/src/occ/config/default-occ-config.ts",
+          "members": [],
+          "diff": "@@ -11,6 +11,5 @@ export const defaultOccConfig: OccConfig = {\n     occ: {\n       prefix: '/occ/v2/',\n     },\n-    media: {},\n   },\n };"
+        },
+        {
+          "file": "projects/core/src/occ/config/occ-config.ts",
+          "members": [],
+          "diff": "@@ -29,6 +29,12 @@ export interface BackendConfig {\n      * switching environments, etc.\n      */\n     baseUrl?: string;\n+    /**\n+     * Media URL path prefix, to be appended to the baseUrl.\n+     * This is useful when media is hosted under a specific path.\n+     * For example, if media is hosted under '/api/storefront', then the prefix should be set to '/api/storefront'.\n+     */\n+    prefix?: string;\n   };\n   loadingScopes?: LoadingScopes;\n }"
+        },
+        {
+          "file": "projects/storefrontlib/shared/components/media/media.service.ts",
+          "members": [
+            "MediaService.getBaseUrl",
+            "MediaService.logger"
+          ],
+          "diff": "@@ -4,8 +4,13 @@\n  * SPDX-License-Identifier: Apache-2.0\n  */\n \n-import { Injectable, inject } from '@angular/core';\n-import { Config, FeatureConfigService, Image } from '@spartacus/core';\n+import { Injectable, inject, isDevMode } from '@angular/core';\n+import {\n+  Config,\n+  FeatureConfigService,\n+  Image,\n+  LoggerService,\n+} from '@spartacus/core';\n import { MediaConfig } from './media.config';\n import {\n   ImageLoadingStrategy,\n@@ -40,6 +45,7 @@ export class MediaService {\n   private _reversedFormats: { code: string; size: MediaFormatSize }[];\n \n   private readonly featureConfigService = inject(FeatureConfigService);\n+  protected logger = inject(LoggerService);\n \n   constructor(protected config: Config) {}\n \n@@ -401,10 +407,33 @@ export class MediaService {\n    * Defaults to empty string in case no config is provided.\n    */\n   public getBaseUrl(): string {\n-    return (\n+    const baseUrl =\n       this.config.backend?.media?.baseUrl ??\n       this.config.backend?.occ?.baseUrl ??\n-      ''\n-    );\n+      '';\n+\n+    if (!this.featureConfigService.isEnabled('enableMediaPrefix')) {\n+      return baseUrl;\n+    }\n+\n+    try {\n+      const mediaPrefix = this.config?.backend?.media?.prefix ?? '';\n+      // Construct URL (with Validation)\n+      const url = new URL(mediaPrefix, baseUrl);\n+      return url.toString();\n+    } catch (error) {\n+      if (isDevMode()) {\n+        this.logger.error(\n+          'Invalid media/occ baseUrl and prefix configuration',\n+          error\n+        );\n+      } else {\n+        this.logger.warn(\n+          'Invalid media/occ baseUrl and prefix configuration',\n+          error\n+        );\n+      }\n+      return baseUrl;\n+    }\n   }\n }"
+        }
+      ]
+    },
+    {
+      "sha": "55fc406b1c10ae33a63fc43060cf4234acbfab8d",
+      "subject": "fix: enhance accessibility of Added to Cart dialog with semantic heading (#21197)",
+      "files": [
+        {
+          "file": "feature-libs/cart/base/components/added-to-cart-dialog/added-to-cart-dialog.component.html",
+          "members": [],
+          "diff": "@@ -12,9 +12,17 @@\n       aria-atomic=\"true\"\n       class=\"cx-dialog-header modal-header\"\n     >\n-      <div id=\"dialogTitle\" class=\"cx-dialog-title modal-title\" role=\"none\">\n-        {{ 'addToCart.itemAddedToYourCart' | cxTranslate }}\n-      </div>\n+      <ng-container *cxFeature=\"'!a11yAddedToCartDialogHeading'\">\n+        <div id=\"dialogTitle\" class=\"cx-dialog-title modal-title\" role=\"none\">\n+          {{ 'addToCart.itemAddedToYourCart' | cxTranslate }}\n+        </div>\n+      </ng-container>\n+      <ng-container *cxFeature=\"'a11yAddedToCartDialogHeading'\">\n+        <h2 id=\"dialogTitle\" class=\"cx-dialog-title modal-title\">\n+          {{ 'addToCart.itemAddedToYourCart' | cxTranslate }}\n+        </h2>\n+      </ng-container>\n+\n       <button\n         type=\"button\"\n         class=\"close\""
+        },
+        {
+          "file": "feature-libs/cart/base/components/added-to-cart-dialog/added-to-cart-dialog.component.ts",
+          "members": [],
+          "diff": "@@ -22,7 +22,11 @@ import {\n   OrderEntry,\n   PromotionLocation,\n } from '@spartacus/cart/base/root';\n-import { RoutingService, TranslatePipe } from '@spartacus/core';\n+import {\n+  RoutingService,\n+  TranslatePipe,\n+  FeatureDirective,\n+} from '@spartacus/core';\n import {\n   FocusConfig,\n   FocusDirective,\n@@ -69,6 +73,7 @@ export interface AddedToCartDialogComponentData {\n     SpinnerComponent,\n     AsyncPipe,\n     TranslatePipe,\n+    FeatureDirective,\n   ],\n })\n export class AddedToCartDialogComponent implements OnInit, OnDestroy {"
+        }
+      ]
+    },
+    {
+      "sha": "7f3eadb42b590f49e84ec478b57a1c6ed02b95e6",
+      "subject": "fix: filter inactive currencies from the currency service (#21207)",
+      "files": [
+        {
+          "file": "projects/core/src/site-context/facade/currency.service.ts",
+          "members": [
+            "CurrencyService.featureConfigService",
+            "CurrencyService.getAll"
+          ],
+          "diff": "@@ -4,10 +4,11 @@\n  * SPDX-License-Identifier: Apache-2.0\n  */\n \n-import { Injectable } from '@angular/core';\n+import { inject, Injectable } from '@angular/core';\n import { select, Store } from '@ngrx/store';\n-import { Observable } from 'rxjs';\n+import { map, Observable } from 'rxjs';\n import { filter, take, tap } from 'rxjs/operators';\n+import { FeatureConfigService } from '../../features-config/services/feature-config.service';\n import { Currency } from '../../model/misc.model';\n import { isNotNullable } from '../../util/type-guards';\n import { getContextParameterValues } from '../config/context-config-utils';\n@@ -23,6 +24,8 @@ import { SiteContext } from './site-context.interface';\n  */\n @Injectable()\n export class CurrencyService implements SiteContext<Currency> {\n+  private featureConfigService = inject(FeatureConfigService);\n+\n   constructor(\n     protected store: Store<StateWithSiteContext>,\n     protected config: SiteContextConfig\n@@ -39,7 +42,12 @@ export class CurrencyService implements SiteContext<Currency> {\n           this.store.dispatch(new SiteContextActions.LoadCurrencies());\n         }\n       }),\n-      filter(isNotNullable)\n+      filter(isNotNullable),\n+      map((currencies) =>\n+        this.featureConfigService.isEnabled('showOnlyActiveCurrencies')\n+          ? currencies.filter((currency) => currency.active)\n+          : currencies\n+      )\n     );\n   }"
+        }
+      ]
+    },
+    {
+      "sha": "f33e8c8b91cfcb304e14a9b1dfe4414e6cc4c759",
+      "subject": "feat: (CXSPA-12100) - PasswordVisibilityToggle doubled screen reader output (#21208)",
+      "files": [
+        {
+          "file": "projects/storefrontlib/shared/components/form/password-visibility-toggle/password-visibility-toggle.component.html",
+          "members": [],
+          "diff": "@@ -1,4 +1,5 @@\n <button\n+  *cxFeature=\"'!a11yPasswordVisibilityToggle'\"\n   type=\"button\"\n   (click)=\"toggle()\"\n   [attr.aria-label]=\"state.ariaLabel | cxTranslate\"\n@@ -9,3 +10,15 @@\n     <cx-icon [type]=\"state.icon\"></cx-icon>\n   </span>\n </button>\n+<button\n+  *cxFeature=\"'a11yPasswordVisibilityToggle'\"\n+  type=\"button\"\n+  (click)=\"toggle()\"\n+  [attr.aria-label]=\"'passwordVisibility.togglePassword' | cxTranslate\"\n+  [attr.title]=\"'passwordVisibility.togglePassword' | cxTranslate\"\n+  [attr.aria-pressed]=\"state.inputType === showState.inputType\"\n+>\n+  <span aria-hidden=\"true\">\n+    <cx-icon [type]=\"state.icon\"></cx-icon>\n+  </span>\n+</button>"
+        },
+        {
+          "file": "projects/storefrontlib/shared/components/form/password-visibility-toggle/password-visibility-toggle.component.ts",
+          "members": [],
+          "diff": "@@ -5,7 +5,7 @@\n  */\n \n import { ChangeDetectionStrategy, Component, Input } from '@angular/core';\n-import { TranslatePipe } from '@spartacus/core';\n+import { FeatureDirective, TranslatePipe } from '@spartacus/core';\n import { IconComponent } from '../../../../cms-components/misc/icon/icon.component';\n import { ICON_TYPE } from '../../../../cms-components/misc/icon/icon.model';\n import { PasswordInputState } from './password-input-visibility.model';\n@@ -14,7 +14,7 @@ import { PasswordInputState } from './password-input-visibility.model';\n   selector: 'cx-password-visibility-toggle',\n   templateUrl: './password-visibility-toggle.component.html',\n   changeDetection: ChangeDetectionStrategy.OnPush,\n-  imports: [IconComponent, TranslatePipe],\n+  imports: [IconComponent, TranslatePipe, FeatureDirective],\n })\n export class PasswordVisibilityToggleComponent {\n   protected showState: PasswordInputState = {"
+        }
+      ]
+    },
+    {
+      "sha": "7c23449f962e24110e13ce1448d0b09f33d7ed52",
+      "subject": "feat: (CXSPA-12110) - Product reviews keyboard controls (#21216)",
+      "files": [
+        {
+          "file": "projects/storefrontlib/cms-components/product/product-tabs/product-reviews/product-reviews.component.html",
+          "members": [],
+          "diff": "@@ -24,26 +24,56 @@\n \n     <ng-container *ngIf=\"!isWritingReview; else writeReview\">\n       <ng-container *ngIf=\"reviews$ | async as reviews\">\n-        <div\n-          class=\"review\"\n-          tabindex=\"0\"\n-          *ngFor=\"let review of reviews | slice: 0 : maxListItems\"\n-        >\n-          <div class=\"title\">{{ review.headline }}</div>\n-          <cx-star-rating [rating]=\"review.rating ?? 0\"></cx-star-rating>\n-          <div class=\"name\">\n-            {{ review.alias ? review.alias : review.principal?.name }}\n-          </div>\n-          <div class=\"date\">{{ review.date | cxDate }}</div>\n-          <div *cxFeature=\"'!readMoreDirective'\" class=\"text\">\n-            {{ review.comment }}\n+        <ul *cxFeature=\"'a11yReviewsKeyboardControls'\" class=\"review-list\">\n+          <li\n+            #reviewItem\n+            class=\"review\"\n+            tabindex=\"0\"\n+            *ngFor=\"\n+              let review of reviews | slice: 0 : maxListItems;\n+              let i = index\n+            \"\n+            (keydown.arrowdown)=\"focusNextReview($event, i)\"\n+            (keydown.arrowup)=\"focusPreviousReview($event, i)\"\n+          >\n+            <div class=\"title\">{{ review.headline }}</div>\n+            <cx-star-rating [rating]=\"review.rating ?? 0\"></cx-star-rating>\n+            <div class=\"name\">\n+              {{ review.alias ? review.alias : review.principal?.name }}\n+            </div>\n+            <div class=\"date\">{{ review.date | cxDate }}</div>\n+            <div *cxFeature=\"'!readMoreDirective'\" class=\"text\">\n+              {{ review.comment }}\n+            </div>\n+            <cx-read-more\n+              *cxFeature=\"'readMoreDirective'\"\n+              class=\"text\"\n+              [text]=\"review.comment!\"\n+            ></cx-read-more>\n+          </li>\n+        </ul>\n+        <ng-container *cxFeature=\"'!a11yReviewsKeyboardControls'\">\n+          <div\n+            class=\"review\"\n+            tabindex=\"0\"\n+            *ngFor=\"let review of reviews | slice: 0 : maxListItems\"\n+          >\n+            <div class=\"title\">{{ review.headline }}</div>\n+            <cx-star-rating [rating]=\"review.rating ?? 0\"></cx-star-rating>\n+            <div class=\"name\">\n+              {{ review.alias ? review.alias : review.principal?.name }}\n+            </div>\n+            <div class=\"date\">{{ review.date | cxDate }}</div>\n+            <div *cxFeature=\"'!readMoreDirective'\" class=\"text\">\n+              {{ review.comment }}\n+            </div>\n+            <cx-read-more\n+              *cxFeature=\"'readMoreDirective'\"\n+              class=\"text\"\n+              [text]=\"review.comment!\"\n+            ></cx-read-more>\n           </div>\n-          <cx-read-more\n-            *cxFeature=\"'readMoreDirective'\"\n-            class=\"text\"\n-            [text]=\"review.comment!\"\n-          ></cx-read-more>\n-        </div>\n+        </ng-container>\n         <div *ngIf=\"reviews.length > initialMaxListItems\">\n           <button\n             aria-live=\"polite\""
+        },
+        {
+          "file": "projects/storefrontlib/cms-components/product/product-tabs/product-reviews/product-reviews.component.ts",
+          "members": [
+            "ProductReviewsComponent.focusNextReview",
+            "ProductReviewsComponent.focusPreviousReview",
+            "ProductReviewsComponent.reviewItems"
+          ],
+          "diff": "@@ -12,7 +12,9 @@ import {\n   ElementRef,\n   inject,\n   Input,\n+  QueryList,\n   ViewChild,\n+  ViewChildren,\n } from '@angular/core';\n import {\n   FormsModule,\n@@ -71,6 +73,7 @@ export class ProductReviewsComponent {\n   @ViewChild('titleInput', { static: false }) titleInput: ElementRef;\n   @ViewChild('writeReviewButton', { static: false })\n   writeReviewButton: ElementRef;\n+  @ViewChildren('reviewItem') reviewItems: QueryList<ElementRef<HTMLElement>>;\n \n   @Input() maxLengthReviewTitle = 255;\n   @Input() maxLengthReviewComment = 2200;\n@@ -160,6 +163,20 @@ export class ProductReviewsComponent {\n     }\n   }\n \n+  focusNextReview(event: UIEvent, currentIndex: number): void {\n+    event.preventDefault();\n+    const items = this.reviewItems.toArray();\n+    const nextIndex =\n+      currentIndex + 1 < items.length ? currentIndex + 1 : currentIndex;\n+    items[nextIndex]?.nativeElement.focus();\n+  }\n+\n+  focusPreviousReview(event: UIEvent, currentIndex: number): void {\n+    event.preventDefault();\n+    const prevIndex = currentIndex - 1 >= 0 ? currentIndex - 1 : 0;\n+    this.reviewItems.toArray()[prevIndex]?.nativeElement.focus();\n+  }\n+\n   private resetReviewForm(): void {\n     const isProductReviewCharactersLeftEnabled =\n       this.featureConfigService.isEnabled('productReviewCharactersLeft');"
+        },
+        {
+          "file": "projects/storefrontstyles/scss/components/product/details/_product-reviews.scss",
+          "members": [],
+          "diff": "@@ -22,6 +22,11 @@ $gutterSize: 15px;\n     }\n   }\n \n+  .review-list {\n+    padding: 0;\n+    margin: 0;\n+  }\n+\n   .review {\n     display: grid;\n     grid-template-columns: auto auto 10vw;"
+        }
+      ]
+    },
+    {
+      "sha": "9bdd77fe220bdf56feddaf22982ba1131a02c2ae",
+      "subject": "feat: (CXSPA-12108) - Ng select value readout on collapsed dropdown (#21211)",
+      "files": [
+        {
+          "file": "projects/storefrontlib/shared/components/ng-select-a11y/ng-select-a11y.directive.ts",
+          "members": [
+            "NgSelectA11yDirective.breakpointService",
+            "NgSelectA11yDirective.ngAfterViewInit",
+            "NgSelectA11yDirective.platformId",
+            "NgSelectA11yDirective.selectObserver",
+            "NgSelectA11yDirective.setInputValue"
+          ],
+          "diff": "@@ -11,10 +11,8 @@ import {\n   Directive,\n   ElementRef,\n   HostListener,\n-  Inject,\n   inject,\n   Input,\n-  Optional,\n   PLATFORM_ID,\n   Renderer2,\n   SecurityContext,\n@@ -50,6 +48,9 @@ export class NgSelectA11yDirective implements AfterViewInit {\n   protected selectComponent = inject(NgSelectComponent);\n   protected destroyRef = inject(DestroyRef);\n   private featureConfigService = inject(FeatureConfigService);\n+  protected platformId = inject(PLATFORM_ID);\n+  protected selectObserver: MutationObserver | null = null;\n+  protected breakpointService = inject(BreakpointService, { optional: true });\n \n   /**\n    * When we inside a combo box using JAWS screen reader and press escape key\n@@ -70,10 +71,6 @@ export class NgSelectA11yDirective implements AfterViewInit {\n     });\n   }\n \n-  @Optional() breakpointService = inject(BreakpointService, { optional: true });\n-\n-  @Inject(PLATFORM_ID) protected platformId: Object;\n-\n   constructor(\n     private renderer: Renderer2,\n     private elementRef: ElementRef\n@@ -126,19 +123,51 @@ export class NgSelectA11yDirective implements AfterViewInit {\n     }\n \n     if (inputCombobox.readOnly && isPlatformBrowser(this.platformId)) {\n-      this.breakpointService\n-        ?.isDown(BREAKPOINT.md)\n-        .pipe(filter(Boolean), take(1))\n-        .subscribe(() => {\n-          const selectObserver = new MutationObserver((changes, observer) => {\n-            this.appendValueToAriaLabel(changes, observer, inputCombobox);\n-          });\n-          selectObserver.observe(this.elementRef.nativeElement, {\n-            subtree: true,\n-            characterData: true,\n-            childList: true,\n-          });\n+      if (\n+        this.featureConfigService.isEnabled('a11yNgSelectReadonlyInputValue')\n+      ) {\n+        this.setInputValue(inputCombobox);\n+        this.selectObserver = new MutationObserver(() => {\n+          this.setInputValue(inputCombobox);\n         });\n+        this.selectObserver.observe(this.elementRef.nativeElement, {\n+          subtree: true,\n+          characterData: true,\n+          childList: true,\n+        });\n+        this.destroyRef.onDestroy(() => this.selectObserver?.disconnect());\n+      } else {\n+        this.breakpointService\n+          ?.isDown(BREAKPOINT.md)\n+          .pipe(filter(Boolean), take(1))\n+          .subscribe(() => {\n+            const selectObserver = new MutationObserver((changes, observer) => {\n+              this.appendValueToAriaLabel(changes, observer, inputCombobox);\n+            });\n+            selectObserver.observe(this.elementRef.nativeElement, {\n+              subtree: true,\n+              characterData: true,\n+              childList: true,\n+            });\n+          });\n+      }\n+    }\n+  }\n+\n+  setInputValue(inputCombobox: HTMLElement) {\n…"
+        }
+      ]
+    },
+    {
+      "sha": "29efe5a1d80b755a905eece113cda0974c871b55",
+      "subject": "fix: fix searchbox carousel navigation behaviour (#21141)",
+      "files": [
+        {
+          "file": "projects/storefrontlib/shared/components/carousel/carousel.component.html",
+          "members": [],
+          "diff": "@@ -2,23 +2,40 @@\n   <h2 *ngIf=\"title\">{{ title }}</h2>\n \n   <div class=\"carousel-panel\" [ngClass]=\"'size-' + size\">\n-    <button\n-      *ngIf=\"size < items.length\"\n-      class=\"previous\"\n-      (click)=\"\n-        $event.stopPropagation();\n-        activeSlide === 0 ? null : (activeSlide = activeSlide - size)\n-      \"\n-      [attr.aria-disabled]=\"activeSlide === 0\"\n-      [attr.aria-label]=\"'carousel.previousSlide' | cxTranslate\"\n-      [attr.title]=\"'carousel.previousSlide' | cxTranslate\"\n-      (keydown.arrowleft)=\"shareEvent($any($event))\"\n-      (keydown.arrowright)=\"shareEvent($any($event))\"\n-      (keydown.arrowup)=\"shareEvent($any($event))\"\n-      (keydown.arrowdown)=\"shareEvent($any($event))\"\n-    >\n-      <cx-icon [type]=\"previousIcon\"></cx-icon>\n-    </button>\n+    <ng-container *ngIf=\"size < items.length\">\n+      <button\n+        *cxFeature=\"'a11yCarouselPreventNavigationFocus'\"\n+        class=\"previous\"\n+        (mousedown)=\"onNavigationMouseDown($event)\"\n+        (click)=\"onPreviousClick($event, size)\"\n+        [attr.aria-disabled]=\"activeSlide === 0\"\n+        [attr.aria-label]=\"'carousel.previousSlide' | cxTranslate\"\n+        [attr.title]=\"'carousel.previousSlide' | cxTranslate\"\n+        (keydown.arrowleft)=\"shareEvent($any($event))\"\n+        (keydown.arrowright)=\"shareEvent($any($event))\"\n+        (keydown.arrowup)=\"shareEvent($any($event))\"\n+        (keydown.arrowdown)=\"shareEvent($any($event))\"\n+      >\n+        <cx-icon [type]=\"previousIcon\"></cx-icon>\n+      </button>\n+      <button\n+        *cxFeature=\"'!a11yCarouselPreventNavigationFocus'\"\n+        class=\"previous\"\n+        (click)=\"\n+          $event.stopPropagation();\n+          activeSlide === 0 ? null : (activeSlide = activeSlide - size)\n+        \"\n+        [attr.aria-disabled]=\"activeSlide === 0\"\n+        [attr.aria-label]=\"'carousel.previousSlide' | cxTranslate\"\n+        [attr.title]=\"'carousel.previousSlide' | cxTranslate\"\n+        (keydown.arrowleft)=\"shareEvent($any($event))\"\n+        (keydown.arrowright)=\"shareEvent($any($event))\"\n+        (keydown.arrowup)=\"shareEvent($any($event))\"\n+        (keydown.arrowdown)=\"shareEvent($any($event))\"\n+      >\n+        <cx-icon [type]=\"previousIcon\"></cx-icon>\n+      </button>\n+    </ng-container>\n     <div class=\"slides\">\n       <ng-container *ngFor=\"let _ of items; let i = index; trackBy: trackByFn\">\n         <div\n@@ -54,25 +71,42 @@\n       </ng-container>\n     </div>\n \n-    <button\n-      *ngIf=\"size < items.length\"\n-      class=\"next\"\n-      (click)=\"\n-        $event.stopPropagation();\n-        activeSlide > items.length - size - 1\n-          ? null\n-          : (activeSlide = activeSlide + size)\n-      \"\n-      [attr.aria-disabled]=\"activeSlide > items.length - size - 1\"\n-      [attr.aria-label]=\"'carousel.nextSlide' | cxTranslate\"\n-      [attr.title]=\"'carousel.nextSlide' | cxTranslate\"\n-      (keydown.arrowleft)=\"shareEvent($any($event))\"\n-      (keydown.arrowright)=\"shareEvent($any($event))\"\n-      (keydown.arrowup)=\"shareEvent($any($event))\"\n-      (keydown.arrowdown)=\"shareEvent($any($event))\"\n-    >\n-      <cx-icon [type]=\"nextIcon\"></cx-icon>\n…"
+        },
+        {
+          "file": "projects/storefrontlib/shared/components/carousel/carousel.component.ts",
+          "members": [
+            "CarouselComponent.onNavigationMouseDown",
+            "CarouselComponent.onNextClick",
+            "CarouselComponent.onPreviousClick"
+          ],
+          "diff": "@@ -26,6 +26,7 @@ import {\n   TrackByFunction,\n } from '@angular/core';\n import {\n+  FeatureDirective as CxFeatureDirective,\n   LoggerService,\n   TranslatePipe,\n   useFeatureStyles,\n@@ -70,6 +71,7 @@ import { CarouselService } from './carousel.service';\n     AsyncPipe,\n     SlicePipe,\n     TranslatePipe,\n+    CxFeatureDirective,\n   ],\n })\n export class CarouselComponent implements OnInit, OnChanges {\n@@ -151,6 +153,37 @@ export class CarouselComponent implements OnInit, OnChanges {\n       .getItemsPerSlide(this.el.nativeElement, this.itemWidth)\n       .pipe(tap(() => (this.activeSlide = 0)));\n   }\n+  /**\n+   * Prevents default mousedown behavior on navigation buttons when enabled\n+   * to avoid unwanted blur events (e.g., in Safari when carousel is used inside modals or search boxes).\n+   */\n+  onNavigationMouseDown(event: MouseEvent): void {\n+    event.preventDefault();\n+  }\n+\n+  /**\n+   * Handler for the \"next\" button click.\n+   */\n+  onNextClick(event: MouseEvent, size: number): void {\n+    event.stopPropagation();\n+\n+    const itemsLength = this.items?.length ?? 0;\n+    const canMove = this.activeSlide <= itemsLength - size - 1;\n+\n+    if (canMove) {\n+      this.activeSlide = this.activeSlide + size;\n+    }\n+  }\n+\n+  /**\n+   * Handler for the \"previous\" button click.\n+   */\n+  onPreviousClick(event: MouseEvent, size: number): void {\n+    event.stopPropagation();\n+    if (this.activeSlide !== 0) {\n+      this.activeSlide = this.activeSlide - size;\n+    }\n+  }\n \n   onItemKeydown(event: KeyboardEvent, size: number): void {\n     switch (event.key) {"
+        }
+      ]
+    },
+    {
+      "sha": "bbbe62bd1aa5b942dd1f9896ff440e39852a0ad3",
+      "subject": "feat: (CXSPA-12121) - Fix screen reader output of cart's item list table (#21229)",
+      "files": [
+        {
+          "file": "feature-libs/cart/base/components/cart-shared/cart-item-list-row/cart-item-list-row.component.html",
+          "members": [],
+          "diff": "@@ -46,7 +46,6 @@\n           </div></ng-container\n         >\n         <ng-template\n-          role=\"columnheader\"\n           [cxOutlet]=\"CartOutlets.CPQ_QUOTE\"\n           [cxOutletContext]=\"{\n             items: item,\n@@ -100,7 +99,6 @@\n \n   <!-- Subscription Charges -->\n   <ng-template\n-    role=\"cell\"\n     [cxOutlet]=\"CartOutlets.SUBSCRIPTION_PRICE_BODY\"\n     [cxOutletContext]=\"{\n       items,\n@@ -112,7 +110,6 @@\n \n   <!-- item price with discount -->\n   <ng-template\n-    role=\"cell\"\n     [cxOutlet]=\"CartOutlets.CPQ_QUOTE_MODULE\"\n     [cxOutletContext]=\"{\n       items: item,"
+        },
+        {
+          "file": "feature-libs/cart/base/components/cart-shared/cart-item-list/cart-item-list.component.html",
+          "members": [],
+          "diff": "@@ -11,7 +11,6 @@\n       </th>\n \n       <ng-template\n-        role=\"columnheader\"\n         [cxOutlet]=\"CartOutlets.SUBSCRIPTION_PRICE_HEADING\"\n         [cxOutletContext]=\"{\n           items,\n@@ -20,7 +19,6 @@\n       ></ng-template>\n \n       <ng-template\n-        role=\"columnheader\"\n         [cxOutlet]=\"CartOutlets.CPQ_QUOTE_HEADING\"\n         [cxOutletContext]=\"items\"\n       ></ng-template>"
+        },
+        {
+          "file": "feature-libs/cart/base/components/cart-shared/cart-item-list/cart-item-list.component.ts",
+          "members": [
+            "CartItemListComponent.constructor"
+          ],
+          "diff": "@@ -31,6 +31,7 @@ import {\n   ProductCatalogService,\n   TranslatePipe,\n   UserIdService,\n+  useFeatureStyles,\n } from '@spartacus/core';\n import { OutletContextData, OutletDirective } from '@spartacus/storefront';\n import { Observable, Subscription } from 'rxjs';\n@@ -109,7 +110,9 @@ export class CartItemListComponent implements OnInit, OnDestroy {\n     protected multiCartService: MultiCartFacade,\n     protected cd: ChangeDetectorRef,\n     @Optional() protected outlet?: OutletContextData<ItemListContext>\n-  ) {}\n+  ) {\n+    useFeatureStyles('a11yCartItemListHideEmptyOutlets');\n+  }\n \n   ngOnInit(): void {\n     this.subscription.add(this.getInputsFromContext());"
+        },
+        {
+          "file": "feature-libs/cart/base/components/cart-shared/cart-item/cart-item.component.html",
+          "members": [],
+          "diff": "@@ -59,7 +59,6 @@\n           [ngClass]=\"compact ? '' : ' col-md-3 col-lg-3 col-xl-2'\"\n         >\n           <ng-template\n-            role=\"cell\"\n             [cxOutlet]=\"CartOutlets.SUBSCRIPTION_PRICE_BODY\"\n             [cxOutletContext]=\"{\n               item: item,"
+        },
+        {
+          "file": "feature-libs/cart/base/styles/components/_cart-item-list.scss",
+          "members": [],
+          "diff": "@@ -171,4 +171,15 @@\n       border-color: var(--cx-color-dark);\n     }\n   }\n+\n+  @include forFeature('a11yCartItemListHideEmptyOutlets') {\n+    cx-subscription-cart-price-heading,\n+    cx-subscription-cart-price-body,\n+    cx-cpq-quote-heading,\n+    cx-cpq-quote {\n+      &:empty {\n+        display: none;\n+      }\n+    }\n+  }\n }"
+        }
+      ]
+    },
+    {
+      "sha": "64b54477d2dee642a62d7af05acc08496fffba19",
+      "subject": "fix: As a B2B admin customer, I want to search b2b customers by name on Storefront (#21198)",
+      "files": [
+        {
+          "file": "feature-libs/organization/administration/components/cost-center/services/cost-center-list.service.ts",
+          "members": [
+            "CostCenterListService.featureConfigService",
+            "CostCenterListService.isSearchEnabled"
+          ],
+          "diff": "@@ -4,10 +4,11 @@\n  * SPDX-License-Identifier: Apache-2.0\n  */\n \n-import { Injectable } from '@angular/core';\n+import { Injectable, inject } from '@angular/core';\n import {\n   CostCenter,\n   EntitiesModel,\n+  FeatureConfigService,\n   isNotUndefined,\n   PaginationModel,\n } from '@spartacus/core';\n@@ -39,6 +40,7 @@ export interface CostCenterModel {\n })\n export class CostCenterListService extends ListService<CostCenterModel> {\n   protected tableType = OrganizationTableType.COST_CENTER;\n+  private featureConfigService = inject(FeatureConfigService);\n \n   constructor(\n     protected tableService: TableService,\n@@ -47,6 +49,13 @@ export class CostCenterListService extends ListService<CostCenterModel> {\n     super(tableService);\n   }\n \n+  /**\n+   * Enable search functionality for cost center list based on feature toggle.\n+   */\n+  override isSearchEnabled(): boolean {\n+    return this.featureConfigService.isEnabled('enableB2BCostCenterSearch');\n+  }\n+\n   protected load(\n     pagination: PaginationModel\n   ): Observable<EntitiesModel<CostCenterModel>> {"
+        },
+        {
+          "file": "feature-libs/organization/administration/components/shared/list/list.component.html",
+          "members": [],
+          "diff": "@@ -12,7 +12,12 @@\n             <span id=\"{{ viewType + '_title' }}\">\n               {{\n                 viewType + '.header'\n-                  | cxTranslate: { count: getListCount(data) }\n+                  | cxTranslate\n+                    : {\n+                        count: hasGhostData\n+                          ? cachedTotalCount\n+                          : getListCount(data),\n+                      }\n               }}\n             </span>\n             <button\n@@ -40,16 +45,57 @@\n         </div>\n \n         <div class=\"actions\">\n-          <label>\n-            <span *ngIf=\"data.pagination?.sort\">{{\n+          <!-- Search box -->\n+          <div class=\"search-wrapper\" *ngIf=\"isSearchEnabled\">\n+            <label class=\"search-label\">\n+              <span class=\"label-text\">{{\n+                'organization.search.label' | cxTranslate\n+              }}</span>\n+              <div class=\"input-wrapper\">\n+                <input\n+                  type=\"text\"\n+                  class=\"form-control search-input\"\n+                  [placeholder]=\"searchPlaceholderKey | cxTranslate\"\n+                  [(ngModel)]=\"searchQuery\"\n+                  (ngModelChange)=\"\n+                    onSearchQueryChange($any(data.pagination), $event)\n+                  \"\n+                  [attr.aria-label]=\"'organization.search.label' | cxTranslate\"\n+                />\n+                <button\n+                  *ngIf=\"!searchQuery\"\n+                  type=\"button\"\n+                  class=\"search-btn\"\n+                  [attr.aria-label]=\"'organization.search.label' | cxTranslate\"\n+                >\n+                  <cx-icon [type]=\"iconTypes.SEARCH\"></cx-icon>\n+                </button>\n+                <button\n+                  *ngIf=\"searchQuery\"\n+                  type=\"button\"\n+                  class=\"search-clear\"\n+                  (click)=\"clearSearch($any(data.pagination))\"\n+                  [attr.aria-label]=\"'organization.search.clear' | cxTranslate\"\n+                >\n+                  <cx-icon [type]=\"iconTypes.CLOSE\"></cx-icon>\n+                </button>\n+              </div>\n+            </label>\n+          </div>\n+          <label\n+            class=\"sort-wrapper\"\n+            *ngIf=\"data.pagination?.sort\"\n+            [class.disabled]=\"hasGhostData\"\n+          >\n+            <span class=\"label-text\">{{\n               structure.type + '.sortBy' | cxTranslate\n             }}</span>\n             <ng-select\n               name=\"sort\"\n               class=\"sort\"\n-              *ngIf=\"data.pagination?.sort\"\n               [searchable]=\"false\"\n               [clearable]=\"false\"\n+              [disabled]=\"hasGhostData\"\n               (change)=\"sort($any(data.pagination))\"\n               [tabIndex]=\"0\"\n               [(ngModel)]=\"sortCode\"\n@@ -80,7 +126,12 @@\n             <a\n               *ngIf=\"!hideAddButton\"\n               class=\"button btn btn-sm primary btn-primary create\"\n-              [routerLink]=\"{ cxRoute: structure.type + 'Create' } | cxUrl\"\n…"
+        },
+        {
+          "file": "feature-libs/organization/administration/components/shared/list/list.component.ts",
+          "members": [
+            "ListComponent.cachedTotalCount",
+            "ListComponent.cachedValues",
+            "ListComponent.clearSearch",
+            "ListComponent.destroy$",
+            "ListComponent.hasGhostData",
+            "ListComponent.isSearchEnabled",
+            "ListComponent.listData$",
+            "ListComponent.minSearchCharacters",
+            "ListComponent.ngOnDestroy",
+            "ListComponent.ngOnInit",
+            "ListComponent.onSearchQueryChange",
+            "ListComponent.searchPlaceholderKey",
+            "ListComponent.searchQuery",
+            "ListComponent.searchSubject$"
+          ],
+          "diff": "@@ -10,6 +10,8 @@ import {\n   Component,\n   HostBinding,\n   Input,\n+  OnDestroy,\n+  OnInit,\n } from '@angular/core';\n import { FormsModule } from '@angular/forms';\n import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';\n@@ -33,8 +35,14 @@ import {\n   TrapFocus,\n   ViewComponent,\n } from '@spartacus/storefront';\n-import { Observable } from 'rxjs';\n-import { tap } from 'rxjs/operators';\n+import { Observable, Subject } from 'rxjs';\n+import {\n+  debounceTime,\n+  distinctUntilChanged,\n+  filter,\n+  takeUntil,\n+  tap,\n+} from 'rxjs/operators';\n import { ItemService } from '../item.service';\n import { OrganizationTableType } from '../organization.model';\n import { CreateButtonType, ListService } from './list.service';\n@@ -63,10 +71,39 @@ import { CreateButtonType, ListService } from './list.service';\n     TranslatePipe,\n   ],\n })\n-export class ListComponent<T = any, P = PaginationModel> {\n+export class ListComponent<T = any, P = PaginationModel>\n+  implements OnInit, OnDestroy\n+{\n+  private searchSubject$ = new Subject<{ pagination: P; query: string }>();\n+\n+  private destroy$ = new Subject<void>();\n+\n+  minSearchCharacters = this.service.getMinSearchCharacters();\n+\n+  ngOnInit(): void {\n+    this.searchSubject$\n+      .pipe(\n+        debounceTime(300),\n+        filter(\n+          ({ query }) =>\n+            query.length >= this.minSearchCharacters || query.length === 0\n+        ),\n+        distinctUntilChanged((prev, curr) => prev.query === curr.query),\n+        takeUntil(this.destroy$)\n+      )\n+      .subscribe(({ pagination, query }) => {\n+        this.service.search(pagination, query);\n+      });\n+  }\n+\n+  ngOnDestroy(): void {\n+    this.destroy$.next();\n+    this.destroy$.complete();\n+  }\n+\n   readonly trapFocus = TrapFocus;\n \n-  @HostBinding('class.ghost') hasGhostData = false;\n+  hasGhostData = false;\n \n   constructor(\n     protected service: ListService<T, P>,\n@@ -86,6 +123,27 @@ export class ListComponent<T = any, P = PaginationModel> {\n \n   createButtonType = this.service.getCreateButtonType();\n \n+  /**\n+   * Current search query value.\n+   */\n+  searchQuery = '';\n+\n+  /**\n+   * Whether search is enabled for this list.\n+   */\n…"
+        },
+        {
+          "file": "feature-libs/organization/administration/components/shared/list/list.service.ts",
+          "members": [
+            "ListService.clearSearch",
+            "ListService.config",
+            "ListService.getData",
+            "ListService.getMinSearchCharacters",
+            "ListService.getSearchPlaceholderKey",
+            "ListService.isSearchEnabled",
+            "ListService.search"
+          ],
+          "diff": "@@ -4,8 +4,9 @@\n  * SPDX-License-Identifier: Apache-2.0\n  */\n \n-import { Injectable } from '@angular/core';\n+import { inject, Injectable } from '@angular/core';\n import { EntitiesModel, PaginationModel, Translatable } from '@spartacus/core';\n+import { OrganizationUIConfig } from '@spartacus/organization/administration/root';\n import {\n   ResponsiveTableConfiguration,\n   TableLayout,\n@@ -21,6 +22,13 @@ export enum CreateButtonType {\n   BUTTON = 'BUTTON',\n }\n \n+/**\n+ * Extended pagination model that includes search query support.\n+ */\n+export interface SearchablePaginationModel extends PaginationModel {\n+  query?: string;\n+}\n+\n /**\n  * The `ListService` deals with the table structure, list data and\n  * pagination of tables inside the b2b organization.\n@@ -84,6 +92,8 @@ export abstract class ListService<T, P = PaginationModel> {\n     pageSize: 10,\n   } as any as P);\n \n+  protected config = inject(OrganizationUIConfig);\n+\n   constructor(protected tableService: TableService) {}\n \n   /**\n@@ -100,6 +110,9 @@ export abstract class ListService<T, P = PaginationModel> {\n    *\n    * The load method is streamed from the `pagination$` stream, which is initialized\n    * with default pagination and structure drive properties.\n+   *\n+   * The ghostData is emitted before each load operation (initial load, search,\n+   * pagination, sort) to show a loading skeleton while waiting for the API response.\n    */\n   getData(...args: any): Observable<EntitiesModel<T> | undefined> {\n     return this.pagination$.pipe(\n@@ -109,8 +122,9 @@ export abstract class ListService<T, P = PaginationModel> {\n           map((config) => ({ ...pagination, ...config.options?.pagination }))\n         )\n       ),\n-      switchMap((pagination) => this.load(pagination, ...args)),\n-      startWith(this.ghostData)\n+      switchMap((pagination) =>\n+        this.load(pagination, ...args).pipe(startWith(this.ghostData))\n+      )\n     );\n   }\n \n@@ -182,4 +196,48 @@ export abstract class ListService<T, P = PaginationModel> {\n   getCreateButtonLabel(): Translatable {\n     return { key: 'organization.add' };\n   }\n+\n+  /**\n+   * Returns whether search functionality is enabled for this list.\n+   * Override in subclass to enable search.\n+   */\n+  isSearchEnabled(): boolean {\n+    return false;\n+  }\n+\n+  /**\n+   * Returns the i18n key for the search input placeholder.\n+   * Override in subclass to provide a custom placeholder.\n+   */\n+  getSearchPlaceholderKey(): string {\n+    return 'organization.search.placeholder';\n+  }\n+\n+  /**\n+   * Returns the minimum number of characters required to trigger a search.\n+   * This value can be configured via `organizationUI.listSearch.minCharacters`.\n…"
+        },
+        {
+          "file": "feature-libs/organization/administration/components/shared/sub-list/sub-list.testing.module.ts",
+          "members": [
+            "MockListService.getMinSearchCharacters"
+          ],
+          "diff": "@@ -15,7 +15,11 @@ class MockSubListComponent {\n   @Input() i18nRoot;\n }\n \n-class MockListService {}\n+class MockListService {\n+  getMinSearchCharacters(): number {\n+    return 3;\n+  }\n+}\n \n @NgModule({\n   imports: [MockSubListComponent],"
+        },
+        {
+          "file": "feature-libs/organization/administration/components/unit/services/unit-list.service.ts",
+          "members": [
+            "UnitListService.convertListItem",
+            "UnitListService.featureConfigService",
+            "UnitListService.filterTree",
+            "UnitListService.getSearchPlaceholderKey",
+            "UnitListService.isSearchEnabled",
+            "UnitListService.load"
+          ],
+          "diff": "@@ -4,8 +4,12 @@\n  * SPDX-License-Identifier: Apache-2.0\n  */\n \n-import { Injectable } from '@angular/core';\n-import { EntitiesModel } from '@spartacus/core';\n+import { Injectable, inject } from '@angular/core';\n+import {\n+  EntitiesModel,\n+  FeatureConfigService,\n+  PaginationModel,\n+} from '@spartacus/core';\n import {\n   B2BUnitNode,\n   B2BUnitTreeNode,\n@@ -14,7 +18,10 @@ import {\n import { TableService } from '@spartacus/storefront';\n import { Observable } from 'rxjs';\n import { map, switchMap } from 'rxjs/operators';\n-import { ListService } from '../../shared/list/list.service';\n+import {\n+  ListService,\n+  SearchablePaginationModel,\n+} from '../../shared/list/list.service';\n import { OrganizationTableType } from '../../shared/organization.model';\n import { UnitItemService } from './unit-item.service';\n import { UnitTreeService } from './unit-tree.service';\n@@ -29,6 +36,8 @@ import { UnitTreeService } from './unit-tree.service';\n export class UnitListService extends ListService<B2BUnitTreeNode> {\n   protected tableType = OrganizationTableType.UNIT;\n \n+  private featureConfigService = inject(FeatureConfigService);\n+\n   constructor(\n     protected tableService: TableService,\n     protected unitService: OrgUnitService,\n@@ -38,7 +47,21 @@ export class UnitListService extends ListService<B2BUnitTreeNode> {\n     super(tableService);\n   }\n \n-  protected load(): Observable<EntitiesModel<B2BUnitTreeNode> | undefined> {\n+  override isSearchEnabled(): boolean {\n+    return this.featureConfigService.isEnabled('enableB2BUnitSearch');\n+  }\n+\n+  override getSearchPlaceholderKey(): string {\n+    return 'orgUnit.search.placeholder';\n+  }\n+\n+  protected load(\n+    pagination: PaginationModel\n+  ): Observable<EntitiesModel<B2BUnitTreeNode> | undefined> {\n+    const query = (pagination as SearchablePaginationModel)?.query\n+      ?.trim()\n+      ?.toLowerCase();\n+\n     return this.unitService.getTree().pipe(\n       switchMap((node) =>\n         this.unitItemService.key$.pipe(\n@@ -53,14 +76,76 @@ export class UnitListService extends ListService<B2BUnitTreeNode> {\n       switchMap((tree) =>\n         this.unitTreeService.treeToggle$.pipe(map(() => tree))\n       ),\n-      map((tree: B2BUnitNode | undefined) => this.convertListItem(tree))\n+      map((tree: B2BUnitNode | undefined) => {\n+        if (query) {\n+          const forceExpandIds = new Set<string>();\n+          const filteredTree = this.filterTree(tree, query, forceExpandIds);\n+          return (\n+            this.convertListItem(\n+              filteredTree,\n+              0,\n+              { totalResults: 0 },\n+              forceExpandIds\n+            ) ?? { values: [], pagination: { totalResults: 0 } }\n+          );\n+        }\n+        return this.convertListItem(tree);\n+      })\n     );\n…"
+        },
+        {
+          "file": "feature-libs/organization/administration/components/unit/units.config.ts",
+          "members": [],
+          "diff": "@@ -218,7 +218,7 @@ export const unitsTableConfig: TableConfig = {\n         },\n       },\n       [BREAKPOINT.lg]: {\n-        cells: ['name', 'active', 'uid'],\n+        cells: ['name', 'uid', 'active'],\n       },\n     },\n     [OrganizationTableType.UNIT_USERS]: {"
+        },
+        {
+          "file": "feature-libs/organization/administration/components/user/services/user-list.service.ts",
+          "members": [
+            "UserListService.featureConfigService",
+            "UserListService.isSearchEnabled"
+          ],
+          "diff": "@@ -4,11 +4,12 @@\n  * SPDX-License-Identifier: Apache-2.0\n  */\n \n-import { Injectable } from '@angular/core';\n+import { Injectable, inject } from '@angular/core';\n import {\n   B2BUser,\n   B2BUserRole,\n   EntitiesModel,\n+  FeatureConfigService,\n   isNotUndefined,\n   PaginationModel,\n } from '@spartacus/core';\n@@ -39,6 +40,7 @@ export interface UserModel {\n })\n export class UserListService extends ListService<UserModel> {\n   protected tableType = OrganizationTableType.USER;\n+  private featureConfigService = inject(FeatureConfigService);\n \n   constructor(\n     protected tableService: TableService,\n@@ -83,4 +85,11 @@ export class UserListService extends ListService<UserModel> {\n     };\n     return userModels;\n   }\n+\n+  /**\n+   * Enable search functionality for user list based on feature toggle.\n+   */\n+  override isSearchEnabled(): boolean {\n+    return this.featureConfigService.isEnabled('enableB2BCustomerSearch');\n+  }\n }"
+        },
+        {
+          "file": "feature-libs/organization/administration/root/administration-root.module.ts",
+          "members": [],
+          "diff": "@@ -14,6 +14,7 @@ import {\n import { defaultBudgetRoutingConfig } from './config/default-budget-routing.config';\n import { defaultCostCenterRoutingConfig } from './config/default-cost-center-routing.config';\n import { defaultOrganizationLayoutConfig } from './config/default-organization-layout.config';\n+import { defaultOrganizationUIConfig } from './config/default-organization-ui.config';\n import { defaultPermissionRoutingConfig } from './config/default-permission-routing.config';\n import { defaultUnitsRoutingConfig } from './config/default-units-routing.config';\n import { defaultUserGroupRoutingConfig } from './config/default-user-group-routing.config';\n@@ -43,6 +44,7 @@ export function defaultOrganizationAdministrationComponentsConfig(): CmsConfig {\n @NgModule({\n   providers: [\n     provideDefaultConfig(defaultOrganizationLayoutConfig),\n+    provideDefaultConfig(defaultOrganizationUIConfig),\n \n     provideDefaultConfig(<RoutingConfig>{\n       routing: { routes: { organization: { paths: ['organization'] } } },"
+        },
+        {
+          "file": "feature-libs/organization/administration/root/config/default-organization-ui.config.ts",
+          "members": [],
+          "diff": "@@ -0,0 +1,15 @@\n+/*\n+ * SPDX-FileCopyrightText: 2026 SAP Spartacus team <spartacus-team@sap.com>\n+ *\n+ * SPDX-License-Identifier: Apache-2.0\n+ */\n+\n+import { OrganizationUIConfig } from './organization-ui.config';\n+\n+export const defaultOrganizationUIConfig: OrganizationUIConfig = {\n+  organizationUI: {\n+    listSearch: {\n+      minCharacters: 3,\n+    },\n+  },\n+};"
+        },
+        {
+          "file": "feature-libs/organization/administration/root/config/index.ts",
+          "members": [],
+          "diff": "@@ -7,7 +7,9 @@\n export * from './default-budget-routing.config';\n export * from './default-cost-center-routing.config';\n export * from './default-organization-layout.config';\n+export * from './default-organization-ui.config';\n export * from './default-permission-routing.config';\n export * from './default-units-routing.config';\n export * from './default-user-group-routing.config';\n export * from './default-user-routing.config';\n+export * from './organization-ui.config';"
+        },
+        {
+          "file": "feature-libs/organization/administration/root/config/organization-ui.config.ts",
+          "members": [
+            "OrganizationUIConfig.organizationUI"
+          ],
+          "diff": "@@ -0,0 +1,34 @@\n+/*\n+ * SPDX-FileCopyrightText: 2026 SAP Spartacus team <spartacus-team@sap.com>\n+ *\n+ * SPDX-License-Identifier: Apache-2.0\n+ */\n+\n+import { Injectable } from '@angular/core';\n+import { Config } from '@spartacus/core';\n+\n+/**\n+ * Configuration for Organization UI features.\n+ */\n+@Injectable({\n+  providedIn: 'root',\n+  useExisting: Config,\n+})\n+export abstract class OrganizationUIConfig {\n+  organizationUI?: {\n+    /**\n+     * Configuration for list search functionality.\n+     */\n+    listSearch?: {\n+      /**\n+       * Minimum number of characters required to trigger a search.\n+       * Default: 3\n+       */\n+      minCharacters?: number;\n+    };\n+  };\n+}\n+\n+declare module '@spartacus/core' {\n+  interface Config extends OrganizationUIConfig {}\n+}"
+        },
+        {
+          "file": "feature-libs/organization/administration/styles/_list.scss",
+          "members": [],
+          "diff": "@@ -22,6 +22,14 @@\n       }\n     }\n \n+    .search-wrapper {\n+      .search-input,\n+      .search-btn,\n+      .search-clear {\n+        visibility: visible;\n+      }\n+    }\n+\n     cx-table.vertical-stacked,\n     cx-table.vertical {\n       table {\n@@ -103,6 +111,32 @@\n \n   @extend %organizationTitle !optional;\n \n+  cx-split-view:not([active-view='1']) .list .header .actions {\n+    flex-wrap: nowrap;\n+\n+    .search-wrapper {\n+      flex: 1 1 12.5rem;\n+      min-width: 10rem;\n+      max-width: 12.5rem;\n+      margin-inline-end: 0;\n+\n+      .search-input {\n+        width: 100%;\n+        min-width: 0;\n+      }\n+    }\n+\n+    > .link:first-of-type {\n+      margin-inline-start: 0;\n+    }\n+\n+    > .link,\n+    .create {\n+      white-space: nowrap;\n+      flex-shrink: 0;\n+    }\n+  }\n+\n   cx-split-view:not([active-view='1']) .list table {\n     th,\n     td {\n@@ -125,6 +159,21 @@\n     }\n   }\n \n+  // Unit list: show uid(ID) column instead of active(STATUS) when detail panel is open\n+  &.orgUnit cx-split-view:not([active-view='1']) .list table {\n+    th,\n+    td {\n+      &.uid {\n+        opacity: 1;\n+        width: auto;\n+      }\n+      &.active {\n+        opacity: 0;\n+        width: 0.1%;\n+      }\n+    }\n+  }\n+\n   cx-split-view[active-view='1'] {\n     .uid .text {\n       margin-inline-end: 1rem;\n@@ -142,6 +191,98 @@\n     padding: 20px;\n   }\n \n+  .cx-no-results {\n+    text-align: center;\n+    padding: 60px 20px;\n+    margin: 0;\n+    color: var(--cx-color-text);\n+    font-size: 16px;\n…"
+        },
+        {
+          "file": "projects/core/src/product/model/search-config.ts",
+          "members": [],
+          "diff": "@@ -16,4 +16,9 @@ export interface SearchConfig {\n    * @example `allCategories:584:code:1,2,3:availableInStores:Chiba`\n    */\n   filters?: string;\n+\n+  /**\n+   * find organizational customers using fuzzy matching on name.\n+   */\n+  query?: string;\n }"
+        },
+        {
+          "file": "projects/core/src/state/utils/serializer.ts",
+          "members": [
+            "serializeSearchConfig"
+          ],
+          "diff": "@@ -17,9 +17,15 @@ export function serializeSearchConfig(\n   config: SearchConfig,\n   id?: string\n ): string {\n-  return `${id ?? ''}?pageSize=${config.pageSize ?? ''}&currentPage=${\n+  let result = `${id ?? ''}?pageSize=${config.pageSize ?? ''}&currentPage=${\n     config.currentPage ?? ''\n   }&sort=${config.sort ?? ''}`;\n+\n+  if (config.query) {\n+    result += `&query=${config.query}`;\n+  }\n+\n+  return result;\n }\n \n export function denormalizeSearch<T>("
+        }
+      ]
+    },
+    {
+      "sha": "b2a0fc3dae93f76fefaafe71b2c05d501d3d71e7",
+      "subject": "fix: Remove opfEnablePreventingFromCheckoutWithoutEmail feature toggle (#21256)",
+      "files": [
+        {
+          "file": "integration-libs/opf/checkout/root/checkout-guard/opf-checkout-auth.guard.ts",
+          "members": [
+            "OpfCheckoutAuthGuard.canActivate",
+            "OpfCheckoutAuthGuard.featureConfigService"
+          ],
+          "diff": "@@ -7,7 +7,7 @@\n import { inject, Injectable } from '@angular/core';\n import { GuardResult, UrlTree } from '@angular/router';\n import { CheckoutAuthGuard } from '@spartacus/checkout/base/components';\n-import { FeatureConfigService, UserIdService } from '@spartacus/core';\n+import { UserIdService } from '@spartacus/core';\n import { combineLatest, filter, map, Observable, switchMap } from 'rxjs';\n import { OpfCartUserEmailCheckerService } from '../services';\n \n@@ -22,8 +22,6 @@ export class OpfCheckoutAuthGuard extends CheckoutAuthGuard {\n   protected userIdService = inject(UserIdService);\n   protected opfCartUserEmailChecker = inject(OpfCartUserEmailCheckerService);\n \n-  private featureConfigService = inject(FeatureConfigService);\n-\n   /**\n    * Determines whether the user can activate the checkout route.\n    * - If the cart is **not a guest cart**, it defers to the parent `CheckoutAuthGuard`.\n@@ -33,14 +31,6 @@ export class OpfCheckoutAuthGuard extends CheckoutAuthGuard {\n    * @returns {Observable<GuardResult>} - An observable that emits `true` to allow navigation, or a `UrlTree` to redirect the user.\n    */\n   canActivate(): Observable<GuardResult> {\n-    if (\n-      !this.featureConfigService?.isEnabled(\n-        'opfEnablePreventingFromCheckoutWithoutEmail'\n-      )\n-    ) {\n-      return super.canActivate();\n-    }\n-\n     return this.activeCartFacade.isStable().pipe(\n       filter((isStable) => isStable),\n       switchMap(() => this.activeCartFacade.isGuestCart()),"
+        }
+      ]
+    },
+    {
+      "sha": "c94c76aed08f27fda9949a1dd6b0fa2467a2eae5",
+      "subject": "chore: cleanup stale feature flags (#21259)",
+      "files": [
+        {
+          "file": "feature-libs/checkout/base/styles/components/order-confirmation/_order-confirmation-totals.scss",
+          "members": [],
+          "diff": "@@ -1,10 +1,8 @@\n %cx-order-confirmation-totals {\n   .cx-order-summary {\n     padding-inline-end: var(--cx-padding, 0);\n-    @include forFeature('a11yWideScreenImprovements') {\n-      cx-order-summary {\n-        padding: 1rem;\n-      }\n+    cx-order-summary {\n+      padding: 1rem;\n     }\n \n     &.container {"
+        },
+        {
+          "file": "feature-libs/order/components/order-confirmation/order-confirmation-totals/order-confirmation-totals.component.ts",
+          "members": [
+            "OrderConfirmationTotalsComponent.constructor"
+          ],
+          "diff": "@@ -7,7 +7,6 @@\n import { AsyncPipe, NgIf } from '@angular/common';\n import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';\n import { CartOutlets } from '@spartacus/cart/base/root';\n-import { useFeatureStyles } from '@spartacus/core';\n import { Order, OrderFacade } from '@spartacus/order/root';\n import { OutletDirective } from '@spartacus/storefront';\n import { Observable } from 'rxjs';\n@@ -22,9 +21,7 @@ export class OrderConfirmationTotalsComponent implements OnDestroy {\n   readonly cartOutlets = CartOutlets;\n   order$: Observable<Order | undefined> = this.orderFacade.getOrderDetails();\n \n-  constructor(protected orderFacade: OrderFacade) {\n-    useFeatureStyles('a11yWideScreenImprovements');\n-  }\n+  constructor(protected orderFacade: OrderFacade) {}\n \n   ngOnDestroy() {\n     this.orderFacade.clearPlacedOrder();"
+        },
+        {
+          "file": "feature-libs/order/styles/components/order-overview/_order-overview.scss",
+          "members": [],
+          "diff": "@@ -10,15 +10,9 @@\n       display: flex;\n       flex-direction: row;\n       justify-content: space-between;\n-      padding: 36px 32px;\n-      margin: 0;\n-      min-width: 100%;\n-\n-      @include forFeature('a11yWideScreenImprovements') {\n-        min-width: unset;\n-        padding: 36px 0;\n-        margin: auto;\n-      }\n+      min-width: unset;\n+      padding: 36px 0;\n+      margin: auto;\n \n       @include media-breakpoint-down(md) {\n         background-color: var(--cx-color-inverse);\n@@ -82,28 +76,23 @@\n             border-inline-end: 1px solid var(--cx-color-text);\n           }\n         }\n-        @include forFeature('a11yWideScreenImprovements') {\n-          @include media-breakpoint-up(lg) {\n-            &:first-child {\n-              .cx-card-body {\n-                padding-inline-start: 0;\n-              }\n-              padding-inline-start: 15px;\n+        @include media-breakpoint-up(lg) {\n+          &:first-child {\n+            .cx-card-body {\n+              padding-inline-start: 0;\n             }\n-            &:last-child {\n-              .cx-card-body {\n-                padding-inline-end: 0;\n-              }\n-              padding-inline-end: 15px;\n+            padding-inline-start: 15px;\n+          }\n+          &:last-child {\n+            .cx-card-body {\n+              padding-inline-end: 0;\n             }\n+            padding-inline-end: 15px;\n           }\n         }\n \n         @include media-breakpoint-down(md) {\n-          flex: 0 0 33%;\n-          @include forFeature('a11yWideScreenImprovements') {\n-            flex: 1;\n-          }\n+          flex: 1;\n         }\n \n         @include media-breakpoint-down(sm) {"
+        },
+        {
+          "file": "feature-libs/product-configurator/rulebased/components/product-title/configurator-product-title.component.ts",
+          "members": [
+            "ConfiguratorProductTitleComponent.constructor"
+          ],
+          "diff": "@@ -11,7 +11,6 @@ import {\n   ProductScope,\n   ProductService,\n   TranslatePipe,\n-  useFeatureStyles,\n } from '@spartacus/core';\n import {\n   ConfiguratorRouter,\n@@ -99,9 +98,7 @@ export class ConfiguratorProductTitleComponent {\n     protected configRouterExtractorService: ConfiguratorRouterExtractorService,\n     protected productService: ProductService,\n     protected configExpertModeService: ConfiguratorExpertModeService\n-  ) {\n-    useFeatureStyles('a11yWideScreenImprovements');\n-  }\n+  ) {}\n \n   triggerDetails(): void {\n     this.showMore = !this.showMore;"
+        },
+        {
+          "file": "feature-libs/product-configurator/rulebased/styles/_configurator-product-title.scss",
+          "members": [],
+          "diff": "@@ -1,8 +1,6 @@\n %cx-configurator-product-title {\n-  @include forFeature('a11yWideScreenImprovements') {\n-    background-color: var(--cx-color-background);\n-    box-shadow: inset 0px 10px 7px -12px var(--cx-color-dark);\n-  }\n+  background-color: var(--cx-color-background);\n+  box-shadow: inset 0px 10px 7px -12px var(--cx-color-dark);\n   &:not(:empty) {\n     @include media-breakpoint-up(lg) {\n       width: 1140px;\n@@ -16,10 +14,7 @@\n       display: flex;\n       flex-direction: row;\n       justify-content: center;\n-      background-color: var(--cx-color-background);\n-      @include forFeature('a11yWideScreenImprovements') {\n-        background-color: unset;\n-      }\n+      background-color: unset;\n \n       margin-block-end: 15px;\n     }\n@@ -31,12 +26,10 @@\n       padding-inline-end: 0px;\n       padding-block-start: 15px;\n       padding-block-end: 15px;\n-      @include forFeature('a11yWideScreenImprovements') {\n-        box-shadow: unset;\n-        justify-content: center;\n-        max-width: 1140px;\n-        margin: auto;\n-      }\n+      box-shadow: unset;\n+      justify-content: center;\n+      max-width: 1140px;\n+      margin: auto;\n \n       .cx-title {\n         font-weight: bold;"
+        },
+        {
+          "file": "projects/storefrontlib/cms-components/navigation/navigation/navigation-ui.component.ts",
+          "members": [
+            "NavigationUIComponent.constructor"
+          ],
+          "diff": "@@ -22,7 +22,6 @@ import { NavigationEnd, Router } from '@angular/router';\n import {\n   FeatureConfigService,\n   TranslatePipe,\n-  useFeatureStyles,\n   WindowRef,\n } from '@spartacus/core';\n import { Subject, Subscription } from 'rxjs';\n@@ -129,7 +128,6 @@ export class NavigationUIComponent implements OnInit, OnDestroy {\n         this.alignWrappersToRightIfStickOut();\n       })\n     );\n-    useFeatureStyles('a11yOptimizedMenuSpacing');\n   }\n \n   /**"
+        },
+        {
+          "file": "projects/storefrontlib/layout/main/storefront.component.ts",
+          "members": [
+            "StorefrontComponent.constructor"
+          ],
+          "diff": "@@ -106,7 +106,6 @@ export class StorefrontComponent implements OnInit, OnDestroy {\n     protected elementRef: ElementRef<HTMLElement>,\n     protected keyboardFocusService: KeyboardFocusService\n   ) {\n-    useFeatureStyles('a11yNgSelectLayering');\n     useFeatureStyles('topProgressBarUseTransformAnimation');\n     useFeatureStyles('unifiedDefaultHeaderSlotsAcrossBreakpoints');\n   }"
+        },
+        {
+          "file": "projects/storefrontlib/shared/components/form/form-errors/form-errors.component.ts",
+          "members": [
+            "FormErrorsComponent.ariaLive",
+            "FormErrorsComponent.featureConfigService",
+            "FormErrorsComponent.ngDoCheck",
+            "FormErrorsComponent.role"
+          ],
+          "diff": "@@ -17,7 +17,7 @@ import {\n   inject,\n } from '@angular/core';\n import { AbstractControl, UntypedFormControl } from '@angular/forms';\n-import { FeatureConfigService, TranslatePipe, isObject } from '@spartacus/core';\n+import { TranslatePipe, isObject } from '@spartacus/core';\n import { Observable } from 'rxjs';\n import { map, startWith } from 'rxjs/operators';\n \n@@ -37,8 +37,6 @@ import { map, startWith } from 'rxjs/operators';\n   imports: [NgIf, NgFor, AsyncPipe, TranslatePipe],\n })\n export class FormErrorsComponent implements DoCheck {\n-  private featureConfigService = inject(FeatureConfigService);\n-\n   protected elementRef = inject(ElementRef, { optional: true });\n   protected ariaLiveToken = inject(new HostAttributeToken('aria-live'), {\n     optional: true,\n@@ -96,7 +94,6 @@ export class FormErrorsComponent implements DoCheck {\n   ngDoCheck(): void {\n     if (this.control.touched !== this.previousTouchedState) {\n       if (\n-        this.featureConfigService.isEnabled('a11yImprovedErrorMessage') &&\n         this.elementRef?.nativeElement?.getAttribute('aria-live') === 'polite'\n       ) {\n         // due to the way we detect changes here, JAWS doesn't always respect\n@@ -136,18 +133,9 @@ export class FormErrorsComponent implements DoCheck {\n   @HostBinding('class.cx-visually-hidden') get hidden() {\n     return !(this.invalid && (this.touched || this.dirty));\n   }\n-  @HostBinding('attr.role') role = this.featureConfigService.isEnabled(\n-    'a11yImprovedErrorMessage'\n-  )\n-    ? null\n-    : 'alert';\n-\n-  @HostBinding('attr.aria-live') ariaLive =\n-    !this.featureConfigService.isEnabled('a11yImprovedErrorMessage')\n-      ? this.ariaLiveToken\n-      : // If no aria-live value is set add 'polite' as a default. This is preferred over setting\n-        // role='alert' so that screen readers do not interrupt the current task to read this aloud.\n-        (this.ariaLiveToken ?? 'polite');\n+  @HostBinding('attr.role') role = null;\n+\n+  @HostBinding('attr.aria-live') ariaLive = this.ariaLiveToken ?? 'polite';\n \n   @HostBinding('attr.aria-atomic') atomic = true;\n }"
+        },
+        {
+          "file": "projects/storefrontstyles/scss/components/content/navigation/_navigation-ui.scss",
+          "members": [],
+          "diff": "@@ -206,10 +206,7 @@\n       padding: 10px 0;\n     }\n     ul.childs > li > cx-generic-link > a {\n-      padding: 5px 0;\n-      @include forFeature('a11yOptimizedMenuSpacing') {\n-        padding: 0;\n-      }\n+      padding: 0;\n     }\n     ul.childs > li > button:hover {\n       color: var(--cx-color-text);"
+        },
+        {
+          "file": "projects/storefrontstyles/scss/cxbase/blocks/forms.scss",
+          "members": [],
+          "diff": "@@ -392,9 +392,7 @@ input[type='radio'] {\n \n ng-select.ng-select.ng-select-opened .ng-select-container,\n ng-select .ng-dropdown-panel {\n-  @include forFeature('a11yNgSelectLayering') {\n-    z-index: 10;\n-  }\n+  z-index: 10;\n \n   @include forFeature('a11yNgSelectUnicodeCarets') {\n     .ng-arrow-wrapper {"
+        },
+        {
+          "file": "projects/storefrontstyles/scss/layout/page-templates/_order-confirmation-page.scss",
+          "members": [],
+          "diff": "@@ -7,13 +7,11 @@\n     margin-inline-start: auto;\n     margin-inline-end: auto;\n \n-    @include forFeature('a11yWideScreenImprovements') {\n-      @include media-breakpoint-up(xl) {\n-        flex: none;\n-        width: var(--cx-page-width-max);\n-        margin-inline-start: 100%;\n-        margin-inline-end: 100%;\n-      }\n+    @include media-breakpoint-up(xl) {\n+      flex: none;\n+      width: var(--cx-page-width-max);\n+      margin-inline-start: 100%;\n+      margin-inline-end: 100%;\n     }\n \n     @include media-breakpoint-down(md) {"
+        }
+      ]
+    },
+    {
+      "sha": "2c3dd7eb13d6df5617009d0f63588f64b281f362",
+      "subject": "feat: (CXSPA-12331) - Listbox semantics for facet component (#21249)",
+      "files": [
+        {
+          "file": "projects/storefrontlib/cms-components/product/product-list/product-facet-navigation/facet/facet.component.html",
+          "members": [],
+          "diff": "@@ -1,5 +1,9 @@\n <ng-container *ngIf=\"state$ | async as state\">\n-  <div>\n+  <div\n+    role=\"listbox\"\n+    [attr.aria-multiselectable]=\"facet.multiSelect ? true : null\"\n+    [id]=\"facet.name + '-list-id'\"\n+  >\n     <a\n       *ngFor=\"let value of facet.values | slice: 0 : state.topVisible\"\n       #facetValue\n@@ -10,8 +14,8 @@\n       [cxFocus]=\"{ key: value.name }\"\n       (keydown)=\"onKeydown($event)\"\n       (keydown.space)=\"openLink($any($event))\"\n-      [attr.role]=\"facet.multiSelect ? 'checkbox' : null\"\n-      [attr.aria-checked]=\"facet.multiSelect ? value.selected : null\"\n+      role=\"option\"\n+      [attr.aria-selected]=\"value.selected\"\n       attr.aria-label=\"{{\n         'productFacetNavigation.ariaLabelItemsAvailable'\n           | cxTranslate: { name: value.name, count: value.count }\n@@ -23,7 +27,7 @@\n       >\n     </a>\n \n-    <div class=\"more\">\n+    <div class=\"more\" role=\"presentation\">\n       <a\n         *ngFor=\"\n           let value of facet.values\n@@ -37,52 +41,105 @@\n         [cxFocus]=\"{ key: value.name }\"\n         (keydown)=\"onKeydown($event)\"\n         (keydown.space)=\"openLink($any($event))\"\n+        role=\"option\"\n+        [attr.aria-selected]=\"value.selected\"\n+        attr.aria-label=\"{{\n+          'productFacetNavigation.ariaLabelItemsAvailable'\n+            | cxTranslate: { name: value.name, count: value.count }\n+        }}\"\n       >\n         <span\n           >{{ value.name }}<span class=\"count\">{{ value.count }}</span></span\n         >\n       </a>\n \n-      <button\n-        *ngIf=\"\n-          state.maxVisible &&\n-          state.topVisible &&\n-          state.maxVisible > state.topVisible\n-        \"\n-        (click)=\"decreaseVisibleValues()\"\n-        [cxAtMessage]=\"\n-          'productFacetNavigation.decreaseOptionsVisibility' | cxTranslate\n-        \"\n-        aria-expanded=\"true\"\n-        attr.aria-label=\"{{\n-          'productFacetNavigation.ariaLabelShowLess' | cxTranslate\n-        }}\"\n-        class=\"cx-action-link\"\n-        [cxFocus]=\"{ key: 'moreorless' }\"\n-      >\n-        {{ 'productList.showLess' | cxTranslate }}\n-      </button>\n+      <ng-container *cxFeature=\"'!a11yListSemanticsForFacets'\">\n+        <button\n+          *ngIf=\"\n+            state.maxVisible &&\n+            state.topVisible &&\n+            state.maxVisible > state.topVisible\n+          \"\n+          (click)=\"decreaseVisibleValues()\"\n+          [cxAtMessage]=\"\n+            'productFacetNavigation.decreaseOptionsVisibility' | cxTranslate\n+          \"\n+          aria-expanded=\"true\"\n+          attr.aria-label=\"{{\n+            'productFacetNavigation.ariaLabelShowLess' | cxTranslate\n…"
+        },
+        {
+          "file": "projects/storefrontlib/cms-components/product/product-list/product-facet-navigation/facet/facet.component.ts",
+          "members": [],
+          "diff": "@@ -18,7 +18,12 @@ import {\n   ViewChildren,\n } from '@angular/core';\n import { RouterLink } from '@angular/router';\n-import { Facet, FacetValue, TranslatePipe } from '@spartacus/core';\n+import {\n+  Facet,\n+  FacetValue,\n+  FeatureDirective,\n+  TranslatePipe,\n+} from '@spartacus/core';\n import { Observable } from 'rxjs';\n import { ICON_TYPE } from '../../../../../cms-components/misc/icon/icon.model';\n import {\n@@ -43,6 +48,7 @@ import { FacetService } from '../services/facet.service';\n     AsyncPipe,\n     SlicePipe,\n     TranslatePipe,\n+    FeatureDirective,\n   ],\n })\n export class FacetComponent implements AfterViewInit {"
+        }
+      ]
+    }
+  ],
+  "i18n": {
+    "added": [
+      {
+        "chunk": "common",
+        "key": "passwordVisibility.togglePassword",
+        "texts": {
+          "en": "Toggle password visibility"
+        }
+      },
+      {
+        "chunk": "organization",
+        "key": "orgUnit.search.placeholder",
+        "texts": {
+          "en": "Name or ID"
+        }
+      },
+      {
+        "chunk": "organization",
+        "key": "organization.search.clear",
+        "texts": {
+          "en": "Clear search"
+        }
+      },
+      {
+        "chunk": "organization",
+        "key": "organization.search.label",
+        "texts": {
+          "en": "Search"
+        }
+      },
+      {
+        "chunk": "organization",
+        "key": "organization.search.noResults",
+        "texts": {
+          "en": "No results found for \"{{query}}\""
+        }
+      },
+      {
+        "chunk": "organization",
+        "key": "organization.search.noResultsFound",
+        "texts": {
+          "en": "No results found"
+        }
+      },
+      {
+        "chunk": "organization",
+        "key": "organization.search.placeholder",
+        "texts": {
+          "en": "Name"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionBillsList.cancel",
+        "texts": {
+          "en": "Cancel"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionBillsList.clear",
+        "texts": {
+          "en": "Clear"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionBillsList.dateRangeInputPlaceholder",
+        "texts": {
+          "en": "Click to select the dates"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionBillsList.dateRangeLabel",
+        "texts": {
+          "en": "Select Date Range"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionBillsList.dateRangeModalTitle",
+        "texts": {
+          "en": "Set The Date Range"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionBillsList.descriptionSuffix",
+        "texts": {
+          "en": "{{ numberOfItems }} more"
+        }
+      }
+    ],
+    "removed": [],
+    "changed": [
+      {
+        "chunk": "organization",
+        "key": "orgCostCenter.header",
+        "before": "All cost centers ({{count}})",
+        "after": "Cost centers ({{count}})"
+      },
+      {
+        "chunk": "organization",
+        "key": "orgUnit.header",
+        "before": "All units ({{count}})",
+        "after": "Units ({{count}})"
+      },
+      {
+        "chunk": "organization",
+        "key": "orgUser.header",
+        "before": "All users ({{count}})",
+        "after": "Users ({{count}})"
+      }
+    ],
+    "translated": []
+  }
 }

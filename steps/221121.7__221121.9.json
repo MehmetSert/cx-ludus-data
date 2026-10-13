@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatorVersion": 2,
+  "generatorVersion": 3,
   "from": {
     "release": "221121.7",
     "gitTag": "221121.7.0"
@@ -75,9 +75,20 @@
                 "line": 124,
                 "code": "this.featureService?.isEnabled("
               }
+            ],
+            "members": [
+              "CustomerTicketingCreateDialogComponent.ngOnInit"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "02f75956419a916e5ba629537c656ee6fea6cd68"
+        ],
+        "rollout": {
+          "defaultOn": "221121.1",
+          "mandatory": "221121.9"
+        },
         "translations": {
           "tr": "'NgSelectA11yDirective', screen reader kullanılırken Escape tuşuna basıldığında seçenekler içeren dropdown'u kapatır.\nAşağıdaki component içinde select yerine ng-select component'ini kullanır:\n`CustomerTicketingCreateDialogComponent`"
         }
@@ -111,6 +122,9 @@
                 "line": 29,
                 "code": "return this.featureConfigService.isEnabled('a11yCardNotificationMessage');"
               }
+            ],
+            "members": [
+              "NotificationMessageComponent.isA11yCardNotificationMessageFeatureEnabled"
             ]
           },
           {
@@ -128,6 +142,9 @@
                 "line": 39,
                 "code": "if (this.featureConfigService.isEnabled('a11yCardNotificationMessage')) {\n  this.outlet.context$\n    .pipe(takeUntilDestroyed(this.destroyRef))\n    .subscribe((context) => {\n      this.outlet.context = context;\n      this.changeDetectorRef.markForCheck();\n    });\n}"
               }
+            ],
+            "members": [
+              "CellComponent.ngOnInit"
             ]
           },
           {
@@ -145,6 +162,9 @@
                 "line": 56,
                 "code": "return this.featureConfigService.isEnabled('a11yCardNotificationMessage');"
               }
+            ],
+            "members": [
+              "UnitDetailsComponent.isA11yCardNotificationMessageFeatureEnabled"
             ]
           },
           {
@@ -162,9 +182,20 @@
                 "line": 163,
                 "code": "if (this.featureConfigService.isEnabled('a11yCardNotificationMessage')) {\n  return item?.uid ?? JSON.stringify(item);\n}"
               }
+            ],
+            "members": [
+              "TableComponent.trackData"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "f1c36c596e3ce4ab1ddd58bb91d5a645a83aeada"
+        ],
+        "rollout": {
+          "defaultOn": "221121.18",
+          "mandatory": "Q1 2027"
+        },
         "translations": {
           "tr": "Etkinleştirildiğinde, organization'ın table component'i her veri güncellemesinde satırlarını yeniden render etmeyi bırakır.\nBu, notification message component'inin screen reader deneyimini iyileştirir."
         }
@@ -189,6 +220,9 @@
                 "line": 97,
                 "code": "useFeatureStyles('a11yCustomerTicketingVisualFocusFix');"
               }
+            ],
+            "members": [
+              "CustomerTicketingDialogComponent.constructor"
             ]
           },
           {
@@ -220,9 +254,31 @@
                 "line": 91,
                 "code": "@include forFeature('a11yCustomerTicketingVisualFocusFix') {\n  outline-width: 2px;\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-customer-ticketing-close-dialog .cx-customer-ticket-form-dialog .cx-customer-ticket-form-container .cx-customer-ticket-form-footer button:focus",
+              "cx-customer-ticketing-close-dialog .cx-customer-ticket-form-dialog .cx-customer-ticket-form-container cx-file-upload",
+              "cx-customer-ticketing-close-dialog .cx-customer-ticket-form-dialog .cx-customer-ticket-form-container cx-file-upload button",
+              "cx-customer-ticketing-close-dialog .cx-customer-ticket-form-dialog .cx-customer-ticket-form-container cx-file-upload button:focus",
+              "cx-customer-ticketing-create-dialog .cx-customer-ticket-form-dialog .cx-customer-ticket-form-container .cx-customer-ticket-form-footer button:focus",
+              "cx-customer-ticketing-create-dialog .cx-customer-ticket-form-dialog .cx-customer-ticket-form-container cx-file-upload",
+              "cx-customer-ticketing-create-dialog .cx-customer-ticket-form-dialog .cx-customer-ticket-form-container cx-file-upload button",
+              "cx-customer-ticketing-create-dialog .cx-customer-ticket-form-dialog .cx-customer-ticket-form-container cx-file-upload button:focus",
+              "cx-customer-ticketing-reopen-dialog .cx-customer-ticket-form-dialog .cx-customer-ticket-form-container .cx-customer-ticket-form-footer button:focus",
+              "cx-customer-ticketing-reopen-dialog .cx-customer-ticket-form-dialog .cx-customer-ticket-form-container cx-file-upload",
+              "cx-customer-ticketing-reopen-dialog .cx-customer-ticket-form-dialog .cx-customer-ticket-form-container cx-file-upload button",
+              "cx-customer-ticketing-reopen-dialog .cx-customer-ticket-form-dialog .cx-customer-ticket-form-container cx-file-upload button:focus"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "9b30c7685bb4573c8fa4fbc627abb419f6e98295"
+        ],
+        "rollout": {
+          "defaultOn": "221121.18",
+          "mandatory": "Q1 2027"
+        },
         "translations": {
           "tr": "Customer Ticketing dialog'undaki bazı butonlar arasında Tab ile geçilirken klavye focus'unun görünmemesi sorununu düzeltir."
         }
@@ -252,6 +308,14 @@
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "14de6aa67880c3ce24ec80a9a441217cff23ff3c"
+        ],
+        "rollout": {
+          "defaultOn": "221121.18",
+          "mandatory": "Q1 2027"
+        },
         "translations": {
           "tr": "Etkinleştirildiğinde, Order History sayfasındaki yinelenen Order History header sorununu giderir."
         }
@@ -300,6 +364,14 @@
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "b5ecee3ca8085147f2cdc3d55bce7b87e17e81be"
+        ],
+        "rollout": {
+          "defaultOn": "221121.9",
+          "mandatory": "221121.17"
+        },
         "translations": {
           "tr": "Configurator overview sayfasında, VPC modunda 'H' tuşuyla gezinirken grup başlıklarının heading olarak algılanmasını sağlar."
         }
@@ -330,6 +402,10 @@
                 "line": 124,
                 "code": "<ng-container *cxFeature=\"'!authorizationCodeFlowByDefault'\">\n  <cx-csagent-login-form\n    *ngIf=\"notCollapsed\"\n    (submitEvent)=\"loginCustomerSupportAgent($event)\"\n    [csAgentTokenLoading]=\"csAgentTokenLoading$ | async\"\n  ></cx-csagent-login-form>\n</ng-container>"
               }
+            ],
+            "components": [
+              "cx-asm-toggle-ui",
+              "cx-csagent-login-form"
             ]
           },
           {
@@ -359,9 +435,12 @@
             "selectors": [],
             "snippets": [
               {
-                "line": 136,
-                "code": "extraData?.active ? CartType.ACTIVE : CartType.NEW_CREATED"
+                "line": 164,
+                "code": "  this.featureConfigService.isEnabled('authorizationCodeFlowByDefault')\n) {\n  this.store.dispatch(\n    new CartActions.MergeCartAndIncrementProcessesCount({\n      userId,\n      cartId,\n      extraData,\n      tempCartId,\n    })\n  );\n}"
               }
+            ],
+            "members": [
+              "MultiCartService.mergeToCurrentCart"
             ]
           },
           {
@@ -374,9 +453,12 @@
             "selectors": [],
             "snippets": [
               {
-                "line": 60,
-                "code": "protected handleAnonymousUser(): boolean | UrlTree {\n  this.authRedirectService.saveCurrentNavigationUrl();\n  if (this.featureConfig.isEnabled('authorizationCodeFlowByDefault')) {\n    if (this.checkoutConfigService.isGuestCheckout()) {\n      this.windowRef.localStorage?.setItem(\n        IS_GUEST_USER_CHECKOUT_KEY,\n        'true'\n      );\n    }\n    return this.router.parseUrl(this.semanticPathService.get('login') ?? '');\n  } else if (this.checkoutConfigService.isGuestCheckout()) {\n    return this.router.createUrlTree(\n      [this.semanticPathService.get('login')],\n      { queryParams: { forced: true } }\n    );\n  } else {\n    return this.router.parseUrl(this.semanticPathService.get('login') ?? '');\n  }\n}"
+                "line": 62,
+                "code": "if (this.featureConfig.isEnabled('authorizationCodeFlowByDefault')) {\n  if (this.checkoutConfigService.isGuestCheckout()) {\n    this.windowRef.localStorage?.setItem(\n      IS_GUEST_USER_CHECKOUT_KEY,\n      'true'\n    );\n  }\n  return this.router.parseUrl(this.semanticPathService.get('login') ?? '');\n}"
               }
+            ],
+            "members": [
+              "CheckoutAuthGuard.handleAnonymousUser"
             ]
           },
           {
@@ -394,6 +476,9 @@
                 "line": 74,
                 "code": "  !this.featureConfigService.isEnabled('authorizationCodeFlowByDefault')\n) {\n  this.authRedirectService.setRedirectUrl(\n    this.routingService.getUrl({ cxRoute: 'home' })\n  );\n}"
               }
+            ],
+            "members": [
+              "OrderGuestRegisterFormComponent.submit"
             ]
           },
           {
@@ -409,6 +494,9 @@
                 "line": 175,
                 "code": "  this.featureConfigService.isEnabled('authorizationCodeFlowByDefault')\n) {\n  this.routingService.go({ cxRoute: 'login' });\n}"
               }
+            ],
+            "members": [
+              "UserRegistrationFormService.redirectToLogin"
             ]
           },
           {
@@ -424,6 +512,9 @@
                 "line": 78,
                 "code": "  this.featureConfigService.isEnabled('authorizationCodeFlowByDefault')\n) {\n  this.routingService.go({ cxRoute: 'login' });\n}"
               }
+            ],
+            "members": [
+              "RegisterVerificationTokenFormComponentService.redirectToLogin"
             ]
           },
           {
@@ -441,6 +532,9 @@
                 "line": 124,
                 "code": "this.featureConfigService.isEnabled('authorizationCodeFlowByDefault')\n  ? { cxRoute: 'register' }"
               }
+            ],
+            "members": [
+              "RegisterVerificationTokenFormComponent.ngOnInit"
             ]
           },
           {
@@ -456,6 +550,9 @@
                 "line": 32,
                 "code": "this.featureConfigService.isEnabled('authorizationCodeFlowByDefault') &&"
               }
+            ],
+            "members": [
+              "LoginAsGuestGuard.canActivate"
             ]
           },
           {
@@ -476,9 +573,14 @@
                 "code": "  this.featureConfigService.isEnabled('authorizationCodeFlowByDefault') &&\n  nativeForm\n) {\n  this.winRef.localStorage?.setItem(OAUTH_REDIRECT_FLOW_KEY, 'true');\n  nativeForm.submit();\n  this.busy$.next(true);\n}"
               },
               {
-                "line": 101,
-                "code": "tap(([_, isLoggedIn]) => this.onSuccess(isLoggedIn))"
+                "line": 109,
+                "code": "  !this.featureConfigService.isEnabled('authorizationCodeFlowByDefault')\n) {\n  return;\n}"
               }
+            ],
+            "members": [
+              "LoginFormComponentService.constructor",
+              "LoginFormComponentService.handleCustomLoginError",
+              "LoginFormComponentService.login"
             ]
           },
           {
@@ -515,6 +617,10 @@
                 "line": 70,
                 "code": "  this.featureConfigService.isEnabled('authorizationCodeFlowByDefault') &&\n  nativeForm\n) {\n  this.winRef.localStorage?.setItem(OAUTH_REDIRECT_FLOW_KEY, 'true');\n  nativeForm.submit();\n  this.busy$.next(true);\n}"
               }
+            ],
+            "members": [
+              "VerificationTokenFormComponentService.constructor",
+              "VerificationTokenFormComponentService.login"
             ]
           },
           {
@@ -549,6 +655,9 @@
                 "line": 135,
                 "code": "this.featureConfigService.isEnabled('authorizationCodeFlowByDefault')\n  ? { cxRoute: 'login' }"
               }
+            ],
+            "members": [
+              "VerificationTokenFormComponent.ngOnInit"
             ]
           },
           {
@@ -563,9 +672,12 @@
             ],
             "snippets": [
               {
-                "line": 242,
-                "code": "  this.anonymousConsentsConfig?.anonymousConsents?.registerConsent;\n\nif (requiredConsents && registerConsent) {\n  return requiredConsents.includes(registerConsent);\n}"
+                "line": 252,
+                "code": "if (this.featureConfigService.isEnabled('authorizationCodeFlowByDefault')) {\n  this.router.go({ cxRoute: 'login' });\n}"
               }
+            ],
+            "members": [
+              "RegisterComponent.onRegisterUserSuccess"
             ]
           },
           {
@@ -587,6 +699,10 @@
                 "line": 260,
                 "code": "if (this.featureConfigService.isEnabled('authorizationCodeFlowByDefault')) {\n  this.router.go({ cxRoute: 'login' });\n}"
               }
+            ],
+            "members": [
+              "RegistrationVerificationTokenFormComponent.ngOnInit",
+              "RegistrationVerificationTokenFormComponent.onRegisterUserSuccess"
             ]
           },
           {
@@ -599,9 +715,12 @@
             "selectors": [],
             "snippets": [
               {
-                "line": 50,
-                "code": "User"
+                "line": 55,
+                "code": "  !this.featureConfigService.isEnabled('authorizationCodeFlowByDefault')\n) {\n  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion\n  this.authService.loginWithCredentials(user.uid!, payload.password);\n}"
               }
+            ],
+            "members": [
+              "UserRegisterService.registerGuestCommand"
             ]
           },
           {
@@ -614,12 +733,82 @@
             "selectors": [],
             "snippets": [
               {
-                "line": 137,
-                "code": "}"
+                "line": 144,
+                "code": "  !this.featureConfigService.isEnabled('authorizationCodeFlowByDefault')\n) {\n  if (this.winRef.localStorage) {\n    this.winRef.localStorage?.setItem(OAUTH_REDIRECT_FLOW_KEY, 'true');\n  }\n}"
+              }
+            ],
+            "members": [
+              "OAuthLibWrapperService.initLoginFlow"
+            ]
+          }
+        ],
+        "references": [
+          {
+            "file": "projects/core/src/auth/user-auth/config/default-auth-config.ts",
+            "kind": "other",
+            "symbols": [],
+            "selectors": [],
+            "members": [
+              "defaultAuthConfigFactory",
+              "provideAuthorizationCodeFlowByDefault"
+            ],
+            "snippets": [
+              {
+                "line": 40,
+                "code": "const authorizationCodeFlowByDefault =\n  inject(FeatureToggles).authorizationCodeFlowByDefault;\nreturn {\n  provide: USE_AUTHORIZATION_CODE_FLOW_BY_DEFAULT,\n  useValue: authorizationCodeFlowByDefault ?? enable,\n}"
+              },
+              {
+                "line": 41,
+                "code": "  inject(FeatureToggles).authorizationCodeFlowByDefault;\nreturn {\n  provide: USE_AUTHORIZATION_CODE_FLOW_BY_DEFAULT,\n  useValue: authorizationCodeFlowByDefault ?? enable,\n}"
+              },
+              {
+                "line": 44,
+                "code": "useValue: authorizationCodeFlowByDefault ?? enable,"
+              }
+            ]
+          },
+          {
+            "file": "projects/core/src/auth/user-auth/facade/auth.service.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "AuthService"
+            ],
+            "selectors": [],
+            "members": [
+              "AuthService.refreshAuthConfig"
+            ],
+            "snippets": [
+              {
+                "line": 278,
+                "code": "  !!this.featureToggles.authorizationCodeFlowByDefault &&\n  this.isAsmEnabled()\n) {\n  this.oAuthLibWrapperService.changeAuthConfigClientId('asm_client');\n  this.updateIsUsingASMClient(true);\n}"
+              }
+            ]
+          },
+          {
+            "file": "projects/storefrontlib/cms-structure/routing/default-routing-config.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [],
+            "selectors": [],
+            "members": [],
+            "snippets": [
+              {
+                "line": 29,
+                "code": "featureToggles.authorizationCodeFlowByDefault ? 'sign-in' : 'login',"
+              },
+              {
+                "line": 96,
+                "code": "if (featureToggles.authorizationCodeFlowByDefault) {\n  (routingConfig.routing.routes as any)['loginForm'] = {\n    paths: ['login'],\n    protected: false,\n    authFlow: true,\n  };\n}"
               }
             ]
           }
         ],
+        "commits": [
+          "8c10677c243d3530080620a66f9bd7200a844381"
+        ],
+        "rollout": {
+          "defaultOn": "221121.9",
+          "mandatory": "Q3 2026"
+        },
         "translations": {
           "tr": "Etkinleştirildiğinde, varsayılan oAuth yapılandırmasını PKCE ile authorization code flow kullanacak şekilde ayarlar.\nBu, varsayılan yapılandırma olarak daha güvenli bir yetkilendirme şemasıyla sonuçlanır.\n\nNOT: Bu flag yalnızca Eylül 2025 güncellemesini veya daha yenisini çalıştıran bir CCv2 Authorization Server ile birlikte kullanıldığında etkinleştirilmelidir. CCv2 Authorization Server, bu sürümden itibaren public client'lar için yalnızca Authorization Code flow'u destekler."
         }
@@ -644,9 +833,42 @@
                 "line": 55,
                 "code": "const cdsLoginEventsToken = this.featureConfigService.isEnabled("
               }
+            ],
+            "members": [
+              "ProfileTagLifecycleService.loginSuccessful"
             ]
           }
         ],
+        "references": [
+          {
+            "file": "integration-libs/cds/src/profiletag/services/profile-tag-lifecycle.service.ts",
+            "kind": "other",
+            "symbols": [
+              "ProfileTagLifecycleService"
+            ],
+            "selectors": [],
+            "members": [
+              "ProfileTagLifecycleService.loginSuccessful"
+            ],
+            "snippets": [
+              {
+                "line": 55,
+                "code": "const cdsLoginEventsToken = this.featureConfigService.isEnabled("
+              },
+              {
+                "line": 58,
+                "code": "if (cdsLoginEventsToken) {\n  return this.loginEnvelopes$.pipe(\n    distinctUntilChanged((a, b) => a.timestamp === b.timestamp),\n    map(() => true)\n  );\n}"
+              }
+            ]
+          }
+        ],
+        "commits": [
+          "8c10677c243d3530080620a66f9bd7200a844381"
+        ],
+        "rollout": {
+          "defaultOn": "221121.9",
+          "mandatory": "221121.18"
+        },
         "translations": {
           "tr": "İzleme için ActionsSubject LOGIN stream'i yerine yeni LOGIN_EVENTS token'ının kullanılmasını sağlayan feature flag.\n\nEtkinleştirildiğinde, ActionsSubject LOGIN stream'i yerine yeni LOGIN_EVENTS token'ı kullanılır.\nBu, code flow authentication desteği için gereklidir. ActionsSubject LOGIN stream'i kullanılırsa,\nauth server'dan geri yönlendirildikten sonra login event'i yakalanmaz.\n\n`ProfileTagLifecycleService` içinde kullanılır"
         }
@@ -670,16 +892,27 @@
             "selectors": [],
             "snippets": [
               {
-                "line": 91,
-                "code": "// (see source code https://github.com/manfredsteyer/angular-oauth2-oidc/blob/d95d7da788e2c1390346c66de62dc31f10d2b852/projects/lib/src/oauth-service.ts#L1711),\n// that why we also need to check if we have access_token\nif (loginResult.result && token && !isEmulated && !isUsingASMClient) {\n  this.userIdService.setUserId(OCC_USER_ID_CURRENT);\n\n  if (\n    !this.featureConfigService.isEnabled(\n      'dispatchLoginActionOnlyWhenTokenReceived'\n    )\n  ) {\n    // When the feature flag is disabled, dispatch the login action even when the token\n    // is retrieved from storage (e.g., page refresh)\n    this.store.dispatch(new AuthActions.Login());\n  }\n  // We check if the token was received during the `tryLogin()` attempt.\n  // If so, we will redirect as we can deduce we are returning from the authentication server.\n  // Redirection should not be done in cases we get the token from storage (eg. refreshing the page).\n  // In this case we need to dispatch the login action to indicate that the user has just logged in.\n  if (loginResult.tokenReceived) {\n    if (\n      this.featureConfigService.isEnabled(\n        'dispatchLoginActionOnlyWhenTokenReceived'\n      )\n    ) {\n      this.store.dispatch(new AuthActions.Login());\n    }\n    this.authRedirectService.redirect();\n  }\n}"
+                "line": 97,
+                "code": "!this.featureConfigService.isEnabled("
               },
               {
-                "line": 94,
-                "code": "this.userIdService.setUserId(OCC_USER_ID_CURRENT);"
+                "line": 111,
+                "code": "this.featureConfigService.isEnabled("
               }
+            ],
+            "members": [
+              "AuthService.checkOAuthParamsInUrl"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "8c10677c243d3530080620a66f9bd7200a844381"
+        ],
+        "rollout": {
+          "defaultOn": "221121.9",
+          "mandatory": "221121.18"
+        },
         "translations": {
           "tr": "OAuth URL parametreleri kontrol edilirken Login action'ının ne zaman dispatch edileceğini kontrol eder.\n\n`true` olarak ayarlandığında, Login action'ı yalnızca `tokenReceived` true olduğunda, yani token mevcut `tryLogin()` denemesi sırasında alındığında dispatch edilen yeni davranış etkinleşir.\n\n`false` olarak ayarlandığında, `checkOAuthParamsInUrl()` sırasında başarılı olan tüm login senaryolarında, token'ın mevcut denemede alınmış olmasından veya storage'dan alınmış olmasından (ör. sayfa yenileme) bağımsız olarak Login action'ının dispatch edildiği eski davranış korunur."
         }
@@ -856,13 +1089,13 @@
       },
       {
         "entryPoint": "@spartacus/subscription-billing/root",
-        "name": "SubscriptionBillItem",
-        "kind": "interface"
+        "name": "SubscriptionBillingFacade",
+        "kind": "class"
       },
       {
         "entryPoint": "@spartacus/subscription-billing/root",
-        "name": "SubscriptionBillingFacade",
-        "kind": "class"
+        "name": "SubscriptionBillItem",
+        "kind": "interface"
       },
       {
         "entryPoint": "@spartacus/subscription-billing/root",
@@ -1992,5 +2225,292 @@
         "tr": "Spartacus sürümünü 221121.7.0-1 olarak güncelle - develop branch için backport"
       }
     }
-  ]
+  ],
+  "toggleCommits": [
+    {
+      "sha": "9b30c7685bb4573c8fa4fbc627abb419f6e98295",
+      "subject": "fix: Fix visual focus on customer ticketing dialog (#20965)",
+      "files": [
+        {
+          "file": "feature-libs/customer-ticketing/components/shared/customer-ticketing-dialog/customer-ticketing-dialog.component.ts",
+          "members": [
+            "CustomerTicketingDialogComponent.constructor"
+          ],
+          "diff": "@@ -6,7 +6,7 @@\n \n import { Directive, ElementRef, HostListener } from '@angular/core';\n import { FormControl, FormGroup, Validators } from '@angular/forms';\n-import { RoutingService } from '@spartacus/core';\n+import { RoutingService, useFeatureStyles } from '@spartacus/core';\n import {\n   CustomerTicketingConfig,\n   CustomerTicketingFacade,\n@@ -93,7 +93,9 @@ export abstract class CustomerTicketingDialogComponent {\n     protected filesFormValidators: FilesFormValidators,\n     protected customerTicketingFacade: CustomerTicketingFacade,\n     protected routingService: RoutingService\n-  ) {}\n+  ) {\n+    useFeatureStyles('a11yCustomerTicketingVisualFocusFix');\n+  }\n \n   protected buildForm(): void {\n     const form = new FormGroup({});"
+        },
+        {
+          "file": "feature-libs/customer-ticketing/styles/components/_customer-ticketing-dialog.scss",
+          "members": [],
+          "diff": "@@ -63,6 +63,13 @@\n         p {\n           margin-bottom: 0;\n         }\n+        @include forFeature('a11yCustomerTicketingVisualFocusFix') {\n+          button {\n+            &:focus {\n+              outline-width: 2px;\n+            }\n+          }\n+        }\n       }\n \n       .cx-customer-ticket-form-footer {\n@@ -81,6 +88,9 @@\n \n           &:focus {\n             @include visible-focus();\n+            @include forFeature('a11yCustomerTicketingVisualFocusFix') {\n+              outline-width: 2px;\n+            }\n           }\n         }\n       }"
+        }
+      ]
+    },
+    {
+      "sha": "8c10677c243d3530080620a66f9bd7200a844381",
+      "subject": "chore: Enable feature toggles for 2603 (CXSPA-12139) (#21157)",
+      "files": []
+    },
+    {
+      "sha": "02f75956419a916e5ba629537c656ee6fea6cd68",
+      "subject": "chore: (CXSPA-12138) - Remove a11ySelectImprovementsCustomerTicketingCreateSelectbox feature flag (#21160)",
+      "files": [
+        {
+          "file": "feature-libs/customer-ticketing/components/list/customer-ticketing-create/customer-ticketing-create-dialog/customer-ticketing-create-dialog.component.html",
+          "members": [],
+          "diff": "@@ -63,28 +63,7 @@\n             {{ 'createCustomerTicket.category' | cxTranslate }}\n             <cx-form-required-asterisks />\n           </span>\n-          <select\n-            *cxFeature=\"\n-              '!a11ySelectImprovementsCustomerTicketingCreateSelectbox'\n-            \"\n-            class=\"form-control\"\n-            formControlName=\"ticketCategory\"\n-          >\n-            <option value=\"\" disabled selected>\n-              {{ 'createCustomerTicket.selectCategory' | cxTranslate }}\n-            </option>\n-            <option\n-              *ngFor=\"let category of ticketCategories\"\n-              [ngValue]=\"category\"\n-              [selected]=\"category.id === selectedCategory?.id\"\n-            >\n-              {{ category.name }}\n-            </option>\n-          </select>\n           <ng-select\n-            *cxFeature=\"\n-              'a11ySelectImprovementsCustomerTicketingCreateSelectbox'\n-            \"\n             [inputAttrs]=\"{ required: 'true' }\"\n             class=\"ticket-category-select\"\n             id=\"ticket-category-select\"\n@@ -119,34 +98,7 @@\n             <span class=\"cx-customer-ticket-label label-content\">\n               {{ 'createCustomerTicket.associateTo' | cxTranslate }}\n             </span>\n-            <select\n-              *cxFeature=\"\n-                '!a11ySelectImprovementsCustomerTicketingCreateSelectbox'\n-              \"\n-              class=\"form-control\"\n-              formControlName=\"associatedTo\"\n-            >\n-              <option value=\"\" disabled selected>\n-                {{\n-                  'createCustomerTicket.optionallySelectAssociatedObject'\n-                    | cxTranslate\n-                }}\n-              </option>\n-              <option\n-                *ngFor=\"let associatedObject of ticketAssociatedObjects\"\n-                [ngValue]=\"associatedObject\"\n-                [selected]=\"\n-                  associatedObject.code === selectedAssociatedObject?.code\n-                \"\n-              >\n-                {{ associatedObject.type }}\n-                {{ associatedObject.code }}\n-              </option>\n-            </select>\n             <ng-select\n-              *cxFeature=\"\n-                'a11ySelectImprovementsCustomerTicketingCreateSelectbox'\n-              \"\n               [clearable]=\"false\"\n               [items]=\"ticketAssociatedObjects\"\n               [placeholder]=\""
+        },
+        {
+          "file": "feature-libs/customer-ticketing/components/list/customer-ticketing-create/customer-ticketing-create-dialog/customer-ticketing-create-dialog.component.ts",
+          "members": [
+            "CustomerTicketingCreateDialogComponent.featureService",
+            "CustomerTicketingCreateDialogComponent.ngOnInit"
+          ],
+          "diff": "@@ -18,8 +18,6 @@ import {\n   NgSelectComponent,\n } from '@ng-select/ng-select';\n import {\n-  FeatureConfigService,\n-  FeatureDirective,\n   GlobalMessageService,\n   GlobalMessageType,\n   HttpErrorModel,\n@@ -59,7 +57,6 @@ import { CustomerTicketingDialogComponent } from '../../../shared/customer-ticke\n     FormRequiredAsterisksComponent,\n     FormErrorsComponent,\n     NgIf,\n-    FeatureDirective,\n     NgFor,\n     NgSelectComponent,\n     NgSelectA11yDirective,\n@@ -106,8 +103,6 @@ export class CustomerTicketingCreateDialogComponent\n \n   protected translationService = inject(TranslationService);\n \n-  private featureService = inject(FeatureConfigService, { optional: true });\n-\n   protected getCreateTicketPayload(form: FormGroup): TicketStarter {\n     return {\n       message: form?.get('message')?.value,\n@@ -119,15 +114,8 @@ export class CustomerTicketingCreateDialogComponent\n \n   ngOnInit(): void {\n     this.buildForm();\n-\n-    if (\n-      this.featureService?.isEnabled(\n-        'a11ySelectImprovementsCustomerTicketingCreateSelectbox'\n-      )\n-    ) {\n-      this.focusConfig.trap = false;\n-      this.focusConfig.trapTabOnly = true;\n-    }\n+    this.focusConfig.trap = false;\n+    this.focusConfig.trapTabOnly = true;\n   }\n \n   protected buildForm(): void {"
+        }
+      ]
+    },
+    {
+      "sha": "f1c36c596e3ce4ab1ddd58bb91d5a645a83aeada",
+      "subject": "feat: (CXSPA-7459) - Organization table notification readout fix (#21158)",
+      "files": [
+        {
+          "file": "feature-libs/organization/administration/components/shared/message/notification/notification-message.component.html",
+          "members": [],
+          "diff": "@@ -1,6 +1,10 @@\n <div\n   class=\"inner\"\n-  [cxFocus]=\"{ autofocus: true, focusOnEscape: true }\"\n+  [cxFocus]=\"\n+    isA11yCardNotificationMessageFeatureEnabled\n+      ? {}\n+      : { autofocus: true, focusOnEscape: true }\n+  \"\n   (esc)=\"close()\"\n >\n   <cx-icon *ngIf=\"messageIcon\" [type]=\"messageIcon\"></cx-icon>"
+        },
+        {
+          "file": "feature-libs/organization/administration/components/shared/message/notification/notification-message.component.ts",
+          "members": [
+            "NotificationMessageComponent.featureConfigService",
+            "NotificationMessageComponent.isA11yCardNotificationMessageFeatureEnabled"
+          ],
+          "diff": "@@ -5,8 +5,8 @@\n  */\n \n import { NgIf } from '@angular/common';\n-import { ChangeDetectionStrategy, Component } from '@angular/core';\n-import { TranslatePipe } from '@spartacus/core';\n+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';\n+import { FeatureConfigService, TranslatePipe } from '@spartacus/core';\n import {\n   FocusDirective,\n   ICON_TYPE,\n@@ -22,4 +22,10 @@ import { BaseMessageComponent } from '../base-message.component';\n })\n export class NotificationMessageComponent extends BaseMessageComponent {\n   closeIcon = ICON_TYPE.CLOSE;\n+\n+  private featureConfigService = inject(FeatureConfigService);\n+\n+  get isA11yCardNotificationMessageFeatureEnabled(): boolean {\n+    return this.featureConfigService.isEnabled('a11yCardNotificationMessage');\n+  }\n }"
+        },
+        {
+          "file": "feature-libs/organization/administration/components/shared/table/cell.component.ts",
+          "members": [
+            "CellComponent.changeDetectorRef",
+            "CellComponent.destroyRef",
+            "CellComponent.featureConfigService",
+            "CellComponent.ngOnInit"
+          ],
+          "diff": "@@ -5,9 +5,17 @@\n  */\n \n import { NgIf, NgTemplateOutlet } from '@angular/common';\n-import { ChangeDetectionStrategy, Component } from '@angular/core';\n+import {\n+  ChangeDetectionStrategy,\n+  ChangeDetectorRef,\n+  Component,\n+  DestroyRef,\n+  inject,\n+  OnInit,\n+} from '@angular/core';\n+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';\n import { RouterLink } from '@angular/router';\n-import { UrlPipe } from '@spartacus/core';\n+import { FeatureConfigService, UrlPipe } from '@spartacus/core';\n import {\n   OutletContextData,\n   TableDataOutletContext,\n@@ -20,9 +28,24 @@ import {\n   changeDetection: ChangeDetectionStrategy.OnPush,\n   imports: [NgIf, RouterLink, NgTemplateOutlet, UrlPipe],\n })\n-export class CellComponent {\n+export class CellComponent implements OnInit {\n+  changeDetectorRef = inject(ChangeDetectorRef);\n+  private featureConfigService = inject(FeatureConfigService);\n+  private destroyRef = inject(DestroyRef);\n+\n   constructor(protected outlet: OutletContextData<TableDataOutletContext>) {}\n \n+  ngOnInit(): void {\n+    if (this.featureConfigService.isEnabled('a11yCardNotificationMessage')) {\n+      this.outlet.context$\n+        .pipe(takeUntilDestroyed(this.destroyRef))\n+        .subscribe((context) => {\n+          this.outlet.context = context;\n+          this.changeDetectorRef.markForCheck();\n+        });\n+    }\n+  }\n+\n   get tabIndex(): number {\n     return -1;\n   }"
+        },
+        {
+          "file": "feature-libs/organization/administration/components/unit/details/unit-details.component.html",
+          "members": [],
+          "diff": "@@ -1,7 +1,9 @@\n <cx-org-card\n   *ngIf=\"model$ | async as model\"\n   i18nRoot=\"orgUnit.details\"\n-  [cxFocus]=\"{ refreshFocus: model }\"\n+  [cxFocus]=\"\n+    isA11yCardNotificationMessageFeatureEnabled ? {} : { refreshFocus: model }\n+  \"\n   [showHint]=\"true\"\n >\n   <a"
+        },
+        {
+          "file": "feature-libs/organization/administration/components/unit/details/unit-details.component.ts",
+          "members": [
+            "UnitDetailsComponent.featureConfigService",
+            "UnitDetailsComponent.isA11yCardNotificationMessageFeatureEnabled"
+          ],
+          "diff": "@@ -5,9 +5,14 @@\n  */\n \n import { AsyncPipe, NgIf } from '@angular/common';\n-import { ChangeDetectionStrategy, Component } from '@angular/core';\n+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';\n import { RouterLink, RouterLinkActive } from '@angular/router';\n-import { B2BUnit, TranslatePipe, UrlPipe } from '@spartacus/core';\n+import {\n+  B2BUnit,\n+  FeatureConfigService,\n+  TranslatePipe,\n+  UrlPipe,\n+} from '@spartacus/core';\n import { OrgUnitService } from '@spartacus/organization/administration/core';\n import { FocusDirective } from '@spartacus/storefront';\n import { Observable } from 'rxjs';\n@@ -45,6 +50,12 @@ import { UnitItemService } from '../services/unit-item.service';\n   ],\n })\n export class UnitDetailsComponent {\n+  private featureConfigService = inject(FeatureConfigService);\n+\n+  get isA11yCardNotificationMessageFeatureEnabled(): boolean {\n+    return this.featureConfigService.isEnabled('a11yCardNotificationMessage');\n+  }\n+\n   model$: Observable<B2BUnit> = this.itemService.key$.pipe(\n     switchMap((code) => this.itemService.load(code)),\n     startWith({})"
+        },
+        {
+          "file": "projects/storefrontlib/shared/components/table/table.component.ts",
+          "members": [
+            "TableComponent.featureConfigService",
+            "TableComponent.trackData"
+          ],
+          "diff": "@@ -10,6 +10,7 @@ import {\n   Component,\n   EventEmitter,\n   HostBinding,\n+  inject,\n   Input,\n   isDevMode,\n   Output,\n@@ -23,6 +24,7 @@ import {\n   TableOptions,\n   TableStructure,\n } from './table.model';\n+import { FeatureConfigService } from '@spartacus/core';\n \n /**\n  * The table component provides a generic table DOM structure, with 3 layout types:\n@@ -60,6 +62,8 @@ export class TableComponent<T> {\n   @HostBinding('class.vertical') verticalLayout: boolean;\n   @HostBinding('class.vertical-stacked') verticalStackedLayout: boolean;\n \n+  private featureConfigService = inject(FeatureConfigService);\n+\n   private _structure: TableStructure;\n   @Input() set structure(structure: TableStructure) {\n     this._structure = structure;\n@@ -155,9 +159,12 @@ export class TableComponent<T> {\n     );\n   }\n \n-  trackData(_i: number, item: any): any {\n+  trackData = (_i: number, item: any): any => {\n+    if (this.featureConfigService.isEnabled('a11yCardNotificationMessage')) {\n+      return item?.uid ?? JSON.stringify(item);\n+    }\n     return JSON.stringify(item);\n-  }\n+  };\n \n   /**\n    * Generates the table type into the UI in devMode, so that developers"
+        }
+      ]
+    },
+    {
+      "sha": "b5ecee3ca8085147f2cdc3d55bce7b87e17e81be",
+      "subject": "chore: Enable a11y toggle for 2603 (CXSPA-12155) (#21165)",
+      "files": []
+    },
+    {
+      "sha": "14de6aa67880c3ce24ec80a9a441217cff23ff3c",
+      "subject": "fix: remove redundant heading for orders in order history (#21154)",
+      "files": [
+        {
+          "file": "feature-libs/order/components/order-history/order-history.component.html",
+          "members": [],
+          "diff": "@@ -17,9 +17,12 @@\n         <h4 *ngIf=\"type.replenishmentOrder\">\n           {{ 'orderHistory.replenishmentHistory' | cxTranslate }}\n         </h4>\n-        <h2 *ngIf=\"!type.replenishmentOrder\">\n-          {{ 'orderHistory.orderHistory' | cxTranslate }}\n-        </h2>\n+\n+        <ng-container *cxFeature=\"'!removeDuplicatedOrderHistoryHeader'\">\n+          <h2 *ngIf=\"!type.replenishmentOrder\">\n+            {{ 'orderHistory.orderHistory' | cxTranslate }}\n+          </h2>\n+        </ng-container>\n       </div>\n \n       <!-- BODY -->"
+        },
+        {
+          "file": "feature-libs/order/components/order-history/order-history.component.ts",
+          "members": [],
+          "diff": "@@ -14,6 +14,7 @@ import {\n   TranslationService,\n   UrlPipe,\n   isNotUndefined,\n+  FeatureDirective,\n } from '@spartacus/core';\n import {\n   Order,\n@@ -46,8 +47,7 @@ import { filter, map, take, tap } from 'rxjs/operators';\n     UrlPipe,\n     TranslatePipe,\n     CxDatePipe,\n-\n-    CxDatePipe,\n+    FeatureDirective,\n   ],\n })\n export class OrderHistoryComponent implements OnDestroy {"
+        }
+      ]
+    }
+  ],
+  "i18n": {
+    "added": [
+      {
+        "chunk": "configurator",
+        "key": "configurator.conflict.nonNavigableConflict",
+        "texts": {
+          "en": "There is an issue with this selection"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionBillingDetails.billId",
+        "texts": {
+          "en": "Subscription Bill ID: "
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionBillingDetails.billingPeriod",
+        "texts": {
+          "en": "Billing Period: {{ startDate }} - {{ endDate }}"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionBillingDetails.subscriptionProduct",
+        "texts": {
+          "en": "Subscription Product"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionBillingDetails.totalAmount",
+        "texts": {
+          "en": "Total Amount: "
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionBillsList.filterFromDateLabel",
+        "texts": {
+          "en": "From"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionBillsList.filterToDateLabel",
+        "texts": {
+          "en": "To"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionBillsList.noSubscriptionBills",
+        "texts": {
+          "en": "You don't have any subscription bills"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionBillsList.reset",
+        "texts": {
+          "en": "Reset"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionBillsList.sortLabel",
+        "texts": {
+          "en": "Sort By"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionBillsList.submit",
+        "texts": {
+          "en": "Submit"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionBillsList.tableHeaderColDate",
+        "texts": {
+          "en": "Billing Date"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionBillsList.tableHeaderColId",
+        "texts": {
+          "en": "Bill ID/Number"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionBillsList.tableHeaderColSubscriptions",
+        "texts": {
+          "en": "Subscriptions"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionBillsList.tableHeaderColTotal",
+        "texts": {
+          "en": "Total"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionBillsList.tableViewBillCol",
+        "texts": {
+          "en": "View Bill"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionBillsList.title",
+        "texts": {
+          "en": "All Subscriptions Bills"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionPageBreadcrumb.home",
+        "texts": {
+          "en": "Home"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionPageBreadcrumb.subscriptionBills",
+        "texts": {
+          "en": "Subscription Bills"
+        }
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionPageBreadcrumb.subscriptions",
+        "texts": {
+          "en": "Subscriptions"
+        }
+      }
+    ],
+    "removed": [],
+    "changed": [
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionDetails.info",
+        "before": "Subscription/Contract Details:",
+        "after": "Subscription Product Details:"
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionDetails.orderCode",
+        "before": "Order Code:",
+        "after": "Order Number:"
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionDetails.reSubscribe",
+        "before": "Re-subscribe",
+        "after": "Renew Subscription"
+      },
+      {
+        "chunk": "subscription-billing",
+        "key": "subscriptionList.status",
+        "before": "Status: {{ value }}",
+        "after": "Status: "
+      }
+    ],
+    "translated": []
+  }
 }

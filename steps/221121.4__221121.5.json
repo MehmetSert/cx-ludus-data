@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatorVersion": 2,
+  "generatorVersion": 3,
   "from": {
     "release": "221121.4",
     "gitTag": "221121.4.0"
@@ -61,6 +61,14 @@
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "3d8efb5fcc315c9257ace99122cffa0c1c7563b7"
+        ],
+        "rollout": {
+          "defaultOn": "2211.41",
+          "mandatory": "221121.5"
+        },
         "translations": {
           "tr": "`UnitFormComponent` içinde, `ApprovalProcess` select'i için 'clearable' değerini false olarak ayarla."
         }
@@ -84,9 +92,12 @@
             ],
             "snippets": [
               {
-                "line": 100,
-                "code": "protected multiCartService: MultiCartFacade,"
+                "line": 104,
+                "code": "useFeatureStyles('a11yCroppedFocusRing');"
               }
+            ],
+            "members": [
+              "CartItemListComponent.constructor"
             ]
           },
           {
@@ -101,9 +112,12 @@
             ],
             "snippets": [
               {
-                "line": 47,
-                "code": "constructor(protected cartItemContextSource: CartItemContextSource) {\n  useFeatureStyles('a11yCroppedFocusRing');\n}"
+                "line": 48,
+                "code": "useFeatureStyles('a11yCroppedFocusRing');"
               }
+            ],
+            "members": [
+              "CartItemComponent.constructor"
             ]
           },
           {
@@ -138,6 +152,10 @@
                 "line": 56,
                 "code": "@include forFeature('a11yCroppedFocusRing') {\n  a {\n    height: fit-content;\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-cart-item-list .cx-table-item-container",
+              "cx-cart-item-list .cx-table-item-container a"
             ]
           },
           {
@@ -159,6 +177,9 @@
                 "line": 99,
                 "code": "@include forFeature('a11yCroppedFocusRing') {\n  height: unset;\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-cart-item .cx-image-container a"
             ]
           },
           {
@@ -176,6 +197,9 @@
                 "line": 47,
                 "code": "useFeatureStyles('a11yCroppedFocusRing');"
               }
+            ],
+            "members": [
+              "ListComponent.constructor"
             ]
           },
           {
@@ -228,6 +252,9 @@
                 "line": 23,
                 "code": "useFeatureStyles('a11yCroppedFocusRing');"
               }
+            ],
+            "members": [
+              "FutureStockAccordionComponent.constructor"
             ]
           },
           {
@@ -249,6 +276,9 @@
                 "line": 10,
                 "code": "@include forFeature('a11yCroppedFocusRing') {\n  padding-inline-start: unset;\n  margin-inline-start: 1.25rem;\n  padding: 0;\n\n  @include media-breakpoint-down(md) {\n    margin-inline-start: 0;\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-future-stock-accordion .cx-future-stock-accordion-header"
             ]
           },
           {
@@ -266,6 +296,9 @@
                 "line": 174,
                 "code": "useFeatureStyles('a11yCroppedFocusRing');"
               }
+            ],
+            "members": [
+              "ProductImageZoomViewComponent.constructor"
             ]
           },
           {
@@ -284,9 +317,13 @@
             ],
             "snippets": [
               {
-                "line": 27,
-                "code": "font-size: 2rem;"
+                "line": 33,
+                "code": "@include forFeature('a11yCroppedFocusRing') {\n  outline-offset: -2px;\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-product-image-zoom-view .cx-main-image-group .cx-navigate-image .btn:active",
+              "cx-product-image-zoom-view .cx-main-image-group .cx-navigate-image .btn:focus"
             ]
           },
           {
@@ -304,6 +341,9 @@
                 "line": 53,
                 "code": "useFeatureStyles('a11yCroppedFocusRing');"
               }
+            ],
+            "members": [
+              "QuoteConfirmDialogComponent.constructor"
             ]
           },
           {
@@ -321,6 +361,9 @@
                 "line": 25,
                 "code": "@include forFeature('a11yCroppedFocusRing') {\n  padding: 0;\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-quote-confirm-dialog .cx-modal-container .cx-modal-content .cx-dialog-header button.close"
             ]
           },
           {
@@ -340,6 +383,9 @@
                 "line": 7,
                 "code": "@include forFeature('a11yCroppedFocusRing') {\n  width: fit-content;\n}"
               }
+            ],
+            "styleScopes": [
+              ".cx-toggle"
             ]
           },
           {
@@ -357,6 +403,9 @@
                 "line": 65,
                 "code": "useFeatureStyles('a11yCroppedFocusRing');"
               }
+            ],
+            "members": [
+              "TabComponent.constructor"
             ]
           },
           {
@@ -371,9 +420,12 @@
             ],
             "snippets": [
               {
-                "line": 96,
-                "code": "  protected windowRef: WindowRef,\n  protected filesFormValidators: FilesFormValidators\n) {\n  useFeatureStyles('a11yCroppedFocusRing');\n}"
+                "line": 99,
+                "code": "useFeatureStyles('a11yCroppedFocusRing');"
               }
+            ],
+            "members": [
+              "MessagingComponent.constructor"
             ]
           },
           {
@@ -388,13 +440,19 @@
             ],
             "snippets": [
               {
-                "line": 43,
-                "code": "  z-index: 1;\n}\n@include forFeature('a11yCroppedFocusRing') {\n  &:focus-visible {\n    outline-offset: -3px;\n  }\n}"
+                "line": 45,
+                "code": "@include forFeature('a11yCroppedFocusRing') {\n  &:focus-visible {\n    outline-offset: -3px;\n  }\n}"
               },
               {
-                "line": 87,
-                "code": "border-inline-start: var(--cx-tab-panel-border-start);"
+                "line": 91,
+                "code": "@include forFeature('a11yCroppedFocusRing') {\n  &.active:focus-visible {\n    outline-offset: -3px;\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-tab .tab-btn",
+              "cx-tab .tab-btn:focus-visible",
+              "cx-tab div[role='tabpanel']",
+              "cx-tab div[role='tabpanel'].active:focus-visible"
             ]
           },
           {
@@ -422,9 +480,21 @@
                 "line": 75,
                 "code": "@include forFeature('a11yCroppedFocusRing') {\n  outline-offset: -2px;\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-messaging .container .cx-messages .cx-message-left-align-text",
+              "cx-messaging .container .cx-messages .cx-message-right-align-text"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "3d8efb5fcc315c9257ace99122cffa0c1c7563b7"
+        ],
+        "rollout": {
+          "defaultOn": "2211.41",
+          "mandatory": "221121.5"
+        },
         "translations": {
           "tr": "UI'daki focus ring'in çeşitli yerlerde kırpılması sorunlarını düzeltir.\nEtkileşimli elementlerdeki focus ring'in tüm kenarları görünür olmalı ve fazladan padding içermemelidir.\nŞu bileşenlerin stillerini etkiler: 'CartItemListComponent, CartItemComponent, ListComponent, FutureStockAccordionComponent,\nQuoteConfirmDialogComponent, MessagingComponent, TabComponent, ProductImageZoomViewComponent"
         }
@@ -454,6 +524,9 @@
                 "line": 56,
                 "code": "useFeatureStyles('a11yDifferentiateFocusedAndSelected');"
               }
+            ],
+            "members": [
+              "ConfiguratorAttributeMultiSelectionImageComponent.constructor"
             ]
           },
           {
@@ -471,6 +544,9 @@
                 "line": 52,
                 "code": "useFeatureStyles('a11yDifferentiateFocusedAndSelected');"
               }
+            ],
+            "members": [
+              "ConfiguratorAttributeSingleSelectionImageComponent.constructor"
             ]
           },
           {
@@ -492,6 +568,9 @@
                 "line": 80,
                 "code": "@include forFeature('a11yDifferentiateFocusedAndSelected') {\n  border-style: dotted;\n}"
               }
+            ],
+            "styleScopes": [
+              ".cx-row .cx-configurator-select .cx-label-container label .cx-img-selected"
             ]
           },
           {
@@ -509,6 +588,9 @@
                 "line": 51,
                 "code": "useFeatureStyles('a11yDifferentiateFocusedAndSelected');"
               }
+            ],
+            "members": [
+              "ProductImagesComponent.constructor"
             ]
           },
           {
@@ -526,12 +608,25 @@
             ],
             "snippets": [
               {
-                "line": 87,
-                "code": "border: 2px solid var(--cx-color-light);"
+                "line": 94,
+                "code": "@include forFeature('a11yDifferentiateFocusedAndSelected') {\n  &.is-active {\n    border-style: dotted;\n  }\n  &:hover {\n    border-style: dashed;\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-product-images .thumbs cx-media",
+              "cx-product-images .thumbs cx-media.is-active",
+              "cx-product-images .thumbs cx-media:hover"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "3d8efb5fcc315c9257ace99122cffa0c1c7563b7"
+        ],
+        "rollout": {
+          "defaultOn": "2211.41",
+          "mandatory": "221121.5"
+        },
         "translations": {
           "tr": "Listedeki focus almış ve seçili öğeleri birbirinden ayırt etmeye yardımcı olmak için ek stil ekler."
         }
@@ -558,6 +653,9 @@
                 "line": 110,
                 "code": "useFeatureStyles('a11yImproveButtonsInCardComponent');"
               }
+            ],
+            "members": [
+              "MyPreferredStoreComponent.constructor"
             ]
           },
           {
@@ -575,6 +673,9 @@
                 "line": 182,
                 "code": "  this.featureConfigService.isEnabled('a11yImproveButtonsInCardComponent')\n) {\n  this.cmsService\n    .getCurrentPage()\n    .pipe(\n      filter<Page>(Boolean),\n      take(1),\n      map((cmsPage) => {\n        this.isStoreFinder = cmsPage.pageId === 'storefinderPage';\n        return this.isStoreFinder;\n      })\n    )\n    .subscribe((isStoreFinder) => {\n      const link = this.storeFinderService.getDirections(\n        this.pointOfService\n      );\n      if (isStoreFinder) {\n        this.content = {\n          header: '',\n          actions: [\n            {\n              link,\n              name: GET_DIRECTIONS_NAME,\n              ariaLabel: GET_DIRECTIONS_ARIA,\n              target: '_blank',\n            },\n          ],\n        };\n      } else {\n        this.content = {\n          ...this.defaultContent,\n          actions: [\n            {\n              link,\n              name: GET_DIRECTIONS_NAME,\n              ariaLabel: GET_DIRECTIONS_ARIA,\n              target: '_blank',\n            },\n            { event: 'edit', name: CHANGE_STORE_NAME },\n          ],\n…"
               }
+            ],
+            "members": [
+              "MyPreferredStoreComponent.ngOnInit"
             ]
           },
           {
@@ -595,6 +696,13 @@
                 "line": 72,
                 "code": "@include forFeature('a11yImproveButtonsInCardComponent') {\n  cx-card {\n    .cx-card-actions:not(:disabled):not(.disabled):active {\n      background-color: unset;\n    }\n    .cx-card-actions {\n      border: unset;\n      margin-top: 0;\n    }\n    .cx-card-actions > *:only-child {\n      flex: 1;\n    }\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-my-preferred-store .container",
+              "cx-my-preferred-store .container cx-card",
+              "cx-my-preferred-store .container cx-card .cx-card-actions",
+              "cx-my-preferred-store .container cx-card .cx-card-actions > *:only-child",
+              "cx-my-preferred-store .container cx-card .cx-card-actions:not(:disabled):not(.disabled):active"
             ]
           },
           {
@@ -631,6 +739,9 @@
                 "line": 167,
                 "code": "<ng-container *cxFeature=\"'a11yImproveButtonsInCardComponent'\">\n  <div *ngFor=\"let action of content.actions\" class=\"cx-card-action-item\">\n    <div>\n      <ng-container\n        *ngIf=\"isCardAction(action)\"\n        [ngSwitch]=\"action.event\"\n      >\n        <button\n          type=\"button\"\n          *ngSwitchCase=\"'delete'\"\n          class=\"btn btn-tertiary\"\n          (click)=\"delete()\"\n        >\n          {{ action.name }}\n        </button>\n        <button\n          type=\"button\"\n          *ngSwitchCase=\"'default'\"\n          class=\"btn btn-tertiary\"\n          (click)=\"setDefault()\"\n        >\n          {{ action.name }}\n        </button>\n        <button\n          type=\"button\"\n          *ngSwitchCase=\"'send'\"\n          class=\"btn btn-tertiary\"\n          (click)=\"send()\"\n          [attr.aria-describedby]=\"\n            index >= 0 && content.header && !editMode\n              ? 'content-header-' + index\n              : null\n          \"\n        >\n          {{ action.name }}\n        </button>\n        <button\n          type=\"button\"\n          *ngSwitchCase=\"'edit'\"\n          class=\"btn btn-tertiary\"\n…"
               }
+            ],
+            "components": [
+              "cx-generic-link"
             ]
           },
           {
@@ -651,9 +762,25 @@
                 "line": 76,
                 "code": "@include forFeature('a11yImproveButtonsInCardComponent') {\n  .cx-card-actions {\n    gap: 16px;\n    cx-generic-link {\n      font-weight: var(--cx-font-weight-semi);\n      color: var(--cx-color-primary);\n      text-decoration: underline;\n    }\n    .cx-card-action-item {\n      display: flex;\n      align-items: center;\n    }\n\n    button.btn-tertiary {\n      color: var(--cx-color-primary);\n      border-radius: var(--cx-buttons-border-radius);\n      padding: 12px 16px;\n      border-style: none;\n      &:focus {\n        @include visible-focus();\n      }\n    }\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-card",
+              "cx-card .cx-card-actions",
+              "cx-card .cx-card-actions .cx-card-action-item",
+              "cx-card .cx-card-actions button.btn-tertiary",
+              "cx-card .cx-card-actions button.btn-tertiary:focus",
+              "cx-card .cx-card-actions cx-generic-link"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "3d8efb5fcc315c9257ace99122cffa0c1c7563b7"
+        ],
+        "rollout": {
+          "defaultOn": "2211.41",
+          "mandatory": "221121.5"
+        },
         "translations": {
           "tr": "`Card component` içinde, button class'larını .btn .btn-tertiary ile değiştir ve normal <a> tag'i yerine cx-generic link kullan.\n`My Preferred Store component` içinde, `Get directions` action'ını CardAction yerine CardLinkAction olarak değiştir,\nböylece Card component bunu bir link olarak algılar;"
         }
@@ -675,12 +802,23 @@
             "selectors": [],
             "snippets": [
               {
-                "line": 67,
-                "code": "onKeyUp(event: KeyboardEvent) {\n  if (\n    !this.featureConfigService?.isEnabled('a11yNgSelectCloseDropdownOnEscape')\n  ) {\n    return;\n  }\n  const jawsEscapeCode = 'AltLeft';\n  if (event.code === jawsEscapeCode) {\n    this.selectComponent.close();\n  }\n}"
+                "line": 69,
+                "code": "  !this.featureConfigService?.isEnabled('a11yNgSelectCloseDropdownOnEscape')\n) {\n  return;\n}"
               }
+            ],
+            "members": [
+              "NgSelectA11yDirective.onKeyUp"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "3d8efb5fcc315c9257ace99122cffa0c1c7563b7"
+        ],
+        "rollout": {
+          "defaultOn": "2211.41",
+          "mandatory": "221121.5"
+        },
         "translations": {
           "tr": "'NgSelectA11yDirective', screen reader kullanıldığında Escape tuşuna basıldığında seçenekleri içeren dropdown'ı kapatır."
         }
@@ -707,9 +845,12 @@
             ],
             "snippets": [
               {
-                "line": 16,
-                "code": "padding-inline-start: 20px;"
+                "line": 20,
+                "code": "@include forFeature('a11yPdpGridArrangement') {\n  grid-row: unset;\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-page-slot.Summary cx-configure-product"
             ]
           },
           {
@@ -724,9 +865,12 @@
             ],
             "snippets": [
               {
-                "line": 88,
-                "code": "  protected keyboardFocusService: KeyboardFocusService\n) {\n  useFeatureStyles('a11yPdpGridArrangement');\n  useFeatureStyles('a11yKeyboardFocusInSearchBox');\n  useFeatureStyles('a11yNgSelectLayering');\n  useFeatureStyles('topProgressBarUseTransformAnimation');\n  useFeatureStyles('unifiedDefaultHeaderSlotsAcrossBreakpoints');\n}"
+                "line": 90,
+                "code": "useFeatureStyles('a11yPdpGridArrangement');"
               }
+            ],
+            "members": [
+              "StorefrontComponent.constructor"
             ]
           },
           {
@@ -764,9 +908,22 @@
                 "line": 54,
                 "code": "@include forFeature('a11yPdpGridArrangement') {\n  grid-row: unset;\n}"
               }
+            ],
+            "styleScopes": [
+              "ProductDetailsPageTemplate cx-page-slot.Summary",
+              "ProductDetailsPageTemplate cx-page-slot.Summary cx-add-to-cart",
+              "ProductDetailsPageTemplate cx-page-slot.Summary cx-product-images"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "3d8efb5fcc315c9257ace99122cffa0c1c7563b7"
+        ],
+        "rollout": {
+          "defaultOn": "2211.41",
+          "mandatory": "221121.5"
+        },
         "translations": {
           "tr": "Daha iyi erişilebilirlik için Product Details Page'deki grid düzenini değiştirir:\n- add to cart butonu son adım olmalı\n- future stock accordion, add to cart butonunun önüne taşındı"
         }
@@ -791,6 +948,9 @@
                 "line": 51,
                 "code": "if (this.featureConfigService.isEnabled('a11yPostRegisterSuccessMessage')) {\n  this.globalMessageService.add(\n    { key: 'register.postRegisterSuccessMessage' },\n    GlobalMessageType.MSG_TYPE_CONFIRMATION\n  );\n}"
               }
+            ],
+            "members": [
+              "RegisterComponentService.postRegisterMessage"
             ]
           },
           {
@@ -806,9 +966,20 @@
                 "line": 41,
                 "code": "if (this.featureConfigService.isEnabled('a11yPostRegisterSuccessMessage')) {\n  this.displayMessage(\n    'register.postRegisterSuccessMessage',\n    globalMsgShowTime\n  );\n}"
               }
+            ],
+            "members": [
+              "RegistrationVerificationTokenFormComponentService.postRegisterMessage"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "3d8efb5fcc315c9257ace99122cffa0c1c7563b7"
+        ],
+        "rollout": {
+          "defaultOn": "2211.41",
+          "mandatory": "221121.5"
+        },
         "translations": {
           "tr": "Başarılı kayıt mesajını daha bilgilendirici olacak şekilde değiştirir. `RegisterComponentService`'i etkiler."
         }
@@ -838,6 +1009,14 @@
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "3d8efb5fcc315c9257ace99122cffa0c1c7563b7"
+        ],
+        "rollout": {
+          "defaultOn": "2211.41",
+          "mandatory": "221121.5"
+        },
         "translations": {
           "tr": "Sonuçlar `SearchBoxComponent`'e sağlandıktan sonra yardımcı mesajın tekrarlanmasını kaldırır."
         }
@@ -861,13 +1040,17 @@
             ],
             "snippets": [
               {
-                "line": 266,
-                "code": "this.translationService.translate('checkoutAddress.shipToThisAddress'),"
+                "line": 267,
+                "code": "this.featureConfigService?.isEnabled("
               },
               {
-                "line": 376,
-                "code": "protected getCardRole(isCardSelected: boolean): 'button' | 'application' {\n  const isButtonRole =\n    this.featureConfigService?.isEnabled(\n      'a11ySelectLabelWithContextForSelectedAddrOrPayment'\n    ) && !isCardSelected;\n  return isButtonRole ? 'button' : 'application';\n}"
+                "line": 378,
+                "code": "this.featureConfigService?.isEnabled("
               }
+            ],
+            "members": [
+              "CheckoutDeliveryAddressComponent.createCards",
+              "CheckoutDeliveryAddressComponent.getCardRole"
             ]
           },
           {
@@ -886,12 +1069,24 @@
                 "code": "this.featureConfigService?.isEnabled("
               },
               {
-                "line": 337,
-                "code": "const isSelected = selected?.id === paymentDetails.id;"
+                "line": 339,
+                "code": "this.featureConfigService?.isEnabled("
               }
+            ],
+            "members": [
+              "CheckoutPaymentMethodComponent.createCard",
+              "CheckoutPaymentMethodComponent.ngOnInit"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "3d8efb5fcc315c9257ace99122cffa0c1c7563b7"
+        ],
+        "rollout": {
+          "defaultOn": "2211.41",
+          "mandatory": "221121.5"
+        },
         "translations": {
           "tr": "Etkinleştirilirse, \"Checkout Shipping address/Payment\" görünümleri, kullanıcının seçili Address veya Payment bölgesinde olduğunu belirten bağlamı içeren, a11y açısından daha uygun bir seçili label'a sahip olur."
         }
@@ -918,6 +1113,9 @@
                 "line": 44,
                 "code": "useFeatureStyles('a11yShowDownArrowOnFocusedSelectMenu');"
               }
+            ],
+            "members": [
+              "SiteContextSelectorComponent.constructor"
             ]
           },
           {
@@ -935,6 +1133,9 @@
                 "line": 32,
                 "code": "useFeatureStyles('a11yShowDownArrowOnFocusedSelectMenu');"
               }
+            ],
+            "members": [
+              "SiteThemeSwitcherComponent.constructor"
             ]
           },
           {
@@ -957,9 +1158,13 @@
                 "code": "@include forFeature('a11yShowDownArrowOnFocusedSelectMenu') {\n  z-index: unset;\n}"
               },
               {
-                "line": 61,
-                "code": "// TODO: Remove all background-color once the feature flag is removed.\n@include forFeature('a11yShowDownArrowOnFocusedSelectMenu') {\n  background-color: unset;\n}"
+                "line": 62,
+                "code": "@include forFeature('a11yShowDownArrowOnFocusedSelectMenu') {\n  background-color: unset;\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-site-context-selector cx-icon",
+              "cx-site-context-selector select"
             ]
           },
           {
@@ -982,12 +1187,24 @@
                 "code": "@include forFeature('a11yShowDownArrowOnFocusedSelectMenu') {\n  z-index: unset;\n}"
               },
               {
-                "line": 61,
-                "code": "// TODO: Remove all background-color once the feature flag is removed.\n@include forFeature('a11yShowDownArrowOnFocusedSelectMenu') {\n  background-color: unset;\n}"
+                "line": 62,
+                "code": "@include forFeature('a11yShowDownArrowOnFocusedSelectMenu') {\n  background-color: unset;\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-site-theme-switcher cx-icon",
+              "cx-site-theme-switcher select"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "3d8efb5fcc315c9257ace99122cffa0c1c7563b7"
+        ],
+        "rollout": {
+          "defaultOn": "2211.41",
+          "mandatory": "221121.5"
+        },
         "translations": {
           "tr": "`SiteContextSelectComponent` ve `SiteThemeSwitcherComponent` içinde, caret stilini güncelle."
         }
@@ -1056,6 +1273,9 @@
                 "line": 120,
                 "code": "useFeatureStyles('a11yShowLabelOfSelect');"
               }
+            ],
+            "members": [
+              "CustomerListComponent.constructor"
             ]
           },
           {
@@ -1091,6 +1311,12 @@
                 "line": 46,
                 "code": "@include forFeature('a11yShowLabelOfSelect') {\n  align-items: flex-end;\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-customer-list .cx-dialog-sub-header .cx-header-actions",
+              "cx-customer-list .cx-dialog-sub-header .cx-header-actions .search-wrapper",
+              "cx-customer-list .cx-dialog-sub-header .cx-header-select",
+              "cx-customer-list .cx-dialog-sub-header .cx-header-select .cx-total"
             ]
           },
           {
@@ -1112,6 +1338,9 @@
                 "line": 212,
                 "code": "<label\n  *cxFeature=\"'a11yShowLabelOfSelect'\"\n  class=\"cx-order-approval-form-group-label\"\n>\n  <span>{{ 'orderHistory.sortBy' | cxTranslate }}</span>\n  <cx-sorting\n    [sortOptions]=\"orderApprovals.sorts\"\n    [sortLabels]=\"sortLabels$ | async\"\n    (sortListEvent)=\"changeSortCode($event)\"\n    [selectedOption]=\"orderApprovals.pagination.sort\"\n    [ariaLabel]=\"'orderHistory.sortOrders' | cxTranslate\"\n    ariaControls=\"order-approval-table\"\n  ></cx-sorting>\n</label>"
               }
+            ],
+            "components": [
+              "cx-sorting"
             ]
           },
           {
@@ -1133,6 +1362,9 @@
                 "line": 225,
                 "code": "<label *cxFeature=\"'!a11yShowLabelOfSelect'\">\n  <span class=\"cx-visually-hidden\">{{\n    'orderHistory.sortOrders' | cxTranslate\n  }}</span>\n  <cx-sorting\n    [sortOptions]=\"orderApprovals.sorts\"\n    [sortLabels]=\"sortLabels$ | async\"\n    (sortListEvent)=\"changeSortCode($event)\"\n    [selectedOption]=\"orderApprovals.pagination.sort\"\n    [ariaLabel]=\"'orderHistory.sortOrders' | cxTranslate\"\n    ariaControls=\"order-approval-table\"\n  ></cx-sorting>\n</label>"
               }
+            ],
+            "components": [
+              "cx-sorting"
             ]
           },
           {
@@ -1150,6 +1382,9 @@
                 "line": 32,
                 "code": "useFeatureStyles('a11yShowLabelOfSelect');"
               }
+            ],
+            "members": [
+              "OrderApprovalListComponent.constructor"
             ]
           },
           {
@@ -1169,9 +1404,23 @@
                 "line": 112,
                 "code": "@include forFeature('a11yShowLabelOfSelect') {\n  .cx-order-approval-form-group-label {\n    padding: 0;\n    margin-bottom: 0;\n    align-items: center;\n    display: flex;\n\n    span {\n      margin-inline-end: 0.5rem;\n      flex: none;\n    }\n\n    cx-sorting {\n      width: 100%;\n    }\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-order-approval-list .cx-order-approval-form-group",
+              "cx-order-approval-list .cx-order-approval-form-group .cx-order-approval-form-group-label",
+              "cx-order-approval-list .cx-order-approval-form-group .cx-order-approval-form-group-label cx-sorting",
+              "cx-order-approval-list .cx-order-approval-form-group .cx-order-approval-form-group-label span"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "3d8efb5fcc315c9257ace99122cffa0c1c7563b7"
+        ],
+        "rollout": {
+          "defaultOn": "2211.41",
+          "mandatory": "221121.5"
+        },
         "translations": {
           "tr": "`CustomerListComponent`, `OrderApprovalListComponent` ve `ConfiguratorAttriuteSingleSelectionBundleDropdownComponent` içinde, her `ng-select` ve `select` için label'ı göster."
         }
@@ -1198,6 +1447,9 @@
                 "line": 34,
                 "code": "useFeatureStyles('a11yStoreInStockIconContrast');"
               }
+            ],
+            "members": [
+              "StoreComponent.constructor"
             ]
           },
           {
@@ -1217,9 +1469,20 @@
                 "line": 51,
                 "code": "@include forFeature('a11yStoreInStockIconContrast') {\n  opacity: var(--cx-opacity, 1);\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-store .cx-store-stock-icon"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "3d8efb5fcc315c9257ace99122cffa0c1c7563b7"
+        ],
+        "rollout": {
+          "defaultOn": "2211.41",
+          "mandatory": "221121.5"
+        },
         "translations": {
           "tr": "`StoreComponent` `In Stock` ikonu varsayılan theme içinde kabul edilebilir bir kontrast oranına sahiptir"
         }
@@ -1266,6 +1529,14 @@
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "3d8efb5fcc315c9257ace99122cffa0c1c7563b7"
+        ],
+        "rollout": {
+          "defaultOn": "2211.41",
+          "mandatory": "221121.5"
+        },
         "translations": {
           "tr": "`true` olarak ayarlandığında, `StoreFinderListItemComponent` içindeki harici bağlantılar\ndaha çok bağlantı gibi görünen bir stil alır; button yerine link gibi görünür. İçeriği yeni bir pencerede açtıkları için bu semantik olarak daha doğrudur\nve daha sezgisel bir kullanıcı deneyimi sağlar."
         }
@@ -1394,6 +1665,9 @@
                 "line": 66,
                 "code": "<thead\n  *cxFeature=\"'!a11yTableHeaderReadout'\"\n  class=\"cx-account-summary-document-thead-mobile\"\n>\n  <th scope=\"col\">\n    {{ 'orgAccountSummary.document.id' | cxTranslate }}\n  </th>\n  <th scope=\"col\">\n    {{ 'orgAccountSummary.document.type' | cxTranslate }}\n  </th>\n  <th scope=\"col\">\n    {{ 'orgAccountSummary.document.date' | cxTranslate }}\n  </th>\n  <th scope=\"col\">\n    {{ 'orgAccountSummary.document.dueDate' | cxTranslate }}\n  </th>\n  <th scope=\"col\">\n    {{ 'orgAccountSummary.document.originalAmount' | cxTranslate }}\n  </th>\n  <th scope=\"col\">\n    {{ 'orgAccountSummary.document.openAmount' | cxTranslate }}\n  </th>\n  <th scope=\"col\">\n    {{ 'orgAccountSummary.document.status' | cxTranslate }}\n  </th>\n  <th scope=\"col\">\n    <cx-icon\n      [type]=\"ICON_TYPE.DOWNLOAD\"\n      class=\"cx-account-summary-document-attachment-icon\"\n      title=\"{{\n        'orgAccountSummary.document.attachment' | cxTranslate\n      }}\"\n    ></cx-icon>\n  </th>\n</thead>"
               }
+            ],
+            "components": [
+              "cx-icon"
             ]
           },
           {
@@ -1411,6 +1685,9 @@
                 "line": 101,
                 "code": "<thead\n  *cxFeature=\"'a11yTableHeaderReadout'\"\n  class=\"cx-account-summary-document-thead-mobile\"\n>\n  <tr>\n    <th scope=\"col\">\n      {{ 'orgAccountSummary.document.id' | cxTranslate }}\n    </th>\n    <th scope=\"col\">\n      {{ 'orgAccountSummary.document.type' | cxTranslate }}\n    </th>\n    <th scope=\"col\">\n      {{ 'orgAccountSummary.document.date' | cxTranslate }}\n    </th>\n    <th scope=\"col\">\n      {{ 'orgAccountSummary.document.dueDate' | cxTranslate }}\n    </th>\n    <th scope=\"col\">\n      {{ 'orgAccountSummary.document.originalAmount' | cxTranslate }}\n    </th>\n    <th scope=\"col\">\n      {{ 'orgAccountSummary.document.openAmount' | cxTranslate }}\n    </th>\n    <th scope=\"col\">\n      {{ 'orgAccountSummary.document.status' | cxTranslate }}\n    </th>\n    <th scope=\"col\">\n      <cx-icon\n        [type]=\"ICON_TYPE.DOWNLOAD\"\n        class=\"cx-account-summary-document-attachment-icon\"\n        title=\"{{\n          'orgAccountSummary.document.attachment' | cxTranslate\n        }}\"\n      ></cx-icon>\n    </th>\n  </tr>\n</thead>"
               }
+            ],
+            "components": [
+              "cx-icon"
             ]
           },
           {
@@ -1462,6 +1739,9 @@
                 "line": 23,
                 "code": "useFeatureStyles('a11yTableHeaderReadout');"
               }
+            ],
+            "members": [
+              "OrderDetailPermissionResultsComponent.constructor"
             ]
           },
           {
@@ -1513,6 +1793,10 @@
                 "line": 36,
                 "code": "@include forFeature('a11yTableHeaderReadout') {\n  background-color: unset;\n\n  th {\n    background-color: var(--cx-color-dark);\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-order-detail-permission-results .cx-approval-table .cx-approval-thead-mobile",
+              "cx-order-detail-permission-results .cx-approval-table .cx-approval-thead-mobile th"
             ]
           },
           {
@@ -1564,6 +1848,9 @@
                 "line": 58,
                 "code": "<thead\n  *cxFeature=\"'!a11yTableHeaderReadout'\"\n  class=\"cx-invoices-list-thead-mobile\"\n>\n  <th scope=\"col\">\n    {{ 'pdfInvoices.invoicesTable.invoiceId' | cxTranslate }}\n  </th>\n  <th scope=\"col\">\n    {{ 'pdfInvoices.invoicesTable.createdAt' | cxTranslate }}\n  </th>\n  <th scope=\"col\">\n    {{ 'pdfInvoices.invoicesTable.netAmount' | cxTranslate }}\n  </th>\n  <th scope=\"col\">\n    {{ 'pdfInvoices.invoicesTable.totalAmount' | cxTranslate }}\n  </th>\n  <th scope=\"col\">\n    <cx-icon\n      [type]=\"ICON_TYPE.DOWNLOAD\"\n      class=\"cx-invoices-list-attachment-icon\"\n      title=\"{{\n        'pdfInvoices.invoicesTable.attachment' | cxTranslate\n      }}\"\n    ></cx-icon>\n  </th>\n</thead>"
               }
+            ],
+            "components": [
+              "cx-icon"
             ]
           },
           {
@@ -1581,6 +1868,9 @@
                 "line": 84,
                 "code": "<thead\n  *cxFeature=\"'a11yTableHeaderReadout'\"\n  class=\"cx-invoices-list-thead-mobile\"\n>\n  <tr>\n    <th scope=\"col\">\n      {{ 'pdfInvoices.invoicesTable.invoiceId' | cxTranslate }}\n    </th>\n    <th scope=\"col\">\n      {{ 'pdfInvoices.invoicesTable.createdAt' | cxTranslate }}\n    </th>\n    <th scope=\"col\">\n      {{ 'pdfInvoices.invoicesTable.netAmount' | cxTranslate }}\n    </th>\n    <th scope=\"col\">\n      {{ 'pdfInvoices.invoicesTable.totalAmount' | cxTranslate }}\n    </th>\n    <th scope=\"col\">\n      <cx-icon\n        [type]=\"ICON_TYPE.DOWNLOAD\"\n        class=\"cx-invoices-list-attachment-icon\"\n        title=\"{{\n          'pdfInvoices.invoicesTable.attachment' | cxTranslate\n        }}\"\n      ></cx-icon>\n    </th>\n  </tr>\n</thead>"
               }
+            ],
+            "components": [
+              "cx-icon"
             ]
           },
           {
@@ -1618,6 +1908,14 @@
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "3d8efb5fcc315c9257ace99122cffa0c1c7563b7"
+        ],
+        "rollout": {
+          "defaultOn": "2211.41",
+          "mandatory": "221121.5"
+        },
         "translations": {
           "tr": "Tablo sütun başlığının screen reader'lar tarafından doğru şekilde okunmasını sağlar.\nŞu component'lerdeki tabloları etkiler: SavedCartListComponent, ReplenishmentOrderHistoryComponent, OrderReturnRequestListComponent,\nAccountSummaryDocumentComponent, OrderDetailPermissionResultsComponent, OrderApprovalListComponent, UnitLevelOrderHistoryComponent,\nInvoicesListComponent, MyInterestsComponent"
         }
@@ -1647,6 +1945,9 @@
                 "line": 31,
                 "code": "useFeatureStyles('a11yTextSpacingAdjustments');"
               }
+            ],
+            "members": [
+              "CSAgentLoginFormComponent.constructor"
             ]
           },
           {
@@ -1666,6 +1967,9 @@
                 "line": 42,
                 "code": "@include forFeature('a11yTextSpacingAdjustments') {\n  max-width: unset;\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-csagent-login-form form .label-content"
             ]
           },
           {
@@ -1683,6 +1987,9 @@
                 "line": 46,
                 "code": "useFeatureStyles('a11yTextSpacingAdjustments');"
               }
+            ],
+            "members": [
+              "ListComponent.constructor"
             ]
           },
           {
@@ -1715,16 +2022,28 @@
             ],
             "snippets": [
               {
-                "line": 123,
-                "code": "// let's make status column smaller\n&.active {\n  width: 100px;\n}"
+                "line": 130,
+                "code": "@include forFeature('a11yTextSpacingAdjustments') {\n  cx-split-view[active-view='1'] {\n    .uid .text {\n      margin-inline-end: 1rem;\n      white-space: initial;\n      word-break: break-word;\n    }\n  }\n}"
               },
               {
-                "line": 289,
-                "code": "padding-inline-start: calc((var(--cx-depth-level) + 3) * 20px);\nbutton.tree-item-toggle {\n  margin-inline-start: -40px;\n  min-width: 40px;\n  color: var(--cx-color-primary);\n}"
+                "line": 303,
+                "code": "@include forFeature('a11yTextSpacingAdjustments') {\n  .content-wrapper ng-select.ng-select {\n    .ng-value-label {\n      overflow: initial;\n      white-space: normal;\n    }\n    div.ng-select-container {\n      max-height: unset;\n      line-height: 1.3;\n    }\n  }\n  .ng-dropdown-panel .ng-dropdown-panel-items .ng-option {\n    white-space: normal;\n    overflow: initial;\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "organizationList cx-split-view[active-view='1']",
+              "organizationList cx-split-view[active-view='1'] .uid .text"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "3d8efb5fcc315c9257ace99122cffa0c1c7563b7"
+        ],
+        "rollout": {
+          "defaultOn": "2211.41",
+          "mandatory": "221121.5"
+        },
         "translations": {
           "tr": "a11y metin aralığı etkinken oluşan metin biçimlendirme sorunlarını düzeltir."
         }
@@ -1751,6 +2070,9 @@
                 "line": 34,
                 "code": "useFeatureStyles('a11yTruncatedTextStoreFinder');"
               }
+            ],
+            "members": [
+              "StoreFinderListItemComponent.constructor"
             ]
           },
           {
@@ -1770,9 +2092,20 @@
                 "line": 33,
                 "code": "@include forFeature('a11yTruncatedTextStoreFinder') {\n  white-space: unset;\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-store-finder-list-item .cx-store-address-street"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "3d8efb5fcc315c9257ace99122cffa0c1c7563b7"
+        ],
+        "rollout": {
+          "defaultOn": "2211.41",
+          "mandatory": "221121.5"
+        },
         "translations": {
           "tr": "`StoreFinderListItemComponent` sokak adı artık kısaltılmaz"
         }
@@ -1794,12 +2127,23 @@
             "selectors": [],
             "snippets": [
               {
-                "line": 56,
-                "code": "this.document &&"
+                "line": 58,
+                "code": "  this.featureService?.isEnabled('a11yWrapReviewOrderInSection')\n) {\n  this.translationService\n    .translate('checkoutReview.reviewOrder')\n    .pipe(take(1))\n    .subscribe((label) => {\n      // We need to delay for a tick to let components render before querying.\n      requestAnimationFrame(() => {\n        // Wrap checkout components with section selector.\n        const els = this.CHECKOUT_COMPONENTS.map((selector) =>\n          this.document?.querySelector(selector)\n        );\n        const parent = els[0]?.parentNode;\n        const section = this.document?.createElement('section');\n        if (parent && section) {\n          section.ariaLabel = label;\n          parent.replaceChild(section, <Node>els[0]);\n          els.forEach((el: any) => section.appendChild(el));\n        }\n      });\n    });\n}"
               }
+            ],
+            "members": [
+              "CheckoutReviewOverviewComponent.wrapComponentsWithSectionEl"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "3d8efb5fcc315c9257ace99122cffa0c1c7563b7"
+        ],
+        "rollout": {
+          "defaultOn": "2211.41",
+          "mandatory": "221121.5"
+        },
         "translations": {
           "tr": "Checkout'un \"Review Order\" sayfasında aria-label uygulanmış bir section öğesi oluşturur.\nComponent'leri bu section öğesinin alt öğeleri olacak şekilde taşır."
         }
@@ -1826,6 +2170,9 @@
                 "line": 31,
                 "code": "protected passwordValidators = this.featureConfigService.isEnabled("
               }
+            ],
+            "members": [
+              "OrderGuestRegisterFormComponent.passwordValidators"
             ]
           },
           {
@@ -1843,6 +2190,9 @@
                 "line": 44,
                 "code": "protected passwordValidators = this.featureConfigService.isEnabled("
               }
+            ],
+            "members": [
+              "RegisterComponent.passwordValidators"
             ]
           },
           {
@@ -1860,6 +2210,9 @@
                 "line": 71,
                 "code": "if (this.featureConfigService.isEnabled('enableSecurePasswordValidation')) {\n  return CustomFormValidators.securePasswordValidators;\n}"
               }
+            ],
+            "members": [
+              "RegistrationVerificationTokenFormComponent.getPasswordValidators"
             ]
           },
           {
@@ -1875,6 +2228,9 @@
                 "line": 31,
                 "code": "protected passwordValidators = this.featureConfigService.isEnabled("
               }
+            ],
+            "members": [
+              "ResetPasswordComponentService.passwordValidators"
             ]
           },
           {
@@ -1890,9 +2246,20 @@
                 "line": 34,
                 "code": "protected passwordValidators = this.featureConfigService.isEnabled("
               }
+            ],
+            "members": [
+              "UpdatePasswordComponentService.passwordValidators"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "77deacefded51dfefeef0c5523fc31bf506073fa"
+        ],
+        "rollout": {
+          "defaultOn": "2211.41",
+          "mandatory": "221121.5"
+        },
         "translations": {
           "tr": "Etkinleştirildiğinde daha güçlü parola doğrulama kuralları uygular:\nbüyük harf, küçük harf,\nözel karakter ve rakam karışımı zorunluluğu, ardışık karakter olmaması\nve ayrıca minimum ile maksimum parola uzunluğu zorunluluğu."
         }
@@ -1904,6 +2271,39 @@
         "defaultValue": true,
         "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/4828aae62cf64a2bbba021b96e02dd03.html",
         "usages": [],
+        "references": [
+          {
+            "file": "feature-libs/cart/base/components/add-to-cart/add-to-cart.component.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "AddToCartComponent"
+            ],
+            "selectors": [
+              "cx-add-to-cart"
+            ],
+            "members": [
+              "AddToCartComponent.ngOnInit",
+              "AddToCartComponent.setStockInfo"
+            ],
+            "snippets": [
+              {
+                "line": 141,
+                "code": "} else if (this.featureToggles.showRealTimeStockInPDP) {\n  product$ = this.currentProductService.getProduct([\n    ProductScope.UNIT,\n    ProductScope.DETAILS,\n  ]);\n}"
+              },
+              {
+                "line": 175,
+                "code": "  this.featureToggles.showRealTimeStockInPDP &&\n  product.sapUnit?.sapCode\n) {\n  this.productAvailabilityService\n    .getRealTimeStock(this.productCode, product.sapUnit?.sapCode)\n    .pipe(take(1))\n    .subscribe(({ quantity, status }) => {\n      this.maxQuantity = Number(quantity);\n      this.hasStock = Boolean(status && status !== 'OUT_OF_STOCK');\n      this.cd.markForCheck();\n    });\n}"
+              }
+            ]
+          }
+        ],
+        "commits": [
+          "1be50934b3cabf285e455f0c6907a2c4e665f98d"
+        ],
+        "rollout": {
+          "defaultOn": "2211.41",
+          "mandatory": "221121.5"
+        },
         "translations": {
           "tr": "PDP sayfasında gerçek zamanlı stok gösterimini etkinleştirir.\n`true` olarak ayarlandığında kullanıcı PDP'de gerçek zamanlı stoğu görebilir"
         }
@@ -1932,9 +2332,20 @@
                 "line": 51,
                 "code": "this.featureConfigService.isEnabled("
               }
+            ],
+            "members": [
+              "BadRequestHandler.handleBadPassword"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "d1a9b07de2814067c93246f5d2defa64df1b31ca"
+        ],
+        "rollout": {
+          "defaultOn": "221121.13",
+          "mandatory": "Q4 2026"
+        },
         "translations": {
           "tr": "Etkinleştirildiğinde, \"Password expired\" hata mesajını Spartacus i18n kullanarak kullanıcının seçtiği dile çevirir."
         }
@@ -1958,12 +2369,23 @@
             "selectors": [],
             "snippets": [
               {
-                "line": 110,
-                "code": "if ("
+                "line": 112,
+                "code": "  this.featureConfigService.isEnabled('a11yNgSelectAriaControls')\n) {\n  // Delay execution to come after the ng-select's own 'aria-controls' logic\n  setTimeout(() => {\n    this.renderer.setAttribute(\n      inputCombobox,\n      'aria-controls',\n      ariaControls\n    );\n  });\n}"
               }
+            ],
+            "members": [
+              "NgSelectA11yDirective.ngAfterViewInit"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "ba27aa44d49d59cb67a42877558567633d55cfaf"
+        ],
+        "rollout": {
+          "defaultOn": "221121.5",
+          "mandatory": "221121.13"
+        },
         "translations": {
           "tr": "İsteğe bağlı `aria-controls` attribute'u NgSelect implementasyonunda geçersiz kılınacaktır.\nGüncellenen kütüphane, buton ile dropdown arasındaki ilişkiyi belirtmek için `aria-controls` attribute'unu kullanır.\nBu değişiklik, tercih edilirse yine de özel bir id kullanabilmemizi sağlar."
         }
@@ -1975,6 +2397,36 @@
         "defaultValue": true,
         "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/5538fae3282f4b4592674b96703f8cd7.html",
         "usages": [],
+        "references": [
+          {
+            "file": "feature-libs/product-configurator/rulebased/components/attribute/header/configurator-attribute-header.component.html",
+            "kind": "other",
+            "symbols": [
+              "ConfiguratorAttributeHeaderComponent"
+            ],
+            "selectors": [
+              "cx-configurator-attribute-header"
+            ],
+            "members": [],
+            "snippets": [
+              {
+                "line": 5,
+                "code": "<ng-container *ngIf=\"!config.features?.enableReadDomainValuesOnDemand\">\n  <label\n    id=\"{{ createAttributeUiKey('label', attribute.name) }}\"\n    [class.cx-required-error]=\"showRequiredMessageForDomainAttribute$ | async\"\n    [attr.aria-label]=\"\n      !attribute.required\n        ? ('configurator.a11y.attribute'\n          | cxTranslate: { attribute: attribute.label })\n        : ('configurator.a11y.requiredAttribute'\n          | cxTranslate: { param: attribute.label })\n    \"\n    ><span\n      [class.cx-required-icon]=\"attribute.required\"\n      [attr.aria-describedby]=\"createAttributeUiKey('label', attribute.name)\"\n      >{{ getLabel(expMode, attribute.label, attribute.name) }}</span\n    ></label\n  >\n</ng-container>"
+              },
+              {
+                "line": 23,
+                "code": "<ng-container *ngIf=\"config.features?.enableReadDomainValuesOnDemand\">\n  <div class=\"cx-header-label-container\">\n    <label\n      id=\"{{ createAttributeUiKey('label', attribute.name) }}\"\n      [class.cx-required-error]=\"showRequiredMessageForDomainAttribute$ | async\"\n      [attr.aria-label]=\"\n        !attribute.required\n          ? ('configurator.a11y.attribute'\n            | cxTranslate: { attribute: attribute.label })\n          : ('configurator.a11y.requiredAttribute'\n            | cxTranslate: { param: attribute.label })\n      \"\n      ><span\n        [class.cx-required-icon]=\"attribute.required\"\n        [attr.aria-describedby]=\"createAttributeUiKey('label', attribute.name)\"\n        >{{ getLabel(expMode, attribute.label, attribute.name) }}</span\n      ></label\n    >\n\n    <cx-configurator-show-options\n      *ngIf=\"attribute.domainOnDemand\"\n      [attributeComponentContext]=\"attributeComponentContext\"\n    ></cx-configurator-show-options>\n  </div>\n</ng-container>"
+              }
+            ]
+          }
+        ],
+        "commits": [
+          "ba27aa44d49d59cb67a42877558567633d55cfaf"
+        ],
+        "rollout": {
+          "defaultOn": "221121.5",
+          "mandatory": "221121.13"
+        },
         "translations": {
           "tr": "Etkinleştirildiğinde, `ConfiguratorAttributeHeaderComponent` component'i attribute adının altında bir `ConfiguratorShowOptionsComponent` component'i görüntüler.\n`ConfiguratorShowOptionsComponent` component'i, back-end domain değerlerinin henüz mevcut olmadığını bildirdiğinde, `Show Options` düğmesine tıklanarak domain değerlerinin talep üzerine yüklenmesine olanak tanır."
         }
@@ -3553,5 +4005,209 @@
         "tr": "my-account-v2 e2e testlerini iyileştir"
       }
     }
-  ]
+  ],
+  "toggleCommits": [
+    {
+      "sha": "d1a9b07de2814067c93246f5d2defa64df1b31ca",
+      "subject": "feat: add i18n support for password expired errors (#20768)",
+      "files": [
+        {
+          "file": "projects/core/src/global-message/http-interceptors/handlers/bad-request/bad-request.handler.ts",
+          "members": [
+            "BadRequestHandler.featureConfigService",
+            "BadRequestHandler.handleBadPassword"
+          ],
+          "diff": "@@ -5,13 +5,14 @@\n  */\n \n import { HttpErrorResponse, HttpRequest } from '@angular/common/http';\n-import { Injectable } from '@angular/core';\n+import { inject, Injectable } from '@angular/core';\n import { ErrorModel } from '../../../../model/misc.model';\n import { Priority } from '../../../../util/applicable';\n import { GlobalMessageType } from '../../../models/global-message.model';\n import { HttpResponseStatus } from '../../../models/response-status.model';\n import { HttpErrorHandler } from '../http-error.handler';\n import { Translatable } from '../../../../i18n/translatable';\n+import { FeatureConfigService } from '../../../../features-config/services/feature-config.service';\n \n const OAUTH_ENDPOINT = '/authorizationserver/oauth/token';\n \n@@ -20,6 +21,7 @@ const OAUTH_ENDPOINT = '/authorizationserver/oauth/token';\n })\n export class BadRequestHandler extends HttpErrorHandler {\n   responseStatus = HttpResponseStatus.BAD_REQUEST;\n+  private featureConfigService = inject(FeatureConfigService);\n \n   handleError(request: HttpRequest<any>, response: HttpErrorResponse): void {\n     this.handleBadPassword(request, response);\n@@ -39,13 +41,28 @@ export class BadRequestHandler extends HttpErrorHandler {\n       response.error?.error === 'invalid_grant' &&\n       request.body?.get('grant_type') === 'password'\n     ) {\n+      let key = this.getErrorTranslationKey(response.error?.error_description);\n+      const translationPrefix = `httpHandlers.badRequest`;\n+      const params: Translatable['params'] = {\n+        errorMessage:\n+          response.error.error_description || response.message || '',\n+      };\n+      if (\n+        this.featureConfigService.isEnabled(\n+          'enablePasswordExpiredErrorTranslation'\n+        )\n+      ) {\n+        const isPasswordExpiredError = key.startsWith(\n+          `${translationPrefix}.password_expired_for_the_user`\n+        );\n+        if (isPasswordExpiredError) {\n+          key = `${translationPrefix}.password_expired`;\n+        }\n+      }\n       this.globalMessageService.add(\n         {\n-          key: this.getErrorTranslationKey(response.error?.error_description),\n-          params: {\n-            errorMessage:\n-              response.error.error_description || response.message || '',\n-          },\n+          key,\n+          params,\n         },\n         GlobalMessageType.MSG_TYPE_ERROR\n       );"
+        }
+      ]
+    },
+    {
+      "sha": "ba27aa44d49d59cb67a42877558567633d55cfaf",
+      "subject": "chore: enable toggles for December release (CXSPA-11460) (#20868)",
+      "files": []
+    },
+    {
+      "sha": "77deacefded51dfefeef0c5523fc31bf506073fa",
+      "subject": "feat: remove enableSecurePasswordValidation toggle (#20867)",
+      "files": [
+        {
+          "file": "feature-libs/order/components/order-confirmation/order-guest-register-form/order-guest-register-form.component.ts",
+          "members": [
+            "OrderGuestRegisterFormComponent.passwordValidators"
+          ],
+          "diff": "@@ -27,15 +27,7 @@ import { Subscription } from 'rxjs';\n })\n export class OrderGuestRegisterFormComponent implements OnDestroy {\n   private featureConfigService = inject(FeatureConfigService);\n-\n-  protected passwordValidators = this.featureConfigService.isEnabled(\n-    'enableSecurePasswordValidation'\n-  )\n-    ? CustomFormValidators.securePasswordValidators\n-    : [\n-        ...CustomFormValidators.passwordValidators,\n-        CustomFormValidators.noConsecutiveCharacters,\n-      ];\n+  protected passwordValidators = CustomFormValidators.securePasswordValidators;\n \n   @Input() guid: string;\n   @Input() email: string;"
+        },
+        {
+          "file": "feature-libs/user/profile/components/register/register.component.ts",
+          "members": [
+            "RegisterComponent.passwordValidators"
+          ],
+          "diff": "@@ -40,15 +40,7 @@ import { RegisterComponentService } from './register-component.service';\n export class RegisterComponent implements OnInit, OnDestroy {\n   // CXSPA-10916: Remove service with toggle\n   private featureConfigService = inject(FeatureConfigService);\n-\n-  protected passwordValidators = this.featureConfigService.isEnabled(\n-    'enableSecurePasswordValidation'\n-  )\n-    ? CustomFormValidators.securePasswordValidators\n-    : [\n-        ...CustomFormValidators.passwordValidators,\n-        CustomFormValidators.noConsecutiveCharacters,\n-      ];\n+  protected passwordValidators = CustomFormValidators.securePasswordValidators;\n \n   titles$: Observable<Title[]>;"
+        },
+        {
+          "file": "feature-libs/user/profile/components/registration-verification-token-form/verify-register-verification-token-form.component.ts",
+          "members": [
+            "RegistrationVerificationTokenFormComponent.getPasswordValidators"
+          ],
+          "diff": "@@ -68,14 +68,7 @@ export class RegistrationVerificationTokenFormComponent implements OnInit {\n   protected passwordValidators = this.getPasswordValidators();\n \n   getPasswordValidators(): any {\n-    if (this.featureConfigService.isEnabled('enableSecurePasswordValidation')) {\n-      return CustomFormValidators.securePasswordValidators;\n-    } else {\n-      return [\n-        ...CustomFormValidators.passwordValidators,\n-        CustomFormValidators.noConsecutiveCharacters,\n-      ];\n-    }\n+    return CustomFormValidators.securePasswordValidators;\n   }\n \n   protected cdr: ChangeDetectorRef = inject(ChangeDetectorRef);"
+        },
+        {
+          "file": "feature-libs/user/profile/components/reset-password/reset-password-component.service.ts",
+          "members": [
+            "ResetPasswordComponentService.featureConfigService",
+            "ResetPasswordComponentService.passwordValidators"
+          ],
+          "diff": "@@ -4,14 +4,13 @@\n  * SPDX-License-Identifier: Apache-2.0\n  */\n \n-import { inject, Injectable } from '@angular/core';\n+import { Injectable } from '@angular/core';\n import {\n   UntypedFormControl,\n   UntypedFormGroup,\n   Validators,\n } from '@angular/forms';\n import {\n-  FeatureConfigService,\n   GlobalMessageService,\n   GlobalMessageType,\n   HttpErrorModel,\n@@ -25,17 +24,7 @@ import { map, tap } from 'rxjs/operators';\n \n @Injectable()\n export class ResetPasswordComponentService {\n-  // CXSPA-10916: Remove service with toggle\n-  private featureConfigService = inject(FeatureConfigService);\n-\n-  protected passwordValidators = this.featureConfigService.isEnabled(\n-    'enableSecurePasswordValidation'\n-  )\n-    ? CustomFormValidators.securePasswordValidators\n-    : [\n-        ...CustomFormValidators.passwordValidators,\n-        CustomFormValidators.noConsecutiveCharacters,\n-      ];\n+  protected passwordValidators = CustomFormValidators.securePasswordValidators;\n \n   constructor(\n     protected userPasswordService: UserPasswordFacade,"
+        },
+        {
+          "file": "feature-libs/user/profile/components/update-password/update-password-component.service.ts",
+          "members": [
+            "UpdatePasswordComponentService.featureConfigService",
+            "UpdatePasswordComponentService.passwordValidators"
+          ],
+          "diff": "@@ -14,7 +14,6 @@ import {\n import {\n   AuthRedirectService,\n   AuthService,\n-  FeatureConfigService,\n   GlobalMessageService,\n   GlobalMessageType,\n   HttpErrorModel,\n@@ -28,17 +27,7 @@ import { USE_MY_ACCOUNT_V2_PASSWORD } from './use-my-account-v2-password';\n \n @Injectable()\n export class UpdatePasswordComponentService {\n-  // CXSPA-10916: Remove service with toggle\n-  private featureConfigService = inject(FeatureConfigService);\n-\n-  protected passwordValidators = this.featureConfigService.isEnabled(\n-    'enableSecurePasswordValidation'\n-  )\n-    ? CustomFormValidators.securePasswordValidators\n-    : [\n-        ...CustomFormValidators.passwordValidators,\n-        CustomFormValidators.noConsecutiveCharacters,\n-      ];\n+  protected passwordValidators = CustomFormValidators.securePasswordValidators;\n \n   constructor(\n     protected userPasswordService: UserPasswordFacade,"
+        }
+      ]
+    },
+    {
+      "sha": "3d8efb5fcc315c9257ace99122cffa0c1c7563b7",
+      "subject": "chore: Remove deprecated feature flags for December (#20869)",
+      "files": [
+        {
+          "file": "feature-libs/asm/components/csagent-login-form/csagent-login-form.component.ts",
+          "members": [
+            "CSAgentLoginFormComponent.constructor"
+          ],
+          "diff": "@@ -10,7 +10,6 @@ import {\n   UntypedFormGroup,\n   Validators,\n } from '@angular/forms';\n-import { useFeatureStyles } from '@spartacus/core';\n \n @Component({\n   selector: 'cx-csagent-login-form',\n@@ -27,9 +26,7 @@ export class CSAgentLoginFormComponent implements OnInit {\n   @Output()\n   submitEvent = new EventEmitter<{ userId: string; password: string }>();\n \n-  constructor(protected fb: UntypedFormBuilder) {\n-    useFeatureStyles('a11yTextSpacingAdjustments');\n-  }\n+  constructor(protected fb: UntypedFormBuilder) {}\n \n   ngOnInit(): void {\n     this.csAgentLoginForm = this.fb.group({"
+        },
+        {
+          "file": "feature-libs/asm/components/customer-list/customer-list.component.html",
+          "members": [],
+          "diff": "@@ -399,10 +399,7 @@\n \n <ng-template #sort>\n   <label>\n-    <span *cxFeature=\"'a11yShowLabelOfSelect'\" class=\"label-content\">{{\n-      'asm.customerList.tableSort.sortBy' | cxTranslate\n-    }}</span>\n-    <span *cxFeature=\"'!a11yShowLabelOfSelect'\" class=\"cx-visually-hidden\">{{\n+    <span class=\"label-content\">{{\n       'asm.customerList.tableSort.sortBy' | cxTranslate\n     }}</span>\n     <cx-sorting\n@@ -448,10 +445,7 @@\n \n <ng-template #groupSelector let-customerListsPage=\"customerListsPage\">\n   <label>\n-    <span *cxFeature=\"'a11yShowLabelOfSelect'\" class=\"label-content\">{{\n-      'asm.customerList.title' | cxTranslate\n-    }}</span>\n-    <span *cxFeature=\"'!a11yShowLabelOfSelect'\" class=\"cx-visually-hidden\">{{\n+    <span class=\"label-content\">{{\n       'asm.customerList.title' | cxTranslate\n     }}</span>\n     <ng-select"
+        },
+        {
+          "file": "feature-libs/asm/components/customer-list/customer-list.component.ts",
+          "members": [
+            "CustomerListComponent.constructor"
+          ],
+          "diff": "@@ -28,7 +28,6 @@ import {\n   OccConfig,\n   SortModel,\n   TranslationService,\n-  useFeatureStyles,\n   User,\n } from '@spartacus/core';\n import {\n@@ -117,7 +116,6 @@ export class CustomerListComponent implements OnInit, OnDestroy {\n     protected asmCustomerListFacade: AsmCustomerListFacade,\n     protected occConfig?: OccConfig\n   ) {\n-    useFeatureStyles('a11yShowLabelOfSelect');\n     this.breakpoint$ = this.getBreakpoint();\n   }"
+        },
+        {
+          "file": "feature-libs/asm/styles/components/_csagent-login-form.component.scss",
+          "members": [],
+          "diff": "@@ -38,10 +38,7 @@\n \n     .label-content {\n       color: #556b82;\n-      max-width: 110px;\n-      @include forFeature('a11yTextSpacingAdjustments') {\n-        max-width: unset;\n-      }\n+      max-width: unset;\n       margin-inline-end: 6px;\n       white-space: nowrap;\n       @media (min-width: 575px) {"
+        },
+        {
+          "file": "feature-libs/asm/styles/components/_customer-list.component.scss",
+          "members": [],
+          "diff": "@@ -29,23 +29,16 @@ $sapFioriContent_LabelColor: #6a6d70;\n     display: flex;\n     .cx-header-select {\n       display: flex;\n-      @include forFeature('a11yShowLabelOfSelect') {\n-        align-items: flex-end;\n-      }\n+      align-items: flex-end;\n       .cx-total {\n-        padding: 0.6875rem 1rem;\n-        @include forFeature('a11yShowLabelOfSelect') {\n-          padding: 1rem 1rem;\n-        }\n+        padding: 1rem 1rem;\n       }\n     }\n     .cx-header-select.mobile {\n       flex-direction: column;\n     }\n     .cx-header-actions {\n-      @include forFeature('a11yShowLabelOfSelect') {\n-        align-items: flex-end;\n-      }\n+      align-items: flex-end;\n       display: flex;\n       label {\n         margin: 0;\n@@ -53,9 +46,7 @@ $sapFioriContent_LabelColor: #6a6d70;\n       .search-wrapper {\n         position: relative;\n         margin-inline-start: 1rem;\n-        @include forFeature('a11yShowLabelOfSelect') {\n-          margin-bottom: -0.15rem;\n-        }\n+        margin-bottom: -0.15rem;\n         .form-control {\n           padding-inline-end: 46px;\n           &:hover,"
+        },
+        {
+          "file": "feature-libs/cart/base/components/cart-shared/cart-item-list/cart-item-list.component.ts",
+          "members": [
+            "CartItemListComponent.constructor"
+          ],
+          "diff": "@@ -29,7 +29,6 @@ import {\n   FeatureConfigService,\n   ProductCatalogService,\n   UserIdService,\n-  useFeatureStyles,\n } from '@spartacus/core';\n import { OutletContextData } from '@spartacus/storefront';\n import { Observable, Subscription } from 'rxjs';\n@@ -100,9 +99,7 @@ export class CartItemListComponent implements OnInit, OnDestroy {\n     protected multiCartService: MultiCartFacade,\n     protected cd: ChangeDetectorRef,\n     @Optional() protected outlet?: OutletContextData<ItemListContext>\n-  ) {\n-    useFeatureStyles('a11yCroppedFocusRing');\n-  }\n+  ) {}\n \n   ngOnInit(): void {\n     this.subscription.add(this.getInputsFromContext());"
+        },
+        {
+          "file": "feature-libs/cart/base/components/cart-shared/cart-item/cart-item.component.ts",
+          "members": [
+            "CartItemComponent.constructor"
+          ],
+          "diff": "@@ -13,7 +13,6 @@ import {\n   OrderEntry,\n   PromotionLocation,\n } from '@spartacus/cart/base/root';\n-import { useFeatureStyles } from '@spartacus/core';\n import { ICON_TYPE } from '@spartacus/storefront';\n import { CartItemContextSource } from './model/cart-item-context-source.model';\n \n@@ -44,9 +43,7 @@ export class CartItemComponent implements OnChanges {\n   iconTypes = ICON_TYPE;\n   readonly CartOutlets = CartOutlets;\n \n-  constructor(protected cartItemContextSource: CartItemContextSource) {\n-    useFeatureStyles('a11yCroppedFocusRing');\n-  }\n+  constructor(protected cartItemContextSource: CartItemContextSource) {}\n \n   ngOnChanges(changes?: SimpleChanges) {\n     if (changes?.compact) {"
+        },
+        {
+          "file": "feature-libs/cart/base/styles/components/_cart-item-list.scss",
+          "members": [],
+          "diff": "@@ -53,10 +53,8 @@\n     grid-template-columns: 5rem 14rem;\n     gap: 1rem;\n     text-indent: 0;\n-    @include forFeature('a11yCroppedFocusRing') {\n-      a {\n-        height: fit-content;\n-      }\n+    a {\n+      height: fit-content;\n     }\n   }"
+        },
+        {
+          "file": "feature-libs/cart/base/styles/components/_cart-item.scss",
+          "members": [],
+          "diff": "@@ -95,10 +95,7 @@\n     a {\n       display: block;\n       padding: 0 1vw;\n-      height: 100%;\n-      @include forFeature('a11yCroppedFocusRing') {\n-        height: unset;\n-      }\n+      height: unset;\n     }\n   }"
+        },
+        {
+          "file": "feature-libs/cart/saved-cart/components/list/saved-cart-list.component.html",
+          "members": [],
+          "diff": "@@ -10,65 +10,6 @@\n \n     <ng-container *ngIf=\"savedCarts?.length > 0; else noSavedCarts\">\n       <table role=\"table\" class=\"table cx-saved-cart-list-table\">\n-        <thead\n-          *cxFeature=\"'!a11yTableHeaderReadout'\"\n-          role=\"row\"\n-          class=\"cx-saved-cart-list-thead-mobile\"\n-        >\n-          <thead role=\"row\" class=\"cx-saved-cart-list-thead-mobile\">\n-            <th role=\"columnheader\" scope=\"col\">\n-              {{ 'savedCartList.cartName' | cxTranslate }}\n-            </th>\n-            <th role=\"columnheader\" scope=\"col\">\n-              {{ 'savedCartList.cartId' | cxTranslate }}\n-            </th>\n-            <th role=\"columnheader\" scope=\"col\">\n-              {{ 'savedCartList.dateSaved' | cxTranslate }}\n-            </th>\n-            <th\n-              role=\"columnheader\"\n-              scope=\"col\"\n-              class=\"cx-saved-cart-list-th-qty\"\n-            >\n-              {{ 'savedCartList.quantityFull' | cxTranslate }}\n-            </th>\n-            <th\n-              role=\"columnheader\"\n-              scope=\"col\"\n-              class=\"cx-saved-cart-list-th-total\"\n-            >\n-              {{ 'savedCartList.total' | cxTranslate }}\n-            </th>\n-            <th role=\"columnheader\" scope=\"col\">\n-              {{ 'savedCartList.actions' | cxTranslate }}\n-            </th>\n-          </thead>\n-          <thead\n-            *cxFeature=\"'a11yTableHeaderReadout'\"\n-            class=\"cx-saved-cart-list-thead-mobile\"\n-          >\n-            <tr>\n-              <th scope=\"col\">\n-                {{ 'savedCartList.cartName' | cxTranslate }}\n-              </th>\n-              <th scope=\"col\">\n-                {{ 'savedCartList.cartId' | cxTranslate }}\n-              </th>\n-              <th scope=\"col\">\n-                {{ 'savedCartList.dateSaved' | cxTranslate }}\n-              </th>\n-              <th scope=\"col\" class=\"cx-saved-cart-list-th-qty\">\n-                {{ 'savedCartList.quantityFull' | cxTranslate }}\n-              </th>\n-              <th scope=\"col\" class=\"cx-saved-cart-list-th-total\">\n-                {{ 'savedCartList.total' | cxTranslate }}\n-              </th>\n-              <th scope=\"col\">\n-                {{ 'savedCartList.actions' | cxTranslate }}\n-              </th>\n-            </tr>\n-          </thead>\n-        </thead>\n         <tbody>\n           <tr\n             role=\"row\""
+        },
+        {
+          "file": "feature-libs/checkout/base/components/checkout-delivery-address/checkout-delivery-address.component.ts",
+          "members": [
+            "CheckoutDeliveryAddressComponent.createCards",
+            "CheckoutDeliveryAddressComponent.getCardRole"
+          ],
+          "diff": "@@ -264,11 +264,7 @@ export class CheckoutDeliveryAddressComponent implements OnInit {\n         'checkoutAddress.defaultDeliveryAddress'\n       ),\n       this.translationService.translate('checkoutAddress.shipToThisAddress'),\n-      this.featureConfigService?.isEnabled(\n-        'a11ySelectLabelWithContextForSelectedAddrOrPayment'\n-      )\n-        ? this.translationService.translate('addressCard.selectedAddress')\n-        : this.translationService.translate('addressCard.selected'),\n+      this.translationService.translate('addressCard.selectedAddress'),\n       this.translationService.translate('addressCard.phoneNumber'),\n       this.translationService.translate('addressCard.mobileNumber'),\n     ]);\n@@ -374,10 +370,9 @@ export class CheckoutDeliveryAddressComponent implements OnInit {\n   }\n \n   protected getCardRole(isCardSelected: boolean): 'button' | 'application' {\n-    const isButtonRole =\n-      this.featureConfigService?.isEnabled(\n-        'a11ySelectLabelWithContextForSelectedAddrOrPayment'\n-      ) && !isCardSelected;\n-    return isButtonRole ? 'button' : 'application';\n+    const role: 'button' | 'application' = !isCardSelected\n+      ? 'button'\n+      : 'application';\n+    return role;\n   }\n }"
+        },
+        {
+          "file": "feature-libs/checkout/base/components/checkout-payment-method/checkout-payment-method.component.ts",
+          "members": [
+            "CheckoutPaymentMethodComponent.createCard",
+            "CheckoutPaymentMethodComponent.ngOnInit"
+          ],
+          "diff": "@@ -155,11 +155,7 @@ export class CheckoutPaymentMethodComponent implements OnInit, OnDestroy {\n       this.selectedMethod$,\n       this.translationService.translate('paymentForm.useThisPayment'),\n       this.translationService.translate('paymentCard.defaultPaymentMethod'),\n-      this.featureConfigService?.isEnabled(\n-        'a11ySelectLabelWithContextForSelectedAddrOrPayment'\n-      )\n-        ? this.translationService.translate('paymentCard.selectedPayment')\n-        : this.translationService.translate('paymentCard.selected'),\n+      this.translationService.translate('paymentCard.selectedPayment'),\n     ]).pipe(\n       tap(([paymentMethods, selectedMethod]) =>\n         this.selectDefaultPaymentMethod(paymentMethods, selectedMethod)\n@@ -335,11 +331,7 @@ export class CheckoutPaymentMethodComponent implements OnInit, OnDestroy {\n     selected: PaymentDetails | undefined\n   ): Card {\n     const isSelected = selected?.id === paymentDetails.id;\n-    const isButtonRole =\n-      this.featureConfigService?.isEnabled(\n-        'a11ySelectLabelWithContextForSelectedAddrOrPayment'\n-      ) && !isSelected;\n-    const role = isButtonRole ? 'button' : 'application';\n+    const role = !isSelected ? 'button' : 'application';\n \n     return {\n       role,"
+        },
+        {
+          "file": "feature-libs/checkout/base/components/checkout-review/checkout-review-overview/checkout-review-overview.component.ts",
+          "members": [
+            "CheckoutReviewOverviewComponent.featureService",
+            "CheckoutReviewOverviewComponent.wrapComponentsWithSectionEl"
+          ],
+          "diff": "@@ -12,7 +12,7 @@ import {\n   inject,\n } from '@angular/core';\n import { ActiveCartFacade, Cart } from '@spartacus/cart/base/root';\n-import { FeatureConfigService, TranslationService } from '@spartacus/core';\n+import { TranslationService } from '@spartacus/core';\n import { Observable, take } from 'rxjs';\n \n @Component({\n@@ -24,7 +24,6 @@ import { Observable, take } from 'rxjs';\n export class CheckoutReviewOverviewComponent implements AfterViewInit {\n   protected document = inject(DOCUMENT, { optional: true });\n   protected translationService = inject(TranslationService, { optional: true });\n-  private featureService = inject(FeatureConfigService, { optional: true });\n \n   // These are the components that we need to wrap with section element.\n   protected readonly CHECKOUT_COMPONENTS = [\n@@ -52,11 +51,7 @@ export class CheckoutReviewOverviewComponent implements AfterViewInit {\n    * CMS-driven (ie. by page slot).\n    */\n   protected wrapComponentsWithSectionEl() {\n-    if (\n-      this.document &&\n-      this.translationService &&\n-      this.featureService?.isEnabled('a11yWrapReviewOrderInSection')\n-    ) {\n+    if (this.document && this.translationService) {\n       this.translationService\n         .translate('checkoutReview.reviewOrder')\n         .pipe(take(1))"
+        },
+        {
+          "file": "feature-libs/order/components/replenishment-order-history/replenishment-order-history.component.html",
+          "members": [],
+          "diff": "@@ -50,50 +50,7 @@\n               'orderHistory.orderHistory' | cxTranslate\n             }}\n           </caption>\n-          <thead\n-            *cxFeature=\"'!a11yTableHeaderReadout'\"\n-            class=\"cx-replenishment-order-history-thead-mobile\"\n-          >\n-            <th scope=\"col\">\n-              <span class=\"cx-replenishment-order-history-ellipses\">\n-                {{ 'orderHistory.replenishmentOrderId' | cxTranslate }}\n-              </span>\n-            </th>\n-            <th scope=\"col\">\n-              <span class=\"cx-replenishment-order-history-ellipses\">\n-                {{ 'orderHistory.purchaseOrderNumber' | cxTranslate }}\n-              </span>\n-            </th>\n-            <th scope=\"col\">\n-              <span class=\"cx-replenishment-order-history-ellipses\">\n-                {{ 'orderHistory.startOn' | cxTranslate }}\n-              </span>\n-            </th>\n-            <th scope=\"col\">\n-              <span class=\"cx-replenishment-order-history-ellipses\">\n-                {{ 'orderHistory.frequency' | cxTranslate }}\n-              </span>\n-            </th>\n-            <th scope=\"col\">\n-              <span class=\"cx-replenishment-order-history-ellipses\">\n-                {{ 'orderHistory.nextOrderDate' | cxTranslate }}\n-              </span>\n-            </th>\n-            <th scope=\"col\" class=\"cx-replenishment-order-history-total\">\n-              <span class=\"cx-replenishment-order-history-ellipses\">\n-                {{ 'orderHistory.total' | cxTranslate }}\n-              </span>\n-            </th>\n-            <th scope=\"col\">\n-              <span class=\"cx-replenishment-order-history-ellipses\">\n-                {{ 'orderHistory.actions' | cxTranslate }}\n-              </span>\n-            </th>\n-          </thead>\n-          <thead\n-            *cxFeature=\"'a11yTableHeaderReadout'\"\n-            class=\"cx-replenishment-order-history-thead-mobile\"\n-          >\n+          <thead class=\"cx-replenishment-order-history-thead-mobile\">\n             <tr>\n               <th role=\"columnheader\" scope=\"col\" aria-sort=\"none\">\n                 <span class=\"cx-replenishment-order-history-ellipses\">"
+        },
+        {
+          "file": "feature-libs/order/components/return-request-list/order-return-request-list.component.html",
+          "members": [],
+          "diff": "@@ -26,23 +26,7 @@\n         </div>\n         <!-- TABLE -->\n         <table id=\"order-return-table\" class=\"table cx-order-history-table\">\n-          <thead\n-            *cxFeature=\"'!a11yTableHeaderReadout'\"\n-            class=\"cx-order-history-thead-mobile\"\n-          >\n-            <th scope=\"col\">\n-              {{ 'returnRequestList.returnRequestId' | cxTranslate }}\n-            </th>\n-            <th scope=\"col\">{{ 'returnRequestList.orderId' | cxTranslate }}</th>\n-            <th scope=\"col\">\n-              {{ 'returnRequestList.date' | cxTranslate }}\n-            </th>\n-            <th scope=\"col\">{{ 'returnRequestList.status' | cxTranslate }}</th>\n-          </thead>\n-          <thead\n-            *cxFeature=\"'a11yTableHeaderReadout'\"\n-            class=\"cx-order-history-thead-mobile\"\n-          >\n+          <thead class=\"cx-order-history-thead-mobile\">\n             <tr>\n               <th scope=\"col\">\n                 {{ 'returnRequestList.returnRequestId' | cxTranslate }}"
+        }
+      ]
+    },
+    {
+      "sha": "1be50934b3cabf285e455f0c6907a2c4e665f98d",
+      "subject": "refactor: CXSPA-10748 (#20872)",
+      "files": [
+        {
+          "file": "feature-libs/cart/base/components/add-to-cart/add-to-cart.component.ts",
+          "members": [
+            "AddToCartComponent.featureToggles",
+            "AddToCartComponent.ngOnInit",
+            "AddToCartComponent.realTimeStockEnabled",
+            "AddToCartComponent.setStockInfo"
+          ],
+          "diff": "@@ -22,6 +22,7 @@ import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';\n import {\n   ActiveCartFacade,\n   Cart,\n+  CartConfig,\n   CartItemComponentOptions,\n   CartOutlets,\n   CartUiEventAddToCart,\n@@ -29,7 +30,6 @@ import {\n import {\n   CmsAddToCartComponent,\n   EventService,\n-  FeatureToggles,\n   Product,\n   ProductAvailabilityService,\n   ProductCatalogService,\n@@ -94,9 +94,10 @@ export class AddToCartComponent implements OnInit, OnDestroy {\n \n   iconTypes = ICON_TYPE;\n \n-  private featureToggles = inject(FeatureToggles);\n   private productAvailabilityService = inject(ProductAvailabilityService);\n   protected productCatalogService = inject(ProductCatalogService);\n+  protected realTimeStockEnabled =\n+    !!inject(CartConfig).cart?.showRealTimeStockInPDP?.enabled;\n \n   /**\n    * We disable the dialog launch on quantity input,\n@@ -138,7 +139,7 @@ export class AddToCartComponent implements OnInit, OnDestroy {\n       let product$: Observable<Product | null>;\n       if (this.productListItemContext) {\n         product$ = this.productListItemContext.product$;\n-      } else if (this.featureToggles.showRealTimeStockInPDP) {\n+      } else if (this.realTimeStockEnabled) {\n         product$ = this.currentProductService.getProduct([\n           ProductScope.UNIT,\n           ProductScope.DETAILS,\n@@ -167,14 +168,7 @@ export class AddToCartComponent implements OnInit, OnDestroy {\n       this.showQuantity = false;\n     }\n \n-    /**\n-     * When removing the feature toggle in the future, let's leave the if-else block.\n-     * In case of absent sapUnit we want to fallback to the stock info from the product object.\n-     */\n-    if (\n-      this.featureToggles.showRealTimeStockInPDP &&\n-      product.sapUnit?.sapCode\n-    ) {\n+    if (this.realTimeStockEnabled && product.sapUnit?.sapCode) {\n       this.productAvailabilityService\n         .getRealTimeStock(this.productCode, product.sapUnit?.sapCode)\n         .pipe(take(1))"
+        },
+        {
+          "file": "feature-libs/cart/base/root/config/cart-config.ts",
+          "members": [
+            "CartConfig.cart"
+          ],
+          "diff": "@@ -21,6 +21,9 @@ export abstract class CartConfig {\n     validation?: {\n       enabled?: boolean;\n     };\n+    showRealTimeStockInPDP?: {\n+      enabled?: boolean;\n+    };\n   };\n }"
+        },
+        {
+          "file": "feature-libs/cart/base/root/config/default-cart-config.ts",
+          "members": [],
+          "diff": "@@ -14,5 +14,8 @@ export const defaultCartConfig: CartConfig = {\n     selectiveCart: {\n       enabled: false,\n     },\n+    showRealTimeStockInPDP: {\n+      enabled: false,\n+    },\n   },\n };"
+        }
+      ]
+    }
+  ],
+  "i18n": {
+    "added": [
+      {
+        "chunk": "common",
+        "key": "httpHandlers.badRequest.password_expired",
+        "texts": {
+          "en": "{{ errorMessage }}. Please change your password."
+        }
+      }
+    ],
+    "removed": [],
+    "changed": [],
+    "translated": []
+  }
 }

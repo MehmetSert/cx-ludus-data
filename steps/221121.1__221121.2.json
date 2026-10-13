@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatorVersion": 2,
+  "generatorVersion": 3,
   "from": {
     "release": "221121.1",
     "gitTag": "221121.1.0"
@@ -37,9 +37,21 @@
                 "line": 75,
                 "code": "if (this.featureConfigService.isEnabled('a11yAddToWishlistFocus')) {\n  this.restoreFocus();\n}"
               }
+            ],
+            "members": [
+              "AddToWishListComponent.add",
+              "AddToWishListComponent.remove"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "e7bbc90e0bac002beb08c6aaff68ac18f2ae615d"
+        ],
+        "rollout": {
+          "defaultOn": "2211.38",
+          "mandatory": "221121.2"
+        },
         "translations": {
           "tr": "'AddToWishListComponent', wishlist'e öğe ekledikten veya öğeyi kaldırdıktan sonra focus'u butona geri verir."
         }
@@ -66,6 +78,9 @@
                 "line": 51,
                 "code": "<cx-media\n  *cxFeature=\"'a11yCarouselArrowKeysNavigation'\"\n  cxFocusableCarouselItem\n  [container]=\"item.container\"\n  tabindex=\"0\"\n  (focus)=\"openImage(item.container)\"\n  [class.is-active]=\"isActive(item.container) | async\"\n  format=\"product\"\n>\n</cx-media>"
               }
+            ],
+            "components": [
+              "cx-media"
             ]
           },
           {
@@ -83,6 +98,9 @@
                 "line": 61,
                 "code": "<cx-media\n  *cxFeature=\"'!a11yCarouselArrowKeysNavigation'\"\n  [container]=\"item.container\"\n  tabindex=\"0\"\n  (focus)=\"openImage(item.container)\"\n  [class.is-active]=\"isActive(item.container) | async\"\n  format=\"product\"\n>\n</cx-media>"
               }
+            ],
+            "components": [
+              "cx-media"
             ]
           },
           {
@@ -100,6 +118,9 @@
                 "line": 14,
                 "code": "<cx-media\n  *cxFeature=\"'a11yCarouselArrowKeysNavigation'\"\n  cxFocusableCarouselItem\n  [container]=\"item.container\"\n  tabindex=\"0\"\n  (focus)=\"openImage(item.container)\"\n  [class.is-active]=\"isActive(item.container) | async\"\n>\n</cx-media>"
               }
+            ],
+            "components": [
+              "cx-media"
             ]
           },
           {
@@ -117,9 +138,20 @@
                 "line": 23,
                 "code": "<cx-media\n  *cxFeature=\"'!a11yCarouselArrowKeysNavigation'\"\n  [container]=\"item.container\"\n  tabindex=\"0\"\n  (focus)=\"openImage(item.container)\"\n  [class.is-active]=\"isActive(item.container) | async\"\n>\n</cx-media>"
               }
+            ],
+            "components": [
+              "cx-media"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "e7bbc90e0bac002beb08c6aaff68ac18f2ae615d"
+        ],
+        "rollout": {
+          "defaultOn": "2211.38",
+          "mandatory": "221121.2"
+        },
         "translations": {
           "tr": "`ProductImageZoomProductImagesComponent`, `ProductImageZoomThumbnailsComponent` - carousel için ok tuşlarıyla gezinme etkinleştirildi"
         }
@@ -146,6 +178,9 @@
                 "line": 6,
                 "code": "<ng-container *cxFeature=\"'a11yCartImportConfirmationMessage'\">\n  <div aria-live=\"assertive\" aria-atomic=\"true\">\n    <cx-message\n      *ngIf=\"form.get('file')?.value && form.get('file')?.valid\"\n      [text]=\"'importEntriesDialog.selectedSuccessfully' | cxTranslate\"\n      [type]=\"globalMessageType.MSG_TYPE_CONFIRMATION\"\n      [isVisibleCloseButton]=\"false\"\n      [cxFocus]=\"{ autofocus: '.cx-message' }\"\n    ></cx-message>\n  </div>\n</ng-container>"
               }
+            ],
+            "components": [
+              "cx-message"
             ]
           },
           {
@@ -163,9 +198,20 @@
                 "line": 6,
                 "code": "<ng-container *cxFeature=\"'a11yCartImportConfirmationMessage'\">\n  <div aria-live=\"assertive\" aria-atomic=\"true\">\n    <cx-message\n      *ngIf=\"form.get('file')?.value && form.get('file')?.valid\"\n      [text]=\"'importEntriesDialog.selectedSuccessfully' | cxTranslate\"\n      [type]=\"globalMessageType.MSG_TYPE_CONFIRMATION\"\n      [isVisibleCloseButton]=\"false\"\n      [cxFocus]=\"{ autofocus: '.cx-message' }\"\n    ></cx-message>\n  </div>\n</ng-container>"
               }
+            ],
+            "components": [
+              "cx-message"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "e7bbc90e0bac002beb08c6aaff68ac18f2ae615d"
+        ],
+        "rollout": {
+          "defaultOn": "2211.38",
+          "mandatory": "221121.2"
+        },
         "translations": {
           "tr": "`ImportToNewSavedCartFormComponent`, `ImportEntriesFormComponent` içinde dosya seçildikten sonra\nonay mesajı gösterilir ve sesli okunur"
         }
@@ -223,12 +269,23 @@
             ],
             "snippets": [
               {
-                "line": 79,
-                "code": "@ViewChild(TabComponent) tabComponent: TabComponent | undefined;\n\nget validationError() {\n  if (this.selectedOption === 'pickup' && !this.displayPickupLocation) {\n    return 'pickupOptions.storeIsNotSelected';\n  }\n\n  return null;\n}"
+                "line": 90,
+                "code": "useFeatureStyles('a11yDeliveryMethodFieldset');"
               }
+            ],
+            "members": [
+              "PickupOptionsComponent.constructor"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "e7bbc90e0bac002beb08c6aaff68ac18f2ae615d"
+        ],
+        "rollout": {
+          "defaultOn": "2211.38",
+          "mandatory": "221121.2"
+        },
         "translations": {
           "tr": "Etkinleştirildiğinde, 'PickupOptionsComponent' içindeki form bir fieldset ile sarılır ve bir legend içerir."
         }
@@ -252,9 +309,12 @@
             ],
             "snippets": [
               {
-                "line": 258,
-                "code": "this.pickupStore"
+                "line": 275,
+                "code": "if (this.featureConfigService.isEnabled('a11yDialogTriggerRefocus')) {\n  newEvent.triggerElementRef = this.addToCartDialogTriggerEl;\n}"
               }
+            ],
+            "members": [
+              "AddToCartComponent.createCartUiEventAddToCart"
             ]
           },
           {
@@ -269,9 +329,12 @@
             ],
             "snippets": [
               {
-                "line": 271,
-                "code": "// eslint-disable-next-line @typescript-eslint/unified-signatures\nonPickupOptionChange(event: {\n  option: PickupOption;\n  triggerElement: ElementRef;\n}"
+                "line": 281,
+                "code": "  this.featureConfigService.isEnabled('a11yDialogTriggerRefocus') &&\n  typeof event === 'object'\n) {\n  this.pickupOptionFacade.setPickupOption(this.entryNumber, event.option);\n  if (event.option === 'delivery') {\n    this.activeCartFacade.updateEntry(\n      this.entryNumber,\n      this.quantity,\n      undefined,\n      true\n    );\n    return;\n  }\n  [event.option]\n    .filter((option) => option === 'pickup')\n    .forEach(() => {\n      this.subscription.add(\n        this.storeDetails$\n          .pipe(\n            filter(({ name }) => !!name),\n            tap(({ name }) =>\n              this.activeCartFacade.updateEntry(\n                this.entryNumber,\n                this.quantity,\n                name,\n                true\n              )\n            )\n          )\n          .subscribe()\n      );\n    });\n\n  if (\n    !this.featureConfigService.isEnabled('a11yPickupOptionsTabs') &&\n    !this.displayNameIsSet\n  ) {\n    this.openDialog(event.triggerElement);\n  }\n}"
               }
+            ],
+            "members": [
+              "CartPickupOptionsContainerComponent.onPickupOptionChange"
             ]
           },
           {
@@ -286,13 +349,17 @@
             ],
             "snippets": [
               {
-                "line": 188,
-                "code": " * @param triggerElement - The reference of element that triggered the dialog. Used to refocus on it after the dialog is closed.\n */\nopenDialog(triggerElement?: ElementRef): void {\n  const dialog = this.launchDialogService.openDialog(\n    LAUNCH_CALLER.PICKUP_IN_STORE,\n    this.featureConfigService.isEnabled('a11yDialogTriggerRefocus')\n      ? triggerElement\n      : this.element,\n    this.vcr,\n    { productCode: this.productCode }\n  );\n\n  if (dialog) {\n    dialog.pipe(take(1)).subscribe();\n  }\n}"
+                "line": 193,
+                "code": "this.featureConfigService.isEnabled('a11yDialogTriggerRefocus')"
               },
               {
-                "line": 218,
-                "code": "): void {\n  const handleChange = (\n    option: PickupOption,\n    triggerElement?: ElementRef\n  ) => {\n    if (!this.featureConfigService.isEnabled('a11yPickupOptionsTabs')) {\n      if (option === 'delivery') {\n        return;\n      }\n      if (!this.displayNameIsSet) {\n        this.openDialog(triggerElement);\n      }\n    }\n  };\n  if (\n    this.featureConfigService.isEnabled('a11yDialogTriggerRefocus') &&\n    typeof event === 'object'\n  ) {\n    const { option, triggerElement = undefined } = event;\n    this.intendedPickupLocationService.setPickupOption(\n      this.productCode,\n      option\n    );\n    handleChange(option, triggerElement);\n  } else if (typeof event === 'string') {\n    this.intendedPickupLocationService.setPickupOption(\n      this.productCode,\n      event\n    );\n    handleChange(event);\n  }\n}"
+                "line": 233,
+                "code": "  this.featureConfigService.isEnabled('a11yDialogTriggerRefocus') &&\n  typeof event === 'object'\n) {\n  const { option, triggerElement = undefined } = event;\n  this.intendedPickupLocationService.setPickupOption(\n    this.productCode,\n    option\n  );\n  handleChange(option, triggerElement);\n}"
               }
+            ],
+            "members": [
+              "PdpPickupOptionsContainerComponent.onPickupOptionChange",
+              "PdpPickupOptionsContainerComponent.openDialog"
             ]
           },
           {
@@ -307,16 +374,28 @@
             ],
             "snippets": [
               {
-                "line": 114,
-                "code": "  openedTab === PickupOptionsTabs.DELIVERY ? 'delivery' : 'pickup';\nif (this.selectedOption !== selectedOption) {\n  this.onPickupOptionChange(selectedOption);\n}"
+                "line": 125,
+                "code": "if (this.featureConfigService.isEnabled('a11yDialogTriggerRefocus')) {\n  this.pickupOptionChange.emit({\n    option,\n    triggerElement: this.triggerElement,\n  });\n}"
               },
               {
-                "line": 126,
-                "code": "this.pickupOptionChange.emit({\n  option,\n  triggerElement: this.triggerElement,\n}"
+                "line": 137,
+                "code": "if (this.featureConfigService.isEnabled('a11yDialogTriggerRefocus')) {\n  this.pickupLocationChange.emit(this.triggerElement);\n}"
               }
+            ],
+            "members": [
+              "PickupOptionsComponent.onPickupLocationChange",
+              "PickupOptionsComponent.onPickupOptionChange"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "e7bbc90e0bac002beb08c6aaff68ac18f2ae615d"
+        ],
+        "rollout": {
+          "defaultOn": "2211.38",
+          "mandatory": "221121.2"
+        },
         "translations": {
           "tr": "Etkinleştirildiğinde, dialog kapatıldıktan sonra focus tetikleyici öğeye geri döndürülür.\nEtkilenen component'ler: 'AddtoCartComponent', 'PickupOptionsComponent', CartPickupOptionsContainerComponent, PDPPickupOptionsContainerComponent"
         }
@@ -343,9 +422,20 @@
                 "line": 103,
                 "code": "this.featureConfigService.isEnabled("
               }
+            ],
+            "members": [
+              "StorefrontComponent.ngOnInit"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "e7bbc90e0bac002beb08c6aaff68ac18f2ae615d"
+        ],
+        "rollout": {
+          "defaultOn": "2211.38",
+          "mandatory": "221121.2"
+        },
         "translations": {
           "tr": "`StorefrontComponent`, hamburger menü açıldıktan sonra ilk navigasyon öğesine focus olur"
         }
@@ -372,6 +462,9 @@
                 "line": 97,
                 "code": "useFeatureStyles('a11yPreventHorizontalScroll');"
               }
+            ],
+            "members": [
+              "AddedToCartDialogComponent.constructor"
             ]
           },
           {
@@ -386,9 +479,12 @@
             ],
             "snippets": [
               {
-                "line": 98,
-                "code": "protected multiCartService: MultiCartFacade,"
+                "line": 102,
+                "code": "useFeatureStyles('a11yPreventHorizontalScroll');"
               }
+            ],
+            "members": [
+              "CartItemListComponent.constructor"
             ]
           },
           {
@@ -408,6 +504,10 @@
                 "line": 87,
                 "code": "@include forFeature('a11yPreventHorizontalScroll') {\n  .cx-quantity {\n    @include media-breakpoint-down(xs) {\n      flex-direction: column;\n      align-items: start;\n      gap: 5px;\n    }\n  }\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-added-to-cart-dialog .cx-dialog-item .cx-compact",
+              "cx-added-to-cart-dialog .cx-dialog-item .cx-compact .cx-quantity"
             ]
           },
           {
@@ -442,9 +542,20 @@
                 "line": 71,
                 "code": "@include forFeature('a11yPreventHorizontalScroll') {\n  overflow-wrap: anywhere;\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-cart-item-list .cx-code"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "e7bbc90e0bac002beb08c6aaff68ac18f2ae615d"
+        ],
+        "rollout": {
+          "defaultOn": "2211.38",
+          "mandatory": "221121.2"
+        },
         "translations": {
           "tr": "`CartItemListComponent`, `AddedToCartDialogComponent` için küçük ekranlarda yatay kaydırma çubuğunun görünmesi engellendi"
         }
@@ -471,9 +582,20 @@
                 "line": 108,
                 "code": "(this.featureConfigService?.isEnabled('a11ySearchBoxFocusOnEscape') &&"
               }
+            ],
+            "members": [
+              "SearchBoxComponent.onEscape"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "e7bbc90e0bac002beb08c6aaff68ac18f2ae615d"
+        ],
+        "rollout": {
+          "defaultOn": "2211.38",
+          "mandatory": "221121.2"
+        },
         "translations": {
           "tr": "`SearchBoxComponent` artık esc tuşuyla popup kapatıldıktan sonra focus'u kaybetmemelidir."
         }
@@ -520,6 +642,14 @@
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "e7bbc90e0bac002beb08c6aaff68ac18f2ae615d"
+        ],
+        "rollout": {
+          "defaultOn": "2211.38",
+          "mandatory": "221121.2"
+        },
         "translations": {
           "tr": "'ProductReviewsComponent' içinde 'show more/less reviews' butonu artık aktive edildiğinde focus'u kaybetmeyecek."
         }
@@ -546,6 +676,9 @@
                 "line": 37,
                 "code": "useFeatureStyles('a11yTabComponent');"
               }
+            ],
+            "members": [
+              "OrderHistoryComponent.constructor"
             ]
           },
           {
@@ -569,6 +702,10 @@
                 "line": 79,
                 "code": "@include forFeature('a11yTabComponent') {\n  padding: 0;\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-order-history .cx-order-history-container",
+              "cx-order-history .cx-order-history-header"
             ]
           },
           {
@@ -603,6 +740,9 @@
                 "line": 48,
                 "code": "<ng-container *cxFeature=\"'a11yTabComponent'\">\n  <cx-tab [tabs]=\"tabs$ | async\" [config]=\"tabConfig$ | async\">\n    <ng-template\n      *ngFor=\"let component of components; let i = index\"\n      [cxOutlet]=\"component.flexType\"\n      #tabRef\n    >\n      <ng-container\n        [cxComponentWrapper]=\"component\"\n        (cxComponentRef)=\"tabCompLoaded($event, component.uid)\"\n      ></ng-container>\n    </ng-template>\n  </cx-tab>\n</ng-container>"
               }
+            ],
+            "components": [
+              "cx-tab"
             ]
           },
           {
@@ -620,6 +760,10 @@
                 "line": 27,
                 "code": "<ng-container *cxFeature=\"'a11yTabComponent'\">\n  <cx-tab [tabs$]=\"tabs$\" [config]=\"tabConfig\"></cx-tab>\n\n  <ng-template #facetsRef *ngFor=\"let facet of facets\">\n    <cx-facet\n      [facet]=\"facet\"\n      role=\"group\"\n      attr.aria-label=\"{{\n        'productFacetNavigation.ariaLabelItemsAvailable'\n          | cxTranslate\n            : {\n                name: facet.name,\n                count: facet?.values?.length,\n              }\n      }}\"\n    ></cx-facet>\n  </ng-template>\n</ng-container>"
               }
+            ],
+            "components": [
+              "cx-facet",
+              "cx-tab"
             ]
           },
           {
@@ -637,6 +781,9 @@
                 "line": 46,
                 "code": "<ng-container *cxFeature=\"'!a11yTabComponent'\">\n  <cx-facet\n    *ngFor=\"let facet of facets\"\n    #facetRef\n    [facet]=\"facet\"\n    [class.expanded]=\"isExpanded(facet) | async\"\n    [class.collapsed]=\"isCollapsed(facet) | async\"\n    role=\"group\"\n    attr.aria-label=\"{{\n      'productFacetNavigation.ariaLabelItemsAvailable'\n        | cxTranslate\n          : {\n              name: facet.name,\n              count: facet?.values?.length,\n            }\n    }}\"\n  ></cx-facet>\n</ng-container>"
               }
+            ],
+            "components": [
+              "cx-facet"
             ]
           },
           {
@@ -654,6 +801,9 @@
                 "line": 106,
                 "code": "useFeatureStyles('a11yTabComponent');"
               }
+            ],
+            "members": [
+              "FacetListComponent.constructor"
             ]
           },
           {
@@ -671,6 +821,9 @@
                 "line": 12,
                 "code": "<button\n  class=\"heading\"\n  #facetHeader\n  (click)=\"toggleGroup($event)\"\n  (keydown)=\"onKeydown($event)\"\n  [attr.aria-expanded]=\"isExpanded\"\n  [attr.aria-label]=\"\n    'productFacetNavigation.filterBy.name' | cxTranslate: { name: facet.name }\n  \"\n  [cxFocus]=\"{ key: facet.name }\"\n  *cxFeature=\"'!a11yTabComponent'\"\n>\n  {{ facet.name }}\n  <cx-icon\n    title=\"{{ 'common.collapse' | cxTranslate }}\"\n    class=\"collapse-icon\"\n    [type]=\"collapseIcon\"\n  ></cx-icon>\n  <cx-icon\n    title=\"{{ 'common.expand' | cxTranslate }}\"\n    class=\"expand-icon\"\n    [type]=\"expandIcon\"\n  ></cx-icon>\n</button>"
               }
+            ],
+            "components": [
+              "cx-icon"
             ]
           },
           {
@@ -685,17 +838,24 @@
             ],
             "snippets": [
               {
-                "line": 149,
-                "code": "this.onTabNavigation();"
-              },
-              {
-                "line": 158,
-                "code": "protected onTabNavigation(): void {\n  if (!this.featureConfigService?.isEnabled('a11yTabComponent')) {\n    return;\n  }\n  disableTabbingForTick(this.values.map((el) => el.nativeElement));\n}"
+                "line": 159,
+                "code": "if (!this.featureConfigService?.isEnabled('a11yTabComponent')) {\n  return;\n}"
               },
               {
                 "line": 169,
                 "code": "if (this.featureConfigService?.isEnabled('a11yTabComponent')) {\n  return;\n}"
+              },
+              {
+                "line": 183,
+                "code": "if (this.featureConfigService?.isEnabled('a11yTabComponent')) {\n  return;\n}"
               }
+            ],
+            "members": [
+              "FacetComponent.onArrowDown",
+              "FacetComponent.onArrowLeft",
+              "FacetComponent.onArrowRight",
+              "FacetComponent.onArrowUp",
+              "FacetComponent.onTabNavigation"
             ]
           },
           {
@@ -714,9 +874,24 @@
             ],
             "snippets": [
               {
-                "line": 112,
-                "code": "margin-bottom: 1rem;"
+                "line": 115,
+                "code": "@include forFeature('a11yTabComponent') {\n  cx-tab {\n    .tab-btn {\n      @include type('6');\n      background: none;\n\n      &:after {\n        display: none;\n      }\n      border-bottom: 1px solid var(--cx-color-medium);\n      border-top: none;\n      padding-top: 1rem;\n      height: unset;\n\n      &:hover,\n      &:focus {\n        color: var(--cx-color-primary);\n        .tab-icon {\n          color: var(--cx-color-primary);\n        }\n      }\n\n      .tab-icon {\n        font-size: 25px;\n        font-weight: normal;\n        bottom: 6px;\n      }\n    }\n\n    .accordian {\n      div {\n        padding: 0;\n      }\n\n      cx-tab-panel {\n        .active {\n          padding: 8px 0;\n        }\n      }\n    }\n…"
               }
+            ],
+            "styleScopes": [
+              "cx-facet-list .inner",
+              "cx-facet-list .inner cx-tab",
+              "cx-facet-list .inner cx-tab .accordian",
+              "cx-facet-list .inner cx-tab .accordian cx-tab-panel",
+              "cx-facet-list .inner cx-tab .accordian cx-tab-panel .active",
+              "cx-facet-list .inner cx-tab .accordian div",
+              "cx-facet-list .inner cx-tab .tab-btn",
+              "cx-facet-list .inner cx-tab .tab-btn .tab-icon",
+              "cx-facet-list .inner cx-tab .tab-btn:after",
+              "cx-facet-list .inner cx-tab .tab-btn:focus",
+              "cx-facet-list .inner cx-tab .tab-btn:focus .tab-icon",
+              "cx-facet-list .inner cx-tab .tab-btn:hover",
+              "cx-facet-list .inner cx-tab .tab-btn:hover .tab-icon"
             ]
           },
           {
@@ -738,9 +913,22 @@
                 "line": 58,
                 "code": "@include forFeature('a11yTabComponent') {\n  display: flex;\n}"
               }
+            ],
+            "styleScopes": [
+              "cx-facet:nth-of-type(n + #{$intialExpandedFacets + 1}):not(.expanded) .collapse-icon",
+              "cx-facet:nth-of-type(n + #{$intialExpandedFacets + 1}):not(.expanded) a",
+              "cx-facet:nth-of-type(n + #{$intialExpandedFacets + 1}):not(.expanded) button:not(.heading)"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "e7bbc90e0bac002beb08c6aaff68ac18f2ae615d"
+        ],
+        "rollout": {
+          "defaultOn": "2211.38",
+          "mandatory": "221121.2"
+        },
         "translations": {
           "tr": "PLP ve PDP sayfalarında TabComponent kullanımını etkinleştirir; böylece FacetListComponent ve TabParagraphComponent'in bazı işlevleri klavyeyle erişilebilir hale getirilir ve tab ile accordion stillerinde responsive çalışır."
         }
@@ -767,9 +955,20 @@
                 "line": 62,
                 "code": "const useTrapTab = this.featureConfigService.isEnabled("
               }
+            ],
+            "members": [
+              "PickupOptionDialogComponent.focusConfig"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "e7bbc90e0bac002beb08c6aaff68ac18f2ae615d"
+        ],
+        "rollout": {
+          "defaultOn": "2211.38",
+          "mandatory": "221121.2"
+        },
         "translations": {
           "tr": "Dialog'larda yalnızca Tab/Shift+Tab klavye navigasyonunu etkinleştirir ve yukarı/aşağı tuşlarının varsayılan kaydırma davranışını korur.\nComponent'ler:\n- `PickupOptionDialogComponent`"
         }
@@ -791,12 +990,23 @@
             "selectors": [],
             "snippets": [
               {
-                "line": 108,
-                "code": "const resolverMethods: Record<string, string> = {}"
+                "line": 112,
+                "code": "const disabledInCsr = this.featureConfigService.isEnabled("
               }
+            ],
+            "members": [
+              "PageMetaService.getResolverMethods"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "f4905e7497ca3f474a8b07cfa29ef9dfb568b202"
+        ],
+        "rollout": {
+          "defaultOn": "2211.38",
+          "mandatory": "221121.2"
+        },
         "translations": {
           "tr": "Client-Side Rendering (CSR) modunda *tüm* page meta resolver'ları etkinleştirir;\nbelirli resolver'lar için ayarlanan `config.pageMeta.resolvers[index].disabledInCsr` konfigürasyon seçeneğini yok sayar.\n\nNot: `disabledInCsr` konfigürasyon seçeneği artık deprecated durumdadır ve\n      ileride bu feature toggle ile birlikte kaldırılacaktır."
         }
@@ -823,6 +1033,9 @@
                 "line": 36,
                 "code": ": this.featureConfigService.isEnabled("
               }
+            ],
+            "members": [
+              "OrderGuestRegisterFormComponent.passwordValidators"
             ]
           },
           {
@@ -837,9 +1050,12 @@
             ],
             "snippets": [
               {
-                "line": 48,
-                "code": "? CustomFormValidators.securePasswordValidators"
+                "line": 49,
+                "code": ": this.featureConfigService.isEnabled("
               }
+            ],
+            "members": [
+              "RegisterComponent.passwordValidators"
             ]
           },
           {
@@ -857,6 +1073,9 @@
                 "line": 75,
                 "code": "this.featureConfigService.isEnabled("
               }
+            ],
+            "members": [
+              "RegistrationVerificationTokenFormComponent.getPasswordValidators"
             ]
           },
           {
@@ -869,9 +1088,12 @@
             "selectors": [],
             "snippets": [
               {
-                "line": 34,
-                "code": "? CustomFormValidators.securePasswordValidators"
+                "line": 35,
+                "code": ": this.featureConfigService.isEnabled("
               }
+            ],
+            "members": [
+              "ResetPasswordComponentService.passwordValidators"
             ]
           },
           {
@@ -884,12 +1106,23 @@
             "selectors": [],
             "snippets": [
               {
-                "line": 37,
-                "code": "? CustomFormValidators.securePasswordValidators"
+                "line": 38,
+                "code": ": this.featureConfigService.isEnabled("
               }
+            ],
+            "members": [
+              "UpdatePasswordComponentService.passwordValidators"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "bb47cd37769513cc1ac04eea090c98ff2af9932f"
+        ],
+        "rollout": {
+          "defaultOn": "2211.38",
+          "mandatory": "221121.2"
+        },
         "translations": {
           "tr": "Parolaların ardışık aynı karakterler içermemesi gerekliliğini etkinleştirir.\n\n`true` olarak ayarlandığında uygulama, parolaların ardışık aynı karakterler içermemesini zorunlu kılar\n(ör. \"aa\", \"11\" veya \"$$\" izin verilmez)."
         }
@@ -911,12 +1144,23 @@
             "selectors": [],
             "snippets": [
               {
-                "line": 137,
-                "code": "// TODO: (CXSPA-8550) Remove after removing enablePasswordsCannotMatchInPasswordUpdateForm feature toggle\nprotected getPasswordValidators(): ValidatorFn[] {\n  const passwordMustMatchValidator = CustomFormValidators.passwordsMustMatch(\n    'newPassword',\n    'newPasswordConfirm'\n  );\n\n  return this.featureConfigService.isEnabled(\n    'enablePasswordsCannotMatchInPasswordUpdateForm'\n  )\n    ? [\n        passwordMustMatchValidator,\n        CustomFormValidators.passwordsCannotMatch(\n          'oldPassword',\n          'newPassword'\n        ),\n      ]\n    : [passwordMustMatchValidator];\n}"
+                "line": 144,
+                "code": "return this.featureConfigService.isEnabled("
               }
+            ],
+            "members": [
+              "UpdatePasswordComponentService.getPasswordValidators"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "bb47cd37769513cc1ac04eea090c98ff2af9932f"
+        ],
+        "rollout": {
+          "defaultOn": "2211.38",
+          "mandatory": "221121.2"
+        },
         "translations": {
           "tr": "Parola güncelleme formunda yeni parolanın mevcut parolayla aynı olmasını engelleyen bir doğrulamayı etkinleştirir.\n\n`true` olarak ayarlandığında kullanıcı, parolasını güncellerken mevcut parolasını yeniden kullanamaz.\nUygulama, yeni parolanın eski parolayla eşleşmediğini kontrol eder."
         }
@@ -941,9 +1185,20 @@
                 "line": 38,
                 "code": "if (!this.featureConfigService.isEnabled('propagateErrorsToServer')) {\n  return;\n}"
               }
+            ],
+            "members": [
+              "PropagatingToServerErrorHandler.handleError"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "1e47ba7e4758fb068cb576baab575093a6e1bc44"
+        ],
+        "rollout": {
+          "defaultOn": "2211.38",
+          "mandatory": "221121.2"
+        },
         "translations": {
           "tr": "Server ortamında (SSR veya Prerendering) Angular uygulamasında yakalanan tüm hataları\n(Angular'ın `ErrorHandler` class'ında) server katmanına iletir.\n\nSSR'da bu şekilde iletim, server katmanının (ör. ExpressJS) bu hataları işlemesine olanak tanır;\nör. oluşan hata nedeniyle muhtemelen bozuk olan render edilmiş HTML yerine,\nistemciye uygun bir Error Page göndermek gibi."
         }
@@ -968,6 +1223,9 @@
                 "line": 31,
                 "code": "this.featureConfigService.isEnabled("
               }
+            ],
+            "members": [
+              "CxErrorHandlerEffect.error$"
             ]
           },
           {
@@ -983,6 +1241,9 @@
                 "line": 54,
                 "code": "this.featureService.isEnabled("
               }
+            ],
+            "members": [
+              "HttpErrorHandlerInterceptor.intercept"
             ]
           },
           {
@@ -998,9 +1259,20 @@
                 "line": 37,
                 "code": "const shouldLogError = this.featureConfigService.isEnabled("
               }
+            ],
+            "members": [
+              "UnknownErrorHandler.handleError"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "986bb4a4592a69fe5b19f30d8fd84768dc567d57"
+        ],
+        "rollout": {
+          "defaultOn": "2211.38",
+          "mandatory": "221121.2"
+        },
         "translations": {
           "tr": "SSR'da aşağıdaki hatalar log'lara yazdırılır (ve ayrıca yalnızca diğer feature toggle olan `propagateErrorsToServer` etkinse\nExpressJS'e de iletilebilir):\n\n1. giden herhangi bir HTTP request hatası (4xx-5xx status)\n2. `error` property'sine sahip herhangi bir NgRx action"
         }
@@ -1022,16 +1294,28 @@
             "selectors": [],
             "snippets": [
               {
-                "line": 44,
-                "code": "// Theme value is a string. It is put in the generic multi-value"
+                "line": 47,
+                "code": "if (this.featureConfigService.isEnabled('useSiteThemeService')) {\n  this.subscription.add(\n    this.siteThemeService\n      .getActive()\n      .subscribe((activeTheme) => this.setTheme(activeTheme))\n  );\n}"
               },
               {
-                "line": 59,
-                "code": "this.subscription.unsubscribe();"
+                "line": 65,
+                "code": "if (this.featureConfigService.isEnabled('useSiteThemeService')) {\n  if (this.existingTheme) {\n    this.renderer.removeClass(element, this.existingTheme);\n  }\n  if (theme) {\n    this.renderer.addClass(element, theme);\n    this.existingTheme = theme;\n  }\n}"
               }
+            ],
+            "members": [
+              "ThemeService.init",
+              "ThemeService.setTheme"
             ]
           }
         ],
+        "references": [],
+        "commits": [
+          "3d79b5244c2792629f3f61dba0b63040a417fcf4"
+        ],
+        "rollout": {
+          "defaultOn": "2211.38",
+          "mandatory": "221121.2"
+        },
         "translations": {
           "tr": "1. \"Site theme\" değeri için doğruluk kaynağı olarak yeni `SiteThemeService` kullanılır\n(bu değer zamanla değişebilir, ör. yeni `SiteThemeSwitcherComponent` içinde yeni bir değer seçildiğinde).\nÖnceden \"site theme\" yalnızca sayfa başlangıcında ayarlanabiliyordu (statik config `config.context.theme` ile veya \"automatic site-context configuration\" özelliği kullanılırken CMS üzerinden).\n2. Artık özel bir theme seçilmediğinde varsayılan theme değeri boş string `''` olur;\nglobal config `config.context.theme` (veya CMS) ile farklı yapılandırılmadıysa.\nÖnceden tanımsız theme değeri `undefined` idi."
         }
@@ -2454,5 +2738,357 @@
         "tr": "CXSPA-2415 - birden fazla event davranışını düzelt"
       }
     }
-  ]
+  ],
+  "toggleCommits": [
+    {
+      "sha": "3d79b5244c2792629f3f61dba0b63040a417fcf4",
+      "subject": "chore: remove useSiteThemeService feature toggle (CXSPA-10925) (#20713)",
+      "files": [
+        {
+          "file": "projects/storefrontlib/layout/theme/theme.service.ts",
+          "members": [
+            "ThemeService.init",
+            "ThemeService.setTheme"
+          ],
+          "diff": "@@ -16,7 +16,6 @@ import {\n   FeatureConfigService,\n   SiteContextConfig,\n   SiteThemeService,\n-  THEME_CONTEXT_ID,\n } from '@spartacus/core';\n import { Subscription } from 'rxjs';\n \n@@ -44,15 +43,11 @@ export class ThemeService implements OnDestroy {\n     // Theme value is a string. It is put in the generic multi-value\n     // property of the SiteContextConfig. So the array's first item\n     // is the theme value.\n-    if (this.featureConfigService.isEnabled('useSiteThemeService')) {\n-      this.subscription.add(\n-        this.siteThemeService\n-          .getActive()\n-          .subscribe((activeTheme) => this.setTheme(activeTheme))\n-      );\n-    } else {\n-      this.setTheme(this.config.context?.[THEME_CONTEXT_ID]?.[0]);\n-    }\n+    this.subscription.add(\n+      this.siteThemeService\n+        .getActive()\n+        .subscribe((activeTheme) => this.setTheme(activeTheme))\n+    );\n   }\n \n   ngOnDestroy(): void {\n@@ -61,21 +56,12 @@ export class ThemeService implements OnDestroy {\n \n   setTheme(theme: string | undefined): void {\n     const element = this.rootComponent.location.nativeElement;\n-\n-    if (this.featureConfigService.isEnabled('useSiteThemeService')) {\n-      if (this.existingTheme) {\n-        this.renderer.removeClass(element, this.existingTheme);\n-      }\n-      if (theme) {\n-        this.renderer.addClass(element, theme);\n-        this.existingTheme = theme;\n-      }\n-    } else {\n-      if (theme) {\n-        this.renderer.removeClass(element, this.existingTheme);\n-        this.renderer.addClass(element, theme);\n-        this.existingTheme = theme;\n-      }\n+    if (this.existingTheme) {\n+      this.renderer.removeClass(element, this.existingTheme);\n+    }\n+    if (theme) {\n+      this.renderer.addClass(element, theme);\n+      this.existingTheme = theme;\n     }\n   }\n }"
+        }
+      ]
+    },
+    {
+      "sha": "e7bbc90e0bac002beb08c6aaff68ac18f2ae615d",
+      "subject": "fix: Deprecate a11y toggles for October 2025 release (#20708)",
+      "files": [
+        {
+          "file": "feature-libs/cart/base/components/add-to-cart/add-to-cart.component.ts",
+          "members": [
+            "AddToCartComponent.createCartUiEventAddToCart"
+          ],
+          "diff": "@@ -272,9 +272,7 @@ export class AddToCartComponent implements OnInit, OnDestroy {\n     newEvent.quantity = quantity;\n     newEvent.numberOfEntriesBeforeAdd = numberOfEntriesBeforeAdd;\n     newEvent.pickupStoreName = storeName;\n-    if (this.featureConfigService.isEnabled('a11yDialogTriggerRefocus')) {\n-      newEvent.triggerElementRef = this.addToCartDialogTriggerEl;\n-    }\n+    newEvent.triggerElementRef = this.addToCartDialogTriggerEl;\n     return newEvent;\n   }"
+        },
+        {
+          "file": "feature-libs/cart/base/components/added-to-cart-dialog/added-to-cart-dialog.component.ts",
+          "members": [
+            "AddedToCartDialogComponent.constructor"
+          ],
+          "diff": "@@ -94,7 +94,6 @@ export class AddedToCartDialogComponent implements OnInit, OnDestroy {\n     protected routingService: RoutingService,\n     protected el: ElementRef\n   ) {\n-    useFeatureStyles('a11yPreventHorizontalScroll');\n     useFeatureStyles('a11yUpdatingCartNoNarration');\n   }"
+        },
+        {
+          "file": "feature-libs/cart/base/components/cart-shared/cart-item-list/cart-item-list.component.ts",
+          "members": [
+            "CartItemListComponent.constructor"
+          ],
+          "diff": "@@ -99,7 +99,6 @@ export class CartItemListComponent implements OnInit, OnDestroy {\n     protected cd: ChangeDetectorRef,\n     @Optional() protected outlet?: OutletContextData<ItemListContext>\n   ) {\n-    useFeatureStyles('a11yPreventHorizontalScroll');\n     useFeatureStyles('a11yQTY2Quantity');\n     useFeatureStyles('a11yPickupOptionsTabs');\n     useFeatureStyles('a11yCroppedFocusRing');"
+        },
+        {
+          "file": "feature-libs/cart/base/styles/components/_added-to-cart-dialog.scss",
+          "members": [],
+          "diff": "@@ -84,13 +84,11 @@\n         }\n       }\n \n-      @include forFeature('a11yPreventHorizontalScroll') {\n-        .cx-quantity {\n-          @include media-breakpoint-down(xs) {\n-            flex-direction: column;\n-            align-items: start;\n-            gap: 5px;\n-          }\n+      .cx-quantity {\n+        @include media-breakpoint-down(xs) {\n+          flex-direction: column;\n+          align-items: start;\n+          gap: 5px;\n         }\n       }"
+        },
+        {
+          "file": "feature-libs/cart/base/styles/components/_cart-item-list.scss",
+          "members": [],
+          "diff": "@@ -67,10 +67,7 @@\n   .cx-code {\n     color: var(--cx-color-secondary);\n     margin-top: 0.5em;\n-\n-    @include forFeature('a11yPreventHorizontalScroll') {\n-      overflow-wrap: anywhere;\n-    }\n+    overflow-wrap: anywhere;\n   }\n \n   .cx-link {"
+        },
+        {
+          "file": "feature-libs/cart/import-export/components/import-to-cart/import-entries-dialog/import-entries-form/import-entries-form.component.html",
+          "members": [],
+          "diff": "@@ -3,17 +3,15 @@\n   [formGroup]=\"form\"\n   (submit)=\"formSubmitSubject$.next(undefined)\"\n >\n-  <ng-container *cxFeature=\"'a11yCartImportConfirmationMessage'\">\n-    <div aria-live=\"assertive\" aria-atomic=\"true\">\n-      <cx-message\n-        *ngIf=\"form.get('file')?.value && form.get('file')?.valid\"\n-        [text]=\"'importEntriesDialog.selectedSuccessfully' | cxTranslate\"\n-        [type]=\"globalMessageType.MSG_TYPE_CONFIRMATION\"\n-        [isVisibleCloseButton]=\"false\"\n-        [cxFocus]=\"{ autofocus: '.cx-message' }\"\n-      ></cx-message>\n-    </div>\n-  </ng-container>\n+  <div aria-live=\"assertive\" aria-atomic=\"true\">\n+    <cx-message\n+      *ngIf=\"form.get('file')?.value && form.get('file')?.valid\"\n+      [text]=\"'importEntriesDialog.selectedSuccessfully' | cxTranslate\"\n+      [type]=\"globalMessageType.MSG_TYPE_CONFIRMATION\"\n+      [isVisibleCloseButton]=\"false\"\n+      [cxFocus]=\"{ autofocus: '.cx-message' }\"\n+    ></cx-message>\n+  </div>\n   <p class=\"cx-import-entries-subtitle\">\n     {{ 'importEntriesDialog.importProductsSubtitle' | cxTranslate }}\n   </p>"
+        },
+        {
+          "file": "feature-libs/cart/import-export/components/import-to-cart/import-entries-dialog/import-to-new-saved-cart-form/import-to-new-saved-cart-form.component.html",
+          "members": [],
+          "diff": "@@ -3,17 +3,15 @@\n   [formGroup]=\"form\"\n   (submit)=\"formSubmitSubject$.next(undefined)\"\n >\n-  <ng-container *cxFeature=\"'a11yCartImportConfirmationMessage'\">\n-    <div aria-live=\"assertive\" aria-atomic=\"true\">\n-      <cx-message\n-        *ngIf=\"form.get('file')?.value && form.get('file')?.valid\"\n-        [text]=\"'importEntriesDialog.selectedSuccessfully' | cxTranslate\"\n-        [type]=\"globalMessageType.MSG_TYPE_CONFIRMATION\"\n-        [isVisibleCloseButton]=\"false\"\n-        [cxFocus]=\"{ autofocus: '.cx-message' }\"\n-      ></cx-message>\n-    </div>\n-  </ng-container>\n+  <div aria-live=\"assertive\" aria-atomic=\"true\">\n+    <cx-message\n+      *ngIf=\"form.get('file')?.value && form.get('file')?.valid\"\n+      [text]=\"'importEntriesDialog.selectedSuccessfully' | cxTranslate\"\n+      [type]=\"globalMessageType.MSG_TYPE_CONFIRMATION\"\n+      [isVisibleCloseButton]=\"false\"\n+      [cxFocus]=\"{ autofocus: '.cx-message' }\"\n+    ></cx-message>\n+  </div>\n   <cx-form-required-legend />\n   <p class=\"cx-import-entries-subtitle\">\n     {{ 'importEntriesDialog.importProductsNewSavedCartSubtitle' | cxTranslate }}"
+        },
+        {
+          "file": "feature-libs/cart/wish-list/components/add-to-wishlist/add-to-wish-list.component.ts",
+          "members": [
+            "AddToWishListComponent.add",
+            "AddToWishListComponent.featureConfigService",
+            "AddToWishListComponent.remove"
+          ],
+          "diff": "@@ -8,17 +8,11 @@ import {\n   ChangeDetectionStrategy,\n   Component,\n   ElementRef,\n-  inject,\n   ViewChild,\n } from '@angular/core';\n import { OrderEntry } from '@spartacus/cart/base/root';\n import { WishListFacade } from '@spartacus/cart/wish-list/root';\n-import {\n-  AuthService,\n-  FeatureConfigService,\n-  isNotNullable,\n-  Product,\n-} from '@spartacus/core';\n+import { AuthService, Product, isNotNullable } from '@spartacus/core';\n import { CurrentProductService, ICON_TYPE } from '@spartacus/storefront';\n import { Observable } from 'rxjs';\n import { filter, map, take, tap } from 'rxjs/operators';\n@@ -41,8 +35,6 @@ export class AddToWishListComponent {\n   @ViewChild('addToWishlistButton') addToWishlistButton: ElementRef;\n   @ViewChild('removeFromWishlistButton') removeFromWishlistButton: ElementRef;\n \n-  private featureConfigService = inject(FeatureConfigService);\n-\n   userLoggedIn$: Observable<boolean> = this.authService.isUserLoggedIn().pipe(\n     tap((isLogin) => {\n       if (isLogin) {\n@@ -64,17 +56,13 @@ export class AddToWishListComponent {\n   add(product: Product): void {\n     if (product.code) {\n       this.wishListFacade.addEntry(product.code);\n-      if (this.featureConfigService.isEnabled('a11yAddToWishlistFocus')) {\n-        this.restoreFocus();\n-      }\n+      this.restoreFocus();\n     }\n   }\n \n   remove(entry: OrderEntry): void {\n     this.wishListFacade.removeEntry(entry);\n-    if (this.featureConfigService.isEnabled('a11yAddToWishlistFocus')) {\n-      this.restoreFocus();\n-    }\n+    this.restoreFocus();\n   }\n \n   getProductInWishList("
+        },
+        {
+          "file": "feature-libs/order/components/order-history/order-history.component.ts",
+          "members": [
+            "OrderHistoryComponent.constructor"
+          ],
+          "diff": "@@ -7,10 +7,9 @@\n import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';\n import { Params } from '@angular/router';\n import {\n-  isNotUndefined,\n   RoutingService,\n   TranslationService,\n-  useFeatureStyles,\n+  isNotUndefined,\n } from '@spartacus/core';\n import {\n   Order,\n@@ -18,7 +17,7 @@ import {\n   OrderHistoryList,\n   ReplenishmentOrderHistoryFacade,\n } from '@spartacus/order/root';\n-import { combineLatest, Observable } from 'rxjs';\n+import { Observable, combineLatest } from 'rxjs';\n import { filter, map, take, tap } from 'rxjs/operators';\n \n @Component({\n@@ -33,9 +32,7 @@ export class OrderHistoryComponent implements OnDestroy {\n     protected orderHistoryFacade: OrderHistoryFacade,\n     protected translation: TranslationService,\n     protected replenishmentOrderHistoryFacade: ReplenishmentOrderHistoryFacade\n-  ) {\n-    useFeatureStyles('a11yTabComponent');\n-  }\n+  ) {}\n \n   private PAGE_SIZE = 5;\n   sortType: string;"
+        },
+        {
+          "file": "feature-libs/order/styles/components/order-history/_order-history.scss",
+          "members": [],
+          "diff": "@@ -1,8 +1,6 @@\n %cx-order-history {\n   .cx-order-history-container {\n-    @include forFeature('a11yTabComponent') {\n-      padding: 0 20px;\n-    }\n+    padding: 0 20px;\n   }\n \n   .cx-order-history {\n@@ -66,7 +64,7 @@\n   }\n \n   .cx-order-history-header {\n-    padding: 40px 0 0 0;\n+    padding: 0;\n     color: var(--cx-color-text);\n \n     @include media-breakpoint-down(sm) {\n@@ -75,10 +73,6 @@\n       padding-bottom: 0;\n       padding-inline-start: 20px;\n     }\n-\n-    @include forFeature('a11yTabComponent') {\n-      padding: 0;\n-    }\n   }\n \n   .cx-order-history-thead-mobile {"
+        },
+        {
+          "file": "feature-libs/pickup-in-store/components/container/cart-pickup-options-container/cart-pickup-options-container.component.ts",
+          "members": [
+            "CartPickupOptionsContainerComponent.element",
+            "CartPickupOptionsContainerComponent.onPickupOptionChange",
+            "CartPickupOptionsContainerComponent.openDialog"
+          ],
+          "diff": "@@ -11,7 +11,6 @@ import {\n   OnDestroy,\n   OnInit,\n   Optional,\n-  ViewChild,\n   ViewContainerRef,\n } from '@angular/core';\n import {\n@@ -81,14 +80,6 @@ export function orderEntryWithRequiredFields(\n   standalone: false,\n })\n export class CartPickupOptionsContainerComponent implements OnInit, OnDestroy {\n-  // TODO: Remove element reference once 'a11yDialogTriggerRefocus' feature flag is removed.\n-  /**\n-   * @deprecated since 2211.28.0\n-   * This reference does not point to any element and will be removed at earliest convinience.\n-   * The 'triggerElement' is passed through 'PickupOptionChange' event instead.\n-   */\n-  @ViewChild('open') element: ElementRef;\n-\n   pickupOption$: Observable<PickupOption | undefined>;\n   disableControls$: Observable<boolean>;\n   storeDetails$: Observable<{\n@@ -262,98 +253,47 @@ export class CartPickupOptionsContainerComponent implements OnInit, OnDestroy {\n       tap((_) => (this.displayNameIsSet = true))\n     );\n   }\n-  // TODO: Remove 'PickupOption' argument type once 'a11yDialogTriggerRefocus' feature flag is removed.\n-  /**\n-   * @deprecated since 2211.28.0 - Use event param instead of option.\n-   * @param event - Object containing the selected option and the element that triggered the change.\n-   */\n-  onPickupOptionChange(pickupOption: PickupOption): void;\n-  // eslint-disable-next-line @typescript-eslint/unified-signatures\n+\n   onPickupOptionChange(event: {\n     option: PickupOption;\n     triggerElement: ElementRef;\n-  }): void;\n-  onPickupOptionChange(\n-    event: { option: PickupOption; triggerElement: ElementRef } | PickupOption\n-  ): void {\n+  }): void {\n     /* istanbul ignore else */\n-    if (\n-      this.featureConfigService.isEnabled('a11yDialogTriggerRefocus') &&\n-      typeof event === 'object'\n-    ) {\n-      this.pickupOptionFacade.setPickupOption(this.entryNumber, event.option);\n-      if (event.option === 'delivery') {\n-        this.activeCartFacade.updateEntry(\n-          this.entryNumber,\n-          this.quantity,\n-          undefined,\n-          true\n-        );\n-        return;\n-      }\n-      [event.option]\n-        .filter((option) => option === 'pickup')\n-        .forEach(() => {\n-          this.subscription.add(\n-            this.storeDetails$\n-              .pipe(\n-                filter(({ name }) => !!name),\n-                tap(({ name }) =>\n-                  this.activeCartFacade.updateEntry(\n-                    this.entryNumber,\n-                    this.quantity,\n-                    name,\n-                    true\n-                  )\n+    this.pickupOptionFacade.setPickupOption(this.entryNumber, event.option);\n+    if (event.option === 'delivery') {\n+      this.activeCartFacade.updateEntry(\n+        this.entryNumber,\n+        this.quantity,\n+        undefined,\n+        true\n+      );\n…"
+        },
+        {
+          "file": "feature-libs/pickup-in-store/components/container/pdp-pickup-options-container/pdp-pickup-options-container.component.ts",
+          "members": [
+            "PdpPickupOptionsContainerComponent.element",
+            "PdpPickupOptionsContainerComponent.onPickupOptionChange",
+            "PdpPickupOptionsContainerComponent.openDialog"
+          ],
+          "diff": "@@ -7,12 +7,11 @@\n import {\n   Component,\n   ElementRef,\n-  inject,\n   EventEmitter,\n+  inject,\n   OnDestroy,\n   OnInit,\n   Output,\n-  ViewChild,\n   ViewContainerRef,\n } from '@angular/core';\n import { FeatureConfigService, Product } from '@spartacus/core';\n@@ -59,13 +58,6 @@ function isProductWithCode(\n   standalone: false,\n })\n export class PdpPickupOptionsContainerComponent implements OnInit, OnDestroy {\n-  // TODO: Remove element reference once 'a11yDialogTriggerRefocus' feature flag is removed.\n-  /**\n-   * @deprecated since 2211.28.0\n-   * This reference does not point to any element and will be removed at earliest convinience.\n-   * The 'triggerElement' is passed through 'PickupOptionChange' event instead.\n-   */\n-  @ViewChild('open') element: ElementRef;\n   @Output() intendedPickupChange = new EventEmitter<\n     AugmentedPointOfService | undefined\n   >();\n@@ -182,17 +174,10 @@ export class PdpPickupOptionsContainerComponent implements OnInit, OnDestroy {\n     );\n   }\n \n-  // TODO: Make argument required once 'a11yDialogTriggerRefocus' feature flag is removed.\n-  /**\n-   * @deprecated since 2211.28.0 - The use of TriggerElement param will become mandatory.\n-   * @param triggerElement - The reference of element that triggered the dialog. Used to refocus on it after the dialog is closed.\n-   */\n-  openDialog(triggerElement?: ElementRef): void {\n+  openDialog(triggerElement: ElementRef): void {\n     const dialog = this.launchDialogService.openDialog(\n       LAUNCH_CALLER.PICKUP_IN_STORE,\n-      this.featureConfigService.isEnabled('a11yDialogTriggerRefocus')\n-        ? triggerElement\n-        : this.element,\n+      triggerElement,\n       this.vcr,\n       { productCode: this.productCode }\n     );\n@@ -202,24 +187,13 @@ export class PdpPickupOptionsContainerComponent implements OnInit, OnDestroy {\n     }\n   }\n \n-  // TODO: Remove 'PickupOption' argument type once 'a11yDialogTriggerRefocus' feature flag is removed.\n-  /**\n-   * @deprecated since 2211.28.0 - Use event param instead of option.\n-   * @param event - Object containing the selected option and the element that triggered the change.\n-   */\n-  onPickupOptionChange(option: PickupOption): void;\n-  // eslint-disable-next-line @typescript-eslint/unified-signatures\n   onPickupOptionChange(event: {\n     option: PickupOption;\n     triggerElement: ElementRef;\n-  }): void;\n-  onPickupOptionChange(\n-    event: { option: PickupOption; triggerElement: ElementRef } | PickupOption\n-  ): void {\n-    const handleChange = (\n-      option: PickupOption,\n-      triggerElement?: ElementRef\n-    ) => {\n+  }): void {\n+    const { option, triggerElement } = event;\n+\n+    const handleChange = () => {\n       if (!this.featureConfigService.isEnabled('a11yPickupOptionsTabs')) {\n         if (option === 'delivery') {\n           return;\n@@ -229,22 +203,11 @@ export class PdpPickupOptionsContainerComponent implements OnInit, OnDestroy {\n         }\n       }\n…"
+        },
+        {
+          "file": "feature-libs/pickup-in-store/components/container/pickup-option-dialog/pickup-option-dialog.component.ts",
+          "members": [
+            "PickupOptionDialogComponent.focusConfig"
+          ],
+          "diff": "@@ -59,13 +59,9 @@ export class PickupOptionDialogComponent implements OnInit, OnDestroy {\n   private featureConfigService = inject(FeatureConfigService);\n \n   get focusConfig(): FocusConfig {\n-    const useTrapTab = this.featureConfigService.isEnabled(\n-      'a11yUseTrapTabInsteadOfTrapInDialogs'\n-    );\n-\n     return {\n-      trap: !useTrapTab,\n-      trapTabOnly: useTrapTab,\n+      trap: false,\n+      trapTabOnly: true,\n       block: true,\n       autofocus: 'input',\n       focusOnEscape: true,"
+        },
+        {
+          "file": "feature-libs/pickup-in-store/components/presentational/pickup-options/pickup-options.component.html",
+          "members": [],
+          "diff": "@@ -1,6 +1,6 @@\n <ng-container *cxFeature=\"'!a11yPickupOptionsTabs'\">\n   <form [formGroup]=\"pickupOptionsForm\">\n-    <fieldset *cxFeature=\"'a11yDeliveryMethodFieldset'\">\n+    <fieldset>\n       <legend>{{ 'pickupOptions.legend' | cxTranslate }}</legend>\n       <div class=\"form-check\">\n         <input\n@@ -63,68 +63,6 @@\n         </label>\n       </div>\n     </fieldset>\n-    <ng-container *cxFeature=\"'!a11yDeliveryMethodFieldset'\">\n-      <div class=\"form-check\">\n-        <input\n-          type=\"radio\"\n-          role=\"radio\"\n-          [attr.id]=\"deliveryId\"\n-          data-pickup=\"delivery\"\n-          value=\"delivery\"\n-          (click)=\"onPickupOptionChange('delivery')\"\n-          formControlName=\"pickupOption\"\n-          [attr.aria-label]=\"'pickupOptions.delivery' | cxTranslate\"\n-          [attr.aria-checked]=\"\n-            pickupOptionsForm.value.pickupOption === 'delivery'\n-          \"\n-        />\n-        <label [attr.for]=\"deliveryId\">\n-          {{ 'pickupOptions.delivery' | cxTranslate }}\n-        </label>\n-      </div>\n-      <div class=\"form-check\">\n-        <input\n-          type=\"radio\"\n-          role=\"radio\"\n-          [attr.id]=\"pickupId\"\n-          data-pickup=\"pickup\"\n-          value=\"pickup\"\n-          (click)=\"onPickupOptionChange('pickup')\"\n-          formControlName=\"pickupOption\"\n-          [attr.aria-label]=\"'pickupOptions.pickup' | cxTranslate\"\n-          [attr.aria-checked]=\"\n-            pickupOptionsForm.value.pickupOption === 'pickup'\n-          \"\n-        />\n-        <label [attr.for]=\"pickupId\">\n-          <p>\n-            {{ 'pickupOptions.pickup' | cxTranslate\n-            }}<ng-container *ngIf=\"displayPickupLocation\"\n-              >:\n-              <strong [attr.data-pickup-location]=\"displayPickupLocation\">{{\n-                displayPickupLocation\n-              }}</strong>\n-            </ng-container>\n-            |\n-            <button\n-              #dialogTriggerEl\n-              [attr.data-store-location-link]=\"\n-                displayPickupLocation ? 'change' : 'select'\n-              \"\n-              class=\"link cx-action-link\"\n-              (click)=\"onPickupLocationChange()\"\n-            >\n-              {{\n-                (displayPickupLocation\n-                  ? 'pickupOptions.changeStore'\n-                  : 'pickupOptions.selectStore'\n-                ) | cxTranslate\n-              }}\n-            </button>\n-          </p>\n-        </label>\n-      </div>\n-    </ng-container>\n   </form>\n </ng-container>\n <ng-container *cxFeature=\"'a11yPickupOptionsTabs'\">"
+        },
+        {
+          "file": "feature-libs/pickup-in-store/components/presentational/pickup-options/pickup-options.component.ts",
+          "members": [
+            "PickupOptionsComponent.constructor",
+            "PickupOptionsComponent.onPickupLocationChange",
+            "PickupOptionsComponent.onPickupOptionChange",
+            "PickupOptionsComponent.pickupLocationChange",
+            "PickupOptionsComponent.pickupOptionChange"
+          ],
+          "diff": "@@ -49,14 +49,13 @@ export class PickupOptionsComponent\n   @Input() disableControls = false;\n \n   /** Emitted when the selected option is changed. */\n-  // TODO: Remove the 'PickupOption' type when the `a11yDialogTriggerRefocus` feature flag is removed.\n-  @Output() pickupOptionChange = new EventEmitter<\n-    { option: PickupOption; triggerElement: ElementRef } | PickupOption\n-  >();\n+  @Output() pickupOptionChange = new EventEmitter<{\n+    option: PickupOption;\n+    triggerElement: ElementRef;\n+  }>();\n \n   /** Emitted when a new store should be selected. */\n-  // TODO: Remove the undefined type when the `a11yDialogTriggerRefocus` feature flag is removed.\n-  @Output() pickupLocationChange = new EventEmitter<ElementRef | undefined>();\n+  @Output() pickupLocationChange = new EventEmitter<ElementRef>();\n \n   @ViewChild('dialogTriggerEl') triggerElement: ElementRef;\n \n@@ -87,7 +86,6 @@ export class PickupOptionsComponent\n   }\n \n   constructor() {\n-    useFeatureStyles('a11yDeliveryMethodFieldset');\n     useFeatureStyles('a11yPickupOptionsTabs');\n   }\n \n@@ -122,23 +120,16 @@ export class PickupOptionsComponent\n \n   /** Emit a new selected option. */\n   onPickupOptionChange(option: PickupOption): void {\n-    if (this.featureConfigService.isEnabled('a11yDialogTriggerRefocus')) {\n-      this.pickupOptionChange.emit({\n-        option,\n-        triggerElement: this.triggerElement,\n-      });\n-    } else {\n-      this.pickupOptionChange.emit(option);\n-    }\n+    this.pickupOptionChange.emit({\n+      option,\n+      triggerElement: this.triggerElement,\n+    });\n   }\n \n   /** Emit to indicate a new store should be selected. */\n   onPickupLocationChange(): boolean {\n-    if (this.featureConfigService.isEnabled('a11yDialogTriggerRefocus')) {\n-      this.pickupLocationChange.emit(this.triggerElement);\n-    } else {\n-      this.pickupLocationChange.emit();\n-    }\n+    this.pickupLocationChange.emit(this.triggerElement);\n+\n     // Return false to stop `onPickupOptionChange` being called after this\n     return false;\n   }"
+        }
+      ]
+    },
+    {
+      "sha": "bb47cd37769513cc1ac04eea090c98ff2af9932f",
+      "subject": "chore: remove password validator feature flags (#20706)",
+      "files": [
+        {
+          "file": "feature-libs/order/components/order-confirmation/order-guest-register-form/order-guest-register-form.component.ts",
+          "members": [
+            "OrderGuestRegisterFormComponent.passwordValidators"
+          ],
+          "diff": "@@ -33,14 +33,10 @@ export class OrderGuestRegisterFormComponent implements OnDestroy {\n     'enableSecurePasswordValidation'\n   )\n     ? CustomFormValidators.securePasswordValidators\n-    : this.featureConfigService.isEnabled(\n-          'enableConsecutiveCharactersPasswordRequirement'\n-        )\n-      ? [\n-          ...CustomFormValidators.passwordValidators,\n-          CustomFormValidators.noConsecutiveCharacters,\n-        ]\n-      : CustomFormValidators.passwordValidators;\n+    : [\n+        ...CustomFormValidators.passwordValidators,\n+        CustomFormValidators.noConsecutiveCharacters,\n+      ];\n \n   @Input() guid: string;\n   @Input() email: string;"
+        },
+        {
+          "file": "feature-libs/user/profile/components/register/register.component.ts",
+          "members": [
+            "RegisterComponent.passwordValidators"
+          ],
+          "diff": "@@ -39,21 +39,17 @@ import { RegisterComponentService } from './register-component.service';\n   host: { ngSkipHydration: 'true' },\n })\n export class RegisterComponent implements OnInit, OnDestroy {\n-  // TODO: (CXSPA-8550) Remove feature toggle\n+  // CXSPA-10916: Remove service with toggle\n   private featureConfigService = inject(FeatureConfigService);\n \n   protected passwordValidators = this.featureConfigService.isEnabled(\n     'enableSecurePasswordValidation'\n   )\n     ? CustomFormValidators.securePasswordValidators\n-    : this.featureConfigService.isEnabled(\n-          'enableConsecutiveCharactersPasswordRequirement'\n-        )\n-      ? [\n-          ...CustomFormValidators.passwordValidators,\n-          CustomFormValidators.noConsecutiveCharacters,\n-        ]\n-      : CustomFormValidators.passwordValidators;\n+    : [\n+        ...CustomFormValidators.passwordValidators,\n+        CustomFormValidators.noConsecutiveCharacters,\n+      ];\n \n   titles$: Observable<Title[]>;"
+        },
+        {
+          "file": "feature-libs/user/profile/components/registration-verification-token-form/verify-register-verification-token-form.component.ts",
+          "members": [
+            "RegistrationVerificationTokenFormComponent.getPasswordValidators"
+          ],
+          "diff": "@@ -71,18 +71,10 @@ export class RegistrationVerificationTokenFormComponent implements OnInit {\n     if (this.featureConfigService.isEnabled('enableSecurePasswordValidation')) {\n       return CustomFormValidators.securePasswordValidators;\n     } else {\n-      if (\n-        this.featureConfigService.isEnabled(\n-          'enableConsecutiveCharactersPasswordRequirement'\n-        )\n-      ) {\n-        return [\n-          ...CustomFormValidators.passwordValidators,\n-          CustomFormValidators.noConsecutiveCharacters,\n-        ];\n-      } else {\n-        return CustomFormValidators.passwordValidators;\n-      }\n+      return [\n+        ...CustomFormValidators.passwordValidators,\n+        CustomFormValidators.noConsecutiveCharacters,\n+      ];\n     }\n   }"
+        },
+        {
+          "file": "feature-libs/user/profile/components/reset-password/reset-password-component.service.ts",
+          "members": [
+            "ResetPasswordComponentService.passwordValidators"
+          ],
+          "diff": "@@ -25,21 +25,17 @@ import { map, tap } from 'rxjs/operators';\n \n @Injectable()\n export class ResetPasswordComponentService {\n-  // TODO: (CXSPA-8550) Remove feature toggle\n+  // CXSPA-10916: Remove service with toggle\n   private featureConfigService = inject(FeatureConfigService);\n \n   protected passwordValidators = this.featureConfigService.isEnabled(\n     'enableSecurePasswordValidation'\n   )\n     ? CustomFormValidators.securePasswordValidators\n-    : this.featureConfigService.isEnabled(\n-          'enableConsecutiveCharactersPasswordRequirement'\n-        )\n-      ? [\n-          ...CustomFormValidators.passwordValidators,\n-          CustomFormValidators.noConsecutiveCharacters,\n-        ]\n-      : CustomFormValidators.passwordValidators;\n+    : [\n+        ...CustomFormValidators.passwordValidators,\n+        CustomFormValidators.noConsecutiveCharacters,\n+      ];\n \n   constructor(\n     protected userPasswordService: UserPasswordFacade,"
+        },
+        {
+          "file": "feature-libs/user/profile/components/update-password/update-password-component.service.ts",
+          "members": [
+            "UpdatePasswordComponentService.getPasswordValidators",
+            "UpdatePasswordComponentService.passwordValidators"
+          ],
+          "diff": "@@ -28,21 +28,17 @@ import { USE_MY_ACCOUNT_V2_PASSWORD } from './use-my-account-v2-password';\n \n @Injectable()\n export class UpdatePasswordComponentService {\n-  // TODO: (CXSPA-8550) Remove feature toggle\n+  // CXSPA-10916: Remove service with toggle\n   private featureConfigService = inject(FeatureConfigService);\n \n   protected passwordValidators = this.featureConfigService.isEnabled(\n     'enableSecurePasswordValidation'\n   )\n     ? CustomFormValidators.securePasswordValidators\n-    : this.featureConfigService.isEnabled(\n-          'enableConsecutiveCharactersPasswordRequirement'\n-        )\n-      ? [\n-          ...CustomFormValidators.passwordValidators,\n-          CustomFormValidators.noConsecutiveCharacters,\n-        ]\n-      : CustomFormValidators.passwordValidators;\n+    : [\n+        ...CustomFormValidators.passwordValidators,\n+        CustomFormValidators.noConsecutiveCharacters,\n+      ];\n \n   constructor(\n     protected userPasswordService: UserPasswordFacade,\n@@ -134,23 +130,13 @@ export class UpdatePasswordComponentService {\n     this.form.reset();\n   }\n \n-  // TODO: (CXSPA-8550) Remove after removing enablePasswordsCannotMatchInPasswordUpdateForm feature toggle\n   protected getPasswordValidators(): ValidatorFn[] {\n-    const passwordMustMatchValidator = CustomFormValidators.passwordsMustMatch(\n-      'newPassword',\n-      'newPasswordConfirm'\n-    );\n-\n-    return this.featureConfigService.isEnabled(\n-      'enablePasswordsCannotMatchInPasswordUpdateForm'\n-    )\n-      ? [\n-          passwordMustMatchValidator,\n-          CustomFormValidators.passwordsCannotMatch(\n-            'oldPassword',\n-            'newPassword'\n-          ),\n-        ]\n-      : [passwordMustMatchValidator];\n+    return [\n+      CustomFormValidators.passwordsMustMatch(\n+        'newPassword',\n+        'newPasswordConfirm'\n+      ),\n+      CustomFormValidators.passwordsCannotMatch('oldPassword', 'newPassword'),\n+    ];\n   }\n }"
+        }
+      ]
+    },
+    {
+      "sha": "1e47ba7e4758fb068cb576baab575093a6e1bc44",
+      "subject": "chore: Clean up propagateErrorsToServer toggle (#20710)",
+      "files": [
+        {
+          "file": "core-libs/setup/ssr/error-handling/multi-error-handlers/propagating-to-server-error-handler.ts",
+          "members": [
+            "PropagatingToServerErrorHandler.featureConfigService",
+            "PropagatingToServerErrorHandler.handleError"
+          ],
+          "diff": "@@ -5,7 +5,7 @@\n  */\n \n import { Injectable, inject } from '@angular/core';\n-import { FeatureConfigService, MultiErrorHandler } from '@spartacus/core';\n+import { MultiErrorHandler } from '@spartacus/core';\n import { PROPAGATE_ERROR_TO_SERVER } from '../error-response/propagate-error-to-server';\n \n /**\n@@ -31,13 +31,8 @@ export class PropagatingToServerErrorHandler implements MultiErrorHandler {\n     inject(PROPAGATE_ERROR_TO_SERVER, {\n       optional: true,\n     }) ?? (() => {}); // fallback to noop, if not provided\n-  private featureConfigService: FeatureConfigService =\n-    inject(FeatureConfigService);\n \n   handleError(error: unknown): void {\n-    if (!this.featureConfigService.isEnabled('propagateErrorsToServer')) {\n-      return;\n-    }\n     this.propagateErrorToServer(error);\n   }\n }"
+        },
+        {
+          "file": "projects/core/src/error-handling/cx-error-handler.ts",
+          "members": [
+            "CxErrorHandler.logger"
+          ],
+          "diff": "@@ -5,7 +5,6 @@\n  */\n \n import { ErrorHandler, Injectable, inject } from '@angular/core';\n-import { LoggerService } from '../logger';\n import { MULTI_ERROR_HANDLER } from './multi-error-handler';\n \n /**\n@@ -18,13 +17,6 @@ import { MULTI_ERROR_HANDLER } from './multi-error-handler';\n  */\n @Injectable()\n export class CxErrorHandler implements ErrorHandler {\n-  /**\n-   * @deprecated Since 2211.29 - `LoggerService` is not used anymore in this class.\n-   *             Instead it's now used in `LoggingErrorHandler`.\n-   *             This property will be removed in the future together with removing\n-   *             the feature toggle `propagateErrorsToServer`.\n-   */\n-  protected logger = inject(LoggerService);\n   protected errorHandlers = inject(MULTI_ERROR_HANDLER);\n \n   /**"
+        }
+      ]
+    },
+    {
+      "sha": "986bb4a4592a69fe5b19f30d8fd84768dc567d57",
+      "subject": "chore: Cleanup ssrStrictErrorHandlingForHttpAndNgrx feature toggle (#20711)",
+      "files": [
+        {
+          "file": "feature-libs/asm/customer-360/occ/adapters/occ-asm-customer-360.adapter.ts",
+          "members": [
+            "OccAsmCustomer360Adapter.getAsmCustomer360Data"
+          ],
+          "diff": "@@ -21,7 +21,7 @@ import {\n   LoggerService,\n   OccEndpointsService,\n   USE_CUSTOMER_SUPPORT_AGENT_TOKEN,\n-  normalizeHttpError,\n+  tryNormalizeHttpError,\n } from '@spartacus/core';\n import { Observable, throwError } from 'rxjs';\n import { catchError } from 'rxjs/operators';\n@@ -82,7 +82,7 @@ export class OccAsmCustomer360Adapter implements AsmCustomer360Adapter {\n       .post<AsmCustomer360Response>(url, requestBody, { headers })\n       .pipe(\n         catchError((error) =>\n-          throwError(normalizeHttpError(error, this.logger))\n+          throwError(tryNormalizeHttpError(error, this.logger))\n         ),\n         this.converterService.pipeable(ASM_CUSTOMER_360_NORMALIZER)\n       );"
+        },
+        {
+          "file": "feature-libs/asm/occ/adapters/occ-asm.adapter.ts",
+          "members": [
+            "OccAsmAdapter.bindCart",
+            "OccAsmAdapter.createCustomer",
+            "OccAsmAdapter.customerLists",
+            "OccAsmAdapter.customerSearch"
+          ],
+          "diff": "@@ -27,7 +27,7 @@ import {\n   OccEndpointsService,\n   USE_CUSTOMER_SUPPORT_AGENT_TOKEN,\n   User,\n-  normalizeHttpError,\n+  tryNormalizeHttpError,\n } from '@spartacus/core';\n import { Observable } from 'rxjs';\n import { catchError } from 'rxjs/operators';\n@@ -85,7 +85,7 @@ export class OccAsmAdapter implements AsmAdapter {\n \n     return this.http.get<CustomerListsPage>(url, { headers, params }).pipe(\n       catchError((error) => {\n-        throw normalizeHttpError(error, this.logger);\n+        throw tryNormalizeHttpError(error, this.logger);\n       }),\n       this.converterService.pipeable(CUSTOMER_LISTS_NORMALIZER)\n     );\n@@ -142,7 +142,7 @@ export class OccAsmAdapter implements AsmAdapter {\n       .post<CustomerSearchPage>(url, searchBody, { headers, params })\n       .pipe(\n         catchError((error) => {\n-          throw normalizeHttpError(error, this.logger);\n+          throw tryNormalizeHttpError(error, this.logger);\n         }),\n         this.converterService.pipeable(CUSTOMER_SEARCH_PAGE_NORMALIZER)\n       );\n@@ -174,7 +174,7 @@ export class OccAsmAdapter implements AsmAdapter {\n \n     return this.http.post<void>(url, body, { headers, params }).pipe(\n       catchError((error) => {\n-        throw normalizeHttpError(error, this.logger);\n+        throw tryNormalizeHttpError(error, this.logger);\n       })\n     );\n   }\n@@ -196,7 +196,7 @@ export class OccAsmAdapter implements AsmAdapter {\n     );\n     return this.http.post<User>(url, user, { headers, params }).pipe(\n       catchError((error) => {\n-        throw normalizeHttpError(error, this.logger);\n+        throw tryNormalizeHttpError(error, this.logger);\n       })\n     );\n   }"
+        },
+        {
+          "file": "feature-libs/cart/base/occ/adapters/occ-cart-access-code.adapter.ts",
+          "members": [
+            "OccCartAccessCodeAdapter.getCartAccessCode"
+          ],
+          "diff": "@@ -16,7 +16,7 @@ import {\n   OccEndpointsService,\n   backOff,\n   isServerError,\n-  normalizeHttpError,\n+  tryNormalizeHttpError,\n } from '@spartacus/core';\n import { Observable, catchError } from 'rxjs';\n \n@@ -37,7 +37,7 @@ export class OccCartAccessCodeAdapter implements CartAccessCodeAdapter {\n       >(this.getCartAccessCodeEndpoint(userId, cartId), null)\n       .pipe(\n         catchError((error) => {\n-          throw normalizeHttpError(error, this.logger);\n+          throw tryNormalizeHttpError(error, this.logger);\n         }),\n         backOff({\n           shouldRetry: isServerError,"
+        },
+        {
+          "file": "feature-libs/cart/base/occ/adapters/occ-cart-validation.adapter.ts",
+          "members": [
+            "OccCartValidationAdapter.validate"
+          ],
+          "diff": "@@ -15,7 +15,7 @@ import {\n   ConverterService,\n   LoggerService,\n   OccEndpointsService,\n-  normalizeHttpError,\n+  tryNormalizeHttpError,\n } from '@spartacus/core';\n import { Observable } from 'rxjs';\n import { catchError } from 'rxjs/operators';\n@@ -37,7 +37,7 @@ export class OccCartValidationAdapter implements CartValidationAdapter {\n \n     return this.http.post<any>(url, null).pipe(\n       catchError((error) => {\n-        throw normalizeHttpError(error, this.logger);\n+        throw tryNormalizeHttpError(error, this.logger);\n       }),\n       this.converter.pipeable(CART_VALIDATION_NORMALIZER)\n     );"
+        },
+        {
+          "file": "feature-libs/cart/base/occ/adapters/occ-cart-voucher.adapter.ts",
+          "members": [
+            "OccCartVoucherAdapter.add",
+            "OccCartVoucherAdapter.remove"
+          ],
+          "diff": "@@ -15,7 +15,7 @@ import {\n   OCC_USER_ID_ANONYMOUS,\n   OccEndpointsService,\n   USE_CLIENT_TOKEN,\n-  normalizeHttpError,\n+  tryNormalizeHttpError,\n } from '@spartacus/core';\n import { Observable } from 'rxjs';\n import { catchError } from 'rxjs/operators';\n@@ -59,7 +59,7 @@ export class OccCartVoucherAdapter implements CartVoucherAdapter {\n \n     return this.http.post(url, toAdd, { headers, params }).pipe(\n       catchError((error: any) => {\n-        throw normalizeHttpError(error, this.logger);\n+        throw tryNormalizeHttpError(error, this.logger);\n       }),\n       this.converter.pipeable(CART_VOUCHER_NORMALIZER)\n     );\n@@ -75,7 +75,7 @@ export class OccCartVoucherAdapter implements CartVoucherAdapter {\n \n     return this.http.delete(url, { headers }).pipe(\n       catchError((error: any) => {\n-        throw normalizeHttpError(error, this.logger);\n+        throw tryNormalizeHttpError(error, this.logger);\n       })\n     );\n   }"
+        },
+        {
+          "file": "feature-libs/cart/wish-list/core/store/actions/wish-list.action.ts",
+          "members": [
+            "CreateWishListFail.constructor"
+          ],
+          "diff": "@@ -42,17 +42,7 @@ export class CreateWishListFail\n   implements ErrorAction\n {\n   readonly type = CREATE_WISH_LIST_FAIL;\n-  constructor(payload: { cartId: string; error: any });\n-  /**\n-   * @deprecated Please pass the argument `error`.\n-   *             It will become mandatory along with removing\n-   *             the feature toggle `ssrStrictErrorHandlingForHttpAndNgrx`.\n-   */\n-  constructor(\n-    // eslint-disable-next-line @typescript-eslint/unified-signatures\n-    payload: { cartId: string }\n-  );\n-  constructor(public payload: { cartId: string; error?: any }) {\n+  constructor(public payload: { cartId: string; error: any }) {\n     super(MULTI_CART_DATA, payload.cartId, payload.error);\n   }\n }"
+        },
+        {
+          "file": "feature-libs/checkout/b2b/occ/adapters/occ-checkout-cost-center.adapter.ts",
+          "members": [
+            "OccCheckoutCostCenterAdapter.setCostCenter"
+          ],
+          "diff": "@@ -13,7 +13,7 @@ import {\n   ConverterService,\n   isJaloError,\n   LoggerService,\n-  normalizeHttpError,\n+  tryNormalizeHttpError,\n   OccEndpointsService,\n } from '@spartacus/core';\n import { Observable } from 'rxjs';\n@@ -38,7 +38,7 @@ export class OccCheckoutCostCenterAdapter implements CheckoutCostCenterAdapter {\n       .put(this.getSetCartCostCenterEndpoint(userId, cartId, costCenterId), {})\n       .pipe(\n         catchError((error) => {\n-          throw normalizeHttpError(error, this.logger);\n+          throw tryNormalizeHttpError(error, this.logger);\n         }),\n         backOff({ shouldRetry: isJaloError }),\n         this.converter.pipeable(CART_NORMALIZER)"
+        },
+        {
+          "file": "feature-libs/checkout/b2b/occ/adapters/occ-checkout-payment-type.adapter.ts",
+          "members": [
+            "OccCheckoutPaymentTypeAdapter.getPaymentTypes",
+            "OccCheckoutPaymentTypeAdapter.setPaymentType"
+          ],
+          "diff": "@@ -19,7 +19,7 @@ import {\n   OccEndpointsService,\n   backOff,\n   isJaloError,\n-  normalizeHttpError,\n+  tryNormalizeHttpError,\n } from '@spartacus/core';\n import { Observable } from 'rxjs';\n import { catchError, map } from 'rxjs/operators';\n@@ -45,7 +45,7 @@ export class OccCheckoutPaymentTypeAdapter\n       .get<Occ.PaymentTypeList>(this.getPaymentTypesEndpoint(), { context })\n       .pipe(\n         catchError((error) => {\n-          throw normalizeHttpError(error, this.logger);\n+          throw tryNormalizeHttpError(error, this.logger);\n         }),\n         backOff({ shouldRetry: isJaloError }),\n         map((paymentTypeList) => paymentTypeList.paymentTypes ?? []),\n@@ -75,7 +75,7 @@ export class OccCheckoutPaymentTypeAdapter\n       )\n       .pipe(\n         catchError((error) => {\n-          throw normalizeHttpError(error, this.logger);\n+          throw tryNormalizeHttpError(error, this.logger);\n         }),\n         backOff({ shouldRetry: isJaloError }),\n         this.converter.pipeable(CART_NORMALIZER)"
+        },
+        {
+          "file": "feature-libs/checkout/base/occ/adapters/occ-checkout-billing-address.adapter.ts",
+          "members": [
+            "OccCheckoutBillingAddressAdapter.setBillingAddress"
+          ],
+          "diff": "@@ -13,7 +13,7 @@ import {\n   ConverterService,\n   isJaloError,\n   LoggerService,\n-  normalizeHttpError,\n+  tryNormalizeHttpError,\n   OccEndpointsService,\n } from '@spartacus/core';\n import { Observable, throwError } from 'rxjs';\n@@ -37,7 +37,7 @@ export class OccCheckoutBillingAddressAdapter\n       .put<unknown>(this.getSetBillingAddressEndpoint(userId, cartId), address)\n       .pipe(\n         catchError((error) =>\n-          throwError(normalizeHttpError(error, this.logger))\n+          throwError(tryNormalizeHttpError(error, this.logger))\n         ),\n         backOff({\n           shouldRetry: isJaloError,"
+        },
+        {
+          "file": "feature-libs/checkout/base/occ/adapters/occ-checkout-delivery-address.adapter.ts",
+          "members": [
+            "OccCheckoutDeliveryAddressAdapter.clearCheckoutDeliveryAddress",
+            "OccCheckoutDeliveryAddressAdapter.createAddress",
+            "OccCheckoutDeliveryAddressAdapter.setAddress"
+          ],
+          "diff": "@@ -17,7 +17,7 @@ import {\n   OccEndpointsService,\n   backOff,\n   isJaloError,\n-  normalizeHttpError,\n+  tryNormalizeHttpError,\n } from '@spartacus/core';\n import { Observable } from 'rxjs';\n import { catchError } from 'rxjs/operators';\n@@ -51,7 +51,7 @@ export class OccCheckoutDeliveryAddressAdapter\n       )\n       .pipe(\n         catchError((error) => {\n-          throw normalizeHttpError(error, this.logger);\n+          throw tryNormalizeHttpError(error, this.logger);\n         }),\n         backOff({\n           shouldRetry: isJaloError,\n@@ -84,7 +84,7 @@ export class OccCheckoutDeliveryAddressAdapter\n       )\n       .pipe(\n         catchError((error) => {\n-          throw normalizeHttpError(error, this.logger);\n+          throw tryNormalizeHttpError(error, this.logger);\n         }),\n         backOff({\n           shouldRetry: isJaloError,\n@@ -111,7 +111,7 @@ export class OccCheckoutDeliveryAddressAdapter\n       .delete<unknown>(this.getRemoveDeliveryAddressEndpoint(userId, cartId))\n       .pipe(\n         catchError((error) => {\n-          throw normalizeHttpError(error, this.logger);\n+          throw tryNormalizeHttpError(error, this.logger);\n         }),\n         backOff({\n           shouldRetry: isJaloError,"
+        },
+        {
+          "file": "feature-libs/checkout/base/occ/adapters/occ-checkout-delivery-modes.adapter.ts",
+          "members": [
+            "OccCheckoutDeliveryModesAdapter.clearCheckoutDeliveryMode",
+            "OccCheckoutDeliveryModesAdapter.getSupportedModes",
+            "OccCheckoutDeliveryModesAdapter.setMode"
+          ],
+          "diff": "@@ -18,7 +18,7 @@ import {\n   OccEndpointsService,\n   backOff,\n   isJaloError,\n-  normalizeHttpError,\n+  tryNormalizeHttpError,\n } from '@spartacus/core';\n import { Observable } from 'rxjs';\n import { catchError, map } from 'rxjs/operators';\n@@ -44,7 +44,7 @@ export class OccCheckoutDeliveryModesAdapter\n       .put(this.getSetDeliveryModeEndpoint(userId, cartId, deliveryModeId), {})\n       .pipe(\n         catchError((error) => {\n-          throw normalizeHttpError(error, this.logger);\n+          throw tryNormalizeHttpError(error, this.logger);\n         }),\n         backOff({\n           shouldRetry: isJaloError,\n@@ -74,7 +74,7 @@ export class OccCheckoutDeliveryModesAdapter\n       .get<Occ.DeliveryModeList>(this.getDeliveryModesEndpoint(userId, cartId))\n       .pipe(\n         catchError((error) => {\n-          throw normalizeHttpError(error, this.logger);\n+          throw tryNormalizeHttpError(error, this.logger);\n         }),\n         backOff({\n           shouldRetry: isJaloError,\n@@ -98,7 +98,7 @@ export class OccCheckoutDeliveryModesAdapter\n       .delete<unknown>(this.getClearDeliveryModeEndpoint(userId, cartId))\n       .pipe(\n         catchError((error) => {\n-          throw normalizeHttpError(error, this.logger);\n+          throw tryNormalizeHttpError(error, this.logger);\n         }),\n         backOff({\n           shouldRetry: isJaloError,"
+        },
+        {
+          "file": "feature-libs/checkout/base/occ/adapters/occ-checkout-payment.adapter.ts",
+          "members": [
+            "OccCheckoutPaymentAdapter.createDetailsWithParameters",
+            "OccCheckoutPaymentAdapter.createPaymentDetails",
+            "OccCheckoutPaymentAdapter.createSubWithProvider",
+            "OccCheckoutPaymentAdapter.getPaymentCardTypes",
+            "OccCheckoutPaymentAdapter.getProviderSubInfo",
+            "OccCheckoutPaymentAdapter.setPaymentDetails"
+          ],
+          "diff": "@@ -22,7 +22,7 @@ import {\n   PaymentDetails,\n   backOff,\n   isJaloError,\n-  normalizeHttpError,\n+  tryNormalizeHttpError,\n } from '@spartacus/core';\n import { Observable } from 'rxjs';\n import { catchError, map, mergeMap } from 'rxjs/operators';\n@@ -81,7 +81,7 @@ export class OccCheckoutPaymentAdapter implements CheckoutPaymentAdapter {\n               fromPaymentProvider\n             ).pipe(\n               catchError((error) => {\n-                throw normalizeHttpError(error, this.logger);\n+                throw tryNormalizeHttpError(error, this.logger);\n               }),\n               backOff({\n                 shouldRetry: isJaloError,\n@@ -106,7 +106,7 @@ export class OccCheckoutPaymentAdapter implements CheckoutPaymentAdapter {\n       )\n       .pipe(\n         catchError((error) => {\n-          throw normalizeHttpError(error, this.logger);\n+          throw tryNormalizeHttpError(error, this.logger);\n         }),\n         backOff({\n           shouldRetry: isJaloError,\n@@ -130,7 +130,7 @@ export class OccCheckoutPaymentAdapter implements CheckoutPaymentAdapter {\n       .get<Occ.CardTypeList>(this.getPaymentCardTypesEndpoint())\n       .pipe(\n         catchError((error) => {\n-          throw normalizeHttpError(error, this.logger);\n+          throw tryNormalizeHttpError(error, this.logger);\n         }),\n         backOff({\n           shouldRetry: isJaloError,\n@@ -152,7 +152,7 @@ export class OccCheckoutPaymentAdapter implements CheckoutPaymentAdapter {\n       .get(this.getPaymentProviderSubInfoEndpoint(userId, cartId))\n       .pipe(\n         catchError((error) => {\n-          throw normalizeHttpError(error, this.logger);\n+          throw tryNormalizeHttpError(error, this.logger);\n         }),\n         backOff({\n           shouldRetry: isJaloError,\n@@ -192,7 +192,7 @@ export class OccCheckoutPaymentAdapter implements CheckoutPaymentAdapter {\n       })\n       .pipe(\n         catchError((error) => {\n-          throw normalizeHttpError(error, this.logger);\n+          throw tryNormalizeHttpError(error, this.logger);\n         }),\n         backOff({\n           shouldRetry: isJaloError,\n@@ -222,7 +222,7 @@ export class OccCheckoutPaymentAdapter implements CheckoutPaymentAdapter {\n       )\n       .pipe(\n         catchError((error) => {\n-          throw normalizeHttpError(error, this.logger);\n+          throw tryNormalizeHttpError(error, this.logger);\n         }),\n         backOff({\n           shouldRetry: isJaloError,"
+        },
+        {
+          "file": "feature-libs/checkout/base/occ/adapters/occ-checkout.adapter.ts",
+          "members": [
+            "OccCheckoutAdapter.getCheckoutDetails"
+          ],
+          "diff": "@@ -17,7 +17,7 @@ import {\n   OccEndpointsService,\n   backOff,\n   isJaloError,\n-  normalizeHttpError,\n+  tryNormalizeHttpError,\n } from '@spartacus/core';\n import { Observable } from 'rxjs';\n import { catchError } from 'rxjs/operators';\n@@ -40,7 +40,7 @@ export class OccCheckoutAdapter implements CheckoutAdapter {\n       .get<CheckoutState>(this.getGetCheckoutDetailsEndpoint(userId, cartId))\n       .pipe(\n         catchError((error) => {\n-          throw normalizeHttpError(error, this.logger);\n+          throw tryNormalizeHttpError(error, this.logger);\n         }),\n         backOff({\n           shouldRetry: isJaloError,"
+        },
+        {
+          "file": "feature-libs/customer-ticketing/occ/adapters/occ-customer-ticketing.adapter.ts",
+          "members": [
+            "OccCustomerTicketingAdapter.createTicket",
+            "OccCustomerTicketingAdapter.createTicketEvent",
+            "OccCustomerTicketingAdapter.downloadAttachment",
+            "OccCustomerTicketingAdapter.getTicket",
+            "OccCustomerTicketingAdapter.getTicketAssociatedObjects",
+            "OccCustomerTicketingAdapter.getTicketCategories",
+            "OccCustomerTicketingAdapter.getTickets",
+            "OccCustomerTicketingAdapter.uploadAttachment"
+          ],
+          "diff": "@@ -10,7 +10,7 @@ import {\n   ConverterService,\n   LoggerService,\n   OccEndpointsService,\n-  normalizeHttpError,\n+  tryNormalizeHttpError,\n } from '@spartacus/core';\n import {\n   CUSTOMER_TICKETING_ASSOCIATED_OBJECTS_NORMALIZER,\n@@ -53,7 +53,7 @@ export class OccCustomerTicketingAdapter implements CustomerTicketingAdapter {\n       )\n       .pipe(\n         catchError((error) => {\n-          throw normalizeHttpError(error, this.logger);\n+          throw tryNormalizeHttpError(error, this.logger);\n         }),\n         map(\n           (associatedObjectList) =>\n@@ -78,7 +78,7 @@ export class OccCustomerTicketingAdapter implements CustomerTicketingAdapter {\n       .get<CategoriesList>(this.getTicketCategoriesEndpoint())\n       .pipe(\n         catchError((error) => {\n-          throw normalizeHttpError(error, this.logger);\n+          throw tryNormalizeHttpError(error, this.logger);\n         }),\n         map((categoryList) => categoryList.ticketCategories ?? []),\n         this.converter.pipeableMany(CUSTOMER_TICKETING_CATEGORY_NORMALIZER)\n@@ -94,7 +94,7 @@ export class OccCustomerTicketingAdapter implements CustomerTicketingAdapter {\n       .get<TicketDetails>(this.getTicketEndpoint(customerId, ticketId))\n       .pipe(\n         catchError((errorResponse) => {\n-          throw normalizeHttpError(errorResponse, this.logger);\n+          throw tryNormalizeHttpError(errorResponse, this.logger);\n         }),\n         tap((ticket) => ticket.ticketEvents?.reverse()),\n         this.converter.pipeable(CUSTOMER_TICKETING_DETAILS_NORMALIZER)\n@@ -120,7 +120,7 @@ export class OccCustomerTicketingAdapter implements CustomerTicketingAdapter {\n       })\n       .pipe(\n         catchError((error) => {\n-          throw normalizeHttpError(error, this.logger);\n+          throw tryNormalizeHttpError(error, this.logger);\n         }),\n         this.converter.pipeable(CUSTOMER_TICKETING_CREATE_NORMALIZER)\n       );\n@@ -146,7 +146,7 @@ export class OccCustomerTicketingAdapter implements CustomerTicketingAdapter {\n       )\n       .pipe(\n         catchError((error) => {\n-          throw normalizeHttpError(error, this.logger);\n+          throw tryNormalizeHttpError(error, this.logger);\n         }),\n         this.converter.pipeable(CUSTOMER_TICKETING_LIST_NORMALIZER)\n       );\n@@ -185,7 +185,7 @@ export class OccCustomerTicketingAdapter implements CustomerTicketingAdapter {\n       )\n       .pipe(\n         catchError((error) => {\n-          throw normalizeHttpError(error, this.logger);\n+          throw tryNormalizeHttpError(error, this.logger);\n         }),\n         this.converter.pipeable(CUSTOMER_TICKETING_EVENT_NORMALIZER)\n       );\n@@ -219,7 +219,7 @@ export class OccCustomerTicketingAdapter implements CustomerTicketingAdapter {\n       )\n       .pipe(\n         catchError((error) => {\n-          throw normalizeHttpError(error, this.logger);\n+          throw tryNormalizeHttpError(error, this.logger);\n         }),\n         this.converter.pipeable(CUSTOMER_TICKETING_FILE_NORMALIZER)\n       );\n@@ -260,7 +260,7 @@ export class OccCustomerTicketingAdapter implements CustomerTicketingAdapter {\n       )\n       .pipe(\n         catchError((error) => {\n-          throw normalizeHttpError(error, this.logger);\n+          throw tryNormalizeHttpError(error, this.logger);\n         }),\n         this.converter.pipeable(CUSTOMER_TICKETING_FILE_NORMALIZER)\n…"
+        },
+        {
+          "file": "feature-libs/order/occ/adapters/occ-order-history.adapter.ts",
+          "members": [
+            "OccOrderHistoryAdapter.cancel",
+            "OccOrderHistoryAdapter.cancelReturnRequest",
+            "OccOrderHistoryAdapter.createReturnRequest"
+          ],
+          "diff": "@@ -17,7 +17,7 @@ import {\n   OccFieldsService,\n   ScopedDataWithUrl,\n   USE_CLIENT_TOKEN,\n-  normalizeHttpError,\n+  tryNormalizeHttpError,\n } from '@spartacus/core';\n import { OrderHistoryAdapter } from '@spartacus/order/core';\n import {\n@@ -138,7 +138,7 @@ export class OccOrderHistoryAdapter implements OrderHistoryAdapter {\n \n     return this.http.post(url, cancelRequestInput, { headers }).pipe(\n       catchError((error: any) => {\n-        throw normalizeHttpError(error, this.logger);\n+        throw tryNormalizeHttpError(error, this.logger);\n       })\n     );\n   }\n@@ -161,7 +161,7 @@ export class OccOrderHistoryAdapter implements OrderHistoryAdapter {\n \n     return this.http.post(url, returnRequestInput, { headers }).pipe(\n       catchError((error: any) => {\n-        throw normalizeHttpError(error, this.logger);\n+        throw tryNormalizeHttpError(error, this.logger);\n       }),\n       this.converter.pipeable(ORDER_RETURN_REQUEST_NORMALIZER)\n     );\n@@ -221,7 +221,7 @@ export class OccOrderHistoryAdapter implements OrderHistoryAdapter {\n \n     return this.http.patch(url, returnRequestModification, { headers }).pipe(\n       catchError((error: any) => {\n-        throw normalizeHttpError(error, this.logger);\n+        throw tryNormalizeHttpError(error, this.logger);\n       })\n     );\n   }"
+        }
+      ]
+    },
+    {
+      "sha": "f4905e7497ca3f474a8b07cfa29ef9dfb568b202",
+      "subject": "chore: remove allPageMetaResolversEnabledInCsr feature flag (#20715)",
+      "files": [
+        {
+          "file": "projects/core/src/cms/facade/page-meta.service.ts",
+          "members": [
+            "PageMetaService.featureConfigService",
+            "PageMetaService.getResolverMethods"
+          ],
+          "diff": "@@ -4,14 +4,7 @@\n  * SPDX-License-Identifier: Apache-2.0\n  */\n \n-import { isPlatformBrowser } from '@angular/common';\n-import {\n-  inject,\n-  Inject,\n-  Injectable,\n-  isDevMode,\n-  PLATFORM_ID,\n-} from '@angular/core';\n+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';\n import { defer, Observable, of } from 'rxjs';\n import { filter, map, shareReplay, switchMap } from 'rxjs/operators';\n import { UnifiedInjector } from '../../lazy-loading/unified-injector';\n@@ -21,7 +14,6 @@ import { Page, PageMeta } from '../model/page.model';\n import { PageMetaConfig } from '../page/config/page-meta.config';\n import { PageMetaResolver } from '../page/page-meta.resolver';\n import { CmsService } from './cms.service';\n-import { FeatureConfigService } from '../../features-config';\n \n /**\n  * Service that collects the page meta data by using injected page resolvers.\n@@ -30,8 +22,6 @@ import { FeatureConfigService } from '../../features-config';\n   providedIn: 'root',\n })\n export class PageMetaService {\n-  private featureConfigService = inject(FeatureConfigService);\n-\n   constructor(\n     protected cms: CmsService,\n     protected unifiedInjector: UnifiedInjector,\n@@ -100,33 +90,17 @@ export class PageMetaService {\n    *   robots: 'resolveRobots'\n    * }\n    * ```\n-   *\n-   * This list of resolvers is filtered for CSR vs SSR processing since not all resolvers are\n-   * relevant during browsing.\n    */\n   protected getResolverMethods(): { [property: string]: string } {\n-    const resolverMethods: Record<string, string> = {};\n-    // filter the resolvers to avoid unnecessary processing in CSR\n-    this.pageMetaConfig?.pageMeta?.resolvers\n-      ?.filter((resolver) => {\n-        const disabledInCsr = this.featureConfigService.isEnabled(\n-          'allPageMetaResolversEnabledInCsr'\n-        )\n-          ? false\n-          : resolver.disabledInCsr;\n-        return (\n-          // always resolve in SSR\n-          !isPlatformBrowser(this.platformId ?? '') ||\n-          // resolve in CSR when it's not disabled\n-          !disabledInCsr ||\n-          // resolve in CSR when resolver is enabled in devMode\n-          (isDevMode() && this.pageMetaConfig?.pageMeta?.enableInDevMode)\n-        );\n-      })\n-      .forEach(\n-        (resolver) => (resolverMethods[resolver.property] = resolver.method)\n-      );\n-    return resolverMethods;\n+    return (\n+      this.pageMetaConfig?.pageMeta?.resolvers?.reduce(\n+        (acc, resolver) => {\n+          acc[resolver.property] = resolver.method;\n+          return acc;\n+        },\n+        <Record<string, string>>{}\n+      ) ?? {}\n+    );\n   }\n \n   /**"
+        },
+        {
+          "file": "projects/core/src/cms/page/config/default-page-meta.config.ts",
+          "members": [],
+          "diff": "@@ -24,22 +24,18 @@ export const defaultPageMetaConfig: PageMetaConfig = {\n       {\n         property: 'description',\n         method: 'resolveDescription',\n-        disabledInCsr: true,\n       },\n       {\n         property: 'image',\n         method: 'resolveImage',\n-        disabledInCsr: true,\n       },\n       {\n         property: 'robots',\n         method: 'resolveRobots',\n-        disabledInCsr: true,\n       },\n       {\n         property: 'canonicalUrl',\n         method: 'resolveCanonicalUrl',\n-        disabledInCsr: true,\n       },\n     ],\n     canonicalUrl: {"
+        },
+        {
+          "file": "projects/core/src/cms/page/config/page-meta.config.ts",
+          "members": [],
+          "diff": "@@ -26,13 +26,6 @@ export interface PageMetaResolversConfig {\n    * Specifies how the canonical url is created.\n    */\n   canonicalUrl?: CanonicalUrlOptions;\n-\n-  /**\n-   * Enables resolvers in dev mode regardless of the CSR configuration. This\n-   * flag will override the disabling in CSR, which can be useful during development\n-   * and debugging.\n-   */\n-  enableInDevMode?: boolean;\n }\n \n export interface PageMetaResolverConfig {\n@@ -45,15 +38,6 @@ export interface PageMetaResolverConfig {\n    * The resolver method that must be provided on the resolver class.\n    */\n   method: string;\n-\n-  /**\n-   * Disables specific resolvers in CSR mode.\n-   *\n-   * @deprecated since 2211.31 - this option will be removed in the future together\n-   *              with the feature toggle `allPageMetaResolversEnabledInCsr`\n-   *              (then all resolvers will be enabled in CSR).\n-   */\n-  disabledInCsr?: boolean;\n }\n \n export interface CanonicalUrlOptions {"
+        }
+      ]
+    }
+  ],
+  "i18n": {
+    "added": [],
+    "removed": [],
+    "changed": [],
+    "translated": []
+  }
 }
