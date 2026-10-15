@@ -108,6 +108,15 @@
       "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/a9880885ef5446748ffa990976fa0dcd.html",
       "releasedAt": "2026-09-08",
       "validUntil": "2027-03-08"
+    },
+    {
+      "release": "221121.20",
+      "previous": "221121.18",
+      "packageVersion": "221121.20.0",
+      "gitTag": "221121.20.0",
+      "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/bcb0127df57b40218ee110ab3116c02b.html",
+      "releasedAt": "2026-10-13",
+      "validUntil": "2027-04-13"
     }
   ]
 }
