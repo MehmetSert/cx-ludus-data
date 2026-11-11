@@ -1,0 +1,3389 @@
+{
+  "schemaVersion": 1,
+  "generatorVersion": 3,
+  "from": {
+    "release": "221121.20",
+    "gitTag": "221121.20.0"
+  },
+  "to": {
+    "release": "221121.21",
+    "gitTag": "221121.21.0"
+  },
+  "toggles": {
+    "removed": [
+      {
+        "name": "enableQuotePurchaseOrderNumber",
+        "description": "shows the Quote Purchase Order Number input field in the Quote Request form\nand in the Quote Details page\n\nwhen set to `true`, the user will be able to enter a Purchase Order Number\nwhen requesting a quote and see it in the quote details",
+        "affects": [],
+        "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/059ef1e522b6484dbef4071b37828ac1.html",
+        "usages": [],
+        "references": [
+          {
+            "file": "feature-libs/quote/components/header/buyer-edit/quote-header-buyer-edit.component.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "QuoteHeaderBuyerEditComponent"
+            ],
+            "selectors": [
+              "cx-quote-header-buyer-edit"
+            ],
+            "members": [
+              "QuoteHeaderBuyerEditComponent.enablePurchaseOrderNumber"
+            ],
+            "snippets": [
+              {
+                "line": 63,
+                "code": "this.featureToggles.enableQuotePurchaseOrderNumber;"
+              }
+            ]
+          },
+          {
+            "file": "feature-libs/quote/components/header/overview/quote-header-overview.component.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "QuoteHeaderOverviewComponent"
+            ],
+            "selectors": [
+              "cx-quote-header-overview"
+            ],
+            "members": [
+              "QuoteHeaderOverviewComponent.enablePurchaseOrderNumber"
+            ],
+            "snippets": [
+              {
+                "line": 68,
+                "code": "  this.featureToggles.enableQuotePurchaseOrderNumber;\n\nprotected defineQuoteMetaData(event: SaveEvent): QuoteMetadata {\n  let metaData: QuoteMetadata = {};\n  if (Object.getOwnPropertyNames(event).length >= 1) {\n    const { name, description, purchaseOrderNumber } = event;\n\n    metaData = {\n      ...metaData,\n      ...(event.name && { name }),\n      ...{ description },\n      ...(event.purchaseOrderNumber && {\n        sapPurchaseOrderNumber: purchaseOrderNumber,\n      }),\n    };\n  }\n  return metaData;\n}"
+              }
+            ]
+          }
+        ],
+        "commits": [
+          "c5c9d538c3562038b1e21b2f263d059ecfba94ad"
+        ],
+        "rollout": {
+          "defaultOn": "221121.11",
+          "mandatory": "221121.21"
+        },
+        "translations": {
+          "tr": "Quote Purchase Order Number input alanını Quote Request formunda\nve Quote Details sayfasında gösterir.\n\n`true` olarak ayarlandığında, kullanıcı teklif talep ederken\nPurchase Order Number girebilir ve bunu quote details içinde görebilir."
+        }
+      },
+      {
+        "name": "enableReturnOrderReturnableQuantityConsigmentFallback",
+        "description": "When enabled, fixes the issue with return order returnable quantity not being displayed correctly\non the `ReturnOrderComponent` when navigating to the return request details page.",
+        "affects": [
+          "ReturnOrderComponent"
+        ],
+        "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/a30f815f0bf84f09ae70d1a33358c2b1.html",
+        "usages": [],
+        "references": [
+          {
+            "file": "feature-libs/order/components/amend-order/returns/return-order/return-order.component.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "ReturnOrderComponent"
+            ],
+            "selectors": [
+              "cx-return-order"
+            ],
+            "members": [
+              "ReturnOrderComponent.entries$"
+            ],
+            "snippets": [
+              {
+                "line": 66,
+                "code": "?.enableReturnOrderReturnableQuantityConsigmentFallback"
+              }
+            ]
+          }
+        ],
+        "commits": [
+          "b2f760b2a0614170332429fbe624bcef5167f834"
+        ],
+        "rollout": {
+          "defaultOn": "221121.11",
+          "mandatory": "221121.21"
+        },
+        "translations": {
+          "tr": "Etkinleştirildiğinde, return request details sayfasına gidildiğinde `ReturnOrderComponent` üzerinde iade edilebilir sipariş miktarının\ndoğru görüntülenmemesi sorununu giderir."
+        }
+      },
+      {
+        "name": "navigationMenuCloseOnSameLinkClick",
+        "description": "When this feature toggle is enabled, the navigation menu will close when clicking on the same link.\n\nThis is to improve the user experience on mobile devices, where the menu remains open\nafter clicking on a link that navigates to the same page.",
+        "affects": [
+          "NavigationUIComponent"
+        ],
+        "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/67f0e59ec5654d85b6b0d1ec3a7f7f92.html",
+        "usages": [],
+        "references": [
+          {
+            "file": "core-libs/storefront/cms-components/navigation/navigation/navigation-ui.component.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "NavigationUIComponent"
+            ],
+            "selectors": [
+              "cx-navigation-ui"
+            ],
+            "members": [
+              "NavigationUIComponent.closeIfClickedTheSameLink"
+            ],
+            "snippets": [
+              {
+                "line": 159,
+                "code": "if (this.featureToggles?.navigationMenuCloseOnSameLinkClick) {\n  this.hamburgerMenuService.toggle(true);\n}"
+              }
+            ]
+          }
+        ],
+        "commits": [
+          "b2f760b2a0614170332429fbe624bcef5167f834"
+        ],
+        "rollout": {
+          "defaultOn": "221121.11",
+          "mandatory": "221121.21"
+        },
+        "translations": {
+          "tr": "Bu feature toggle etkinleştirildiğinde, navigasyon menüsü aynı bağlantıya tıklandığında kapanır.\n\nBu, mobil cihazlarda aynı sayfaya yönlendiren bir bağlantıya tıkladıktan sonra\nmenünün açık kalması durumunda kullanıcı deneyimini iyileştirmek içindir."
+        }
+      }
+    ],
+    "added": [
+      {
+        "name": "a11yBannerArrowKeyNavigation",
+        "description": "When enabled, adds arrow key navigation to organization administration\nnavigation tiles/cards on the My Company landing page (CompanyPageTemplate),\nturning the banner tile group into a composite keyboard widget.\n\nACC-270.3",
+        "affects": [
+          "BannerComponent"
+        ],
+        "defaultValue": false,
+        "docUrl": null,
+        "usages": [],
+        "references": [
+          {
+            "file": "core-libs/storefront/cms-components/content/banner/banner.component.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "BannerComponent"
+            ],
+            "selectors": [
+              "cx-banner"
+            ],
+            "members": [
+              "BannerComponent.onKeydown"
+            ],
+            "snippets": [
+              {
+                "line": 67,
+                "code": "if (!this.featureToggles.a11yBannerArrowKeyNavigation) {\n  return;\n}"
+              }
+            ]
+          }
+        ],
+        "commits": [
+          "b7815863c8e4da73886fe56dac18f37173e67e3a"
+        ],
+        "rollout": {
+          "defaultOn": "Q2 2027",
+          "mandatory": "Q4 2027"
+        }
+      },
+      {
+        "name": "a11yCarouselItemArrowKeyNavigation",
+        "description": "When enabled, adds `cxFocusableCarouselItem` to product carousel items so\narrow key navigation works inside the carousel.\n\nACC-270.3",
+        "affects": [
+          "ProductCarouselItemComponent"
+        ],
+        "defaultValue": false,
+        "docUrl": null,
+        "usages": [
+          {
+            "file": "core-libs/storefront/cms-components/product/carousel/product-carousel-item/product-carousel-item.component.html",
+            "pattern": "cx-feature",
+            "negated": true,
+            "symbols": [
+              "ProductCarouselItemComponent"
+            ],
+            "selectors": [
+              "cx-product-carousel-item"
+            ],
+            "snippets": [
+              {
+                "line": 2,
+                "code": "<a\n  *cxFeature=\"'!a11yCarouselItemArrowKeyNavigation'\"\n  tabindex=\"0\"\n  [routerLink]=\"{ cxRoute: 'product', params: item } | cxUrl\"\n>\n  <ng-container *cxLcpContext=\"let lcpContext\">\n    <cx-media\n      [container]=\"item.images?.PRIMARY\"\n      format=\"product\"\n      [alt]=\"item.name ?? ''\"\n      [fetchPriority]=\"\n        itemIndex === 0 ? (lcpContext.fetchPriority$ | async) : undefined\n      \"\n    />\n  </ng-container>\n  <h3 class=\"cx-product-name\">\n    {{ item.name }}\n  </h3>\n  <div class=\"price\">\n    {{ item.price?.formattedValue }}\n  </div>\n</a>"
+              }
+            ],
+            "components": [
+              "cx-media"
+            ]
+          },
+          {
+            "file": "core-libs/storefront/cms-components/product/carousel/product-carousel-item/product-carousel-item.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "ProductCarouselItemComponent"
+            ],
+            "selectors": [
+              "cx-product-carousel-item"
+            ],
+            "snippets": [
+              {
+                "line": 24,
+                "code": "<a\n  *cxFeature=\"'a11yCarouselItemArrowKeyNavigation'\"\n  cxFocusableCarouselItem\n  tabindex=\"0\"\n  [routerLink]=\"{ cxRoute: 'product', params: item } | cxUrl\"\n>\n  <ng-container *cxLcpContext=\"let lcpContext\">\n    <cx-media\n      [container]=\"item.images?.PRIMARY\"\n      format=\"product\"\n      [alt]=\"item.name ?? ''\"\n      [fetchPriority]=\"\n        itemIndex === 0 ? (lcpContext.fetchPriority$ | async) : undefined\n      \"\n    />\n  </ng-container>\n  <h3 class=\"cx-product-name\">\n    {{ item.name }}\n  </h3>\n  <div class=\"price\">\n    {{ item.price?.formattedValue }}\n  </div>\n</a>"
+              }
+            ],
+            "components": [
+              "cx-media"
+            ]
+          }
+        ],
+        "references": [],
+        "commits": [
+          "8cb223cf3cdeafdc04bf5312f4db5c4b000a2621"
+        ],
+        "rollout": {
+          "defaultOn": "Q2 2027",
+          "mandatory": "Q4 2027"
+        }
+      },
+      {
+        "name": "a11yCouponDialogResetButtonKeyboardAccessible",
+        "description": "When enabled, the RESET button in the \"Add To Your Coupon List\" claim dialog\nis rendered as a proper `<button>` element instead of an `<a role=\"button\">`\nwithout an `href`, making it reachable and operable with the keyboard.\nFixes WCAG 2.1.1 (Keyboard) ACC-270.1 (Level A).",
+        "affects": [
+          "ClaimDialogComponent"
+        ],
+        "defaultValue": false,
+        "docUrl": null,
+        "usages": [
+          {
+            "file": "core-libs/storefront/cms-components/myaccount/my-coupons/claim-dialog/claim-dialog.component.html",
+            "pattern": "cx-feature",
+            "negated": true,
+            "symbols": [
+              "ClaimDialogComponent"
+            ],
+            "selectors": [
+              "cx-claim-dialog"
+            ],
+            "snippets": [
+              {
+                "line": 60,
+                "code": "<a\n  *cxFeature=\"'!a11yCouponDialogResetButtonKeyboardAccessible'\"\n  role=\"button\"\n  class=\"btn btn-block btn-secondary\"\n  (click)=\"cancelEdit()\"\n>\n  {{ 'myCoupons.reset' | cxTranslate }}\n</a>"
+              }
+            ]
+          },
+          {
+            "file": "core-libs/storefront/cms-components/myaccount/my-coupons/claim-dialog/claim-dialog.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "ClaimDialogComponent"
+            ],
+            "selectors": [
+              "cx-claim-dialog"
+            ],
+            "snippets": [
+              {
+                "line": 68,
+                "code": "<button\n  *cxFeature=\"'a11yCouponDialogResetButtonKeyboardAccessible'\"\n  type=\"button\"\n  class=\"btn btn-block btn-secondary\"\n  (click)=\"cancelEdit()\"\n>\n  {{ 'myCoupons.reset' | cxTranslate }}\n</button>"
+              }
+            ]
+          }
+        ],
+        "references": [],
+        "commits": [
+          "cc0dfc94875483090234ec4dc3344d0b8dee65dc"
+        ],
+        "rollout": {
+          "defaultOn": "Q2 2027",
+          "mandatory": "Q4 2027"
+        }
+      },
+      {
+        "name": "a11yCvvInfoIconKeyboardAccessible",
+        "description": "Makes the CVV (Card Verification Value) info icon in the checkout\npayment form keyboard accessible by rendering it as a focusable button.",
+        "affects": [
+          "CheckoutPaymentFormComponent"
+        ],
+        "defaultValue": false,
+        "docUrl": null,
+        "usages": [
+          {
+            "file": "feature-libs/checkout/base/components/checkout-payment-method/checkout-payment-form/checkout-payment-form.component.html",
+            "pattern": "cx-feature",
+            "negated": true,
+            "symbols": [
+              "CheckoutPaymentFormComponent"
+            ],
+            "selectors": [
+              "cx-payment-form"
+            ],
+            "snippets": [
+              {
+                "line": 193,
+                "code": "<span\n  *cxFeature=\"'!a11yCvvInfoIconKeyboardAccessible'\"\n  class=\"label-content\"\n>\n  {{ 'paymentForm.securityCode' | cxTranslate }}\n  <cx-form-required-asterisks />\n  <cx-icon\n    [type]=\"iconTypes.INFO\"\n    class=\"cx-payment-form-tooltip\"\n    placement=\"right\"\n    title=\"{{ 'paymentForm.securityCodeTitle' | cxTranslate }}\"\n    alt=\"\"\n    [attr.aria-label]=\"\n      'paymentForm.securityCodeTitle' | cxTranslate\n    \"\n  />\n</span>"
+              }
+            ],
+            "components": [
+              "cx-form-required-asterisks",
+              "cx-icon"
+            ]
+          },
+          {
+            "file": "feature-libs/checkout/base/components/checkout-payment-method/checkout-payment-form/checkout-payment-form.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "CheckoutPaymentFormComponent"
+            ],
+            "selectors": [
+              "cx-payment-form"
+            ],
+            "snippets": [
+              {
+                "line": 211,
+                "code": "<span\n  *cxFeature=\"'a11yCvvInfoIconKeyboardAccessible'\"\n  class=\"label-content\"\n>\n  <span id=\"cvvLabelText\">\n    {{ 'paymentForm.securityCode' | cxTranslate }}\n    <cx-form-required-asterisks />\n  </span>\n  <span\n    class=\"cx-cvv-info\"\n    [class.cx-cvv-tooltip-dismissed]=\"cvvTooltipDismissed\"\n  >\n    <button\n      type=\"button\"\n      class=\"cx-payment-form-tooltip cx-cvv-info-btn\"\n      aria-describedby=\"cvvInfoHint\"\n      [attr.aria-label]=\"\n        'paymentForm.cvvInfoButtonLabel' | cxTranslate\n      \"\n      (keydown.escape)=\"onCvvEscape($event)\"\n      (blur)=\"onCvvBlur()\"\n    >\n      <cx-icon [type]=\"iconTypes.INFO\" />\n    </button>\n    <span\n      id=\"cvvInfoHint\"\n      role=\"tooltip\"\n      class=\"cx-cvv-tooltip\"\n    >\n      {{ 'paymentForm.cvvInfoHint' | cxTranslate }}\n    </span>\n  </span>\n</span>"
+              }
+            ],
+            "components": [
+              "cx-form-required-asterisks",
+              "cx-icon"
+            ]
+          },
+          {
+            "file": "feature-libs/checkout/base/components/checkout-payment-method/checkout-payment-form/checkout-payment-form.component.ts",
+            "pattern": "use-feature-styles",
+            "negated": false,
+            "symbols": [
+              "CheckoutPaymentFormComponent"
+            ],
+            "selectors": [
+              "cx-payment-form"
+            ],
+            "snippets": [
+              {
+                "line": 170,
+                "code": "useFeatureStyles('a11yCvvInfoIconKeyboardAccessible');"
+              }
+            ],
+            "members": [
+              "CheckoutPaymentFormComponent.constructor"
+            ]
+          },
+          {
+            "file": "feature-libs/checkout/base/styles/components/steps/payment/_payment-form.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "CheckoutPaymentFormComponent"
+            ],
+            "selectors": [
+              "cx-payment-form"
+            ],
+            "snippets": [
+              {
+                "line": 13,
+                "code": "@include forFeature('a11yCvvInfoIconKeyboardAccessible') {\n  padding: 0;\n  background: none;\n  border: none;\n  line-height: 1;\n}"
+              }
+            ],
+            "styleScopes": [
+              "cx-payment-form .cx-cvv-info-btn"
+            ]
+          }
+        ],
+        "references": [
+          {
+            "file": "feature-libs/checkout/base/components/checkout-payment-method/checkout-payment-form/checkout-payment-form.component.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "CheckoutPaymentFormComponent"
+            ],
+            "selectors": [
+              "cx-payment-form"
+            ],
+            "members": [
+              "CheckoutPaymentFormComponent.cvvLabelId"
+            ],
+            "snippets": [
+              {
+                "line": 155,
+                "code": "return this.featureToggles.a11yCvvInfoIconKeyboardAccessible"
+              }
+            ]
+          }
+        ],
+        "commits": [
+          "643d01a6735784d9caec86d16072a7bb5c074a62"
+        ],
+        "rollout": {
+          "defaultOn": "Q2 2027",
+          "mandatory": "Q4 2027"
+        }
+      },
+      {
+        "name": "a11yInStockInfoTextContrast",
+        "description": "When enabled, the \"In Stock\" / \"Out of Stock\" info text in the\n`AddToCartComponent` uses `--cx-color-text` instead of\n`--cx-color-secondary`, ensuring the text meets the WCAG 1.4.3 Level AA\nminimum contrast ratio of 4.5:1 against all background surfaces.",
+        "affects": [
+          "AddToCartComponent"
+        ],
+        "defaultValue": false,
+        "docUrl": null,
+        "usages": [
+          {
+            "file": "feature-libs/cart/base/components/add-to-cart/add-to-cart.component.ts",
+            "pattern": "use-feature-styles",
+            "negated": false,
+            "symbols": [
+              "AddToCartComponent"
+            ],
+            "selectors": [
+              "cx-add-to-cart"
+            ],
+            "snippets": [
+              {
+                "line": 149,
+                "code": "useFeatureStyles('a11yInStockInfoTextContrast');"
+              }
+            ],
+            "members": [
+              "AddToCartComponent.constructor"
+            ]
+          },
+          {
+            "file": "feature-libs/cart/base/styles/components/_add-to-cart.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "AddToCartComponent"
+            ],
+            "selectors": [
+              "cx-add-to-cart"
+            ],
+            "snippets": [
+              {
+                "line": 22,
+                "code": "@include forFeature('a11yInStockInfoTextContrast') {\n  color: var(--cx-color-text);\n}"
+              }
+            ],
+            "styleScopes": [
+              "cx-add-to-cart .quantity .info"
+            ]
+          }
+        ],
+        "references": [],
+        "commits": [
+          "0a2c6d2f24a7c60bd5c870595569f25d261e66c4"
+        ],
+        "rollout": {
+          "defaultOn": "Q2 2027",
+          "mandatory": "Q4 2027"
+        }
+      },
+      {
+        "name": "a11yPaginationKeyboardNavigation",
+        "description": "When enabled, replaces per-link tabindex binding in PaginationComponent\nwith roving tabindex (left/right arrow key navigation across page links).",
+        "affects": [
+          "PaginationComponent"
+        ],
+        "defaultValue": false,
+        "docUrl": null,
+        "usages": [
+          {
+            "file": "core-libs/storefront/shared/components/list-navigation/pagination/pagination.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "PaginationComponent"
+            ],
+            "selectors": [
+              "cx-pagination"
+            ],
+            "snippets": [
+              {
+                "line": 2,
+                "code": "<ng-container *cxFeature=\"'a11yPaginationKeyboardNavigation'\">"
+              }
+            ]
+          },
+          {
+            "file": "core-libs/storefront/shared/components/list-navigation/pagination/pagination.component.html",
+            "pattern": "cx-feature",
+            "negated": true,
+            "symbols": [
+              "PaginationComponent"
+            ],
+            "selectors": [
+              "cx-pagination"
+            ],
+            "snippets": [
+              {
+                "line": 41,
+                "code": "<ng-container *cxFeature=\"'!a11yPaginationKeyboardNavigation'\">\n  <a\n    *ngFor=\"let item of pages; let i = index\"\n    [class]=\"item.type\"\n    [class.disabled]=\"isInactive(item)\"\n    [class.current]=\"isCurrent(item)\"\n    [routerLink]=\"pageRoute\"\n    [queryParams]=\"getQueryParams(item)\"\n    [tabindex]=\"isInactive(item) ? -1 : 0\"\n    [attr.aria-current]=\"isCurrent(item)\"\n    [attr.aria-disabled]=\"isInactive(item)\"\n    (click)=\"pageChange(item)\"\n    [attr.aria-label]=\"getAriaLabel$(item) | async\"\n    [attr.title]=\"getAriaLabel$(item) | async\"\n    [cxFocus]=\"{ key: paginationID + i.toString() }\"\n  >\n    {{ item.label }}\n  </a>\n</ng-container>"
+              }
+            ]
+          }
+        ],
+        "references": [
+          {
+            "file": "core-libs/storefront/shared/components/list-navigation/pagination/pagination.component.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "PaginationComponent"
+            ],
+            "selectors": [
+              "cx-pagination"
+            ],
+            "members": [
+              "PaginationComponent.pagination"
+            ],
+            "snippets": [
+              {
+                "line": 67,
+                "code": "if (this.featureToggles.a11yPaginationKeyboardNavigation) {\n  this.initialFocusIndex = this.getInitialFocusIndex(\n    value.currentPage ?? 0,\n    this._pagination?.currentPage ?? -1\n  );\n}"
+              }
+            ]
+          }
+        ],
+        "commits": [
+          "d5972fd12caad46128387a3e6520ccbc90e3b51a"
+        ],
+        "rollout": {
+          "defaultOn": "Q2 2027",
+          "mandatory": "Q4 2027"
+        }
+      },
+      {
+        "name": "a11yPrimaryColorContrast",
+        "description": "When enabled, the default theme's primary color (`--cx-color-primary`) is\ndarkened so the contrast meets the contrast requirement of >= 4.5:1.\nThis toggle can be removed if santorini-updated in theme.scss is uncommented\nas part of next major release.",
+        "affects": [],
+        "defaultValue": false,
+        "docUrl": null,
+        "usages": [
+          {
+            "file": "core-libs/storefront/layout/main/storefront.component.ts",
+            "pattern": "use-feature-styles",
+            "negated": false,
+            "symbols": [
+              "StorefrontComponent"
+            ],
+            "selectors": [
+              "cx-storefront"
+            ],
+            "snippets": [
+              {
+                "line": 123,
+                "code": "useFeatureStyles('a11yPrimaryColorContrast');"
+              }
+            ],
+            "members": [
+              "StorefrontComponent.constructor"
+            ]
+          }
+        ],
+        "references": [
+          {
+            "file": "core-libs/styles/scss/root.scss",
+            "kind": "other",
+            "symbols": [],
+            "selectors": [],
+            "members": [],
+            "snippets": [
+              {
+                "line": 66,
+                "code": ".#{getFeatureCssClass('a11yPrimaryColorContrast')}:not(\n    .cx-theme-high-contrast-dark\n  ):not(.cx-theme-high-contrast-light) {\n  --cx-color-primary: #055f9f !important;\n}"
+              }
+            ]
+          }
+        ],
+        "commits": [
+          "e9038f5ca3240fb0595d2b67e9f5783625f80f34"
+        ],
+        "rollout": {
+          "defaultOn": "Q2 2027",
+          "mandatory": "Q4 2027"
+        }
+      },
+      {
+        "name": "a11yShowMoreReviewsFocusVisible",
+        "description": "When enabled, scrolls the 'Show More/Less Reviews' button into view after\nclicking it, ensuring the focused element remains visible in the viewport.",
+        "affects": [
+          "ProductReviewsComponent"
+        ],
+        "defaultValue": false,
+        "docUrl": null,
+        "usages": [],
+        "references": [
+          {
+            "file": "core-libs/storefront/cms-components/product/product-tabs/product-reviews/product-reviews.component.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "ProductReviewsComponent"
+            ],
+            "selectors": [
+              "cx-product-reviews"
+            ],
+            "members": [
+              "ProductReviewsComponent.toggleReviewsDisplay"
+            ],
+            "snippets": [
+              {
+                "line": 132,
+                "code": "if (this.featureToggles.a11yShowMoreReviewsFocusVisible) {\n  this.cd.detectChanges();\n  this.showMoreLessButton?.nativeElement?.scrollIntoView({\n    block: 'center',\n  });\n  // Re-assert focus after re-render so :focus and :focus-visible states\n  // are applied to the button, making the outline visible consistently\n  // across platforms. `preventScroll` avoids a second scroll.\n  this.showMoreLessButton?.nativeElement?.focus({ preventScroll: true });\n}"
+              }
+            ]
+          }
+        ],
+        "commits": [
+          "240bfa2b1253893f0ca38a40491aca93c4fc24a9"
+        ],
+        "rollout": {
+          "defaultOn": "Q2 2027",
+          "mandatory": "Q4 2027"
+        }
+      },
+      {
+        "name": "a11yTableKeyboardNavigation",
+        "description": "When enabled, adds up/down arrow key navigation between table rows,\nturning the table into a composite keyboard widget.\n\nACC-270.3",
+        "affects": [
+          "TableComponent"
+        ],
+        "defaultValue": false,
+        "docUrl": null,
+        "usages": [
+          {
+            "file": "core-libs/storefront/shared/components/table/table.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "TableComponent"
+            ],
+            "selectors": [
+              "cx-table"
+            ],
+            "snippets": [
+              {
+                "line": 2,
+                "code": "<ng-container *cxFeature=\"'a11yTableKeyboardNavigation'\">\n  <table\n    *ngIf=\"structure\"\n    cxRovingTabindex=\"[data-cx-roving-item]\"\n    [cxRovingTabindexForwardSecondaryAxis]=\"true\"\n    [cxRovingTabindexInitialIndex]=\"currentItemIndex\"\n    (itemActivated)=\"launchItem(data[$event])\"\n  >\n    <ng-container *ngIf=\"verticalStackedLayout\">\n      <ng-container *ngFor=\"let item of data; trackBy: trackData\">\n        <tbody\n          data-cx-roving-item\n          [class.is-current]=\"isCurrentItem(item)\"\n          (click)=\"launchItem(item)\"\n        >\n          <tr *ngFor=\"let cell of structure.cells\" [class]=\"cell\">\n            <th>\n              <ng-template\n                [cxOutlet]=\"getHeaderOutletRef(cell)\"\n                [cxOutletContext]=\"getHeaderOutletContext(cell)\"\n              >\n                {{ cell }}\n              </ng-template>\n            </th>\n            <td>\n              <ng-template\n                [cxOutlet]=\"getDataOutletRef(cell)\"\n                [cxOutletContext]=\"getDataOutletContext(cell, item)\"\n              >\n                {{ $any(item)[cell] }}\n              </ng-template>\n            </td>\n          </tr>\n        </tbody>\n      </ng-container>\n    </ng-container>\n\n    <!-- vertical tables render the item  -->\n    <ng-container *ngIf=\"verticalLayout\">\n      <thead>\n…"
+              }
+            ]
+          },
+          {
+            "file": "core-libs/storefront/shared/components/table/table.component.html",
+            "pattern": "cx-feature",
+            "negated": true,
+            "symbols": [
+              "TableComponent"
+            ],
+            "selectors": [
+              "cx-table"
+            ],
+            "snippets": [
+              {
+                "line": 100,
+                "code": "<ng-container *cxFeature=\"'!a11yTableKeyboardNavigation'\">\n  <table *ngIf=\"structure\">\n    <ng-container *ngIf=\"verticalStackedLayout\">\n      <tbody\n        *ngFor=\"let item of data; trackBy: trackData\"\n        (click)=\"launchItem(item)\"\n        [class.is-current]=\"isCurrentItem(item)\"\n      >\n        <tr *ngFor=\"let cell of structure.cells\" [class]=\"cell\">\n          <th>\n            <ng-template\n              [cxOutlet]=\"getHeaderOutletRef(cell)\"\n              [cxOutletContext]=\"getHeaderOutletContext(cell)\"\n            >\n              {{ cell }}\n            </ng-template>\n          </th>\n          <td>\n            <ng-template\n              [cxOutlet]=\"getDataOutletRef(cell)\"\n              [cxOutletContext]=\"getDataOutletContext(cell, item)\"\n            >\n              {{ $any(item)[cell] }}\n            </ng-template>\n          </td>\n        </tr>\n      </tbody>\n    </ng-container>\n\n    <!-- vertical tables render the item  -->\n    <ng-container *ngIf=\"verticalLayout\">\n      <thead>\n        <tr>\n          <th scope=\"col\" *ngFor=\"let cell of structure.cells\" [class]=\"cell\">\n            <ng-template\n              [cxOutlet]=\"getHeaderOutletRef(cell)\"\n              [cxOutletContext]=\"getHeaderOutletContext(cell)\"\n            >\n              {{ cell }}\n            </ng-template>\n…"
+              }
+            ]
+          },
+          {
+            "file": "core-libs/storefront/shared/components/table/table.component.ts",
+            "pattern": "use-feature-styles",
+            "negated": false,
+            "symbols": [
+              "TableComponent"
+            ],
+            "selectors": [
+              "cx-table"
+            ],
+            "snippets": [
+              {
+                "line": 106,
+                "code": "useFeatureStyles('a11yTableKeyboardNavigation');"
+              }
+            ],
+            "members": [
+              "TableComponent.constructor"
+            ]
+          },
+          {
+            "file": "core-libs/styles/scss/components/misc/table/_table.scss",
+            "pattern": "scss-for-feature",
+            "negated": false,
+            "symbols": [
+              "TableComponent"
+            ],
+            "selectors": [
+              "cx-table"
+            ],
+            "snippets": [
+              {
+                "line": 50,
+                "code": "@include forFeature('a11yTableKeyboardNavigation') {\n  tbody[tabindex],\n  tr[tabindex],\n  td[tabindex] {\n    scroll-margin-block: 50vh;\n  }\n}"
+              }
+            ],
+            "styleScopes": [
+              "cx-table table",
+              "cx-table table tbody[tabindex]",
+              "cx-table table td[tabindex]",
+              "cx-table table tr[tabindex]"
+            ]
+          }
+        ],
+        "references": [],
+        "commits": [
+          "d5972fd12caad46128387a3e6520ccbc90e3b51a"
+        ],
+        "rollout": {
+          "defaultOn": "Q2 2027",
+          "mandatory": "Q4 2027"
+        }
+      },
+      {
+        "name": "addTitleToAddressCard",
+        "description": "When enabled, the title on the address is added to the line containing the full name (Card.boldText).",
+        "affects": [],
+        "defaultValue": false,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/06443e59b2e345fe9a74ac725f42bb60.html",
+        "usages": [
+          {
+            "file": "feature-libs/organization/administration/components/unit/links/addresses/details/unit-address-details.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "UnitAddressDetailsComponent"
+            ],
+            "selectors": [
+              "cx-org-unit-address-details"
+            ],
+            "snippets": [
+              {
+                "line": 23,
+                "code": "<span *cxFeature=\"'addTitleToAddressCard'\">{{\n  model.title ? model.title + ' ' : ''\n}}</span\n>"
+              }
+            ]
+          }
+        ],
+        "references": [
+          {
+            "file": "feature-libs/checkout/base/components/checkout-delivery-address/checkout-delivery-address.component.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "CheckoutDeliveryAddressComponent"
+            ],
+            "selectors": [
+              "cx-delivery-address"
+            ],
+            "members": [
+              "CheckoutDeliveryAddressComponent.getCardName"
+            ],
+            "snippets": [
+              {
+                "line": 163,
+                "code": "return this.featureToggles.addTitleToAddressCard && !!address.title"
+              }
+            ]
+          },
+          {
+            "file": "feature-libs/checkout/base/components/checkout-review-submit/checkout-review-submit.component.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "CheckoutReviewSubmitComponent"
+            ],
+            "selectors": [
+              "cx-review-submit"
+            ],
+            "members": [
+              "CheckoutReviewSubmitComponent.getDeliveryAddressCard"
+            ],
+            "snippets": [
+              {
+                "line": 148,
+                "code": "this.featureToggles.addTitleToAddressCard"
+              }
+            ]
+          },
+          {
+            "file": "feature-libs/checkout/base/components/checkout-review/checkout-review-shipping/checkout-review-shipping.component.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "CheckoutReviewShippingComponent"
+            ],
+            "selectors": [
+              "cx-checkout-review-shipping"
+            ],
+            "members": [
+              "CheckoutReviewShippingComponent.getDeliveryAddressCard"
+            ],
+            "snippets": [
+              {
+                "line": 106,
+                "code": "this.featureToggles.addTitleToAddressCard"
+              }
+            ]
+          },
+          {
+            "file": "feature-libs/order/components/order-confirmation/order-confirmation-shipping/order-confirmation-shipping.component.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "OrderConfirmationShippingComponent"
+            ],
+            "selectors": [
+              "cx-order-confirmation-shipping"
+            ],
+            "members": [
+              "OrderConfirmationShippingComponent.getDeliveryAddressCard"
+            ],
+            "snippets": [
+              {
+                "line": 121,
+                "code": "this.featureToggles.addTitleToAddressCard"
+              }
+            ]
+          },
+          {
+            "file": "feature-libs/order/components/order-details/order-overview/order-overview.component.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "OrderOverviewComponent"
+            ],
+            "selectors": [
+              "cx-order-overview"
+            ],
+            "members": [
+              "OrderOverviewComponent.getAddressCardContent",
+              "OrderOverviewComponent.getBillingAddressCardContent"
+            ],
+            "snippets": [
+              {
+                "line": 227,
+                "code": "this.featureToggles.addTitleToAddressCard && !!deliveryAddress.title\n  ? `${deliveryAddress.title}"
+              },
+              {
+                "line": 287,
+                "code": "this.featureToggles.addTitleToAddressCard && !!billingAddress.title\n  ? `${billingAddress.title}"
+              }
+            ]
+          },
+          {
+            "file": "feature-libs/order/root/utils/order-card-utils.ts",
+            "kind": "other",
+            "symbols": [],
+            "selectors": [],
+            "members": [
+              "deliveryAddressCard",
+              "getAddressFullName"
+            ],
+            "snippets": [
+              {
+                "line": 20,
+                "code": "  addTitleToAddressCard = false\n): Card {\n  if (!countryName) {\n    countryName = deliveryAddress?.country?.name as string;\n  }\n\n  let region = '';\n  if (\n    deliveryAddress &&\n    deliveryAddress.region &&\n    deliveryAddress.region.isocode\n  ) {\n    region = deliveryAddress.region.isocode + ', ';\n  }\n\n  const numbers = getAddressNumbers(deliveryAddress, textPhone, textMobile);\n  const fullName = getAddressFullName(deliveryAddress, addTitleToAddressCard);\n\n  return {\n    title: textTitle,\n    textBold: fullName,\n    text: [\n      deliveryAddress.line1,\n      deliveryAddress.line2,\n      deliveryAddress.town + ', ' + region + countryName,\n      deliveryAddress.postalCode,\n      numbers,\n    ],\n  } as Card;\n}"
+              },
+              {
+                "line": 36,
+                "code": "const fullName = getAddressFullName(deliveryAddress, addTitleToAddressCard);\n\nreturn {\n  title: textTitle,\n  textBold: fullName,\n  text: [\n    deliveryAddress.line1,\n    deliveryAddress.line2,\n    deliveryAddress.town + ', ' + region + countryName,\n    deliveryAddress.postalCode,\n    numbers,\n  ],\n}"
+              },
+              {
+                "line": 56,
+                "code": "  addTitleToAddressCard: boolean\n): string | undefined {\n  let fullName;\n  if (address.firstName && address.lastName) {\n    fullName = address.firstName + ' ' + address.lastName;\n  } else if (address.firstName) {\n    fullName = address.firstName;\n  } else if (address.lastName) {\n    fullName = address.lastName;\n  }\n\n  if (addTitleToAddressCard && !!address.title && fullName) {\n    fullName = address.title + ' ' + fullName;\n  }\n\n  return fullName;\n}"
+              }
+            ]
+          },
+          {
+            "file": "feature-libs/organization/unit-order/components/unit-level-order-detail/unit-level-order-overview/unit-level-order-overview.component.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "UnitLevelOrderOverviewComponent"
+            ],
+            "selectors": [],
+            "members": [
+              "UnitLevelOrderOverviewComponent.getAddressCardContent",
+              "UnitLevelOrderOverviewComponent.getBillingAddressCardContent"
+            ],
+            "snippets": [
+              {
+                "line": 149,
+                "code": "this.featureToggles.addTitleToAddressCard &&\n!!deliveryAddress?.title\n  ? `${deliveryAddress.title}"
+              },
+              {
+                "line": 212,
+                "code": "this.featureToggles.addTitleToAddressCard && !!billingAddress?.title\n  ? `${billingAddress.title}"
+              }
+            ]
+          },
+          {
+            "file": "feature-libs/user/profile/components/address-book/address-book.component.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "AddressBookComponent"
+            ],
+            "selectors": [
+              "cx-address-book"
+            ],
+            "members": [
+              "AddressBookComponent.getCardName"
+            ],
+            "snippets": [
+              {
+                "line": 245,
+                "code": "return this.featureToggles.addTitleToAddressCard && !!address.title"
+              }
+            ]
+          }
+        ],
+        "commits": [
+          "673b59a873606ce5da316d77f6bee0477244ac17"
+        ],
+        "rollout": {
+          "defaultOn": "Q2 2027",
+          "mandatory": "Q4 2027"
+        }
+      },
+      {
+        "name": "useConfigurableLogoutRedirect",
+        "description": "When enabled, the post-logout redirect respects the `logout.redirectRoute`\noption in `LogoutConfig`. When disabled (default), the guard always redirects\nto the home page (or login page for protected storefronts), preserving the\npre-existing behavior.\n\n\nTo override the default redirect route, provide `LogoutConfig` in your module:\n```ts\nprovideConfig({\n  logout: {\n    redirectRoute: 'login',\n  },\n} as LogoutConfig)\n```",
+        "affects": [
+          "LogoutGuard"
+        ],
+        "defaultValue": false,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/84f25d09d2184b4ebac274a1f2a63df2.html",
+        "usages": [],
+        "references": [
+          {
+            "file": "core-libs/storefront/cms-components/user/logout/logout.guard.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "LogoutGuard"
+            ],
+            "selectors": [],
+            "members": [
+              "LogoutGuard.canActivate",
+              "LogoutGuard.getRedirectUrl"
+            ],
+            "snippets": [
+              {
+                "line": 46,
+                "code": "if (!this.featureToggles.useConfigurableLogoutRedirect) {\n  const cms = this.cms;\n  if (!cms) {\n    return of(this.getRedirectUrl());\n  }\n  return from(this.logout()).pipe(\n    switchMap(() =>\n      cms\n        .hasPage({\n          id: this.semanticPathService.get('logout') ?? '',\n          type: PageType.CONTENT_PAGE,\n        })\n        .pipe(\n          map((hasPage) => {\n            if (!hasPage) {\n              return this.getRedirectUrl();\n            }\n            // TODO(#9385): Use CMS page guard here.\n            return hasPage;\n          })\n        )\n    )\n  );\n}"
+              },
+              {
+                "line": 103,
+                "code": "if (!this.featureToggles.useConfigurableLogoutRedirect) {\n  return this.router.parseUrl(this.semanticPathService.get('home') ?? '');\n}"
+              }
+            ]
+          }
+        ],
+        "commits": [
+          "ee9e7b4184393fee5cf73e8228921f96f55ea680"
+        ],
+        "rollout": {
+          "defaultOn": "Q2 2027",
+          "mandatory": "Q4 2027"
+        }
+      }
+    ],
+    "defaultEnabled": [
+      {
+        "name": "a11yCartQuickOrderFormEnableSubmitAndAddValidation",
+        "description": "Use on existing form buttons that are programatically disabled/enabled.\nTo use, duplicate button and use false in original and true in duplicate. The duplicated button\nshould be initialized as enabled, clickable and use cx-form-errors in outcomes where original button\nis in disabled state.",
+        "affects": [],
+        "defaultValue": true,
+        "docUrl": null,
+        "usages": [
+          {
+            "file": "feature-libs/cart/quick-order/components/cart-quick-order-form/cart-quick-order-form.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "CartQuickOrderFormComponent"
+            ],
+            "selectors": [
+              "cx-cart-quick-order-form"
+            ],
+            "snippets": [
+              {
+                "line": 43,
+                "code": "<cx-form-errors\n  *cxFeature=\"'a11yCartQuickOrderFormEnableSubmitAndAddValidation'\"\n  id=\"productCodeError\"\n  [translationParams]=\"{\n    label: 'quickOrderCartForm.productCodeLabel' | cxTranslate,\n  }\"\n  [control]=\"quickOrderForm.get('productCode')\"\n/>"
+              },
+              {
+                "line": 51,
+                "code": "<button\n  *cxFeature=\"'a11yCartQuickOrderFormEnableSubmitAndAddValidation'\"\n  [attr.aria-label]=\"'quickOrderCartForm.addToCart' | cxTranslate\"\n  [class.disabled]=\"cartIsLoading$ | async\"\n  [disabled]=\"cartIsLoading$ | async\"\n  class=\"btn btn-block btn-secondary apply-quick-order-button\"\n  type=\"submit\"\n>\n  {{ 'quickOrderCartForm.add' | cxTranslate }}\n</button>"
+              }
+            ],
+            "components": [
+              "cx-form-errors"
+            ]
+          },
+          {
+            "file": "feature-libs/cart/quick-order/components/cart-quick-order-form/cart-quick-order-form.component.html",
+            "pattern": "cx-feature",
+            "negated": true,
+            "symbols": [
+              "CartQuickOrderFormComponent"
+            ],
+            "selectors": [
+              "cx-cart-quick-order-form"
+            ],
+            "snippets": [
+              {
+                "line": 61,
+                "code": "<button\n  *cxFeature=\"'!a11yCartQuickOrderFormEnableSubmitAndAddValidation'\"\n  [attr.aria-label]=\"'quickOrderCartForm.addToCart' | cxTranslate\"\n  [class.disabled]=\"cartIsLoading$ | async\"\n  [disabled]=\"\n    (cartIsLoading$ | async) ||\n    !quickOrderForm.get('productCode')?.value ||\n    !quickOrderForm.get('quantity')?.value\n  \"\n  class=\"btn btn-block btn-secondary apply-quick-order-button\"\n  type=\"submit\"\n>\n  {{ 'quickOrderCartForm.add' | cxTranslate }}\n</button>"
+              }
+            ]
+          }
+        ],
+        "references": [
+          {
+            "file": "feature-libs/cart/quick-order/components/cart-quick-order-form/cart-quick-order-form.component.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "CartQuickOrderFormComponent"
+            ],
+            "selectors": [
+              "cx-cart-quick-order-form"
+            ],
+            "members": [
+              "CartQuickOrderFormComponent.buildForm"
+            ],
+            "snippets": [
+              {
+                "line": 105,
+                "code": "  this.featureToggles.a11yCartQuickOrderFormEnableSubmitAndAddValidation;\nthis.quickOrderForm = this.formBuilder.group({\n  productCode: ['', useValidation ? [Validators.required] : []],\n  quantity: [\n    this.minQuantityValue,\n    {\n      updateOn: 'blur',\n      validators: [],\n    },\n  ],\n}"
+              }
+            ]
+          }
+        ],
+        "commits": [
+          "fcdcc224133aa04ec50fd9b5089676f68f9e1833"
+        ],
+        "rollout": {
+          "defaultOn": "221121.21",
+          "mandatory": "Q2 2027"
+        },
+        "translations": {
+          "tr": "Programatik olarak disabled/enabled yapılan mevcut form butonlarında kullanın.\nKullanmak için butonu çoğaltın; orijinalinde false, kopyasında true kullanın. Çoğaltılan buton\nenabled ve tıklanabilir olarak başlatılmalı ve orijinal butonun disabled durumda olduğu senaryolarda cx-form-errors kullanmalıdır."
+        }
+      },
+      {
+        "name": "a11yConsentManagementFocusPreservation",
+        "description": "Preserves keyboard focus on consent checkboxes after toggling.\nTreats Space/Enter on checkbox/radio as navigation in VisibleFocusDirective\nand restores focus after the consent form is temporarily disabled.",
+        "affects": [
+          "VisibleFocusDirective",
+          "ConsentManagementFormComponent",
+          "ConsentManagementComponent"
+        ],
+        "defaultValue": true,
+        "docUrl": null,
+        "usages": [],
+        "references": [
+          {
+            "file": "core-libs/storefront/cms-components/myaccount/consent-management/components/consent-form/consent-management-form.component.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "ConsentManagementFormComponent"
+            ],
+            "selectors": [
+              "cx-consent-management-form"
+            ],
+            "members": [
+              "ConsentManagementFormComponent.ngAfterViewChecked",
+              "ConsentManagementFormComponent.ngOnChanges"
+            ],
+            "snippets": [
+              {
+                "line": 79,
+                "code": "  this.featureToggles.a11yConsentManagementFocusPreservation\n) {\n  this.hadFocus =\n    this.checkboxInput?.nativeElement === this.document.activeElement;\n}"
+              },
+              {
+                "line": 91,
+                "code": "  this.featureToggles.a11yConsentManagementFocusPreservation\n) {\n  this.hadFocus = false;\n  this.checkboxInput.nativeElement.focus();\n}"
+              }
+            ]
+          },
+          {
+            "file": "core-libs/storefront/layout/a11y/keyboard-focus/visible/visible-focus.directive.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "VisibleFocusDirective"
+            ],
+            "selectors": [],
+            "members": [
+              "VisibleFocusDirective.isNavigating"
+            ],
+            "snippets": [
+              {
+                "line": 74,
+                "code": "if (this.featureToggles.a11yConsentManagementFocusPreservation) {\n  const inputType = (event.target as HTMLInputElement).type;\n  if (\n    (event.code === 'Space' || event.code === 'Enter') &&\n    (inputType === 'checkbox' || inputType === 'radio')\n  ) {\n    return true;\n  }\n}"
+              }
+            ]
+          }
+        ],
+        "commits": [
+          "fcdcc224133aa04ec50fd9b5089676f68f9e1833"
+        ],
+        "rollout": {
+          "defaultOn": "221121.21",
+          "mandatory": "Q2 2027"
+        },
+        "translations": {
+          "tr": "Toggle işleminden sonra consent checkbox'larında klavye focus'unu korur.\nVisibleFocusDirective içinde checkbox/radio üzerindeki Space/Enter tuşlarını navigasyon olarak değerlendirir\nve consent formu geçici olarak disabled yapıldıktan sonra focus'u geri yükler."
+        }
+      },
+      {
+        "name": "a11yVocalizeDropdownItemCount",
+        "description": "When enabled, adds vocalization of dropdown item count when dropdown gains focus.",
+        "affects": [
+          "cxNgSelectA11y"
+        ],
+        "defaultValue": true,
+        "docUrl": null,
+        "usages": [],
+        "references": [
+          {
+            "file": "core-libs/storefront/shared/components/ng-select-a11y/ng-select-a11y.directive.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "NgSelectA11yDirective"
+            ],
+            "selectors": [],
+            "members": [
+              "NgSelectA11yDirective.constructor"
+            ],
+            "snippets": [
+              {
+                "line": 103,
+                "code": "if (this.featureToggles.a11yVocalizeDropdownItemCount) {\n  this.vocalizeItemCount();\n}"
+              }
+            ]
+          }
+        ],
+        "commits": [
+          "fcdcc224133aa04ec50fd9b5089676f68f9e1833"
+        ],
+        "rollout": {
+          "defaultOn": "221121.21",
+          "mandatory": "Q2 2027"
+        },
+        "translations": {
+          "tr": "Etkinleştirildiğinde, dropdown focus aldığında dropdown öğe sayısının sesli olarak okunmasını ekler."
+        }
+      },
+      {
+        "name": "enableExpiredRefreshTokenHandlers",
+        "description": "When enabled, `AuthHttpHeaderService` executes DI-provided\n`ExpiredRefreshTokenHandler` to take over `handleExpiredRefreshToken()` behavior in case of expired refresh token scenarios.\nIt avoids the need to override the entire AuthHttpHeaderService just to handle expired refresh token scenarios in a custom way, for example by ending punchout session when it's active.",
+        "affects": [
+          "AuthHttpHeaderService"
+        ],
+        "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/48b41d3fe9c041a094671175187f8085.html",
+        "usages": [],
+        "references": [
+          {
+            "file": "core-libs/core/src/auth/user-auth/services/auth-http-header.service.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "AuthHttpHeaderService"
+            ],
+            "selectors": [],
+            "members": [
+              "AuthHttpHeaderService.handleExpiredRefreshToken"
+            ],
+            "snippets": [
+              {
+                "line": 266,
+                "code": "if (!this.featureToggles.enableExpiredRefreshTokenHandlers) {\n  this.handleExpiredRefreshTokenFallback();\n  return;\n}"
+              }
+            ]
+          },
+          {
+            "file": "integration-libs/punchout/root/punchout.root.module.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "PunchoutRootModule"
+            ],
+            "selectors": [],
+            "members": [],
+            "snippets": [
+              {
+                "line": 61,
+                "code": "return featureToggles.enableExpiredRefreshTokenHandlers"
+              }
+            ]
+          }
+        ],
+        "commits": [
+          "fcdcc224133aa04ec50fd9b5089676f68f9e1833"
+        ],
+        "rollout": {
+          "defaultOn": "221121.21",
+          "mandatory": "Q2 2027"
+        },
+        "translations": {
+          "tr": "Etkinleştirildiğinde, `AuthHttpHeaderService`, refresh token süresinin dolduğu senaryolarda `handleExpiredRefreshToken()` davranışını devralmak için DI ile sağlanan\n`ExpiredRefreshTokenHandler`'ı çalıştırır.\nBöylece, süresi dolmuş refresh token senaryolarını özel bir şekilde ele almak için (örneğin punchout oturumu aktifken sonlandırmak için) AuthHttpHeaderService'in tamamını override etme ihtiyacı ortadan kalkar."
+        }
+      },
+      {
+        "name": "enableRemoveVoucherEndpoint",
+        "description": "When enabled, uses `POST /carts/{cartId}/removeVoucher` with the voucherId\nin the request body instead of `DELETE /carts/{cartId}/vouchers/{voucherId}`.\nRequires the corresponding OCC endpoint to be available on the backend (from 2211.28 version).",
+        "affects": [],
+        "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/05358e5b1044431584ae90e35ebb70de.html",
+        "usages": [],
+        "references": [
+          {
+            "file": "feature-libs/cart/base/occ/adapters/occ-cart-voucher.adapter.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "OccCartVoucherAdapter"
+            ],
+            "selectors": [],
+            "members": [
+              "OccCartVoucherAdapter.remove"
+            ],
+            "snippets": [
+              {
+                "line": 102,
+                "code": "if (this.featureToggles.enableRemoveVoucherEndpoint) {\n  const removeVoucherUrl = this.getRemoveCartVoucherEndpoint(\n    userId,\n    cartId\n  );\n  const body = { voucherId };\n  return this.http.post(removeVoucherUrl, body, { headers }).pipe(\n    catchError((error: any) => {\n      throw tryNormalizeHttpError(error, this.logger);\n    })\n  );\n}"
+              }
+            ]
+          }
+        ],
+        "commits": [
+          "fcdcc224133aa04ec50fd9b5089676f68f9e1833"
+        ],
+        "rollout": {
+          "defaultOn": "221121.21",
+          "mandatory": "Q2 2027"
+        },
+        "translations": {
+          "tr": "Etkinleştirildiğinde, `DELETE /carts/{cartId}/vouchers/{voucherId}` yerine voucherId'nin\nrequest body içinde gönderildiği `POST /carts/{cartId}/removeVoucher` kullanılır.\nBackend'de ilgili OCC endpoint'inin mevcut olmasını gerektirir (2211.28 sürümünden itibaren)."
+        }
+      },
+      {
+        "name": "showRequiredAsterisks",
+        "description": "When enabled, displays required field asterisks for form fields.",
+        "affects": [],
+        "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/5b3eb2601fb241739e4c91adfa8bb790.html",
+        "usages": [
+          {
+            "file": "feature-libs/organization/administration/components/user/form/user-form.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "UserFormComponent"
+            ],
+            "selectors": [
+              "cx-org-user-form"
+            ],
+            "snippets": [
+              {
+                "line": 102,
+                "code": "<cx-form-required-asterisks *cxFeature=\"'showRequiredAsterisks'\" />"
+              },
+              {
+                "line": 126,
+                "code": "<cx-form-required-asterisks *cxFeature=\"'showRequiredAsterisks'\" />"
+              }
+            ],
+            "components": [
+              "cx-form-required-asterisks"
+            ]
+          },
+          {
+            "file": "feature-libs/user/profile/components/update-profile/update-profile.component.html",
+            "pattern": "cx-feature",
+            "negated": false,
+            "symbols": [
+              "UpdateProfileComponent"
+            ],
+            "selectors": [
+              "cx-update-profile"
+            ],
+            "snippets": [
+              {
+                "line": 93,
+                "code": "<cx-form-required-asterisks *cxFeature=\"'showRequiredAsterisks'\" />"
+              }
+            ],
+            "components": [
+              "cx-form-required-asterisks"
+            ]
+          }
+        ],
+        "references": [],
+        "commits": [
+          "fcdcc224133aa04ec50fd9b5089676f68f9e1833"
+        ],
+        "rollout": {
+          "defaultOn": "221121.21",
+          "mandatory": "Q2 2027"
+        },
+        "translations": {
+          "tr": "Etkinleştirildiğinde, form alanları için zorunlu alan yıldızlarını (asterisk) gösterir."
+        }
+      },
+      {
+        "name": "useEnhancedSecurePasswordValidators",
+        "description": "When enabled, forms using CustomFormValidators.securePasswordValidators will include:\nCustomFormValidators.mustEndWithLegalCharacter",
+        "affects": [],
+        "defaultValue": true,
+        "docUrl": "https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/d90c8f85162c453ca629e10517bc3096.html",
+        "usages": [],
+        "references": [
+          {
+            "file": "feature-libs/order/components/order-confirmation/order-guest-register-form/order-guest-register-form.component.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "OrderGuestRegisterFormComponent"
+            ],
+            "selectors": [
+              "cx-guest-register-form"
+            ],
+            "members": [
+              "OrderGuestRegisterFormComponent.passwordValidators"
+            ],
+            "snippets": [
+              {
+                "line": 48,
+                "code": ".useEnhancedSecurePasswordValidators"
+              }
+            ]
+          },
+          {
+            "file": "feature-libs/user/profile/components/register/register.component.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "RegisterComponent"
+            ],
+            "selectors": [
+              "cx-register"
+            ],
+            "members": [
+              "RegisterComponent.passwordValidators"
+            ],
+            "snippets": [
+              {
+                "line": 79,
+                "code": ".useEnhancedSecurePasswordValidators"
+              }
+            ]
+          },
+          {
+            "file": "feature-libs/user/profile/components/registration-verification-token-form/verify-register-verification-token-form.component.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "RegistrationVerificationTokenFormComponent"
+            ],
+            "selectors": [
+              "cx-registration-verification-token-form"
+            ],
+            "members": [
+              "RegistrationVerificationTokenFormComponent.getPasswordValidators"
+            ],
+            "snippets": [
+              {
+                "line": 87,
+                "code": "return this.featureToggles.useEnhancedSecurePasswordValidators"
+              }
+            ]
+          },
+          {
+            "file": "feature-libs/user/profile/components/reset-password/reset-password-component.service.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "ResetPasswordComponentService"
+            ],
+            "selectors": [],
+            "members": [
+              "ResetPasswordComponentService.passwordValidators"
+            ],
+            "snippets": [
+              {
+                "line": 32,
+                "code": ".useEnhancedSecurePasswordValidators"
+              }
+            ]
+          },
+          {
+            "file": "feature-libs/user/profile/components/update-password/update-password-component.service.ts",
+            "kind": "feature-toggles-property",
+            "symbols": [
+              "UpdatePasswordComponentService"
+            ],
+            "selectors": [],
+            "members": [
+              "UpdatePasswordComponentService.passwordValidators"
+            ],
+            "snippets": [
+              {
+                "line": 35,
+                "code": ".useEnhancedSecurePasswordValidators"
+              }
+            ]
+          }
+        ],
+        "commits": [
+          "fcdcc224133aa04ec50fd9b5089676f68f9e1833"
+        ],
+        "rollout": {
+          "defaultOn": "221121.21",
+          "mandatory": "Q2 2027"
+        },
+        "translations": {
+          "tr": "Etkinleştirildiğinde, CustomFormValidators.securePasswordValidators kullanan formlara şunlar dahil edilir:\nCustomFormValidators.mustEndWithLegalCharacter"
+        }
+      }
+    ]
+  },
+  "publicApi": {
+    "removed": [],
+    "moved": [],
+    "changed": [
+      {
+        "entryPoint": "@spartacus/cdc/root",
+        "name": "CdcLogoutGuard",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "constructor-changed",
+            "member": null,
+            "before": "(auth: AuthService, cms: CmsService, semanticPathService: SemanticPathService, protectedRoutes: ProtectedRoutesService, router: Router, winRef: WindowRef)",
+            "after": "(auth: AuthService, cms: CmsService | null, semanticPathService: SemanticPathService, protectedRoutes: ProtectedRoutesService, router: Router, winRef: WindowRef)"
+          },
+          {
+            "kind": "member-changed",
+            "member": "cms",
+            "before": "CmsService",
+            "after": "CmsService | null"
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/opf/b2b-checkout/components",
+        "name": "OpfB2bCheckoutPaymentAndReviewComponent",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "getSelectedPayment$",
+            "before": "inferred",
+            "after": null
+          },
+          {
+            "kind": "member-removed",
+            "member": "getSelectedPaymentId$",
+            "before": "inferred",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/opf/checkout/components",
+        "name": "OpfCheckoutPaymentAndReviewComponent",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "getSelectedPayment$",
+            "before": "inferred",
+            "after": null
+          },
+          {
+            "kind": "member-removed",
+            "member": "getSelectedPaymentId$",
+            "before": "inferred",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/order/root",
+        "name": "deliveryAddressCard",
+        "kind": "function",
+        "changes": [
+          {
+            "kind": "signature-changed",
+            "member": null,
+            "before": "(textTitle: string, textPhone: string, textMobile: string, deliveryAddress: Address, countryName?: string): Card",
+            "after": "(textTitle: string, textPhone: string, textMobile: string, deliveryAddress: Address, countryName?: string, addTitleToAddressCard?: inferred): Card"
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/quote/components",
+        "name": "QuoteHeaderBuyerEditComponent",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "enablePurchaseOrderNumber",
+            "before": "inferred",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/quote/components",
+        "name": "QuoteHeaderOverviewComponent",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-removed",
+            "member": "enablePurchaseOrderNumber",
+            "before": "inferred",
+            "after": null
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/storefront",
+        "name": "LogoutGuard",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "constructor-changed",
+            "member": null,
+            "before": "(auth: AuthService, cms: CmsService, semanticPathService: SemanticPathService, protectedRoutes: ProtectedRoutesService, router: Router)",
+            "after": "(auth: AuthService, cms: CmsService | null, semanticPathService: SemanticPathService, protectedRoutes: ProtectedRoutesService, router: Router)"
+          },
+          {
+            "kind": "member-changed",
+            "member": "cms",
+            "before": "CmsService",
+            "after": "CmsService | null"
+          }
+        ]
+      },
+      {
+        "entryPoint": "@spartacus/storefront",
+        "name": "PaginationComponent",
+        "kind": "class",
+        "changes": [
+          {
+            "kind": "member-changed",
+            "member": "isInactive",
+            "before": "(item: PaginationItem): boolean",
+            "after": "(item: PaginationItem, currentPage?: inferred): boolean"
+          }
+        ]
+      }
+    ],
+    "deprecated": [
+      {
+        "entryPoint": "@spartacus/opf/checkout/components",
+        "name": "OpfCheckoutPaymentAndReviewComponent",
+        "kind": "class",
+        "member": "opfBaseFacade"
+      }
+    ],
+    "added": [
+      {
+        "entryPoint": "@spartacus/opf/gift-card/root",
+        "name": "OPF_GIFT_CARD_AUTH_ERROR_TYPE",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/storefront",
+        "name": "CxRovingTabindexDirective",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/storefront",
+        "name": "CxRovingTabindexDirectiveModule",
+        "kind": "class"
+      },
+      {
+        "entryPoint": "@spartacus/storefront",
+        "name": "defaultLogoutConfig",
+        "kind": "variable"
+      },
+      {
+        "entryPoint": "@spartacus/storefront",
+        "name": "LogoutConfig",
+        "kind": "class"
+      }
+    ]
+  },
+  "angular": {
+    "from": "^21.2.23",
+    "to": "^21.2.23"
+  },
+  "cmsComponents": {
+    "AccountAddressBookComponent": [
+      "AddressBookComponent"
+    ],
+    "AccountMyQuotesComponent": [
+      "QuoteListComponent"
+    ],
+    "AccountOrderAttachmentsComponent": [
+      "OrderAttachmentsComponent"
+    ],
+    "AccountOrderDetailsActionsComponent": [
+      "MyAccountV2OrderDetailsActionsComponent",
+      "OrderDetailActionsComponent",
+      "S4ServiceOrderDetailActionsComponent"
+    ],
+    "AccountOrderDetailsApprovalDetailsComponent": [
+      "OrderDetailPermissionResultsComponent"
+    ],
+    "AccountOrderDetailsGroupedItemsComponent": [
+      "OrderDetailItemsComponent"
+    ],
+    "AccountOrderDetailsItemsComponent": [
+      "OrderDetailItemsComponent"
+    ],
+    "AccountOrderDetailsOverviewComponent": [
+      "OrderOverviewComponent"
+    ],
+    "AccountOrderDetailsPDFInvoicesComponent": [
+      "InvoicesListComponent"
+    ],
+    "AccountOrderDetailsReorderComponent": [
+      "OrderDetailReorderComponent"
+    ],
+    "AccountOrderDetailsSimpleOverviewComponent": [
+      "OrderOverviewComponent"
+    ],
+    "AccountOrderDetailsTotalsComponent": [
+      "OrderDetailTotalsComponent",
+      "OpfGiftCardOrderDetailTotalsComponent"
+    ],
+    "AccountOrderDocumentFlowComponent": [
+      "OrderDocumentFlowComponent"
+    ],
+    "AccountOrderHistoryComponent": [
+      "MyAccountV2OrderHistoryComponent",
+      "OrderHistoryComponent"
+    ],
+    "AccountPaymentDetailsComponent": [
+      "PaymentMethodsComponent",
+      "OpfTokenisationAccountPaymentMethodsComponent"
+    ],
+    "AccountReplenishmentHistoryComponent": [
+      "ReplenishmentOrderHistoryComponent"
+    ],
+    "AccountSavedCartHistoryComponent": [
+      "SavedCartListComponent"
+    ],
+    "AccountSummaryDocumentComponent": [
+      "AccountSummaryDocumentComponent"
+    ],
+    "AccountSummaryHeaderComponent": [
+      "AccountSummaryHeaderComponent"
+    ],
+    "AddToSavedCartsComponent": [
+      "AddToSavedCartComponent"
+    ],
+    "AddToWishListComponent": [
+      "AddToWishListComponent"
+    ],
+    "AnonymousConsentManagementBannerComponent": [
+      "AnonymousConsentManagementBannerComponent"
+    ],
+    "AnonymousConsentOpenDialogComponent": [
+      "AnonymousConsentOpenDialogComponent"
+    ],
+    "BannerComponent": [
+      "BannerComponent"
+    ],
+    "BreadcrumbComponent": [
+      "BreadcrumbComponent"
+    ],
+    "BulkPricingTableComponent": [
+      "BulkPricingTableComponent"
+    ],
+    "CancelOrderComponent": [
+      "CancelOrderComponent"
+    ],
+    "CancelOrderConfirmationComponent": [
+      "CancelOrderConfirmationComponent"
+    ],
+    "CancelServiceOrder": [
+      "CancelServiceOrderComponent"
+    ],
+    "CancelServiceOrderHeadline": [
+      "CancelServiceOrderHeadlineComponent"
+    ],
+    "CartApplyCouponComponent": [
+      "CartCouponComponent"
+    ],
+    "CartComponent": [
+      "CartDetailsComponent"
+    ],
+    "CartProceedToCheckoutComponent": [
+      "CartProceedToCheckoutComponent"
+    ],
+    "CartQuickOrderFormComponent": [
+      "CartQuickOrderFormComponent"
+    ],
+    "CartTotalsComponent": [
+      "CartTotalsComponent"
+    ],
+    "CategoryNavigationComponent": [
+      "CategoryNavigationComponent"
+    ],
+    "CheckoutCostCenterComponent": [
+      "CheckoutCostCenterComponent"
+    ],
+    "CheckoutDeliveryAddress": [
+      "B2BCheckoutDeliveryAddressComponent",
+      "CheckoutDeliveryAddressComponent"
+    ],
+    "CheckoutDeliveryMode": [
+      "CheckoutDeliveryModeComponent",
+      "ServiceCheckoutDeliveryModeComponent"
+    ],
+    "CheckoutOrchestrator": [
+      "CheckoutOrchestratorComponent"
+    ],
+    "CheckoutOrderSummary": [
+      "CheckoutOrderSummaryComponent",
+      "OpfGiftCardCheckoutOrderSummaryComponent"
+    ],
+    "CheckoutPaymentDetails": [
+      "CheckoutPaymentMethodComponent",
+      "DpPaymentMethodComponent",
+      "OpfTokenisationPaymentMethodComponent"
+    ],
+    "CheckoutPaymentType": [
+      "CheckoutPaymentTypeComponent"
+    ],
+    "CheckoutPlaceOrder": [
+      "CheckoutPlaceOrderComponent",
+      "CheckoutScheduledReplenishmentPlaceOrderComponent"
+    ],
+    "CheckoutProgress": [
+      "CheckoutProgressComponent"
+    ],
+    "CheckoutProgressMobileBottom": [
+      "CheckoutProgressMobileBottomComponent"
+    ],
+    "CheckoutProgressMobileTop": [
+      "CheckoutProgressMobileTopComponent"
+    ],
+    "CheckoutReviewOrder": [
+      "B2BCheckoutReviewSubmitComponent",
+      "CheckoutReviewSubmitComponent",
+      "ServiceCheckoutReviewSubmitComponent"
+    ],
+    "CheckoutReviewOverview": [
+      "CheckoutReviewOverviewComponent"
+    ],
+    "CheckoutReviewPayment": [
+      "CheckoutReviewPaymentComponent"
+    ],
+    "CheckoutReviewPickup": [
+      "PickUpItemsDetailsComponent"
+    ],
+    "CheckoutReviewShipping": [
+      "CheckoutReviewShippingComponent"
+    ],
+    "CheckoutScheduleReplenishmentOrder": [
+      "CheckoutScheduleReplenishmentOrderComponent"
+    ],
+    "CheckoutServiceDetails": [
+      "CheckoutServiceDetailsComponent"
+    ],
+    "ClaimDialogComponent": [
+      "ClaimDialogComponent"
+    ],
+    "ClearCartComponent": [
+      "ClearCartComponent"
+    ],
+    "CloseAccountComponent": [
+      "CloseAccountComponent"
+    ],
+    "CMSLinkComponent": [
+      "LinkComponent"
+    ],
+    "CMSParagraphComponent": [
+      "ParagraphComponent"
+    ],
+    "CMSProductListComponent": [
+      "ProductListComponent"
+    ],
+    "CMSSiteContextComponent": [
+      "SiteContextSelectorComponent"
+    ],
+    "CMSTabParagraphComponent": [
+      "ParagraphComponent"
+    ],
+    "CMSTabParagraphContainer": [
+      "TabParagraphContainerComponent"
+    ],
+    "ConfiguratorAddToCartButton": [
+      "ConfiguratorAddToCartButtonComponent"
+    ],
+    "ConfiguratorExitButton": [
+      "ConfiguratorExitButtonComponent"
+    ],
+    "ConfiguratorForm": [
+      "ConfiguratorFormComponent",
+      "ConfiguratorGroupComponent"
+    ],
+    "ConfiguratorGroupTitle": [
+      "ConfiguratorGroupTitleComponent"
+    ],
+    "ConfiguratorMenu": [
+      "ConfiguratorGroupMenuComponent"
+    ],
+    "ConfiguratorOverviewBanner": [
+      "ConfiguratorOverviewNotificationBannerComponent"
+    ],
+    "ConfiguratorOverviewFilterButton": [
+      "ConfiguratorOverviewFilterButtonComponent"
+    ],
+    "ConfiguratorOverviewForm": [
+      "ConfiguratorOverviewFormComponent"
+    ],
+    "ConfiguratorOverviewSidebar": [
+      "ConfiguratorOverviewSidebarComponent"
+    ],
+    "ConfiguratorPrevNext": [
+      "ConfiguratorPreviousNextButtonsComponent"
+    ],
+    "ConfiguratorPriceSummary": [
+      "ConfiguratorPriceSummaryComponent"
+    ],
+    "ConfiguratorProductTitle": [
+      "ConfiguratorProductTitleComponent"
+    ],
+    "ConfiguratorTabBar": [
+      "ConfiguratorTabBarComponent"
+    ],
+    "ConfiguratorUpdateMessage": [
+      "ConfiguratorUpdateMessageComponent"
+    ],
+    "ConfiguratorVariantCarousel": [
+      "ConfiguratorVariantCarouselComponent"
+    ],
+    "ConfigureProductComponent": [
+      "ConfigureProductComponent"
+    ],
+    "ConsentManagementComponent": [
+      "MyAccountV2ConsentManagementComponent",
+      "ConsentManagementComponent"
+    ],
+    "CouponClaimComponent": [
+      "CouponClaimComponent"
+    ],
+    "CpqConfiguratorConflictAndErrorMessagesComponent": [
+      "ConfiguratorConflictAndErrorMessagesComponent"
+    ],
+    "ExportOrderEntriesComponent": [
+      "ExportOrderEntriesComponent"
+    ],
+    "FooterNavigationComponent": [
+      "FooterNavigationComponent"
+    ],
+    "ForgotPasswordComponent": [
+      "ForgotPasswordComponent"
+    ],
+    "FutureStockComponent": [
+      "FutureStockAccordionComponent"
+    ],
+    "GigyaRaasComponent": [
+      "GigyaRaasComponent"
+    ],
+    "GuestCheckoutLoginComponent": [
+      "CheckoutLoginComponent"
+    ],
+    "HamburgerMenuComponent": [
+      "HamburgerMenuComponent"
+    ],
+    "ImportExportOrderEntriesComponent": [
+      "ImportExportOrderEntriesComponent"
+    ],
+    "ImportOrderEntriesComponent": [
+      "ImportOrderEntriesComponent"
+    ],
+    "LanguageCurrencyComponent": [
+      "LanguageCurrencyComponent"
+    ],
+    "LoginComponent": [
+      "LoginComponent"
+    ],
+    "ManageAccountSummaryListComponent": [
+      "AccountSummaryListComponent"
+    ],
+    "ManageBudgetsListComponent": [
+      "ListComponent"
+    ],
+    "ManageCostCentersListComponent": [
+      "ListComponent"
+    ],
+    "ManagePermissionsListComponent": [
+      "ListComponent"
+    ],
+    "ManageUnitsListComponent": [
+      "UnitListComponent"
+    ],
+    "ManageUserGroupsListComponent": [
+      "ListComponent"
+    ],
+    "ManageUsersListComponent": [
+      "ListComponent"
+    ],
+    "MerchandisingCarouselComponent": [
+      "MerchandisingCarouselComponent"
+    ],
+    "MiniCartComponent": [
+      "MiniCartComponent"
+    ],
+    "MyAccountSideNavigationComponent": [
+      "MyAccountV2NavigationComponent"
+    ],
+    "MyAccountViewOrderComponent": [
+      "MyAccountV2OrdersComponent"
+    ],
+    "MyAccountViewRequestsComponent": [
+      "MyAccountV2CustomerTicketingComponent"
+    ],
+    "MyAccountViewUserComponent": [
+      "MyAccountV2UserComponent"
+    ],
+    "MyCouponsComponent": [
+      "MyCouponsComponent"
+    ],
+    "MyInterestsComponent": [
+      "MyInterestsComponent"
+    ],
+    "MyPreferredStoreComponent": [
+      "MyPreferredStoreComponent"
+    ],
+    "NavigationComponent": [
+      "NavigationComponent"
+    ],
+    "NotificationPreferenceComponent": [
+      "MyAccountV2NotificationPreferenceComponent",
+      "NotificationPreferenceComponent"
+    ],
+    "OAuthCallbackComponent": [
+      "SpinnerComponent"
+    ],
+    "OpfB2bCheckoutPaymentAndReview": [
+      "OpfB2bCheckoutPaymentAndReviewComponent"
+    ],
+    "OpfCheckoutDeliveryAddress": [
+      "OpfB2bCheckoutDeliveryAddressComponent"
+    ],
+    "OpfCheckoutEmailUpdateComponent": [
+      "OpfCheckoutEmailUpdateComponent"
+    ],
+    "OpfCheckoutPaymentAndReview": [
+      "OpfCheckoutPaymentAndReviewComponent"
+    ],
+    "OpfCheckoutPaymentType": [
+      "OpfB2bCheckoutPaymentTypeComponent"
+    ],
+    "OpfCheckoutReview": [
+      "OpfB2bCheckoutReviewComponent"
+    ],
+    "OpfCtaQuickBuyButtons": [
+      "OpfCtaQuickBuyButtonsComponent"
+    ],
+    "OpfCtaScriptsComponent": [
+      "OpfCtaScriptsComponent"
+    ],
+    "OpfQuickBuyButtonsComponent": [
+      "OpfQuickBuyButtonsComponent"
+    ],
+    "OrderApprovalDetailApprovalDetailsComponent": [
+      "OrderDetailPermissionResultsComponent"
+    ],
+    "OrderApprovalDetailFormComponent": [
+      "OrderApprovalDetailFormComponent"
+    ],
+    "OrderApprovalDetailItemsComponent": [
+      "OrderDetailItemsComponent"
+    ],
+    "OrderApprovalDetailShippingComponent": [
+      "OrderOverviewComponent"
+    ],
+    "OrderApprovalDetailTotalsComponent": [
+      "OrderDetailTotalsComponent"
+    ],
+    "OrderApprovalListComponent": [
+      "OrderApprovalListComponent"
+    ],
+    "OrderConfirmationBillingComponent": [
+      "OrderDetailBillingComponent"
+    ],
+    "OrderConfirmationItemsComponent": [
+      "OrderConfirmationItemsComponent"
+    ],
+    "OrderConfirmationOverviewComponent": [
+      "OrderOverviewComponent"
+    ],
+    "OrderConfirmationPickUpComponent": [
+      "PickUpItemsDetailsComponent"
+    ],
+    "OrderConfirmationShippingComponent": [
+      "OrderConfirmationShippingComponent"
+    ],
+    "OrderConfirmationThankMessageComponent": [
+      "OrderConfirmationThankYouMessageComponent"
+    ],
+    "OrderConfirmationTotalsComponent": [
+      "OrderConfirmationTotalsComponent",
+      "OpfGiftCardOrderConfirmationTotalsComponent"
+    ],
+    "OrderReturnRequestListComponent": [
+      "OrderReturnRequestListComponent"
+    ],
+    "OrganizationUserRegistrationComponent": [
+      "UserRegistrationFormComponent"
+    ],
+    "PageTitleComponent": [
+      "PageTitleComponent"
+    ],
+    "PDFDocumentComponent": [
+      "PDFComponent"
+    ],
+    "PickupInStoreDeliveryModeComponent": [
+      "PickUpItemsDetailsComponent"
+    ],
+    "ProductAddToCartComponent": [
+      "AddToCartComponent"
+    ],
+    "ProductCarouselComponent": [
+      "ProductCarouselComponent"
+    ],
+    "ProductDetailsTabComponent": [
+      "ProductDetailsTabComponent"
+    ],
+    "ProductGridComponent": [
+      "ProductListComponent"
+    ],
+    "ProductImagesComponent": [
+      "ProductImagesComponent",
+      "ProductImageZoomProductImagesComponent"
+    ],
+    "ProductIntroComponent": [
+      "ProductIntroComponent"
+    ],
+    "ProductMultiDimensionalSelectorComponent": [
+      "ProductMultiDimensionalSelectorComponent"
+    ],
+    "ProductReferencesComponent": [
+      "ProductReferencesComponent"
+    ],
+    "ProductRefinementComponent": [
+      "ProductFacetNavigationComponent"
+    ],
+    "ProductReviewsTabComponent": [
+      "ProductReviewsComponent"
+    ],
+    "ProductSpecsTabComponent": [
+      "ProductAttributesComponent"
+    ],
+    "ProductSummaryComponent": [
+      "ProductSummaryComponent"
+    ],
+    "ProductVariantSelectorComponent": [
+      "ProductVariantsContainerComponent"
+    ],
+    "ProfileTagComponent": [
+      "ProfileTagComponent"
+    ],
+    "PunchoutButtonsComponent": [
+      "PunchoutButtonsComponent"
+    ],
+    "PunchoutCloseSessionComponent": [
+      "PunchoutCloseSessionComponent"
+    ],
+    "PunchoutErrorComponent": [
+      "PunchoutErrorComponent"
+    ],
+    "PunchoutInspectCartComponent": [
+      "PunchoutInspectCartComponent"
+    ],
+    "PunchoutRequisitionComponent": [
+      "PunchoutRequisitionComponent"
+    ],
+    "PunchoutSessionComponent": [
+      "PunchoutSessionComponent"
+    ],
+    "QualtricsComponent": [
+      "QualtricsComponent"
+    ],
+    "QualtricsEmbeddedFeedbackComponent": [
+      "QualtricsEmbeddedFeedbackComponent"
+    ],
+    "QuickOrderComponent": [
+      "QuickOrderComponent"
+    ],
+    "QuoteCartGuardComponent": [
+      "QuoteCartGuardComponent"
+    ],
+    "QuoteCommentsComponent": [
+      "QuoteCommentsComponent"
+    ],
+    "QuoteHeaderOverviewComponent": [
+      "QuoteHeaderOverviewComponent"
+    ],
+    "QuoteItemsComponent": [
+      "QuoteItemsComponent"
+    ],
+    "QuoteLinksComponent": [
+      "QuoteLinksComponent"
+    ],
+    "QuoteRequestComponent": [
+      "QuoteRequestButtonComponent"
+    ],
+    "QuoteSummaryComponent": [
+      "QuoteSummaryComponent"
+    ],
+    "RegisterB2BCustomerWithOTPComponent": [
+      "UserRegistrationOTPFormComponent"
+    ],
+    "RegisterCustomerComponent": [
+      "RegisterComponent"
+    ],
+    "RegisterCustomerWithOTPComponent": [
+      "OneTimePasswordRegisterComponent"
+    ],
+    "ReplenishmentConfirmationItemsComponent": [
+      "OrderConfirmationItemsComponent"
+    ],
+    "ReplenishmentConfirmationMessageComponent": [
+      "OrderConfirmationThankYouMessageComponent"
+    ],
+    "ReplenishmentConfirmationOverviewComponent": [
+      "OrderOverviewComponent"
+    ],
+    "ReplenishmentConfirmationTotalsComponent": [
+      "OrderConfirmationTotalsComponent"
+    ],
+    "ReplenishmentDetailActionsComponent": [
+      "ReplenishmentOrderCancellationComponent"
+    ],
+    "ReplenishmentDetailItemsComponent": [
+      "OrderDetailItemsComponent"
+    ],
+    "ReplenishmentDetailOrderHistoryComponent": [
+      "OrderHistoryComponent"
+    ],
+    "ReplenishmentDetailShippingComponent": [
+      "OrderOverviewComponent"
+    ],
+    "ReplenishmentDetailTotalsComponent": [
+      "OrderDetailTotalsComponent"
+    ],
+    "RescheduleServiceOrder": [
+      "RescheduleServiceOrderComponent"
+    ],
+    "ResetPasswordComponent": [
+      "ResetPasswordComponent"
+    ],
+    "ReturningCustomerLoginComponent": [
+      "LoginFormComponent"
+    ],
+    "ReturningCustomerOTPLoginComponent": [
+      "OneTimePasswordLoginFormComponent"
+    ],
+    "ReturningCustomerRegisterComponent": [
+      "LoginRegisterComponent"
+    ],
+    "ReturningOrganizationUserRegisterComponent": [
+      "LoginRegisterB2BComponent"
+    ],
+    "ReturnOrderComponent": [
+      "ReturnOrderComponent"
+    ],
+    "ReturnOrderConfirmationComponent": [
+      "ReturnOrderConfirmationComponent"
+    ],
+    "ReturnRequestItemsComponent": [
+      "ReturnRequestItemsComponent"
+    ],
+    "ReturnRequestOverviewComponent": [
+      "ReturnRequestOverviewComponent"
+    ],
+    "ReturnRequestTotalsComponent": [
+      "ReturnRequestTotalsComponent"
+    ],
+    "RotatingImagesComponent": [
+      "BannerCarouselComponent"
+    ],
+    "SavedCartDetailsActionComponent": [
+      "SavedCartDetailsActionComponent"
+    ],
+    "SavedCartDetailsItemsComponent": [
+      "SavedCartDetailsItemsComponent"
+    ],
+    "SavedCartDetailsOverviewComponent": [
+      "SavedCartDetailsOverviewComponent"
+    ],
+    "SaveForLaterComponent": [
+      "SaveForLaterComponent"
+    ],
+    "ScrollToTopComponent": [
+      "ScrollToTopComponent"
+    ],
+    "SearchBoxComponent": [
+      "SearchBoxComponent"
+    ],
+    "SearchResultsListComponent": [
+      "ProductListComponent"
+    ],
+    "SimpleBannerComponent": [
+      "BannerComponent"
+    ],
+    "SimpleResponsiveBannerComponent": [
+      "BannerComponent"
+    ],
+    "SiteThemeSwitcherComponent": [
+      "SiteThemeSwitcherComponent"
+    ],
+    "StockNotificationComponent": [
+      "StockNotificationComponent"
+    ],
+    "StoreFinderComponent": [
+      "StoreFinderComponent"
+    ],
+    "SubscriptionBillDetailsComponent": [
+      "SubscriptionBillingDetailsComponent"
+    ],
+    "SubscriptionBillsHistoryComponent": [
+      "SubscriptionBillingListComponent"
+    ],
+    "SubscriptionDetailsComponent": [
+      "SubscriptionDetailsComponent"
+    ],
+    "SubscriptionHistoryComponent": [
+      "SubscriptionListComponent"
+    ],
+    "SubscriptionProductPriceComponent": [
+      "SubscriptionProductPriceComponent"
+    ],
+    "SupportTicketCloseComponent": [
+      "CustomerTicketingCloseComponent"
+    ],
+    "SupportTicketDetailsComponent": [
+      "CustomerTicketingDetailsComponent"
+    ],
+    "SupportTicketHistoryComponent": [
+      "CustomerTicketingListComponent"
+    ],
+    "SupportTicketReopenComponent": [
+      "CustomerTicketingReopenComponent"
+    ],
+    "SupportTicketUpdateComponent": [
+      "CustomerTicketingMessagesComponent"
+    ],
+    "TextfieldConfigurationForm": [
+      "ConfiguratorTextfieldFormComponent"
+    ],
+    "UnitLevelOrderDetailsItemsComponent": [
+      "OrderDetailItemsComponent"
+    ],
+    "UnitLevelOrderDetailsOverviewComponent": [
+      "UnitLevelOrderOverviewComponent"
+    ],
+    "UnitLevelOrderDetailsTotalsComponent": [
+      "OrderDetailTotalsComponent"
+    ],
+    "UnitLevelOrderHistoryComponent": [
+      "UnitLevelOrderHistoryComponent"
+    ],
+    "UpdateEmailComponent": [
+      "MyAccountV2EmailComponent",
+      "UpdateEmailComponent"
+    ],
+    "UpdatePasswordComponent": [
+      "MyAccountV2PasswordComponent",
+      "UpdatePasswordComponent"
+    ],
+    "UpdateProfileComponent": [
+      "MyAccountV2ProfileComponent",
+      "UpdateProfileComponent"
+    ],
+    "VerifyOTPForB2BRegistrationComponent": [
+      "RegisterVerificationTokenFormComponent"
+    ],
+    "VerifyOTPForRegistrationComponent": [
+      "RegistrationVerificationTokenFormComponent"
+    ],
+    "VerifyOTPTokenComponent": [
+      "VerificationTokenFormComponent"
+    ],
+    "VideoComponent": [
+      "VideoComponent"
+    ],
+    "VisualPickingTabComponent": [
+      "VisualPickingTabComponent"
+    ],
+    "WishListComponent": [
+      "WishListComponent"
+    ]
+  },
+  "commits": [
+    {
+      "sha": "106a1e6da4c4dc459f8d05906e3852341168abdd",
+      "type": "fix",
+      "scope": null,
+      "subject": "OPF place order failed or update session returns 409, trigger initiate api instead",
+      "jiraIds": [],
+      "pullRequest": null
+    },
+    {
+      "sha": "ceb89ca7de66546c62eb7247f0f6fe5a2b5812fd",
+      "type": "fix",
+      "scope": null,
+      "subject": "prevent NG0205 by tracking lazy component imports as pending tasks",
+      "jiraIds": [],
+      "pullRequest": 22145
+    },
+    {
+      "sha": "db41d2a579b4d35a59631b9d249aa7d4e39326b5",
+      "type": "fix",
+      "scope": null,
+      "subject": "port vulnerabilites fixes",
+      "jiraIds": [],
+      "pullRequest": 22142
+    },
+    {
+      "sha": "ee9e7b4184393fee5cf73e8228921f96f55ea680",
+      "type": "fix",
+      "scope": null,
+      "subject": "logout with path from config",
+      "jiraIds": [],
+      "pullRequest": 22114
+    },
+    {
+      "sha": "643d01a6735784d9caec86d16072a7bb5c074a62",
+      "type": "fix",
+      "scope": null,
+      "subject": "make CVV info icon keyboard accessible (CXSPA-12761)",
+      "jiraIds": [
+        "CXSPA-12761"
+      ],
+      "pullRequest": 21960
+    },
+    {
+      "sha": "0e29dc48271397fcb298f3efb866226c9a729ca1",
+      "type": "fix",
+      "scope": null,
+      "subject": "make OnNavigateService compatible with scroll/hydration changes in Angular 21",
+      "jiraIds": [],
+      "pullRequest": 22075
+    },
+    {
+      "sha": "397c5c319b94bfb63152acc0ccc0a7513c1b3f16",
+      "type": "fix",
+      "scope": null,
+      "subject": "CXSPA-14166 add missing translation key",
+      "jiraIds": [
+        "CXSPA-14166"
+      ],
+      "pullRequest": 22087
+    },
+    {
+      "sha": "b33ba4a80d4d900c7fe2ad48d198b2b01cc532a7",
+      "type": "fix",
+      "scope": null,
+      "subject": "remove dead getSelectedPayment$ and getSelectedPaymentId$ properties",
+      "jiraIds": [],
+      "pullRequest": null
+    },
+    {
+      "sha": "e03e9b74338341b86e79b02643defb28655b6688",
+      "type": "test",
+      "scope": null,
+      "subject": "Fix login data for b2b-quote-configurator e2e tests (CXSPA-14508)",
+      "jiraIds": [
+        "CXSPA-14508"
+      ],
+      "pullRequest": 22102
+    },
+    {
+      "sha": "2c8384ab3911e932aa16889e2899b19bdc679f0d",
+      "type": "fix",
+      "scope": null,
+      "subject": "resolve mixed BOPIS+ship OPF checkout failures",
+      "jiraIds": [],
+      "pullRequest": null
+    },
+    {
+      "sha": "c5c9d538c3562038b1e21b2f263d059ecfba94ad",
+      "type": "chore",
+      "scope": null,
+      "subject": "deprecate enablePurchaseOrderNumber feature toggle",
+      "jiraIds": [],
+      "pullRequest": 22099
+    },
+    {
+      "sha": "fcdcc224133aa04ec50fd9b5089676f68f9e1833",
+      "type": "chore",
+      "scope": null,
+      "subject": "enable toggles for 2611 release (CXSPA-14499)",
+      "jiraIds": [
+        "CXSPA-14499"
+      ],
+      "pullRequest": 22096
+    },
+    {
+      "sha": "b2f760b2a0614170332429fbe624bcef5167f834",
+      "type": "chore",
+      "scope": null,
+      "subject": "remove deprecated feature toggles",
+      "jiraIds": [],
+      "pullRequest": 22097
+    },
+    {
+      "sha": "48bc75c15a2b657fae68177c4021ba27a83332d9",
+      "type": "chore",
+      "scope": null,
+      "subject": "test installation script after each push to develop",
+      "jiraIds": [],
+      "pullRequest": 22092
+    },
+    {
+      "sha": "38b4848b2a0b5235722127c5a87b3e134bb2d358",
+      "type": "fix",
+      "scope": null,
+      "subject": "remove duplicate import of _progress-bar.scss",
+      "jiraIds": [],
+      "pullRequest": 22057
+    },
+    {
+      "sha": "aea4960c8a8ce8844b756081508c229ed0ba240a",
+      "type": "chore",
+      "scope": null,
+      "subject": "added details to claude.md file so that it does not introduce flaky runs within the sequences",
+      "jiraIds": [],
+      "pullRequest": 22088
+    },
+    {
+      "sha": "aa661f944b1ef774196b61d63c1da8ace55a278b",
+      "type": "fix",
+      "scope": null,
+      "subject": "Revert UUID dep upgrade. Breaks installation script",
+      "jiraIds": [],
+      "pullRequest": 22091
+    },
+    {
+      "sha": "cc310cc5cbeff7ae0909e31173724ea3eaed8909",
+      "type": "docs",
+      "scope": null,
+      "subject": "update BFF reference impl guide",
+      "jiraIds": [],
+      "pullRequest": 22055
+    },
+    {
+      "sha": "39ac4349ca7a17649acfe339e64fa9d2e135fc6f",
+      "type": "chore",
+      "scope": null,
+      "subject": "Dependabot suggested updates. Fixes miscellaneous CVEs.",
+      "jiraIds": [],
+      "pullRequest": 22089
+    },
+    {
+      "sha": "5bec1a99b594c2409b03aa42d5fcc6ae8db4f43b",
+      "type": "chore",
+      "scope": null,
+      "subject": "Minor upgrade. OSS lib brace-expansion. Several high and medium CVEs",
+      "jiraIds": [],
+      "pullRequest": 22078
+    },
+    {
+      "sha": "e567a458ca0a346643f5a8c991613920072dfe42",
+      "type": "chore",
+      "scope": null,
+      "subject": "update node install workflow",
+      "jiraIds": [],
+      "pullRequest": 22080
+    },
+    {
+      "sha": "ccf116e1dee7d10f6afa3ae4daa75587c0026817",
+      "type": "fix",
+      "scope": null,
+      "subject": "invert negated condition in OpfIframeSandboxDirective to resolve sonar issue",
+      "jiraIds": [],
+      "pullRequest": null
+    },
+    {
+      "sha": "298a80a9b4121568544ff08755493702caf0b97e",
+      "type": "chore",
+      "scope": null,
+      "subject": "Renovate update. Minimum Release Age >= 29 days.",
+      "jiraIds": [],
+      "pullRequest": 22072
+    },
+    {
+      "sha": "51e757d8fb7197b08b0187414229ebb988fe5f99",
+      "type": "fix",
+      "scope": null,
+      "subject": "handle HTTP error in reorder dialog",
+      "jiraIds": [],
+      "pullRequest": 22050
+    },
+    {
+      "sha": "d7e20c721d69b952ba3952084f5cba38ad1e7572",
+      "type": "chore",
+      "scope": null,
+      "subject": "adjust package lock after release merge",
+      "jiraIds": [],
+      "pullRequest": 22071
+    },
+    {
+      "sha": "7f2f65191215382197da288f11611c7197229f6e",
+      "type": "test",
+      "scope": null,
+      "subject": "add secondary axis forwarding to roving tabindex",
+      "jiraIds": [],
+      "pullRequest": 22062
+    },
+    {
+      "sha": "1d0333fec564f8e01abd99ff67da3b31022e925d",
+      "type": "chore",
+      "scope": null,
+      "subject": "optimize lighthouse",
+      "jiraIds": [],
+      "pullRequest": 22060
+    },
+    {
+      "sha": "2c2a782ab5fe773ee257e3c06e98844f535d393d",
+      "type": "feat",
+      "scope": "skills",
+      "subject": "CXSPA-14253 harden AI-skills update schematic against partial-update states",
+      "jiraIds": [
+        "CXSPA-14253"
+      ],
+      "pullRequest": 22052
+    },
+    {
+      "sha": "3544b3f103538c242a9397827d20b9d60043627b",
+      "type": "feat",
+      "scope": "skills",
+      "subject": "add CI content scanner for skill markdown files",
+      "jiraIds": [],
+      "pullRequest": 21994
+    },
+    {
+      "sha": "b7815863c8e4da73886fe56dac18f37173e67e3a",
+      "type": "fix",
+      "scope": "a11y",
+      "subject": "add arrow key navigation to My Company tiles (CXSPA-12741)",
+      "jiraIds": [
+        "CXSPA-12741"
+      ],
+      "pullRequest": 21980
+    },
+    {
+      "sha": "8a7b0da94b3f825ef8982f1c22515b078e6b45c1",
+      "type": "test",
+      "scope": null,
+      "subject": "reduce long wait times in e2es",
+      "jiraIds": [],
+      "pullRequest": 22059
+    },
+    {
+      "sha": "d5972fd12caad46128387a3e6520ccbc90e3b51a",
+      "type": "feat",
+      "scope": "a11y",
+      "subject": "add roving tabindex directive and apply to table and pagination",
+      "jiraIds": [],
+      "pullRequest": 22033
+    },
+    {
+      "sha": "8cb223cf3cdeafdc04bf5312f4db5c4b000a2621",
+      "type": "fix",
+      "scope": "a11y",
+      "subject": "add arrow key navigation to product carousel items (CXSPA-12738)",
+      "jiraIds": [
+        "CXSPA-12738"
+      ],
+      "pullRequest": 21982
+    },
+    {
+      "sha": "3aefae651a12d6176a3bfa2f697ca24d54cbad61",
+      "type": "fix",
+      "scope": null,
+      "subject": "change setup for the OPF iframe sandbox attribute",
+      "jiraIds": [],
+      "pullRequest": null
+    },
+    {
+      "sha": "37a10293c3979b0bad427b3b055c2a4eb6486b9b",
+      "type": "chore",
+      "scope": null,
+      "subject": "Stabilize test after migration to vitest for product-configurator feature-lib",
+      "jiraIds": [],
+      "pullRequest": 22017
+    },
+    {
+      "sha": "0e7a122bc1dc9664772ae9f4c53112145882d756",
+      "type": "chore",
+      "scope": null,
+      "subject": "changes on various config files to properly include coverage concerning vitest migration",
+      "jiraIds": [],
+      "pullRequest": 21904
+    },
+    {
+      "sha": "89e41f1b426ffe035cee67a116fd532727ec98a0",
+      "type": "refactor",
+      "scope": null,
+      "subject": "add OnPush change detection to OPF components",
+      "jiraIds": [],
+      "pullRequest": null
+    },
+    {
+      "sha": "3553e2cc82a0e7560c6ec8db37f23eb64c6fef79",
+      "type": "test",
+      "scope": null,
+      "subject": "Migrating unit tests from jasmine to vitest",
+      "jiraIds": [],
+      "pullRequest": 22036
+    },
+    {
+      "sha": "701da11e559e22366ecf80590f1e39d08534435e",
+      "type": "chore",
+      "scope": null,
+      "subject": "enable asyncAuthConfigInitializer feature toggle",
+      "jiraIds": [],
+      "pullRequest": 22048,
+      "translations": {
+        "tr": "asyncAuthConfigInitializer feature toggle'ını etkinleştir"
+      }
+    },
+    {
+      "sha": "f0cd0b07dc6c700836a724f621c87cf3383f29d3",
+      "type": "fix",
+      "scope": null,
+      "subject": "CXSPA-14336: suppress spurious signed-out notification during ASM agent code-flow login",
+      "jiraIds": [
+        "CXSPA-14336"
+      ],
+      "pullRequest": 22043
+    },
+    {
+      "sha": "85550632caff8f02126781924d2fbd4d7670e642",
+      "type": "feat",
+      "scope": null,
+      "subject": "CXSPA-14291 improve a11y skill",
+      "jiraIds": [
+        "CXSPA-14291"
+      ],
+      "pullRequest": 22002
+    },
+    {
+      "sha": "2690155c4c148330593b7368f7035e1fa48a18d8",
+      "type": "fix",
+      "scope": null,
+      "subject": "trigger active configurations on gift card apply/remove",
+      "jiraIds": [],
+      "pullRequest": 22046,
+      "translations": {
+        "tr": "hediye kartı uygulandığında/kaldırıldığında aktif konfigürasyonları tetikle"
+      }
+    },
+    {
+      "sha": "b41abb9295429f4df8f4fab364c5e0202eb3c0bf",
+      "type": "feat",
+      "scope": "CXSPA-12962",
+      "subject": "enable WishList V2 module for new CCV2 installations",
+      "jiraIds": [
+        "CXSPA-12962"
+      ],
+      "pullRequest": 22044
+    },
+    {
+      "sha": "615eaeccb5232bed8dde6f61b82b9fa9fc5e0632",
+      "type": "fix",
+      "scope": null,
+      "subject": "vitest migration flaky core-libs runs",
+      "jiraIds": [],
+      "pullRequest": 22021
+    },
+    {
+      "sha": "6a55867d0b56fd953f3f9c9874b81c39f6e49f7c",
+      "type": "chore",
+      "scope": null,
+      "subject": "OSS transitive dep override. Libs: js-yaml, smol-tmol, adm-zip. CVE fixes.",
+      "jiraIds": [],
+      "pullRequest": 22042
+    },
+    {
+      "sha": "cc0dfc94875483090234ec4dc3344d0b8dee65dc",
+      "type": "fix",
+      "scope": null,
+      "subject": "make RESET button in coupon claim dialog keyboard accessible (CXSPA-12777)",
+      "jiraIds": [
+        "CXSPA-12777"
+      ],
+      "pullRequest": 21963
+    },
+    {
+      "sha": "240bfa2b1253893f0ca38a40491aca93c4fc24a9",
+      "type": "fix",
+      "scope": null,
+      "subject": "scroll Show More Reviews button into view on keyboard focus (CXSPA-12805)",
+      "jiraIds": [
+        "CXSPA-12805"
+      ],
+      "pullRequest": 21961
+    },
+    {
+      "sha": "a8a0ad21706e52dd1a004c487d8145cbf727703a",
+      "type": "fix",
+      "scope": null,
+      "subject": "CXSPA-14292 - vitest flaky run fixes post-migration, feature-libs",
+      "jiraIds": [
+        "CXSPA-14292"
+      ],
+      "pullRequest": 21998
+    },
+    {
+      "sha": "b3a2730b96c194f3750eef63e3324dbc953b9de1",
+      "type": "chore",
+      "scope": null,
+      "subject": "OSS overrides. Transitive. Medium severity ws and sigstore",
+      "jiraIds": [],
+      "pullRequest": 22040
+    },
+    {
+      "sha": "0a2c6d2f24a7c60bd5c870595569f25d261e66c4",
+      "type": "fix",
+      "scope": null,
+      "subject": "increase contrast of In Stock info text in AddToCartComponent (CXSPA-12769)",
+      "jiraIds": [
+        "CXSPA-12769"
+      ],
+      "pullRequest": 22010
+    },
+    {
+      "sha": "25b88c01c64da15da1f5b2963f1512b41bb8df99",
+      "type": "chore",
+      "scope": null,
+      "subject": "add vitest globals",
+      "jiraIds": [],
+      "pullRequest": 22041
+    },
+    {
+      "sha": "77ceabd4d8d0f235b0ed21b5ddadb8a946fef841",
+      "type": "chore",
+      "scope": null,
+      "subject": "Update OSS transitive fast-uri to v3.1.8. Fixes several medium CVEs",
+      "jiraIds": [],
+      "pullRequest": 22038
+    },
+    {
+      "sha": "bf6e38cb67e7cdff9e4b29beb9b38a6362b4bdd0",
+      "type": "chore",
+      "scope": null,
+      "subject": "Update OSS Undici transitive deps to v8.10.2. Fixes several CVEs",
+      "jiraIds": [],
+      "pullRequest": 22037
+    },
+    {
+      "sha": "f803a957cdcf4db2c2218a18edd4e7e7d59d5d8b",
+      "type": "chore",
+      "scope": null,
+      "subject": "Nx build for all scripts",
+      "jiraIds": [],
+      "pullRequest": 22028
+    },
+    {
+      "sha": "d9b7d1077c46df955b3fbf6acda4186eee44513d",
+      "type": "fix",
+      "scope": null,
+      "subject": "allow non-visible components in tab paragraph container",
+      "jiraIds": [],
+      "pullRequest": 22031
+    },
+    {
+      "sha": "0adc515de5e9e4b6ca2aa713a4de9d1dc4ada137",
+      "type": "chore",
+      "scope": null,
+      "subject": "CXSPA-14341 flag root imports for files inside said root import",
+      "jiraIds": [
+        "CXSPA-14341"
+      ],
+      "pullRequest": 22035
+    },
+    {
+      "sha": "8a84d3dcb788adb7d8e03af2106c5e8bcbe71d75",
+      "type": "chore",
+      "scope": null,
+      "subject": "allow root self imports",
+      "jiraIds": [],
+      "pullRequest": 22030
+    },
+    {
+      "sha": "673b59a873606ce5da316d77f6bee0477244ac17",
+      "type": "feat",
+      "scope": null,
+      "subject": "CXSPA-13999 display title in address card",
+      "jiraIds": [
+        "CXSPA-13999"
+      ],
+      "pullRequest": 21930
+    },
+    {
+      "sha": "e9038f5ca3240fb0595d2b67e9f5783625f80f34",
+      "type": "chore",
+      "scope": null,
+      "subject": "use santorini updated in install script",
+      "jiraIds": [],
+      "pullRequest": 22014
+    },
+    {
+      "sha": "c35883418b1e7e02a77f7e6206676198b38fba98",
+      "type": "feat",
+      "scope": "cds",
+      "subject": "migrate unit tests from Karma to Vitest CXCDS-19446",
+      "jiraIds": [],
+      "pullRequest": 22024
+    },
+    {
+      "sha": "7e5691c029d1910092bb35747d7400496806eeca",
+      "type": "chore",
+      "scope": null,
+      "subject": "(REVERT) update dependency express-rate-limit to v8.7.0 (#21912)",
+      "jiraIds": [],
+      "pullRequest": 22025
+    },
+    {
+      "sha": "09370dc1091c0c1df48871fdf1655d82eef0924c",
+      "type": "fix",
+      "scope": null,
+      "subject": "addr2 input field missing in billing address form",
+      "jiraIds": [],
+      "pullRequest": 22022,
+      "translations": {
+        "tr": "billing address formunda addr2 giriş alanı eksik"
+      }
+    },
+    {
+      "sha": "6b8aa59628e3d4eb9358ff823f9f7ff439c4072d",
+      "type": "chore",
+      "scope": null,
+      "subject": "OSS undici transitive dependency. Sec updates. Fixes miscellaneous CVEs",
+      "jiraIds": [],
+      "pullRequest": 22019
+    },
+    {
+      "sha": "54b39e8a4057b87571b0cd54fcf16910790565b9",
+      "type": "fix",
+      "scope": null,
+      "subject": "resolve ng add schema validation error for access code header",
+      "jiraIds": [],
+      "pullRequest": 22016,
+      "translations": {
+        "tr": "access code header için ng add schema doğrulama hatasını çöz"
+      }
+    },
+    {
+      "sha": "88247a8b2f705396689b72f9ba6bd08b80c430b9",
+      "type": "chore",
+      "scope": null,
+      "subject": "Support tilde delimiter in root package.json",
+      "jiraIds": [],
+      "pullRequest": 21993
+    },
+    {
+      "sha": "31cf14aecece297cc27cfe5346a60ee95ea0b234",
+      "type": "chore",
+      "scope": null,
+      "subject": "upgrade package-lock storefrontapp version to `2611.0.0`",
+      "jiraIds": [],
+      "pullRequest": 22015
+    },
+    {
+      "sha": "7d6b2ca53be5c2b3cae7f9c3261ad7873b9f7e48",
+      "type": "chore",
+      "scope": null,
+      "subject": "bump to version 2611",
+      "jiraIds": [],
+      "pullRequest": 22000
+    },
+    {
+      "sha": "d85d120bf7f1818831418132146d158bc84d42c2",
+      "type": "fix",
+      "scope": null,
+      "subject": "Authorization-is-not-in-an-updatable-status-for-payment-session",
+      "jiraIds": [],
+      "pullRequest": 21991
+    }
+  ],
+  "toggleCommits": [
+    {
+      "sha": "e9038f5ca3240fb0595d2b67e9f5783625f80f34",
+      "subject": "chore: use santorini updated in install script (#22014)",
+      "files": [
+        {
+          "file": "core-libs/storefront/layout/main/storefront.component.ts",
+          "members": [
+            "StorefrontComponent.constructor"
+          ],
+          "diff": "@@ -120,6 +120,7 @@ export class StorefrontComponent implements OnInit, OnDestroy {\n     useFeatureStyles('cdsBottomHeaderSlotAdjustPosition');\n     useFeatureStyles('a11yFocusIndicatorContrast');\n     useFeatureStyles('a11yDisabledButtonContrast');\n+    useFeatureStyles('a11yPrimaryColorContrast');\n   }\n \n   ngOnInit(): void {"
+        },
+        {
+          "file": "core-libs/styles/scss/root.scss",
+          "members": [],
+          "diff": "@@ -62,3 +62,9 @@\n   ):not(.cx-theme-high-contrast-light) {\n   --cx-color-visual-focus: #1f3a93 !important;\n }\n+\n+.#{getFeatureCssClass('a11yPrimaryColorContrast')}:not(\n+    .cx-theme-high-contrast-dark\n+  ):not(.cx-theme-high-contrast-light) {\n+  --cx-color-primary: #055f9f !important;\n+}"
+        }
+      ]
+    },
+    {
+      "sha": "673b59a873606ce5da316d77f6bee0477244ac17",
+      "subject": "feat: CXSPA-13999 display title in address card (#21930)",
+      "files": [
+        {
+          "file": "feature-libs/checkout/b2b/components/checkout-delivery-address/checkout-delivery-address.component.ts",
+          "members": [
+            "B2BCheckoutDeliveryAddressComponent.b2bFeatureToggles",
+            "B2BCheckoutDeliveryAddressComponent.costCenterAddresses$",
+            "B2BCheckoutDeliveryAddressComponent.featureToggles"
+          ],
+          "diff": "@@ -64,7 +64,7 @@ export class B2BCheckoutDeliveryAddressComponent\n   implements OnInit, OnDestroy\n {\n   protected subscriptions = new Subscription();\n-  private featureToggles = inject(FeatureToggles);\n+  private b2bFeatureToggles = inject(FeatureToggles);\n \n   protected isAccountPayment$: Observable<boolean> =\n     this.checkoutPaymentTypeFacade\n@@ -83,7 +83,7 @@ export class B2BCheckoutDeliveryAddressComponent\n               .getCostCenterAddresses(costCenter.code)\n               .pipe(\n                 map((addresses) =>\n-                  this.featureToggles.b2bCheckoutShippingAddressFilter\n+                  this.b2bFeatureToggles.b2bCheckoutShippingAddressFilter\n                     ? addresses.filter((a) => a.shippingAddress === true)\n                     : addresses\n                 )"
+        },
+        {
+          "file": "feature-libs/checkout/base/components/checkout-billing-address/checkout-billing-address-form.component.html",
+          "members": [],
+          "diff": "@@ -29,11 +29,12 @@\n   <!-- BILLING INFO COMPONENT -->\n   <ng-container\n     *ngIf=\"\n-      sameAsDeliveryAddress && (deliveryAddress$ | async) as deliveryAddress;\n+      sameAsDeliveryAddress &&\n+        (billingAddressCardContent$ | async) as cardContent;\n       else billingAddress\n     \"\n   >\n-    <cx-card [content]=\"getAddressCardContent(deliveryAddress)\" />\n+    <cx-card [content]=\"cardContent\" />\n   </ng-container>\n \n   <!-- TODO:#future-checkout do we really want this? We can always pass more inputs to the copied address form component to make it more modular -->"
+        },
+        {
+          "file": "feature-libs/checkout/base/components/checkout-billing-address/checkout-billing-address-form.component.ts",
+          "members": [
+            "CheckoutBillingAddressFormComponent.billingAddressCardContent$",
+            "CheckoutBillingAddressFormComponent.ngOnInit"
+          ],
+          "diff": "@@ -44,6 +44,7 @@ import {\n   combineLatest,\n   filter,\n   map,\n+  of,\n   switchMap,\n   tap,\n } from 'rxjs';\n@@ -71,6 +72,7 @@ export class CheckoutBillingAddressFormComponent implements OnInit {\n   showSameAsDeliveryAddressCheckbox$: Observable<boolean>;\n   sameAsDeliveryAddress = true;\n   deliveryAddress$: Observable<Address | undefined>;\n+  billingAddressCardContent$: Observable<Card | undefined>;\n   countries$: Observable<Country[]>;\n   regions$: Observable<Region[]>;\n   selectedCountry$: BehaviorSubject<string> = new BehaviorSubject<string>('');\n@@ -106,6 +108,11 @@ export class CheckoutBillingAddressFormComponent implements OnInit {\n           return state.data;\n         })\n       );\n+    this.billingAddressCardContent$ = this.deliveryAddress$.pipe(\n+      switchMap((address) =>\n+        address ? this.getAddressCardContent(address) : of(undefined)\n+      )\n+    );\n     this.showSameAsDeliveryAddressCheckbox$ = combineLatest([\n       this.countries$,\n       this.deliveryAddress$,"
+        },
+        {
+          "file": "feature-libs/checkout/base/components/checkout-delivery-address/checkout-delivery-address.component.html",
+          "members": [],
+          "diff": "@@ -86,7 +86,7 @@\n           <cx-address-form\n             [showTitleCode]=\"true\"\n             [setAsDefaultField]=\"!isGuestCheckout\"\n-            [addressData]=\"selectedAddress\"\n+            [addressData]=\"selectedAddress ?? {}\"\n             cancelBtnLabel=\"{{ backBtnText | cxTranslate }}\"\n             (backToAddress)=\"hideNewAddressForm(true)\"\n             (submitAddress)=\"addAddress($event)\""
+        },
+        {
+          "file": "feature-libs/checkout/base/components/checkout-delivery-address/checkout-delivery-address.component.ts",
+          "members": [
+            "CheckoutDeliveryAddressComponent.featureToggles",
+            "CheckoutDeliveryAddressComponent.getCardContent",
+            "CheckoutDeliveryAddressComponent.getCardName"
+          ],
+          "diff": "@@ -20,6 +20,7 @@ import {\n } from '@spartacus/checkout/base/root';\n import {\n   Address,\n+  FeatureToggles,\n   GlobalMessageService,\n   GlobalMessageType,\n   TranslatePipe,\n@@ -69,6 +70,7 @@ export interface CardWithAddress {\n })\n export class CheckoutDeliveryAddressComponent implements OnInit {\n   protected checkoutConfigService = inject(CheckoutConfigService);\n+  private featureToggles = inject(FeatureToggles);\n   protected busy$ = new BehaviorSubject<boolean>(false);\n \n   cards$: Observable<CardWithAddress[]>;\n@@ -138,7 +140,7 @@ export class CheckoutDeliveryAddressComponent implements OnInit {\n     return {\n       role,\n       title: address.defaultAddress ? textDefaultDeliveryAddress : '',\n-      textBold: address.firstName + ' ' + address.lastName,\n+      textBold: this.getCardName(address),\n       text: [\n         address.line1,\n         address.line2,\n@@ -156,6 +158,13 @@ export class CheckoutDeliveryAddressComponent implements OnInit {\n     } as Card;\n   }\n \n+  protected getCardName(address: Address): string {\n+    const fullName = address.firstName + ' ' + address.lastName;\n+    return this.featureToggles.addTitleToAddressCard && !!address.title\n+      ? address.title + ' ' + fullName\n+      : fullName;\n+  }\n+\n   selectAddress(address: Address): void {\n     if (address?.id === getLastValueSync(this.selectedAddress$)?.id) {\n       return;"
+        },
+        {
+          "file": "feature-libs/checkout/base/components/checkout-review-submit/checkout-review-submit.component.ts",
+          "members": [
+            "CheckoutReviewSubmitComponent.featureToggles",
+            "CheckoutReviewSubmitComponent.getDeliveryAddressCard"
+          ],
+          "diff": "@@ -12,7 +12,7 @@ import {\n   NgSwitchCase,\n   NgTemplateOutlet,\n } from '@angular/common';\n-import { ChangeDetectionStrategy, Component } from '@angular/core';\n+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';\n import { RouterLink } from '@angular/router';\n import {\n   ActiveCartFacade,\n@@ -31,6 +31,7 @@ import {\n } from '@spartacus/checkout/base/root';\n import {\n   Address,\n+  FeatureToggles,\n   PaymentDetails,\n   TranslatePipe,\n   TranslationService,\n@@ -70,6 +71,7 @@ import { CheckoutStepService } from '../services/checkout-step.service';\n   ],\n })\n export class CheckoutReviewSubmitComponent {\n+  private featureToggles = inject(FeatureToggles);\n   readonly cartOutlets = CartOutlets;\n   iconTypes = ICON_TYPE;\n \n@@ -142,7 +144,8 @@ export class CheckoutReviewSubmitComponent {\n           textPhone,\n           textMobile,\n           deliveryAddress,\n-          countryName\n+          countryName,\n+          this.featureToggles.addTitleToAddressCard\n         )\n       )\n     );\n@@ -167,6 +170,7 @@ export class CheckoutReviewSubmitComponent {\n         const region = paymentDetails.billingAddress?.region?.isocode\n           ? paymentDetails.billingAddress?.region?.isocode + ', '\n           : '';\n+\n         return {\n           title: textTitle,\n           textBold: paymentDetails.accountHolderName,"
+        },
+        {
+          "file": "feature-libs/checkout/base/components/checkout-review/checkout-review-shipping/checkout-review-shipping.component.ts",
+          "members": [
+            "CheckoutReviewShippingComponent.featureToggles",
+            "CheckoutReviewShippingComponent.getDeliveryAddressCard"
+          ],
+          "diff": "@@ -5,7 +5,7 @@\n  */\n \n import { AsyncPipe, NgIf } from '@angular/common';\n-import { ChangeDetectionStrategy, Component } from '@angular/core';\n+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';\n import { RouterLink } from '@angular/router';\n import {\n   ActiveCartFacade,\n@@ -20,6 +20,7 @@ import {\n } from '@spartacus/checkout/base/root';\n import {\n   Address,\n+  FeatureToggles,\n   TranslatePipe,\n   TranslationService,\n   UrlPipe,\n@@ -52,6 +53,7 @@ import { CheckoutStepService } from '../../services/checkout-step.service';\n   ],\n })\n export class CheckoutReviewShippingComponent {\n+  private featureToggles = inject(FeatureToggles);\n   readonly cartOutlets = CartOutlets;\n   iconTypes = ICON_TYPE;\n \n@@ -100,7 +102,8 @@ export class CheckoutReviewShippingComponent {\n           textPhone,\n           textMobile,\n           deliveryAddress,\n-          countryName\n+          countryName,\n+          this.featureToggles.addTitleToAddressCard\n         )\n       )\n     );"
+        },
+        {
+          "file": "feature-libs/order/components/order-confirmation/order-confirmation-shipping/order-confirmation-shipping.component.ts",
+          "members": [
+            "OrderConfirmationShippingComponent.featureToggles",
+            "OrderConfirmationShippingComponent.getDeliveryAddressCard"
+          ],
+          "diff": "@@ -13,6 +13,7 @@ import {\n   OnDestroy,\n   OnInit,\n   Optional,\n+  inject,\n } from '@angular/core';\n import { AbstractOrderContextDirective } from '@spartacus/cart/base/components';\n import {\n@@ -21,7 +22,12 @@ import {\n   DeliveryMode,\n   OrderEntry,\n } from '@spartacus/cart/base/root';\n-import { Address, TranslatePipe, TranslationService } from '@spartacus/core';\n+import {\n+  Address,\n+  FeatureToggles,\n+  TranslatePipe,\n+  TranslationService,\n+} from '@spartacus/core';\n import {\n   Order,\n   OrderFacade,\n@@ -69,6 +75,7 @@ export class OrderConfirmationShippingComponent implements OnInit, OnDestroy {\n     );\n \n   protected subscription = new Subscription();\n+  private featureToggles = inject(FeatureToggles);\n \n   constructor(\n     protected orderFacade: OrderFacade,\n@@ -110,7 +117,8 @@ export class OrderConfirmationShippingComponent implements OnInit, OnDestroy {\n           textPhone,\n           textMobile,\n           deliveryAddress,\n-          countryName\n+          countryName,\n+          this.featureToggles.addTitleToAddressCard\n         )\n       )\n     );"
+        },
+        {
+          "file": "feature-libs/order/components/order-details/order-overview/order-overview.component.ts",
+          "members": [
+            "OrderOverviewComponent.featureToggles",
+            "OrderOverviewComponent.getAddressCardContent",
+            "OrderOverviewComponent.getBillingAddressCardContent"
+          ],
+          "diff": "@@ -13,6 +13,7 @@ import {\n   CmsOrderDetailOverviewComponent,\n   CostCenter,\n   CxDatePipe,\n+  FeatureToggles,\n   PaymentDetails,\n   TranslatePipe,\n   TranslationService,\n@@ -58,6 +59,7 @@ export class OrderOverviewComponent {\n     OrderOverviewComponentService\n   );\n   protected orderConfig = inject(OrderConfig);\n+  private featureToggles = inject(FeatureToggles);\n   readonly cartOutlets = CartOutlets;\n   readonly orderOutlets = OrderOutlets;\n \n@@ -217,10 +219,14 @@ export class OrderOverviewComponent {\n         const formattedAddress = this.normalizeFormattedAddress(\n           deliveryAddress.formattedAddress ?? ''\n         );\n+        const fullName = `${deliveryAddress.firstName} ${deliveryAddress.lastName}`;\n \n         return {\n           title: textTitle,\n-          textBold: `${deliveryAddress.firstName} ${deliveryAddress.lastName}`,\n+          textBold:\n+            this.featureToggles.addTitleToAddressCard && !!deliveryAddress.title\n+              ? `${deliveryAddress.title} ${fullName}`\n+              : fullName,\n           text: [formattedAddress, deliveryAddress.country?.name],\n         } as Card;\n       })\n@@ -273,17 +279,17 @@ export class OrderOverviewComponent {\n   getBillingAddressCardContent(billingAddress: Address): Observable<Card> {\n     return this.translation.translate('paymentForm.billingAddress').pipe(\n       filter(() => Boolean(billingAddress)),\n-      map(\n-        (textTitle) =>\n-          ({\n-            title: textTitle,\n-            textBold: `${billingAddress.firstName} ${billingAddress.lastName}`,\n-            text: [\n-              billingAddress.formattedAddress,\n-              billingAddress.country?.name,\n-            ],\n-          }) as Card\n-      )\n+      map((textTitle) => {\n+        const fullName = `${billingAddress.firstName} ${billingAddress.lastName}`;\n+        return {\n+          title: textTitle,\n+          textBold:\n+            this.featureToggles.addTitleToAddressCard && !!billingAddress.title\n+              ? `${billingAddress.title} ${fullName}`\n+              : fullName,\n+          text: [billingAddress.formattedAddress, billingAddress.country?.name],\n+        } as Card;\n+      })\n     );\n   }"
+        },
+        {
+          "file": "feature-libs/order/root/utils/order-card-utils.ts",
+          "members": [
+            "deliveryAddressCard",
+            "getAddressFullName"
+          ],
+          "diff": "@@ -16,7 +16,8 @@ export function deliveryAddressCard(\n   textPhone: string,\n   textMobile: string,\n   deliveryAddress: Address,\n-  countryName?: string\n+  countryName?: string,\n+  addTitleToAddressCard = false\n ): Card {\n   if (!countryName) {\n     countryName = deliveryAddress?.country?.name as string;\n@@ -32,14 +33,7 @@ export function deliveryAddressCard(\n   }\n \n   const numbers = getAddressNumbers(deliveryAddress, textPhone, textMobile);\n-  let fullName;\n-  if (deliveryAddress.firstName && deliveryAddress.lastName) {\n-    fullName = deliveryAddress.firstName + ' ' + deliveryAddress.lastName;\n-  } else if (deliveryAddress.firstName) {\n-    fullName = deliveryAddress.firstName;\n-  } else if (deliveryAddress.lastName) {\n-    fullName = deliveryAddress.lastName;\n-  }\n+  const fullName = getAddressFullName(deliveryAddress, addTitleToAddressCard);\n \n   return {\n     title: textTitle,\n@@ -54,6 +48,29 @@ export function deliveryAddressCard(\n   } as Card;\n }\n \n+/**\n+ * Builds the full name for an address, optionally prefixed with the title.\n+ */\n+function getAddressFullName(\n+  address: Address,\n+  addTitleToAddressCard: boolean\n+): string | undefined {\n+  let fullName;\n+  if (address.firstName && address.lastName) {\n+    fullName = address.firstName + ' ' + address.lastName;\n+  } else if (address.firstName) {\n+    fullName = address.firstName;\n+  } else if (address.lastName) {\n+    fullName = address.lastName;\n+  }\n+\n+  if (addTitleToAddressCard && !!address.title && fullName) {\n+    fullName = address.title + ' ' + fullName;\n+  }\n+\n+  return fullName;\n+}\n+\n /**\n  * Get card for delivery mode\n  */"
+        },
+        {
+          "file": "feature-libs/organization/administration/components/unit/links/addresses/details/unit-address-details.component.html",
+          "members": [],
+          "diff": "@@ -19,7 +19,12 @@\n     <section main class=\"details\">\n       <div class=\"property\">\n         <label>{{ 'orgUnit.name' | cxTranslate }}</label>\n-        <span class=\"value\"> {{ model.firstName }} {{ model.lastName }} </span>\n+        <span class=\"value\">\n+          <span *cxFeature=\"'addTitleToAddressCard'\">{{\n+            model.title ? model.title + ' ' : ''\n+          }}</span\n+          >{{ model.firstName }} {{ model.lastName }}\n+        </span>\n       </div>\n \n       <div class=\"property\">"
+        },
+        {
+          "file": "feature-libs/organization/administration/components/unit/links/addresses/details/unit-address-details.component.ts",
+          "members": [],
+          "diff": "@@ -11,6 +11,7 @@ import {\n   Address,\n   B2BUnit,\n   Country,\n+  FeatureDirective,\n   TranslatePipe,\n   UrlPipe,\n   UserAddressService,\n@@ -50,6 +51,7 @@ import { UnitAddressItemService } from '../services/unit-address-item.service';\n     AsyncPipe,\n     UrlPipe,\n     TranslatePipe,\n+    FeatureDirective,\n   ],\n })\n export class UnitAddressDetailsComponent {"
+        },
+        {
+          "file": "feature-libs/organization/unit-order/components/unit-level-order-detail/unit-level-order-overview/unit-level-order-overview.component.ts",
+          "members": [
+            "UnitLevelOrderOverviewComponent.featureToggles",
+            "UnitLevelOrderOverviewComponent.getAddressCardContent",
+            "UnitLevelOrderOverviewComponent.getBillingAddressCardContent"
+          ],
+          "diff": "@@ -5,13 +5,19 @@\n  */\n \n import { AsyncPipe, NgIf } from '@angular/common';\n-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';\n+import {\n+  ChangeDetectionStrategy,\n+  Component,\n+  inject,\n+  OnInit,\n+} from '@angular/core';\n import { DeliveryMode } from '@spartacus/cart/base/root';\n import {\n   Address,\n   B2BUser,\n   CostCenter,\n   CxDatePipe,\n+  FeatureToggles,\n   PaymentDetails,\n   TranslationService,\n } from '@spartacus/core';\n@@ -28,6 +34,8 @@ import { UnitLevelOrderDetailService } from '../unit-level-order-detail.service'\n   imports: [NgIf, CardComponent, AsyncPipe, CxDatePipe],\n })\n export class UnitLevelOrderOverviewComponent implements OnInit {\n+  private featureToggles = inject(FeatureToggles);\n+\n   constructor(\n     protected translation: TranslationService,\n     protected unitLevelOrderDetailsService: UnitLevelOrderDetailService\n@@ -133,10 +141,15 @@ export class UnitLevelOrderOverviewComponent implements OnInit {\n         const formattedAddress = this.normalizeFormattedAddress(\n           deliveryAddress?.formattedAddress ?? ''\n         );\n+        const fullName = `${deliveryAddress?.firstName} ${deliveryAddress?.lastName}`;\n \n         return {\n           title: textTitle,\n-          textBold: `${deliveryAddress?.firstName} ${deliveryAddress?.lastName}`,\n+          textBold:\n+            this.featureToggles.addTitleToAddressCard &&\n+            !!deliveryAddress?.title\n+              ? `${deliveryAddress.title} ${fullName}`\n+              : fullName,\n           text: [formattedAddress, deliveryAddress?.country?.name],\n         } as Card;\n       })\n@@ -191,17 +204,20 @@ export class UnitLevelOrderOverviewComponent implements OnInit {\n   ): Observable<Card> {\n     return this.translation.translate('paymentForm.billingAddress').pipe(\n       filter(() => Boolean(billingAddress)),\n-      map(\n-        (textTitle) =>\n-          ({\n-            title: textTitle,\n-            textBold: `${billingAddress?.firstName} ${billingAddress?.lastName}`,\n-            text: [\n-              billingAddress?.formattedAddress,\n-              billingAddress?.country?.name,\n-            ],\n-          }) as Card\n-      )\n+      map((textTitle) => {\n+        const fullName = `${billingAddress?.firstName} ${billingAddress?.lastName}`;\n+        return {\n+          title: textTitle,\n+          textBold:\n+            this.featureToggles.addTitleToAddressCard && !!billingAddress?.title\n+              ? `${billingAddress.title} ${fullName}`\n+              : fullName,\n+          text: [\n+            billingAddress?.formattedAddress,\n+            billingAddress?.country?.name,\n+          ],\n+        } as Card;\n+      })\n     );\n   }"
+        },
+        {
+          "file": "feature-libs/organization/vitest.config.ts",
+          "members": [],
+          "diff": "@@ -4,8 +4,8 @@\n  * SPDX-License-Identifier: Apache-2.0\n  */\n \n-import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';\n import angular from '@analogjs/vite-plugin-angular';\n+import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';\n import { defineConfig } from 'vitest/config';\n \n const root = `${import.meta.dirname}/../..`;\n@@ -15,6 +15,8 @@ export default defineConfig({\n   plugins: [angular(), nxViteTsPaths()],\n   resolve: {\n     alias: {\n+      '@spartacus/storefront': `${root}/core-libs/storefront/public_api.ts`,\n+      '@spartacus/core': `${root}/core-libs/core/public_api.ts`,\n       'core-libs/core/src/process/store/reducers/index': `${root}/core-libs/core/src/process/store/reducers/index.ts`,\n       'core-libs/core/src/global-message/models/global-message.model': `${root}/core-libs/core/src/global-message/models/global-message.model.ts`,\n       'core-libs/storefront/cms-components/misc/icon/testing/icon-testing.module': `${root}/core-libs/storefront/cms-components/misc/icon/testing/icon-testing.module.ts`,"
+        },
+        {
+          "file": "feature-libs/user/profile/components/address-book/address-book.component.ts",
+          "members": [
+            "AddressBookComponent.getCardContent",
+            "AddressBookComponent.getCardName"
+          ],
+          "diff": "@@ -5,16 +5,16 @@\n  */\n \n import { AsyncPipe, NgFor, NgIf } from '@angular/common';\n-import { Component, OnDestroy, OnInit, inject } from '@angular/core';\n+import { Component, inject, OnDestroy, OnInit } from '@angular/core';\n import {\n   Address,\n   FeatureToggles,\n   GlobalMessageService,\n   GlobalMessageType,\n+  HierarchicalAddressConfig,\n   LanguageService,\n   TranslatePipe,\n   TranslationService,\n-  HierarchicalAddressConfig,\n } from '@spartacus/core';\n import {\n   Card,\n@@ -24,12 +24,12 @@ import {\n } from '@spartacus/storefront';\n import { combineLatest, Observable, Subscription } from 'rxjs';\n import {\n-  map,\n   filter,\n+  map,\n   pairwise,\n   skip,\n-  withLatestFrom,\n   take,\n+  withLatestFrom,\n } from 'rxjs/operators';\n import { AddressBookComponentService } from './address-book.component.service';\n import { AddressFormComponent } from './address-form/address-form.component';\n@@ -223,10 +223,10 @@ export class AddressBookComponent implements OnInit, OnDestroy {\n               numbers,\n             ];\n           }\n-\n+          const fullName = this.getCardName(address);\n           return {\n             role: 'application',\n-            textBold: address.firstName + ' ' + address.lastName,\n+            textBold: fullName,\n             text,\n             actions: actions,\n             header: address.defaultAddress ? `✓ ${defaultText}` : '',\n@@ -240,6 +240,13 @@ export class AddressBookComponent implements OnInit, OnDestroy {\n     );\n   }\n \n+  protected getCardName(address: Address): string {\n+    const fullName = address.firstName + ' ' + address.lastName;\n+    return this.featureToggles.addTitleToAddressCard && !!address.title\n+      ? address.title + ' ' + fullName\n+      : fullName;\n+  }\n+\n   protected buildLocationLine(address: Address): string {\n     if (this.isHierarchicalAddressFormat(address)) {\n       const hierarchicalRegion ="
+        }
+      ]
+    },
+    {
+      "sha": "0a2c6d2f24a7c60bd5c870595569f25d261e66c4",
+      "subject": "fix: increase contrast of In Stock info text in AddToCartComponent (CXSPA-12769) (#22010)",
+      "files": [
+        {
+          "file": "feature-libs/cart/base/components/add-to-cart/add-to-cart.component.ts",
+          "members": [
+            "AddToCartComponent.constructor"
+          ],
+          "diff": "@@ -44,6 +44,7 @@ import {\n   ProductTypes,\n   TranslatePipe,\n   isNotNullable,\n+  useFeatureStyles,\n } from '@spartacus/core';\n import {\n   CmsComponentData,\n@@ -144,7 +145,9 @@ export class AddToCartComponent implements OnInit, OnDestroy {\n     protected component: CmsComponentData<CmsAddToCartComponent>,\n     protected eventService: EventService,\n     @Optional() protected productListItemContext?: ProductListItemContext\n-  ) {}\n+  ) {\n+    useFeatureStyles('a11yInStockInfoTextContrast');\n+  }\n \n   ngOnInit() {\n     this.subscribeToQuantityChanges();"
+        },
+        {
+          "file": "feature-libs/cart/base/styles/components/_add-to-cart.scss",
+          "members": [],
+          "diff": "@@ -18,6 +18,10 @@\n       @include type('7');\n       margin: 0 15px;\n       color: var(--cx-color-secondary);\n+\n+      @include forFeature('a11yInStockInfoTextContrast') {\n+        color: var(--cx-color-text);\n+      }\n     }\n   }"
+        }
+      ]
+    },
+    {
+      "sha": "240bfa2b1253893f0ca38a40491aca93c4fc24a9",
+      "subject": "fix: scroll Show More Reviews button into view on keyboard focus (CXSPA-12805) (#21961)",
+      "files": [
+        {
+          "file": "core-libs/storefront/cms-components/product/product-tabs/product-reviews/product-reviews.component.html",
+          "members": [],
+          "diff": "@@ -62,13 +62,10 @@\n         </ng-container>\n         <div *ngIf=\"reviews.length > initialMaxListItems\">\n           <button\n+            #showMoreLessButton\n             aria-live=\"polite\"\n             class=\"btn btn-primary\"\n-            (click)=\"\n-              maxListItems === initialMaxListItems\n-                ? (maxListItems = reviews.length)\n-                : (maxListItems = initialMaxListItems)\n-            \"\n+            (click)=\"toggleReviewsDisplay(reviews)\"\n           >\n             {{\n               (maxListItems === initialMaxListItems"
+        },
+        {
+          "file": "core-libs/storefront/cms-components/product/product-tabs/product-reviews/product-reviews.component.ts",
+          "members": [
+            "ProductReviewsComponent.featureToggles",
+            "ProductReviewsComponent.showMoreLessButton",
+            "ProductReviewsComponent.toggleReviewsDisplay"
+          ],
+          "diff": "@@ -10,6 +10,7 @@ import {\n   ChangeDetectorRef,\n   Component,\n   ElementRef,\n+  inject,\n   Input,\n   QueryList,\n   ViewChild,\n@@ -25,6 +26,7 @@ import {\n import {\n   CxDatePipe,\n   FeatureDirective,\n+  FeatureToggles,\n   isNotNullable,\n   Product,\n   ProductReviewService,\n@@ -71,6 +73,8 @@ export class ProductReviewsComponent {\n   @ViewChild('titleInput', { static: false }) titleInput: ElementRef;\n   @ViewChild('writeReviewButton', { static: false })\n   writeReviewButton: ElementRef;\n+  @ViewChild('showMoreLessButton', { static: false })\n+  showMoreLessButton: ElementRef;\n   @ViewChildren('reviewItem') reviewItems: QueryList<ElementRef<HTMLElement>>;\n \n   @Input() maxLengthReviewTitle = 255;\n@@ -83,6 +87,8 @@ export class ProductReviewsComponent {\n   maxListItems: number;\n   reviewForm: UntypedFormGroup;\n \n+  private featureToggles = inject(FeatureToggles);\n+\n   product$: Observable<Product | null> =\n     this.currentProductService.getProduct();\n \n@@ -116,6 +122,25 @@ export class ProductReviewsComponent {\n     }\n   }\n \n+  toggleReviewsDisplay(reviews: Review[]): void {\n+    if (this.maxListItems === this.initialMaxListItems) {\n+      this.maxListItems = reviews.length;\n+    } else {\n+      this.maxListItems = this.initialMaxListItems;\n+    }\n+\n+    if (this.featureToggles.a11yShowMoreReviewsFocusVisible) {\n+      this.cd.detectChanges();\n+      this.showMoreLessButton?.nativeElement?.scrollIntoView({\n+        block: 'center',\n+      });\n+      // Re-assert focus after re-render so :focus and :focus-visible states\n+      // are applied to the button, making the outline visible consistently\n+      // across platforms. `preventScroll` avoids a second scroll.\n+      this.showMoreLessButton?.nativeElement?.focus({ preventScroll: true });\n+    }\n+  }\n+\n   cancelWriteReview(): void {\n     this.isWritingReview = false;\n     this.resetReviewForm();"
+        },
+        {
+          "file": "core-libs/styles/scss/components/product/details/_product-reviews.scss",
+          "members": [],
+          "diff": "@@ -5,6 +5,17 @@ $gutterSize: 15px;\n     display: none;\n   }\n \n+  // Show the focus outline on the Show More/Less button when focused, using\n+  // both :focus and :focus-visible to ensure visibility after click or keyboard.\n+  // Override the global `.mouse-focus` suppression by targeting button:focus\n+  // directly without the `.mouse-focus` ancestor selector.\n+  button.btn-primary:focus,\n+  button.btn-primary:focus-visible {\n+    @include visible-focus();\n+    --cx-visual-focus-width: 2px;\n+    box-shadow: 0 0 8px var(--cx-color-inverse);\n+  }\n+\n   .header {\n     display: flex;\n     flex-wrap: wrap;"
+        }
+      ]
+    },
+    {
+      "sha": "cc0dfc94875483090234ec4dc3344d0b8dee65dc",
+      "subject": "fix: make RESET button in coupon claim dialog keyboard accessible (CXSPA-12777) (#21963)",
+      "files": [
+        {
+          "file": "core-libs/storefront/cms-components/myaccount/my-coupons/claim-dialog/claim-dialog.component.html",
+          "members": [],
+          "diff": "@@ -57,12 +57,21 @@\n         <div class=\"cx-dialog-row\">\n           <div class=\"col-md-6 cx-dialog-row--reset-button\">\n             <a\n+              *cxFeature=\"'!a11yCouponDialogResetButtonKeyboardAccessible'\"\n               role=\"button\"\n               class=\"btn btn-block btn-secondary\"\n               (click)=\"cancelEdit()\"\n             >\n               {{ 'myCoupons.reset' | cxTranslate }}\n             </a>\n+            <button\n+              *cxFeature=\"'a11yCouponDialogResetButtonKeyboardAccessible'\"\n+              type=\"button\"\n+              class=\"btn btn-block btn-secondary\"\n+              (click)=\"cancelEdit()\"\n+            >\n+              {{ 'myCoupons.reset' | cxTranslate }}\n+            </button>\n           </div>\n           <div class=\"col-md-6 cx-dialog-row-submit-button\">\n             <button"
+        },
+        {
+          "file": "core-libs/storefront/cms-components/myaccount/my-coupons/claim-dialog/claim-dialog.component.ts",
+          "members": [],
+          "diff": "@@ -21,6 +21,7 @@ import {\n \n import {\n   CustomerCouponService,\n+  FeatureDirective,\n   GlobalMessageService,\n   GlobalMessageType,\n   RoutingService,\n@@ -46,6 +47,7 @@ import { IconComponent } from '../../../misc/icon/icon.component';\n     FormRequiredAsterisksComponent,\n     FormErrorsComponent,\n     TranslatePipe,\n+    FeatureDirective,\n   ],\n })\n export class ClaimDialogComponent implements OnDestroy, OnInit {"
+        }
+      ]
+    },
+    {
+      "sha": "8cb223cf3cdeafdc04bf5312f4db5c4b000a2621",
+      "subject": "fix(a11y): add arrow key navigation to product carousel items (CXSPA-12738) (#21982)",
+      "files": [
+        {
+          "file": "core-libs/storefront/cms-components/product/carousel/product-carousel-item/product-carousel-item.component.html",
+          "members": [],
+          "diff": "@@ -1,4 +1,31 @@\n-<a tabindex=\"0\" [routerLink]=\"{ cxRoute: 'product', params: item } | cxUrl\">\n+<a\n+  *cxFeature=\"'!a11yCarouselItemArrowKeyNavigation'\"\n+  tabindex=\"0\"\n+  [routerLink]=\"{ cxRoute: 'product', params: item } | cxUrl\"\n+>\n+  <ng-container *cxLcpContext=\"let lcpContext\">\n+    <cx-media\n+      [container]=\"item.images?.PRIMARY\"\n+      format=\"product\"\n+      [alt]=\"item.name ?? ''\"\n+      [fetchPriority]=\"\n+        itemIndex === 0 ? (lcpContext.fetchPriority$ | async) : undefined\n+      \"\n+    />\n+  </ng-container>\n+  <h3 class=\"cx-product-name\">\n+    {{ item.name }}\n+  </h3>\n+  <div class=\"price\">\n+    {{ item.price?.formattedValue }}\n+  </div>\n+</a>\n+<a\n+  *cxFeature=\"'a11yCarouselItemArrowKeyNavigation'\"\n+  cxFocusableCarouselItem\n+  tabindex=\"0\"\n+  [routerLink]=\"{ cxRoute: 'product', params: item } | cxUrl\"\n+>\n   <ng-container *cxLcpContext=\"let lcpContext\">\n     <cx-media\n       [container]=\"item.images?.PRIMARY\""
+        },
+        {
+          "file": "core-libs/storefront/cms-components/product/carousel/product-carousel-item/product-carousel-item.component.ts",
+          "members": [],
+          "diff": "@@ -13,8 +13,9 @@ import {\n   SimpleChanges,\n } from '@angular/core';\n import { RouterLink } from '@angular/router';\n-import { Product, UrlPipe } from '@spartacus/core';\n+import { FeatureDirective, Product, UrlPipe } from '@spartacus/core';\n import { InnerComponentsHostDirective } from '../../../../cms-structure/page/component/inner-components-host.directive';\n+import { FocusableCarouselItemDirective } from '../../../../shared/components/carousel/focusable-carousel-item/focusable-carousel-item.directive';\n import { MediaComponent } from '../../../../shared/components/media/media.component';\n import { LcpContextDirective } from '../../../../shared/lcp-context/lcp-context.directive';\n import {\n@@ -40,6 +41,8 @@ import {\n     InnerComponentsHostDirective,\n     AsyncPipe,\n     UrlPipe,\n+    FeatureDirective,\n+    FocusableCarouselItemDirective,\n   ],\n })\n export class ProductCarouselItemComponent implements OnChanges {"
+        }
+      ]
+    },
+    {
+      "sha": "d5972fd12caad46128387a3e6520ccbc90e3b51a",
+      "subject": "feat(a11y): add roving tabindex directive and apply to table and pagination (#22033)",
+      "files": [
+        {
+          "file": "core-libs/storefront/shared/components/list-navigation/pagination/pagination.component.html",
+          "members": [],
+          "diff": "@@ -1,17 +1,59 @@\n-<a\n-  *ngFor=\"let item of pages; let i = index\"\n-  [class]=\"item.type\"\n-  [class.disabled]=\"isInactive(item)\"\n-  [class.current]=\"isCurrent(item)\"\n-  [routerLink]=\"pageRoute\"\n-  [queryParams]=\"getQueryParams(item)\"\n-  [tabindex]=\"isInactive(item) ? -1 : 0\"\n-  [attr.aria-current]=\"isCurrent(item)\"\n-  [attr.aria-disabled]=\"isInactive(item)\"\n-  (click)=\"pageChange(item)\"\n-  [attr.aria-label]=\"getAriaLabel$(item) | async\"\n-  [attr.title]=\"getAriaLabel$(item) | async\"\n-  [cxFocus]=\"{ key: paginationID + i.toString() }\"\n->\n-  {{ item.label }}\n-</a>\n+<!-- Roving-tabindex keyboard navigation (feature toggle on) -->\n+<ng-container *cxFeature=\"'a11yPaginationKeyboardNavigation'\">\n+  <!--\n+    A real DOM element is required here — not <ng-container> — because\n+    cxRovingTabindex uses @HostListener, ElementRef.querySelectorAll, and\n+    MutationObserver, all of which need a real node as host. Comment nodes\n+    produced by <ng-container> silently fail all three.\n+\n+    display:contents removes the span from the box tree so its <a> children\n+    participate directly in the parent flex container, preserving the\n+    cx-pagination layout. NOTE: if pagination SCSS is ever changed to use\n+    direct-child selectors (> a:first-child), this wrapper will break them.\n+  -->\n+  <span\n+    style=\"display: contents\"\n+    cxRovingTabindex=\"a:not(.disabled)\"\n+    cxRovingTabindexAxis=\"horizontal\"\n+    [cxRovingTabindexActivate]=\"false\"\n+    [cxRovingTabindexInitialIndex]=\"initialFocusIndex\"\n+  >\n+    <a\n+      *ngFor=\"let item of pages; let i = index\"\n+      [class]=\"item.type\"\n+      [class.disabled]=\"isInactive(item)\"\n+      [class.current]=\"isCurrent(item)\"\n+      [routerLink]=\"pageRoute\"\n+      [queryParams]=\"getQueryParams(item)\"\n+      [attr.tabindex]=\"isInactive(item) ? -1 : null\"\n+      [attr.aria-current]=\"isCurrent(item)\"\n+      [attr.aria-disabled]=\"isInactive(item)\"\n+      (click)=\"pageChange(item)\"\n+      [attr.aria-label]=\"getAriaLabel$(item) | async\"\n+      [attr.title]=\"getAriaLabel$(item) | async\"\n+    >\n+      {{ item.label }}\n+    </a>\n+  </span>\n+</ng-container>\n+\n+<!-- Tab-only navigation when feature toggle is off -->\n+<ng-container *cxFeature=\"'!a11yPaginationKeyboardNavigation'\">\n+  <a\n+    *ngFor=\"let item of pages; let i = index\"\n+    [class]=\"item.type\"\n+    [class.disabled]=\"isInactive(item)\"\n+    [class.current]=\"isCurrent(item)\"\n+    [routerLink]=\"pageRoute\"\n+    [queryParams]=\"getQueryParams(item)\"\n+    [tabindex]=\"isInactive(item) ? -1 : 0\"\n+    [attr.aria-current]=\"isCurrent(item)\"\n+    [attr.aria-disabled]=\"isInactive(item)\"\n+    (click)=\"pageChange(item)\"\n+    [attr.aria-label]=\"getAriaLabel$(item) | async\"\n+    [attr.title]=\"getAriaLabel$(item) | async\"\n+    [cxFocus]=\"{ key: paginationID + i.toString() }\"\n+  >\n+    {{ item.label }}\n+  </a>\n+</ng-container>"
+        },
+        {
+          "file": "core-libs/storefront/shared/components/list-navigation/pagination/pagination.component.ts",
+          "members": [
+            "PaginationComponent.featureToggles",
+            "PaginationComponent.getInitialFocusIndex",
+            "PaginationComponent.initialFocusIndex",
+            "PaginationComponent.isInactive",
+            "PaginationComponent.pagination"
+          ],
+          "diff": "@@ -14,9 +14,15 @@ import {\n   inject,\n } from '@angular/core';\n import { ActivatedRoute, Params, RouterLink } from '@angular/router';\n-import { PaginationModel, TranslationService } from '@spartacus/core';\n+import {\n+  FeatureDirective,\n+  FeatureToggles,\n+  PaginationModel,\n+  TranslationService,\n+} from '@spartacus/core';\n import { Observable, combineLatest, map, of } from 'rxjs';\n import { FocusDirective } from '../../../../layout/a11y/keyboard-focus/focus.directive';\n+import { CxRovingTabindexDirective } from '../../../directives/roving-tabindex/roving-tabindex.directive';\n import { PaginationBuilder } from './pagination.builder';\n import { PaginationItem, PaginationItemType } from './pagination.model';\n \n@@ -29,7 +35,14 @@ import { PaginationItem, PaginationItemType } from './pagination.model';\n   selector: 'cx-pagination',\n   templateUrl: './pagination.component.html',\n   changeDetection: ChangeDetectionStrategy.OnPush,\n-  imports: [NgFor, RouterLink, FocusDirective, AsyncPipe],\n+  imports: [\n+    NgFor,\n+    RouterLink,\n+    FocusDirective,\n+    AsyncPipe,\n+    FeatureDirective,\n+    CxRovingTabindexDirective,\n+  ],\n })\n export class PaginationComponent {\n   /** The (optional) pageRoute used for the anchor links created in the pagination   */\n@@ -50,10 +63,49 @@ export class PaginationComponent {\n   }\n   @Input() set pagination(value: PaginationModel | undefined) {\n     if (value) {\n-      this._pagination = value;\n       this.render(value);\n+      if (this.featureToggles.a11yPaginationKeyboardNavigation) {\n+        this.initialFocusIndex = this.getInitialFocusIndex(\n+          value.currentPage ?? 0,\n+          this._pagination?.currentPage ?? -1\n+        );\n+      }\n+      this._pagination = value;\n+    }\n+  }\n+\n+  /** Bound to [cxRovingTabindexInitialIndex] on the wrapper span; tells the directive\n+   *  which item to focus after each page change. Updated before Angular re-renders. */\n+  protected initialFocusIndex = 0;\n+\n+  private getInitialFocusIndex(newPage: number, prevPage: number): number {\n+    const activeItems = this.pages.filter((p) => !this.isInactive(p, newPage));\n+    if (!activeItems.length) {\n+      return 0;\n+    }\n+\n+    if (newPage > prevPage) {\n+      // Navigated forward — land on first active item past the old page\n+      const idx = activeItems.findIndex(\n+        (p) => p.number !== undefined && p.number > prevPage\n+      );\n+      return idx >= 0 ? idx : activeItems.length - 1;\n+    }\n+\n+    if (newPage < prevPage) {\n+      // Navigated backward — land on last active item before the old page\n+      let last = -1;\n+      activeItems.forEach((p, i) => {\n+        if (p.number !== undefined && p.number < prevPage) {\n+          last = i;\n+        }\n+      });\n+      return Math.max(last, 0);\n     }\n+\n+    return 0;\n   }\n…"
+        },
+        {
+          "file": "core-libs/storefront/shared/components/table/table.component.html",
+          "members": [],
+          "diff": "@@ -1,12 +1,74 @@\n-<table *ngIf=\"structure\">\n-  <ng-container *ngIf=\"verticalStackedLayout\">\n-    <tbody\n-      *ngFor=\"let item of data; trackBy: trackData\"\n-      (click)=\"launchItem(item)\"\n-      [class.is-current]=\"isCurrentItem(item)\"\n-    >\n+<!-- Roving-tabindex keyboard navigation (feature toggle on) -->\n+<ng-container *cxFeature=\"'a11yTableKeyboardNavigation'\">\n+  <table\n+    *ngIf=\"structure\"\n+    cxRovingTabindex=\"[data-cx-roving-item]\"\n+    (itemActivated)=\"launchItem(data[$event])\"\n+  >\n+    <ng-container *ngIf=\"verticalStackedLayout\">\n+      <ng-container *ngFor=\"let item of data; trackBy: trackData\">\n+        <tbody\n+          data-cx-roving-item\n+          [class.is-current]=\"isCurrentItem(item)\"\n+          (click)=\"launchItem(item)\"\n+        >\n+          <tr *ngFor=\"let cell of structure.cells\" [class]=\"cell\">\n+            <th>\n+              <ng-template\n+                [cxOutlet]=\"getHeaderOutletRef(cell)\"\n+                [cxOutletContext]=\"getHeaderOutletContext(cell)\"\n+              >\n+                {{ cell }}\n+              </ng-template>\n+            </th>\n+            <td>\n+              <ng-template\n+                [cxOutlet]=\"getDataOutletRef(cell)\"\n+                [cxOutletContext]=\"getDataOutletContext(cell, item)\"\n+              >\n+                {{ $any(item)[cell] }}\n+              </ng-template>\n+            </td>\n+          </tr>\n+        </tbody>\n+      </ng-container>\n+    </ng-container>\n+\n+    <!-- vertical tables render the item  -->\n+    <ng-container *ngIf=\"verticalLayout\">\n+      <thead>\n+        <tr>\n+          <th scope=\"col\" *ngFor=\"let cell of structure.cells\" [class]=\"cell\">\n+            <ng-template\n+              [cxOutlet]=\"getHeaderOutletRef(cell)\"\n+              [cxOutletContext]=\"getHeaderOutletContext(cell)\"\n+            >\n+              {{ cell }}\n+            </ng-template>\n+          </th>\n+        </tr>\n+      </thead>\n+\n+      <tr\n+        *ngFor=\"let item of data; trackBy: trackData\"\n+        data-cx-roving-item\n+        [class.is-current]=\"isCurrentItem(item)\"\n+        (click)=\"launchItem(item)\"\n+      >\n+        <td *ngFor=\"let cell of structure.cells; let i = index\" [class]=\"cell\">\n+          <ng-template\n+            [cxOutlet]=\"getDataOutletRef(cell)\"\n+            [cxOutletContext]=\"getDataOutletContext(cell, item)\"\n+          >\n+            {{ $any(item)[cell] }}\n+          </ng-template>\n+        </td>\n+      </tr>\n+    </ng-container>\n+\n+    <ng-container *ngIf=\"horizontalLayout\">\n       <tr *ngFor=\"let cell of structure.cells\" [class]=\"cell\">\n-        <th>\n+        <th scope=\"col\">\n…"
+        },
+        {
+          "file": "core-libs/storefront/shared/components/table/table.component.ts",
+          "members": [
+            "TableComponent.constructor"
+          ],
+          "diff": "@@ -15,7 +15,13 @@ import {\n   isDevMode,\n   Output,\n } from '@angular/core';\n+import {\n+  FeatureDirective,\n+  FeatureToggles,\n+  useFeatureStyles,\n+} from '@spartacus/core';\n import { OutletDirective } from '../../../cms-structure/outlet/outlet.directive';\n+import { CxRovingTabindexDirective } from '../../directives/roving-tabindex/roving-tabindex.directive';\n import { TableRendererService } from './table-renderer.service';\n import {\n   TableDataOutletContext,\n@@ -24,7 +30,6 @@ import {\n   TableOptions,\n   TableStructure,\n } from './table.model';\n-import { FeatureToggles } from '@spartacus/core';\n \n /**\n  * The table component provides a generic table DOM structure, with 3 layout types:\n@@ -54,7 +59,13 @@ import { FeatureToggles } from '@spartacus/core';\n   selector: 'cx-table',\n   templateUrl: './table.component.html',\n   changeDetection: ChangeDetectionStrategy.OnPush,\n-  imports: [NgIf, NgFor, OutletDirective],\n+  imports: [\n+    NgIf,\n+    NgFor,\n+    OutletDirective,\n+    FeatureDirective,\n+    CxRovingTabindexDirective,\n+  ],\n })\n export class TableComponent<T> {\n   @HostBinding('attr.__cx-table-type') tableType: string;\n@@ -91,7 +102,9 @@ export class TableComponent<T> {\n \n   @Output() launch = new EventEmitter();\n \n-  constructor(protected rendererService: TableRendererService) {}\n+  constructor(protected rendererService: TableRendererService) {\n+    useFeatureStyles('a11yTableKeyboardNavigation');\n+  }\n \n   init() {\n     this.verticalLayout = !this.layout || this.layout === TableLayout.VERTICAL;"
+        },
+        {
+          "file": "core-libs/storefront/shared/directives/index.ts",
+          "members": [],
+          "diff": "@@ -5,3 +5,4 @@\n  */\n \n export * from './horizontal-scrolling-position/index';\n+export * from './roving-tabindex/index';"
+        },
+        {
+          "file": "core-libs/storefront/shared/directives/roving-tabindex/index.ts",
+          "members": [],
+          "diff": "@@ -0,0 +1,8 @@\n+/*\n+ * SPDX-FileCopyrightText: 2026 SAP Spartacus team <spartacus-team@sap.com>\n+ *\n+ * SPDX-License-Identifier: Apache-2.0\n+ */\n+\n+export * from './roving-tabindex.directive';\n+export * from './roving-tabindex.directive.module';"
+        },
+        {
+          "file": "core-libs/storefront/shared/directives/roving-tabindex/roving-tabindex.directive.module.ts",
+          "members": [],
+          "diff": "@@ -0,0 +1,14 @@\n+/*\n+ * SPDX-FileCopyrightText: 2026 SAP Spartacus team <spartacus-team@sap.com>\n+ *\n+ * SPDX-License-Identifier: Apache-2.0\n+ */\n+\n+import { NgModule } from '@angular/core';\n+import { CxRovingTabindexDirective } from './roving-tabindex.directive';\n+\n+@NgModule({\n+  imports: [CxRovingTabindexDirective],\n+  exports: [CxRovingTabindexDirective],\n+})\n+export class CxRovingTabindexDirectiveModule {}"
+        },
+        {
+          "file": "core-libs/storefront/shared/directives/roving-tabindex/roving-tabindex.directive.ts",
+          "members": [
+            "CxRovingTabindexDirective.INTERACTIVE_ARIA_ROLES",
+            "CxRovingTabindexDirective.backwardKey",
+            "CxRovingTabindexDirective.cxRovingTabindexActivate",
+            "CxRovingTabindexDirective.cxRovingTabindexAxis",
+            "CxRovingTabindexDirective.cxRovingTabindexInitialIndex",
+            "CxRovingTabindexDirective.destroyRef",
+            "CxRovingTabindexDirective.emitActivate",
+            "CxRovingTabindexDirective.focusedIndex",
+            "CxRovingTabindexDirective.forwardKey",
+            "CxRovingTabindexDirective.getCurrentFocusedIndex",
+            "CxRovingTabindexDirective.getItems",
+            "CxRovingTabindexDirective.host",
+            "CxRovingTabindexDirective.initTabindexes",
+            "CxRovingTabindexDirective.isInteractive",
+            "CxRovingTabindexDirective.isNativeInteractiveTarget",
+            "CxRovingTabindexDirective.itemActivated",
+            "CxRovingTabindexDirective.itemSelector",
+            "CxRovingTabindexDirective.moveFocus",
+            "CxRovingTabindexDirective.mutationObserver",
+            "CxRovingTabindexDirective.navigate",
+            "CxRovingTabindexDirective.ngAfterViewInit",
+            "CxRovingTabindexDirective.onFocusin",
+            "CxRovingTabindexDirective.onKeydown",
+            "CxRovingTabindexDirective.onKeyup",
+            "CxRovingTabindexDirective.resolveTarget"
+          ],
+          "diff": "@@ -0,0 +1,346 @@\n+/*\n+ * SPDX-FileCopyrightText: 2026 SAP Spartacus team <spartacus-team@sap.com>\n+ *\n+ * SPDX-License-Identifier: Apache-2.0\n+ */\n+\n+import {\n+  AfterViewInit,\n+  DestroyRef,\n+  Directive,\n+  ElementRef,\n+  EventEmitter,\n+  HostListener,\n+  inject,\n+  Input,\n+  Output,\n+} from '@angular/core';\n+\n+/**\n+ * Implements the roving tabindex pattern (ARIA APG composite widget pattern).\n+ *\n+ * When applied to a container element this directive ensures exactly one item\n+ * has tabindex=0 at any time while all others have -1. It handles\n+ * ArrowDown/ArrowUp (vertical axis) or ArrowRight/ArrowLeft (horizontal axis)\n+ * to move focus between items, Home/End to jump to the first or last item, and\n+ * optionally emits itemActivated on Enter/Space. It re-clamps focusedIndex via\n+ * MutationObserver when items are added or removed.\n+ *\n+ * SSR safety: MutationObserver setup is guarded by\n+ * typeof MutationObserver === 'undefined'. document.activeElement access in\n+ * getCurrentFocusedIndex is similarly guarded.\n+ *\n+ * Native interactive descendants: keydowns originating from input, textarea,\n+ * select, or contenteditable elements nested inside a roving item are silently\n+ * ignored so their native keyboard behaviour (caret movement, option selection)\n+ * is not suppressed. button and a are intentionally excluded from this guard —\n+ * they carry no native arrow-key semantics, so redirecting focus from a focused\n+ * button or link inside a cell is correct behaviour.\n+ *\n+ * Table hosts: the item selector must use a data-prefixed attribute\n+ * (e.g. [data-cx-roving-item]). Non-prefixed Angular attribute selectors are\n+ * rejected by jsdom's CSS engine with \"Invalid selector\".\n+ *\n+ * Pagination wrapper: when this directive cannot be placed on the flex\n+ * container directly, use a span with style=\"display:contents\" as the host.\n+ * ng-container cannot be used because @HostListener, querySelectorAll, and\n+ * MutationObserver all require a real DOM node. display:contents removes the\n+ * span from the box tree so its children remain direct flex participants.\n+ * Note that direct-child CSS selectors (> a) on the parent will not reach\n+ * children of this span.\n+ *\n+ * Feature-toggle gating is the caller's responsibility — apply the directive\n+ * inside a *cxFeature block rather than adding a toggle check here.\n+ */\n+@Directive({\n+  selector: '[cxRovingTabindex]',\n+  standalone: true,\n+})\n+export class CxRovingTabindexDirective implements AfterViewInit {\n+  /**\n+   * CSS selector used to discover focusable items within the host.\n+   * Defaults to [cxRovingTabindexItem] — a sentinel attribute placed on\n+   * items in the template. Override to a plain tag or class selector (e.g. 'a')\n+   * when items cannot carry an Angular attribute directive.\n+   */\n+  @Input('cxRovingTabindex') itemSelector = '[cxRovingTabindexItem]';\n+\n+  /** Navigation axis: 'vertical' uses ArrowDown/Up; 'horizontal' uses ArrowRight/Left. */\n+  @Input() cxRovingTabindexAxis: 'vertical' | 'horizontal' = 'vertical';\n+\n+  /**\n+   * Whether to emit itemActivated when the user presses Enter or Space.\n+   * Set to false for containers whose items are native links — the browser\n+   * activates those natively and the keypress should not be swallowed.\n+   */\n+  @Input() cxRovingTabindexActivate = true;\n+\n+  /**\n+   * Optional hint for the initial focused index. Set this before a data refresh\n…"
+        },
+        {
+          "file": "core-libs/styles/scss/components/misc/table/_table.scss",
+          "members": [],
+          "diff": "@@ -40,5 +40,19 @@\n         // justify-content: space-between;\n       }\n     }\n+\n+    // Gated behind the a11yTableKeyboardNavigation feature flag. When a row is\n+    // focused via keyboard navigation, the browser scrolls it into view; the\n+    // large block-axis scroll-margin gives breathing room above and below so\n+    // the row lands around the middle of the page rather than at the viewport\n+    // edge. This is an approximation: CSS cannot truly re-center a row that is\n+    // already partially visible.\n+    @include forFeature('a11yTableKeyboardNavigation') {\n+      tbody[tabindex],\n+      tr[tabindex],\n+      td[tabindex] {\n+        scroll-margin-block: 50vh;\n+      }\n+    }\n   }\n }"
+        }
+      ]
+    },
+    {
+      "sha": "b7815863c8e4da73886fe56dac18f37173e67e3a",
+      "subject": "fix(a11y): add arrow key navigation to My Company tiles (CXSPA-12741) (#21980)",
+      "files": [
+        {
+          "file": "core-libs/storefront/cms-components/content/banner/banner.component.ts",
+          "members": [
+            "BannerComponent.el",
+            "BannerComponent.featureToggles",
+            "BannerComponent.getColumnsPerRow",
+            "BannerComponent.navigateSiblings",
+            "BannerComponent.onKeydown"
+          ],
+          "diff": "@@ -5,10 +5,18 @@\n  */\n \n import { AsyncPipe, NgIf } from '@angular/common';\n-import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';\n+import {\n+  ChangeDetectionStrategy,\n+  Component,\n+  ElementRef,\n+  HostBinding,\n+  HostListener,\n+  inject,\n+} from '@angular/core';\n import {\n   CmsBannerComponent,\n   CmsService,\n+  FeatureToggles,\n   Image,\n   ImageGroup,\n   PageType,\n@@ -38,6 +46,9 @@ export class BannerComponent {\n \n   @HostBinding('class') styleClasses: string | undefined;\n \n+  private featureToggles = inject(FeatureToggles);\n+  protected el = inject(ElementRef);\n+\n   data$: Observable<CmsBannerComponent> = this.component.data$.pipe(\n     tap((data) => {\n       this.setRouterLink(data);\n@@ -51,6 +62,70 @@ export class BannerComponent {\n     protected cmsService: CmsService\n   ) {}\n \n+  @HostListener('keydown', ['$event'])\n+  onKeydown(event: KeyboardEvent): void {\n+    if (!this.featureToggles.a11yBannerArrowKeyNavigation) {\n+      return;\n+    }\n+    if (\n+      event.key !== 'ArrowRight' &&\n+      event.key !== 'ArrowLeft' &&\n+      event.key !== 'ArrowDown' &&\n+      event.key !== 'ArrowUp'\n+    ) {\n+      return;\n+    }\n+    this.navigateSiblings(event);\n+  }\n+\n+  protected navigateSiblings(event: KeyboardEvent): void {\n+    const parent = this.el.nativeElement.parentElement;\n+    if (!parent) {\n+      return;\n+    }\n+    const siblings: HTMLElement[] = Array.from(\n+      parent.querySelectorAll('cx-banner')\n+    );\n+    const currentIndex = siblings.indexOf(this.el.nativeElement);\n+    if (currentIndex === -1) {\n+      return;\n+    }\n+    const isVertical = event.key === 'ArrowUp' || event.key === 'ArrowDown';\n+    const step = isVertical ? this.getColumnsPerRow(siblings) : 1;\n+    const isForward = event.key === 'ArrowRight' || event.key === 'ArrowDown';\n+    const nextIndex = isForward ? currentIndex + step : currentIndex - step;\n+    if (nextIndex < 0 || nextIndex >= siblings.length) {\n+      return;\n+    }\n+    event.preventDefault();\n+    const focusTarget = siblings[nextIndex].querySelector<HTMLElement>(\n+      'a, button, [tabindex]'\n+    );\n+    focusTarget?.focus();\n+  }\n+\n+  /**\n+   * Returns the number of banners rendered in the first row, which is used as\n+   * the step size for vertical (`ArrowUp`/`ArrowDown`) navigation. Banners are\n+   * grouped by their top offset, so this assumes a uniform, top-aligned grid.\n…"
+        }
+      ]
+    },
+    {
+      "sha": "b2f760b2a0614170332429fbe624bcef5167f834",
+      "subject": "chore: remove deprecated feature toggles (#22097)",
+      "files": [
+        {
+          "file": "core-libs/storefront/cms-components/navigation/navigation/navigation-ui.component.ts",
+          "members": [
+            "NavigationUIComponent.closeIfClickedTheSameLink"
+          ],
+          "diff": "@@ -27,8 +27,8 @@ import {\n   filter,\n   take,\n } from 'rxjs/operators';\n-import { BREAKPOINT } from '../../../layout/config/layout-config';\n import { BreakpointService } from '../../../layout/breakpoint/breakpoint.service';\n+import { BREAKPOINT } from '../../../layout/config/layout-config';\n import { GenericLinkComponent } from '../../../shared/components/generic-link/generic-link.component';\n import { IconComponent } from '../../misc/icon/icon.component';\n import { ICON_TYPE } from '../../misc/icon/index';\n@@ -156,11 +156,7 @@ export class NavigationUIComponent implements OnInit, OnDestroy {\n       this.winRef.nativeWindow?.location.href.includes(navNode.url)\n     ) {\n       this.reinitializeMenu();\n-      if (this.featureToggles?.navigationMenuCloseOnSameLinkClick) {\n-        this.hamburgerMenuService.toggle(true);\n-      } else {\n-        this.hamburgerMenuService.toggle();\n-      }\n+      this.hamburgerMenuService.toggle(true);\n     }\n   }"
+        },
+        {
+          "file": "feature-libs/order/components/amend-order/returns/return-order/return-order.component.ts",
+          "members": [
+            "ReturnOrderComponent.entries$",
+            "ReturnOrderComponent.featureToggles"
+          ],
+          "diff": "@@ -5,10 +5,9 @@\n  */\n \n import { AsyncPipe, NgIf, NgTemplateOutlet } from '@angular/common';\n-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';\n+import { ChangeDetectionStrategy, Component } from '@angular/core';\n import { UntypedFormGroup } from '@angular/forms';\n import { OrderEntry } from '@spartacus/cart/base/root';\n-import { FeatureToggles } from '@spartacus/core';\n import { Consignment } from '@spartacus/order/root';\n import { FormErrorsComponent } from '@spartacus/storefront';\n import { Observable, combineLatest, map, tap } from 'rxjs';\n@@ -31,7 +30,6 @@ import { OrderAmendService } from '../../amend-order.service';\n })\n export class ReturnOrderComponent {\n   orderCode: string;\n-  private featureToggles = inject(FeatureToggles);\n \n   form$: Observable<UntypedFormGroup> = this.orderAmendService\n     .getForm()\n@@ -62,10 +60,7 @@ export class ReturnOrderComponent {\n                 ...entry,\n                 returnableQuantity:\n                   consignmentEntry.shippedQuantity ??\n-                  (this.featureToggles\n-                    ?.enableReturnOrderReturnableQuantityConsigmentFallback\n-                    ? entry.returnableQuantity\n-                    : null) ??\n+                  entry.returnableQuantity ??\n                   0,\n               }\n             : null;"
+        }
+      ]
+    },
+    {
+      "sha": "fcdcc224133aa04ec50fd9b5089676f68f9e1833",
+      "subject": "chore: enable toggles for 2611 release (CXSPA-14499) (#22096)",
+      "files": []
+    },
+    {
+      "sha": "c5c9d538c3562038b1e21b2f263d059ecfba94ad",
+      "subject": "chore: deprecate enablePurchaseOrderNumber feature toggle (#22099)",
+      "files": [
+        {
+          "file": "feature-libs/quote/components/header/buyer-edit/quote-header-buyer-edit.component.html",
+          "members": [],
+          "diff": "@@ -64,7 +64,7 @@\n               />\n             </div>\n           </div>\n-          <div class=\"cx-card-paragraph\" *ngIf=\"enablePurchaseOrderNumber\">\n+          <div class=\"cx-card-paragraph\">\n             <div\n               class=\"cx-card-paragraph-title\"\n               id=\"cx-quote-header-buyer-edit-purchase-order-number\""
+        },
+        {
+          "file": "feature-libs/quote/components/header/buyer-edit/quote-header-buyer-edit.component.ts",
+          "members": [
+            "QuoteHeaderBuyerEditComponent.enablePurchaseOrderNumber",
+            "QuoteHeaderBuyerEditComponent.featureToggles",
+            "QuoteHeaderBuyerEditComponent.ngOnInit"
+          ],
+          "diff": "@@ -5,21 +5,14 @@\n  */\n \n import { NgIf, NgTemplateOutlet } from '@angular/common';\n-import {\n-  Component,\n-  EventEmitter,\n-  inject,\n-  Input,\n-  OnInit,\n-  Output,\n-} from '@angular/core';\n+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\n import {\n   FormControl,\n   FormGroup,\n   FormsModule,\n   ReactiveFormsModule,\n } from '@angular/forms';\n-import { FeatureToggles, TranslatePipe } from '@spartacus/core';\n+import { TranslatePipe } from '@spartacus/core';\n import { ICON_TYPE } from '@spartacus/storefront';\n \n export interface SaveEvent {\n@@ -58,10 +51,6 @@ export class QuoteHeaderBuyerEditComponent implements OnInit {\n   @Input()\n   content: EditCard;\n \n-  private featureToggles = inject(FeatureToggles);\n-  enablePurchaseOrderNumber =\n-    this.featureToggles.enableQuotePurchaseOrderNumber;\n-\n   /**\n    * Cancels the view of the edit card tile.\n    */\n@@ -108,11 +97,9 @@ export class QuoteHeaderBuyerEditComponent implements OnInit {\n   ngOnInit() {\n     this.defineFormControl('name', this.content.name);\n     this.defineFormControl('description', this.content.description);\n-    if (this.enablePurchaseOrderNumber) {\n-      this.defineFormControl(\n-        'purchaseOrderNumber',\n-        this.content.purchaseOrderNumber ?? ''\n-      );\n-    }\n+    this.defineFormControl(\n+      'purchaseOrderNumber',\n+      this.content.purchaseOrderNumber ?? ''\n+    );\n   }\n }"
+        },
+        {
+          "file": "feature-libs/quote/components/header/overview/quote-header-overview.component.ts",
+          "members": [
+            "QuoteHeaderOverviewComponent.enablePurchaseOrderNumber",
+            "QuoteHeaderOverviewComponent.featureToggles",
+            "QuoteHeaderOverviewComponent.getEditQuoteInformation",
+            "QuoteHeaderOverviewComponent.getQuoteInformation"
+          ],
+          "diff": "@@ -9,7 +9,6 @@ import { Component, inject } from '@angular/core';\n import {\n   CxDatePipe,\n   EventService,\n-  FeatureToggles,\n   TranslatePipe,\n   TranslationService,\n } from '@spartacus/core';\n@@ -55,7 +54,6 @@ export class QuoteHeaderOverviewComponent {\n   protected eventService = inject(EventService);\n   protected translationService = inject(TranslationService);\n   protected quoteUIConfig = inject(QuoteUIConfig);\n-  private featureToggles = inject(FeatureToggles);\n \n   protected static NO_DATA = '-';\n   protected static CHARACTERS_LIMIT = 255;\n@@ -64,8 +62,6 @@ export class QuoteHeaderOverviewComponent {\n   quoteDetails$: Observable<Quote> = this.quoteFacade.getQuoteDetails();\n   iconTypes = ICON_TYPE;\n   editMode = false;\n-  enablePurchaseOrderNumber =\n-    this.featureToggles.enableQuotePurchaseOrderNumber;\n \n   protected defineQuoteMetaData(event: SaveEvent): QuoteMetadata {\n     let metaData: QuoteMetadata = {};\n@@ -166,17 +162,12 @@ export class QuoteHeaderOverviewComponent {\n                 title: descriptionTitle,\n                 text: [description ?? QuoteHeaderOverviewComponent.NO_DATA],\n               },\n-              ...(this.enablePurchaseOrderNumber\n-                ? [\n-                    {\n-                      title: purchaseOrderNumberTitle,\n-                      text: [\n-                        purchaseOrderNumber ??\n-                          QuoteHeaderOverviewComponent.NO_DATA,\n-                      ],\n-                    },\n-                  ]\n-                : []),\n+              {\n+                title: purchaseOrderNumberTitle,\n+                text: [\n+                  purchaseOrderNumber ?? QuoteHeaderOverviewComponent.NO_DATA,\n+                ],\n+              },\n             ],\n           };\n         }\n@@ -200,9 +191,7 @@ export class QuoteHeaderOverviewComponent {\n       name: name,\n       description: description,\n       charactersLimit: QuoteHeaderOverviewComponent.CHARACTERS_LIMIT,\n-      ...(this.enablePurchaseOrderNumber && purchaseOrderNumber\n-        ? { purchaseOrderNumber }\n-        : {}),\n+      ...(purchaseOrderNumber ? { purchaseOrderNumber } : {}),\n     };\n   }"
+        }
+      ]
+    },
+    {
+      "sha": "643d01a6735784d9caec86d16072a7bb5c074a62",
+      "subject": "fix: make CVV info icon keyboard accessible (CXSPA-12761) (#21960)",
+      "files": [
+        {
+          "file": "feature-libs/checkout/base/components/checkout-payment-method/checkout-payment-form/checkout-payment-form.component.html",
+          "members": [],
+          "diff": "@@ -189,7 +189,10 @@\n \n             <div class=\"form-group col-md-4\">\n               <label>\n-                <span class=\"label-content\">\n+                <span\n+                  *cxFeature=\"'!a11yCvvInfoIconKeyboardAccessible'\"\n+                  class=\"label-content\"\n+                >\n                   {{ 'paymentForm.securityCode' | cxTranslate }}\n                   <cx-form-required-asterisks />\n                   <cx-icon\n@@ -203,15 +206,54 @@\n                     \"\n                   />\n                 </span>\n+\n+                <span\n+                  *cxFeature=\"'a11yCvvInfoIconKeyboardAccessible'\"\n+                  class=\"label-content\"\n+                >\n+                  <span id=\"cvvLabelText\">\n+                    {{ 'paymentForm.securityCode' | cxTranslate }}\n+                    <cx-form-required-asterisks />\n+                  </span>\n+                  <span\n+                    class=\"cx-cvv-info\"\n+                    [class.cx-cvv-tooltip-dismissed]=\"cvvTooltipDismissed\"\n+                  >\n+                    <button\n+                      type=\"button\"\n+                      class=\"cx-payment-form-tooltip cx-cvv-info-btn\"\n+                      aria-describedby=\"cvvInfoHint\"\n+                      [attr.aria-label]=\"\n+                        'paymentForm.cvvInfoButtonLabel' | cxTranslate\n+                      \"\n+                      (keydown.escape)=\"onCvvEscape($event)\"\n+                      (blur)=\"onCvvBlur()\"\n+                    >\n+                      <cx-icon [type]=\"iconTypes.INFO\" />\n+                    </button>\n+                    <span\n+                      id=\"cvvInfoHint\"\n+                      role=\"tooltip\"\n+                      class=\"cx-cvv-tooltip\"\n+                    >\n+                      {{ 'paymentForm.cvvInfoHint' | cxTranslate }}\n+                    </span>\n+                  </span>\n+                </span>\n+\n                 <input\n-                  required=\"true\"\n+                  required\n                   type=\"text\"\n                   class=\"form-control\"\n                   id=\"cVVNumber\"\n                   formControlName=\"cvn\"\n+                  [attr.aria-required]=\"true\"\n+                  [attr.aria-labelledby]=\"cvvLabelId\"\n                   [attr.aria-invalid]=\"\n                     paymentForm.get('cvn')?.touched &&\n                     paymentForm.get('cvn')?.invalid\n+                      ? true\n+                      : null\n                   \"\n                   [attr.aria-errormessage]=\"'cvnError'\"\n                 />"
+        },
+        {
+          "file": "feature-libs/checkout/base/components/checkout-payment-method/checkout-payment-form/checkout-payment-form.component.ts",
+          "members": [
+            "CheckoutPaymentFormComponent.constructor",
+            "CheckoutPaymentFormComponent.cvvLabelId",
+            "CheckoutPaymentFormComponent.cvvTooltipDismissed",
+            "CheckoutPaymentFormComponent.onCvvBlur",
+            "CheckoutPaymentFormComponent.onCvvEscape"
+          ],
+          "diff": "@@ -42,6 +42,7 @@ import {\n   TranslationService,\n   UserAddressService,\n   UserPaymentService,\n+  useFeatureStyles,\n } from '@spartacus/core';\n import {\n   FocusConfig,\n@@ -130,6 +131,8 @@ export class CheckoutPaymentFormComponent implements OnInit, OnDestroy {\n   @ViewChild(forwardRef(() => FocusFirstInvalidFieldDirective))\n   protected firstInvalidFieldFocus?: FocusFirstInvalidFieldDirective;\n \n+  cvvTooltipDismissed = false;\n+\n   paymentForm: UntypedFormGroup = this.fb.group({\n     cardType: this.fb.group({\n       code: [null, Validators.required],\n@@ -147,6 +150,13 @@ export class CheckoutPaymentFormComponent implements OnInit, OnDestroy {\n   protected cdr = inject(ChangeDetectorRef);\n   protected elementRef = inject(ElementRef);\n   protected subscription = new Subscription();\n+\n+  get cvvLabelId(): string | null {\n+    return this.featureToggles.a11yCvvInfoIconKeyboardAccessible\n+      ? 'cvvLabelText'\n+      : null;\n+  }\n+\n   constructor(\n     protected checkoutPaymentFacade: CheckoutPaymentFacade,\n     protected checkoutDeliveryAddressFacade: CheckoutDeliveryAddressFacade,\n@@ -156,12 +166,35 @@ export class CheckoutPaymentFormComponent implements OnInit, OnDestroy {\n     protected userAddressService: UserAddressService,\n     protected launchDialogService: LaunchDialogService,\n     protected translationService: TranslationService\n-  ) {}\n+  ) {\n+    useFeatureStyles('a11yCvvInfoIconKeyboardAccessible');\n+  }\n   /**\n    * @deprecated  This property is obsolete since 2211.42\n    */\n   useExtractedBillingAddressComponent: boolean = true;\n \n+  /**\n+   * Handles Escape on the CVV info button. Adds a dismissed class to the\n+   * `.cx-cvv-info` wrapper to suppress the `:focus-within` CSS rule that keeps\n+   * the tooltip visible, while retaining focus on the button (WCAG 1.4.13).\n+   * Propagation is stopped so the parent `[cxFocus]` trap does not redirect\n+   * focus to the first page element.\n+   */\n+  onCvvEscape(event: KeyboardEvent): void {\n+    // Only intercept while tooltip is visible; otherwise let Escape propagate so the page handles it normally (e.g. skip links).\n+    if (!this.cvvTooltipDismissed) {\n+      event.preventDefault();\n+      event.stopPropagation();\n+      this.cvvTooltipDismissed = true;\n+    }\n+  }\n+\n+  /** Clears the dismissed state so the tooltip re-enables on next focus. */\n+  onCvvBlur(): void {\n+    this.cvvTooltipDismissed = false;\n+  }\n+\n   ngOnInit(): void {\n     if (this.paymentDetails) {\n       this.paymentForm.patchValue(this.paymentDetails);"
+        },
+        {
+          "file": "feature-libs/checkout/base/styles/components/steps/payment/_payment-form.scss",
+          "members": [],
+          "diff": "@@ -8,6 +8,16 @@\n     top: 2px;\n     color: var(--cx-color-secondary);\n   }\n+\n+  .cx-cvv-info-btn {\n+    @include forFeature('a11yCvvInfoIconKeyboardAccessible') {\n+      padding: 0;\n+      background: none;\n+      border: none;\n+      line-height: 1;\n+    }\n+  }\n+\n   .cx-payment-form-billing {\n     margin: 0 0 1.25rem 0;\n   }\n@@ -41,3 +51,35 @@\n     white-space: nowrap;\n   }\n }\n+\n+.cx-cvv-info {\n+  position: relative;\n+  display: inline-block;\n+\n+  .cx-cvv-tooltip {\n+    display: none;\n+    position: absolute;\n+    inset-inline-start: 0;\n+    top: calc(100% + 4px);\n+    z-index: 1;\n+    max-width: 200px;\n+    width: max-content;\n+    white-space: normal;\n+    padding: 0.25rem 0.5rem;\n+    font-size: 0.875rem;\n+    color: var(--cx-color-inverse);\n+    background-color: var(--cx-color-text);\n+    border-radius: 4px;\n+\n+    @include cx-highContrastTheme-dark() {\n+      color: var(--cx-color-dark);\n+      background-color: var(--cx-color-background);\n+      border: 1px solid var(--cx-color-dark);\n+    }\n+  }\n+\n+  &:hover .cx-cvv-tooltip,\n+  &:not(.cx-cvv-tooltip-dismissed):focus-within .cx-cvv-tooltip {\n+    display: block;\n+  }\n+}"
+        }
+      ]
+    },
+    {
+      "sha": "ee9e7b4184393fee5cf73e8228921f96f55ea680",
+      "subject": "fix: logout with path from config (#22114)",
+      "files": [
+        {
+          "file": "core-libs/storefront/cms-components/user/index.ts",
+          "members": [],
+          "diff": "@@ -6,6 +6,8 @@\n \n export * from './login-route/login-route.module';\n export * from './login-route/login.guard';\n+export * from './logout/config/default-logout-config';\n+export * from './logout/config/logout-config';\n export * from './logout/logout.guard';\n export * from './logout/logout.module';\n export * from './user.module';"
+        },
+        {
+          "file": "core-libs/storefront/cms-components/user/logout/config/default-logout-config.ts",
+          "members": [],
+          "diff": "@@ -0,0 +1,13 @@\n+/*\n+ * SPDX-FileCopyrightText: 2026 SAP Spartacus team <spartacus-team@sap.com>\n+ *\n+ * SPDX-License-Identifier: Apache-2.0\n+ */\n+\n+import { LogoutConfig } from './logout-config';\n+\n+export const defaultLogoutConfig: LogoutConfig = {\n+  logout: {\n+    redirectRoute: 'home',\n+  },\n+};"
+        },
+        {
+          "file": "core-libs/storefront/cms-components/user/logout/config/logout-config.ts",
+          "members": [
+            "LogoutConfig.logout"
+          ],
+          "diff": "@@ -0,0 +1,29 @@\n+/*\n+ * SPDX-FileCopyrightText: 2026 SAP Spartacus team <spartacus-team@sap.com>\n+ *\n+ * SPDX-License-Identifier: Apache-2.0\n+ */\n+\n+import { Injectable } from '@angular/core';\n+import { Config } from '@spartacus/core';\n+\n+@Injectable({\n+  providedIn: 'root',\n+  useExisting: Config,\n+})\n+export abstract class LogoutConfig {\n+  logout?: {\n+    /**\n+     * Route to redirect to after a successful logout.\n+     * Accepts a semantic route name registered in the routing config (e.g. `'home'`, `'login'`),\n+     * or a raw URL path (e.g. `'product/1377492/micro-webcam'`).\n+     * Semantic names are resolved via SemanticPathService; unknown values are used as-is.\n+     * When `undefined`, falls back to the homepage, or login for protected storefronts.\n+     */\n+    redirectRoute?: string;\n+  };\n+}\n+\n+declare module '@spartacus/core' {\n+  interface Config extends LogoutConfig {}\n+}"
+        },
+        {
+          "file": "core-libs/storefront/cms-components/user/logout/logout.guard.ts",
+          "members": [
+            "LogoutGuard.canActivate",
+            "LogoutGuard.config",
+            "LogoutGuard.constructor",
+            "LogoutGuard.featureToggles",
+            "LogoutGuard.getRedirectUrl"
+          ],
+          "diff": "@@ -4,17 +4,19 @@\n  * SPDX-License-Identifier: Apache-2.0\n  */\n \n-import { Injectable } from '@angular/core';\n+import { inject, Injectable, Optional } from '@angular/core';\n import { GuardResult, Router, UrlTree } from '@angular/router';\n import {\n   AuthService,\n   CmsService,\n+  FeatureToggles,\n   PageType,\n   ProtectedRoutesService,\n   SemanticPathService,\n } from '@spartacus/core';\n-import { from, Observable } from 'rxjs';\n+import { from, Observable, of } from 'rxjs';\n import { map, switchMap } from 'rxjs/operators';\n+import { LogoutConfig } from './config/logout-config';\n \n /**\n  * Guards the _logout_ route.\n@@ -27,35 +29,57 @@ import { map, switchMap } from 'rxjs/operators';\n   providedIn: 'root',\n })\n export class LogoutGuard {\n+  protected config = inject(LogoutConfig);\n+  private featureToggles = inject(FeatureToggles);\n+\n   constructor(\n     protected auth: AuthService,\n-    protected cms: CmsService,\n+    /** @deprecated since 221121.21 - only used in the legacy code path when {@link FeatureToggles.useConfigurableLogoutRedirect} is disabled.\n+     *  Will be removed in the major release of 2028. */\n+    @Optional() protected cms: CmsService | null,\n     protected semanticPathService: SemanticPathService,\n     protected protectedRoutes: ProtectedRoutesService,\n     protected router: Router\n   ) {}\n \n   canActivate(): Observable<GuardResult> {\n-    /**\n-     * First we want to complete logout process before redirecting to logout page\n-     * We want to avoid errors like `token is no longer valid`\n-     */\n-    return from(this.logout()).pipe(\n-      switchMap(() => {\n-        return this.cms\n-          .hasPage({\n-            id: this.semanticPathService.get('logout') ?? '',\n-            type: PageType.CONTENT_PAGE,\n-          })\n-          .pipe(\n-            map((hasPage) => {\n-              if (!hasPage) {\n-                return this.getRedirectUrl();\n-              }\n-              // TODO(#9385): Use CMS page guard here.\n-              return hasPage;\n+    if (!this.featureToggles.useConfigurableLogoutRedirect) {\n+      const cms = this.cms;\n+      if (!cms) {\n+        return of(this.getRedirectUrl());\n+      }\n+      return from(this.logout()).pipe(\n+        switchMap(() =>\n+          cms\n+            .hasPage({\n+              id: this.semanticPathService.get('logout') ?? '',\n+              type: PageType.CONTENT_PAGE,\n             })\n-          );\n+            .pipe(\n+              map((hasPage) => {\n+                if (!hasPage) {\n+                  return this.getRedirectUrl();\n+                }\n+                // TODO(#9385): Use CMS page guard here.\n+                return hasPage;\n+              })\n…"
+        },
+        {
+          "file": "core-libs/storefront/cms-components/user/logout/logout.module.ts",
+          "members": [],
+          "diff": "@@ -6,11 +6,13 @@\n \n import { NgModule } from '@angular/core';\n import { RouterModule } from '@angular/router';\n+import { provideDefaultConfig } from '@spartacus/core';\n import { CmsPageGuard } from '../../../cms-structure/guards/cms-page.guard';\n import {\n   PageLayoutComponent,\n   PageLayoutModule,\n } from '../../../cms-structure/page/index';\n+import { defaultLogoutConfig } from './config/default-logout-config';\n import { LogoutGuard } from './logout.guard';\n \n @NgModule({\n@@ -26,5 +28,6 @@ import { LogoutGuard } from './logout.guard';\n       },\n     ]),\n   ],\n+  providers: [provideDefaultConfig(defaultLogoutConfig)],\n })\n export class LogoutModule {}"
+        },
+        {
+          "file": "integration-libs/cdc/root/guards/cdc-logout.guard.ts",
+          "members": [
+            "CdcLogoutGuard.constructor"
+          ],
+          "diff": "@@ -4,7 +4,7 @@\n  * SPDX-License-Identifier: Apache-2.0\n  */\n \n-import { Injectable } from '@angular/core';\n+import { Injectable, Optional } from '@angular/core';\n import { Router } from '@angular/router';\n import {\n   AuthService,\n@@ -26,7 +26,9 @@ import { LogoutGuard } from '@spartacus/storefront';\n export class CdcLogoutGuard extends LogoutGuard {\n   constructor(\n     protected auth: AuthService,\n-    protected cms: CmsService,\n+    /** @deprecated since 2611 - only used in the legacy code path when {@link FeatureToggles.useConfigurableLogoutRedirect} is disabled.\n+     *  Will be removed in the major release of 2028. */\n+    @Optional() protected cms: CmsService | null,\n     protected semanticPathService: SemanticPathService,\n     protected protectedRoutes: ProtectedRoutesService,\n     protected router: Router,"
+        }
+      ]
+    }
+  ],
+  "i18n": {
+    "added": [
+      {
+        "chunk": "order",
+        "key": "reorder.dialog.error",
+        "texts": {
+          "en": "An error occurred while reordering. Please try again later."
+        }
+      },
+      {
+        "chunk": "order",
+        "key": "reorder.dialog.messages.unavailable",
+        "texts": {
+          "en": "{{ productName }} is currently unavailable."
+        }
+      },
+      {
+        "chunk": "payment",
+        "key": "paymentForm.cvvInfoButtonLabel",
+        "texts": {
+          "en": "Security code (CVV) information"
+        }
+      },
+      {
+        "chunk": "payment",
+        "key": "paymentForm.cvvInfoHint",
+        "texts": {
+          "en": "The 3 or 4 digit security code printed on your card, used to verify you have the physical card."
+        }
+      }
+    ],
+    "removed": [],
+    "changed": [],
+    "translated": []
+  }
+}
